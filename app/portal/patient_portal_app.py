@@ -9,8 +9,7 @@ from app.portal.portal_common import (
     addendum_block,
     html_escape,
     make_session_token,
-    packet_bundle,
-    packet_path,
+    packet_bundle_from_db,
     render_list_items,
     render_pharmacy,
     safe_str,
@@ -38,9 +37,7 @@ def shell(title: str, body: str) -> str:
             --accent: #2f9e8f;
             --accent2: #7cc7be;
           }}
-
           * {{ box-sizing: border-box; }}
-
           body {{
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
@@ -52,13 +49,7 @@ def shell(title: str, body: str) -> str:
             background-position: center;
             background-attachment: fixed;
           }}
-
-          .wrap {{
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 28px;
-          }}
-
+          .wrap {{ max-width: 1180px; margin: 0 auto; padding: 28px; }}
           .hero {{
             background: linear-gradient(135deg, rgba(47,158,143,0.95), rgba(124,199,190,0.9));
             color: white;
@@ -67,18 +58,8 @@ def shell(title: str, body: str) -> str:
             box-shadow: 0 20px 50px rgba(18, 60, 55, 0.18);
             margin-bottom: 24px;
           }}
-
-          .hero h1 {{
-            margin: 0 0 6px 0;
-            font-size: 34px;
-          }}
-
-          .hero p {{
-            margin: 0;
-            font-size: 16px;
-            opacity: 0.95;
-          }}
-
+          .hero h1 {{ margin: 0 0 6px 0; font-size: 34px; }}
+          .hero p {{ margin: 0; font-size: 16px; opacity: 0.95; }}
           .card {{
             background: var(--card);
             backdrop-filter: blur(6px);
@@ -87,33 +68,20 @@ def shell(title: str, body: str) -> str:
             border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(18, 60, 55, 0.08);
           }}
-
           .meta-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 14px;
             margin-bottom: 20px;
           }}
-
           .metric {{
             background: rgba(255,255,255,0.7);
             border-radius: 16px;
             padding: 14px;
             border: 1px solid var(--line);
           }}
-
-          .metric .label {{
-            font-size: 12px;
-            color: var(--muted);
-            text-transform: uppercase;
-          }}
-
-          .metric .value {{
-            margin-top: 4px;
-            font-size: 16px;
-            font-weight: 600;
-          }}
-
+          .metric .label {{ font-size: 12px; color: var(--muted); text-transform: uppercase; }}
+          .metric .value {{ margin-top: 4px; font-size: 16px; font-weight: 600; }}
           input {{
             width: 100%;
             padding: 12px;
@@ -122,13 +90,7 @@ def shell(title: str, body: str) -> str:
             margin-top: 6px;
             background: rgba(255,255,255,0.9);
           }}
-
-          label {{
-            display: block;
-            margin-top: 12px;
-            font-weight: 600;
-          }}
-
+          label {{ display: block; margin-top: 12px; font-weight: 600; }}
           button {{
             border: 0;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -140,28 +102,10 @@ def shell(title: str, body: str) -> str:
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(47,158,143,0.25);
           }}
-
-          table {{
-            width: 100%;
-            border-collapse: collapse;
-          }}
-
-          th, td {{
-            padding: 12px;
-            border-bottom: 1px solid var(--line);
-          }}
-
-          th {{
-            font-size: 12px;
-            text-transform: uppercase;
-            color: var(--muted);
-          }}
-
-          a {{
-            color: var(--accent);
-            text-decoration: none;
-          }}
-
+          table {{ width: 100%; border-collapse: collapse; }}
+          th, td {{ padding: 12px; border-bottom: 1px solid var(--line); }}
+          th {{ font-size: 12px; text-transform: uppercase; color: var(--muted); }}
+          a {{ color: var(--accent); text-decoration: none; }}
           .readonly {{
             border-radius: 14px;
             padding: 14px;
@@ -169,11 +113,7 @@ def shell(title: str, body: str) -> str:
             border: 1px solid var(--line);
             white-space: pre-wrap;
           }}
-
-          .detail-list {{
-            margin: 0;
-            padding-left: 18px;
-          }}
+          .detail-list {{ margin: 0; padding-left: 18px; }}
         </style>
       </head>
       <body>
@@ -290,8 +230,8 @@ async def dashboard(request: Request) -> str:
             f"<tr>"
             f"<td><a href='/encounter/{html_escape(enc['packet_id'])}'>{html_escape(safe_str(enc_ctx.get('chief_complaint')) or 'Encounter')}</a></td>"
             f"<td>{html_escape(safe_str(enc_ctx.get('encounter_started_at')) or safe_str(enc.get('created_at')))}</td>"
-            f"<td>{html_escape(safe_str(enc['meta'].get('prescription_status')))}</td>"
-            f"<td>{html_escape(safe_str(enc['meta'].get('note_sent')))}</td>"
+            f"<td>{html_escape(safe_str((enc.get('meta') or {}).get('prescription_status')))}</td>"
+            f"<td>{html_escape(safe_str((enc.get('meta') or {}).get('note_sent')))}</td>"
             f"</tr>"
         )
 
@@ -339,11 +279,7 @@ async def encounter_detail(packet_id: str, request: Request) -> str:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
 
-    path = packet_path(packet_id)
-    if not path.exists():
-        raise HTTPException(status_code=404, detail="Encounter not found")
-
-    bundle = packet_bundle(path)
+    bundle = packet_bundle_from_db(packet_id)
     if not bundle:
         raise HTTPException(status_code=404, detail="Encounter bundle not found")
 
