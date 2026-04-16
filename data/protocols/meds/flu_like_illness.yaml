@@ -1,0 +1,21 @@
+# Clinician-facing medication/dosing protocol for: flu_like_illness
+# Tier 1 reviewer approval required.
+
+rx_options:
+  - med: "Antiviral (influenza) consideration"
+    dosing: "Per guideline if within treatment window and/or high-risk; clinician to determine."
+    exclusions: "Renal adjustment; interactions."
+    notes: "Document risk group status and symptom duration."
+
+  - med: "Symptomatic meds"
+    dosing: "Avoid patient-facing dosing; clinician can suggest OTC options in note."
+    exclusions: "NSAID/acetaminophen contraindications."
+    notes: "Encourage fluids; consider antiemetic if needed (clinician)."
+
+supportive_care:
+  - item: "Hydration/rest"
+    details: "Oral fluids; monitor urine output; isolation guidance as appropriate."
+
+followup_and_safety:
+  - item: "Escalate"
+    details: "Severe breathing trouble/confusion → ED now; dehydration risk/high-risk → urgent today."

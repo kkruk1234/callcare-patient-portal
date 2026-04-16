@@ -1,0 +1,57 @@
+{
+  "packet_id": "578f2fc0-a7a7-42b3-a542-bd5295ec3861",
+  "created_at": "2026-03-07T15:28:07.276422+00:00",
+  "session_id": "354c515e-0ce5-459b-9ebf-6b4dca753e32",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "red flags sore throat adult difficulty breathing drooling severe pain testing"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin dosing for adult strep throat treatment mg duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.pdf",
+      "accessed": "2026-03-07",
+      "snippet": ""
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-07",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Strep throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000639.htm",
+      "accessed": "2026-03-07",
+      "snippet": "Certain other antibiotics may also work against the strep bacteria. Antibiotics should be taken for 10 days, even though symptoms are often gone within a few days. The following tips may help your sore throat feel better:"
+    },
+    {
+      "title": "Management of Group A Beta-Hemolytic Streptococcal Pharyngitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2001/0415/p1557.html",
+      "accessed": "2026-03-07",
+      "snippet": "Antibiotic Dose/dosage Dosing frequency Duration of therapy Cost (generic) * Penicillin V (Veetids) Child: 250 mg Two or three times daily 10 days $ 1.50 (1.00 to 1.25) Adult: 500 mg Two or three times daily 10 days 2.50 (1.75 to 2.00) Penicillin G benzathine (Bicillin L-A) Child: 600,000 units Single injection — 10.25 Adult: 1,200,000 units Single injection — 17.75 Amoxicillin (Amoxil) Child: 40 mg per kg per day Three divided doses 10 days 5.25 (6.00 to 6.75)† Adult: 500 mg Three times daily 10 days 16.50 (11.75 to 17.50) Erythromycin ethylsuccinate (E.E.S. 400) Child: 40 mg per kg per day Two to four divided doses 10 days 8.50 (11.00 to 12.25)‡ Adult: 400 mg Four times daily 10 days 9.25 (11.00 to 12.50) Erythromycin estolate Child: 20 to 40 mg per kg per day Two to four divided doses 10 days (15.00to31.50)§ Adult: not recommended — — — Azithromycin (Zithromax) Child: 12 mg per kg for"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old adult presenting with a sore throat that started 2 days ago. They report fever, chills, pain with swallowing but no difficulty swallowing, swollen lymph nodes, and hoarseness. The patient has had recent exposure to strep throat from their son who was diagnosed last week. There is no difficulty breathing, drooling, or severe throat pain limiting mouth opening. No treatments have been tried so far.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the clinical presentation and known exposure to a confirmed case in a close contact.\nDifferential:\n1. Acute streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Allergic or irritant pharyngitis\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, no renal or liver disease; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, drooling, severe throat pain, or inability to swallow develops; seek emergency care if airway obstruction symptoms occur.\n- Testing: Arrange for rapid antigen detection test or throat culture for group A streptococcus to confirm diagnosis."
+}

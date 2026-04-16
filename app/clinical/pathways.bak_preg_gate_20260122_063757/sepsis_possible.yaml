@@ -1,0 +1,26 @@
+id: sepsis_possible
+version: 0.1
+match:
+  any_keywords: ["fever and confusion", "fever and very weak", "shaking chills and very sick", "infection and confused", "fever low blood pressure"]
+questions:
+  - id: confusion
+    prompt: "Are you confused, hard to wake, or acting very differently than normal? (yes/no)"
+    store_as: altered
+    type: yesno
+
+  - id: faint
+    prompt: "Do you feel faint, unable to stand, or like you might pass out? (yes/no)"
+    store_as: faint
+    type: yesno
+
+  - id: breathing
+    prompt: "Any trouble breathing or severe shortness of breath? (yes/no)"
+    store_as: breathing_trouble
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["confusion", "faint", "breathing"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

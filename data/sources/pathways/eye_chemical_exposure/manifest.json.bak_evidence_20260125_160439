@@ -1,0 +1,12 @@
+{
+  "pathway_id": "eye_chemical_exposure",
+  "sources": [
+    {
+      "id": "eye_chemical_exposure_ref",
+      "source_id": "eye_chemical_exposure_ref",
+      "title": "Chemical eye exposures: immediate steps (starter)",
+      "url": "https://www.aao.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

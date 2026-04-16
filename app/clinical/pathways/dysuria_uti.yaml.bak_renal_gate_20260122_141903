@@ -1,0 +1,42 @@
+id: dysuria_uti
+version: 0.1
+match:
+  any_keywords: ["burning", "urination", "dysuria", "uti", "frequency", "urgency"]
+questions:
+  - id: sex_at_birth
+    type: text
+    prompt: "What sex were you assigned at birth? Please say male or female."
+    store_as: sex_at_birth
+
+  - id: duration
+    prompt: "How long have you had urinary symptoms? (e.g., 2 days, 1 week)"
+    store_as: duration
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["fever_possible_uti"]
+
+  - id: flank
+    prompt: "Any back/flank pain near the kidneys? (yes/no)"
+    store_as: flank_pain
+    type: yesno
+
+  - id: pregnancy
+    prompt: "Is pregnancy possible? (yes/no/unknown)"
+    store_as: pregnancy_possible
+
+  - id: discharge
+    prompt: "Any vaginal discharge or pelvic pain? (yes/no)"
+    store_as: discharge_pelvic
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["duration", "fever", "flank", "pregnancy", "discharge", "sex_at_birth"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

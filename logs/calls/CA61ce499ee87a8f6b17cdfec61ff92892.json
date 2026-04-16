@@ -1,0 +1,103 @@
+{
+  "call_sid": "CA61ce499ee87a8f6b17cdfec61ff92892",
+  "session_id": "53599344-cd91-46a8-809d-cc5662a49e83",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-12T14:28:00.351515+00:00",
+  "ended_at": "2026-03-12T14:30:21.968334+00:00",
+  "packet_id": "",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have lower abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your lower abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the quality and exact location of your lower abdominal pain?"
+    },
+    {
+      "role": "user",
+      "text": "It is left side lower abdomen and very sharp."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or nausea?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have noticed any changes in your bowel movements or any blood in your stool?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any urinary symptoms like pain with urination, increased frequency, or blood in urine?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about the fever and nausea, such as how high the fever is and if you have vomited?"
+    },
+    {
+      "role": "user",
+      "text": "Does fever go back to 1 0 2, and I have I'm not sure if it's now vomiting."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any vaginal symptoms such as abnormal discharge or bleeding?"
+    },
+    {
+      "role": "user",
+      "text": "Hello?"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have missed your last menstrual period or if there is any chance you could be pregnant?"
+    },
+    {
+      "role": "user",
+      "text": "Hello?"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if there is any chance you could be pregnant or if you have missed your last menstrual period?"
+    },
+    {
+      "role": "user",
+      "text": "No. They've done it."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any vaginal discharge, bleeding, or pain during intercourse recently?"
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Optional, Tuple, List, Any, Dict
+import json
+import uuid
+import re
+
+from app.core.models import ReviewPacket, NoteDraft, CallState, EvidenceRef
+from app.clinical.note_builder import now_iso
+
+FINAL_DIR = Path("logs/finalized")
+MANIFESTS_DIR = Path("data/sources/pathways")
+
+
+def _model_field_names(model_cls) -> set:
+    if hasattr(model_cls, "model_fields"):  # pydantic v2
+        return set(model_cls.model_fields.keys())
+    if hasattr(model_cls, "__fields__"):  # pydantic v1
+        return set(model_cls.__fields__.keys())
+    return set()
+
+
+_EVID_FIELDS = _model_field_names(EvidenceRef)
+
+
+def _mk_evidence_ref(data: Dict[str, Any]) -> EvidenceRef:
+    safe = {k: v for k, v in data.items() if k in _EVID_FIELDS}
+    if "source" in _EVID_FIELDS and not safe.get("source"):
+        safe["source"] = "Unknown source"
+    if "snippet" in _EVID_FIELDS and safe.get("snippet") is None:
+        safe["snippet"] = ""
+    if "title" in _EVID_FIELDS and not safe.get("title"):
+        safe["title"] = safe.get("source", "Evidence")
+    return EvidenceRef(**safe)
+
+
+def _extract_disposition_from_state(state: Optional[CallState]) -> Tuple[str, List[str]]:
+    if state is None:
+        return "UNKNOWN", []
+    symptoms = getattr(state, "symptoms", None) or {}
+    disp = symptoms.get("_disposition") or "UNKNOWN"
+    reasons = symptoms.get("_disposition_reasons") or []
+    if not isinstance(reasons, list):
+        reasons = []
+    reasons = [str(r) for r in reasons if r]
+    return str(disp), reasons
+
+
+def _map_disposition_to_recommendation(disposition: str) -> str:
+    d = (disposition or "").strip().lower()
+    if d == "ed_now":
+        return "ED_NOW"
+    if d == "urgent_today":
+        return "URGENT_IN_PERSON_TODAY"
+    if d == "routine":
+        return "ROUTINE_HOME_CARE"
+    return "AUTO_FINALIZED_PROTOCOL"
+
+
+def _infer_pathway_id(note: NoteDraft, state: Optional[CallState]) -> str:
+    if state is not None:
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+            pid = str(pid).strip()
+            if pid:
+                return pid
+        except Exception:
+            pass
+    try:
+        pid = getattr(note, "pathway_id", "") or ""
+        pid = str(pid).strip()
+        if pid:
+            return pid
+    except Exception:
+        pass
+    return ""
+
+
+def _load_manifest_sources(pathway_id: str) -> List[dict]:
+    if not pathway_id:
+        return []
+    manifest_path = MANIFESTS_DIR / pathway_id / "manifest.json"
+    if not manifest_path.exists():
+        return []
+    try:
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    sources = data.get("sources") or []
+    if not isinstance(sources, list):
+        return []
+    return [s for s in sources if isinstance(s, dict)]
+
+
+def _set_note_evidence_from_manifest(note: NoteDraft, pathway_id: str) -> None:
+    sources = _load_manifest_sources(pathway_id)
+    if not sources:
+        return
+
+    ev: List[EvidenceRef] = []
+    for s in sources:
+        title = (s.get("title") or s.get("id") or pathway_id)
+        url = (s.get("url") or "")
+        src = url or (s.get("id") or title) or "Source"
+        ev.append(_mk_evidence_ref({
+            "title": str(title),
+            "source": str(src),
+            "url": str(url),
+            "snippet": "",   # no “source_id=” spam
+        }))
+
+    try:
+        setattr(note, "evidence", ev)
+        return
+    except Exception:
+        pass
+    if isinstance(note, dict):
+        note["evidence"] = ev
+
+
+def _best_effort_age_years(state: Optional[CallState]) -> Optional[int]:
+    if state is None:
+        return None
+    age = getattr(state, "age", None) or getattr(state, "age_years", None)
+    if isinstance(age, int):
+        return age
+    if age is not None:
+        m = re.match(r"^\s*(\d{1,3})\s*$", str(age))
+        if m:
+            return int(m.group(1))
+    sx = getattr(state, "symptoms", None) or {}
+    if isinstance(sx, dict):
+        v = sx.get("age") or sx.get("age_years") or sx.get("patient_age") or sx.get("years_old")
+        if v is not None:
+            m = re.match(r"^\s*(\d{1,3})\s*$", str(v))
+            if m:
+                return int(m.group(1))
+    return None
+
+
+def _best_effort_tick_timeframe(state: Optional[CallState]) -> Optional[str]:
+    if state is None:
+        return None
+    sx = getattr(state, "symptoms", None) or {}
+    if not isinstance(sx, dict):
+        return None
+    tf = (
+        sx.get("tick_attachment_timeframe")
+        or sx.get("tick_attached_duration")
+        or sx.get("tick_attachment_duration")
+        or sx.get("tick_attached_time")
+        or sx.get("tick_duration")
+        or sx.get("tick_attached")
+    )
+    if tf is None:
+        return None
+    tf = str(tf).strip()
+    return tf or None
+
+
+def _sanitize_soap(soap: str, state: Optional[CallState]) -> str:
+    if not soap:
+        return soap
+    out = soap
+
+    # Remove "(Age: N)" anywhere on S: line (or standalone right after S:)
+    new_lines = []
+    for ln in out.splitlines():
+        if ln.lstrip().startswith("S:") and "(Age:" in ln:
+            ln = re.sub(r"\(Age:\s*\d{1,3}\)", "", ln)
+            ln = re.sub(r"\s+", " ", ln).rstrip()
+        new_lines.append(ln)
+    out = "\n".join(new_lines)
+
+    # Replace age-band text with numeric age if available
+    age_years = _best_effort_age_years(state)
+    if age_years is not None:
+        out = re.sub(
+            r"\b\d{1,2}\s*-\s*\d{1,2}\s*year\s*old\b",
+            f"{age_years}-year-old",
+            out,
+            flags=re.IGNORECASE,
+        )
+        out = re.sub(
+            r"\b\d{1,2}\s*-\s*\d{1,2}\s*[- ]?year[- ]?old\b",
+            f"{age_years}-year-old",
+            out,
+            flags=re.IGNORECASE,
+        )
+
+    # Tick duration lie: convert any “fever ... chills ... for/lasting <tf>” into tick-attachment timeframe
+    tf = _best_effort_tick_timeframe(state)
+    if tf:
+        # Normalize common variants so matching works even if note says "24 to 72 hours"
+        tf_raw = tf.strip()
+        tf_alts = {tf_raw}
+
+        # If tf contains "to", add "-" variant; if it contains "-", add "to" variant
+        tf_alts.add(re.sub(r"\s+to\s+", "-", tf_raw, flags=re.IGNORECASE))
+        tf_alts.add(re.sub(r"\s*-\s*", " to ", tf_raw))
+
+        # Also allow en-dash/em-dash variants in generated text
+        tf_alts.add(tf_raw.replace("-", "–"))
+        tf_alts.add(tf_raw.replace("-", "—"))
+
+        # Build patterns that tolerate: "between", "about", "approximately", "around"
+        # and allow either "for" or "lasting"
+        qualifiers = r"(?:\s+(?:between|about|approximately|around|roughly))?"
+        for tfv in sorted(tf_alts, key=len, reverse=True):
+            tfv = tfv.strip()
+            if not tfv:
+                continue
+
+            # Main: "fever and/with chills for/lasting (between/about/...) <tf>"
+            out = re.sub(
+                r"\b(fever\s+(?:and|with)\s+chills)\s+(?:for|lasting)" + qualifiers + r"\s+" + re.escape(tfv) + r"\b",
+                r"\1. Tick may have been attached for " + tf_raw,
+                out,
+                flags=re.IGNORECASE,
+            )
+
+            # Variant: "fever with chills lasting (between ...) <tf>"
+            out = re.sub(
+                r"\b(fever)\s+with\s+(chills)\s+(?:for|lasting)" + qualifiers + r"\s+" + re.escape(tfv) + r"\b",
+                r"\1 with \2. Tick may have been attached for " + tf_raw,
+                out,
+                flags=re.IGNORECASE,
+            )
+# Pregnancy wording
+    out = re.sub(r"\bPregnancy not possible\b", "Patient is not pregnant", out, flags=re.IGNORECASE)
+
+    return out
+
+
+def _set_note_soap(note: NoteDraft, soap: str) -> None:
+    try:
+        setattr(note, "soap", soap)
+        return
+    except Exception:
+        pass
+    if isinstance(note, dict):
+        note["soap"] = soap
+
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+    pid = _infer_pathway_id(note, state)
+    if pid:
+        _set_note_evidence_from_manifest(note, pid)
+
+    # Sanitize SOAP text at the last step (prevents regressions)
+    soap = getattr(note, "soap", "") or ""
+    _set_note_soap(note, _sanitize_soap(soap, state))
+
+    disposition, reasons = _extract_disposition_from_state(state)
+    recommended = _map_disposition_to_recommendation(disposition)
+
+    comments = "Tier-1 protocol auto-finalized"
+    if disposition != "UNKNOWN":
+        if reasons:
+            comments += f" | disposition={disposition} reasons={reasons}"
+        else:
+            comments += f" | disposition={disposition}"
+    if pid:
+        comments += f" | pathway_id={pid}"
+
+    # Build ReviewPacket with only the fields that exist (schema-safe)
+    try:
+        fields = set(ReviewPacket.model_fields.keys())  # pydantic v2
+    except Exception:
+        fields = set(getattr(ReviewPacket, "__fields__", {}).keys())
+
+    data = {}
+    if "packet_id" in fields:
+        data["packet_id"] = str(uuid.uuid4())
+    if "created_at" in fields:
+        data["created_at"] = now_iso()
+    if "timestamp_iso" in fields:
+        data["timestamp_iso"] = now_iso()
+    if "session_id" in fields:
+        data["session_id"] = session_id
+    if "note" in fields:
+        data["note"] = note
+    if "recommended_disposition" in fields:
+        data["recommended_disposition"] = recommended
+    if "status" in fields:
+        data["status"] = "APPROVED"
+    if "reviewer_id" in fields:
+        data["reviewer_id"] = "SYSTEM"
+    if "reviewer_comments" in fields:
+        data["reviewer_comments"] = comments
+
+    packet = ReviewPacket(**data)
+
+    out_path = FINAL_DIR / f"{session_id}.json"
+    out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+    return packet

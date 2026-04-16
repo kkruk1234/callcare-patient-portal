@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA333ba60f31bf7eee297c3307a87d6aa5",
+  "session_id": "fade86fc-b6a4-4479-8b10-c9189e344997",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-12T18:56:11.447826+00:00",
+  "ended_at": "2026-04-12T19:02:49.246407+00:00",
+  "packet_id": "bd2a9b2d-5a4e-44c9-b512-5215b6d34400",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have right elbow pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your right elbow pain start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what caused the right elbow pain or any injury to it?"
+    },
+    {
+      "role": "user",
+      "text": "I was trying out a new bike, and I went over the handlebars. Falling onto the pavement and crashing on my right elbow."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swelling, bruising, or deformity around the right elbow?"
+    },
+    {
+      "role": "user",
+      "text": "It is swollen. It's bruised. It has some scratches on it, and it's it's a little bit it seems a little misaligned."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or inability to move your fingers or hand?"
+    },
+    {
+      "role": "user",
+      "text": "No. My hand's fine."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you able to bend and straighten your right elbow?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or taken any medications for your right elbow pain?"
+    },
+    {
+      "role": "user",
+      "text": "I know I should've iced it, but I did not do anything to it. Outside of just cleaning it off."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or increasing redness around the elbow?"
+    },
+    {
+      "role": "user",
+      "text": "No. It's still a little red, but it's not increasing in redness. And I have no fever and no chills."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe how much your right elbow seems misaligned or if it looks visibly out of place compared to the other elbow?"
+    },
+    {
+      "role": "user",
+      "text": "It it just has, like, a lump. So instead of it being nice and smooth, from the tip of my elbow towards, I guess, towards my wrist, it has, like, an extra little lump. And I don't know if that's just swelling or something more."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty lifting or carrying objects with your right arm since the injury?"
+    },
+    {
+      "role": "user",
+      "text": "No. No. I don't think so."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty or pain when you try to rotate your forearm, like turning your palm up or down?"
+    },
+    {
+      "role": "user",
+      "text": "It hurts ever so slightly when I turn my palm up, but definitely not not anything to really complain about."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have a right elbow injury likely from the fall, which may be a bruise or possibly a fracture given the swelling and lump you described. Because I can’t examine you or do imaging over the phone, a licensed physician will review your information and may recommend an X-ray to check for any broken bones. For now, you can take acetaminophen (Tylenol) or ibuprofen (Advil) for pain if you can safely use them. Watch closely for any worsening pain, inability to move your elbow or fingers, numbness, or signs of infection like fever or spreading redness—if any of these happen, please seek urgent in-person care the same day. A doctor will review your case and decide if medication or further treatment is needed. If you need an exam or testing, please go to urgent care or the emergency room."
+    }
+  ]
+}

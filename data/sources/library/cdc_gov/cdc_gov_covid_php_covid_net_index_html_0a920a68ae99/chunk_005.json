@@ -1,0 +1,10 @@
+{
+  "title": "COVID-NET | Covid | CDC",
+  "url": "https://www.cdc.gov/covid/php/covid-net/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ined COVID-NET surveillance area AND \nTests positive for SARS-CoV-2 (using a laboratory-based molecular, antigen or serology test) within 14 days before or during hospitalization. \nCOVID-NET Surveillance Area \nCOVID-NET currently comprises 194 counties and county equivalents in the 14 states participating in the&#8239;Respiratory Virus Surveillance Network. It covers more than 40.9 million people and includes an estimated 12% of the U.S. population. The COVID-NET surveillance area is generally similar to the U.S. population by demographics; however, COVID-NET data might not be generalizable to the entire country. \nCalculating Hospitalization Rates \nCOVID-NET surveillance began tracking COVID-19-associated hospitalizations in March 2020. To calculate COVID-19-associated hospitalization rates, COVID-NET collects the following demographic data from cases: \nAge \nSex \nRace and ethnicity \nCounty of residence \nDate of hospital admission \nPositive SARS-CoV-2 test result and date \nHospitalization rates are calculated as the number of residents in a surveillance area who are hospitalized with laboratory-confirmed COVID-19, divided by the total population estimate for that area.&#8239; National Center for Health Statistics bridged-race population estimates are used as denominators for rate calculations prior to the 2020&ndash;2021 season. Beginning with the 2020&ndash;2021 season, unbridg",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_php_covid_net_index_html_0a920a68ae99",
+  "chunk_id": "chunk_005"
+}

@@ -1,0 +1,124 @@
+{
+  "packet_id": "d7ece518-28b5-4cdf-a931-4f1ca0afc2df",
+  "created_at": "2026-02-06T13:38:45.392173+00:00",
+  "session_id": "68e4b29d-4f89-49d7-91ae-7cabd80dfa8a",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "next to my sternum on the right",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or palpitations with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, heavy lifting, or coughing that might have triggered the chest pain?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a6": "no",
+    "intake_q7": "Does the chest pain change with breathing, movement, or position?",
+    "intake_a7": "slightly worse with deep breaths",
+    "intake_q8": "Any fever, chills, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any swelling, redness, or tenderness over the area where you feel the chest pain?",
+    "intake_a9": "tenderness",
+    "intake_q10": "Have you tried any treatments or medications for the chest pain, and did they help?",
+    "intake_a10": "no",
+    "age_years": 34,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.nhs.uk/conditions/cardiomyopathy/",
+        "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "https://medlineplus.gov/chestpain.html",
+        "https://medlineplus.gov/alpha1antitrypsindeficiency.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 34-year-old female presenting with sharp chest pain located next to the sternum on the right side, which started one week ago. The pain is slightly worse with deep breaths and is tender to palpation. She reports no shortness of breath, sweating, nausea, palpitations, fever, chills, or recent infections. The pain began after heavy lifting. She has no history of heart disease, lung problems, or blood clots and has not tried any treatments or medications for the pain. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is costochondritis, an inflammation of the cartilage connecting the ribs to the sternum, commonly triggered by physical strain such as heavy lifting and characterized by localized chest wall tenderness and sharp pain worsened by movement or deep breaths. \n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal chest pain (e.g., muscle strain) \n3. Pleuritis or pleurisy \n4. Cardiac causes (less likely given absence of typical symptoms and risk factors) \n\nP: \n- First-line medication: \n NSAIDs such as ibuprofen 400 mg orally every 6–8 hours as needed for pain and inflammation, for 7–10 days. Avoid if history of allergy or gastrointestinal issues. Dosing details were not found in retrieved evidence; prescriber should verify. \n\n- Alternatives: \n - Acetaminophen 500–1000 mg orally every 6 hours as needed for pain, for 7–10 days; avoid if liver disease present. \n - Topical analgesics such as diclofenac gel applied to the affected area 3–4 times daily for 7–10 days; avoid if skin irritation or allergy. \n\n- Medication safety considerations: \n No known medication allergies. Not pregnant. No renal or liver disease reported. Use NSAIDs cautiously if any future renal or gastrointestinal issues arise. \n\n- Return precautions: \n Advise patient to seek immediate care if chest pain worsens, becomes associated with shortness of breath, sweating, nausea, palpitations, or if new symptoms such as fever or swelling develop. \n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+      },
+      {
+        "title": "Cardiomyopathy - NHS",
+        "source": "https://www.nhs.uk/conditions/cardiomyopathy/",
+        "snippet": "u'll need to have regular appointments with a GP so the condition can be monitored.\nWho's affected? Dilated cardiomyopathy can affect both children and adults. \nThe following can all play a role in the condition:\ninheriting a changed (mutated) gene that makes you more vulnerable to the condition an underlying medical condition uncontrolled high blood pressure an unhealthy lifestyle, such as a lack of vitamins and minerals in your diet, drinking too much alcohol and using recreational drugs a viral infection that causes inflammation of the heart muscle a heart valve problem a disease of the tissues or blood vessels – such as  granulomatosis with polyangiitis (GPA) , sarcoidosis , amyloidosis , lupus , polyarteritis nodosa, vasculitis or  muscular dystrophy pregnancy – peripartum cardiomyopathy is rare and sometimes develops during pregnancy, or within 3 months of the baby's birth But for"
+      },
+      {
+        "title": "Heart Disease in Women | MedlinePlus",
+        "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+      },
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+      },
+      {
+        "title": "Alpha-1 Antitrypsin Deficiency | Alpha 1 Antitrypsin | MedlinePlus",
+        "source": "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+        "snippet": "such as colds and the flu \nChest pain \nFatigue \nFaster-than-normal heartbeat when you stand up \nVision problems \nLosing weight without trying \nSome people who have AAT deficiency may have liver damage. Signs of liver damage include jaundice (a condition that causes your skin and eyes to turn yellow) and swelling in your legs.\nRarely, AAT deficiency can cause skin problems, such as painful lumps or patches.\nHow is alpha-1 antitrypsin deficiency (AAT deficiency) diagnosed? \nYour health care provider may test you for AAT deficiency if you have:\nSymptoms of AAT deficiency \nA condition that could be related to AAT deficiency \nRelatives who have AAT deficiency \nRelatives who have a lung or liver disease that could be related to AAT deficiency \nAAT deficiency in babies often affects the liver. Your baby may need AAT testing if he or she has signs of liver disease such as jaundice or abnormal li"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+    },
+    {
+      "title": "Cardiomyopathy - NHS",
+      "source": "https://www.nhs.uk/conditions/cardiomyopathy/",
+      "snippet": "u'll need to have regular appointments with a GP so the condition can be monitored.\nWho's affected? Dilated cardiomyopathy can affect both children and adults. \nThe following can all play a role in the condition:\ninheriting a changed (mutated) gene that makes you more vulnerable to the condition an underlying medical condition uncontrolled high blood pressure an unhealthy lifestyle, such as a lack of vitamins and minerals in your diet, drinking too much alcohol and using recreational drugs a viral infection that causes inflammation of the heart muscle a heart valve problem a disease of the tissues or blood vessels – such as  granulomatosis with polyangiitis (GPA) , sarcoidosis , amyloidosis , lupus , polyarteritis nodosa, vasculitis or  muscular dystrophy pregnancy – peripartum cardiomyopathy is rare and sometimes develops during pregnancy, or within 3 months of the baby's birth But for"
+    },
+    {
+      "title": "Heart Disease in Women | MedlinePlus",
+      "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+      "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+    },
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+    },
+    {
+      "title": "Alpha-1 Antitrypsin Deficiency | Alpha 1 Antitrypsin | MedlinePlus",
+      "source": "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+      "snippet": "such as colds and the flu \nChest pain \nFatigue \nFaster-than-normal heartbeat when you stand up \nVision problems \nLosing weight without trying \nSome people who have AAT deficiency may have liver damage. Signs of liver damage include jaundice (a condition that causes your skin and eyes to turn yellow) and swelling in your legs.\nRarely, AAT deficiency can cause skin problems, such as painful lumps or patches.\nHow is alpha-1 antitrypsin deficiency (AAT deficiency) diagnosed? \nYour health care provider may test you for AAT deficiency if you have:\nSymptoms of AAT deficiency \nA condition that could be related to AAT deficiency \nRelatives who have AAT deficiency \nRelatives who have a lung or liver disease that could be related to AAT deficiency \nAAT deficiency in babies often affects the liver. Your baby may need AAT testing if he or she has signs of liver disease such as jaundice or abnormal li"
+    }
+  ]
+}

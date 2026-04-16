@@ -1,0 +1,10 @@
+{
+  "title": "SAMS User FAQs | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/sams/sams-user-faq.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "t change the role or user rights that have been assigned to an individual by his or her facility administrator. However, keep in mind that in order to access NHSN you must either be SAMified or you must have an active digital certificate, so you should continue to renew your digital certificate on an annual basis when you receive and email prompt to do so, until you receive an email invitation to register for SAMS instead.\nTop of Page \nWill this migration affect my ability to enroll additional facilities in NHSN? \nNo, NHSN&rsquo;s migration to SAMS will not affect a facility administrator&rsquo;s ability to enroll additional facilities in NHSN as SAMS is only a gateway to access NHSN. However, if a facility administrator no longer has access to &ldquo;NHSN Enrollment&rdquo; in SAMS, they will have to contact nhsn@cdc.gov to request it.\nTop of Page \nWill this migration affect the data my facility shares with an NHSN Group, such as my state health department&rsquo;s mandatory reporting Group? \nNo, NHSN&rsquo;s migration to SAMS will not affect the data access your facility has granted to any NHSN Groups. SAMS is only a gateway to access NHSN.\nTop of Page \nWill this migration affect my facility&rsquo;s ability to import data (CDA files from vendor software or csv procedure denominator files)? \nNo, NHSN&rsquo;s migration to SAMS will not affect your facility&rsquo;s ability to impo",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_sams_sams_user_faq_html_f0a62040f019",
+  "chunk_id": "chunk_009"
+}

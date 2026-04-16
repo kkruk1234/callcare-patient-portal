@@ -1,0 +1,33 @@
+{
+  "pathway_id": "skin_abscess",
+  "sources": [
+    {
+      "id": "skin_abscess_src_1",
+      "source_id": "skin_abscess_src_1",
+      "title": "skin_abscess references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "skin_abscess_src_2",
+      "source_id": "skin_abscess_src_2",
+      "title": "skin_abscess references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "skin_abscess_src_3",
+      "source_id": "skin_abscess_src_3",
+      "title": "skin_abscess references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "skin_abscess_src_4",
+      "source_id": "skin_abscess_src_4",
+      "title": "skin_abscess references (starter)",
+      "url": "https://www.acep.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

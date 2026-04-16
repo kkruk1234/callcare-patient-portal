@@ -1,0 +1,499 @@
+from __future__ import annotations
+
+from typing import Optional
+
+from fastapi import FastAPI, Form, HTTPException, Query
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
+
+from app.portal.portal_common import (
+    encounter_topic,
+    encounter_when,
+    html_escape,
+    load_json,
+    load_meta,
+    packet_bundle,
+    packet_path,
+    patient_groups,
+    queue_or_send_new_note_email,
+    render_list_items,
+    render_pharmacy,
+    save_json,
+    save_meta,
+    safe_str,
+    save_note_signed,
+    add_signed_addendum,
+    signed_note_text,
+    addendum_block,
+)
+
+app = FastAPI(title="CallCare Physician Portal")
+
+
+@app.get("/healthz")
+async def healthz() -> PlainTextResponse:
+    return PlainTextResponse("ok")
+
+
+@app.get("/packet/{packet_id}", response_class=HTMLResponse)
+async def legacy_packet_redirect(packet_id: str) -> RedirectResponse:
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    bundle = packet_bundle(path)
+    if not bundle:
+        raise HTTPException(status_code=404, detail="Packet bundle not found")
+
+    chart_number = safe_str((bundle.get("patient_ctx") or {}).get("chart_number"))
+    if not chart_number:
+        raise HTTPException(status_code=404, detail="Patient chart not linked")
+
+    return RedirectResponse(
+        url=f"/patient/{chart_number}?packet_id={packet_id}&tab=encounters",
+        status_code=303,
+    )
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home() -> str:
+    groups = patient_groups()
+
+    if not groups:
+        return """
+        <html><head><title>CallCare Physician Portal</title></head>
+        <body style="font-family: Arial, sans-serif; margin: 24px;">
+        <h1>CallCare Physician Portal</h1>
+        <p>No routed review packets yet.</p>
+        </body></html>
+        """
+
+    rows = []
+    for g in groups:
+        latest = g["encounters"][0]
+        meta = latest["meta"]
+        patient_ctx = latest["patient_ctx"] or {}
+
+        rows.append(
+            f"<tr>"
+            f"<td><a href='/patient/{html_escape(g['chart_number'])}'>{html_escape(g['patient_name'])}</a></td>"
+            f"<td>{html_escape(g['chart_number'])}</td>"
+            f"<td>{len(g['encounters'])}</td>"
+            f"<td>{html_escape(safe_str((patient_ctx or {}).get('chief_complaint')))}</td>"
+            f"<td>{html_escape(safe_str(meta.get('status')))}</td>"
+            f"<td>{html_escape(safe_str(meta.get('prescription_status')))}</td>"
+            f"</tr>"
+        )
+
+    return f"""
+    <html>
+      <head>
+        <title>CallCare Physician Portal</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          table {{ border-collapse: collapse; width: 100%; }}
+          th, td {{ border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }}
+          th {{ background: #f5f5f5; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <h1>CallCare Physician Portal</h1>
+        <p>Patients with routed review packets.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Chart #</th>
+              <th>Encounters</th>
+              <th>Latest Chief Complaint</th>
+              <th>Status</th>
+              <th>Prescription</th>
+            </tr>
+          </thead>
+          <tbody>
+            {''.join(rows)}
+          </tbody>
+        </table>
+      </body>
+    </html>
+    """
+
+
+@app.get("/patient/{chart_number}", response_class=HTMLResponse)
+async def patient_chart(
+    chart_number: str,
+    packet_id: Optional[str] = Query(default=None),
+    tab: str = Query(default="encounters"),
+) -> str:
+    groups = patient_groups()
+    group = next((g for g in groups if g["chart_number"] == chart_number), None)
+    if not group:
+        raise HTTPException(status_code=404, detail="Patient chart not found")
+
+    patient_ctx = group["patient_ctx"] or {}
+    encounters = group["encounters"]
+
+    selected_bundle = None
+    if packet_id:
+        selected_bundle = next((e for e in encounters if e["packet_id"] == packet_id), None)
+    if not selected_bundle and encounters:
+        selected_bundle = encounters[0]
+
+    if not selected_bundle:
+        raise HTTPException(status_code=404, detail="No encounters found")
+
+    selected_packet_id = selected_bundle["packet_id"]
+    selected_packet = selected_bundle["packet"]
+    selected_meta = selected_bundle["meta"]
+    selected_note = safe_str(selected_packet.get("note_text"))
+    selected_signed_note = signed_note_text(selected_note, selected_meta)
+    selected_spoken_summary = selected_bundle["spoken_summary"]
+
+    if safe_str(selected_meta.get("status")) == "active":
+        selected_meta["status"] = "under review"
+        save_meta(selected_packet_id, selected_meta)
+
+    encounter_tab_links = []
+    for idx, enc in enumerate(encounters, 1):
+        enc_ctx = enc.get("patient_ctx") or {}
+        label = encounter_topic(safe_str(enc_ctx.get("chief_complaint"))) or f"Encounter {idx}"
+        started = encounter_when(safe_str(enc_ctx.get("encounter_started_at")), safe_str(enc.get("created_at")))
+        active_style = "font-weight:bold;" if enc["packet_id"] == selected_packet_id else ""
+        encounter_tab_links.append(
+            f"<li><a style='{active_style}' href='/patient/{html_escape(chart_number)}?packet_id={html_escape(enc['packet_id'])}&tab=encounters'>"
+            f"{html_escape(label)} — {html_escape(started)}</a></li>"
+        )
+    encounter_tab_html = "<ul>" + "".join(encounter_tab_links) + "</ul>"
+
+    allergies_html = render_list_items(
+        patient_ctx.get("allergies") or [],
+        ["allergen", "reaction", "severity"],
+        "No allergy data on file.",
+    )
+    conditions_html = render_list_items(
+        patient_ctx.get("conditions") or [],
+        ["condition_name", "status"],
+        "No past medical history on file.",
+    )
+    social_html = render_list_items(
+        patient_ctx.get("social_history") or [],
+        ["domain", "value_text"],
+        "No social history on file.",
+    )
+    pharmacy_html = render_pharmacy(patient_ctx.get("preferred_pharmacy") or {})
+
+    demographics_panel = f"""
+      <h2>Demographics</h2>
+      <p><strong>Patient Name:</strong> {html_escape(patient_ctx.get('patient_name'))}</p>
+      <p><strong>Chart #:</strong> {html_escape(patient_ctx.get('chart_number'))}</p>
+      <p><strong>Date of Birth:</strong> {html_escape(patient_ctx.get('date_of_birth'))}</p>
+      <p><strong>Sex at Birth:</strong> {html_escape(patient_ctx.get('sex_at_birth'))}</p>
+      <p><strong>Phone:</strong> {html_escape(patient_ctx.get('phone_number'))}</p>
+      <p><strong>Email:</strong> {html_escape(patient_ctx.get('email'))}</p>
+      <h2>Preferred Pharmacy</h2>
+      {pharmacy_html}
+    """
+
+    pmh_panel = f"""
+      <h2>Past Medical History</h2>
+      {conditions_html}
+      <h2>Allergies</h2>
+      {allergies_html}
+    """
+
+    social_panel = f"""
+      <h2>Past Social History</h2>
+      {social_html}
+    """
+
+    note_editor_html = (
+        f"""
+        <form method="post" action="/packet/{html_escape(selected_packet_id)}/update-note">
+          <textarea name="note_text" style="width:100%;min-height:360px;font-family:monospace;font-size:14px;">{html_escape(selected_note)}</textarea>
+          <p><button type="submit">Save Note Changes</button></p>
+        </form>
+        """
+        if not selected_meta.get("signed")
+        else f"""
+        <div style="border:1px solid #ccc;background:#fafafa;padding:12px;white-space:pre-wrap;">{html_escape(selected_signed_note)}</div>
+        <p><em>Signed notes are read-only.</em></p>
+        """
+    )
+
+    addenda_html = ""
+    addenda = selected_meta.get("addenda") or []
+    if addenda:
+        addenda_html += "<h3>Signed Addenda</h3>"
+        for idx, add in enumerate(addenda, 1):
+            addenda_html += f"<div style='border:1px solid #ccc;background:#fafafa;padding:12px;white-space:pre-wrap;margin-bottom:12px;'><strong>Addendum {idx}</strong>\n\n{html_escape(addendum_block(add))}</div>"
+
+    addendum_editor_html = (
+        f"""
+        <h3>Add Addendum</h3>
+        <form method="post" action="/packet/{html_escape(selected_packet_id)}/addendum">
+          <textarea name="addendum_text" style="width:100%;min-height:160px;font-family:monospace;font-size:14px;"></textarea>
+          <p><button type="submit">Sign Addendum</button></p>
+        </form>
+        """
+        if selected_meta.get("signed")
+        else ""
+    )
+
+    encounter_panel = f"""
+      <h2>{html_escape(patient_ctx.get('patient_name'))}</h2>
+      <p><strong>Chart #:</strong> {html_escape(patient_ctx.get('chart_number'))}</p>
+      <p><strong>Date of Birth:</strong> {html_escape(patient_ctx.get('date_of_birth'))}</p>
+      <p><strong>Sex at Birth:</strong> {html_escape(patient_ctx.get('sex_at_birth'))}</p>
+      <p><strong>Allergies:</strong> {html_escape('; '.join([
+          ' — '.join([safe_str(a.get('allergen')), safe_str(a.get('reaction')), safe_str(a.get('severity'))]).strip(' —')
+          for a in (patient_ctx.get('allergies') or []) if safe_str(a.get('allergen'))
+      ]) or 'None on file')}</p>
+      <p><strong>Chief Complaint:</strong> {html_escape((selected_bundle.get('patient_ctx') or {}).get('chief_complaint'))}</p>
+      <p><strong>Encounter Started:</strong> {html_escape((selected_bundle.get('patient_ctx') or {}).get('encounter_started_at') or selected_bundle.get('created_at'))}</p>
+      <p><strong>Status:</strong> {html_escape(selected_meta.get('status'))}</p>
+      <p><strong>Prescription:</strong> {html_escape(selected_meta.get('prescription_status'))}</p>
+      <p><strong>Note Sent:</strong> {html_escape(selected_meta.get('note_sent'))}</p>
+
+      <div style="margin:16px 0;">
+        <form method="get" action="/packet/{html_escape(selected_packet_id)}/full-text" style="display:inline-block;margin-right:10px;">
+          <button type="submit">Full Transcript</button>
+        </form>
+      </div>
+
+      <h2>Clinical Note</h2>
+      {note_editor_html}
+
+      <h2>Spoken Summary to Patient</h2>
+      <div style="border:1px solid #ccc;background:#fafafa;padding:12px;white-space:pre-wrap;">{html_escape(selected_spoken_summary or 'No spoken summary available.')}</div>
+
+      <h3>Physician's comments on spoken summary</h3>
+      <form method="post" action="/packet/{html_escape(selected_packet_id)}/update-spoken-summary-comments">
+        <textarea name="spoken_summary_comments" style="width:100%;min-height:160px;font-family:monospace;font-size:14px;">{html_escape(selected_meta.get('spoken_summary_comments'))}</textarea>
+        <p><button type="submit">Save Spoken Summary Comments</button></p>
+      </form>
+
+      {addenda_html}
+      {addendum_editor_html}
+
+      <div style="margin-top:18px;">
+        <form method="post" action="/packet/{html_escape(selected_packet_id)}/sign" style="display:inline-block;margin-right:10px;">
+          <button type="submit">Sign Note</button>
+        </form>
+        <form method="post" action="/packet/{html_escape(selected_packet_id)}/prescribe" style="display:inline-block;margin-right:10px;">
+          <button type="submit">Send Prescription</button>
+        </form>
+        <form method="post" action="/packet/{html_escape(selected_packet_id)}/note-sent/emailed" style="display:inline-block;margin-right:10px;">
+          <button type="submit">Mark Note Emailed</button>
+        </form>
+        <form method="post" action="/packet/{html_escape(selected_packet_id)}/note-sent/to-be-mailed" style="display:inline-block;">
+          <button type="submit">Mark Note To Be Mailed</button>
+        </form>
+      </div>
+    """
+
+    panel_html = {
+        "demographics": demographics_panel,
+        "pmh": pmh_panel,
+        "social": social_panel,
+        "encounters": encounter_panel,
+    }.get(tab, encounter_panel)
+
+    def tab_link(tab_name: str, label: str) -> str:
+        active = "font-weight:bold;text-decoration:underline;" if tab == tab_name else ""
+        return (
+            f"<a style='margin-right:18px;{active}' "
+            f"href='/patient/{html_escape(chart_number)}?packet_id={html_escape(selected_packet_id)}&tab={html_escape(tab_name)}'>"
+            f"{html_escape(label)}</a>"
+        )
+
+    return f"""
+    <html>
+      <head>
+        <title>{html_escape(patient_ctx.get('patient_name'))} - CallCare Physician Portal</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+          .tabs {{ margin-bottom: 18px; }}
+          .layout {{ display: grid; grid-template-columns: 300px 1fr; gap: 24px; }}
+          .sidebar {{ border: 1px solid #ccc; padding: 12px; background: #fafafa; }}
+          .main {{ border: 1px solid #ccc; padding: 18px; }}
+          textarea {{ width: 100%; }}
+          button {{ padding: 8px 12px; }}
+        </style>
+      </head>
+      <body>
+        <p><a href="/">← Back to patient list</a></p>
+
+        <div class="tabs">
+          {tab_link("demographics", "Demographics + Pharmacy")}
+          {tab_link("pmh", "Past Medical History")}
+          {tab_link("social", "Social History")}
+          {tab_link("encounters", "Encounters")}
+        </div>
+
+        <div class="layout">
+          <div class="sidebar">
+            <h3>Encounters</h3>
+            {encounter_tab_html}
+          </div>
+
+          <div class="main">
+            {panel_html}
+          </div>
+        </div>
+      </body>
+    </html>
+    """
+
+
+@app.get("/packet/{packet_id}/full-text", response_class=HTMLResponse)
+async def full_text(packet_id: str) -> str:
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    bundle = packet_bundle(path)
+    if not bundle:
+        raise HTTPException(status_code=404, detail="Packet bundle not found")
+
+    call_log = bundle["call_log"]
+    transcript = call_log.get("transcript", []) if isinstance(call_log, dict) else []
+
+    transcript_html = ""
+    for turn in transcript:
+        role = html_escape(turn.get("role"))
+        text = html_escape(turn.get("text"))
+        transcript_html += f"<p><strong>{role}:</strong> {text}</p>"
+
+    if not transcript_html:
+        transcript_html = "<p>No call transcript available for this packet.</p>"
+
+    patient_ctx = bundle.get("patient_ctx") or {}
+    chart_number = safe_str(patient_ctx.get("chart_number"))
+    back_url = f"/patient/{chart_number}?packet_id={html_escape(bundle['packet_id'])}&tab=encounters" if chart_number else "/"
+
+    return f"""
+    <html>
+      <head>
+        <title>Full Transcript { html_escape(packet_id) }</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <p><a href="{back_url}">← Back to encounter</a></p>
+        <h1>Full Transcript for Packet {html_escape(packet_id)}</h1>
+        {transcript_html}
+      </body>
+    </html>
+    """
+
+
+@app.post("/packet/{packet_id}/update-note")
+async def update_note(packet_id: str, note_text: str = Form(...)) -> RedirectResponse:
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    meta = load_meta(packet_id)
+    if meta.get("signed"):
+        raise HTTPException(status_code=400, detail="Signed notes are read-only")
+
+    d = load_json(path)
+    d["note_text"] = safe_str(note_text)
+    save_json(path, d)
+
+    bundle = packet_bundle(path)
+    chart_number = safe_str((bundle.get("patient_ctx") or {}).get("chart_number")) if bundle else ""
+    return RedirectResponse(url=f"/patient/{chart_number}?packet_id={packet_id}&tab=encounters", status_code=303)
+
+
+@app.post("/packet/{packet_id}/update-spoken-summary-comments")
+async def update_spoken_summary_comments(packet_id: str, spoken_summary_comments: str = Form(...)) -> RedirectResponse:
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    meta = load_meta(packet_id)
+    meta["spoken_summary_comments"] = safe_str(spoken_summary_comments)
+    save_meta(packet_id, meta)
+
+    bundle = packet_bundle(path)
+    chart_number = safe_str((bundle.get("patient_ctx") or {}).get("chart_number")) if bundle else ""
+    return RedirectResponse(url=f"/patient/{chart_number}?packet_id={packet_id}&tab=encounters", status_code=303)
+
+
+@app.post("/packet/{packet_id}/sign")
+async def sign_note(packet_id: str) -> RedirectResponse:
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    save_note_signed(packet_id)
+
+    bundle = packet_bundle(path)
+    chart_number = safe_str((bundle.get("patient_ctx") or {}).get("chart_number")) if bundle else ""
+    return RedirectResponse(url=f"/patient/{chart_number}?packet_id={packet_id}&tab=encounters", status_code=303)
+
+
+@app.post("/packet/{packet_id}/addendum")
+async def sign_addendum(packet_id: str, addendum_text: str = Form(...)) -> RedirectResponse:
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    meta = load_meta(packet_id)
+    if not meta.get("signed"):
+        raise HTTPException(status_code=400, detail="Note must be signed before addenda can be added")
+
+    if not safe_str(addendum_text):
+        raise HTTPException(status_code=400, detail="Addendum text is required")
+
+    add_signed_addendum(packet_id, addendum_text)
+
+    bundle = packet_bundle(path)
+    chart_number = safe_str((bundle.get("patient_ctx") or {}).get("chart_number")) if bundle else ""
+    return RedirectResponse(url=f"/patient/{chart_number}?packet_id={packet_id}&tab=encounters", status_code=303)
+
+
+@app.post("/packet/{packet_id}/prescribe")
+async def send_prescription(packet_id: str) -> RedirectResponse:
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    meta = load_meta(packet_id)
+    meta["prescription_status"] = "sent"
+    save_meta(packet_id, meta)
+
+    bundle = packet_bundle(path)
+    chart_number = safe_str((bundle.get("patient_ctx") or {}).get("chart_number")) if bundle else ""
+    return RedirectResponse(url=f"/patient/{chart_number}?packet_id={packet_id}&tab=encounters", status_code=303)
+
+
+@app.post("/packet/{packet_id}/note-sent/{mode}")
+async def note_sent(packet_id: str, mode: str) -> RedirectResponse:
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    normalized = safe_str(mode).lower()
+    if normalized not in {"emailed", "to-be-mailed", "to_be_mailed", "to be mailed"}:
+        raise HTTPException(status_code=400, detail="Invalid note-sent mode")
+
+    meta = load_meta(packet_id)
+    bundle = packet_bundle(path)
+
+    if normalized == "emailed":
+        patient_ctx = (bundle or {}).get("patient_ctx") or {}
+        chart_number = safe_str(patient_ctx.get("chart_number"))
+        queue_or_send_new_note_email(patient_ctx, chart_number, packet_id)
+        meta["note_sent"] = "emailed"
+    else:
+        meta["note_sent"] = "to be mailed"
+
+    save_meta(packet_id, meta)
+
+    chart_number = safe_str(((bundle or {}).get("patient_ctx") or {}).get("chart_number"))
+    return RedirectResponse(url=f"/patient/{chart_number}?packet_id={packet_id}&tab=encounters", status_code=303)

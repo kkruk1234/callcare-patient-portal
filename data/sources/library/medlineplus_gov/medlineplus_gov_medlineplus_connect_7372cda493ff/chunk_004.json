@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect",
+  "url": "https://medlineplus.gov/medlineplus-connect/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "Names and Codes) \nFor medical procedure codes, MedlinePlus Connect supports:\nCPTÂ® (Current Procedural Terminology) \nSNOMED CTÂ® â¯(Systematized Nomenclature of Medicine, Clinical Terms). Note: MedlinePlus Connect coverage of SNOMED CT focuses onâ¯ CORE Problem List Subset â¯codes (Clinical Observations Recording and Encoding) and their descendants. \nMedlinePlus Connect supports requests for information in English or Spanish. MedlinePlus Connect is intended for use within the United States health care system and cannot support coding systems not used in the United States.\nView image full size \n-->\nImplementing MedlinePlus Connect \nTo use MedlinePlus Connect, work with a technical representative or staff member to set up the MedlinePlus Connect Web application or Web service as described in the technical documentation . They will use the coding information already in your system (e.g., ICD-9-CM, NDC, etc.) to automatically send requests to MedlinePlus Connect in a standard format and use the reply to provide relevant patient education from MedlinePlus.\nMedlinePlus Connect supports the HL7 Context-Aware Knowledge Retrieval (Infobutton) standard . \nThe level of effort for implementation varies depending on the flexibility and customizability of your system. \nImplementing MedlinePlus Connect is a one-time effort. Once you make this change in your system, MedlinePlus Connect will",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_7372cda493ff",
+  "chunk_id": "chunk_004"
+}

@@ -1,0 +1,41 @@
+id: chest_pain
+version: 0.1
+match:
+  any_keywords: ["chest pain", "pressure", "tightness", "squeezing", "heart attack", "angina", "pain in chest", "chest discomfort"]
+questions:
+  - id: breathing
+    prompt: "Are you having severe trouble breathing, blue lips, or feeling like you can’t get enough air? (yes/no)"
+    store_as: severe_breathing
+    type: yesno
+
+  - id: syncope
+    prompt: "Have you fainted, nearly fainted, or feel like you might pass out right now? (yes/no)"
+    store_as: syncope
+    type: yesno
+
+  - id: diaphoresis
+    prompt: "Is the chest pain with heavy sweating, nausea, or a sense of doom? (yes/no)"
+    store_as: high_risk_associated
+    type: yesno
+
+  - id: radiation
+    prompt: "Does the pain spread to your left arm, jaw, or back? (yes/no)"
+    store_as: radiation
+    type: yesno
+
+  - id: exertional
+    prompt: "Did this start during exertion or does it get worse with exertion? (yes/no)"
+    store_as: exertional
+    type: yesno
+
+  - id: pleuritic
+    prompt: "Is it sharply worse when you take a deep breath or cough? (yes/no)"
+    store_as: pleuritic
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["breathing", "syncope", "diaphoresis", "radiation", "exertional", "pleuritic"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

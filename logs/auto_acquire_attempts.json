@@ -1,0 +1,209 @@
+[
+  {
+    "query": "tennis elbow treatment ibuprofen naproxen acetaminophen adult dosing mg max per day site:nhs.uk OR site:aafp.org OR site:nice.org.uk",
+    "ok": false,
+    "reason": "no allowed urls found",
+    "ts": 1770993552.615913
+  },
+  {
+    "query": "tennis elbow treatment ibuprofen naproxen acetaminophen adult dosing mg max per day",
+    "ok": false,
+    "reason": "no allowed urls found",
+    "ts": 1770993759.230481
+  },
+  {
+    "query": "tennis elbow treatment ibuprofen naproxen acetaminophen adult dosing maximum daily dose dailymed",
+    "ok": false,
+    "reason": "ingest failed (insufficient adds)",
+    "ts": 1770997379.232957,
+    "pack": "/Users/kellykruk/Desktop/callcare/data/packs/auto_da7190dd7856.json",
+    "urls": [
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3e3e3e3e-3e3e-3e3e-3e3e-3e3e3e3e3e3e",
+      "https://www.aafp.org/afp/2018/0601/p741.html",
+      "https://www.nice.org.uk/guidance/ng59",
+      "https://www.nhs.uk/conditions/tennis-elbow/"
+    ],
+    "out": "PACK: auto_da7190dd7856\nDESC: Auto-acquired (OpenAI web search) evidence for: tennis elbow treatment ibuprofen naproxen acetaminophen adult dosing maximum daily dose dailymed\nSOURCES: 4\n\n[1/4] FETCH: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3e3e3e3e-3e3e-3e3e-3e3e-3e3e3e3e3e3e\n  FAIL (too little extracted text: 463 chars)\n[2/4] SKIP (exists): https://www.aafp.org/afp/2018/0601/p741.html -> 164ffeb34d04d6c3\n[3/4] SKIP (exists): https://www.nice.org.uk/guidance/ng59 -> e7a4a5f88bd2f417\n[4/4] SKIP (exists): https://www.nhs.uk/conditions/tennis-elbow/ -> 6c79f98b5f50aa7e\n\nDONE. added=0 skipped=3 failed=1\nLibrary dir: data/sources/library\n\nNext: rebuild your index (see command below)."
+  },
+  {
+    "query": "\"elbow pain\" treatment guideline management site:nhs.uk OR site:nice.org.uk OR site:aafp.org OR site:cdc.gov OR site:medlineplus.gov OR site:mayoclinic.org",
+    "ok": true,
+    "reason": "ok",
+    "ts": 1771000989.8292449,
+    "pack": "/Users/kellykruk/Desktop/callcare/data/packs/auto_bb2ecdb7c77e.json",
+    "urls": [
+      "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/musculoskeletal-pain.html",
+      "https://www.mayoclinic.org/symptoms/elbow-pain/basics/when-to-see-doctor/sym-20050874",
+      "https://www.aafp.org/pubs/afp/issues/2021/0700/p63.html",
+      "https://www.mayoclinic.org/diseases-conditions/osteoarthritis/diagnosis-treatment/drc-20351930"
+    ]
+  },
+  {
+    "query": "lateral epicondylitis tennis elbow treatment guideline dosing ibuprofen naproxen acetaminophen maximum daily dose",
+    "ok": true,
+    "reason": "ok",
+    "ts": 1771019423.480833,
+    "pack": "/Users/kellykruk/Desktop/callcare/data/packs/auto_faf66d7c006b.json",
+    "urls": [
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+      "https://www.aafp.org/afp/2019/0601/p690.html",
+      "https://www.nice.org.uk/guidance/ng59",
+      "https://www.nhs.uk/conditions/tennis-elbow/"
+    ]
+  },
+  {
+    "ok": false,
+    "query": " guideline treatment management",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_d274e22137f1d809.json",
+    "elapsed_sec": 0.005,
+    "error": "ImportError: cannot import name 'ingest_urls' from 'app.rag.ingest_urls' (/Users/kellykruk/Desktop/callcare/app/rag/ingest_urls.py)"
+  },
+  {
+    "ok": false,
+    "query": " ibuprofen dosing naproxen dosing adult maximum daily dose",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_e91040a6403ca056.json",
+    "elapsed_sec": 0.0,
+    "error": "ImportError: cannot import name 'ingest_urls' from 'app.rag.ingest_urls' (/Users/kellykruk/Desktop/callcare/app/rag/ingest_urls.py)"
+  },
+  {
+    "ok": false,
+    "query": " guideline treatment management",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_d274e22137f1d809.json",
+    "elapsed_sec": 0.005,
+    "error": "ImportError: cannot import name 'ingest_urls' from 'app.rag.ingest_urls' (/Users/kellykruk/Desktop/callcare/app/rag/ingest_urls.py)"
+  },
+  {
+    "ok": false,
+    "query": " ibuprofen dosing naproxen dosing adult maximum daily dose",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_e91040a6403ca056.json",
+    "elapsed_sec": 0.0,
+    "error": "ImportError: cannot import name 'ingest_urls' from 'app.rag.ingest_urls' (/Users/kellykruk/Desktop/callcare/app/rag/ingest_urls.py)"
+  },
+  {
+    "ok": false,
+    "query": " guideline treatment management",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_d274e22137f1d809.json",
+    "elapsed_sec": 0.006,
+    "error": "ImportError: cannot import name 'ingest_urls' from 'app.rag.ingest_urls' (/Users/kellykruk/Desktop/callcare/app/rag/ingest_urls.py)"
+  },
+  {
+    "ok": false,
+    "query": " ibuprofen dosing naproxen dosing adult maximum daily dose",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_e91040a6403ca056.json",
+    "elapsed_sec": 0.0,
+    "error": "ImportError: cannot import name 'ingest_urls' from 'app.rag.ingest_urls' (/Users/kellykruk/Desktop/callcare/app/rag/ingest_urls.py)"
+  },
+  {
+    "ok": false,
+    "query": "Lateral epicondylitis (tennis elbow) guideline treatment management",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_75583a1d1c5a15f3.json",
+    "elapsed_sec": 0.005,
+    "error": "ImportError: cannot import name 'ingest_urls' from 'app.rag.ingest_urls' (/Users/kellykruk/Desktop/callcare/app/rag/ingest_urls.py)"
+  },
+  {
+    "ok": false,
+    "query": "Lateral epicondylitis (tennis elbow) ibuprofen dosing naproxen dosing adult maximum daily dose",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_303a4cd5d3ec3cfc.json",
+    "elapsed_sec": 0.0,
+    "error": "ImportError: cannot import name 'ingest_urls' from 'app.rag.ingest_urls' (/Users/kellykruk/Desktop/callcare/app/rag/ingest_urls.py)"
+  },
+  {
+    "ok": false,
+    "query": "Lateral epicondylitis (tennis elbow) guideline treatment management",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_75583a1d1c5a15f3.json",
+    "elapsed_sec": 0.005,
+    "error": "ImportError: Could not resolve an ingest function from app.rag.ingest_urls. Expected one of: ingest_urls, ingest_pack, ingest_pack_file, ingest_url_pack, ingest_from_pack, ingest_urls_from_pack, ingest."
+  },
+  {
+    "ok": false,
+    "query": "Lateral epicondylitis (tennis elbow) ibuprofen dosing naproxen dosing adult maximum daily dose",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_303a4cd5d3ec3cfc.json",
+    "elapsed_sec": 0.0,
+    "error": "ImportError: Could not resolve an ingest function from app.rag.ingest_urls. Expected one of: ingest_urls, ingest_pack, ingest_pack_file, ingest_url_pack, ingest_from_pack, ingest_urls_from_pack, ingest."
+  },
+  {
+    "ok": true,
+    "query": "Lateral epicondylitis (tennis elbow) guideline treatment management",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_75583a1d1c5a15f3.json",
+    "elapsed_sec": 0.006
+  },
+  {
+    "ok": true,
+    "query": "Lateral epicondylitis (tennis elbow) ibuprofen dosing naproxen dosing adult maximum daily dose",
+    "urls_found": 0,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_303a4cd5d3ec3cfc.json",
+    "elapsed_sec": 0.001
+  },
+  {
+    "ok": false,
+    "query": "Lateral epicondylitis (tennis elbow) guideline treatment management",
+    "urls_found": 11,
+    "urls_allowed": 1,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_75583a1d1c5a15f3.json",
+    "elapsed_sec": 17.956,
+    "error": "TimeoutError: time budget exceeded before ingest"
+  },
+  {
+    "ok": true,
+    "query": "Lateral epicondylitis (tennis elbow) ibuprofen dosing naproxen dosing adult maximum daily dose",
+    "urls_found": 13,
+    "urls_allowed": 3,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_303a4cd5d3ec3cfc.json",
+    "elapsed_sec": 5.617
+  },
+  {
+    "ok": true,
+    "query": "outpatient guideline ibuprofen adult dosing maximum daily dose",
+    "urls_found": 14,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_576b87739d5ce602.json",
+    "elapsed_sec": 7.762
+  },
+  {
+    "ok": true,
+    "query": "outpatient guideline ibuprofen adult dosing maximum daily dose",
+    "urls_found": 13,
+    "urls_allowed": 0,
+    "urls_ingested": 0,
+    "pack_path": "data/packs/auto_576b87739d5ce602.json",
+    "elapsed_sec": 5.758
+  }
+]

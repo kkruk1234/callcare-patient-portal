@@ -1,0 +1,167 @@
+import os
+import json
+from typing import Any, Dict, List, Tuple, Optional
+
+from openai import OpenAI
+
+
+# ============================
+# CallCare LLM Intake Planner (V1)
+# - Generates a short, non-redundant question set from chief complaint
+# - Forces multi-symptom questions to be FREE TEXT (not yes/no)
+# - No "drill down on positives" follow-ups (avoids redundancy)
+# ============================
+
+CALLCARE_INTAKE_SYSTEM = """You are a practicing physician designing a short, high-yield phone-intake question set.
+
+GOAL:
+- Ask the MINIMUM number of questions needed to safely narrow the likely diagnosis and triage disposition.
+- Questions must be patient-friendly, single-topic, and non-redundant.
+- Do NOT ask follow-up questions about items you already asked (no redundant re-asking).
+
+CRITICAL FORMAT RULES:
+Return ONLY valid JSON (no markdown), shaped exactly like:
+{
+  "questions": [
+    {"id": "onset", "prompt": "...", "response_type": "free_text"},
+    {"id": "severity", "prompt": "...", "response_type": "choice", "choices": ["mild","moderate","severe"] }
+  ]
+}
+
+RESPONSE TYPES:
+- "yes_no"         => prompt must end with "(yes/no)"
+- "yes_no_unknown" => prompt must end with "(yes/no/unknown)"
+- "choice"         => include "choices": [...]
+- "number"         => numeric answer (e.g., hours/days)
+- "free_text"      => free text
+
+IMPORTANT PATIENT-ANSWER RULE:
+- If a question mentions multiple symptoms (within reason), it MUST be "free_text", not yes/no.
+  Example: "Do you have fever, chills, nausea, or vomiting?" must be free_text.
+
+QUESTION COUNT:
+- 6 to 10 questions total (hard cap 10).
+
+CONTENT RULES:
+- Ask questions that materially change diagnosis/triage/treatment.
+- Avoid fluff (e.g., "any other concerns?").
+- Avoid bundled yes/no symptom lists.
+- Do NOT ask pregnancy/renal/liver/allergies/age/sex questions here; those are asked later by the system.
+
+PHONE-ONLY:
+- No vitals or exam.
+""".strip()
+
+
+def _client_and_model() -> Tuple[OpenAI, str]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+    client = OpenAI(api_key=api_key)
+    model = os.getenv("CALLCARE_LLM_MODEL", "").strip() or "gpt-4.1-mini"
+    return client, model
+
+
+def _safe_json_load(s: str) -> Optional[dict]:
+    try:
+        return json.loads(s)
+    except Exception:
+        # Try to salvage: find first {...} block
+        try:
+            start = s.find("{")
+            end = s.rfind("}")
+            if start != -1 and end != -1 and end > start:
+                return json.loads(s[start:end+1])
+        except Exception:
+            pass
+    return None
+
+
+def _normalize_question(q: dict, idx: int) -> Optional[dict]:
+    if not isinstance(q, dict):
+        return None
+    qid = str(q.get("id") or f"q{idx}").strip()
+    prompt = str(q.get("prompt") or "").strip()
+    rtype = str(q.get("response_type") or "").strip()
+
+    if not qid or not prompt or not rtype:
+        return None
+
+    # enforce type set
+    allowed = {"yes_no", "yes_no_unknown", "choice", "number", "free_text"}
+    if rtype not in allowed:
+        rtype = "free_text"
+
+    # enforce prompt suffix for yes/no formats
+    if rtype == "yes_no" and not prompt.lower().endswith("(yes/no)"):
+        prompt = prompt.rstrip(".") + " (yes/no)"
+    if rtype == "yes_no_unknown" and not prompt.lower().endswith("(yes/no/unknown)"):
+        prompt = prompt.rstrip(".") + " (yes/no/unknown)"
+
+    out = {"id": qid, "prompt": prompt, "response_type": rtype}
+
+    if rtype == "choice":
+        choices = q.get("choices")
+        if not isinstance(choices, list) or not choices:
+            # if missing, degrade to free_text
+            out["response_type"] = "free_text"
+        else:
+            out["choices"] = [str(c).strip() for c in choices if str(c).strip()]
+
+    return out
+
+
+def plan_intake_questions(chief: str, evidence_preview: Optional[List[Dict[str, Any]]] = None) -> List[Dict[str, Any]]:
+    chief = (chief or "").strip()
+    if not chief:
+        return []
+
+    # Keep evidence_preview small and optional (titles only)
+    ev = []
+    for c in (evidence_preview or [])[:6]:
+        if isinstance(c, dict):
+            ev.append({
+                "title": str(c.get("title") or "").strip(),
+                "source": str(c.get("source") or "").strip()
+            })
+
+    prompt = {
+        "chief_complaint": chief,
+        "evidence_preview": ev
+    }
+
+    client, model = _client_and_model()
+    resp = client.responses.create(
+        model=model,
+        input=[
+            {"role": "system", "content": CALLCARE_INTAKE_SYSTEM},
+            {"role": "user", "content": json.dumps(prompt)},
+        ],
+        temperature=0.2,
+        max_output_tokens=700,
+    )
+
+    text = getattr(resp, "output_text", None) or ""
+    data = _safe_json_load(text)
+    if not isinstance(data, dict):
+        return []
+
+    qs = data.get("questions")
+    if not isinstance(qs, list):
+        return []
+
+    normed: List[Dict[str, Any]] = []
+    seen = set()
+    for i, q in enumerate(qs, start=1):
+        nq = _normalize_question(q, i)
+        if not nq:
+            continue
+        if nq["id"] in seen:
+            continue
+        seen.add(nq["id"])
+        normed.append(nq)
+        if len(normed) >= 10:
+            break
+
+    # Enforce minimum 6 if possible; otherwise return whatever we got.
+    return normed

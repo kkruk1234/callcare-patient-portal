@@ -1,0 +1,30 @@
+{
+  "pathway_id": "dental_abscess",
+  "sources": [
+    {
+      "title": "ADA \u2014 Antibiotics for Dental Pain and Swelling (Guideline page, 2019)",
+      "url": "https://www.ada.org/resources/research/science/evidence-based-dental-research/antibiotics-for-dental-pain-and-swelling",
+      "type": "guideline"
+    },
+    {
+      "title": "JADA \u2014 Evidence-based guideline on antibiotic use for pulpal-/periapical-related pain & intraoral swelling (2019)",
+      "url": "https://jada.ada.org/article/S0002-8177(19)30617-8/fulltext",
+      "type": "peer_reviewed"
+    },
+    {
+      "title": "CDC \u2014 Treating Patients with Dental Pain and Swelling (ADA guidance PDF)",
+      "url": "https://www.cdc.gov/antibiotic-use/media/pdfs/ada-treatment-guidelines-508.pdf",
+      "type": "guideline"
+    },
+    {
+      "title": "NICE CKS \u2014 Dental abscess: Prescribing information",
+      "url": "https://cks.nice.org.uk/topics/dental-abscess/prescribing-information/",
+      "type": "guideline"
+    },
+    {
+      "title": "SDCEP \u2014 Management of Acute Dental Problems (Guidance PDF)",
+      "url": "https://www.sdcep.org.uk/media/ixlpeakb/sdcep-madp-guidance-march-2013.pdf",
+      "type": "guideline"
+    }
+  ]
+}

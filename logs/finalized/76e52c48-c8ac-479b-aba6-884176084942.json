@@ -1,0 +1,135 @@
+{
+  "packet_id": "7a05e34d-aa19-4fdd-b286-c6308dfde497",
+  "created_at": "2026-02-20T03:12:28.346045+00:00",
+  "session_id": "76e52c48-c8ac-479b-aba6-884176084942",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any pain with deep breaths or when you press on the painful area?",
+    "intake_a9": "pain with pressure",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent unexplained fractures?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+        "https://www.cdc.gov/flu/signs-symptoms/index.html",
+        "https://medlineplus.gov/lab-tests/strep-b-test/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, numbness, weakness, or tingling in her legs or feet. She reports pain with pressure over the affected area and has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, recent infections, osteoporosis, cancer, or unexplained fractures. Patient is not pregnant. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings available.\n\nA: \nThe working diagnosis is musculoskeletal pain likely due to localized mechanical strain or soft tissue injury of the left lower rib cage area. The absence of systemic symptoms or neurological deficits reduces the likelihood of serious underlying pathology.\n\nDifferential: \n1. Musculoskeletal strain or soft tissue injury \n2. Costochondritis or rib inflammation \n3. Intercostal muscle strain \n4. Early presentation of a rib fracture not associated with trauma \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen may be continued if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs if there is a history of renal disease, liver disease, or gastrointestinal bleeding. Use the lowest effective dose for the shortest duration. \n - Return precautions: Advise the patient to seek immediate care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, unexplained weight loss, or new respiratory symptoms. \n - Testing: No imaging or laboratory testing is indicated at this time given the absence of red flag symptoms. Reassess if symptoms persist beyond 6 weeks or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Polymyalgia rheumatica - NHS",
+        "source": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/",
+        "snippet": "﻿ Polymyalgia rheumatica - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Polymyalgia rheumatica Contents Overview Symptoms Diagnosis Treatment Polymyalgia rheumatica (PMR) is a condi…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "musculoskeletal pain, an injection of a 2-mL mixture of 1 mL of 40 mg/mL of methylprednisolone acetate or equivalent and 1 mL of local anesthetic can work quite well helping to resolve pain if symptoms persist for more than a few months.18 Gaps in the Evidence-Based Knowledge The mechanism of costochondritis is unclear and is often a diagnosis of exclusion.…"
+      },
+      {
+        "title": "NICE NG59: Low back pain and sciatica in over 16s",
+        "source": "https://www.nice.org.uk/guidance/ng59",
+        "snippet": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE You are here: Home NICE Guidance Conditions and diseases Musculoskeletal conditions Low back pain Low back pain and sciatica in over 16s: assessment and management NICE guideline Reference number: NG59 Published:&nbsp; 30 November 2016 Last updated:&nbsp; 11 Decemb…"
+      },
+      {
+        "title": "AAFP: Mechanical Low Back Pain",
+        "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "snippet": "pain and use of health care. Educating patients on prognosis and incorporating psychosocial components of care such as identifying comorbid psychological problems and barriers to treatment are essential components of long-term management. Mechanical low back pain refers to back pain that arises intrinsically from the spine, intervertebral disks, or surroundi…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/0bc69d36c2981feb/content.txt",
+        "snippet": "sis and subsequent management strategy. The causes of back pain in a 30-year-old man often differ from those of an 80-year-old woman. Ankle pain in a young professional ballet dancer raises suspicion for ligamentous injury or overuse tendinopathies. Importantly, assess the degree of functional impairment caused by joint symptoms, including impact on activiti…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "e, clavicle, shoulders, and thoracic and lumbar spine must be included. Movement of the rib cage can be assessed with deep breathing exercises. The effect of upper extremity movement on pain should also be noted, because moving the arm on the affected side will usually cause pain.2,11 Examination should also include auscultation of the heart and lungs, and e…"
+    },
+    {
+      "title": "Broken or bruised ribs - NHS",
+      "source": "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+      "snippet": "mproved within a few weeks you're coughing up yellow or green mucus you have a very high temperature, or feel hot, cold or shivery You might need stronger painkillers or have a chest infection that needs antibiotics. You can call 111 or get help from 111 online . Immediate action required: Call 999 or go to A&E if: You have a broken or bruised rib and: your…"
+    },
+    {
+      "title": "Signs and Symptoms of Flu | Influenza (Flu) | CDC",
+      "source": "https://www.cdc.gov/flu/signs-symptoms/index.html",
+      "snippet": "Flu) Symptom onset Gradual Abrupt Fever Rare Common; lasts 3-4 days Aches Slight Common; often severe Chills Uncommon Fairly common Fatigue, weakness Sometimes Usual Sneezing Common Sometimes Chest discomfort, cough Mild to moderate; hacking cough Common; can be severe Stuffy nose Common Sometimes Sore throat Common Sometimes Headache Rare Common Emergency W…"
+    },
+    {
+      "title": "Strep B Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/strep-b-test/",
+      "snippet": "ng Lack of energy (hard to wake up) Irritability Blue-ish skin color Unstable blood pressure (a pattern where the blood pressure suddenly spikes and then falls back to normal) Kidney problems If you are pregnant, you usually do not feel sick or have any symptoms of GBS. Symptoms of bacteremia include: Fever Chills Low alertness Symptoms of pneumonia include:…"
+    }
+  ],
+  "state": null
+}

@@ -1,0 +1,36 @@
+id: otitis_media_child
+version: 0.2
+match:
+  any_keywords: ["ear pain", "earache", "tugging ear", "pulling ear", "otitis media", "middle ear infection", "fever with ear pain", "crying at night"]
+questions:
+  - id: age
+    prompt: "How old is the child?"
+    store_as: age
+  - id: duration
+    prompt: "How long has the ear pain been present? (e.g., hours, 2 days)"
+    store_as: duration
+  - id: fever
+    prompt: "Any fever? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: severe_pain
+    prompt: "Is the pain severe or is the child inconsolable? (yes/no)"
+    store_as: severe_pain
+    type: yesno
+  - id: ear_discharge
+    prompt: "Any drainage/pus coming from the ear? (yes/no)"
+    store_as: ear_discharge
+    type: yesno
+  - id: mastoid_redflag
+    prompt: "Any swelling/redness/tenderness behind the ear or the ear sticking out more than usual? (yes/no)"
+    store_as: mastoid_redflag
+    type: yesno
+  - id: immunocompromised
+    prompt: "Does the child have major medical problems or a weakened immune system? (yes/no)"
+    store_as: immunocompromised
+    type: yesno
+stop_rules:
+  - if_all_answered: ["age", "duration", "fever", "severe_pain", "ear_discharge", "mastoid_redflag", "immunocompromised"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

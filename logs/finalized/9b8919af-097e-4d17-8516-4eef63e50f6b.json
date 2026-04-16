@@ -1,0 +1,57 @@
+{
+  "packet_id": "9b8919af-097e-4d17-8516-4eef63e50f6b",
+  "created_at": "2026-03-27T18:24:38.412161+00:00",
+  "session_id": "54c71cae-b2aa-432e-8ca7-b9ad4c95c8be",
+  "pathway_id": "",
+  "base_queries": [
+    "low back pain management guidelines adults",
+    "adult low back pain treatment dosing duration contraindications",
+    "red flags in low back pain neurological symptoms bladder bowel issues"
+  ],
+  "queries": [
+    "AAFP low back pain management guidelines adults",
+    "AAFP adult low back pain treatment dosing duration contraindications",
+    "MedlinePlus low back pain management guidelines adults",
+    "MedlinePlus adult low back pain treatment dosing duration contraindications",
+    "CDC low back pain management guidelines adults",
+    "CDC adult low back pain treatment dosing duration contraindications",
+    "NIH low back pain management guidelines adults",
+    "NIH adult low back pain treatment dosing duration contraindications",
+    "NICE low back pain management guidelines adults",
+    "NICE adult low back pain treatment dosing duration contraindications",
+    "WHO low back pain management guidelines adults",
+    "WHO adult low back pain treatment dosing duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "accessed": "2026-03-27",
+      "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+    },
+    {
+      "title": "How to manage low back pain before it gets worse | NIH MedlinePlus Magazine",
+      "source": "magazine.medlineplus.gov",
+      "url": "https://magazine.medlineplus.gov/article/how-to-manage-low-back-pain-before-it-gets-worse",
+      "accessed": "2026-03-27",
+      "snippet": "Dr. Lurie explains that acupuncture, spinal manipulation, or physical therapy are other potential treatment options, depending on your type of low back pain. There are also behavioral treatments like biofeedback and nerve stimulation, which use electric pulses to help people learn how to manage pain. This type of care is recommended as a first line of treatment before medication."
+    },
+    {
+      "title": "Low Back Pain | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/back-pain.html",
+      "accessed": "2026-03-27",
+      "snippet": "Nonpharmacologic treatment, including exercise, multidisciplinary rehabilitation, acupuncture, mindfulness-based stress reduction, tai chi, yoga, motor control exercise, progressive relaxation, biofeedback, low-level laser therapy, cognitive behavioral therapy, or spinal manipulation, should be used initially for most patients who have chronic low back pain."
+    },
+    {
+      "title": "Taking care of your back at home: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/002119.htm",
+      "accessed": "2026-03-27",
+      "snippet": "Stop normal physical activity for only the first few days. This helps calm your symptoms and reduce swelling (inflammation) in the area of the pain. Apply heat or ice to the painful area. Use ice for the first 48 to 72 hours, and then use heat. Take over-the-counter pain relievers such as ibuprofen (Advil, Motrin IB) or acetaminophen (Tylenol). Sleep in a curled-up, fetal position with a pillow between your legs. If you usually sleep on your back, place a pillow or rolled towel under your knees to relieve pressure. Do not do activities that involve heavy lifting or twisting of your back for the first 6 weeks after the pain begins. Do not exercise in the days right after the pain begins. After 2 to 3 weeks, slowly begin to exercise again. A physical therapist can teach you which exercises are right for you. EXERCISE TO PREVENT FUTURE BACK PAIN"
+    }
+  ],
+  "note_text": "S: The patient is a 51-year-old male presenting with a one-week history of sharp low back pain localized along the spine and radiating to the right buttock. The pain began after heavy lifting while helping his daughter move into her dorm room. He denies any numbness, tingling, weakness, bladder or bowel dysfunction, fever, chills, or unexplained weight loss. He has tried icing, heat, hot baths, and acetaminophen (Tylenol) with minimal relief. There is no history of chronic back problems, arthritis, or osteoporosis.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute mechanical low back pain likely due to muscle strain from heavy lifting.\nDifferential:\n1. Lumbar muscle strain\n2. Lumbar radiculopathy (early or mild)\n3. Facet joint syndrome\n4. Sacroiliac joint dysfunction\n\nP: - First-line medication: Naproxen 500 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain for up to 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient has no known renal or liver disease; no allergies to NSAIDs reported; monitor for gastrointestinal side effects\n- Follow-up recommendations: Seek in-person medical care urgently if new onset of leg weakness, numbness, bowel or bladder dysfunction, or worsening pain occurs; otherwise, follow up if symptoms persist beyond 2 weeks or worsen\n- Testing: Not indicated at this time given absence of red flag symptoms"
+}

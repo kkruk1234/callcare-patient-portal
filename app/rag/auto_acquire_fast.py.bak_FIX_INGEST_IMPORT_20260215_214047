@@ -1,0 +1,261 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Sequence
+
+
+TRUSTED_DOMAINS_DEFAULT = [
+    "nhs.uk",
+    "nice.org.uk",
+    "aafp.org",
+    "cdc.gov",
+    "nih.gov",
+    "medlineplus.gov",
+    "dailymed.nlm.nih.gov",
+    "fda.gov",
+    "who.int",
+    "ncbi.nlm.nih.gov",
+    "pubmed.ncbi.nlm.nih.gov",
+]
+
+LIB_ROOT = Path("data") / "sources" / "library"
+PACKS_ROOT = Path("data") / "packs"
+LOG_PATH = Path("logs") / "auto_acquire_attempts.json"
+
+
+@dataclass
+class AcquireResult:
+    ok: bool
+    query: str
+    urls_found: int
+    urls_allowed: int
+    urls_ingested: int
+    pack_path: Optional[str]
+    elapsed_sec: float
+    error: Optional[str]
+    ingested_docs: List[Dict[str, Any]]  # {title,url,text,source}
+
+
+def _now() -> float:
+    return time.time()
+
+
+def _stable_hash(s: str) -> str:
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
+
+
+def _ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def _write_json(path: Path, obj: Any) -> None:
+    _ensure_dir(path.parent)
+    path.write_text(json.dumps(obj, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def _read_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _append_log(item: Dict[str, Any]) -> None:
+    _ensure_dir(LOG_PATH.parent)
+    data: List[Any] = []
+    if LOG_PATH.exists():
+        try:
+            existing = _read_json(LOG_PATH)
+            if isinstance(existing, list):
+                data = existing
+            elif isinstance(existing, dict):
+                # Convert dict log to list (preserve insertion order in py3.7+)
+                data = list(existing.values())
+            else:
+                data = []
+        except Exception:
+            data = []
+    data.append(item)
+    _write_json(LOG_PATH, data)
+
+
+def _domain_allowed(url: str, allowed_domains: Sequence[str]) -> bool:
+    u = (url or "").lower()
+    return any(d.lower().strip() in u for d in allowed_domains if d)
+
+
+def _openai_web_search_urls(query: str, *, max_urls: int) -> List[str]:
+    """
+    Reuse your existing OpenAI web search helper.
+    """
+    try:
+        from app.rag.auto_acquire import _openai_web_search_urls as existing  # type: ignore
+        urls = existing(query=query, max_urls=max_urls)  # type: ignore
+        if isinstance(urls, list):
+            return [u for u in urls if isinstance(u, str) and u.strip()][:max_urls]
+        return []
+    except Exception:
+        return []
+
+
+def _scan_library_for_urls(urls: List[str], *, modified_after: float) -> List[Dict[str, Any]]:
+    """
+    Find ingested docs by matching URL inside stored source.json, regardless of ingest return format.
+    Only consider source.json files modified after modified_after.
+    """
+    if not LIB_ROOT.exists():
+        return []
+
+    want = set([u.strip() for u in urls if isinstance(u, str) and u.strip()])
+    if not want:
+        return []
+
+    found: List[Dict[str, Any]] = []
+
+    for p in LIB_ROOT.rglob("source.json"):
+        try:
+            st = p.stat()
+            if st.st_mtime < modified_after:
+                continue
+
+            src = _read_json(p)
+            if not isinstance(src, dict):
+                continue
+
+            src_url = (src.get("url") or src.get("source_url") or "").strip()
+            if not src_url or src_url not in want:
+                continue
+
+            title = (src.get("title") or "").strip()
+            text_path = p.parent / "content.txt"
+            text = ""
+            if text_path.exists():
+                try:
+                    text = text_path.read_text(encoding="utf-8", errors="ignore")
+                except Exception:
+                    text = ""
+
+            found.append(
+                {
+                    "title": title or src_url,
+                    "url": src_url,
+                    "text": (text or "")[:4000],
+                    "source": "auto_acquire",
+                }
+            )
+        except Exception:
+            continue
+
+    # Dedupe by URL preserve order
+    seen = set()
+    out = []
+    for d in found:
+        u = d.get("url")
+        if not u or u in seen:
+            continue
+        seen.add(u)
+        out.append(d)
+    return out
+
+
+def acquire_ingest_attach(
+    *,
+    query: str,
+    allowed_domains: Optional[Sequence[str]] = None,
+    max_urls: int = 4,
+    time_budget_sec: float = 8.0,
+) -> AcquireResult:
+    t0 = _now()
+    allowed = list(allowed_domains) if allowed_domains else list(TRUSTED_DOMAINS_DEFAULT)
+
+    pack_path: Optional[str] = None
+    ingested_docs: List[Dict[str, Any]] = []
+    raw_urls: List[str] = []
+    allowed_urls: List[str] = []
+
+    try:
+        if _now() - t0 > time_budget_sec:
+            raise TimeoutError("time budget exceeded before search")
+
+        raw_urls = _openai_web_search_urls(query, max_urls=max_urls * 4)
+        raw_urls = list(dict.fromkeys([u for u in raw_urls if isinstance(u, str) and u.strip()]))
+
+        allowed_urls = [u for u in raw_urls if _domain_allowed(u, allowed)][:max_urls]
+
+        h = _stable_hash(query)
+        pack = {
+            "id": f"auto_{h}",
+            "created_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "query": query,
+            "urls": allowed_urls,
+            "allowed_domains": allowed,
+        }
+        pack_path = str(PACKS_ROOT / f"auto_{h}.json")
+        _write_json(Path(pack_path), pack)
+
+        if _now() - t0 > time_budget_sec:
+            raise TimeoutError("time budget exceeded before ingest")
+
+        # Ingest pack
+        ingest_started = _now()
+        try:
+            from app.rag.ingest_urls import ingest_pack  # type: ignore
+            ingest_pack(pack_path)  # type: ignore
+        except Exception:
+            from app.rag.ingest_urls import ingest_urls  # type: ignore
+            ingest_urls(pack_path)  # type: ignore
+
+        # Attach newly ingested docs by scanning library (not depending on ingest return format)
+        ingested_docs = _scan_library_for_urls(allowed_urls, modified_after=ingest_started - 1.0)
+
+        elapsed = _now() - t0
+        _append_log(
+            {
+                "ok": True,
+                "query": query,
+                "urls_found": len(raw_urls),
+                "urls_allowed": len(allowed_urls),
+                "urls_ingested": len(ingested_docs),
+                "pack_path": pack_path,
+                "elapsed_sec": round(elapsed, 3),
+            }
+        )
+        return AcquireResult(
+            ok=True,
+            query=query,
+            urls_found=len(raw_urls),
+            urls_allowed=len(allowed_urls),
+            urls_ingested=len(ingested_docs),
+            pack_path=pack_path,
+            elapsed_sec=elapsed,
+            error=None,
+            ingested_docs=ingested_docs,
+        )
+
+    except Exception as e:
+        elapsed = _now() - t0
+        _append_log(
+            {
+                "ok": False,
+                "query": query,
+                "urls_found": len(raw_urls),
+                "urls_allowed": len(allowed_urls),
+                "urls_ingested": len(ingested_docs),
+                "pack_path": pack_path,
+                "elapsed_sec": round(elapsed, 3),
+                "error": f"{type(e).__name__}: {e}",
+            }
+        )
+        return AcquireResult(
+            ok=False,
+            query=query,
+            urls_found=len(raw_urls),
+            urls_allowed=len(allowed_urls),
+            urls_ingested=len(ingested_docs),
+            pack_path=pack_path,
+            elapsed_sec=elapsed,
+            error=f"{type(e).__name__}: {e}",
+            ingested_docs=ingested_docs,
+        )

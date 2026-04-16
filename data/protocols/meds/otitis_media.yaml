@@ -1,0 +1,32 @@
+# Clinician-facing medication/dosing protocol for: otitis_media
+# Tier 1: reviewer must approve/modify.
+
+requires_pregnancy_status: true
+
+rx_options:
+  - med: "Amoxicillin-clavulanate"
+    dosing: "875/125 mg PO twice daily x 7 days"
+    exclusions: "Avoid if anaphylaxis/angioedema to penicillins/cephalosporins; adjust for renal impairment per clinician judgment."
+    notes: "Reasonable option when otorrhea/perforation suspected, recurrent AOM, or recent amoxicillin exposure. Confirm indication + duration based on severity and exam availability."
+
+  - med: "Azithromycin"
+    dosing: "500 mg PO day 1, then 250 mg PO daily days 2–5"
+    exclusions: "Macrolide allergy; QT prolongation risk/interaction review."
+    notes: "Option for immediate-type beta-lactam allergy. Pregnancy: generally considered acceptable; still confirm pregnancy status and review QT/interaction risks."
+
+  - med: "Clindamycin"
+    dosing: "300 mg PO every 6 hours x 7–10 days"
+    exclusions: "History of C. difficile/high CDI risk; lincosamide allergy."
+    notes: "Alternative when beta-lactams contraindicated; does not cover H. influenzae well—use clinician judgment. Pregnancy: generally considered acceptable; confirm status and trimester considerations."
+
+supportive_care:
+  - item: "Analgesia"
+    details: "OTC analgesics/antipyretics if safe (avoid dosing instructions by phone)."
+  - item: "Hydration/rest"
+    details: "Encourage fluids and rest."
+
+followup_and_safety:
+  - item: "Follow-up"
+    details: "Re-evaluation in 48–72 hours if not improving; sooner for worsening symptoms."
+  - item: "Return precautions"
+    details: "Seek urgent care/ED for severe/worsening pain, mastoid tenderness/swelling, high fever, new vertigo, severe headache/neck stiffness, facial weakness, altered mental status, or signs of dehydration."

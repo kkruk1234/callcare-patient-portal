@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Frequently Asked Questions (FAQs)",
+  "url": "https://medlineplus.gov/medlineplus-connect/faqs/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "y and format of the information.\nTo view the differences between the two, check out the Web application demonstration page and the Web service demonstration page .\nBoth the MedlinePlus Connect Web application and the MedlinePlus Connect Web service support the HL7 Context-Aware Knowledge Retrieval (Infobutton) Knowledge Request Standard .\nIn addition to MedlinePlus Connect, what other data services does MedlinePlus provide? \nMedlinePlus offers a search-based Web service that provides access to MedlinePlus health topic data in XML format. Using the Web service, software developers can build applications that utilize MedlinePlus health topic information. The service accepts keyword searches as requests and returns relevant health topics in ranked order. Keyword searches may be limited to specific fields. The service also returns health topic summaries, search result snippets, external links, and other associated data. \nMedlinePlus also produces XML data sets of health topic and health topic group information. The XML sets are available in English and Spanish. \nMedlinePlus Connect Users \nMedlinePlus Connect Users \nWho uses MedlinePlus Connect? \nThe MedlinePlus Connect users list contains health care organizations and electronic health record systems that have told us they are using MedlinePlus Connect. The list is not comprehensive, and because use of MedlinePlus Connect does not",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_faqs_9f7bfefd71c9",
+  "chunk_id": "chunk_006"
+}

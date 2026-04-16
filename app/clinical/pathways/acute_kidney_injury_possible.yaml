@@ -1,0 +1,22 @@
+id: acute_kidney_injury_possible
+version: 0.1
+match:
+  any_keywords: ["not peeing", "not urinating", "very little urine", "acute kidney injury", "kidneys failing", "swelling and not peeing"]
+questions:
+  - id: very_low
+    prompt: "Are you barely urinating, or not urinating at all today? (yes/no)"
+    store_as: anuria_oliguria
+    type: yesno
+  - id: severe
+    prompt: "Any confusion, fainting, severe weakness, or chest pressure? (yes/no)"
+    store_as: severe
+    type: yesno
+  - id: dehydration
+    prompt: "Have you had significant vomiting/diarrhea or poor fluid intake? (yes/no)"
+    store_as: dehydration_trigger
+    type: yesno
+stop_rules:
+  - if_all_answered: ["very_low", "severe", "dehydration"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

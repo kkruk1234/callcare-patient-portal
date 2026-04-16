@@ -1,0 +1,57 @@
+{
+  "packet_id": "6128ed12-ef63-4a68-91c7-a73d90857c65",
+  "created_at": "2026-03-05T23:05:52.369874+00:00",
+  "session_id": "f4bb6f35-80c4-4ad2-8a6a-73d5ec2a53a0",
+  "pathway_id": "",
+  "base_queries": [
+    "back pain management guidelines adult",
+    "adult back pain treatment dosing acetaminophen contraindications",
+    "red flags in adult back pain evaluation"
+  ],
+  "queries": [
+    "AAFP back pain management guidelines adult",
+    "AAFP adult back pain treatment dosing acetaminophen contraindications",
+    "MedlinePlus back pain management guidelines adult",
+    "MedlinePlus adult back pain treatment dosing acetaminophen contraindications",
+    "CDC back pain management guidelines adult",
+    "CDC adult back pain treatment dosing acetaminophen contraindications",
+    "NIH back pain management guidelines adult",
+    "NIH adult back pain treatment dosing acetaminophen contraindications",
+    "NICE back pain management guidelines adult",
+    "NICE adult back pain treatment dosing acetaminophen contraindications",
+    "WHO back pain management guidelines adult",
+    "WHO adult back pain treatment dosing acetaminophen contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "accessed": "2026-03-05",
+      "snippet": "Although demonstrated to be beneficial in patients with chronic low back pain, there is not enough research to support a recommendation for or against spinal manipulation and mobilization for patients with acute low back pain."
+    },
+    {
+      "title": "Acetaminophen - StatPearls - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/books/n/statpearls/article-17074",
+      "accessed": "2026-03-05",
+      "snippet": "Adults and adolescents (13 or older) with a body weight of ≥50 kg:  The recommended dosage of acetaminophen is 1000 mg every 6 hours or 650 mg every 4 hours. The maximum single dose should not exceed 1000 mg, and the minimum dosing interval is 4 hours. Notably, the maximum daily dosage of acetaminophen should not exceed 4000 mg."
+    },
+    {
+      "title": "Taking care of your back at home: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/002119.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Improve your posture Strengthen your back and abdomen, and improve flexibility Lose weight Avoid falls A complete exercise program should include aerobic activity such as walking, swimming, or riding a stationary bicycle. It should also include stretching and strength training. Follow the instructions of your provider or physical therapist."
+    },
+    {
+      "title": "Medicines for back pain: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/007486.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Updated by: C. Benjamin Ma, MD, Professor, Chief, Sports Medicine and Shoulder Service, UCSF Department of Orthopaedic Surgery, San Francisco, CA. Also reviewed by David C. Dugdale, MD, Medical Director, Brenda Conaway, Editorial Director, and the A.D.A.M. Editorial team."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. The pain improves with better posture and is not associated with any recent trauma, fever, chills, weight loss, respiratory symptoms, or neurological deficits. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of kidney problems, urinary symptoms, osteoporosis, cancer, or recent infections.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal back pain likely related to postural strain or muscle irritation.\nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib dysfunction\n3. Early intercostal nerve irritation\n4. Referred pain from visceral sources (less likely given lack of systemic symptoms)\n\nP: - First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) orally (per evidence) (e.g., ibuprofen, naproxen)\n- Alternatives: Muscle relaxants or topical analgesics\n- Medication safety considerations: Avoid NSAIDs if gastrointestinal, renal, or liver disease develops; patient currently has no contraindications\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, new neurological symptoms develop, or systemic symptoms such as fever or weight loss occur; seek emergency care if sudden severe pain or respiratory symptoms develop\n- Testing: Not indicated at this time given stable symptoms and no red flags"
+}

@@ -1,0 +1,119 @@
+{
+  "packet_id": "f4002d6c-bd5e-4af3-8aee-d01cd14daf03",
+  "created_at": "2026-02-21T15:49:43.318530+00:00",
+  "session_id": "4e315735-3af1-4a48-b504-48b07bbd63fd",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Have you noticed any recent trauma or injury to your back or ribs?",
+    "intake_a4": "no",
+    "intake_q5": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for your back pain, and if so, what was the effect?",
+    "intake_a6": "I tried tylenol but it didn't really help",
+    "intake_q7": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a7": "no",
+    "intake_q8": "Have you noticed any abdominal pain, changes in bowel or bladder function, or unexplained weight loss?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the nature of the pain? For example, is it sharp, dull, burning, or aching?",
+    "intake_a10": "dull",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with a 3-week history of dull back pain localized to the left side of the lower rib cage. She denies any fever, chills, night sweats, recent trauma, numbness, weakness, tingling, shortness of breath, cough, chest pain, abdominal pain, changes in bowel or bladder function, or unexplained weight loss. She has no history of osteoporosis, cancer, or recent infections. She has tried acetaminophen (Tylenol) without significant relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical examination available.\n\nA: \nThe working diagnosis is musculoskeletal pain localized to the left lower rib cage, likely due to a strain or minor soft tissue injury given the absence of systemic symptoms or neurologic deficits. \n\nDifferential: \n1. Musculoskeletal strain or soft tissue injury \n2. Costochondritis or rib inflammation \n3. Intercostal nerve irritation \n4. Early presentation of visceral pathology (e.g., splenic or renal causes), less likely given lack of systemic symptoms \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n- Alternatives: Acetaminophen may be continued if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. (avoid in renal disease; especially severe CKD/dialysis)\n- Medication safety considerations: Use NSAIDs with caution if there is any history of gastrointestinal issues or renal impairment; patient currently denies renal or liver disease. Avoid NSAIDs in pregnancy, which is not applicable here. \n- Return precautions: Advise the patient to seek immediate care if she develops fever, worsening pain, neurological symptoms (numbness, weakness, tingling), chest pain, shortness of breath, or any new abdominal symptoms. \n- Testing: No testing indicated at this time given the absence of red flag symptoms; consider imaging or further evaluation if symptoms worsen or fail to improve with conservative management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://nhs.uk/conditions/back-pain",
+        "snippet": "Find out how to relieve back pain, what can cause it, and when to get medical advice."
+      },
+      {
+        "title": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE",
+        "source": "https://nice.org.uk/guidance/ng59",
+        "snippet": "Authoritative clinical reference (see source)."
+      },
+      {
+        "title": "Alteration of microRNA Expression Associated with Chronic Back Pain in Patients with Intervertebral Disc Degeneration: A Scoping Review - PubMed",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/41683594",
+        "snippet": "Chronic back pain (CBP) associated with intervertebral disc degeneration (IVDD) is a leading cause of medical consultations, decreased quality of life, and temporary and permanent disability. The mechanisms of CBP development and persistence in patients with IVDD have been studied for many years, bu …"
+      },
+      {
+        "title": "Immunometabolism: A Novel Therapeutic Target and Its Pharmacological Modulation for Intervertebral Disc Degeneration - PubMed",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/41683563",
+        "snippet": "Intervertebral disc degeneration (IDD) is a leading cause of low back pain (LBP) and imposes a substantial social and economic burden. Current treatments mainly relieve symptoms but rarely halt or reverse disc degeneration, and key gaps remain in our understanding of its pathophysiology. Accordingly …"
+      },
+      {
+        "title": "Effectiveness of epidural steroid injections for low back pain in older adults: a systematic review - PubMed",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/41653389",
+        "snippet": "Not Applicable."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back pain - NHS",
+      "source": "https://nhs.uk/conditions/back-pain",
+      "snippet": "Find out how to relieve back pain, what can cause it, and when to get medical advice."
+    },
+    {
+      "title": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE",
+      "source": "https://nice.org.uk/guidance/ng59",
+      "snippet": "Authoritative clinical reference (see source)."
+    },
+    {
+      "title": "Alteration of microRNA Expression Associated with Chronic Back Pain in Patients with Intervertebral Disc Degeneration: A Scoping Review - PubMed",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41683594",
+      "snippet": "Chronic back pain (CBP) associated with intervertebral disc degeneration (IVDD) is a leading cause of medical consultations, decreased quality of life, and temporary and permanent disability. The mechanisms of CBP development and persistence in patients with IVDD have been studied for many years, bu …"
+    },
+    {
+      "title": "Immunometabolism: A Novel Therapeutic Target and Its Pharmacological Modulation for Intervertebral Disc Degeneration - PubMed",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41683563",
+      "snippet": "Intervertebral disc degeneration (IDD) is a leading cause of low back pain (LBP) and imposes a substantial social and economic burden. Current treatments mainly relieve symptoms but rarely halt or reverse disc degeneration, and key gaps remain in our understanding of its pathophysiology. Accordingly …"
+    },
+    {
+      "title": "Effectiveness of epidural steroid injections for low back pain in older adults: a systematic review - PubMed",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41653389",
+      "snippet": "Not Applicable."
+    }
+  ],
+  "state": null
+}

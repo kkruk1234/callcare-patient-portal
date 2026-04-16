@@ -1,0 +1,25 @@
+id: gout_flare
+version: 0.1
+match:
+  any_keywords: ["gout", "big toe pain", "podagra", "hot red swollen joint", "sudden joint swelling", "gout attack"]
+questions:
+  - id: fever
+    prompt: "Do you have fever or feel very ill? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: single_joint
+    prompt: "Is it mainly one joint that is very red, hot, and swollen? (yes/no)"
+    store_as: monoarthritis
+    type: yesno
+
+  - id: immuno
+    prompt: "Do you have a weakened immune system, diabetes with poor control, or a joint replacement? (yes/no/unknown)"
+    store_as: high_risk
+
+stop_rules:
+  - if_all_answered: ["fever","single_joint","immuno"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

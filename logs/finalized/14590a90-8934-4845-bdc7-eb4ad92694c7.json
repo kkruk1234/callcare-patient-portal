@@ -1,0 +1,67 @@
+{
+  "packet_id": "67af161d-6e58-4662-8944-02129dfa6421",
+  "created_at": "2026-02-26T20:08:51.274066+00:00",
+  "session_id": "14590a90-8934-4845-bdc7-eb4ad92694c7",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney problems, urinary symptoms, or abdominal pain?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any numbness, tingling, weakness, or changes in bowel or bladder function?",
+    "intake_a8": "no",
+    "intake_q9": "Have you noticed any swelling, bruising, or skin changes over the area of your back pain?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of recent infections, such as shingles or respiratory infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, urinary symptoms, numbness, tingling, weakness, or bowel/bladder changes. She has tried acetaminophen (Tylenol) with minimal relief. There are no signs of swelling, bruising, or skin changes, and no recent infections such as shingles or respiratory infections. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage without systemic symptoms or neurological deficits. Differential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib dysfunction\n3. Intercostal nerve irritation\n4. Early presentation of visceral pathology (e.g., renal or splenic causes) though less likely given absence of systemic symptoms\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen\n- Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n- Medication safety considerations: Avoid NSAIDs if history of renal or liver disease, gastrointestinal bleeding, or allergy; monitor for side effects\n- Return precautions: Advise patient to seek care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), bowel or bladder dysfunction, or new systemic symptoms\n- Testing: Not indicated at this time given absence of red flags; consider imaging or labs if symptoms worsen or fail to improve with conservative treatment",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

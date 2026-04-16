@@ -1,0 +1,25 @@
+id: cellulitis
+version: 0.1
+match:
+  any_keywords: ["cellulitis", "skin redness spreading", "hot red skin", "skin infection spreading", "red swollen skin"]
+questions:
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: rapid
+    prompt: "Is the redness spreading quickly or is there severe pain out of proportion? (yes/no)"
+    store_as: rapid_spread_or_severe_pain
+    type: yesno
+
+  - id: face
+    prompt: "Is this on the face/near an eye, or do you have diabetes/immunosuppression? (yes/no/unknown)"
+    store_as: high_risk
+
+stop_rules:
+  - if_all_answered: ["fever","rapid","face"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

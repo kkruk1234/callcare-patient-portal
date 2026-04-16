@@ -1,0 +1,25 @@
+id: allergic_rhinitis
+version: 0.1
+match:
+  any_keywords: ["allergic rhinitis", "hay fever", "seasonal allergies", "sneezing", "itchy nose", "runny nose allergies", "postnasal drip allergies"]
+questions:
+  - id: breathing
+    prompt: "Any trouble breathing, wheezing, or chest tightness? (yes/no)"
+    store_as: breathing_redflag
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever or severe facial pain? (yes/no)"
+    store_as: infection_concern
+    type: yesno
+
+  - id: duration
+    prompt: "How many days have symptoms been going on?"
+    store_as: days
+
+stop_rules:
+  - if_all_answered: ["breathing","fever","duration"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

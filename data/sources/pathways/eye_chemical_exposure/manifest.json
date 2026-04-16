@@ -1,0 +1,20 @@
+{
+  "pathway_id": "eye_chemical_exposure",
+  "sources": [
+    {
+      "title": "AAO EyeNet: Treating Acute Chemical Injuries of the Cornea",
+      "url": "https://www.aao.org/eyenet/article/treating-acute-chemical-injuries-of-cornea",
+      "type": "authoritative_guideline_article"
+    },
+    {
+      "title": "Chemical injuries of the eye (2019 review, PMC)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6751045/",
+      "type": "peer_reviewed_review"
+    },
+    {
+      "title": "University of Iowa EyeRounds: Chemical Eye Injury (case/tutorial)",
+      "url": "https://webeye.ophth.uiowa.edu/eyeforum/cases/307-chemical-eye-injury.htm",
+      "type": "academic_clinical_reference"
+    }
+  ]
+}

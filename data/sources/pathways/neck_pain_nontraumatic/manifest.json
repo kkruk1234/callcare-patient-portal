@@ -1,0 +1,11 @@
+{
+  "pathway_id": "neck_pain_nontraumatic",
+  "sources": [
+    {
+      "source_id": "medline_neck_pain",
+      "type": "url",
+      "title": "MedlinePlus: Neck Pain",
+      "url": "https://medlineplus.gov/neckpain.html"
+    }
+  ]
+}

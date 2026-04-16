@@ -1,0 +1,135 @@
+{
+  "call_sid": "CAe12ee474ab1311d967eb94b8948f02ee",
+  "session_id": "95c283a7-ad76-4122-9615-bc2732caab73",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-27T20:26:39.971883+00:00",
+  "ended_at": "2026-03-27T20:32:15.764863+00:00",
+  "packet_id": "31cbd1e6-5e39-4271-9c35-4ead54f09200",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yaz"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have diarrhea"
+    },
+    {
+      "role": "assistant",
+      "text": "When did your diarrhea start?"
+    },
+    {
+      "role": "user",
+      "text": "Like, 2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you having any fever, blood in your stool, or severe abdominal pain?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have a little bit of abdominal pain, but definitely not severe abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you traveled recently or eaten any unusual foods before your diarrhea started?"
+    },
+    {
+      "role": "user",
+      "text": "Well, my daughter made this extremely, extremely spicy lunch, and I've been eating I ate that a few days ago, and I've been eating the leftovers each day. And I just I'm thinking that that's"
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea, vomiting, or signs of dehydration like dizziness or decreased urination?"
+    },
+    {
+      "role": "user",
+      "text": "No. I've been drinking more liquid because of it because I've been going to the bathroom so often."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any medications or treatments to help with the diarrhea?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have tried absolutely nothing except to stop eating the leftovers. We're all done with it. Thank god."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent antibiotic use or chronic medical conditions like inflammatory bowel disease?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "Vosevi"
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "I'm still 47 since you asked me before"
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin"
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Novarel"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Novarel"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like your diarrhea is most likely caused by irritation from the spicy food you ate. For now, you can try taking loperamide or bismuth subsalicylate to help reduce your symptoms, but a licensed physician will review your case and decide if medication is appropriate. Keep drinking plenty of fluids to stay hydrated. If your diarrhea lasts more than two days, or if you develop a fever, blood in your stool, severe abdominal pain, or signs of dehydration like dizziness or very little urine, please seek in-person care right away. If you experience severe symptoms like confusion or intense pain, go to the emergency room immediately. Since this is a phone visit, no tests or exams were done today, and a doctor will review your information to guide any further treatment."
+    }
+  ]
+}

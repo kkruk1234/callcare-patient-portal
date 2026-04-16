@@ -1,0 +1,65 @@
+from __future__ import annotations
+
+import os
+from pathlib import Path
+from typing import Optional, Any
+
+# Env switches:
+# - CALLCARE_RAG=0     -> skip embeddings entirely
+# - CALLCARE_OFFLINE=1 -> force offline (no HF downloads)
+# - CALLCARE_EMBED_CACHE=... -> where model files live
+# - CALLCARE_EMBED_MODEL=... -> model name/path
+
+_MARKER = "CALLCARE_EMBEDDINGS_HELPER_V1"
+
+_embedder: Optional[Any] = None
+_embedder_error: Optional[str] = None
+_initialized = False
+
+
+def _truthy(v: str) -> bool:
+    return str(v or "").strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
+def get_embedder() -> Optional[Any]:
+    """
+    Return a SentenceTransformer embedder, or None if disabled/unavailable.
+    Never raises: safe for production/demos.
+    """
+    global _initialized, _embedder, _embedder_error
+
+    if _initialized:
+        return _embedder
+
+    _initialized = True
+
+    if _truthy(os.getenv("CALLCARE_RAG", "1")) is False:
+        _embedder = None
+        _embedder_error = "RAG disabled via CALLCARE_RAG=0"
+        return None
+
+    # Force offline behavior if requested (prevents runtime downloads)
+    if _truthy(os.getenv("CALLCARE_OFFLINE", "0")):
+        os.environ.setdefault("HF_HUB_OFFLINE", "1")
+        os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
+    cache = os.getenv("CALLCARE_EMBED_CACHE", "data/models/hf")
+    model = os.getenv("CALLCARE_EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
+
+    # Ensure cache dir exists
+    Path(cache).mkdir(parents=True, exist_ok=True)
+
+    try:
+        from sentence_transformers import SentenceTransformer
+        _embedder = SentenceTransformer(model, cache_folder=cache)
+        _embedder_error = None
+        return _embedder
+    except Exception as e:
+        # Do NOT crash the system; fall back to non-embedding retrieval
+        _embedder = None
+        _embedder_error = f"{type(e).__name__}: {e}"
+        return None
+
+
+def get_embedder_error() -> str:
+    return _embedder_error or ""

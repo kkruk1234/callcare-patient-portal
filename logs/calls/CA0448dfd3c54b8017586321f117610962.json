@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA0448dfd3c54b8017586321f117610962",
+  "session_id": "ac54d916-d129-420a-82a6-b4f8c4e80e83",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-09T13:23:21.036463+00:00",
+  "ended_at": "2026-03-09T13:28:02.226874+00:00",
+  "packet_id": "3787d523-ee18-48dd-8f36-a2fb1d68fc89",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "Sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any fever, chills, or swollen glands?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing or swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "All of the above."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the difficulty breathing? Are you experiencing any noisy breathing, stridor, or worsening shortness of breath?"
+    },
+    {
+      "role": "user",
+      "text": "That was a lot of questions at once."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if your breathing difficulty is worse when lying down or if you feel like your throat is closing?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have no problems breathing."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about the difficulty swallowing? Are you able to swallow liquids and saliva, or is it very painful or impossible?"
+    },
+    {
+      "role": "user",
+      "text": "I have no difficulty swallowing. It's just painful."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have noticed any rash, joint pain, or recent exposure to anyone with strep throat or COVID-19?"
+    },
+    {
+      "role": "user",
+      "text": "I have no rash, uh, nor I don't have any joint pain either either, and I have been exposed to somebody with strep throat."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have noticed any white patches or pus on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I have."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty opening your mouth or jaw stiffness?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have symptoms consistent with strep throat, which is a common bacterial infection causing sore throat, fever, and swollen glands. Because this is a phone visit, I can’t examine you or do tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe antibiotics like penicillin or amoxicillin. In the meantime, you can use acetaminophen (Tylenol) or ibuprofen (Advil) for pain and fever if you can take them safely. If you develop trouble breathing, can’t swallow saliva, worsening throat pain, or a very high fever, please seek in-person care urgently. If you experience severe airway blockage symptoms, go to the emergency room right away. A doctor will review your case soon and decide if testing or prescriptions are needed."
+    }
+  ]
+}

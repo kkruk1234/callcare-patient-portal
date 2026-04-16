@@ -1,0 +1,127 @@
+{
+  "call_sid": "CA0f9e67d0c5c7fad3adb653679e8ee17f",
+  "session_id": "8c7261ea-60d8-48da-9a5d-67e955dd9c4b",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-11T15:08:48.532266+00:00",
+  "ended_at": "2026-03-11T15:12:16.529859+00:00",
+  "packet_id": "12dfd37e-bd61-40d9-b200-459ed9939703",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I got laundry detergent in my eyes."
+    },
+    {
+      "role": "assistant",
+      "text": "How long ago did the detergent get in your eyes?"
+    },
+    {
+      "role": "user",
+      "text": "About 3 hours ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you rinsed your eyes with water since the detergent got in them?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you experiencing any eye pain, vision changes, redness, or discharge?"
+    },
+    {
+      "role": "user",
+      "text": "For about 20 minutes."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe any changes in your vision since the detergent got in your eyes?"
+    },
+    {
+      "role": "user",
+      "text": "I after I washed them out for 20 minutes, they are a little bit more red than they were before."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you currently experiencing any eye pain, blurred vision, or sensitivity to light?"
+    },
+    {
+      "role": "user",
+      "text": "And I feel a little bit of a scratchy sensation."
+    },
+    {
+      "role": "assistant",
+      "text": "Any worsening of symptoms like severe pain, inability to open the eye, or vision loss since rinsing?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "73."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Reduced kidney function. Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Steady liver Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have mild irritation in your eyes from getting laundry detergent in them. Since you rinsed your eyes well and your symptoms are mild, this is likely a mild chemical irritation. For now, using artificial tears can help soothe your eyes. A licensed physician will review this note and may recommend medication if needed. If you notice worsening pain, vision changes, trouble opening your eyes, or increased redness or discharge, please seek urgent in-person care right away. If severe symptoms develop, go to the emergency room. Because this is a phone visit, I can’t examine you or do tests, so if your symptoms don’t improve in the next day or two, consider seeing a healthcare provider in person."
+    }
+  ]
+}

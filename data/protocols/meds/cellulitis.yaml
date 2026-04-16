@@ -1,0 +1,37 @@
+# Clinician-facing medication/dosing protocol for: cellulitis
+# Tier 1: reviewer must approve/modify.
+
+rx_options:
+  - med: "Trimethoprim-sulfamethoxazole (TMP-SMX)"
+    dosing: "160/800 mg (1 DS tab) PO BID x 5–7 days"
+    exclusions: "Sulfa allergy; avoid 1st trimester if possible and near term; consider drug interactions; adjust/avoid in significant renal impairment per clinician judgment."
+    notes: "Preferred when purulence/abscess features or MRSA risk is present. Not ideal monotherapy for classic nonpurulent cellulitis (strep coverage may be needed)."
+
+  - med: "Clindamycin"
+    dosing: "300–450 mg PO TID x 5–7 days"
+    exclusions: "History of C. difficile/high CDI risk; lincosamide allergy."
+    notes: "Alternative if beta-lactam allergy or when MRSA coverage is needed (local resistance patterns apply)."
+
+  - med: "Cephalexin"
+    dosing: "500 mg PO QID x 5–7 days"
+    exclusions: "Immediate-type severe beta-lactam allergy; adjust in renal impairment per clinician judgment."
+    notes: "First-line for uncomplicated NONPURULENT cellulitis when MRSA risk is low."
+
+  - med: "Amoxicillin-clavulanate"
+    dosing: "875/125 mg PO BID x 5–7 days"
+    exclusions: "Immediate-type beta-lactam allergy; adjust in renal impairment."
+    notes: "Option when bite/wound flora or polymicrobial concern (clinician judgment)."
+
+supportive_care:
+  - item: "Local care"
+    details: "Elevation of affected area, gentle cleansing, avoid picking; mark border if feasible to track spread."
+  - item: "Pain/fever"
+    details: "Acetaminophen if safe; avoid NSAIDs in late pregnancy, renal disease, ulcer/GI bleed risk."
+
+followup_and_safety:
+  - item: "Expected course"
+    details: "Some redness may persist early; should not rapidly expand after 24–48h of therapy."
+  - item: "Re-evaluation"
+    details: "In-person evaluation if worsening after 24–48h, rapidly spreading erythema, severe pain, systemic symptoms, or inability to take PO."
+  - item: "Urgent/ED now"
+    details: "Fever with toxicity, rapidly progressive infection, severe pain out of proportion, immunocompromise, facial involvement/eye symptoms, necrosis, or concern for sepsis."

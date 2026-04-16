@@ -1,0 +1,525 @@
+from __future__ import annotations
+
+import asyncio
+import audioop
+import base64
+import io
+import json
+import math
+import os
+import time
+import wave
+from contextlib import suppress
+from dataclasses import dataclass, field
+from typing import Dict, Optional
+
+import httpx
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from fastapi.responses import PlainTextResponse
+
+from app.telephony.callcare_bridge import CallCareBridge
+
+bridge = CallCareBridge()
+
+
+app = FastAPI()
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+CALLCARE_PUBLIC_BASE_URL = os.getenv("CALLCARE_PUBLIC_BASE_URL", "").rstrip("/")
+
+CALLCARE_SILENCE_SECONDS = float(os.getenv("CALLCARE_SILENCE_SECONDS", "1.0"))
+CALLCARE_MIN_UTTERANCE_MS = int(os.getenv("CALLCARE_MIN_UTTERANCE_MS", "350"))
+CALLCARE_RMS_THRESHOLD = int(os.getenv("CALLCARE_RMS_THRESHOLD", "450"))
+
+CALLCARE_TTS_MODEL = os.getenv("CALLCARE_TTS_MODEL", "gpt-4o-mini-tts").strip()
+CALLCARE_TTS_VOICE = os.getenv("CALLCARE_TTS_VOICE", "marin").strip()
+CALLCARE_TTS_SPEED = float(os.getenv("CALLCARE_TTS_SPEED", "1.0"))
+
+CALLCARE_STT_MODEL = os.getenv("CALLCARE_STT_MODEL", "gpt-4o-mini-transcribe").strip()
+CALLCARE_STT_LANGUAGE = os.getenv("CALLCARE_STT_LANGUAGE", "en").strip()
+
+CALLCARE_HOLD_AUDIO_WAV = os.getenv("CALLCARE_HOLD_AUDIO_WAV", "static/hold_music.wav").strip()
+
+OPENING_HELLO = "Hello."
+PROCESSING_LINE = "Thank you for your responses. This may take up to a minute to process. Please stay on the line."
+POST_HOLD_LINE = "Thank you for holding."
+GOODBYE_LINE = "Thank you, goodbye."
+
+OPENAI_SPEECH_URL = "https://api.openai.com/v1/audio/speech"
+OPENAI_TRANSCRIBE_URL = "https://api.openai.com/v1/audio/transcriptions"
+
+
+def _log(msg: str) -> None:
+    print(f"[media-streams] {msg}", flush=True)
+
+
+def _xml_escape(text: str) -> str:
+    return (
+        str(text)
+        .replace("&", "&amp;")
+        .replace('"', "&quot;")
+        .replace("'", "&apos;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
+
+
+def _stream_wss_url() -> str:
+    if not CALLCARE_PUBLIC_BASE_URL:
+        raise RuntimeError("CALLCARE_PUBLIC_BASE_URL is not set.")
+    if CALLCARE_PUBLIC_BASE_URL.startswith("https://"):
+        return "wss://" + CALLCARE_PUBLIC_BASE_URL[len("https://"):] + "/twilio/media-stream"
+    if CALLCARE_PUBLIC_BASE_URL.startswith("http://"):
+        return "ws://" + CALLCARE_PUBLIC_BASE_URL[len("http://"):] + "/twilio/media-stream"
+    raise RuntimeError("CALLCARE_PUBLIC_BASE_URL must start with http:// or https://")
+
+
+def _mulaw_to_pcm16(mulaw_bytes: bytes) -> bytes:
+    return audioop.ulaw2lin(mulaw_bytes, 2)
+
+
+def _pcm16_to_mulaw(pcm16_bytes: bytes) -> bytes:
+    return audioop.lin2ulaw(pcm16_bytes, 2)
+
+
+def _rms_mulaw(mulaw_bytes: bytes) -> int:
+    if not mulaw_bytes:
+        return 0
+    return audioop.rms(_mulaw_to_pcm16(mulaw_bytes), 2)
+
+
+def _wav_bytes_from_pcm16(pcm16_bytes: bytes, rate: int = 8000) -> bytes:
+    buf = io.BytesIO()
+    with wave.open(buf, "wb") as wf:
+        wf.setnchannels(1)
+        wf.setsampwidth(2)
+        wf.setframerate(rate)
+        wf.writeframes(pcm16_bytes)
+    return buf.getvalue()
+
+
+def _wav_or_pcm_to_mulaw_8k(audio_bytes: bytes) -> bytes:
+    try:
+        with wave.open(io.BytesIO(audio_bytes), "rb") as wf:
+            channels = wf.getnchannels()
+            sampwidth = wf.getsampwidth()
+            framerate = wf.getframerate()
+            frames = wf.readframes(wf.getnframes())
+    except wave.Error:
+        # Assume raw PCM16 mono if not WAV
+        pcm16 = audio_bytes
+        return _pcm16_to_mulaw(pcm16)
+
+    pcm = frames
+    if channels != 1:
+        pcm = audioop.tomono(pcm, sampwidth, 0.5, 0.5)
+        channels = 1
+    if sampwidth != 2:
+        pcm = audioop.lin2lin(pcm, sampwidth, 2)
+        sampwidth = 2
+    if framerate != 8000:
+        pcm, _ = audioop.ratecv(pcm, 2, 1, framerate, 8000, None)
+
+    return _pcm16_to_mulaw(pcm)
+
+
+def _load_hold_mulaw() -> bytes:
+    if os.path.exists(CALLCARE_HOLD_AUDIO_WAV):
+        with open(CALLCARE_HOLD_AUDIO_WAV, "rb") as f:
+            return _wav_or_pcm_to_mulaw_8k(f.read())
+
+    # fallback tone if wav is missing
+    sample_rate = 8000
+    seconds = 5
+    total = sample_rate * seconds
+    pcm = bytearray()
+    notes = [440.0, 554.37, 659.25, 554.37]
+    seg = int(sample_rate * 1.25)
+
+    for i in range(total):
+        freq = notes[(i // seg) % len(notes)]
+        val = int(3200 * math.sin(2.0 * math.pi * freq * (i / sample_rate)))
+        pcm.extend(int(val).to_bytes(2, byteorder="little", signed=True))
+
+    return _pcm16_to_mulaw(bytes(pcm))
+
+
+HOLD_MULAW = _load_hold_mulaw()
+
+
+@dataclass
+class MediaSession:
+    call_sid: str
+    stream_sid: str
+    from_number: str = ""
+    to_number: str = ""
+    ws: Optional[WebSocket] = None
+
+    inbound_mulaw: bytearray = field(default_factory=bytearray)
+    utterance_started_at: float = 0.0
+    last_voice_at: float = 0.0
+
+    bot_speaking: bool = False
+    hold_playing: bool = False
+    processing_user_turn: bool = False
+    ended: bool = False
+
+    silence_task: Optional[asyncio.Task] = None
+    hold_task: Optional[asyncio.Task] = None
+
+    mark_waiters: Dict[str, asyncio.Event] = field(default_factory=dict)
+
+
+SESSIONS: Dict[str, MediaSession] = {}
+
+
+async def _send_json(session: MediaSession, payload: dict) -> None:
+    if session.ws is None:
+        return
+    await session.ws.send_text(json.dumps(payload))
+
+
+async def _send_clear(session: MediaSession) -> None:
+    await _send_json(
+        session,
+        {
+            "event": "clear",
+            "streamSid": session.stream_sid,
+        },
+    )
+    session.bot_speaking = False
+
+
+async def _send_mulaw(session: MediaSession, mulaw_bytes: bytes, wait_for_playback: bool = True) -> None:
+    if not mulaw_bytes:
+        return
+
+    mark_name = f"m{int(time.time() * 1000)}"
+    mark_evt = asyncio.Event()
+    session.mark_waiters[mark_name] = mark_evt
+
+    chunk_size = 160 * 5
+    for i in range(0, len(mulaw_bytes), chunk_size):
+        chunk = mulaw_bytes[i:i + chunk_size]
+        await _send_json(
+            session,
+            {
+                "event": "media",
+                "streamSid": session.stream_sid,
+                "media": {
+                    "payload": base64.b64encode(chunk).decode("ascii")
+                },
+            },
+        )
+
+    await _send_json(
+        session,
+        {
+            "event": "mark",
+            "streamSid": session.stream_sid,
+            "mark": {"name": mark_name},
+        },
+    )
+
+    if wait_for_playback:
+        try:
+            await asyncio.wait_for(mark_evt.wait(), timeout=60)
+        except asyncio.TimeoutError:
+            pass
+        finally:
+            session.mark_waiters.pop(mark_name, None)
+
+
+async def _openai_tts_mulaw(text: str) -> bytes:
+    if not OPENAI_API_KEY:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+
+    headers = {
+        "Authorization": f"Bearer {OPENAI_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    body = {
+        "model": CALLCARE_TTS_MODEL,
+        "voice": CALLCARE_TTS_VOICE,
+        "input": text,
+        "response_format": "wav",
+        "speed": CALLCARE_TTS_SPEED,
+    }
+
+    timeout = httpx.Timeout(120.0, connect=20.0)
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        resp = await client.post(OPENAI_SPEECH_URL, headers=headers, json=body)
+        resp.raise_for_status()
+        wav_bytes = resp.content
+
+    return _wav_or_pcm_to_mulaw_8k(wav_bytes)
+
+
+async def _openai_transcribe_mulaw(mulaw_bytes: bytes) -> str:
+    if not OPENAI_API_KEY:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+
+    pcm16 = _mulaw_to_pcm16(mulaw_bytes)
+    wav_bytes = _wav_bytes_from_pcm16(pcm16, rate=8000)
+
+    headers = {
+        "Authorization": f"Bearer {OPENAI_API_KEY}",
+    }
+    data = {
+        "model": CALLCARE_STT_MODEL,
+        "language": CALLCARE_STT_LANGUAGE,
+        "response_format": "json",
+    }
+    files = {
+        "file": ("utterance.wav", wav_bytes, "audio/wav"),
+    }
+
+    timeout = httpx.Timeout(120.0, connect=20.0)
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        resp = await client.post(
+            OPENAI_TRANSCRIBE_URL,
+            headers=headers,
+            data=data,
+            files=files,
+        )
+        resp.raise_for_status()
+        payload = resp.json()
+
+    text = str(payload.get("text", "")).strip()
+    return " ".join(text.split())
+
+
+async def _speak_text(session: MediaSession, text: str, interruptible: bool = True) -> None:
+    cleaned = " ".join(str(text or "").split())
+    if not cleaned:
+        return
+
+    session.bot_speaking = True
+    try:
+        mulaw_bytes = await _openai_tts_mulaw(cleaned)
+        await _send_mulaw(session, mulaw_bytes, wait_for_playback=True)
+    finally:
+        session.bot_speaking = False
+
+
+async def _play_hold_loop(session: MediaSession, stop_evt: asyncio.Event) -> None:
+    session.hold_playing = True
+    try:
+        while not stop_evt.is_set() and not session.ended:
+            await _send_mulaw(session, HOLD_MULAW, wait_for_playback=False)
+            await asyncio.sleep(0.1)
+    finally:
+        session.hold_playing = False
+        with suppress(Exception):
+            await _send_clear(session)
+
+
+async def _run_completion(session: MediaSession) -> None:
+    await _speak_text(session, PROCESSING_LINE, interruptible=False)
+
+    stop_evt = asyncio.Event()
+    session.hold_task = asyncio.create_task(_play_hold_loop(session, stop_evt))
+
+    try:
+        summary = await asyncio.to_thread(bridge.complete_session, session.call_sid)
+    finally:
+        stop_evt.set()
+        if session.hold_task:
+            with suppress(Exception):
+                await session.hold_task
+            session.hold_task = None
+
+    summary = " ".join(str(summary or "").split())
+
+    if summary:
+        await _speak_text(session, POST_HOLD_LINE, interruptible=False)
+        await _speak_text(session, summary, interruptible=False)
+
+    await _speak_text(session, GOODBYE_LINE, interruptible=False)
+
+    session.ended = True
+    with suppress(Exception):
+        bridge.end_session(session.call_sid)
+    if session.ws is not None:
+        with suppress(Exception):
+            await session.ws.close()
+
+
+async def _process_user_turn(session: MediaSession, transcript: str) -> None:
+    transcript = " ".join(str(transcript or "").split())
+    if not transcript:
+        return
+
+    _log(f"{session.call_sid} USER: {transcript}")
+
+    result = await asyncio.to_thread(bridge.handle_prompt_text, session.call_sid, transcript)
+
+    say = " ".join(str(getattr(result, "say", "") or "").split())
+    done = bool(getattr(result, "done", False))
+
+    if done:
+        await _run_completion(session)
+        return
+
+    if say:
+        _log(f"{session.call_sid} BOT: {say}")
+        await _speak_text(session, say, interruptible=True)
+
+
+async def _silence_loop(session: MediaSession) -> None:
+    while not session.ended:
+        await asyncio.sleep(0.05)
+
+        if session.processing_user_turn:
+            continue
+
+        if session.bot_speaking:
+            continue
+
+        if not session.inbound_mulaw:
+            continue
+
+        silence = time.time() - session.last_voice_at if session.last_voice_at else 0.0
+        duration_ms = int((time.time() - session.utterance_started_at) * 1000) if session.utterance_started_at else 0
+
+        if silence >= CALLCARE_SILENCE_SECONDS and duration_ms >= CALLCARE_MIN_UTTERANCE_MS:
+            raw = bytes(session.inbound_mulaw)
+            session.inbound_mulaw.clear()
+            session.utterance_started_at = 0.0
+            session.last_voice_at = 0.0
+            session.processing_user_turn = True
+
+            try:
+                transcript = await _openai_transcribe_mulaw(raw)
+                if transcript:
+                    await _process_user_turn(session, transcript)
+            except Exception as e:
+                _log(f"transcription/turn processing failed: {e}")
+            finally:
+                session.processing_user_turn = False
+
+
+@app.get("/health")
+async def health() -> dict:
+    return {"ok": True}
+
+
+@app.api_route("/twilio/voice", methods=["GET", "POST"])
+async def twilio_voice(request: Request) -> PlainTextResponse:
+    if request.method == "POST":
+        form = await request.form()
+        from_number = str(form.get("From", "") or "")
+        to_number = str(form.get("To", "") or "")
+    else:
+        from_number = str(request.query_params.get("From", "") or "")
+        to_number = str(request.query_params.get("To", "") or "")
+
+    stream_url = _stream_wss_url()
+
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        "<Response>"
+        "<Connect>"
+        f'<Stream url="{_xml_escape(stream_url)}">'
+        f'<Parameter name="from_number" value="{_xml_escape(from_number)}" />'
+        f'<Parameter name="to_number" value="{_xml_escape(to_number)}" />'
+        "</Stream>"
+        "</Connect>"
+        "</Response>"
+    )
+    return PlainTextResponse(content=xml, media_type="application/xml")
+
+
+@app.websocket("/twilio/media-stream")
+async def twilio_media_stream(ws: WebSocket) -> None:
+    await ws.accept()
+    session: Optional[MediaSession] = None
+
+    try:
+        while True:
+            msg = await ws.receive_text()
+            payload = json.loads(msg)
+            event = payload.get("event")
+
+            if event == "connected":
+                _log("websocket connected")
+                continue
+
+            if event == "start":
+                start = payload.get("start", {}) or {}
+                custom = start.get("customParameters", {}) or {}
+
+                call_sid = str(start.get("callSid") or "")
+                stream_sid = str(start.get("streamSid") or payload.get("streamSid") or "")
+                from_number = str(custom.get("from_number") or "")
+                to_number = str(custom.get("to_number") or "")
+
+                session = MediaSession(
+                    call_sid=call_sid,
+                    stream_sid=stream_sid,
+                    from_number=from_number,
+                    to_number=to_number,
+                    ws=ws,
+                )
+                SESSIONS[call_sid] = session
+                session.silence_task = asyncio.create_task(_silence_loop(session))
+
+                _, opening = bridge.start_session(call_sid, from_number=from_number, to_number=to_number)
+                opening = f"{OPENING_HELLO} {opening}".strip()
+                _log(f"{call_sid} BOT OPENING: {opening}")
+                asyncio.create_task(_speak_text(session, opening, interruptible=False))
+                continue
+
+            if session is None:
+                continue
+
+            if event == "media":
+                media = payload.get("media", {}) or {}
+                b64 = media.get("payload")
+                if not b64:
+                    continue
+
+                chunk = base64.b64decode(b64)
+                rms = _rms_mulaw(chunk)
+
+                if rms >= CALLCARE_RMS_THRESHOLD:
+                    if session.bot_speaking:
+                        _log(f"{session.call_sid} barge-in detected")
+                        with suppress(Exception):
+                            await _send_clear(session)
+
+                    now = time.time()
+                    if not session.inbound_mulaw:
+                        session.utterance_started_at = now
+                    session.inbound_mulaw.extend(chunk)
+                    session.last_voice_at = now
+
+                continue
+
+            if event == "mark":
+                mark = payload.get("mark", {}) or {}
+                name = str(mark.get("name") or "")
+                waiter = session.mark_waiters.get(name)
+                if waiter:
+                    waiter.set()
+                continue
+
+            if event == "stop":
+                _log(f"{session.call_sid} stop received")
+                session.ended = True
+                break
+
+    except WebSocketDisconnect:
+        _log("websocket disconnected")
+    except Exception as e:
+        _log(f"websocket error: {e}")
+    finally:
+        if session is not None:
+            session.ended = True
+            if session.silence_task:
+                session.silence_task.cancel()
+                with suppress(asyncio.CancelledError, Exception):
+                    await session.silence_task
+            SESSIONS.pop(session.call_sid, None)
+            with suppress(Exception):
+                bridge.end_session(session.call_sid)

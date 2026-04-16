@@ -1,0 +1,67 @@
+{
+  "packet_id": "9b3f757d-a8f8-4a8a-a009-d9739591b910",
+  "created_at": "2026-02-27T19:37:07.495605+00:00",
+  "session_id": "4276c3b8-c740-4e74-9f2b-089444443206",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any pain with deep breaths or coughing?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of chronic illnesses like osteoporosis, cancer, or recent travel?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, chest pain, numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) with minimal relief. There are no urinary symptoms or history of kidney problems, and no pain with deep breaths or coughing. She has no history of chronic illnesses such as osteoporosis or cancer and no recent travel. O: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely related to strain or minor soft tissue injury given the localized nature and absence of systemic symptoms or neurological deficits. \nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Intercostal muscle strain\n4. Early presentation of vertebral or rib pathology (less likely without trauma or systemic signs)\n\nP:\n- Medication safety considerations: Avoid NSAIDs if history of renal or liver disease; monitor for gastrointestinal side effects\n- Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen if no contraindications\n - Acetaminophen (Tylenol) 500 mg every 6 hours as needed for pain (use caution in liver disease; consider lower max daily dose)\n- Return precautions: Return if pain worsens, develops fever, neurological symptoms, chest pain, or shortness of breath\n- Testing: Not indicated at this time given absence of red flags or systemic symptoms",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

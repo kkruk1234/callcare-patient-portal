@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Hospitalization Surveillance Network (RESP-NET) | RESP-NET | CDC",
+  "url": "https://www.cdc.gov/resp-net/dashboard/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "monitor laboratory-confirmed hospitalizations associated with influenza (FluSurv-NET) , COVID-19 (COVID-NET) , and RSV (RSV-NET) . The rates presented on the RESP-NET interactive dashboard can be used to follow trends and comparisons of influenza , COVID-19 , and RSV -associated hospitalizations in different demographic groups and over time.\nHow to use the RESP-NET interactive dashboard \n1. Select a topic of interest\nTo use the RESP-NET interactive dashboard, select a topic to see specific data trends. Topics include rates by season, site, age group, sex, or race and ethnicity. Hospitalizations can be viewed as weekly, monthly, or cumulative rates. \n2. Select a filter of interest\nTopics of interest can be filtered by season, site, age group, sex, and race and ethnicity. Filters vary by topic, as not all topics have filters available.\n3. Select other ways to view\nThe data can be displayed in a graph or as a table. Right click anywhere in the graph for a tabular view. Hovering your mouse over or selecting a data point or bar in the graph will display detailed information. Some graphs allow you to hide or show data from the legend for detailed analysis.\nThis dashboard is updated weekly. Data are preliminary and subject to change as more data become available. Rates for recent hospital admissions are subject to reporting delays that might increase around holidays or during periods",
+  "source_type": "library",
+  "source_id": "cdc_gov_resp_net_dashboard_index_html_1af81f1a4f7d",
+  "chunk_id": "chunk_002"
+}

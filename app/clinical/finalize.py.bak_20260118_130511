@@ -1,0 +1,180 @@
+from __future__ import annotations
+
+from pathlib import Path
+from datetime import datetime, timezone
+from typing import Any, Dict, Optional
+
+import json
+
+from app.core.models import ReviewPacket, NoteDraft, CallState
+
+
+FINAL_DIR = Path("logs/finalized")
+FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _model_field_names(model_cls) -> set:
+    # pydantic v2
+    if hasattr(model_cls, "model_fields"):
+        return set(model_cls.model_fields.keys())
+    # pydantic v1
+    if hasattr(model_cls, "__fields__"):
+        return set(model_cls.__fields__.keys())
+    return set()
+
+
+_REVIEW_FIELDS = _model_field_names(ReviewPacket)
+
+
+def _safe_state_dict(state: CallState) -> Dict[str, Any]:
+    """
+    Serialize state safely for ReviewPacket/logging without depending on exact pydantic version.
+    """
+    try:
+        if hasattr(state, "model_dump"):  # pydantic v2
+            return state.model_dump()
+    except Exception:
+        pass
+    try:
+        if hasattr(state, "dict"):  # pydantic v1
+            return state.dict()
+    except Exception:
+        pass
+    # last resort: shallow
+    out = {}
+    for k in dir(state):
+        if k.startswith("_"):
+            continue
+        try:
+            v = getattr(state, k)
+        except Exception:
+            continue
+        if callable(v):
+            continue
+        out[k] = v
+    return out
+
+
+def _safe_note_dict(note: NoteDraft) -> Dict[str, Any]:
+    """
+    Serialize NoteDraft safely for ReviewPacket/logging without modifying SOAP text.
+    """
+    try:
+        if hasattr(note, "model_dump"):  # pydantic v2
+            return note.model_dump()
+    except Exception:
+        pass
+    try:
+        if hasattr(note, "dict"):  # pydantic v1
+            return note.dict()
+    except Exception:
+        pass
+    out = {}
+    for k in dir(note):
+        if k.startswith("_"):
+            continue
+        try:
+            v = getattr(note, k)
+        except Exception:
+            continue
+        if callable(v):
+            continue
+        out[k] = v
+    return out
+
+
+def _mk_packet_id(session_id: str) -> str:
+    # deterministic enough for logs; ReviewQueue can override if needed
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    return f"{session_id}_{ts}"
+
+
+def _write_final_outputs(packet: ReviewPacket, note: NoteDraft, state: CallState) -> None:
+    """
+    Write final artifacts to logs/finalized:
+      - <packet_id>.json (packet + state + note)
+      - <packet_id>.txt  (SOAP text only)
+    """
+    pid = getattr(packet, "packet_id", None) or _mk_packet_id(getattr(state, "session_id", "session"))
+    json_path = FINAL_DIR / f"{pid}.json"
+    txt_path = FINAL_DIR / f"{pid}.txt"
+
+    payload = {
+        "packet": None,
+        "state": _safe_state_dict(state),
+        "note": _safe_note_dict(note),
+    }
+
+    try:
+        if hasattr(packet, "model_dump"):
+            payload["packet"] = packet.model_dump()
+        elif hasattr(packet, "dict"):
+            payload["packet"] = packet.dict()
+        else:
+            payload["packet"] = {"packet_id": getattr(packet, "packet_id", None)}
+    except Exception:
+        payload["packet"] = {"packet_id": getattr(packet, "packet_id", None)}
+
+    try:
+        json_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    except Exception:
+        # Avoid crashing finalize on logging failures
+        pass
+
+    try:
+        soap = getattr(note, "soap", "") or ""
+        txt_path.write_text(soap, encoding="utf-8")
+    except Exception:
+        pass
+
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    """
+    Finalize encounter output into a ReviewPacket for async clinician review.
+
+    HARD RULES:
+    - Do NOT mutate note.soap (no regex cleanup, no rewriting S/O/A/P).
+    - Subjective generation must be owned elsewhere (note_builder / LLM).
+    """
+    created_at = now_iso()
+
+    # Build packet payload using only fields the ReviewPacket model supports
+    packet_data: Dict[str, Any] = {}
+    if "packet_id" in _REVIEW_FIELDS:
+        packet_data["packet_id"] = _mk_packet_id(session_id)
+    if "created_at" in _REVIEW_FIELDS:
+        packet_data["created_at"] = created_at
+    if "session_id" in _REVIEW_FIELDS:
+        packet_data["session_id"] = session_id
+
+    # attach note if supported
+    if "note" in _REVIEW_FIELDS:
+        packet_data["note"] = note
+    elif "note_draft" in _REVIEW_FIELDS:
+        packet_data["note_draft"] = note
+
+    # attach state if supported
+    if state is not None:
+        if "state" in _REVIEW_FIELDS:
+            packet_data["state"] = state
+        elif "call_state" in _REVIEW_FIELDS:
+            packet_data["call_state"] = state
+
+    packet = ReviewPacket(**packet_data)
+
+    # write logs (best-effort; never mutate SOAP)
+    try:
+        if state is not None:
+            _write_final_outputs(packet, note, state)
+        else:
+            # minimal output
+            pid = getattr(packet, "packet_id", None) or _mk_packet_id(session_id)
+            (FINAL_DIR / f"{pid}.txt").write_text(getattr(note, "soap", "") or "", encoding="utf-8")
+    except Exception:
+        pass
+
+    return packet

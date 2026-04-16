@@ -1,0 +1,31 @@
+# Clinician-facing medication/dosing protocol for: migraine_headache
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: "Sumatriptan"
+    dosing: "50–100 mg PO at onset; may repeat once after 2 hours; max 200 mg/day"
+    exclusions: "Known CAD/MI/stroke/TIA; uncontrolled hypertension; hemiplegic/basilar migraine; pregnancy caution; significant drug interactions (MAOIs)"
+    notes: "Use when diagnosis consistent with migraine and no red flags; avoid if cardiovascular risk is high without evaluation."
+  - med: "Naproxen"
+    dosing: "500 mg PO once, then 250 mg PO q6–8h PRN; max 1,250 mg/day (short course)"
+    exclusions: "Pregnancy (avoid in 3rd trimester); CKD/renal disease; GI bleed/ulcer; anticoagulation; NSAID allergy"
+    notes: "NSAID option if safe."
+  - med: "Acetaminophen"
+    dosing: "650–1,000 mg PO q6–8h PRN; max 3,000 mg/day (lower if liver disease/alcohol use)"
+    exclusions: "Severe liver disease; heavy alcohol use"
+    notes: "Alternative when NSAIDs not appropriate."
+  - med: "Ondansetron"
+    dosing: "4–8 mg PO/ODT q8h PRN nausea"
+    exclusions: "QT prolongation risk; severe hepatic impairment (max 8 mg/day)"
+    notes: "Adjunct for nausea."
+
+supportive_care:
+  - item: "Non-pharmacologic"
+    details: "Dark/quiet room; hydration; sleep; avoid known triggers."
+  - item: "Avoid overuse"
+    details: "Limit acute meds to avoid medication-overuse headache (clinician counseling)."
+
+followup_and_safety:
+  - item: "Urgent/ED now"
+    details: "Worst headache of life, sudden thunderclap onset, new neuro deficits, fever/neck stiffness, new severe headache >50, pregnancy/postpartum severe headache, or head trauma."
+  - item: "In-person evaluation"
+    details: "New pattern change, progressively worsening headaches, or inadequate response to usual therapy."

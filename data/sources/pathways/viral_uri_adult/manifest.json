@@ -1,0 +1,11 @@
+{
+  "pathway_id": "viral_uri_adult",
+  "sources": [
+    {
+      "source_id": "cdc_uri",
+      "type": "url",
+      "title": "CDC: Common Cold",
+      "url": "https://www.cdc.gov/common-cold"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+id: work_stress_burnout_noncrisis
+version: 0.1
+match:
+  any_keywords: ["burnout", "overwhelmed", "work stress", "stressed at work", "can't cope at work", "exhausted", "job stress"]
+questions:
+  - id: safety
+    prompt: "Are you having thoughts of harming yourself or someone else? (yes/no)"
+    store_as: self_harm_thoughts
+    type: yesno
+  - id: sleep
+    prompt: "Is this affecting your sleep most nights? (yes/no)"
+    store_as: sleep_impacted
+    type: yesno
+  - id: functioning
+    prompt: "Is this making it hard to function at work or at home? (yes/no)"
+    store_as: functioning_impacted
+    type: yesno
+stop_rules:
+  - if_all_answered: ["safety", "sleep", "functioning"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

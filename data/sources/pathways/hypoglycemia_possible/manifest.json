@@ -1,0 +1,12 @@
+{
+  "pathway_id": "hypoglycemia_possible",
+  "sources": [
+    {
+      "id": "hypoglycemia_possible_ref",
+      "source_id": "hypoglycemia_possible_ref",
+      "title": "Low blood sugar overview (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+rx_options:
+- med: ''
+  dosing: ''
+  exclusions: ''
+  notes: ''
+supportive_care:
+- item: Avoid triggers
+  details: Stop any new suspected trigger (food/supplement/med) if safe to do so;
+    avoid hot showers which can worsen itching.
+- item: Skin care
+  details: Cool compresses; fragrance-free moisturizer; avoid scratching.
+followup_and_safety:
+- item: Re-evaluation
+  details: If hives persist >24–48h, recur frequently, or you need frequent medication
+    dosing—seek in-person evaluation.
+- item: Urgent/ED now
+  details: Any trouble breathing, throat tightness, swelling of lips/tongue/face,
+    fainting, severe dizziness, or widespread blistering rash—call 911/go to ED.

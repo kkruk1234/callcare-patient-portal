@@ -1,0 +1,50 @@
+{
+  "packet_id": "b237b76e-1109-444f-aa4d-dd6f94a9c01e",
+  "created_at": "2026-03-19T17:37:24.509088+00:00",
+  "session_id": "8b2740f0-9f47-4d1e-bc35-d9ab28d2ab54",
+  "pathway_id": "",
+  "base_queries": [
+    "benign paroxysmal positional vertigo diagnosis and management guidelines",
+    "treatment and dosing for vertigo in adults including contraindications",
+    "red flags and return precautions for acute vertigo patients"
+  ],
+  "queries": [
+    "AAFP benign paroxysmal positional vertigo diagnosis and management guidelines",
+    "AAFP treatment and dosing for vertigo in adults including contraindications",
+    "MedlinePlus benign paroxysmal positional vertigo diagnosis and management guidelines",
+    "MedlinePlus treatment and dosing for vertigo in adults including contraindications",
+    "CDC benign paroxysmal positional vertigo diagnosis and management guidelines",
+    "CDC treatment and dosing for vertigo in adults including contraindications",
+    "NIH benign paroxysmal positional vertigo diagnosis and management guidelines",
+    "NIH treatment and dosing for vertigo in adults including contraindications",
+    "NICE benign paroxysmal positional vertigo diagnosis and management guidelines",
+    "NICE treatment and dosing for vertigo in adults including contraindications",
+    "WHO benign paroxysmal positional vertigo diagnosis and management guidelines",
+    "WHO treatment and dosing for vertigo in adults including contraindications"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Vertigo | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/vertigo.html",
+      "accessed": "2026-03-19",
+      "snippet": "These recommendations are provided only as assistance for physicians making clinical decisions regarding the care of their patients. As such, they cannot substitute for the individual judgment brought to each clinical situation by the patient's family physician. As with all clinical reference resources, they reflect the best understanding of the science of medicine at the time of publication, but they should be used with the clear understanding that continued research may result in new knowledge and recommendations. These recommendations are only one element in the complex process of improving the health of America. To be effective, the recommendations must be implemented."
+    },
+    {
+      "title": "Clinical practice guideline: benign paroxysmal positional vertigo - PubMed",
+      "source": "pubmed.ncbi.nlm.nih.gov",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18973840/",
+      "accessed": "2026-03-19",
+      "snippet": "The panel made strong recommendations that 1) clinicians should diagnose posterior semicircular canal BPPV when vertigo associated with nystagmus is provoked by the Dix-Hallpike maneuver. The panel made recommendations against 1) radiographic imaging, vestibular testing, or both in patients diagnosed with BPPV, unless the diagnosis is uncertain or there are additional symptoms or signs unrelated to BPPV that warrant testing; and 2) routinely treating BPPV with vestibular suppressant medications such as antihistamines or benzodiazepines. The panel made recommendations that 1) if the patient has a history compatible with BPPV and the Dix-Hallpike test is negative, clinicians should perform a supine roll test to assess for lateral semicircular canal BPPV; 2) clinicians should differentiate BPPV from other causes of imbalance, dizziness, and vertigo; 3) clinicians should question patients wi"
+    },
+    {
+      "title": "Treatment of Vertigo | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2005/0315/p1115.html",
+      "accessed": "2026-03-19",
+      "snippet": "\"> Medication Dosage Sedation Antiemesis Pregnancy category Meclizine* (Antivert) 12.5 to 50 mg orally every 4 to 8 hours + + + B Dimenhydrinate* (Dramamine) 25 to 100 mg orally, IM, or IV every 4 to 8 hours + + + B Diazepam (Valium) 2 to 10 mg orally or IV every 4 to 8 hours + + + D Lorazepam (Ativan) 0.5 to 2 mg orally, IM, or IV every 4 to 8 hours + + + D Metoclopramide (Reglan) 5 to 10 mg orally every 6 hours + + + + B 5 to 10 mg by slow IV every 6 hours Prochlorperazine (Compazine) 5 to 10 mg orally or IM every 6 to 8 hours + + + + C 25 mg rectally every 12 hours 5 to 10 mg by slow IV over 2 minutes Promethazine (Phenergan) 12.5 to 25 mg orally, IM, or rectally every + + + + + C 4 to 12 hours A wide variety of medications are used to treat vertigo and the frequently concurrent nausea and emesis."
+    }
+  ],
+  "note_text": "S: The patient reports a spinning sensation that started yesterday morning upon waking. The dizziness worsens when turning the head to the left and improves when turning to the right. There is associated nausea but no vomiting or headache. The patient denies hearing loss, ear pain, recent head trauma, infections, neurological symptoms, fainting, chest pain, or shortness of breath. The patient has had similar episodes of spinning in the past.\n\nO: Phone encounter only; no physical examination or vital signs available.\n\nA: The working diagnosis is benign paroxysmal positional vertigo (BPPV), given the positional nature of the dizziness and absence of other neurological or systemic symptoms.\nDifferential:\n1. Benign paroxysmal positional vertigo (BPPV)\n2. Vestibular neuritis\n3. Meniere's disease\n4. Central nervous system pathology (e.g., stroke or demyelinating disease)\n\nP: - First-line medication: Meclizine 25 mg orally three times daily for 3 days (Physician must verify medication/dosing)\n- Alternatives: Dimenhydrinate 50 mg orally every 6 hours as needed for dizziness for up to 3 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient is allergic to penicillin; no renal or liver disease reported; pregnancy status unknown; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if new neurological symptoms develop such as weakness, numbness, difficulty speaking, or severe headache; seek emergency care if severe dizziness causes falls or inability to ambulate.\n- Testing: Not indicated at this time based on telephone evaluation; consider vestibular testing or imaging if symptoms worsen or fail to improve."
+}

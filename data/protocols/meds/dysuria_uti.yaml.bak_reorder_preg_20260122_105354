@@ -1,0 +1,47 @@
+# Clinician-facing medication/dosing protocol for: dysuria_uti
+# Scope: dysuria/UTI symptoms (phone triage) where uncomplicated cystitis is likely.
+# Must consider pregnancy status and renal function for safe antibiotic selection.
+# Tier 1: reviewing physician confirms appropriateness and prescribes.
+
+requires_pregnancy_status: true
+requires_renal_screen: true
+
+rx_options:
+  - med: "Nitrofurantoin (macrocrystals/monohydrate)"
+    dosing: "100 mg PO BID x 5 days"
+    exclusions: "Avoid if pyelonephritis suspected (fever, flank pain); avoid if CrCl < 30 mL/min; nitrofurantoin allergy; caution near term pregnancy."
+    notes: "Common first-line for uncomplicated cystitis when renal function adequate and no systemic signs."
+
+  - med: "Cephalexin"
+    dosing: "500 mg PO QID x 5–7 days"
+    exclusions: "Cephalosporin allergy; use caution with immediate-type severe beta-lactam allergy; adjust if renal impairment."
+    notes: "Pregnancy-compatible option; consider if nitrofurantoin not appropriate."
+
+  - med: "Amoxicillin-clavulanate"
+    dosing: "875/125 mg PO BID x 5–7 days"
+    exclusions: "Immediate-type beta-lactam allergy; adjust for renal impairment."
+    notes: "Reasonable alternative, especially if pregnancy or other constraints; confirm indication/local resistance."
+
+  - med: "Fosfomycin tromethamine"
+    dosing: "3 g PO once"
+    exclusions: "Not for suspected pyelonephritis; consider availability/cost."
+    notes: "Single-dose alternative; generally pregnancy-compatible but confirm clinician judgment and local guidance."
+
+  - med: "Trimethoprim-sulfamethoxazole (TMP-SMX)"
+    dosing: "160/800 mg (1 DS tab) PO BID x 3 days"
+    exclusions: "Sulfa allergy; avoid 1st trimester if possible (folate antagonist) and near term (kernicterus risk); consider local resistance; drug interactions."
+    notes: "Alternative first-line when pregnancy status allows and resistance risk acceptable."
+
+supportive_care:
+  - item: "Hydration"
+    details: "Encourage fluids as tolerated."
+  - item: "Pain control"
+    details: "Acetaminophen or ibuprofen if safe for patient (avoid NSAIDs in late pregnancy; avoid if renal disease, ulcer/GI bleed risk)."
+
+followup_and_safety:
+  - item: "Expected course"
+    details: "Should start improving within 24–48 hours after antibiotics."
+  - item: "Re-evaluation"
+    details: "If not improving within 48–72 hours, reassess diagnosis/resistance and consider urine culture and/or in-person evaluation."
+  - item: "Urgent/ED"
+    details: "Seek urgent care/ED for flank pain, persistent high fever/chills, vomiting/dehydration, pregnancy with systemic symptoms, inability to urinate, or worsening despite treatment."

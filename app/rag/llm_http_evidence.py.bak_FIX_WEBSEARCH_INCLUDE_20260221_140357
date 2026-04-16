@@ -1,0 +1,282 @@
+import os, json, time, re
+from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
+from typing import Optional, List, Tuple, Dict, Any
+
+# IMPORTANT:
+# - Python 3.9 compatible typing (NO "str | None")
+# - NO PubMed
+# - Uses OpenAI "web_search" tool; best results with a search-preview model
+
+# If you set CALLCARE_LLM_EVIDENCE_MODEL, use that. Otherwise:
+# Prefer a search-preview model for web search reliability.
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini-search-preview")
+
+# Authoritative allowlist (including subdomains)
+# NOTE: pubmed is intentionally excluded.
+ALLOWLIST_DOMAINS = {
+    "nih.gov",
+    "ncbi.nlm.nih.gov",
+    "pmc.ncbi.nlm.nih.gov",
+    "medlineplus.gov",
+    "nice.org.uk",
+    "nhs.uk",
+    "who.int",
+    "merckmanuals.com",
+    "idsociety.org",
+    "acog.org",
+    "acep.org",
+    "aaos.org",
+    "aafp.org",
+}
+
+# Explicit blocklist even if allowlist would pass
+BLOCKLIST_HOSTS = {
+    "pubmed.ncbi.nlm.nih.gov",
+}
+
+BAD_TITLE_SIGNALS = [
+    "page not found",
+    "not found",
+    "error",
+    "access denied",
+    "forbidden",
+    "unauthorized",
+    "oops",
+    "we can’t find",
+    "we can't find",
+]
+
+STOPWORDS = {
+    "the","a","an","and","or","of","to","in","on","for","with","without","is","are",
+    "this","that","it","as","by","from","at","be","been","was","were","can","may",
+    "your","you","patient","patients","adult","adults","child","children",
+}
+
+def _norm(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip()).lower()
+
+def _strip_utm(url: str) -> str:
+    try:
+        p = urlparse(url)
+        host = (p.netloc or "").lower()
+        qs = [(k, v) for (k, v) in parse_qsl(p.query, keep_blank_values=True) if not k.lower().startswith("utm_")]
+        new_query = urlencode(qs, doseq=True)
+        # normalize www.
+        if host.startswith("www."):
+            host = host[4:]
+        return urlunparse((p.scheme, host, p.path, p.params, new_query, p.fragment)).rstrip("/")
+    except Exception:
+        return (url or "").strip()
+
+def _domain_allowed(url: str) -> bool:
+    try:
+        host = urlparse(url).netloc.lower().split(":")[0]
+        if host.startswith("www."):
+            host = host[4:]
+        if host in BLOCKLIST_HOSTS:
+            return False
+        for d in ALLOWLIST_DOMAINS:
+            if host == d or host.endswith("." + d):
+                return True
+        return False
+    except Exception:
+        return False
+
+def _tokenize_query(q: str) -> List[str]:
+    q = _norm(q)
+    toks = re.findall(r"[a-z0-9]+", q)
+    toks = [t for t in toks if t and t not in STOPWORDS and len(t) >= 3]
+    return toks[:12]
+
+def _looks_like_error_title(title: str) -> bool:
+    t = _norm(title)
+    if not t:
+        return True
+    for sig in BAD_TITLE_SIGNALS:
+        if sig in t:
+            return True
+    return False
+
+def _score_relevance(query: str, title: str, snippet: str) -> float:
+    """
+    Lightweight lexical relevance score:
+    - uses tokens from query
+    - counts token hits in title/snippet
+    - NOT body-part hardcoding; just general matching to your own query string
+    """
+    toks = _tokenize_query(query)
+    if not toks:
+        return 0.0
+    hay = (_norm(title) + " " + _norm(snippet))
+    hits = 0
+    for t in toks:
+        if t in hay:
+            hits += 1
+    return hits / float(max(1, len(toks)))
+
+def _trace(trace_fn, event: str, **kw):
+    if trace_fn:
+        try:
+            trace_fn(event, **kw)
+        except Exception:
+            pass
+
+def _openai_client():
+    """
+    Uses the OpenAI python client if installed.
+    You already have it working (your earlier traces show OpenAI Responses calls).
+    """
+    from openai import OpenAI
+    return OpenAI()
+
+
+def _web_search(query: str, model: str, trace_fn=None) -> List[Dict[str, Any]]:
+    """
+    Force web_search tool call using gpt-4o-mini.
+    Compatible with your account.
+    """
+    t0 = time.time()
+    client = _openai_client()
+
+    try:
+        resp = client.responses.create(
+            model=model,
+            input=query,
+            tools=[{"type": "web_search"}],
+            tool_choice="required",
+        )
+    except Exception as e:
+        _trace(trace_fn, "web_search_http_error", q=query, err_type=type(e).__name__, err=str(e))
+        return []
+
+    latency = time.time() - t0
+
+    output = getattr(resp, "output", None) or []
+    sources: List[Dict[str, Any]] = []
+
+    for item in output:
+        try:
+            if isinstance(item, dict):
+                if item.get("type") == "web_search_call":
+                    results = item.get("results") or []
+                    for r in results:
+                        if isinstance(r, dict):
+                            sources.append(r)
+            else:
+                if getattr(item, "type", None) == "web_search_call":
+                    results = getattr(item, "results", None) or []
+                    for r in results:
+                        if isinstance(r, dict):
+                            sources.append(r)
+        except Exception:
+            continue
+
+    _trace(trace_fn, "web_search_done", q=query, sources=len(sources), latency_s=latency, model=model)
+
+    return sources
+def llm_http_evidence(
+    context: str,
+    diagnosis_hint: str,
+    chief_complaint: str,
+    max_urls: int = 6,
+    min_urls: int = 4,
+    model: Optional[str] = None,
+    trace_fn=None,
+):
+    """
+    Returns list[EvidenceRef]-compatible dicts or actual EvidenceRef objects if imported.
+
+    Strategy:
+    - Use OpenAI web_search tool (forced) with a search-preview model by default.
+    - Keep only allowlisted domains (and explicitly block pubmed).
+    - Require non-error titles.
+    - Rank by lexical relevance to a query that includes context + CC.
+    - IMPORTANT: If we can't reach min_urls, we still return what we found (do NOT zero it out).
+    """
+
+    model = model or DEFAULT_MODEL
+    dx = (diagnosis_hint or "").strip()
+    cc = (chief_complaint or "").strip()
+    ctx = (context or "").strip()
+
+    # Build queries. We keep them general and scalable; no body-part cheat tables.
+    base = " ".join([p for p in [dx, cc, ctx] if p]).strip()
+    if not base:
+        base = cc or dx or "medical condition"
+
+    queries = [
+        base,
+        f"{base} self care red flags",
+        f"{base} acetaminophen ibuprofen naproxen dosing",
+        f"{base} when to seek urgent care",
+        f"{base} guideline",
+    ]
+
+    _trace(trace_fn, "llm_http_evidence_start", dx=dx, cc=cc, model=model)
+
+    # Accumulate candidates from web search
+    candidates: List[Dict[str, Any]] = []
+    seen_urls = set()
+
+    for q in queries:
+        sources = _web_search(q, model=model, trace_fn=trace_fn) or []
+        for s in sources:
+            url = _strip_utm(str(s.get("url") or s.get("link") or "").strip())
+            if not url or url in seen_urls:
+                continue
+            if not _domain_allowed(url):
+                continue
+            title = str(s.get("title") or "").strip()
+            snippet = str(s.get("snippet") or s.get("description") or "").strip()
+
+            # filter obvious garbage
+            if _looks_like_error_title(title):
+                continue
+
+            candidates.append({"url": url, "title": title, "snippet": snippet})
+            seen_urls.add(url)
+
+        if len(candidates) >= max_urls * 3:
+            break
+
+    # Rank by relevance to the base query
+    for c in candidates:
+        c["score"] = _score_relevance(base, c.get("title",""), c.get("snippet",""))
+
+    candidates.sort(key=lambda x: float(x.get("score", 0.0)), reverse=True)
+
+    kept: List[Dict[str, Any]] = []
+    for c in candidates:
+        # basic relevance floor: at least some token overlap, unless we are starving
+        if c.get("score", 0.0) <= 0.0:
+            continue
+        kept.append(c)
+        if len(kept) >= max_urls:
+            break
+
+    # If starving, allow lower-score items (still allowlisted & non-error title)
+    if len(kept) < min_urls:
+        for c in candidates:
+            if c in kept:
+                continue
+            kept.append(c)
+            if len(kept) >= min_urls or len(kept) >= max_urls:
+                break
+
+    # Convert to EvidenceRef if available, else dicts with the required keys
+    refs = []
+    try:
+        from app.core.models import EvidenceRef  # your project model
+        for c in kept:
+            refs.append(EvidenceRef(title=c["title"], source=c["url"], snippet=c.get("snippet") or ""))
+    except Exception:
+        for c in kept:
+            refs.append({"title": c["title"], "source": c["url"], "snippet": c.get("snippet") or ""})
+
+    _trace(trace_fn, "llm_http_evidence_done", refs=len(refs), min_urls=min_urls, max_urls=max_urls)
+
+    if len(refs) < min_urls:
+        _trace(trace_fn, "llm_http_evidence_under_min", refs=len(refs), required=min_urls)
+
+    # IMPORTANT: return whatever we got (do NOT fail-closed to empty)
+    return refs

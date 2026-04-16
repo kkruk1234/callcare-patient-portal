@@ -1,0 +1,837 @@
+import os
+import json
+import re
+from typing import List, Dict, Any, Optional, Tuple, Union
+
+from openai import OpenAI
+from app.core.models import EvidenceRef, CallState
+
+
+# ============================
+# CALLCARE_PHYSICIAN_NOTE_VOICE_V3 (kept)
+# ============================
+CALLCARE_NOTE_SYSTEM_VOICE = """You are a practicing physician authoring a clinician-grade medical SOAP note.
+
+WRITE AS THE TREATING CLINICIAN.
+Do NOT write as an AI, triage agent, assistant, or decision-support tool.
+
+STYLE:
+- Use SOAP headers exactly: S:, O:, A:, P:
+- Subjective MUST be narrative prose (no bullet points).
+- Objective: phone-only limitations; do not invent vitals or exam.
+- Assessment: working diagnosis + numbered differential.
+- Plan: must match required headers and order exactly.
+
+PROHIBITED META-LANGUAGE (never write any of these):
+- pending review / reviewing physician / approval / decision-support / suggested / consider (as a hedge)
+- Do NOT address a reviewer. This is the medical record.
+
+TRUTHFULNESS:
+- Use ONLY structured answers and stored symptom fields provided in the prompt.
+- Do NOT invent negatives, PMH, meds, vitals, exam, tests.
+- If something was not asked, omit it (or write "Not assessed" only if necessary).
+""".strip()
+
+
+# ============================
+# Extraction voice (new)
+# ============================
+CALLCARE_PLAN_EXTRACTOR_VOICE = """You are a physician extracting an evidence-locked medication plan.
+
+You MUST return ONLY valid JSON (no markdown, no commentary).
+You are not writing the SOAP note here. You are extracting structured plan components.
+
+ABSOLUTE RULES:
+- Use ONLY EVIDENCE SNIPPETS provided. Do NOT use outside medical knowledge.
+- You may include a medication ONLY if the evidence explicitly contains dosing AND duration (or a clear time window).
+- Every medication MUST cite evidence keys (e.g., ["EVID_2"]) that directly support that dosing.
+- Prohibit vague dosing phrases: "as directed", "per label", "use cautiously", "consider", "may", "if appropriate".
+- If dosing/duration are not explicitly present in evidence, do NOT list that medication; instead set "dosing_not_found": true and explain in "notes".
+
+Return JSON with this schema:
+{
+  "first_line_medication": {
+     "name": "...",
+     "dose": "...",            // must contain a number
+     "route": "PO/topical/etc",
+     "frequency": "...",
+     "duration": "...",        // required
+     "max_per_day": "...",     // optional
+     "exclusions": ["..."],    // pregnancy/renal/liver/allergy constraints if supported by evidence or based on provided CASE flags as safety statements
+     "evidence_ids": ["EVID_#"]
+  } | null,
+
+  "alternatives": [
+     {
+       "name": "...",
+       "dose": "...",
+       "route": "...",
+       "frequency": "...",
+       "duration": "...",
+       "max_per_day": "...",
+       "exclusions": ["..."],
+       "evidence_ids": ["EVID_#"]
+     }
+  ],
+
+  "medication_safety_considerations": [
+     {
+       "text": "...",
+       "evidence_ids": ["EVID_#"]
+     }
+  ],
+
+  "return_precautions": [
+     {"text": "...", "evidence_ids": ["EVID_#"] }
+  ],
+
+  "testing": [
+     {"text": "...", "evidence_ids": ["EVID_#"] }
+  ],
+
+  "dosing_not_found": false,
+  "notes": "..."
+}
+
+If evidence does not contain explicit dosing for the likely medication(s):
+- Set first_line_medication = null
+- Set alternatives = []
+- Set dosing_not_found = true
+- In notes, state: "Dosing not found in retrieved evidence."
+""".strip()
+
+
+# ============================
+# Helpers
+# ============================
+
+def _as_int(v) -> Optional[int]:
+    try:
+        if v is None:
+            return None
+        s = str(v).strip()
+        if not s:
+            return None
+        n = float(s)
+        if n <= 0 or n > 120:
+            return None
+        return int(round(n))
+    except Exception:
+        return None
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _answers_dict(state: CallState) -> Dict[str, Any]:
+    sx = _symptoms_dict(state)
+    ans = sx.get("_answers", {})
+    return ans if isinstance(ans, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _age_years(state: CallState) -> Optional[int]:
+    return _as_int(getattr(state, "age_years", None))
+
+
+def _chief_complaint(state: CallState) -> str:
+    return (getattr(state, "chief_complaint", "") or "").strip()
+
+
+def _allergies_text(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    for k in ("allergies", "med_allergies", "medication_allergies"):
+        if k in sx and sx.get(k):
+            return str(sx.get(k)).strip()
+    v = getattr(state, "allergies", None)
+    return ("" if v is None else str(v)).strip()
+
+
+# ============================
+# Deterministic “gating flags” (answers-first; no guessing)
+# ============================
+
+def _norm_ynu(raw: Any) -> str:
+    if raw is None:
+        return ""
+    s = str(raw).strip().lower()
+    if not s:
+        return ""
+    if s in ("yes", "y", "true", "1"):
+        return "yes"
+    if s in ("no", "n", "false", "0"):
+        return "no"
+    if s in ("unknown", "unsure", "not sure", "dont know", "don't know", "maybe", "possible"):
+        return "unknown"
+    if s in ("na", "n/a", "not applicable", "not_applicable", "not-applicable"):
+        return "not_applicable"
+    return "unknown"
+
+
+def _get_answer_first(state: CallState, *keys: str) -> Any:
+    ans = _answers_dict(state)
+    for k in keys:
+        if k in ans:
+            return ans.get(k)
+    sx = _symptoms_dict(state)
+    for k in keys:
+        if k in sx:
+            return sx.get(k)
+    for k in keys:
+        if hasattr(state, k):
+            return getattr(state, k, None)
+    return None
+
+
+def _preg_norm(state: CallState) -> str:
+    return _norm_ynu(_get_answer_first(state, "pregnancy_possible"))
+
+
+def _renal_norm(state: CallState) -> str:
+    return _norm_ynu(_get_answer_first(state, "renal_disease", "kidney_disease"))
+
+
+def _liver_norm(state: CallState) -> str:
+    return _norm_ynu(_get_answer_first(state, "liver_disease"))
+
+
+# ============================
+# Evidence formatting
+# ============================
+
+def _evidence_text(evidence) -> str:
+    if not evidence:
+        return ""
+
+    lines = []
+    for i, e in enumerate(evidence, start=1):
+        if isinstance(e, dict):
+            key = str(e.get("key") or f"EVID_{i}").strip()
+            title = str(e.get("title") or "").strip()
+            url = str(e.get("url") or "").strip()
+            publisher = str(e.get("publisher") or "").strip()
+            date = str(e.get("date") or "").strip()
+            text = str(e.get("text") or "").strip()
+        else:
+            key = str(getattr(e, "key", "") or f"EVID_{i}").strip()
+            title = str(getattr(e, "title", "") or "").strip()
+            url = str(getattr(e, "url", "") or "").strip()
+            publisher = str(getattr(e, "publisher", "") or "").strip()
+            date = str(getattr(e, "date", "") or "").strip()
+            text = str(getattr(e, "text", "") or "").strip()
+
+        hdr = f"{key}: {title}".strip(": ").strip()
+        if publisher:
+            hdr += f" [{publisher}]"
+        if date:
+            hdr += f" ({date})"
+
+        lines.append(hdr)
+        if url:
+            lines.append(url)
+        if text:
+            t = text.replace("\r", " ").strip()
+            if len(t) > 1800:
+                t = t[:1800] + "…"
+            lines.append(t)
+        lines.append("---")
+
+    return "\\n".join(lines).strip()
+
+
+def build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    pid = _pathway_id(state)
+    cc = _chief_complaint(state)
+    age = _age_years(state)
+    allergies = _allergies_text(state)
+
+    sx = _symptoms_dict(state)
+    ans = _answers_dict(state)
+
+    preg = _preg_norm(state)
+    renal = _renal_norm(state)
+    liver = _liver_norm(state)
+
+    case_lines: List[str] = []
+    if age is not None:
+        case_lines.append(f"AGE_YEARS: {age}")
+    case_lines.append(f"CHIEF_COMPLAINT: {cc or '(not captured)'}")
+    case_lines.append(f"PATHWAY_ID: {pid or '(none)'}")
+    case_lines.append(f"ALLERGIES: {allergies or 'no known medication allergies (or not captured)'}")
+    case_lines.append(f"PREGNANCY_POSSIBLE: {preg or '(missing)'}")
+    case_lines.append(f"RENAL_DISEASE: {renal or '(missing)'}")
+    case_lines.append(f"LIVER_DISEASE: {liver or '(missing)'}")
+
+    ev_text = _evidence_text(evidence)
+
+    hard_rules = """
+HARD RULES (TRUTHFULNESS):
+- Use ONLY CASE DATA / STRUCTURED_ANSWERS / STORED_SYMPTOM_FIELDS.
+- Do NOT invent negatives, past history, medication lists, vitals, exam, labs, imaging, or test results.
+- If something was not asked, do NOT deny it.
+
+HARD RULES (ASSESSMENT FORMAT):
+- In A:, write 1–2 sentences for the working diagnosis.
+- Then write a numbered differential list directly under it, exactly:
+  Differential:
+  1. ...
+  2. ...
+  3. ...
+  4. ...
+
+HARD RULES (PLAN FORMAT — MUST MATCH EXACTLY):
+In P:, use exactly these headers, in this order:
+ - First-line medication:
+ - Alternatives:
+ - Medication safety considerations:
+ - Return precautions:
+ - Testing:
+
+PLAN CONTENT RULES:
+- Medications MUST come from evidence-locked extracted plan (provided separately).
+- Do NOT invent dosing.
+- Do NOT use vague dosing phrases ("as directed", "per label", etc.).
+""".strip()
+
+    return f"""
+{hard_rules}
+
+CASE DATA:
+{chr(10).join(case_lines)}
+
+STRUCTURED_ANSWERS (verbatim):
+{ans}
+
+STORED_SYMPTOM_FIELDS (verbatim):
+{ {k: v for k, v in sx.items() if not str(k).startswith("_")} }
+
+EVIDENCE SNIPPETS:
+{ev_text}
+
+OUTPUT FORMAT (JSON only; no markdown; no extra keys):
+{{
+  "soap_text": "S:
+...
+O:
+...
+A:
+...
+P:
+ - First-line medication:
+ - Alternatives:
+ - Medication safety considerations:
+ - Return precautions:
+ - Testing:
+",
+  "evidence_search_queries": [
+    "query 1",
+    "query 2"
+  ]
+}}
+
+EVIDENCE SEARCH QUERY RULES:
+- Generate 2–4 queries that support THIS note's assessment and plan.
+- Use the most likely diagnosis/differential implied by the note; DO NOT default to generic chief complaint.
+- Do NOT include URLs.
+- Do NOT include site: operators.
+- Each query must be <= 12 words.
+- Do NOT output 'low back pain' unless the assessment explicitly indicates low/lumbar back.
+""".strip()
+
+
+# ============================
+# LLM call
+# ============================
+
+def _client_and_model() -> Tuple[OpenAI, str]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+    client = OpenAI(api_key=api_key)
+
+    model = os.getenv("CALLCARE_LLM_MODEL", "").strip()
+    if not model:
+        model = "gpt-4.1-mini"
+    return client, model
+
+
+def _generate_from_prompt(prompt: str, system_voice: str, max_output_tokens: int) -> str:
+    client, model = _client_and_model()
+    resp = client.responses.create(
+        model=model,
+        input=[
+            {"role": "system", "content": system_voice},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+        max_output_tokens=max_output_tokens,
+    )
+
+    text = getattr(resp, "output_text", None)
+    if not text:
+        try:
+            parts = []
+            for o in resp.output:
+                for c in getattr(o, "content", []) or []:
+                    if getattr(c, "type", "") == "output_text":
+                        parts.append(getattr(c, "text", ""))
+            text = "\\n".join([p for p in parts if p])
+        except Exception:
+            text = ""
+    return (text or "").strip()
+
+
+_NUM_RE = re.compile(r"\\d")
+_EVID_RE = re.compile(r"^EVID_\\d+$")
+
+
+def _has_number(s: Any) -> bool:
+    if s is None:
+        return False
+    return bool(_NUM_RE.search(str(s)))
+
+
+def _normalize_evid_ids(ids: Any) -> List[str]:
+    if not ids:
+        return []
+    out: List[str] = []
+    if isinstance(ids, list):
+        items = ids
+    else:
+        items = [ids]
+    for x in items:
+        s = str(x).strip()
+        if _EVID_RE.match(s):
+            out.append(s)
+    return sorted(list(dict.fromkeys(out)))
+
+
+def _contains_banned_vague_phrases(text: str) -> bool:
+    t = (text or "").lower()
+    banned = [
+        "as directed",
+        "per label",
+        "per the label",
+        "use cautiously",
+        "consider",
+        "may help",
+        "if appropriate",
+        "talk to your doctor",
+    ]
+    return any(b in t for b in banned)
+
+
+def _validate_med_object(m: Dict[str, Any]) -> Tuple[bool, List[str]]:
+    problems = []
+    name = str(m.get("name", "") or "").strip()
+    dose = str(m.get("dose", "") or "").strip()
+    route = str(m.get("route", "") or "").strip()
+    freq = str(m.get("frequency", "") or "").strip()
+    dur = str(m.get("duration", "") or "").strip()
+    evid = _normalize_evid_ids(m.get("evidence_ids", []))
+
+    if not name:
+        problems.append("missing name")
+    if not dose or not _has_number(dose):
+        problems.append("missing numeric dose")
+    if not route:
+        problems.append("missing route")
+    if not freq:
+        problems.append("missing frequency")
+    if not dur:
+        problems.append("missing duration")
+    if not evid:
+        problems.append("missing evidence_ids")
+
+    combined = " ".join([
+        name, dose, route, freq, dur,
+        str(m.get("max_per_day", "") or ""),
+        " ".join(m.get("exclusions", []) if isinstance(m.get("exclusions"), list) else [])
+    ])
+    if _contains_banned_vague_phrases(combined):
+        problems.append("contains banned vague phrase")
+
+    return (len(problems) == 0), problems
+
+
+def _try_parse_json(s: str) -> Optional[Dict[str, Any]]:
+    if not s:
+        return None
+    txt = s.strip()
+    start = txt.find("{")
+    end = txt.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        txt = txt[start:end + 1]
+    try:
+        obj = json.loads(txt)
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        return None
+
+
+def _extract_plan_json(guarded_prompt: str) -> Dict[str, Any]:
+    out = _generate_from_prompt(
+        guarded_prompt,
+        system_voice=CALLCARE_PLAN_EXTRACTOR_VOICE,
+        max_output_tokens=900,
+    )
+    obj = _try_parse_json(out)
+    if obj is None:
+        retry = "RETURN ONLY VALID JSON. NO TEXT.\n\n" + guarded_prompt
+        out2 = _generate_from_prompt(
+            retry,
+            system_voice=CALLCARE_PLAN_EXTRACTOR_VOICE,
+            max_output_tokens=900,
+        )
+        obj = _try_parse_json(out2)
+
+    if obj is None:
+        return {
+            "first_line_medication": None,
+            "alternatives": [],
+            "medication_safety_considerations": [],
+            "return_precautions": [],
+            "testing": [],
+            "dosing_not_found": True,
+            "notes": "Dosing not found in retrieved evidence (extractor JSON parse failed)."
+        }
+
+    obj.setdefault("first_line_medication", None)
+    obj.setdefault("alternatives", [])
+    obj.setdefault("medication_safety_considerations", [])
+    obj.setdefault("return_precautions", [])
+    obj.setdefault("testing", [])
+    obj.setdefault("dosing_not_found", False)
+    obj.setdefault("notes", "")
+    return obj
+
+
+def _validate_and_sanitize_plan(plan: Dict[str, Any]) -> Dict[str, Any]:
+    dosing_not_found = bool(plan.get("dosing_not_found", False))
+    notes = str(plan.get("notes", "") or "").strip()
+
+    fl = plan.get("first_line_medication", None)
+    if isinstance(fl, dict):
+        fl["evidence_ids"] = _normalize_evid_ids(fl.get("evidence_ids", []))
+        ok, probs = _validate_med_object(fl)
+        if not ok:
+            dosing_not_found = True
+            notes = (notes + " " if notes else "") + f"First-line omitted: {', '.join(probs)}."
+            fl = None
+    else:
+        fl = None
+
+    alts_out: List[Dict[str, Any]] = []
+    alts_in = plan.get("alternatives", [])
+    if isinstance(alts_in, list):
+        for a in alts_in:
+            if not isinstance(a, dict):
+                continue
+            a["evidence_ids"] = _normalize_evid_ids(a.get("evidence_ids", []))
+            ok, probs = _validate_med_object(a)
+            if ok:
+                alts_out.append(a)
+            else:
+                dosing_not_found = True
+                notes = (notes + " " if notes else "") + f"Alternative omitted: {', '.join(probs)}."
+
+    if fl is None and not alts_out:
+        dosing_not_found = True
+        if not notes:
+            notes = "Dosing not found in retrieved evidence."
+
+    def clean_list(items: Any) -> List[Dict[str, Any]]:
+        out: List[Dict[str, Any]] = []
+        if not isinstance(items, list):
+            return out
+        seen = set()
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            text = str(it.get("text", "") or "").strip()
+            if not text or text in seen:
+                continue
+            if _contains_banned_vague_phrases(text):
+                continue
+            seen.add(text)
+            out.append({"text": text, "evidence_ids": _normalize_evid_ids(it.get("evidence_ids", []))})
+        return out
+
+    msc = clean_list(plan.get("medication_safety_considerations", []))
+    rp = clean_list(plan.get("return_precautions", []))
+    testing = clean_list(plan.get("testing", []))
+
+    return {
+        "first_line_medication": fl,
+        "alternatives": alts_out,
+        "medication_safety_considerations": msc,
+        "return_precautions": rp,
+        "testing": testing,
+        "dosing_not_found": dosing_not_found,
+        "notes": notes,
+    }
+
+
+def _format_plan_for_renderer(plan: Dict[str, Any]) -> str:
+    lines: List[str] = []
+    if plan.get("dosing_not_found"):
+        lines.append("DOSING_NOT_FOUND: true")
+        lines.append(f"NOTES: {plan.get('notes') or 'Dosing not found in retrieved evidence.'}")
+        return "\\n".join(lines)
+
+    lines.append("DOSING_NOT_FOUND: false")
+
+    fl = plan.get("first_line_medication")
+    if isinstance(fl, dict):
+        lines.append("FIRST_LINE:")
+        lines.append(f"- name: {fl.get('name','')}")
+        lines.append(f"  dose: {fl.get('dose','')}")
+        lines.append(f"  route: {fl.get('route','')}")
+        lines.append(f"  frequency: {fl.get('frequency','')}")
+        lines.append(f"  duration: {fl.get('duration','')}")
+        if fl.get("max_per_day"):
+            lines.append(f"  max_per_day: {fl.get('max_per_day')}")
+        exc = fl.get("exclusions", [])
+        if isinstance(exc, list) and exc:
+            lines.append(f"  exclusions: {exc}")
+        lines.append(f"  evidence_ids: {fl.get('evidence_ids',[])}")
+    else:
+        lines.append("FIRST_LINE: null")
+
+    lines.append("ALTERNATIVES:")
+    alts = plan.get("alternatives", [])
+    if isinstance(alts, list) and alts:
+        for a in alts:
+            lines.append(f"- name: {a.get('name','')}")
+            lines.append(f"  dose: {a.get('dose','')}")
+            lines.append(f"  route: {a.get('route','')}")
+            lines.append(f"  frequency: {a.get('frequency','')}")
+            lines.append(f"  duration: {a.get('duration','')}")
+            if a.get("max_per_day"):
+                lines.append(f"  max_per_day: {a.get('max_per_day')}")
+            exc = a.get("exclusions", [])
+            if isinstance(exc, list) and exc:
+                lines.append(f"  exclusions: {exc}")
+            lines.append(f"  evidence_ids: {a.get('evidence_ids',[])}")
+    else:
+        lines.append("- (none)")
+
+    def block(title: str, items: List[Dict[str, Any]]):
+        lines.append(title)
+        if items:
+            for it in items:
+                lines.append(f"- {it.get('text','')} (evidence: {it.get('evidence_ids',[])})")
+        else:
+            lines.append("- (none)")
+
+    block("MEDICATION_SAFETY_CONSIDERATIONS:", plan.get("medication_safety_considerations", []))
+    block("RETURN_PRECAUTIONS:", plan.get("return_precautions", []))
+    block("TESTING:", plan.get("testing", []))
+
+    return "\\n".join(lines).strip()
+
+
+
+def _render_soap(guarded_prompt: str, plan_directives: str) -> str:
+    renderer_rules = """
+RENDERING RULES (DO NOT VIOLATE):
+- Write the SOAP note now.
+- SOAP headers exactly: S:, O:, A:, P:
+- Subjective narrative prose.
+- Objective phone-only; no invented vitals/exam.
+- Assessment: working dx + Differential list per prompt.
+
+PLAN RENDERING RULES:
+- Render P: using PLAN_DIRECTIVES (authoritative).
+- If DOSING_NOT_FOUND is true:
+  - State dosing not found in retrieved evidence and defer medication dosing.
+  - Do NOT invent dosing.
+- If DOSING_NOT_FOUND is false:
+  - First-line: ONE option with explicit dose/route/frequency/duration + evidence ids.
+  - Alternatives: bullets with explicit dose/route/frequency/duration + evidence ids.
+
+OUTPUT FORMAT (JSON ONLY):
+{
+  "soap_text": "S: ... O: ... A: ... P: ...",
+  "evidence_search_queries": ["query 1", "query 2"]
+}
+""".strip()
+
+    full_prompt = (
+        renderer_rules
+        + "\n\nPLAN_DIRECTIVES:\n"
+        + (plan_directives or "")
+        + "\n\n---\n\n"
+        + (guarded_prompt or "")
+    )
+
+    enforce = "RETURN ONLY VALID JSON. NO TEXT.\n\n" + full_prompt
+
+    out = _generate_from_prompt(
+        enforce,
+        system_voice=CALLCARE_NOTE_SYSTEM_VOICE,
+        max_output_tokens=1100,
+    )
+
+    obj = _try_parse_json(out)
+    if obj is None:
+        out2 = _generate_from_prompt(
+            enforce,
+            system_voice=CALLCARE_NOTE_SYSTEM_VOICE,
+            max_output_tokens=1100,
+        )
+        obj = _try_parse_json(out2)
+        if obj is None:
+            try:
+                import json as _json
+                return _json.dumps({"soap_text": (out2 or out or "").strip(), "evidence_search_queries": []})
+            except Exception:
+                return out2 or out
+
+    obj.setdefault("soap_text", "")
+    obj.setdefault("evidence_search_queries", [])
+    try:
+        import json as _json
+        return _json.dumps(obj)
+    except Exception:
+        return out
+
+
+def generate_note(state: CallState, evidence: List[EvidenceRef]) -> str:
+    base_prompt = build_prompt(state, evidence)
+
+    sx = getattr(state, "symptoms", None) or {}
+    ans = {}
+    if isinstance(sx, dict):
+        a = sx.get("_answers", {})
+        if isinstance(a, dict):
+            ans = dict(a)
+
+    allergies_val = ""
+    if isinstance(ans.get("allergies"), str):
+        allergies_val = ans.get("allergies")
+    elif getattr(state, "allergies", None) is not None:
+        allergies_val = str(getattr(state, "allergies"))
+    allergies_norm = allergies_val.strip().lower()
+    if allergies_norm in ("no", "none", "nope", "n"):
+        allergies_norm = "none"
+    if allergies_norm:
+        ans["allergies"] = allergies_norm
+
+    answered_lines = []
+    for key in sorted(ans.keys()):
+        answered_lines.append("- " + str(key) + ": " + str(ans.get(key)))
+    answered_block = "\\n".join(answered_lines) if answered_lines else "(none)"
+
+    guard = (
+        "CRITICAL RULES (DO NOT VIOLATE):\\n"
+        "- You may ONLY state symptoms, negatives, history, or treatments that are explicitly present in the structured answers provided below.\\n"
+        "- If something was not asked, you MUST NOT state or imply it.\\n"
+        "- Do NOT infer typical findings. Do NOT invent negatives.\\n"
+        "- Allergy phrasing rule:\\n"
+        "  - If allergies == 'none' or empty: you may say 'No known drug allergies.'\\n"
+        "  - If allergies is non-empty: list the allergy(ies) plainly and DO NOT say 'no known allergies.'\\n"
+    )
+
+    guarded_prompt = guard + "\\n\\nANSWERED_FIELDS (anything not listed here was NOT ASKED):\\n" + answered_block + "\\n\\n" + base_prompt
+
+    extracted = _extract_plan_json(guarded_prompt)
+    validated = _validate_and_sanitize_plan(extracted)
+    directives = _format_plan_for_renderer(validated)
+    # CALLCARE_NOTE_QUERY_WIRING
+    raw = _render_soap(guarded_prompt, directives)
+    try:
+        obj = _try_parse_json(raw)
+        if isinstance(obj, dict):
+            qs = obj.get('evidence_search_queries')
+            qs2 = []
+            if isinstance(qs, list):
+                for q in qs:
+                    q = str(q).strip()
+                    if q:
+                        qs2.append(q)
+            qs2 = qs2[:4]
+            if qs2:
+                try:
+                    sx = getattr(state, 'symptoms', None)
+                    if isinstance(sx, dict):
+                        ans['evidence_search_queries'] = qs2
+                except Exception:
+                    pass
+                try:
+                                        setattr(state, 'evidence_search_queries', qs2)
+                    try:
+                        a = getattr(state, 'answers', None)
+                        if isinstance(a, dict):
+                            a['evidence_search_queries'] = qs2
+                    except Exception:
+                        pass
+
+                    # CALLCARE_QS_TO_ANSWERS_V1
+                    try:
+                        # Persist queries where finalize.py can actually read them (answers dict).
+                        if isinstance(state, dict):
+                            state['evidence_search_queries'] = qs2
+                            a = state.get('answers')
+                            if isinstance(a, dict):
+                                a['evidence_search_queries'] = qs2
+                            sx = state.get('symptoms')
+                            if isinstance(sx, dict):
+                                sx['evidence_search_queries'] = qs2
+                                aa = sx.get('_answers')
+                                if isinstance(aa, dict):
+                                    aa['evidence_search_queries'] = qs2
+                        else:
+                            a = getattr(state, 'answers', None)
+                            if isinstance(a, dict):
+                                a['evidence_search_queries'] = qs2
+                            sx = getattr(state, 'symptoms', None)
+                            if isinstance(sx, dict):
+                                sx['evidence_search_queries'] = qs2
+                                aa = sx.get('_answers')
+                                if isinstance(aa, dict):
+                                    aa['evidence_search_queries'] = qs2
+                                try:
+                                    setattr(state, 'symptoms', sx)
+                                except Exception:
+                                    pass
+                    except Exception:
+                        pass
+                except Exception:
+                    pass
+            st = obj.get('soap_text')
+            if isinstance(st, str) and st.strip():
+                return st.strip()
+    except Exception:
+        pass
+    return raw
+
+
+# Back-compat exports
+def generate_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def write_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def create_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def create_note_text(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def generate_note_text(prompt_or_state: Union[str, CallState], evidence: Optional[List[EvidenceRef]] = None) -> str:
+    if isinstance(prompt_or_state, str):
+        # Keep compatibility: prompt-only free text generation uses physician voice
+        return _generate_from_prompt(prompt_or_state, system_voice=CALLCARE_NOTE_SYSTEM_VOICE, max_output_tokens=900)
+    return generate_note(prompt_or_state, evidence or [])

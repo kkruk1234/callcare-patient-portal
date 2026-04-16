@@ -1,0 +1,26 @@
+{
+  "pathway_id": "depression_crisis",
+  "sources": [
+    {
+      "id": "depression_crisis_src_1",
+      "source_id": "depression_crisis_src_1",
+      "title": "depression_crisis references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "depression_crisis_src_2",
+      "source_id": "depression_crisis_src_2",
+      "title": "depression_crisis references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "depression_crisis_src_3",
+      "source_id": "depression_crisis_src_3",
+      "title": "depression_crisis references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

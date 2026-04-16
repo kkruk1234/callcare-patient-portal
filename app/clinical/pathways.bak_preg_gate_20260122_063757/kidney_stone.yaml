@@ -1,0 +1,30 @@
+id: kidney_stone
+version: 0.1
+match:
+  any_keywords: ["kidney stone", "renal colic", "flank pain", "stone pain", "blood in urine", "hematuria", "pain radiating to groin"]
+questions:
+  - id: severe
+    prompt: "Is the pain severe right now or uncontrolled? (yes/no)"
+    store_as: severe_pain
+    type: yesno
+
+  - id: fever
+    prompt: "Do you have fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: urine
+    prompt: "Any trouble urinating or unable to pass urine? (yes/no)"
+    store_as: urinary_obstruction
+    type: yesno
+
+  - id: pregnant
+    prompt: "Is pregnancy possible? (yes/no/unknown)"
+    store_as: pregnancy_possible
+
+stop_rules:
+  - if_all_answered: ["severe","fever","urine","pregnant"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

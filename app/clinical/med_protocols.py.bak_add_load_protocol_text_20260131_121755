@@ -1,0 +1,53 @@
+"""
+CallCare medication support: YAML protocol layer DISABLED.
+
+Rationale:
+- CallCare is moving to generalist RAG intake + evidence-grounded treatment,
+  not per-condition YAML medication protocols.
+- note_builder.py previously injected "Medication protocol (from data/protocols/meds)"
+  blocks into the PLAN. That pathway is now disabled by default.
+
+What this module now does:
+- Provides the same public functions that other modules import,
+  but returns empty protocol content.
+- This prevents any YAML-driven plan insertion and prevents drift back
+  toward per-pathway protocol maintenance.
+
+Next step (separate change):
+- Implement evidence-grounded medication suggestions via RAG/LLM with
+  deterministic gating and citation requirements, then attach those to:
+  - the PLAN (clinician voice, no "approval" language)
+  - ReviewPacket.med_suggestions (structured for the portal)
+"""
+
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+
+def load_med_protocol_for_state(state: Any) -> Tuple[Dict[str, Any], str]:
+    """
+    Return an empty protocol to disable YAML-based med injection.
+
+    Returns:
+      ({}, "disabled_no_yaml")
+    """
+    return {}, "disabled_no_yaml"
+
+
+def protocol_med_names(protocol: Dict[str, Any]) -> List[str]:
+    """
+    Previously used to detect/strip duplicate meds from an LLM plan line.
+    With YAML disabled, return [].
+    """
+    return []
+
+
+def protocol_to_med_suggestions(protocol: Dict[str, Any], pathway_id: str = "") -> List[dict]:
+    """
+    Previously converted YAML protocol to structured med suggestions for the portal.
+    With YAML disabled, return [].
+
+    This will be replaced by evidence-grounded RAG/LLM med suggestions later.
+    """
+    return []

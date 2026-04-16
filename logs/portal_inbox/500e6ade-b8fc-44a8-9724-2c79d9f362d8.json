@@ -1,0 +1,57 @@
+{
+  "packet_id": "500e6ade-b8fc-44a8-9724-2c79d9f362d8",
+  "created_at": "2026-03-20T13:39:31.594459+00:00",
+  "session_id": "0d58a3d1-0e94-4a2d-991e-d6bba1ba83da",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for burning sensation upper stomach chest area",
+    "adult dosing and contraindications for antacids or acid reducers",
+    "red flags and return precautions for upper stomach burning with nausea and"
+  ],
+  "queries": [
+    "AAFP management guidelines for burning sensation upper stomach chest area",
+    "AAFP adult dosing and contraindications for antacids or acid reducers",
+    "MedlinePlus management guidelines for burning sensation upper stomach chest area",
+    "MedlinePlus adult dosing and contraindications for antacids or acid reducers",
+    "CDC management guidelines for burning sensation upper stomach chest area",
+    "CDC adult dosing and contraindications for antacids or acid reducers",
+    "NIH management guidelines for burning sensation upper stomach chest area",
+    "NIH adult dosing and contraindications for antacids or acid reducers",
+    "NICE management guidelines for burning sensation upper stomach chest area",
+    "NICE adult dosing and contraindications for antacids or acid reducers",
+    "WHO management guidelines for burning sensation upper stomach chest area",
+    "WHO adult dosing and contraindications for antacids or acid reducers"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Functional Dyspepsia:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/0115/p84.pdf",
+      "accessed": "2026-03-20",
+      "snippet": ""
+    },
+    {
+      "title": "Medications for the Treatment of Gastric Acidity - Gastrointestinal Disorders - Merck Manual Professional Edition",
+      "source": "merckmanuals.com",
+      "url": "https://www.merckmanuals.com/professional/gastrointestinal-disorders/gastritis-and-peptic-ulcer-disease/drug-treatment-of-gastric-acidity",
+      "accessed": "2026-03-20",
+      "snippet": "For duodenal ulcers , once daily oral administration of cimetidine 800 mg, famotidine 40 mg, or nizatidine 300 mg given at bedtime or after dinner for 6 to 8 weeks is effective. Gastric ulcers may respond to the same regimen continued for 8 to 12 weeks, but because nocturnal acid secretion is less important, morning administration may be equally or more effective. Children , once daily oral administration of cimetidine 800 mg, famotidine 40 mg, or nizatidine 300 mg given at bedtime or after dinner for 6 to 8 weeks is effective. Gastric ulcers may respond to the same regimen continued for 8 to 12 weeks, but because nocturnal acid secretion is less important, morning administration may be equally or more effective. Children ≥ 40 kg may receive adult doses. Below that weight, the oral dosage is cimetidine 10 mg/kg every 12 hours. For GERD, histamine-2 receptor antagonists are mostly used fo"
+    },
+    {
+      "title": "Indigestion: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/003260.htm",
+      "accessed": "2026-03-20",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Heartburn: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/003114.htm",
+      "accessed": "2026-03-20",
+      "snippet": "You should treat frequent heartburn (heartburn that occurs 2 or more days per week) because reflux can damage the lining of your esophagus. This can cause serious problems over time. Changing your habits can be helpful in preventing heartburn and other symptoms of GERD."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a burning sensation in the upper stomach/chest area that started last night. She reports associated nausea and some vomiting of stomach contents into her mouth but denies difficulty swallowing, chest pain radiating to the arm or jaw, fever, chills, sweating, or any blood in vomit or black stools. She has been eating more spicy foods than usual recently. She has no history of heartburn, acid reflux, ulcers, heart disease, hypertension, or diabetes. She has not taken any medications or treatments for this symptom yet. She is allergic to penicillin and is not pregnant.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is gastroesophageal reflux disease (GERD) likely triggered by increased spicy food intake, causing esophageal irritation and burning sensation.\nDifferential:\n1. Gastroesophageal reflux disease (GERD)\n2. Gastritis or peptic ulcer disease\n3. Esophagitis\n4. Cardiac causes (less likely given symptom profile and absence of chest pain radiating to arm or jaw)\n\nP: - First-line medication: Omeprazole 20 mg orally once daily for 14 days (Physician must verify medication/dosing)\n- Alternatives: Ranitidine 150 mg orally twice daily for 14 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; no renal or liver disease reported; monitor for side effects of proton pump inhibitors or H2 blockers\n- Follow-up recommendations: Seek in-person medical care urgently if chest pain worsens, radiates to arm or jaw, or if vomiting becomes bloody or severe\n- Testing: Not indicated at this time for telephone evaluation; consider upper endoscopy if symptoms persist or worsen"
+}

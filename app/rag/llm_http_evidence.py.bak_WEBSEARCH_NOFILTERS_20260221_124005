@@ -1,0 +1,268 @@
+import os, json, time, re
+from urllib.parse import urlparse
+
+# Use a model that supports web_search in the Responses API.
+# gpt-4o / gpt-4o-mini are intended for tool use with Responses.
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini")
+
+# Authoritative allowlist (including subdomains)
+ALLOWLIST_DOMAINS = {
+    "nih.gov",
+    "ncbi.nlm.nih.gov",
+    "medlineplus.gov",
+    "nice.org.uk",
+    "nhs.uk",
+    "who.int",
+    "merckmanuals.com",
+    "idsociety.org",
+    "acog.org",
+    "acep.org",
+    "aaos.org",
+    "aafp.org",
+}
+
+STOPWORDS = {
+    "the","a","an","and","or","of","to","in","on","for","with","without","is","are",
+    "this","that","it","as","by","from","at","be","been","was","were","can","may",
+    "your","you","patient","patients","adult","adults","child","children",
+}
+
+def _normalize_url(u: str) -> str:
+    try:
+        u = (u or "").strip()
+        # Prefer canonical host (strip www)
+        u = u.replace("://www.", "://")
+        if u.endswith("/"):
+            u = u[:-1]
+        return u
+    except Exception:
+        return (u or "").strip()
+
+def _domain_allowed(url: str) -> bool:
+    try:
+        host = urlparse(url).netloc.lower().split(":")[0]
+        if host.startswith("www."):
+            host = host[4:]
+        for d in ALLOWLIST_DOMAINS:
+            if host == d or host.endswith("." + d):
+                return True
+        return False
+    except Exception:
+        return False
+
+def _norm(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip()).lower()
+
+def _tokenize_query(q: str) -> list[str]:
+    q = _norm(q)
+    toks = re.findall(r"[a-z0-9]+", q)
+    toks = [t for t in toks if t and t not in STOPWORDS and len(t) >= 3]
+    return toks[:12]
+
+def _openai_responses_web_search(query: str, *, allowed_domains: list[str], max_sources: int, trace_fn=None) -> list[dict]:
+    """
+    Calls OpenAI Responses API with tools=[{type:web_search, filters:{allowed_domains:[...]}}]
+    and include=["web_search_call.action.sources"] so we can parse sources directly.
+    """
+    key = (os.environ.get("OPENAI_API_KEY") or "").strip()
+    if not key:
+        raise RuntimeError("OPENAI_API_KEY not set")
+
+    import requests
+
+    payload = {
+        "model": DEFAULT_MODEL,
+        "tools": [{
+            "type": "web_search",
+            "filters": {
+                # Docs: omit http/https, include subdomains; max 100 domains. :contentReference[oaicite:1]{index=1}
+                "allowed_domains": allowed_domains[:100],
+            },
+        }],
+        "tool_choice": "auto",
+        "include": ["web_search_call.action.sources"],
+        "input": f"Perform a web search and gather authoritative sources for: {query}",
+    }
+
+    t0 = time.time()
+    r = requests.post(
+        "https://api.openai.com/v1/responses",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json=payload,
+        timeout=30,
+    )
+    dt = time.time() - t0
+
+    if r.status_code >= 400:
+        raise RuntimeError(f"OpenAI Responses HTTP {r.status_code}: {r.text[:500]}")
+
+    data = r.json()
+
+    sources = []
+    out = data.get("output") or []
+    for item in out:
+        if not isinstance(item, dict):
+            continue
+        if item.get("type") != "web_search_call":
+            continue
+        action = item.get("action") or {}
+        # With include=["web_search_call.action.sources"], action.sources is populated. :contentReference[oaicite:2]{index=2}
+        srcs = action.get("sources") or []
+        if isinstance(srcs, list):
+            for s in srcs:
+                if isinstance(s, dict):
+                    sources.append(s)
+
+    if trace_fn:
+        trace_fn(
+            "web_search_sources",
+            q=query,
+            latency_s=dt,
+            sources=len(sources),
+        )
+
+    # Normalize to {title,url,snippet} best-effort
+    normed = []
+    for s in sources:
+        url = (s.get("url") or s.get("link") or "").strip()
+        if not url:
+            continue
+        url = _normalize_url(url)
+        if not _domain_allowed(url):
+            continue
+        title = (s.get("title") or s.get("name") or "").strip()
+        snippet = (s.get("snippet") or s.get("description") or s.get("text") or "").strip()
+        normed.append({"title": title, "url": url, "snippet": snippet})
+
+    # Dedupe by URL
+    seen = set()
+    deduped = []
+    for x in normed:
+        u = x["url"]
+        if u in seen:
+            continue
+        seen.add(u)
+        deduped.append(x)
+        if len(deduped) >= max_sources:
+            break
+
+    return deduped
+
+def _cheap_relevance_filter(query: str, items: list[dict]) -> list[dict]:
+    """
+    Deterministic relevance filter:
+    - requires some token overlap between query and (title+snippet+url)
+    - avoids low-back/sciatica pages unless query explicitly asks for those terms
+      (this is not anatomy mapping; it's just not adding specificity the patient didn't provide)
+    """
+    q = _norm(query)
+    q_toks = set(_tokenize_query(q))
+    wants_low = ("low" in q_toks) or ("sciatica" in q_toks) or ("radicular" in q_toks)
+
+    def score(it: dict) -> int:
+        blob = _norm((it.get("title") or "") + " " + (it.get("snippet") or "") + " " + (it.get("url") or ""))
+        toks = set(re.findall(r"[a-z0-9]+", blob))
+        overlap = len([t for t in q_toks if t in toks])
+        s = overlap
+        if not wants_low:
+            if ("sciatica" in blob) or ("low back" in blob) or ("lumbar" in blob):
+                s -= 3
+        return s
+
+    ranked = sorted(items, key=score, reverse=True)
+    kept = [x for x in ranked if score(x) >= 1]  # require minimal overlap
+    return kept if kept else ranked
+
+def _make_evidence_ref(EvidenceRef, title: str, url: str, snippet: str):
+    # Try common field names used in CallCare models.
+    candidates = [
+        {"title": title, "source": url, "snippet": snippet},
+        {"title": title, "url": url, "snippet": snippet},
+        {"title": title, "source": url},
+        {"title": title, "url": url},
+        {"source": url, "snippet": snippet},
+        {"url": url, "snippet": snippet},
+        {"source": url},
+        {"url": url},
+    ]
+    last = None
+    for d in candidates:
+        try:
+            return EvidenceRef(**d)
+        except Exception as e:
+            last = e
+    raise last or RuntimeError("Could not construct EvidenceRef")
+
+def llm_http_evidence(
+    *,
+    diagnosis_hint: str,
+    chief_complaint: str,
+    context: str = "",
+    max_urls: int = 6,
+    min_urls: int = 4,
+    trace_fn=None,
+):
+    """
+    Evidence retrieval WITHOUT FAISS and WITHOUT URL guessing:
+    - uses OpenAI web_search tool (Responses API) to get real sources
+    - applies allowlist at the tool level + local verification
+    - enforces min_urls (default 4) by widening query once if needed
+    """
+    if trace_fn:
+        trace_fn("llm_http_evidence_start", dx=diagnosis_hint, cc=chief_complaint, model=DEFAULT_MODEL)
+
+    from app.core.models import EvidenceRef
+
+    dx = (diagnosis_hint or "").strip()
+    cc = (chief_complaint or "").strip()
+    ctx = (context or "").strip()
+
+    # Query strategy: prefer context (assessment) when present, but fall back to dx/cc.
+    # This does NOT require patients to be anatomically precise; it just uses whatever text you already wrote.
+    base_query = ctx or dx or cc
+    if not base_query:
+        base_query = cc
+
+    allowed = sorted(list(ALLOWLIST_DOMAINS))
+
+    # First search
+    items = _openai_responses_web_search(base_query, allowed_domains=allowed, max_sources=24, trace_fn=trace_fn)
+    items = _cheap_relevance_filter(base_query, items)
+
+    # If short, do ONE widening search (still no PubMed, no guessing)
+    if len(items) < min_urls:
+        wide = base_query
+        # Very light widening that is generalizable across complaints
+        wide = f"{wide} treatment self care red flags dosing"
+        more = _openai_responses_web_search(wide, allowed_domains=allowed, max_sources=24, trace_fn=trace_fn)
+        more = _cheap_relevance_filter(base_query, more)
+        # merge+dedupe by url
+        seen = set([x["url"] for x in items])
+        for x in more:
+            if x["url"] in seen:
+                continue
+            items.append(x)
+            seen.add(x["url"])
+            if len(items) >= max_urls:
+                break
+
+    # Keep only up to max_urls but enforce min_urls when possible
+    items = items[:max_urls]
+
+    refs = []
+    bad = []
+    for it in items:
+        try:
+            title = (it.get("title") or it["url"]).strip()
+            snippet = (it.get("snippet") or "Authoritative clinical reference (see source).").strip()
+            url = it["url"]
+            refs.append(_make_evidence_ref(EvidenceRef, title=title, url=url, snippet=snippet))
+        except Exception as e:
+            bad.append({"url": it.get("url"), "reason": f"evidence_ref_error:{type(e).__name__}", "title": (it.get("title") or "")[:120]})
+            if trace_fn:
+                trace_fn("llm_http_evidence_ref_error", url=it.get("url"), err_type=type(e).__name__, err=str(e))
+
+    if trace_fn:
+        trace_fn("llm_http_evidence_done", refs=len(refs), good_urls=len(refs), bad_urls=len(bad), last_bad=bad[:5])
+
+    return refs

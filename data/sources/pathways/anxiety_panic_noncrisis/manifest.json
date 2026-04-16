@@ -1,0 +1,12 @@
+{
+  "pathway_id": "anxiety_panic_noncrisis",
+  "sources": [
+    {
+      "id": "anxiety_panic_noncrisis_ref",
+      "source_id": "anxiety_panic_noncrisis_ref",
+      "title": "Anxiety/panic reference (starter)",
+      "url": "https://www.nimh.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

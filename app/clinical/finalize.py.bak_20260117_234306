@@ -1,0 +1,419 @@
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Optional, Tuple, List, Any, Dict
+import json
+import uuid
+import re
+
+from app.core.models import ReviewPacket, NoteDraft, CallState, EvidenceRef
+from app.clinical.note_builder import now_iso
+
+FINAL_DIR = Path("logs/finalized")
+MANIFESTS_DIR = Path("data/sources/pathways")
+
+
+def _model_field_names(model_cls) -> set:
+    if hasattr(model_cls, "model_fields"):  # pydantic v2
+        return set(model_cls.model_fields.keys())
+    if hasattr(model_cls, "__fields__"):  # pydantic v1
+        return set(model_cls.__fields__.keys())
+    return set()
+
+
+_EVID_FIELDS = _model_field_names(EvidenceRef)
+
+
+def _mk_evidence_ref(data: Dict[str, Any]) -> EvidenceRef:
+    safe = {k: v for k, v in data.items() if k in _EVID_FIELDS}
+    if "source" in _EVID_FIELDS and not safe.get("source"):
+        safe["source"] = "Unknown source"
+    if "snippet" in _EVID_FIELDS and safe.get("snippet") is None:
+        safe["snippet"] = ""
+    if "title" in _EVID_FIELDS and not safe.get("title"):
+        safe["title"] = safe.get("source", "Evidence")
+    return EvidenceRef(**safe)
+
+
+def _extract_disposition_from_state(state: Optional[CallState]) -> Tuple[str, List[str]]:
+    if state is None:
+        return "UNKNOWN", []
+    symptoms = getattr(state, "symptoms", None) or {}
+    disp = symptoms.get("_disposition") or "UNKNOWN"
+    reasons = symptoms.get("_disposition_reasons") or []
+    if not isinstance(reasons, list):
+        reasons = []
+    reasons = [str(r) for r in reasons if r]
+    return str(disp), reasons
+
+
+def _map_disposition_to_recommendation(disposition: str) -> str:
+    d = (disposition or "").strip().lower()
+    if d == "ed_now":
+        return "ED_NOW"
+    if d == "urgent_today":
+        return "URGENT_IN_PERSON_TODAY"
+    if d == "routine":
+        return "ROUTINE_HOME_CARE"
+    return "AUTO_FINALIZED_PROTOCOL"
+
+
+def _infer_pathway_id(note: NoteDraft, state: Optional[CallState]) -> str:
+    if state is not None:
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+            pid = str(pid).strip()
+            if pid:
+                return pid
+        except Exception:
+            pass
+    try:
+        pid = getattr(note, "pathway_id", "") or ""
+        pid = str(pid).strip()
+        if pid:
+            return pid
+    except Exception:
+        pass
+    return ""
+
+
+def _load_manifest_sources(pathway_id: str) -> List[dict]:
+    if not pathway_id:
+        return []
+    manifest_path = MANIFESTS_DIR / pathway_id / "manifest.json"
+    if not manifest_path.exists():
+        return []
+    try:
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    sources = data.get("sources") or []
+    if not isinstance(sources, list):
+        return []
+    return [s for s in sources if isinstance(s, dict)]
+
+
+def _set_note_evidence_from_manifest(note: NoteDraft, pathway_id: str) -> None:
+    sources = _load_manifest_sources(pathway_id)
+    if not sources:
+        return
+
+    ev: List[EvidenceRef] = []
+    for s in sources:
+        title = (s.get("title") or s.get("id") or pathway_id)
+        url = (s.get("url") or "")
+        src = url or (s.get("id") or title) or "Source"
+        ev.append(_mk_evidence_ref({
+            "title": str(title),
+            "source": str(src),
+            "url": str(url),
+            "snippet": "",   # no “source_id=” spam
+        }))
+
+    try:
+        setattr(note, "evidence", ev)
+        return
+    except Exception:
+        pass
+    if isinstance(note, dict):
+        note["evidence"] = ev
+
+
+def _best_effort_age_years(state: Optional[CallState]) -> Optional[int]:
+    if state is None:
+        return None
+    age = getattr(state, "age", None) or getattr(state, "age_years", None)
+    if isinstance(age, int):
+        return age
+    if age is not None:
+        m = re.match(r"^\s*(\d{1,3})\s*$", str(age))
+        if m:
+            return int(m.group(1))
+    sx = getattr(state, "symptoms", None) or {}
+    if isinstance(sx, dict):
+        v = sx.get("age") or sx.get("age_years") or sx.get("patient_age") or sx.get("years_old")
+        if v is not None:
+            m = re.match(r"^\s*(\d{1,3})\s*$", str(v))
+            if m:
+                return int(m.group(1))
+    return None
+
+
+def _best_effort_tick_timeframe(state: Optional[CallState]) -> Optional[str]:
+    if state is None:
+        return None
+    sx = getattr(state, "symptoms", None) or {}
+    if not isinstance(sx, dict):
+        return None
+    tf = (
+        sx.get("tick_attachment_timeframe")
+        or sx.get("tick_attached_duration")
+        or sx.get("tick_attachment_duration")
+        or sx.get("tick_attached_time")
+        or sx.get("tick_duration")
+        or sx.get("tick_attached")
+    )
+    if tf is None:
+        return None
+    tf = str(tf).strip()
+    return tf or None
+
+
+def _sanitize_soap(soap: str, state: Optional[CallState]) -> str:
+    if not soap:
+        return soap
+    out = soap
+
+    # Remove "(Age: N)" anywhere on S: line (or standalone right after S:)
+    new_lines = []
+    for ln in out.splitlines():
+        if ln.lstrip().startswith("S:") and "(Age:" in ln:
+            ln = re.sub(r"\(Age:\s*\d{1,3}\)", "", ln)
+            ln = re.sub(r"\s+", " ", ln).rstrip()
+        new_lines.append(ln)
+    out = "\n".join(new_lines)
+
+    # Replace age-band text with numeric age if available
+    age_years = _best_effort_age_years(state)
+    if age_years is not None:
+        out = re.sub(
+            r"\b\d{1,2}\s*-\s*\d{1,2}\s*year\s*old\b",
+            f"{age_years}-year-old",
+            out,
+            flags=re.IGNORECASE,
+        )
+        out = re.sub(
+            r"\b\d{1,2}\s*-\s*\d{1,2}\s*[- ]?year[- ]?old\b",
+            f"{age_years}-year-old",
+            out,
+            flags=re.IGNORECASE,
+        )
+
+    # Tick duration lie: convert any “fever ... chills ... for/lasting <tf>” into tick-attachment timeframe
+    tf = _best_effort_tick_timeframe(state)
+    if tf:
+        # Normalize common variants so matching works even if note says "24 to 72 hours"
+        tf_raw = tf.strip()
+        tf_alts = {tf_raw}
+
+        # If tf contains "to", add "-" variant; if it contains "-", add "to" variant
+        tf_alts.add(re.sub(r"\s+to\s+", "-", tf_raw, flags=re.IGNORECASE))
+        tf_alts.add(re.sub(r"\s*-\s*", " to ", tf_raw))
+
+        # Also allow en-dash/em-dash variants in generated text
+        tf_alts.add(tf_raw.replace("-", "–"))
+        tf_alts.add(tf_raw.replace("-", "—"))
+
+        # Build patterns that tolerate: "between", "about", "approximately", "around"
+        # and allow either "for" or "lasting"
+        qualifiers = r"(?:\s+(?:between|about|approximately|around|roughly))?"
+        for tfv in sorted(tf_alts, key=len, reverse=True):
+            tfv = tfv.strip()
+            if not tfv:
+                continue
+
+            # Main: "fever and/with chills for/lasting (between/about/...) <tf>"
+            out = re.sub(
+                r"\b(fever\s+(?:and|with)\s+chills)\s+(?:for|lasting)" + qualifiers + r"\s+" + re.escape(tfv) + r"\b",
+                r"\1. Tick may have been attached for " + tf_raw,
+                out,
+                flags=re.IGNORECASE,
+            )
+
+            # Variant: "fever with chills lasting (between ...) <tf>"
+            out = re.sub(
+                r"\b(fever)\s+with\s+(chills)\s+(?:for|lasting)" + qualifiers + r"\s+" + re.escape(tfv) + r"\b",
+                r"\1 with \2. Tick may have been attached for " + tf_raw,
+                out,
+                flags=re.IGNORECASE,
+            )
+# Pregnancy wording
+    out = re.sub(r"\bPregnancy not possible\b", "Patient is not pregnant", out, flags=re.IGNORECASE)
+
+    # Remove 'Evidence (snippets used)' blocks (cosmetic; keeps Evidence Used citations intact)
+    out = re.sub(
+        r"(?is)\n---\s*Evidence\s*\(snippets\s*used\)\s*---\n.*?(?=\n---\s*[A-Z][A-Za-z0-9 _\-()]*\s*---\n|\Z)",
+        "\n",
+        out,
+    )
+    out = re.sub(
+        r"(?is)\nEvidence\s*\(snippets\s*used\)\s*:.*?(?=\n[A-Z][A-Za-z0-9 _\-()]*\s*:|\n---\s*[A-Z].*?---\n|\Z)",
+        "\n",
+        out,
+    )
+
+    return out
+
+
+def _set_note_soap(note: NoteDraft, soap: str) -> None:
+    try:
+        setattr(note, "soap", soap)
+        return
+    except Exception:
+        pass
+    if isinstance(note, dict):
+        note["soap"] = soap
+
+
+def _apply_tick_bite_plan_addendum(soap: str, state: Optional[CallState], pid: str) -> str:
+    """
+    Surgical PCP-style treatment addendum for tick_bite only.
+    Does NOT change disposition logic; only augments Plan text for async prescribing review.
+    """
+    if not soap or not state or (pid or "").strip() != "tick_bite":
+        return soap
+
+    sx = getattr(state, "symptoms", None) or {}
+    if not isinstance(sx, dict):
+        return soap
+
+    def _norm(v):
+        return (str(v).strip().lower() if v is not None else "")
+
+    # Try common key names used in tick_bite pathway
+    bull = _norm(sx.get("bullseye_rash") or sx.get("erythema_migrans") or sx.get("expanding_rash") or sx.get("rash_bullseye"))
+    tf = str(sx.get("tick_attachment_timeframe") or sx.get("tick_attached_timeframe") or sx.get("tick_attached_duration") or sx.get("tick_attachment_duration") or sx.get("tick_duration") or "").strip()
+    st = str(sx.get("state") or sx.get("exposure_state") or sx.get("state_exposure") or sx.get("location_state") or sx.get("where_exposure") or "").strip()
+    preg_raw = sx.get("pregnancy_possible")
+    preg = _norm(preg_raw)
+
+    age_years = _best_effort_age_years(state)  # function already in finalize.py in your current build
+    if age_years is None:
+        # try a few more keys
+        for k in ("age", "age_years", "patient_age", "years_old"):
+            if k in sx:
+                m = re.match(r"^\s*(\d{1,3})\s*$", str(sx.get(k)))
+                if m:
+                    age_years = int(m.group(1))
+                    break
+
+    # High-incidence states (conservative list; OK to expand later)
+    high_inc = {
+        "connecticut","delaware","maine","maryland","massachusetts","minnesota",
+        "new hampshire","new jersey","new york","pennsylvania","rhode island",
+        "vermont","virginia","west virginia","wisconsin"
+    }
+    st_norm = st.strip().lower()
+
+    def insert_plan_lines(lines):
+        """
+        Insert bullet lines into the P: section if present; otherwise append a P: section.
+        """
+        if not lines:
+            return soap
+
+        # Find Plan section header variants
+        m = re.search(r"(?m)^\s*P:\s*$", soap)
+        if not m:
+            # append new plan
+            return soap.rstrip() + "\nP:\n" + "\n".join("- " + x for x in lines) + "\n"
+
+        # Insert right after the P: line
+        idx = m.end()
+        return soap[:idx] + "\n" + "\n".join("- " + x for x in lines) + soap[idx:]
+
+    add = []
+
+    # Pregnancy wording normalization
+    pregnant = (preg in ("yes","true","pregnant"))
+    not_pregnant = (preg in ("no","false","not pregnant","not_pregnant","notpregnant","not-applicable","not applicable","na","n/a"))
+
+    # --- If bull’s-eye rash: treat early localized Lyme (PCP/urgent care behavior) ---
+    if bull in ("yes","true","present","y"):
+        if pregnant or (age_years is not None and age_years < 8):
+            add.append("Findings are consistent with erythema migrans (early localized Lyme). Recommend treatment rather than observation.")
+            add.append("Pregnancy or age <8: typical first-line option is amoxicillin; clinician to confirm dose based on age/weight and allergies.")
+            add.append("Alternative if penicillin allergy (non-anaphylaxis): cefuroxime may be considered; clinician to confirm.")
+        else:
+            add.append("Findings are consistent with erythema migrans (early localized Lyme). Recommend antibiotic treatment rather than observation.")
+            add.append("Typical adult regimen: doxycycline 100 mg by mouth twice daily for 10 days (clinician to confirm suitability, allergies, interactions).")
+            add.append("Alternatives if doxycycline not appropriate: amoxicillin or cefuroxime (clinician to confirm regimen and duration).")
+        add.append("If systemic illness, neurologic symptoms, carditis symptoms, or worsening despite therapy: escalate to urgent in-person evaluation.")
+
+    # --- If no bull’s-eye rash: consider PEP only when criteria met (attachment ≥36h + high incidence + within 72h of removal) ---
+    else:
+        tf_norm = tf.strip().lower()
+        attached_ge_36 = any(x in tf_norm for x in ["24-72", "24 to 72", "over 72", "72+","72 hours"])
+        in_high_inc = (st_norm in high_inc)
+
+        # Only add PEP suggestion if high-incidence (your stated rule) and attachment suggests ≥36h
+        if attached_ge_36 and in_high_inc:
+            if pregnant:
+                add.append("Tick exposure may meet criteria for Lyme post-exposure prophylaxis (PEP), but doxycycline is generally avoided in pregnancy.")
+                add.append("Consider clinician review for alternative management and shared decision-making based on local epidemiology and timing of removal.")
+            else:
+                add.append("Tick exposure may meet CDC criteria for Lyme post-exposure prophylaxis (PEP) if: Ixodes tick, estimated attachment ≥36 hours, and within 72 hours of removal.")
+                add.append("Typical adult PEP: doxycycline 200 mg by mouth once (single dose) if no contraindications; clinician to confirm.")
+                if age_years is not None and age_years < 8:
+                    add.append("Pediatric PEP requires clinician judgment (age/weight-based); clinician to confirm appropriate regimen if used.")
+        # If not high incidence, don't force PEP in plan (but still allow clinician discretion)
+        elif attached_ge_36 and st.strip():
+            add.append("Tick attachment may be prolonged. In lower-incidence areas, routine Lyme PEP is often not indicated; clinician may consider based on local epidemiology and tick identification.")
+        # else: nothing to add
+
+    if not add:
+        return soap
+
+    # Avoid duplicating on re-runs
+    if "erythema migrans (early localized lyme)" in soap.lower() or "post-exposure prophylaxis" in soap.lower():
+        return soap
+
+    return insert_plan_lines(add)
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+    pid = _infer_pathway_id(note, state)
+    if pid:
+        _set_note_evidence_from_manifest(note, pid)
+
+    # Sanitize SOAP text at the last step (prevents regressions)
+    soap = getattr(note, "soap", "") or ""
+    clean_soap = _sanitize_soap(soap, state)
+    clean_soap = _apply_tick_bite_plan_addendum(clean_soap, state, pid)
+    _set_note_soap(note, clean_soap)
+
+    disposition, reasons = _extract_disposition_from_state(state)
+    recommended = _map_disposition_to_recommendation(disposition)
+
+    comments = "Tier-1 protocol auto-finalized"
+    if disposition != "UNKNOWN":
+        if reasons:
+            comments += f" | disposition={disposition} reasons={reasons}"
+        else:
+            comments += f" | disposition={disposition}"
+    if pid:
+        comments += f" | pathway_id={pid}"
+
+    # Build ReviewPacket with only the fields that exist (schema-safe)
+    try:
+        fields = set(ReviewPacket.model_fields.keys())  # pydantic v2
+    except Exception:
+        fields = set(getattr(ReviewPacket, "__fields__", {}).keys())
+
+    data = {}
+    if "packet_id" in fields:
+        data["packet_id"] = str(uuid.uuid4())
+    if "created_at" in fields:
+        data["created_at"] = now_iso()
+    if "timestamp_iso" in fields:
+        data["timestamp_iso"] = now_iso()
+    if "session_id" in fields:
+        data["session_id"] = session_id
+    if "note" in fields:
+        data["note"] = note
+    if "recommended_disposition" in fields:
+        data["recommended_disposition"] = recommended
+    if "status" in fields:
+        data["status"] = "APPROVED"
+    if "reviewer_id" in fields:
+        data["reviewer_id"] = "SYSTEM"
+    if "reviewer_comments" in fields:
+        data["reviewer_comments"] = comments
+
+    packet = ReviewPacket(**data)
+
+    out_path = FINAL_DIR / f"{session_id}.json"
+    out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+    return packet

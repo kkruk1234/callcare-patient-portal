@@ -1,0 +1,15 @@
+{
+  "pathway_id": "ear_pain",
+  "sources": [
+    {
+      "source_id": "cdc_ear_infection",
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "url": "https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "source_id": "nih_medlineplus_otitis_media",
+      "title": "MedlinePlus: Ear infections",
+      "url": "https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

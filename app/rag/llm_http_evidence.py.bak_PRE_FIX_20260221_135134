@@ -1,0 +1,230 @@
+import os, time, json, re
+from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
+from typing import Optional, List, Dict, Any, Tuple
+
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini")
+
+# Authoritative allowlist (subdomains allowed).  NO pubmed.
+ALLOWLIST_DOMAINS = {
+    "nih.gov",
+    "ncbi.nlm.nih.gov",
+    "pmc.ncbi.nlm.nih.gov",
+    "medlineplus.gov",
+    "nice.org.uk",
+    "nhs.uk",
+    "who.int",
+    "merckmanuals.com",
+    "idsociety.org",
+    "acog.org",
+    "acep.org",
+    "aaos.org",
+    "aafp.org",
+    "cdc.gov",
+}
+
+BAD_TITLE_SIGNALS = [
+    "page not found",
+    "not found",
+    "error",
+    "access denied",
+    "forbidden",
+    "unauthorized",
+    "oops",
+    "we can’t find",
+    "we can't find",
+]
+
+def _now_ts() -> float:
+    return time.time()
+
+def _strip_tracking(url: str) -> str:
+    try:
+        u = (url or "").strip()
+        if not u:
+            return u
+        p = urlparse(u)
+        q = [(k, v) for (k, v) in parse_qsl(p.query, keep_blank_values=True) if k.lower() not in ("utm_source","utm_medium","utm_campaign","utm_term","utm_content")]
+        new_q = urlencode(q, doseq=True)
+        return urlunparse((p.scheme, p.netloc, p.path, p.params, new_q, p.fragment)).rstrip("/")
+    except Exception:
+        return (url or "").strip()
+
+def _domain_allowed(url: str) -> bool:
+    try:
+        host = urlparse(url).netloc.lower().split(":")[0]
+        if host.startswith("www."):
+            host = host[4:]
+        for d in ALLOWLIST_DOMAINS:
+            if host == d or host.endswith("." + d):
+                return True
+        return False
+    except Exception:
+        return False
+
+def _bad_title(title: str) -> bool:
+    t = (title or "").strip().lower()
+    if not t:
+        return True
+    for s in BAD_TITLE_SIGNALS:
+        if s in t:
+            return True
+    return False
+
+def _trace(trace_fn, event: str, **kw) -> None:
+    if not trace_fn:
+        return
+    try:
+        trace_fn(event, **kw)
+    except Exception:
+        pass
+
+def _openai_client():
+    # Compatible with modern openai python package (Responses API).
+    # If your repo uses a wrapper, keep this minimal and fail loudly via trace.
+    try:
+        from openai import OpenAI
+        return OpenAI()
+    except Exception as e:
+        raise RuntimeError("OpenAI client import failed: %s" % str(e))
+
+def _responses_web_search(client, model: str, query: str, trace_fn=None) -> List[Dict[str, Any]]:
+    """
+    Returns list of sources dicts from web_search tool.
+    Forces tool usage so we don't get a plain 'message' with zero annotations.
+    """
+    t0 = _now_ts()
+    try:
+        resp = client.responses.create(
+            model=model,
+            input=query,
+            tools=[{"type": "web_search"}],
+            tool_choice="required",
+            # Critical: include the sources from the tool call (correct include path)
+            include=["web_search_call.action.sources"],
+        )
+    except Exception as e:
+        _trace(trace_fn, "web_search_http_error", q=query, err_type=type(e).__name__, err=str(e))
+        return []
+
+    latency = _now_ts() - t0
+
+    sources: List[Dict[str, Any]] = []
+    try:
+        out = getattr(resp, "output", None) or []
+        # output items can be dicts or objects depending on SDK version
+        for item in out:
+            itype = getattr(item, "type", None) if not isinstance(item, dict) else item.get("type")
+            if itype != "web_search_call":
+                continue
+            action = getattr(item, "action", None) if not isinstance(item, dict) else item.get("action")
+            if not action:
+                continue
+            srcs = None
+            if isinstance(action, dict):
+                srcs = action.get("sources")
+            else:
+                srcs = getattr(action, "sources", None)
+            if isinstance(srcs, list):
+                for s in srcs:
+                    if isinstance(s, dict):
+                        sources.append(s)
+                    else:
+                        # best-effort object->dict
+                        try:
+                            sources.append({
+                                "url": getattr(s, "url", None),
+                                "title": getattr(s, "title", None),
+                                "snippet": getattr(s, "snippet", None),
+                            })
+                        except Exception:
+                            pass
+    except Exception as e:
+        _trace(trace_fn, "web_search_parse_error", q=query, err_type=type(e).__name__, err=str(e))
+        sources = []
+
+    _trace(trace_fn, "web_search_done", q=query, sources=len(sources), latency_s=latency, model=model)
+    return sources
+
+def _as_evidence_ref(url: str, title: str, snippet: str) -> Dict[str, str]:
+    # EvidenceRef in your system usually accepts title/source/snippet keys.
+    # finalize/note_builder will wrap into EvidenceRef if needed.
+    return {
+        "title": title.strip() if title else url,
+        "source": url,
+        "snippet": (snippet or "").strip() or "Authoritative clinical reference (see source).",
+    }
+
+def llm_http_evidence(
+    context: Optional[str] = None,
+    diagnosis_hint: Optional[str] = None,
+    chief_complaint: Optional[str] = None,
+    max_urls: int = 6,
+    min_urls: int = 4,
+    model: Optional[str] = None,
+    trace_fn=None,
+) -> List[Dict[str, str]]:
+    """
+    Returns a list of EvidenceRef-like dicts: {title, source, snippet}.
+    No URL guessing. Uses web_search tool and filters to allowlist.
+    """
+    model = (model or DEFAULT_MODEL).strip()
+    dx = (diagnosis_hint or context or "").strip()
+    cc = (chief_complaint or "").strip()
+
+    _trace(trace_fn, "llm_http_evidence_start", dx=dx, cc=cc, model=model)
+
+    client = _openai_client()
+
+    # Query strategy: broad -> self-care -> meds/dosing -> red flags
+    base = " ".join([p for p in [cc, dx] if p]).strip()
+    if not base:
+        base = "medical guidance"
+
+    queries = [
+        base,
+        base + " self care red flags",
+        base + " acetaminophen ibuprofen naproxen dosing",
+        base + " when to seek urgent care",
+        base + " guideline",
+    ]
+
+    seen: set = set()
+    refs: List[Dict[str, str]] = []
+
+    for q in queries:
+        if len(refs) >= max_urls:
+            break
+
+        sources = _responses_web_search(client, model=model, query=q, trace_fn=trace_fn)
+        for s in sources:
+            if len(refs) >= max_urls:
+                break
+            url = _strip_tracking(str(s.get("url") or "").strip())
+            if not url or not url.startswith("http"):
+                continue
+            if url in seen:
+                continue
+            if not _domain_allowed(url):
+                continue
+
+            title = str(s.get("title") or "").strip()
+            snippet = str(s.get("snippet") or "").strip()
+
+            # Drop obvious bad titles
+            if _bad_title(title):
+                continue
+
+            seen.add(url)
+            refs.append(_as_evidence_ref(url=url, title=title or url, snippet=snippet))
+        # Stop early once we hit minimum
+        if len(refs) >= min_urls:
+            break
+
+    _trace(trace_fn, "llm_http_evidence_done", refs=len(refs), min_urls=min_urls, max_urls=max_urls)
+
+    # Fail-closed if under min (your requirement)
+    if len(refs) < min_urls:
+        _trace(trace_fn, "llm_http_evidence_under_min", refs=len(refs), required=min_urls)
+        return []
+
+    return refs[:max_urls]

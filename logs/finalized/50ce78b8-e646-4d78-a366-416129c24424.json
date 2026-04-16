@@ -1,0 +1,49 @@
+{
+  "packet_id": "a6e6caf4-a811-49e1-aba9-06c3c1477ec6",
+  "created_at": "2026-01-18T19:09:54.282129+00:00",
+  "session_id": "50ce78b8-e646-4d78-a366-416129c24424",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old adult reports a tick bite with the tick attached for approximately 37 hours after exposure in Georgia. The patient describes a rash with a classic bullseye or erythema migrans appearance at the bite site. There are no systemic symptoms such as fever, chills, or malaise. The patient denies any medication allergies and pregnancy status is unknown but pregnancy is not suspected.\n\nO: No physical exam available due to phone-only encounter. Patient describes a rash consistent with erythema migrans, characterized by a bullseye appearance at the site of the tick bite. No systemic symptoms reported. Tick exposure occurred in an endemic area for Lyme disease.\n\nA:  \n  - Working diagnosis (most likely): Early localized Lyme disease presenting with erythema migrans rash.  \n  - Differential:  \n    1. Early Lyme disease  \n    2. Southern tick-associated rash illness (STARI)  \n    3. Cellulitis or local skin infection  \n    4. Allergic reaction to tick bite  \n  - Red flags considered: No fever, no systemic symptoms, no signs of disseminated infection or neurologic involvement.\n\nP:  \n  - Disposition: Urgent care or primary care follow-up recommended within 1 week to reassess rash and symptoms.  \n  - Plan: Initiate doxycycline 100 mg orally twice daily for 14 days, unless contraindicated. If pregnancy is confirmed or suspected, consider amoxicillin 500 mg orally three times daily for 14 days instead. Educate patient on completing full antibiotic course and monitoring for new symptoms such as fever, joint pain, or neurologic signs.  \n  - Safety net: Advise patient to seek immediate care if fever, worsening rash, joint swelling, facial palsy, or other systemic symptoms develop. Return for evaluation if rash does not improve or expands after 7 days of treatment.\n\nEvidence (snippets used): None available; diagnosis based on clinical presentation and exposure risk.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  },
+  "evidence": []
+}

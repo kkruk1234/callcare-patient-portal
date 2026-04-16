@@ -1,0 +1,10 @@
+{
+  "title": "Severe Viral Respiratory Illness | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/illness-severity.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "tion estimate for children ages 0&ndash;1 year is halved. \nBlack, White, American Indian/Alaska Native, and Asian/Pacific Islander people were categorized as non-Hispanic; Hispanic people could be of any race. If Hispanic ethnicity was unknown, non-Hispanic ethnicity was assumed. Rates presented by race and ethnicity are calculated using records with known race. Those with missing or unknown race are excluded from race-specific estimates but are included in overall estimates. \nViral Respiratory Deaths \nSource: Provisional Deaths from the CDC's National Center for Health Statistics (NCHS) National Vital Statistics System (NVSS). Accessed from https://wonder.cdc.gov/mcd-icd10-provisional.html \nProvisional data are non-final counts of deaths based on mortality data in NVSS. Data during recent periods are incomplete because of the lag in time between when a death occurs and when a death certificate is completed, submitted to NCHS, and processed for reporting. This delay can range from 1 week to 8 weeks or more, depending on the jurisdiction. \nDefinitions: Provisional data are non-final counts of deaths based on mortality data in NVSS. Cause-specific death counts are defined as those deaths with the designated ICD-10 codes listed as an underlying or contributing cause of death on the death certificate. The ICD-10 code definitions are as follows: COVID-19 (U07.1), Influenza (J09-J11)",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_illness_severity_html_66f9c504ba6f",
+  "chunk_id": "chunk_007"
+}

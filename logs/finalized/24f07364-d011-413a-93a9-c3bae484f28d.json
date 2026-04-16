@@ -1,0 +1,123 @@
+{
+  "packet_id": "73d815b1-58dc-4d49-bbf1-567e2767bc1f",
+  "created_at": "2026-02-02T15:07:21.122409+00:00",
+  "session_id": "24f07364-d011-413a-93a9-c3bae484f28d",
+  "chief_complaint": "constipation",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your constipation start?",
+    "intake_a1": "1 week ago",
+    "intake_q2": "Have you noticed any blood in your stool or black, tarry stools?",
+    "intake_a2": "no",
+    "intake_q3": "Have you had any recent changes in your diet, fluid intake, or activity level?",
+    "intake_a3": "no",
+    "intake_q4": "Any abdominal pain, bloating, or nausea associated with the constipation?",
+    "intake_a4": "yes",
+    "intake_q5": "Can you describe the abdominal pain—where it is located and if it is constant or comes and goes?",
+    "intake_a5": "lower abdomine, cramp-like, comes and goes",
+    "intake_q6": "Any fever, chills, or vomiting?",
+    "intake_a6": "no",
+    "intake_q7": "Have you had any recent weight loss or changes in appetite?",
+    "intake_a7": "no",
+    "intake_q8": "Have you had any recent changes in your bowel movement frequency or stool consistency besides constipation?",
+    "intake_a8": "no",
+    "intake_q9": "Have you experienced any difficulty or pain when passing stool?",
+    "intake_a9": "yes",
+    "intake_q10": "Any history of chronic constipation or previous similar episodes?",
+    "intake_a10": "yes",
+    "age_years": 51,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/constipation/",
+        "https://medlineplus.gov/constipation.html",
+        "https://medlineplus.gov/lab-tests/ammonia-levels/",
+        "https://www.nhs.uk/conditions/coeliac-disease/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 51-year-old female presenting with constipation that started one week ago. She reports associated lower abdominal cramp-like pain that comes and goes, and difficulty and pain when passing stool. She denies blood in stool, black or tarry stools, fever, chills, vomiting, recent weight loss, or changes in appetite. There have been no recent changes in diet, fluid intake, or activity level. She has a history of chronic constipation and previous similar episodes. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is acute-on-chronic constipation with associated lower abdominal cramping and painful defecation. This presentation is consistent with a functional constipation flare.\n\nDifferential: \n1. Functional constipation exacerbation \n2. Partial bowel obstruction (less likely without vomiting or severe pain) \n3. Irritable bowel syndrome with constipation (IBS-C) \n4. Colorectal pathology (less likely without bleeding or systemic symptoms)\n\nP: \n- First-line medication: Polyethylene glycol (PEG) 17 grams dissolved in 8 ounces of water once daily for up to 7 days. Avoid if any known allergy to PEG. Dosing details were not found in retrieved evidence; prescriber should verify. \n- Alternatives: \n - Docusate sodium 100 mg orally twice daily for 7 days; avoid if allergy to docusate. \n - Senna 8.6 mg orally once or twice daily for up to 7 days; avoid if allergy to senna or other stimulant laxatives. \n- Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease. Use caution with stimulant laxatives if prolonged use is anticipated. \n- Return precautions: Return or seek in-person care if abdominal pain worsens, fever develops, vomiting occurs, inability to pass stool or gas, or if symptoms persist beyond 7 days despite treatment. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Constipation - NHS",
+        "source": "https://www.nhs.uk/conditions/constipation/",
+        "snippet": "﻿ \nConstipation\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nConstipation \nConstipation is where you have changes to how you poo, including not pooing as often or finding it hard to poo. It's common and it affects people of all ages. You can usually treat it with simple changes to your diet and lifestyle. \nThis page is about constipation in adults. There's separate information on constipation in babies and children .\nSymptoms of constipation \nIt's likely to be constipation if:\nyou have not had a poo at least 3 times during the last week or you're pooing less often than usual the poo is unusually large or small and is dry, hard or lumpy you are straining or in pain when you have a poo you feel like you haven't fu"
+      },
+      {
+        "title": "Constipation | MedlinePlus",
+        "source": "https://medlineplus.gov/constipation.html",
+        "snippet": "tric Gastroenterology, Hepatology and Nutrition) \n- PDF \nDefinition and Facts for Constipation in Children \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nDiagnosis of Constipation in Children \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nEating, Diet, and Nutrition for Constipation in Children \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nHow Can I Tell If My Baby is Constipated? \n(American Academy of Pediatrics) \nAlso in Spanish \nSymptoms and Causes of Constipation in Children \n(National Institute of Diabetes and Digestive a"
+      },
+      {
+        "title": "HealthyChildren.org: Constipation",
+        "source": "pathways/constipation_child/healthychildren_constipation.json",
+        "snippet": "--> Constipation in Children - HealthyChildren.org You may be trying to access this site from a secured browser on the server. Please enable scripts and reload this page. Turn on more accessible mode Turn off more accessible mode Skip Ribbon Commands Skip to main content Turn off Animations Turn on Animations Our Sponsors Log in | Register Donate Menu Log in | Register Home Our Sponsors Ages &amp; Stages Ages &amp; Stages Ages and Stages Your Child’s Checkups Prenatal Decisions to Make Delivery and Beyond Baby (0-12 mos.) Bathing ＆ Skin Care Breastfeeding Crying ＆ Colic Diapers ＆ Clothing Formula Feeding Nutrition Preemie Sleep Teething ＆ Tooth Care Toddler 1-3yrs. Fitness Nutrition Toilet Training Preschool 3-5yrs Nutrition ＆ Fitness Grade School 5-12yrs. Fitness Nutrition Puberty School Teen 12-18yrs. Dating ＆ Sex Fitness Nutrition Young Adult 18-21yrs. Healthy Living Healthy Living He"
+      },
+      {
+        "title": "Ammonia Levels: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/ammonia-levels/",
+        "snippet": "er.gov/publications/dictionaries/cancer-terms/def/reye-syndrome \nNational Center for Advancing Translational Sciences/Genetic and Rare Diseases Information Center [Internet]. Gaithersburg (MD): U.S. Department of Health and Human Services; Urea cycle disorders; [updated 2023 Feb; cited 2023 Apr 18]; [about 12 screens]. Available from: https://rarediseases.info.nih.gov/diseases/7837/urea-cycle-disorders \nNational Institute of Diabetes and Digestive and Kidney Diseases [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Definition & Facts for Cirrhosis; [updated 2018 Mar; cited 2023 Apr 19]; [about 4 screens]. Available from: https://www.niddk.nih.gov/health-information/liver-disease/cirrhosis/definition-facts \nNational Institute of Neurological Disorders and Stroke [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Hypotonia; [reviewed 2023 Jan 2"
+      },
+      {
+        "title": "Coeliac disease - NHS",
+        "source": "https://www.nhs.uk/conditions/coeliac-disease/",
+        "snippet": "in B12 or folate deficiency anaemia Less common and more serious complications include some types of cancers, such as bowel cancer , and problems affecting pregnancy, such as your baby having a low birth weight.\nFind out more about the complications of coeliac disease .\nWho&#x27;s affected \nCoeliac disease is a condition that affects at least 1 in every 100 people in the UK.\nBut some experts think this may be underestimated because milder cases may go undiagnosed or be misdiagnosed as other digestive conditions, such as irritable bowel syndrome (IBS) .\nReported cases of coeliac disease are higher in women than men.\nIt can develop at any age."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Constipation - NHS",
+      "source": "https://www.nhs.uk/conditions/constipation/",
+      "snippet": "﻿ \nConstipation\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nConstipation \nConstipation is where you have changes to how you poo, including not pooing as often or finding it hard to poo. It's common and it affects people of all ages. You can usually treat it with simple changes to your diet and lifestyle. \nThis page is about constipation in adults. There's separate information on constipation in babies and children .\nSymptoms of constipation \nIt's likely to be constipation if:\nyou have not had a poo at least 3 times during the last week or you're pooing less often than usual the poo is unusually large or small and is dry, hard or lumpy you are straining or in pain when you have a poo you feel like you haven't fu"
+    },
+    {
+      "title": "Constipation | MedlinePlus",
+      "source": "https://medlineplus.gov/constipation.html",
+      "snippet": "tric Gastroenterology, Hepatology and Nutrition) \n- PDF \nDefinition and Facts for Constipation in Children \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nDiagnosis of Constipation in Children \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nEating, Diet, and Nutrition for Constipation in Children \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nHow Can I Tell If My Baby is Constipated? \n(American Academy of Pediatrics) \nAlso in Spanish \nSymptoms and Causes of Constipation in Children \n(National Institute of Diabetes and Digestive a"
+    },
+    {
+      "title": "HealthyChildren.org: Constipation",
+      "source": "pathways/constipation_child/healthychildren_constipation.json",
+      "snippet": "--> Constipation in Children - HealthyChildren.org You may be trying to access this site from a secured browser on the server. Please enable scripts and reload this page. Turn on more accessible mode Turn off more accessible mode Skip Ribbon Commands Skip to main content Turn off Animations Turn on Animations Our Sponsors Log in | Register Donate Menu Log in | Register Home Our Sponsors Ages &amp; Stages Ages &amp; Stages Ages and Stages Your Child’s Checkups Prenatal Decisions to Make Delivery and Beyond Baby (0-12 mos.) Bathing ＆ Skin Care Breastfeeding Crying ＆ Colic Diapers ＆ Clothing Formula Feeding Nutrition Preemie Sleep Teething ＆ Tooth Care Toddler 1-3yrs. Fitness Nutrition Toilet Training Preschool 3-5yrs Nutrition ＆ Fitness Grade School 5-12yrs. Fitness Nutrition Puberty School Teen 12-18yrs. Dating ＆ Sex Fitness Nutrition Young Adult 18-21yrs. Healthy Living Healthy Living He"
+    },
+    {
+      "title": "Ammonia Levels: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/ammonia-levels/",
+      "snippet": "er.gov/publications/dictionaries/cancer-terms/def/reye-syndrome \nNational Center for Advancing Translational Sciences/Genetic and Rare Diseases Information Center [Internet]. Gaithersburg (MD): U.S. Department of Health and Human Services; Urea cycle disorders; [updated 2023 Feb; cited 2023 Apr 18]; [about 12 screens]. Available from: https://rarediseases.info.nih.gov/diseases/7837/urea-cycle-disorders \nNational Institute of Diabetes and Digestive and Kidney Diseases [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Definition & Facts for Cirrhosis; [updated 2018 Mar; cited 2023 Apr 19]; [about 4 screens]. Available from: https://www.niddk.nih.gov/health-information/liver-disease/cirrhosis/definition-facts \nNational Institute of Neurological Disorders and Stroke [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Hypotonia; [reviewed 2023 Jan 2"
+    },
+    {
+      "title": "Coeliac disease - NHS",
+      "source": "https://www.nhs.uk/conditions/coeliac-disease/",
+      "snippet": "in B12 or folate deficiency anaemia Less common and more serious complications include some types of cancers, such as bowel cancer , and problems affecting pregnancy, such as your baby having a low birth weight.\nFind out more about the complications of coeliac disease .\nWho&#x27;s affected \nCoeliac disease is a condition that affects at least 1 in every 100 people in the UK.\nBut some experts think this may be underestimated because milder cases may go undiagnosed or be misdiagnosed as other digestive conditions, such as irritable bowel syndrome (IBS) .\nReported cases of coeliac disease are higher in women than men.\nIt can develop at any age."
+    }
+  ]
+}

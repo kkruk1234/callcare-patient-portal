@@ -1,0 +1,136 @@
+{
+  "packet_id": "f273f8a0-e20e-4e38-b7b3-3b92db665960",
+  "created_at": "2026-01-28T01:20:54.135066+00:00",
+  "session_id": "746948f3-01ec-4c1f-8083-fe2a41a0aa24",
+  "chief_complaint": "it burns when I pee",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "dysuria_uti",
+  "answers": {
+    "renal_disease": "yes",
+    "sex_at_birth": "female",
+    "duration": "4 days",
+    "fever": "no",
+    "flank": "no",
+    "pregnancy": "no",
+    "discharge": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Cephalexin",
+      "dosing": "500 mg PO QID x 5–7 days",
+      "sig": "500 mg PO QID x 5–7 days",
+      "route": "PO",
+      "frequency": "QID",
+      "duration": "",
+      "notes": "Pregnancy-compatible option; a safe default when pregnancy is possible/confirmed.",
+      "exclusions": "Cephalosporin allergy; use caution with immediate-type severe beta-lactam allergy; adjust if renal impairment.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO BID x 5–7 days",
+      "sig": "875/125 mg PO BID x 5–7 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Pregnancy-compatible alternative; confirm indication/local resistance.",
+      "exclusions": "Immediate-type beta-lactam allergy; adjust for renal impairment.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Nitrofurantoin (macrocrystals/monohydrate)",
+      "dosing": "100 mg PO BID x 5 days",
+      "sig": "100 mg PO BID x 5 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "5 days",
+      "notes": "Common first-line for uncomplicated cystitis when not near term and renal function adequate.",
+      "exclusions": "Avoid if pyelonephritis suspected (fever, flank pain); avoid if CrCl < 30 mL/min; nitrofurantoin allergy; caution near term pregnancy.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    },
+    {
+      "rank": 4,
+      "med": "Fosfomycin tromethamine",
+      "dosing": "3 g PO once",
+      "sig": "3 g PO once",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "Single-dose alternative; generally pregnancy-compatible but confirm clinician judgment and local guidance.",
+      "exclusions": "Not for suspected pyelonephritis; consider availability/cost.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    },
+    {
+      "rank": 5,
+      "med": "Trimethoprim-sulfamethoxazole (TMP-SMX)",
+      "dosing": "160/800 mg (1 DS tab) PO BID x 3 days",
+      "sig": "160/800 mg (1 DS tab) PO BID x 3 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "3 days",
+      "notes": "Alternative when pregnancy status/trimester allows and resistance risk acceptable.",
+      "exclusions": "Sulfa allergy; avoid 1st trimester if possible (folate antagonist) and near term (kernicterus risk); consider local resistance; drug interactions.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S: 34-year-old patient. The patient is a female adult with a history of renal disease who reports a 4-day history of dysuria described as a burning sensation when urinating. She denies fever, flank pain, vaginal discharge, or any other systemic symptoms. She is not pregnant and has no known allergies or contraindications to medications. There is no history of urinary catheter use. The symptoms are consistent with a lower urinary tract infection.\n\nO: Phone encounter only; unable to perform physical exam or obtain vital signs. No reported fever or flank pain. No vaginal discharge noted.\n\nA: Likely uncomplicated lower urinary tract infection (cystitis) in a female patient with underlying renal disease. Differential diagnosis includes urethritis, vaginitis, or interstitial cystitis, but the absence of discharge and systemic symptoms makes UTI the most probable diagnosis. No signs of upper tract involvement or pyelonephritis at this time.\n\nP: Initiate empiric antibiotic therapy appropriate for uncomplicated UTI, taking into account renal disease to avoid nephrotoxic agents. Recommend urine culture and sensitivity testing if feasible to guide therapy. Advise increased fluid intake and symptomatic relief measures. Phenazopyridine may be used cautiously for dysuria relief but avoid NSAIDs due to renal disease; acetaminophen is preferred for pain or discomfort. Educate patient on signs of worsening infection such as fever, flank pain, or hematuria, and instruct to seek urgent care if these develop. Follow-up in 48-72 hours or sooner if symptoms worsen.",
+    "patient_summary": "Based on what you’ve told me, your symptoms most likely point to a bladder infection, which is common and usually treatable. Because you have a history of kidney issues, medication choices need to be careful. A licensed physician will review this note and, if appropriate, may prescribe the right antibiotic for you. For now, drink plenty of fluids and you can take acetaminophen (Tylenol) for any discomfort. You might also consider an over-the-counter urinary pain reliever like AZO, but be aware it can turn your urine orange and doesn’t treat the infection itself. If you develop fever, worsening pain in your side or back, blood in your urine, or feel very unwell, please seek urgent care the same day. Since this is a phone visit, if you need an in-person exam or testing, you should go to urgent care or the emergency department. A licensed physician will review your case soon and decide on the best treatment.",
+    "patient_instructions": [
+      "If symptoms worsen or you develop new severe symptoms, seek urgent care or call 911.",
+      "Follow the disposition and safety net plan explained in the spoken summary.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely (no dosing provided); ibuprofen (Advil) if you can take it safely (no dosing provided); phenazopyridine (AZO) may help urinary burning; turns urine orange; does not treat infection (no dosing provided)",
+      "Medication cautions: Avoid NSAIDs if kidney disease, stomach ulcers/bleeding history, or on blood thinners (reviewer to confirm).; Avoid phenazopyridine if pregnant; reviewer to confirm pregnancy status."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "IDSA Guideline: Uncomplicated Cystitis and Pyelonephritis",
+        "source": "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/"
+      },
+      {
+        "title": "CDC: Urinary Tract Infection Basics",
+        "source": "https://www.cdc.gov/uti/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/uti/about/index.html"
+      },
+      {
+        "title": "NICE NG109: Urinary Tract Infection (Lower)",
+        "source": "https://www.nice.org.uk/guidance/ng109",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng109"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "IDSA Guideline: Uncomplicated Cystitis and Pyelonephritis",
+      "source": "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/",
+      "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/"
+    },
+    {
+      "title": "CDC: Urinary Tract Infection Basics",
+      "source": "https://www.cdc.gov/uti/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/uti/about/index.html"
+    },
+    {
+      "title": "NICE NG109: Urinary Tract Infection (Lower)",
+      "source": "https://www.nice.org.uk/guidance/ng109",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng109"
+    }
+  ]
+}

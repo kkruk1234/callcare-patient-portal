@@ -1,0 +1,21 @@
+id: menstrual_pain_severe
+version: 0.1
+match:
+  any_keywords: ["severe period cramps", "bad menstrual cramps", "pelvic cramps with period", "period pain", "painful period"]
+questions:
+  - id: pregnant
+    prompt: "Is there any chance you could be pregnant? (yes/no/unknown)"
+    store_as: pregnancy_possible
+  - id: bleeding
+    prompt: "Are you soaking through pads/tampons very quickly or feeling faint? (yes/no)"
+    store_as: heavy_bleeding_or_faint
+    type: yesno
+  - id: unilateral
+    prompt: "Is the pain one-sided and sudden, or with shoulder pain/dizziness? (yes/no)"
+    store_as: ectopic_redflags
+    type: yesno
+stop_rules:
+  - if_all_answered: ["pregnant", "bleeding", "unilateral"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

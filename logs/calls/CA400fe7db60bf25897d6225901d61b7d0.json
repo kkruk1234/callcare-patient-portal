@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA400fe7db60bf25897d6225901d61b7d0",
+  "session_id": "89596735-3380-40db-8a1a-951e8ad6ded6",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T21:25:10.159000+00:00",
+  "ended_at": "2026-04-03T21:29:51.434035+00:00",
+  "packet_id": "13479762-4c39-45b4-812d-b6d8cab0c598",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a headache."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your headache start?"
+    },
+    {
+      "role": "user",
+      "text": "Earlier today."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the location and type of your headache pain?"
+    },
+    {
+      "role": "user",
+      "text": "It's the right side of my forehead and my right cheek area right below my eye."
+    },
+    {
+      "role": "assistant",
+      "text": "Any associated symptoms like fever, vision changes, or nasal congestion?"
+    },
+    {
+      "role": "user",
+      "text": "I have a runny nose. No nasal congestion, but I've had a runny nose for the last 2 to 3 days now. It's kind of a constant runny nose."
+    },
+    {
+      "role": "assistant",
+      "text": "Any eye redness, eye pain, or changes in vision on the right side?"
+    },
+    {
+      "role": "user",
+      "text": "With and now the headache is new."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or feeling generally unwell?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any tenderness or swelling around your right forehead, cheek, or sinus areas?"
+    },
+    {
+      "role": "user",
+      "text": "I don't feel great, but I don't have any"
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of migraines or similar headaches in the past?"
+    },
+    {
+      "role": "user",
+      "text": "there's no swelling. It just hurt."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any nasal discharge that is thick, colored, or foul-smelling?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any recent trauma or injury to your head or face?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any sensitivity to light or sound with your headache?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have a new headache likely related to a viral upper respiratory infection, given your recent runny nose and no other concerning symptoms. Because this is a phone visit, I can’t examine you or run tests, but you can try acetaminophen (Tylenol) or ibuprofen (Advil) for pain relief if you can take them safely. A licensed physician will review this note and may prescribe medication if appropriate. If your headache worsens significantly, you develop a fever, vision changes, facial swelling, or sudden severe headache or neurological symptoms, please seek urgent or emergency care right away. If symptoms stay the same or improve, continue supportive care at home."
+    }
+  ]
+}

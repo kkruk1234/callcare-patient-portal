@@ -1,0 +1,67 @@
+{
+  "packet_id": "8b5043b9-f3fb-4f44-84e5-60def084ec47",
+  "created_at": "2026-02-21T17:32:34.136381+00:00",
+  "session_id": "c1cc297d-0794-4eec-bef2-6ae263b2308f",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any recent injury or trauma to your back or ribs?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any pain with breathing or coughing?",
+    "intake_a6": "no",
+    "intake_q7": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a7": "no",
+    "intake_q8": "Have you noticed any swelling, redness, or tenderness over the area of your back pain?",
+    "intake_a8": "tenderness",
+    "intake_q9": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a9": "I tried tylenol but it didn't really help much",
+    "intake_q10": "Any history of cancer, recent infections, or immune system problems?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately three weeks ago. She reports localized tenderness over the area but denies any fever, chills, night sweats, recent trauma, shortness of breath, chest pain, pain with breathing or coughing, or neurological symptoms such as numbness, weakness, or tingling in the legs or feet. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of cancer, recent infections, or immune system issues. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage area, likely due to soft tissue strain or minor injury without systemic signs of infection or serious pathology. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Costochondritis or rib inflammation \n3. Intercostal muscle strain \n4. Early presentation of a rib fracture or occult injury \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation relief. (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs in patients with renal impairment or gastrointestinal ulcers; monitor for side effects such as gastrointestinal upset. \n - Return precautions: Advise the patient to seek immediate care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), chest pain, or shortness of breath. \n - Testing: Not indicated at this time unless symptoms worsen or new concerning signs develop.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

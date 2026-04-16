@@ -1,0 +1,11 @@
+{
+  "pathway_id": "allergic_conjunctivitis",
+  "sources": [
+    {
+      "source_id": "aao_allergy_eye",
+      "type": "url",
+      "title": "AAO: Allergic Conjunctivitis",
+      "url": "https://www.aao.org/eye-health/diseases/allergic-conjunctivitis"
+    }
+  ]
+}

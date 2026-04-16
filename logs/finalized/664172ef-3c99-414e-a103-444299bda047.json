@@ -1,0 +1,90 @@
+{
+  "packet_id": "ac02db95-e2dc-4c87-9df4-862155628390",
+  "created_at": "2026-02-06T00:11:59.384309+00:00",
+  "session_id": "664172ef-3c99-414e-a103-444299bda047",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago after helping a friend move",
+    "intake_q3": "Where exactly is the chest pain located?",
+    "intake_a3": "right next to my sternum",
+    "intake_q4": "Does anything make the chest pain worse or better, such as movement, breathing, or position changes?",
+    "intake_a4": "deep breathing make it a little worse, rest makes it a little better",
+    "intake_q5": "Any fever, chills, or recent respiratory symptoms like cough or shortness of breath?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of trauma, heavy lifting, or strenuous activity before the pain started?",
+    "intake_a6": "heavy lifting of boxes 1 week ago",
+    "intake_q7": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a7": "no",
+    "intake_q8": "Any swelling, redness, or tenderness over the chest wall where the pain is located?",
+    "intake_a8": "tenderness",
+    "intake_q9": "Any shortness of breath or pain radiating to your arm, jaw, or back?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent episodes of dizziness, fainting, or palpitations?",
+    "intake_a10": "no",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/chestpain.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain that began one week ago after heavy lifting while helping a friend move. The pain is located right next to the sternum and is worsened by deep breathing and improved somewhat with rest. She reports tenderness over the chest wall at the site of pain. There are no associated symptoms such as fever, chills, cough, shortness of breath, radiation of pain, dizziness, fainting, or palpitations. She denies any history of heart disease, lung problems, or blood clots. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings available beyond patient-reported tenderness.\n\nA: \nThe working diagnosis is musculoskeletal chest pain likely due to costochondritis or chest wall strain from heavy lifting. This is supported by the localized tenderness, sharp pain near the sternum, and exacerbation with movement and deep breathing.\n\nDifferential: \n1. Costochondritis or musculoskeletal chest wall strain \n2. Rib fracture or bruising from heavy lifting \n3. Pleural irritation or early pleuritis without infection \n4. Less likely cardiac or pulmonary causes given absence of systemic or radiating symptoms \n\nP: \n - First-line medication: \n Ibuprofen 400 mg orally every 6-8 hours as needed for pain, for 7 days. Avoid if history of allergy or gastrointestinal intolerance. Dosing details were not found in retrieved evidence; prescriber should verify. \n\n - Alternatives: \n - Acetaminophen 500-1000 mg orally every 6 hours as needed for pain, for 7 days. Avoid if liver disease or allergy. \n - Naproxen 250-500 mg orally twice daily as needed for pain, for 7 days. Avoid if allergy or gastrointestinal intolerance. \n\n - Medication safety considerations: \n No known medication allergies. No renal or liver disease reported. Use NSAIDs cautiously if gastrointestinal risk factors develop. \n\n - Return precautions: \n Advise patient to seek urgent care if chest pain worsens significantly, develops with shortness of breath, radiates to arm/jaw/back, or is accompanied by dizziness, fainting, or palpitations. \n\n - Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+      },
+      {
+        "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+        "source": "library/medlineplus_gov/medlineplus_gov_chestinjuriesanddisorders_html_e079a2f75113/chunk_005.json",
+        "snippet": "so in Spanish \nTopic Image \nMEDICAL ENCYCLOPEDIA \nChest CT \nChest MRI \nChest tube insertion \nChest tube insertion - series \nChest x-ray \nCostochondritis \nMediastinal tumor \nMediastinitis \nMediastinoscopy with biopsy \nPectus carinatum \nPectus excavatum \nPectus excavatum - discharge \nPectus excavatum repair \nPectus excavatum repair - series \nPneumomediastinum \nRib fracture - aftercare \nRibcage pain \nSlipping rib syndrome \nShow More \nShow Less \nRelated Health Topics \nChest Pain \nCollapsed Lung \nPleural Disorders \nDisclaimers \nMedlinePlus links to health information from the National Institutes of Health and other federal government agencies. Med"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+    },
+    {
+      "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+      "source": "library/medlineplus_gov/medlineplus_gov_chestinjuriesanddisorders_html_e079a2f75113/chunk_005.json",
+      "snippet": "so in Spanish \nTopic Image \nMEDICAL ENCYCLOPEDIA \nChest CT \nChest MRI \nChest tube insertion \nChest tube insertion - series \nChest x-ray \nCostochondritis \nMediastinal tumor \nMediastinitis \nMediastinoscopy with biopsy \nPectus carinatum \nPectus excavatum \nPectus excavatum - discharge \nPectus excavatum repair \nPectus excavatum repair - series \nPneumomediastinum \nRib fracture - aftercare \nRibcage pain \nSlipping rib syndrome \nShow More \nShow Less \nRelated Health Topics \nChest Pain \nCollapsed Lung \nPleural Disorders \nDisclaimers \nMedlinePlus links to health information from the National Institutes of Health and other federal government agencies. Med"
+    }
+  ]
+}

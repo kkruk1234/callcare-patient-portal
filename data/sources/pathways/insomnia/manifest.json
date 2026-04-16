@@ -1,0 +1,12 @@
+{
+  "pathway_id": "insomnia",
+  "sources": [
+    {
+      "id": "insomnia_ref",
+      "source_id": "insomnia_ref",
+      "title": "Sleep/insomnia reference (starter)",
+      "url": "https://www.nhlbi.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

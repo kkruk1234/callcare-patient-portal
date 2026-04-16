@@ -1,0 +1,138 @@
+{
+  "packet_id": "986fceb9-d0e5-494b-a41d-34eeeb2daf4e",
+  "created_at": "2026-01-21T03:50:28.720357+00:00",
+  "session_id": "7ef1458d-7491-4d06-97cf-1f0e2698e7f9",
+  "chief_complaint": "tick bite",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "tick_bite",
+  "answers": {
+    "systemic_symptoms": "none",
+    "bullseye_rash": "yes",
+    "tick_attachment_timeframe": "45 Hours",
+    "exposure_state": "Georgia",
+    "pregnancy_possible": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Doxycycline",
+      "dosing": "100 mg PO twice daily x 10 days",
+      "sig": "100 mg PO twice daily x 10 days",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "10 days",
+      "notes": "First-line for erythema migrans / early localized Lyme disease when not pregnant.",
+      "exclusions": "Avoid in pregnancy; avoid in children < 8 years; check tetracycline allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "tick_bite",
+      "source_file": "data/protocols/meds/tick_bite.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Amoxicillin",
+      "dosing": "500 mg PO three times daily x 14 days",
+      "sig": "500 mg PO three times daily x 14 days",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "14 days",
+      "notes": "Alternative first-line; preferred option in pregnancy when treatment indicated.",
+      "exclusions": "Avoid if penicillin allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "tick_bite",
+      "source_file": "data/protocols/meds/tick_bite.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Cefuroxime axetil",
+      "dosing": "500 mg PO twice daily x 14 days",
+      "sig": "500 mg PO twice daily x 14 days",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "14 days",
+      "notes": "Alternative first-line regimen.",
+      "exclusions": "Avoid if severe cephalosporin allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "tick_bite",
+      "source_file": "data/protocols/meds/tick_bite.yaml"
+    },
+    {
+      "rank": 4,
+      "med": "Azithromycin",
+      "dosing": "500 mg PO once daily x 7 days",
+      "sig": "500 mg PO once daily x 7 days",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "7 days",
+      "notes": "Less effective; reserve for intolerance/contraindications to preferred regimens.",
+      "exclusions": "Use only if unable to take doxycycline/amoxicillin/cefuroxime; QT risk/interaction review.",
+      "tier": "Tier 1",
+      "pathway_id": "tick_bite",
+      "source_file": "data/protocols/meds/tick_bite.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:  \n34-year-old adult presents by phone reporting a tick bite with the tick attached for approximately 45 hours in Georgia. Patient describes an expanding bullseye-like rash consistent with erythema migrans at the site of the tick bite. No systemic symptoms such as fever, chills, or body aches reported. No known drug allergies. Patient is not pregnant.\n\nO:  \nNo physical exam available due to phone-only encounter. Patient describes a characteristic bullseye rash consistent with erythema migrans at the tick bite site. No reported systemic signs or symptoms.\n\nA:  \n - Working diagnosis (most likely): Early localized Lyme disease  \n - Differential:  \n  1. Early localized Lyme disease  \n  2. Southern tick-associated rash illness (STARI)  \n  3. Cellulitis or local skin infection  \n  4. Allergic reaction to tick bite  \n - Red flags considered: No systemic symptoms reported (fever, chills, severe headache, body aches, stiff neck).\n\nP:  \n - Disposition: Outpatient management with close follow-up by phone or in person if symptoms worsen.  \n - Plan:\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Doxycycline — 100 mg PO twice daily x 10 days\n     - Notes: First-line for erythema migrans / early localized Lyme disease when not pregnant.\n     - Exclusions: Avoid in pregnancy; avoid in children < 8 years; check tetracycline allergy.\n   - Amoxicillin — 500 mg PO three times daily x 14 days\n     - Notes: Alternative first-line; preferred option in pregnancy when treatment indicated.\n     - Exclusions: Avoid if penicillin allergy.\n   - Cefuroxime axetil — 500 mg PO twice daily x 14 days\n     - Notes: Alternative first-line regimen.\n     - Exclusions: Avoid if severe cephalosporin allergy.\n   - Azithromycin — 500 mg PO once daily x 7 days\n     - Notes: Less effective; reserve for intolerance/contraindications to preferred regimens.\n     - Exclusions: Use only if unable to take doxycycline/amoxicillin/cefuroxime; QT risk/interaction review.\n   - Supportive care:\n   - Local care: Clean the bite area; avoid scratching; consider cool compress for itch/swelling.\n   - Symptom control: OTC analgesics/antipyretics if safe (avoid dosing instructions by phone).\n   - Follow-up and safety:\n   - Follow-up: Follow up with urgent care/primary care within 1 week to reassess rash progression and any new symptoms.\n   - Do not rely on serology for classic erythema migrans: If classic erythema migrans is present, treatment is typically recommended without waiting for lab confirmation.\n   - Return precautions: Seek urgent care/ED if fever, worsening/spreading rash, severe headache/neck stiffness, facial weakness, neurologic symptoms, chest pain/palpitations/syncope, shortness of breath, or other systemic symptoms develop.\n - Safety net: Advise patient to seek urgent care if fever, worsening rash, new systemic symptoms, severe headache, neck stiffness, or other concerning symptoms develop. Follow up if no improvement or progression of rash after 7 days.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: What to Do After a Tick Bite",
+      "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+    },
+    {
+      "title": "CDC: Tick Bite—What to Do (PDF)",
+      "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+    },
+    {
+      "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+      "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+    },
+    {
+      "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+      "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+      "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/lyme-disease/"
+    },
+    {
+      "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+      "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+    }
+  ]
+}

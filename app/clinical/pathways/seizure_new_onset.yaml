@@ -1,0 +1,22 @@
+id: seizure_new_onset
+version: 0.1
+match:
+  any_keywords: ["seizure", "convulsion", "shaking episode", "lost consciousness and shook", "bit my tongue", "postictal"]
+questions:
+  - id: ongoing
+    prompt: "Is the person having a seizure now, or not waking up normally after it? (yes/no)"
+    store_as: ongoing_or_not_waking
+    type: yesno
+  - id: injury
+    prompt: "Any serious head injury, fall, or heavy bleeding during the event? (yes/no)"
+    store_as: injury
+    type: yesno
+  - id: first
+    prompt: "Is this the first seizure you've ever had? (yes/no)"
+    store_as: first_time
+    type: yesno
+stop_rules:
+  - if_all_answered: ["ongoing", "injury", "first"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

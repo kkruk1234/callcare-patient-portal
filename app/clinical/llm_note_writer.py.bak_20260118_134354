@@ -1,0 +1,89 @@
+import os
+from typing import List
+from openai import OpenAI
+from app.core.models import EvidenceRef, CallState
+
+def build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    """
+    Build the prompt sent to the LLM note writer.
+    This keeps note_builder.py unchanged.
+    """
+    cc = state.chief_complaint or ""
+    age = state.age_band or "unknown"
+    preg = state.pregnancy_possible if state.pregnancy_possible is not None else "unknown"
+
+    # Pull structured answers if present
+    answers = state.symptoms.get("_answers", {})
+    pathway = state.symptoms.get("_pathway", {})
+
+    ev_text = ""
+    if evidence:
+        lines = []
+        for i, e in enumerate(evidence[:6], 1):
+            lines.append(f"[{i}] SOURCE: {e.source}\nSNIPPET: {e.snippet}")
+        ev_text = "\n\n".join(lines)
+    else:
+        ev_text = "(No evidence snippets retrieved.)"
+
+    return f"""
+You are drafting a phone-encounter clinical note for an automated assistant with tier-based autonomy.
+
+Encounter context:
+- Chief complaint: {cc}
+- Age band: {age}
+- Pregnancy possible: {preg}
+- Pathway: {pathway}
+
+Structured answers (qid -> answer):
+{answers}
+
+Evidence snippets (guidelines/peer-reviewed):
+{ev_text}
+
+Write the note using the required output format and rules.
+""".strip()
+
+
+def generate_note_text(prompt: str) -> str:
+    """
+    Produces a Tier-aware SOAP note.
+    IMPORTANT: Give a clear 'working diagnosis (most likely)' + disposition.
+    Avoid 'definitive diagnosis' if red flags/workup needed.
+    """
+    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+    system = """You are generating a clinical SOAP note for a phone-only encounter.
+
+Hard rules:
+- Do NOT claim a "definitive diagnosis" if red flags are present or if workup is required.
+- You MUST output a clear 'Working diagnosis (most likely)' based on reported symptoms + guideline evidence.
+- You MUST output a clear DISPOSITION (ED now / urgent in-person / routine follow-up / self-care).
+- Include a short DIFFERENTIAL (2–4 items).
+- Include a SAFETY NET section.
+- Be concise and clinically formatted.
+- If evidence snippets exist, cite them in plain language (e.g., "CDC guidance…", "AAFP review…").
+
+Output format (plain text):
+
+S:
+O:
+A:
+  - Working diagnosis (most likely):
+  - Differential:
+  - Red flags considered:
+P:
+  - Disposition:
+  - Plan:
+  - Safety net:
+Evidence (snippets used):
+"""
+
+    resp = client.responses.create(
+        model="gpt-4.1-mini",
+        input=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+    )
+    return (resp.output_text or "").strip()

@@ -1,0 +1,11 @@
+{
+  "id": "dysuria_uti",
+  "version": "0.1",
+  "questions": {
+    "duration": "How long have your urinary symptoms lasted?",
+    "fever": "Are you running a fever?",
+    "flank": "Do you have any pain in your back or sides near your kidneys?",
+    "pregnancy": "Could you be pregnant? Yes, no, or not sure?",
+    "discharge": "Are you experiencing any vaginal discharge or pelvic pain?"
+  }
+}

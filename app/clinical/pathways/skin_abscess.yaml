@@ -1,0 +1,26 @@
+id: skin_abscess
+version: 0.1
+match:
+  any_keywords: ["abscess", "boil", "pus pocket", "skin lump with pus", "painful bump", "furuncle"]
+questions:
+  - id: fever
+    prompt: "Any fever or feeling very ill? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: spreading
+    prompt: "Is redness spreading quickly or is there severe pain out of proportion? (yes/no)"
+    store_as: severe_spreading
+    type: yesno
+
+  - id: location
+    prompt: "Is this on the face, near an eye, groin, or hand, or is it very large? (yes/no)"
+    store_as: high_risk_location
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["fever","spreading","location"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

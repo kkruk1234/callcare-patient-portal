@@ -1,0 +1,57 @@
+{
+  "packet_id": "e0abcc88-bab8-403d-9d4c-7102e2b6e0e3",
+  "created_at": "2026-03-11T15:44:31.838870+00:00",
+  "session_id": "647d67e6-a6bf-47e5-a4f8-f804f04bc6af",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat diagnosis and management guidelines adults",
+    "treatment for streptococcal pharyngitis penicillin allergy adult dosing",
+    "red flags and return precautions sore throat with white patches"
+  ],
+  "queries": [
+    "AAFP sore throat diagnosis and management guidelines adults",
+    "AAFP treatment for streptococcal pharyngitis penicillin allergy adult dosing",
+    "MedlinePlus sore throat diagnosis and management guidelines adults",
+    "MedlinePlus treatment for streptococcal pharyngitis penicillin allergy adult dosing",
+    "CDC sore throat diagnosis and management guidelines adults",
+    "CDC treatment for streptococcal pharyngitis penicillin allergy adult dosing",
+    "NIH sore throat diagnosis and management guidelines adults",
+    "NIH treatment for streptococcal pharyngitis penicillin allergy adult dosing",
+    "NICE sore throat diagnosis and management guidelines adults",
+    "NICE treatment for streptococcal pharyngitis penicillin allergy adult dosing",
+    "WHO sore throat diagnosis and management guidelines adults",
+    "WHO treatment for streptococcal pharyngitis penicillin allergy adult dosing"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Sore Throat: Time to Update | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/editorial-sore-throat.html",
+      "accessed": "2026-03-11",
+      "snippet": "Because rheumatic heart disease is so rare in the United States, the primary benefit of using antibiotics is symptom reduction, with a number needed to treat of 6 for improvement by day 3, and possibly the reduction of spread to others (although most close contacts have likely already been exposed by the time the patient is evaluated). 15 , 16 In 2023, an international group of experts in primary care respiratory infections published the first international guideline for the management of sore throat . 3 The guideline focuses on avoiding testing and antibiotic use for patients with uncomplicated sore throat (i.e., mild to moderate sore throat accompanied by cough with no red flags), reserving evaluation, testing, and possibly antibiotic use for those at risk of complicated or severe disease. 3 Using rapid antigen testing for streptococcus, followed by prescribing antibiotics, is not reco"
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-11",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Pharyngitis - sore throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000655.htm",
+      "accessed": "2026-03-11",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Strep A Test: MedlinePlus Medical Test",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/lab-tests/strep-a-test/",
+      "accessed": "2026-03-11",
+      "snippet": "If you or your child is diagnosed with strep throat, you will need to take antibiotics. Most often you will need to take them for 10 days. After a day or two of taking the medicine, you or your child should start to feel better. Most people are no longer contagious after taking antibiotics for 24 hours. But it's important to take all the medicine as prescribed. Stopping early can lead to serious complications, such as:"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sore throat accompanied by fever, chills, swollen glands, and white patches on the tonsils. She denies cough, nasal congestion, difficulty swallowing, rash, or chest pain. She reports recent exposure to sick contacts. She has no history of rheumatic fever or heart valve problems and has not taken any medications other than tea with honey, which has not improved her symptoms.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The clinical presentation is consistent with acute bacterial pharyngitis, most likely streptococcal pharyngitis given the presence of fever, tonsillar exudates, and cervical lymphadenopathy without cough.\nDifferential:\n1. Group A streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Other bacterial causes of pharyngitis (e.g., group C or G streptococcus)\n\nP: - First-line medication: Azithromycin 500 mg orally on day 1, then 250 mg orally daily on days 2 through 5 (Physician must verify medication/dosing)\n- Alternatives: Clindamycin 300 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient has a penicillin allergy; avoid penicillin and amoxicillin. Monitor for gastrointestinal side effects with macrolides and clindamycin. Other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe throat pain, inability to swallow, or high fever develops. Seek emergency care if signs of airway obstruction or severe systemic illness occur.\n- Testing: Recommend in-person rapid antigen detection testing for streptococcus or throat culture to confirm diagnosis and guide therapy if symptoms persist or worsen."
+}

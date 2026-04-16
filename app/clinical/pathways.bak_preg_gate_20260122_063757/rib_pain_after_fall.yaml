@@ -1,0 +1,22 @@
+id: rib_pain_after_fall
+version: 0.1
+match:
+  any_keywords: ["rib pain", "pain when I breathe after a fall", "hit my ribs", "rib injury", "chest wall pain after fall"]
+questions:
+  - id: breathing
+    prompt: "Are you short of breath at rest or having trouble breathing? (yes/no)"
+    store_as: sob
+    type: yesno
+  - id: severe
+    prompt: "Is the pain severe, or did you pass out when you fell? (yes/no)"
+    store_as: severe_or_syncope
+    type: yesno
+  - id: blood
+    prompt: "Any coughing up blood? (yes/no)"
+    store_as: hemoptysis
+    type: yesno
+stop_rules:
+  - if_all_answered: ["breathing", "severe", "blood"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

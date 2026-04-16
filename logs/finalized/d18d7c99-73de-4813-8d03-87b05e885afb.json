@@ -1,0 +1,50 @@
+{
+  "packet_id": "d18d7c99-73de-4813-8d03-87b05e885afb",
+  "created_at": "2026-03-05T22:34:59.265067+00:00",
+  "session_id": "ff853d7a-b41f-42d4-a7d7-703c7ff40050",
+  "pathway_id": "",
+  "base_queries": [
+    "guidelines for diagnosis and management of left lower rib cage back pain",
+    "adult dosing and contraindications of analgesics for back pain",
+    "red flags and indications for imaging in back pain patients"
+  ],
+  "queries": [
+    "AAFP guidelines for diagnosis and management of left lower rib cage back pain",
+    "AAFP adult dosing and contraindications of analgesics for back pain",
+    "MedlinePlus guidelines for diagnosis and management of left lower rib cage back pain",
+    "MedlinePlus adult dosing and contraindications of analgesics for back pain",
+    "CDC guidelines for diagnosis and management of left lower rib cage back pain",
+    "CDC adult dosing and contraindications of analgesics for back pain",
+    "NIH guidelines for diagnosis and management of left lower rib cage back pain",
+    "NIH adult dosing and contraindications of analgesics for back pain",
+    "NICE guidelines for diagnosis and management of left lower rib cage back pain",
+    "NICE adult dosing and contraindications of analgesics for back pain",
+    "WHO guidelines for diagnosis and management of left lower rib cage back pain",
+    "WHO adult dosing and contraindications of analgesics for back pain"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Acute Low Back Pain: Diagnosis and Management | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2025/1100/acute-low-back-pain.pdf",
+      "accessed": "2026-03-05",
+      "snippet": "Acute low back pain falls into two causal categories: specific and nonspecific. Specific causes can be intrinsic to the spine, from systemic disease, or referred pain from other organs. However, acute low back pain typically is nonspecific. Aside from recent trauma, most patients with acute low back pain do not require imaging unless history reveals red flag findings. Those with red flag findings require immediate evaluation and treatment, including imaging and specialty referral or consultation. For patients with nonspecific low back pain, first-line treatment involves maintaining activity, use of heat therapy, and other nonpharmacologic treatments (eg, dry needling, transcutaneous electrical nerve stimulation, acupuncture). Pharmacotherapy options include nonsteroidal anti-inflammatory drugs, trigger point injections, and possibly systemic corticosteroids for radicular low back pain. D"
+    },
+    {
+      "title": "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians - PubMed",
+      "source": "pubmed.ncbi.nlm.nih.gov",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28192789/",
+      "accessed": "2026-03-05",
+      "snippet": "In patients with chronic low back pain who have had an inadequate response to nonpharmacologic therapy, clinicians and patients should consider pharmacologic treatment with nonsteroidal anti-inflammatory drugs as first-line therapy, or tramadol or duloxetine as second-line therapy. Clinicians should only consider opioids as an option in patients who have failed the aforementioned treatments and only if the potential benefits outweigh the risks for individual patients and after a discussion of known risks and realistic benefits with patients. (Grade: weak recommendation, moderate-quality evidence)."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2017/0915/p407.pdf",
+      "accessed": "2026-03-05",
+      "snippet": "Downloaded from the American Family Physician Web site at www.aafp.org/afp. Copyright © 2016 American Academy of Family Physicians. For the private, noncommercial use of one individual user of the Web site. All other rights reserved. Contact copyrights@aafp.org for copyright questions and/or permission requests."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started 3 weeks ago. She describes the pain as a dull ache that improves with better posture. There is no history of trauma, fever, chills, weight loss, respiratory symptoms, numbness, weakness, or urinary symptoms. She has tried acetaminophen (Tylenol) with minimal relief.\n\nO: Phone-only visit; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain likely related to postural strain.\nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costovertebral joint dysfunction\n3. Early intercostal muscle strain\n4. Less likely visceral causes such as renal or pleural pathology given lack of systemic symptoms\n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) (per evidence) (e.g., ibuprofen, naproxen)\n- Alternatives: Muscle relaxants or topical analgesics\n- Medication safety considerations: Avoid NSAIDs if gastrointestinal, renal, or cardiovascular contraindications develop; monitor for side effects\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens significantly, develops neurological symptoms, fever, or new systemic symptoms\n- Testing: Not indicated at this time given absence of red flags and typical presentation"
+}

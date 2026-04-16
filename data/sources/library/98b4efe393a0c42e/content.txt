@@ -1,0 +1,138 @@
+[Table], Table 1. Dosing Recommendations for Acetaminophen and Anti-inflammatoriesa - PDQ Cancer Information Summaries - NCBI Bookshelf
+
+Table 1. Dosing Recommendations for Acetaminophen and Anti-inflammatories
+a
+View in own window
+Drug
+Usual Dose for Adults
+and Children ≥50 kg
+Body Weight
+Usual Dose for Adults and Children
+b
+ <50 kg Body Weight
+Enteral Medications
+acetaminophen
+c
+50 mg q4h; max dose is 400 mg in 24 h (PO)
+10–15 mg/kg q4h; max dose is 75 mg/kg total in 24 h (PO)
+975 mg q6h; max dose is 4,000 mg in 24 h (PO) 
+aspirin
+d
+
+650 mg q4h (PO)
+10–15 mg/kg q4h (PO)
+975 mg q6h (PO)
+15–20 mg/kg q4h
+(PR)
+ibuprofen (Motrin, Advil)
+ 400–600 mg q6h (PO)
+5–10 mg/kg q4–6h (PO)
+magnesium salicylate
+(Doan’s, Magan,
+Mobidin, others)
+650 mg q4h (PO)
+naproxen (Naprosyn, Aleve)
+250–275 mg q6–8h (PO)
+5 mg/kg q8h (PO)
+naproxen sodium
+(Anaprox)
+275 mg q6–8h (PO)
+carprofen (Rimadyl)
+ 100 mg tid (PO)
+choline magnesium
+trisalicylate
+e
+ (Trilisate)
+ 1,000–1,500 mg q6–8h (PO)
+ 25 mg/kg q6–8h (PO)
+choline salicylate
+e
+ (Arthropan)
+870 mg q3–4h (PO)
+diclofenac (oral) (Voltaren - 1% topical; Pennsaid - 1.5% topical)
+50 mg bid–tid oral; 32 g/d topical
+Flector (patch): 1 patch bid
+diflunisal
+f
+ (Dolobid) 
+ 500 mg q12h (PO)
+etodolac (Lodine)
+ 200–400 mg q6–8h (PO)
+fenoprofen calcium
+(Nalfon)
+300–600 mg q6h (PO)
+ketoprofen (Orudis)
+25–60 mg q6–8h (PO)
+ketorolac tromethamine
+g
+ (Toradol)
+10 mg q4–6h to a
+maximum of 40 mg/d
+
+IV administration
+should not exceed 5 days
+meclofenamate sodium
+h
+
+(Meclomen)
+50–100 mg q6h (PO)
+mefenamic acid (Ponstel)
+250 mg q6h (PO)
+sodium salicylate
+(Anacin, Bufferin)
+ 325–650 mg q3–4h (PO)
+Parenteral Medications
+acetaminophen (rectal)
+650 mg q4–6h, total 3,900 mg (adults aged >12 y) (PR)
+15–20 mg/kg q4h (PR), max dose 75 mg/kg total in 24 h
+IV acetaminophen 
+1,000 mg q6h (IV) (adults)
+15 mg/kg max (IV), 75 mg/kg in 24 h (children aged <13 y)
+ketorolac tromethamine
+g,i
+ (Toradol)
+ 60 mg initially, then 30
+mg q6h (IV)
+IV administration
+should not exceed 5 days
+bid = twice a day; IV = intravenous; PO = by mouth; PR = by rectum; q = every; tid = 3 times a day.
+a
+Only the nonsteroidal anti-inflammatory
+drugs (NSAIDs) listed here have FDA approval for use as simple analgesics, but
+clinical experience has also been gained with other drugs.
+b
+Acetaminophen and NSAID dosages for adults weighing less than 50 kg 
+should be adjusted for weight.
+
+c
+Acetaminophen lacks the peripheral anti-inflammatory and antiplatelet
+activities of the other NSAIDs.
+
+d
+The standard against which other NSAIDs are compared. May inhibit platelet
+aggregation for longer than 1 week and may cause bleeding.
+Aspirin is not recommended for pain in children.
+e
+May have minimal antiplatelet activity.
+
+f
+Administration with antacids may decrease absorption.
+
+g
+Use limited to 5 days or fewer.
+
+h
+Coombs-positive autoimmune hemolytic anemia has been associated with
+prolonged use.
+
+i
+Has the same gastrointestinal toxic effects as oral NSAIDs.
+
+From: 
+Pain (PDQ®)
+PDQ Cancer Information Summaries [Internet].
+Bethesda (MD): 
+National Cancer Institute (US)
+; 2002-.
+Copyright Notice
+NCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.

@@ -1,0 +1,43 @@
+{
+  "packet_id": "c894d7ae-295a-47ff-93a5-3d40b801ec12",
+  "created_at": "2026-03-15T22:07:38.569882+00:00",
+  "session_id": "875cc1b0-447a-48e0-b0ad-b2f7d18c6041",
+  "pathway_id": "",
+  "base_queries": [
+    "chest pain management guidelines adults",
+    "treatment dosing sharp chest pain adults mg duration",
+    "red flags chest pain when to seek emergency care"
+  ],
+  "queries": [
+    "AAFP chest pain management guidelines adults",
+    "AAFP treatment dosing sharp chest pain adults mg duration",
+    "MedlinePlus chest pain management guidelines adults",
+    "MedlinePlus treatment dosing sharp chest pain adults mg duration",
+    "CDC chest pain management guidelines adults",
+    "CDC treatment dosing sharp chest pain adults mg duration",
+    "NIH chest pain management guidelines adults",
+    "NIH treatment dosing sharp chest pain adults mg duration",
+    "NICE chest pain management guidelines adults",
+    "NICE treatment dosing sharp chest pain adults mg duration",
+    "WHO chest pain management guidelines adults",
+    "WHO treatment dosing sharp chest pain adults mg duration"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Chest Pain Evaluation: Updated Guidelines From the AHA/ACC | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0200/practice-guidelines-chest-pain-evaluation.html",
+      "accessed": "2026-03-15",
+      "snippet": "Chest pain can present as pain, pressure, tightness, or discomfort in the chest, shoulders, arms, neck, back, upper abdomen, or jaw and less commonly as shortness of breath, nausea, or fatigue without pain. Chest pain is considered acute with new onset or if it involves a change in pattern, intensity, or duration; it is considered stable if it is chronic with unchanging triggers such as exertion or emotional stress. Patients commonly describe ischemic chest pain as pressure, squeezing, heaviness, tightness, exertional, stress-related, or retrosternal. Pain that is sharp, fleeting, pleuritic, positional, or shifting locations is less likely to be of cardiac origin. These guidelines suggest describing chest pain as cardiac; possible cardiac; or noncardiac. The descriptor atypical is no longer used because it can be interpreted by patients as being benign."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0200/practice-guidelines-chest-pain-evaluation.pdf",
+      "accessed": "2026-03-15",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with sharp chest pain located on the right side of the chest next to the sternum. The pain started about three weeks ago and does not radiate. She denies shortness of breath, sweating, nausea, dizziness, cough, fever, recent respiratory infections, swelling, redness, or tenderness over the area. She has no history of heart disease, lung problems, or blood clots and has not experienced palpitations or rapid heartbeat. She tried Tylenol without significant relief. There is no recent trauma or heavy lifting reported. She has a penicillin allergy and is not pregnant.\n\nO: Phone-only encounter; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal chest pain, likely costochondritis given the sharp localized pain near the sternum without systemic symptoms or radiation.\nDifferential:\n1. Costochondritis or musculoskeletal chest pain\n2. Gastroesophageal reflux disease (GERD)\n3. Anxiety-related chest pain\n4. Cardiac causes (less likely given history and symptom characteristics)\n\nP: - First-line medication: Ibuprofen 400 mg orally every 6-8 hours as needed for pain for 7 days (Physician must verify medication/dosing)\n- Alternatives: Naproxen 250 mg orally twice daily as needed for pain for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid NSAIDs if history of gastrointestinal bleeding or renal impairment; patient has no known renal or liver disease; penicillin allergy does not affect NSAID use.\n- Follow-up recommendations: Seek in-person medical care urgently if chest pain worsens, becomes constant, radiates, or is associated with shortness of breath, sweating, nausea, or dizziness. Seek emergency care if severe chest pain or other cardiac symptoms develop.\n- Testing: Not indicated at this time based on telephone assessment; consider in-person evaluation if symptoms persist or worsen."
+}

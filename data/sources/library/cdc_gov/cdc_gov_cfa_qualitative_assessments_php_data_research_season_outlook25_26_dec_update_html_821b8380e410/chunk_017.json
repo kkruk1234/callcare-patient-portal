@@ -1,0 +1,10 @@
+{
+  "title": "2025-2026 Respiratory Disease Season Outlook - December Update | CFA: Qualitative Assessments | CDC",
+  "url": "https://www.cdc.gov/cfa-qualitative-assessments/php/data-research/season-outlook25-26-dec-update.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ernal vaccination only protects infants. To develop a baseline projection of next season's burden, we used RSV hospitalization data from last season (2024-2025) for infants (children less than 1 year old), adjusting for the fact that not everyone hospitalized because of RSV has received a positive test. We then divided infants into weekly birth cohorts and inferred weekly rates of hospitalization in the 2024-2025 season in the absence of immunization or maternal vaccination, accounting for age-varying hospitalization risk and last season's time-varying immunization coverage. Next, we predict the number of hospitalizations that could be averted in 2025-2026 by considering, for each calendar week and birth cohort, the number of hospitalizations in the absence of immunization, the expected coverage of each immunization product, and the expected effectiveness of each immunization product. The proportion averted is the proportion of individuals effectively protected by any of the products they received. Expected immunization coverage and effectiveness point estimates were generated in the expert elicitation process.\nProjecting hospitalizations averted among adults \nTo estimate the projected hospitalizations averted among adults, we follow the same steps among eligible adult age groups. Expected immunization coverage and effectiveness point estimates were generated in the expert elic",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_qualitative_assessments_php_data_research_season_outlook25_26_dec_update_html_821b8380e410",
+  "chunk_id": "chunk_017"
+}

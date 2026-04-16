@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Service",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-service/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "nted Architecture Implementation Guide . The output of the request can be XML in the Atom feed format, JSON, or JSONP.\nThe structure of the request indicates what type of code you are sending. In all cases, the base URL for the Web service is:\nhttps://connect.medlineplus.gov/service\nMedlinePlus Connect uses HTTPS connections. HTTP requests will not be accepted and existing implementations using HTTP should update to HTTPS.\nOutput Parameters \nThese parameters are optional. If you leave them out, the default response is English information in XML format.\nLanguage \nIdentify if you would like the response to be in English or Spanish. MedlinePlus Connect will assume English is the language if it is not specified.\nIf you wish the response to the problem code lookup to be in Spanish, use :\ninformationRecipient.languageCode.c=es \n(=sp or =spa also accepted) \nTo specify English, use the following:\ninformationRecipient.languageCode.c=en \nFormat \nIdentify if you would like the response format to be XML, JSON, or JSONP. XML is the default.\nTo request JSON, use: \nknowledgeResponseType=application/json \nFor JSONP, use: \nknowledgeResponseType=application/javascript&callback=CallbackFunction where CallbackFunction is a name you give the call back function.\nFor a response in XML, use: \nknowledgeResponseType=text/xml or leave the knowledgeResponseType parameter out of the request.\nDiagnosis (Pro",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_service_e2f0d5bc3255",
+  "chunk_id": "chunk_003"
+}

@@ -1,0 +1,26 @@
+id: testicular_pain_torsion_possible
+version: 0.1
+match:
+  any_keywords: ["testicle pain", "testicular pain", "one testicle hurts", "scrotum pain", "scrotal swelling", "groin pain sudden"]
+questions:
+  - id: sudden
+    prompt: "Did the pain start suddenly (within minutes to a couple hours)? (yes/no)"
+    store_as: sudden_onset
+    type: yesno
+
+  - id: swelling
+    prompt: "Is there swelling of the scrotum or one testicle looks higher than the other? (yes/no)"
+    store_as: swelling_or_high
+    type: yesno
+
+  - id: nausea
+    prompt: "Any nausea or vomiting with the testicular pain? (yes/no)"
+    store_as: nausea_vomiting
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["sudden", "swelling", "nausea"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

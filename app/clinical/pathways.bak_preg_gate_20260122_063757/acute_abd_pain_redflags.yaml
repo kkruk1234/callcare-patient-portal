@@ -1,0 +1,26 @@
+id: acute_abd_pain_redflags
+version: 0.1
+match:
+  any_keywords: ["severe belly pain", "belly pain faint", "abdominal pain with black stool", "abdomen pain and passing out", "rigid abdomen"]
+questions:
+  - id: faint
+    prompt: "Do you feel faint, pass out, or can't stand? (yes/no)"
+    store_as: faint
+    type: yesno
+
+  - id: gi_bleed
+    prompt: "Any black/tarry stools or vomiting blood? (yes/no)"
+    store_as: gi_bleed
+    type: yesno
+
+  - id: severe
+    prompt: "Is the pain severe or getting rapidly worse? (yes/no)"
+    store_as: severe
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["faint", "gi_bleed", "severe"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Activity Levels | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/activity-levels.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ata available to calculate the wastewater viral activity level. \nData Limitations for Influenza A :\nWastewater data cannot determine the source of influenza A viruses. Detections could come from a human or from an animal (like a bird) or an animal product (like milk from an infected cow). \nWastewater testing for influenza displayed in these visuals only detects influenza A viruses and does not distinguish between influenza A subtypes (e.g. seasonal influenza A(H1N1) virus, seasonal influenza A(H3N2) virus and avian influenza A(H5) virus). \nData Limitations for RSV : \nWastewater data will not include waste that may be disposed of outside the wastewater system, such as from people wearing diapers. \nFor more data limitations, see&#8239; Data Methods .\nEmergency Department Visits for Viral Respiratory Illness \nSource: National Syndromic Surveillance Program: https://www.cdc.gov/nssp/index.html \nThere are no data available for the following states/territories: Guam, Missouri, and South Dakota. Combined is the sum of COVID-19, influenza, and respiratory syncytial virus (RSV) emergency department visits. \nAdditional information available at: Companion Guide: NSSP Emergency Department Data on Respiratory Illness \nEpidemic Trends \nSource : The Center for Forecasting and Outbreak Analytics: Current Epidemic Trends (Based on R t ) for States . \nThe epidemic trend is based on R t , the tim",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_activity_levels_html_f3cd8bd52f62",
+  "chunk_id": "chunk_010"
+}

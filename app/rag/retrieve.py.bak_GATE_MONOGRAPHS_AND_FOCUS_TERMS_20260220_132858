@@ -1,0 +1,397 @@
+import json
+import os
+import re
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import faiss
+import numpy as np
+
+from app.clinical.embeddings import get_embedder  # EMBED_HARDEN_PATCH_V1
+
+
+# Resolve project root reliably (…/callcare/)
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+# Your actual index location
+INDEX_DIR = BASE_DIR / "data" / "index"
+FAISS_PATH = INDEX_DIR / "faiss.index"
+DOCS_PATH = INDEX_DIR / "docs.json"
+
+# Your library packs location (where source.json exists)
+LIB_DIR = BASE_DIR / "data" / "sources" / "library"
+
+_model = None
+_index = None
+_DOCS = None
+
+
+def reset_index_cache():
+    """Force reload of FAISS index + docs.json on next retrieve()."""
+    global _model, _index, _DOCS
+    _model = None
+    _index = None
+    _DOCS = None
+
+
+def _ensure_loaded():
+    global _model, _index, _DOCS
+    if _model is None:
+        _model = get_embedder()
+    if _index is None:
+        if not FAISS_PATH.exists():
+            raise FileNotFoundError(f"FAISS index not found: {FAISS_PATH}")
+        _index = faiss.read_index(str(FAISS_PATH))
+    if _DOCS is None:
+        if not DOCS_PATH.exists():
+            raise FileNotFoundError(f"Docs file not found: {DOCS_PATH}")
+        with open(DOCS_PATH, "r", encoding="utf-8") as f:
+            _DOCS = json.load(f)
+
+
+def _debug_enabled() -> bool:
+    return os.environ.get("RAG_DEBUG", "").strip() in ("1", "true", "TRUE", "yes", "YES")
+
+
+_WORD_RE = re.compile(r"[a-z0-9]+")
+
+
+def _tokenize(text: str) -> List[str]:
+    text = (text or "").lower()
+    return _WORD_RE.findall(text)
+
+
+def _dedupe_key(d: Dict) -> Tuple[str, str]:
+    """
+    Prefer canonical URL, else source.
+    We intentionally do NOT include doc text here because we want to aggressively
+    dedupe duplicates of the same web page.
+    """
+    url = (d.get("url") or "").strip().lower()
+    src = (d.get("source") or "").strip().lower()
+    return (url, src)
+
+
+def _looks_like_local_content(doc: Dict) -> bool:
+    """
+    Detect local pack artifacts like:
+      - url: "library/<id>/content.txt"
+      - source: "library/<id>/content.txt"
+      - title: "content.txt"
+    """
+    url = (doc.get("url") or "").strip().lower()
+    src = (doc.get("source") or "").strip().lower()
+    title = (doc.get("title") or "").strip().lower()
+    if title == "content.txt":
+        return True
+    if url.startswith("library/") and "content.txt" in url:
+        return True
+    if src.startswith("library/") and "content.txt" in src:
+        return True
+    return False
+
+
+def _extract_library_id(doc: Dict) -> Optional[str]:
+    """
+    From "library/<id>/content.txt" extract <id>.
+    """
+    for field in ("url", "source"):
+        v = (doc.get(field) or "").strip()
+        if not v:
+            continue
+        m = re.match(r"^library/([a-f0-9]{8,64})/content\.txt$", v.strip(), flags=re.IGNORECASE)
+        if m:
+            return m.group(1)
+    return None
+
+
+def _resolve_local_library_doc(doc: Dict) -> Dict:
+    """
+    If a doc points to library/<id>/content.txt, try to load data/sources/library/<id>/source.json
+    and replace doc url/title/source with canonical web URL/title.
+    """
+    if not isinstance(doc, dict):
+        return doc
+
+    if not _looks_like_local_content(doc):
+        return doc
+
+    lib_id = _extract_library_id(doc)
+    if not lib_id:
+        return doc
+
+    src_json = LIB_DIR / lib_id / "source.json"
+    if not src_json.exists():
+        return doc
+
+    try:
+        data = json.loads(src_json.read_text(encoding="utf-8"))
+    except Exception:
+        return doc
+
+    # Common keys we’ve used across CallCare packs:
+    # url / source_url / original_url
+    canonical_url = (
+        str(data.get("url") or data.get("source_url") or data.get("original_url") or "").strip()
+    )
+    canonical_title = str(data.get("title") or data.get("page_title") or "").strip()
+
+    # Only apply if it’s a real web URL
+    if canonical_url.startswith("http://") or canonical_url.startswith("https://"):
+        doc = dict(doc)
+        doc["url"] = canonical_url
+        # Keep source as canonical URL too (some downstream uses source)
+        doc["source"] = canonical_url
+        if canonical_title:
+            doc["title"] = canonical_title
+    return doc
+
+
+def _query_is_med_focused(query: str) -> bool:
+    """
+    Generic, scalable: treat query as med-focused if it includes dosing/med terms.
+    This is used ONLY to down-rank drug-info pages when query is not about meds.
+    """
+    q = (query or "").lower()
+    triggers = [
+        "dosing", "dose", "mg", "milligram", "q6h", "q8h", "q12h", "daily", "maximum",
+        "max dose", "contraindication", "renal", "hepatic", "liver", "pregnancy",
+        "ibuprofen", "naproxen", "acetaminophen", "paracetamol", "nsaid", "ketorolac",
+        "diclofenac", "meloxicam",
+    ]
+    return any(t in q for t in triggers)
+
+
+def _is_drug_info_page(doc: Dict) -> bool:
+    """
+    Generic detection of drug monograph pages (MedlinePlus meds, FDA labels, etc.).
+    We do NOT hard-ban them — we just penalize unless query is med-focused.
+    """
+    url = (doc.get("url") or doc.get("source") or "").lower()
+    title = (doc.get("title") or "").lower()
+
+    if "medlineplus.gov/druginfo/meds/" in url:
+        return True
+    if "accessdata.fda.gov" in url and ("label" in url or url.endswith(".pdf")):
+        return True
+    if "drugsatfda_docs" in url:
+        return True
+    # Common MedlinePlus drug-title patterns
+    if "drug information" in title or " injection" in title:
+        return True
+    return False
+
+
+def _relevance_score(query_tokens: List[str], doc: Dict, diagnosis_hint: Optional[str]) -> float:
+    """
+    Deterministic lightweight relevance scoring.
+
+    - lexical overlap: how many query tokens appear in title/text/url
+    - diagnosis hint: bonus if hint appears in source/title/url/text
+    - penalize local artifacts (content.txt) and non-med drug pages when query isn't med-focused
+    """
+    title = (doc.get("title") or "").lower()
+    text = (doc.get("text") or "").lower()
+    src = (doc.get("source") or "").lower()
+    url = (doc.get("url") or "").lower()
+
+    hay = " ".join([title, src, url, text[:2000]])  # cap for speed
+
+    # lexical overlap
+    if not query_tokens:
+        overlap = 0.0
+    else:
+        hits = 0
+        usable = 0
+        for t in query_tokens:
+            if len(t) <= 2:
+                continue
+            usable += 1
+            if t in hay:
+                hits += 1
+        overlap = hits / max(1, usable)
+
+    # hint bonus
+    hint_bonus = 0.0
+    if diagnosis_hint:
+        h = diagnosis_hint.lower().strip()
+        if h and (h in src or h in title or h in url or h in text[:3000].lower()):
+            hint_bonus = 0.35
+
+    # artifact penalty
+    artifact_penalty = 0.0
+    if _looks_like_local_content(doc):
+        # even if resolvable later, treat as low-quality until resolved
+        artifact_penalty = 0.50
+
+    # drug-page penalty (only matters if query isn't about meds)
+    drug_penalty = 0.0
+    if _is_drug_info_page(doc):
+        drug_penalty = 0.55  # strong penalty unless query is med-focused
+
+    score = overlap + hint_bonus
+    score -= artifact_penalty
+    score -= drug_penalty
+
+    # bound
+    if score < 0.0:
+        score = 0.0
+    return min(1.5, score)
+
+
+def _retrieve_impl(query: str, k: int = 5, *, diagnosis_hint: Optional[str] = None, fetch_k: int = 40):
+    """
+    Return list[dict]: {score, source, title, url, text}
+
+    - fetch_k wider net from FAISS, then resolve local artifacts, filter + dedupe
+    - deterministic relevance scoring to reduce off-topic results
+    - optional diagnosis_hint (pathway_id/slug) to bias toward matching sources
+    - optional debug output via env var RAG_DEBUG=1
+    """
+    _ensure_loaded()
+
+    if query is None:
+        query = ""
+    query = str(query).strip()
+    if not query:
+        return []
+
+    want_k = int(k)
+    fetch_k = max(int(fetch_k), want_k, 10)
+
+    # Encode + search
+    qv = _model.encode([query]).astype("float32")
+    faiss.normalize_L2(qv)
+    scores, ids = _index.search(qv, int(fetch_k))
+
+    # Build candidates
+    candidates: List[Dict] = []
+    for score, idx in zip(scores[0], ids[0]):
+        try:
+            d0 = _DOCS[int(idx)]
+        except Exception:
+            continue
+
+        d = {
+            "score": float(score),
+            "source": d0.get("source", "") or "",
+            "title": d0.get("title", "") or "Guideline excerpt",
+            "url": d0.get("url", "") or "",
+            "text": d0.get("text", "") or "",
+        }
+
+        # Resolve local library artifacts into canonical URL/title if possible
+        d = _resolve_local_library_doc(d)
+
+        candidates.append(d)
+
+    # Drop unresolvable local artifacts early (prevents content.txt Evidence Used)
+    cleaned: List[Dict] = []
+    for d in candidates:
+        if _looks_like_local_content(d):
+            # still unresolved -> drop
+            continue
+        cleaned.append(d)
+
+    # Dedupe by URL/source
+    seen = set()
+    deduped: List[Dict] = []
+    for d in cleaned:
+        key = _dedupe_key(d)
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(d)
+
+    # Relevance filter / rerank
+    q_tokens = _tokenize(query)
+    med_focused = _query_is_med_focused(query)
+
+    scored: List[Tuple[float, Dict]] = []
+    for d in deduped:
+        rel = _relevance_score(q_tokens, d, diagnosis_hint)
+
+        # If query is med-focused, undo the drug-page penalty by recomputing w/out it
+        # (simple, deterministic, no extra rules)
+        if med_focused and _is_drug_info_page(d):
+            # Re-score without drug penalty by temporarily clearing URL/title triggers
+            # (we just add back the penalty amount we subtracted)
+            rel = min(1.5, rel + 0.55)
+
+        # Combine: keep FAISS score as base, but add relevance weight.
+        combined = d["score"] + (0.75 * rel)
+        scored.append((combined, d))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+
+    # Weak floor: keep items with some relevance; but never return empty
+    filtered: List[Dict] = []
+    for combined, d in scored:
+        rel = _relevance_score(q_tokens, d, diagnosis_hint)
+        if med_focused and _is_drug_info_page(d):
+            rel = min(1.5, rel + 0.55)
+
+        if rel >= 0.12 or (diagnosis_hint and rel >= 0.30):
+            filtered.append(d)
+        if len(filtered) >= want_k:
+            break
+
+    if len(filtered) < int(min(want_k, 3)):
+        filtered = [d for _, d in scored[:want_k]]
+
+    if _debug_enabled():
+        print("\n=== RAG_DEBUG retrieve() ===")
+        print(f"query: {query!r}")
+        print(f"diagnosis_hint: {diagnosis_hint!r}")
+        print(f"requested k: {k}  fetch_k: {fetch_k}")
+        print(f"candidates: {len(candidates)}  cleaned: {len(cleaned)}  deduped: {len(deduped)}  returned: {len(filtered)}")
+        for i, d in enumerate(filtered[: min(len(filtered), 10)], start=1):
+            snippet = (d.get("text") or "").replace("\n", " ").strip()[:180]
+            print(f"{i:02d}. faiss={d['score']:.4f}  title={d.get('title','')[:80]!r}")
+            print(f"    url={d.get('url','')[:140]!r}")
+            print(f"    snippet={snippet!r}")
+        print("=== END RAG_DEBUG ===\n")
+
+    return filtered
+
+
+# === CALLCARE_RETRIEVE_LOG_V2 ===
+def retrieve(query, *args, **kwargs):
+    """
+    Wrapper around _retrieve_impl that logs query + top hits to logs/retrieve.jsonl
+    """
+    try:
+        hits = _retrieve_impl(query, *args, **kwargs)
+    except Exception as e:
+        # still log the failure
+        try:
+            import time
+            os.makedirs("logs", exist_ok=True)
+            with open("logs/retrieve.jsonl", "a", encoding="utf-8") as f:
+                f.write(json.dumps({"ts": time.time(), "ok": False, "query": str(query), "error": str(e)}, default=str) + "\n")
+        except Exception:
+            pass
+        raise
+
+    # Log success with top URLs/titles
+    try:
+        import time
+        os.makedirs("logs", exist_ok=True)
+
+        top = []
+        if isinstance(hits, list):
+            for h in hits[:10]:
+                if isinstance(h, dict):
+                    top.append({
+                        "title": (h.get("title") or "")[:120],
+                        "url": (h.get("url") or h.get("source") or "")[:240],
+                    })
+                else:
+                    top.append({"repr": str(h)[:240]})
+
+        with open("logs/retrieve.jsonl", "a", encoding="utf-8") as f:
+            f.write(json.dumps({"ts": time.time(), "ok": True, "query": str(query), "top": top}, default=str) + "\n")
+    except Exception:
+        pass
+
+    return hits

@@ -1,0 +1,12 @@
+{
+  "pathway_id": "seizure_new_onset",
+  "sources": [
+    {
+      "id": "seizure_new_onset_ref",
+      "source_id": "seizure_new_onset_ref",
+      "title": "Seizure first aid and safety (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

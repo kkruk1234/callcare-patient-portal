@@ -1,0 +1,26 @@
+id: pulmonary_embolism_possible
+version: 0.1
+match:
+  any_keywords: ["sudden short of breath", "pleuritic chest pain", "pain with breathing", "coughing blood", "recent surgery", "leg swelling"]
+questions:
+  - id: sob
+    prompt: "Is the shortness of breath severe at rest? (yes/no)"
+    store_as: sob_severe
+    type: yesno
+  - id: chest_pain
+    prompt: "Do you have chest pain that gets worse with breathing or coughing? (yes/no)"
+    store_as: pleuritic_pain
+    type: yesno
+  - id: hemoptysis
+    prompt: "Any coughing up blood? (yes/no)"
+    store_as: hemoptysis
+    type: yesno
+  - id: dvt
+    prompt: "Any one leg swelling or calf pain compared to the other? (yes/no)"
+    store_as: dvt_signs
+    type: yesno
+stop_rules:
+  - if_all_answered: ["sob", "chest_pain", "hemoptysis", "dvt"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

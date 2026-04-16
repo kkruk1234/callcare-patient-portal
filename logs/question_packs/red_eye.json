@@ -1,0 +1,11 @@
+{
+  "id": "red_eye",
+  "version": "0.1",
+  "questions": {
+    "vision_loss": "Have you had any sudden vision loss or big changes in your sight?",
+    "severe_pain_photophobia": "Are you experiencing severe eye pain or strong sensitivity to light?",
+    "contact_lens": "Do you wear contact lenses?",
+    "discharge": "Is there any eye discharge? Is it watery, thick, or none?",
+    "trauma_chemical": "Have you had any eye injury or chemical exposure?"
+  }
+}

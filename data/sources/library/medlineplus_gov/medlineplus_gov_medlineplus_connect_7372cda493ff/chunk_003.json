@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect",
+  "url": "https://medlineplus.gov/medlineplus-connect/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "rding and Encoding) and their descendants. \nMedlinePlus Connect News \nFor some problem code requests in English, M+ Connect also returns information pages about genetic conditions. MedlinePlus has more than 1,300 summaries that educate patients about the features, genetic causes, and inheritance of genetic conditions. (Prior to 2020 this content was labelled âGenetics Home Referenceâ; the content is now a part of MedlinePlus .) \nMedlinePlus Connect can also link your EHR system to drug information written especially for patients. When an EHR system sends MedlinePlus Connect a request that includes a medication code, the service will return link(s) to the most appropriate drug information. MedlinePlus drug information is the AHFS Consumer Medication Information and is licensed for use on MedlinePlus from the American Society of Health-System Pharmacists, ASHP, Inc. \nFor medication requests, MedlinePlus Connect supports:\nRXCUI (RxNorm Concept Unique Identifier) \nNDC (National Drug Code) \nMedlinePlus Connect also returns information in response to laboratory test codes. This information is from the MedlinePlus medical tests collection .\nFor lab test requests, MedlinePlus Connect supports:\nLOINCÂ® (Logical Observation Identifiers Names and Codes) \nFor medical procedure codes, MedlinePlus Connect supports:\nCPTÂ® (Current Procedural Terminology) \nSNOMED CTÂ® â¯(Systematized Nome",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_7372cda493ff",
+  "chunk_id": "chunk_003"
+}

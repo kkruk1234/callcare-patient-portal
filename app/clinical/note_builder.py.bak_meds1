@@ -1,0 +1,170 @@
+from __future__ import annotations
+from pathlib import Path
+import json
+import re
+from typing import List, Tuple
+
+
+
+def _phoneify(text: str) -> str:
+    """Convert clinic-discharge phrasing into telephone-advice phrasing."""
+    if not text:
+        return text
+    replacements = [
+        ("return promptly", "seek in-person care promptly"),
+        ("return to clinic", "seek in-person care"),
+        ("follow up in clinic", "follow up with your primary care clinician or local clinic"),
+        ("follow-up in clinic", "follow up with your primary care clinician or local clinic"),
+        ("come back", "seek in-person care"),
+    ]
+    out = text
+    for a, b in replacements:
+        out = re.sub(rf"\b{re.escape(a)}\b", b, out, flags=re.IGNORECASE)
+    return out
+from app.core.models import CallState, EvidenceRef, NoteDraft
+from app.clinical.llm_note_writer import generate_note_text
+from app.clinical.llm_patient_summary import generate_patient_summary
+
+EVID_ROOT = Path("data/sources/pathways")
+
+
+def now_iso() -> str:
+    """Return current time as ISO string (UTC)."""
+    from datetime import datetime, timezone
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _tokenize(s: str) -> List[str]:
+    s = (s or "").lower()
+    s = re.sub(r"[^a-z0-9\s]", " ", s)
+    parts = [p for p in s.split() if len(p) >= 3]
+    return parts
+
+
+def _load_pathway_docs(pathway_id: str) -> List[dict]:
+    pdir = EVID_ROOT / pathway_id
+    if not pdir.exists():
+        return []
+    docs = []
+    for fp in sorted(pdir.glob("*.json")):
+        if fp.name == "manifest.json":
+            continue
+        try:
+            docs.append(json.loads(fp.read_text(encoding="utf-8")))
+        except Exception:
+            continue
+    return docs
+
+
+def _score_doc(query_tokens: List[str], doc_text: str) -> int:
+    t = (doc_text or "").lower()
+    score = 0
+    for tok in query_tokens:
+        if tok in t:
+            score += 1
+    return score
+
+
+def _best_snippets(state: CallState, max_snips: int = 5) -> List[EvidenceRef]:
+    pw = (state.symptoms.get("_pathway") or {})
+    pathway_id = str(pw.get("id") or "").strip() or "cough_uri"
+
+    docs = _load_pathway_docs(pathway_id)
+
+    answers = state.symptoms.get("_answers", {}) or {}
+    query_text = " ".join([state.chief_complaint or ""] + [str(v) for v in answers.values()])
+    qtokens = _tokenize(query_text)
+
+    scored: List[Tuple[int, dict]] = []
+    for d in docs:
+        txt = d.get("text", "")
+        score = _score_doc(qtokens, txt)
+        scored.append((score, d))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+
+    out: List[EvidenceRef] = []
+    for score, d in scored:
+        if score <= 0 and out:
+            continue
+
+        snippet = (d.get("text") or "")[:800].strip()
+        if not snippet:
+            continue
+
+        src = d.get("title") or d.get("source_id") or "evidence"
+        url = d.get("url") or ""
+        label = f"{src} ({url})" if url else src
+
+        # IMPORTANT: EvidenceRef requires title, source, snippet
+        out.append(EvidenceRef(title=src, source=label, snippet=snippet))
+
+        if len(out) >= max_snips:
+            break
+
+    return out
+
+
+def _build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    cc = state.chief_complaint or ""
+    age = state.age_band or "unknown"
+    preg = state.symptoms.get("pregnancy_possible", state.pregnancy_possible or "unknown")
+
+    pathway = state.symptoms.get("_pathway", {})
+    answers = state.symptoms.get("_answers", {})
+
+    ev_block = ""
+    if evidence:
+        bits = []
+        for i, e in enumerate(evidence, 1):
+            bits.append(f"[{i}] {e.source}\n{e.snippet}")
+        ev_block = "\n\n".join(bits)
+    else:
+        ev_block = "(No evidence snippets retrieved.)"
+
+    return f"""Encounter: phone-only autonomous assistant with physician async review (Tier model).
+
+Chief complaint: {cc}
+Age band: {age}
+Pregnancy possible: {preg}
+Selected pathway: {pathway}
+
+Structured answers:
+{json.dumps(answers, indent=2)}
+
+Evidence snippets (guidelines/peer-reviewed):
+{ev_block}
+
+Generate the SOAP note now.
+""".strip()
+
+
+def build_note(state: CallState) -> NoteDraft:
+    evidence = _best_snippets(state, max_snips=5)
+    prompt = _build_prompt(state, evidence)
+
+    soap_text = generate_note_text(prompt)
+
+    # Spoken summary for the patient (what we will say out loud)
+    patient_summary = generate_patient_summary(
+        soap_text,
+        disposition=state.symptoms.get("_disposition"),
+        disposition_reasons=state.symptoms.get("_disposition_reasons"),
+    )
+
+    patient_instructions = [
+        "If symptoms worsen or you develop new severe symptoms, seek urgent care or call 911.",
+        "Follow the disposition and safety net plan explained in the spoken summary."
+    ]
+
+    clinician_questions = []
+    risk_flags = []
+
+    return NoteDraft(
+        soap=soap_text,
+        patient_summary=patient_summary,
+        patient_instructions=patient_instructions,
+        clinician_questions=clinician_questions,
+        risk_flags=risk_flags,
+        evidence=evidence,
+    )

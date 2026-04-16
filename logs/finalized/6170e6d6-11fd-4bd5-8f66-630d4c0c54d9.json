@@ -1,0 +1,64 @@
+{
+  "packet_id": "6170e6d6-11fd-4bd5-8f66-630d4c0c54d9",
+  "created_at": "2026-03-06T18:50:53.834370+00:00",
+  "session_id": "c5e6cba1-16ff-4efc-8d26-f09a5a6fbac2",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat management guidelines in adults",
+    "adult sore throat treatment dosing and contraindications pregnancy",
+    "red flags and testing indications for sore throat in adults"
+  ],
+  "queries": [
+    "AAFP sore throat management guidelines in adults",
+    "AAFP adult sore throat treatment dosing and contraindications pregnancy",
+    "MedlinePlus sore throat management guidelines in adults",
+    "MedlinePlus adult sore throat treatment dosing and contraindications pregnancy",
+    "CDC sore throat management guidelines in adults",
+    "CDC adult sore throat treatment dosing and contraindications pregnancy",
+    "NIH sore throat management guidelines in adults",
+    "NIH adult sore throat treatment dosing and contraindications pregnancy",
+    "NICE sore throat management guidelines in adults",
+    "NICE adult sore throat treatment dosing and contraindications pregnancy",
+    "WHO sore throat management guidelines in adults",
+    "WHO adult sore throat treatment dosing and contraindications pregnancy"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/0615/p821.pdf",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Recommendations | Sore throat (acute): antimicrobial prescribing | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng84/chapter/Recommendations",
+      "accessed": "2026-03-06",
+      "snippet": "250 mg to 500 mg four times a day or 500 mg to 1,000 mg twice a day for 5 days Erythromycin is preferred if a macrolide is needed in pregnancy, for example, if there is true penicillin allergy and the benefits of antibiotic treatment outweigh the harms."
+    },
+    {
+      "title": "Acute Sore Throat | Right Decisions",
+      "source": "rightdecisions.scot.nhs.uk",
+      "url": "https://www.rightdecisions.scot.nhs.uk/nhsl-antimicrobial-guidelines/primary-care-guidance/upper-respiratory-tract-infections/acute-sore-throat/",
+      "accessed": "2026-03-06",
+      "snippet": "Phenoxymethylpenicillin Dosage 500mg Duration 4 times a day or 1G twice daily for 5 or 10 days depending on severity of symptoms* child dose *5 days of phenoxymethylpenicillin may be enough for symptomatic cure;"
+    },
+    {
+      "title": "Pharyngitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2004/0315/p1465.html",
+      "accessed": "2026-03-06",
+      "snippet": "Symptoms of strep throat may include pharyngeal erythema and swelling, tonsillar exudate, edematous uvula, palatine petechiae, and anterior cervical lymphadenopathy. Untreated, GABHS infection lasts seven to 10 days. 4 , 13 , 19 Patients with untreated streptococcal pharyngitis are infectious during the acute phase of the illness and for one additional week. 1 Effective antibiotic therapy shortens the infectious period to 24 hours, reduces the duration of symptoms by about one day, and prevents most complications."
+    }
+  ],
+  "note_text": "S: The patient is a 45-year-old pregnant female presenting with a sore throat that started 2 days ago. She reports associated fever and chills, pain on swallowing without difficulty swallowing or breathing, swollen lymph nodes without rash, and hoarseness. There is a history of recent exposure to someone with strep throat or infectious mononucleosis. She has not tried any treatments yet.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute pharyngitis, likely bacterial given the fever, swollen lymph nodes, and exposure history.\nDifferential:\n1. Group A streptococcal pharyngitis\n2. Infectious mononucleosis\n3. Viral pharyngitis\n4. Other bacterial pharyngitis\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: Pregnancy status noted; penicillin and amoxicillin are generally considered safe in pregnancy. No allergies or renal/liver disease reported.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe swallowing difficulty, or worsening symptoms develop. Seek emergency care if airway obstruction or high fever persists.\n- Testing: Throat culture or rapid antigen detection test for Group A Streptococcus to confirm diagnosis and guide therapy."
+}

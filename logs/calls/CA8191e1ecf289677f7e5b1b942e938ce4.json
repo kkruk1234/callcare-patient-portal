@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA8191e1ecf289677f7e5b1b942e938ce4",
+  "session_id": "8b2740f0-9f47-4d1e-bc35-d9ab28d2ab54",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-19T17:33:10.561894+00:00",
+  "ended_at": "2026-03-19T17:38:31.588094+00:00",
+  "packet_id": "b237b76e-1109-444f-aa4d-dd6f94a9c01e",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "Everything is spinning."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the spinning sensation start?"
+    },
+    {
+      "role": "user",
+      "text": "Yesterday morning when I woke up."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any hearing loss, ringing in your ears, or ear pain?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea, vomiting, or headache with the spinning?"
+    },
+    {
+      "role": "user",
+      "text": "Nausea, no vomiting, and no headache."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent head trauma, recent infections, or neurological symptoms like weakness or numbness?"
+    },
+    {
+      "role": "user",
+      "text": "No. I I don't have any of those."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe if the spinning occurs with changes in head position or is it constant?"
+    },
+    {
+      "role": "user",
+      "text": "But"
+    },
+    {
+      "role": "assistant",
+      "text": "Does the spinning get worse or start specifically when you move your head or change positions?"
+    },
+    {
+      "role": "user",
+      "text": "The spinning is worse when I turn my head to the left."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent upper respiratory symptoms like cold, sinus infection, or ear fullness?"
+    },
+    {
+      "role": "user",
+      "text": "To the right, it's fine. Actually says a little bit better when I turn it to the right."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any recent episodes of fainting, chest pain, or shortness of breath?"
+    },
+    {
+      "role": "user",
+      "text": "I you asked me 2 questions. So first 1 was, no. I don't have any breathing colds and no fainting or shortness of breath."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of similar episodes of spinning or dizziness in the past?"
+    },
+    {
+      "role": "user",
+      "text": "As to the second 1, I guess."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about any previous episodes of spinning or dizziness you've had before?"
+    },
+    {
+      "role": "user",
+      "text": "I I've had this before."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "35."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Email."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "Unknown."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing a type of dizziness called benign paroxysmal positional vertigo, or BPPV, which is often triggered by certain head movements. Based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe medication to help with your symptoms. Because this is a phone visit, I can’t examine you or run tests, so if you develop new symptoms like weakness, numbness, trouble speaking, severe headache, or if your dizziness worsens to the point you can’t walk safely, please seek urgent or emergency care right away. For now, you can try to rest and avoid sudden head movements. A doctor will review your case and decide on the best next steps. If you need an in-person exam or testing, please go to an urgent care or emergency department."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+import os
+import glob
+import json
+import numpy as np
+import faiss
+from app.clinical.embeddings import get_embedder  # EMBED_HARDEN_PATCH_V1
+
+SRC_DIR = "data/sources"
+OUT_DIR = "data/index"
+MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+
+
+def chunk_text(text: str, chunk_size=800, overlap=150):
+    chunks = []
+    i = 0
+    while i < len(text):
+        chunks.append(text[i : i + chunk_size])
+        i += chunk_size - overlap
+    return chunks
+
+
+def main():
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+    model = get_embedder()  # EMBED_HARDEN_PATCH_V1
+
+    docs = []
+    for path in glob.glob(os.path.join(SRC_DIR, "*.txt")):
+        with open(path, "r", encoding="utf-8") as f:
+            txt = f.read()
+        for c in chunk_text(txt):
+            docs.append({"source": os.path.basename(path), "text": c})
+
+    embeddings = model.encode([d["text"] for d in docs], show_progress_bar=True)
+    emb = np.array(embeddings).astype("float32")
+    faiss.normalize_L2(emb)
+
+    index = faiss.IndexFlatIP(emb.shape[1])
+    index.add(emb)
+
+    faiss.write_index(index, os.path.join(OUT_DIR, "faiss.index"))
+    with open(os.path.join(OUT_DIR, "docs.json"), "w", encoding="utf-8") as f:
+        json.dump(docs, f)
+
+    print(f"Indexed {len(docs)} chunks from {SRC_DIR} into {OUT_DIR}.")
+
+
+if __name__ == "__main__":
+    main()

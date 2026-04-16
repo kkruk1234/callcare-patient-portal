@@ -1,0 +1,12 @@
+{
+  "pathway_id": "hyperkalemia_possible",
+  "sources": [
+    {
+      "id": "hyperkalemia_possible_ref",
+      "source_id": "hyperkalemia_possible_ref",
+      "title": "Kidney/potassium safety (starter)",
+      "url": "https://www.niddk.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

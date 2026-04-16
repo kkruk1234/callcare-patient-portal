@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA0b3237b121d65e99457b784d837948cc",
+  "session_id": "3b8ad304-b73c-4758-8170-60384c8b13d7",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-29T17:02:58.081154+00:00",
+  "ended_at": "2026-03-29T17:08:39.426226+00:00",
+  "packet_id": "79dc64cb-4c0c-4ef9-8c20-9acc1d7720a6",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I've experienced, like, unexplained weight loss and extreme thirst."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first notice the weight loss and extreme thirst?"
+    },
+    {
+      "role": "user",
+      "text": "Maybe a month ago. I just thought it was nothing, but then it just kept happening. I really didn't know what was up."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any increased urination along with the thirst and weight loss?"
+    },
+    {
+      "role": "user",
+      "text": "Definitely. Maybe the volume is the same, but I just been feeling like I need to go. Maybe, like like, 3 times as much as before."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any blurry vision, fatigue, or recent infections?"
+    },
+    {
+      "role": "user",
+      "text": "I haven't had any recent inspections, but actually, I don't think I have any of that, honestly."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of diabetes or family history of diabetes?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. My mom has it and my grandma has it."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any nausea, vomiting, or abdominal pain recently?"
+    },
+    {
+      "role": "user",
+      "text": "I've had some nausea a nausea and, also, I've been extremely hungry."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any episodes of dizziness, confusion, or difficulty breathing recently?"
+    },
+    {
+      "role": "user",
+      "text": "Not like"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent infections or illnesses that might have triggered these symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "dizziness, but maybe, like, a little bit confusion."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any rapid breathing, chest pain, or severe weakness recently?"
+    },
+    {
+      "role": "user",
+      "text": "I don't think so. I mean, like, I've been pretty healthy."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any wounds or sores that are slow to heal or any recent unexplained infections?"
+    },
+    {
+      "role": "user",
+      "text": "Maybe severe weakness. Like, it's been typed in, like, climbing up stairs."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any fever, chills, or night sweats recently?"
+    },
+    {
+      "role": "user",
+      "text": "Definitely. Like, I scraped my sweep and it still has"
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "42"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Yes. Tetra"
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Yes. Tetra female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No. Noxia was."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Not sure. My I have a family history of hepatitis."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing symptoms that suggest new-onset diabetes, which is a condition where your blood sugar levels are too high. Because this is a phone visit, I can’t do any tests or exams, but based on what you’ve told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe medication like metformin to help manage your blood sugar.\n\nRight now, it’s important to watch for any worsening symptoms such as severe weakness, confusion, difficulty breathing, vomiting, or abdominal pain—if these happen, please seek urgent in-person care the same day. Otherwise, getting blood tests soon to confirm the diagnosis and check your overall health will be necessary.\n\nIf you need an in-person exam or testing, please go to an urgent care, emergency department, or see your primary care clinician, as this service does not include in-person visits. Take care, and don’t hesitate to seek immediate help if your symptoms worsen."
+    }
+  ]
+}

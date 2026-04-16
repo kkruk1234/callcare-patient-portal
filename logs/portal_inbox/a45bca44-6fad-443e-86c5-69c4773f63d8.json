@@ -1,0 +1,50 @@
+{
+  "packet_id": "a45bca44-6fad-443e-86c5-69c4773f63d8",
+  "created_at": "2026-03-20T17:53:58.080583+00:00",
+  "session_id": "aa50f2fc-53b1-4a0d-bebb-214574761b15",
+  "pathway_id": "",
+  "base_queries": [
+    "constipation management guidelines adults",
+    "adult constipation treatment dosing and contraindications",
+    "constipation red flags and when to seek emergency care"
+  ],
+  "queries": [
+    "AAFP constipation management guidelines adults",
+    "AAFP adult constipation treatment dosing and contraindications",
+    "MedlinePlus constipation management guidelines adults",
+    "MedlinePlus adult constipation treatment dosing and contraindications",
+    "CDC constipation management guidelines adults",
+    "CDC adult constipation treatment dosing and contraindications",
+    "NIH constipation management guidelines adults",
+    "NIH adult constipation treatment dosing and contraindications",
+    "NICE constipation management guidelines adults",
+    "NICE adult constipation treatment dosing and contraindications",
+    "WHO constipation management guidelines adults",
+    "WHO adult constipation treatment dosing and contraindications"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Chronic Constipation in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0900/patient-information-chronic-constipation-adults.html",
+      "accessed": "2026-03-20",
+      "snippet": "Please note:  This information was current at the time of publication but now may be out of date. This handout provides a general overview and may not apply to everyone."
+    },
+    {
+      "title": "GUIDELINE FOR THE USE OF LAXATIVES IN THE MANAGEMENT OF",
+      "source": "remedy.bnssg.icb.nhs.uk",
+      "url": "https://remedy.bnssg.icb.nhs.uk/media/0x2ebg5m/bnssg-adult-constipation-guideline-2023v2.pdf",
+      "accessed": "2026-03-20",
+      "snippet": ""
+    },
+    {
+      "title": "Management of Constipation in Older Adults",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2015/0915/p500.pdf",
+      "accessed": "2026-03-20",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male who reports constipation lasting about three weeks. He denies any associated abdominal pain, blood in stool, weight loss, changes in bowel habits such as stool caliber or frequency, or difficulty passing stool. He has tried increasing fiber intake, drinking more water, and using over-the-counter remedies including Murallax without relief. He notes significant abdominal bloating and distension that has not improved. He denies vomiting, fever, night sweats, fatigue, or recent illnesses. Appetite is unchanged except for occasional nausea.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is chronic functional constipation with significant abdominal bloating.\nDifferential:\n1. Functional constipation\n2. Irritable bowel syndrome with constipation predominance\n3. Medication-induced constipation (though no new medications reported)\n4. Early obstructive process or motility disorder\n\nP: - First-line medication: Polyethylene glycol 17 grams orally once daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Bisacodyl 10 mg orally once daily for up to 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient allergic to penicillin; no renal or liver disease; no contraindications to laxatives noted; monitor for electrolyte imbalance if prolonged use\n- Follow-up recommendations: Seek in-person medical care urgently if develops severe abdominal pain, vomiting, or inability to pass stool or gas; otherwise follow up in 1-2 weeks if symptoms persist or worsen\n- Testing: Not indicated at this time given absence of alarm features; consider abdominal imaging or colonoscopy if no improvement or if alarm symptoms develop"
+}

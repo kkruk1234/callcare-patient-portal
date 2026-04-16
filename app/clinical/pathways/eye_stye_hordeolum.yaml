@@ -1,0 +1,26 @@
+id: eye_stye_hordeolum
+version: 0.1
+match:
+  any_keywords: ["stye", "sty", "eyelid bump", "tender eyelid", "pimple on eyelid", "swollen eyelid lump"]
+questions:
+  - id: vision_change
+    prompt: "Any vision change or trouble seeing? (yes/no)"
+    store_as: vision_change
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever or feeling very unwell? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: spreading
+    prompt: "Is redness/swelling spreading beyond the eyelid, or is the eye very painful? (yes/no)"
+    store_as: spreading_or_severe
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["vision_change", "fever", "spreading"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,73 @@
+{
+  "packet_id": "13b059b8-1105-4f72-af9b-e5ac1349eeba",
+  "created_at": "2026-01-29T22:24:35+00:00",
+  "session_id": "1958f98a-db06-4adf-baf5-79bd36b8f07f",
+  "chief_complaint": "I think I have genital warts",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "onset": "3 weeks ago",
+    "location": "my privates",
+    "course": "same",
+    "characteristics": "bumps and feels lumpy",
+    "morph_type": "bumps with some ulcers",
+    "morph_color": "skin-colored",
+    "morph_bleed": "no",
+    "morph_pain_itch": "mild pain and itching",
+    "sex_new_partner": "ye",
+    "sex_unprotected": "yes",
+    "aggravating": "no",
+    "associated": "none",
+    "treatments_tried": "no",
+    "severity": "mild",
+    "age_years": 34,
+    "allergies": "penicillin",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "renal_disease": "yes",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old female presenting with a 3-week history of skin-colored bumps with some ulcers located on her genital area. She describes the lesions as lumpy, with mild pain and itching. The lesions have remained the same since onset. She reports a new sexual partner and unprotected intercourse. She has not tried any treatments yet. She has a known allergy to penicillin and a history of renal disease. She is not pregnant.\n\nO:  \nPhone evaluation only; no physical exam or vital signs available.\n\nA:  \n- Working diagnosis (most likely): Genital warts (condyloma acuminata) caused by human papillomavirus (HPV). The presence of skin-colored bumps with mild pain and itching in the genital area, along with a history of new unprotected sexual contact, supports this diagnosis.  \n- Differential:  \n  1. Herpes simplex virus infection (ulcerative lesions, but usually more painful and grouped vesicles)  \n  2. Molluscum contagiosum (typically dome-shaped, umbilicated papules without ulceration)  \n  3. Syphilitic chancre (usually a single painless ulcer, but can vary)  \n  4. Other sexually transmitted infections presenting with genital lesions (e.g., chancroid)  \n- Red flags considered: No systemic symptoms, no severe pain, no signs of secondary infection, no constitutional symptoms reported.\n\nP:  \n- Disposition: Patient can be managed in outpatient setting with follow-up if symptoms worsen or new symptoms develop.  \n- Plan: Educate the patient about the likely diagnosis of genital warts and the natural history of HPV infection. Recommend avoidance of sexual contact until lesions are evaluated and treated. Discuss safe sex practices including condom use to reduce transmission risk. Given the penicillin allergy and renal disease, referral to a specialist or clinic for lesion-directed therapy (e.g., cryotherapy, topical agents) is appropriate. Consider testing for other STIs including HIV, syphilis, and herpes simplex virus. No systemic antibiotics indicated at this time.  \n- Safety net: Advise patient to seek urgent care if lesions become increasingly painful, show signs of secondary infection (increased redness, swelling, discharge), if she develops systemic symptoms such as fever, or if new ulcerative or rapidly progressing lesions appear. Follow-up in 2-4 weeks or sooner if symptoms worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+        "source": "https://medlineplus.gov/genitalwarts.html",
+        "snippet": "ics Medical Tests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Genital Warts URL of this page: https://medlineplus.gov/genitalwarts.html Genital Warts Also called: Condylomata acuminata, Venereal warts On this page Basics Summary Start Here Prevention and Risk Factors Learn More No links available See, Play and Learn Images Te…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "https://www.nhs.uk/conditions/genital-warts/",
+        "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps that can appear around the vagina, penis or anus. They're a common sexually transmi…"
+      },
+      {
+        "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+        "source": "https://www.cdc.gov/std/treatment-guidelines/anogenital-warts.htm",
+        "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. They are usually flat, papular, or pedunculated growths on the genital mucosa. Anoge…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+      "source": "https://medlineplus.gov/genitalwarts.html",
+      "snippet": "ics Medical Tests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Genital Warts URL of this page: https://medlineplus.gov/genitalwarts.html Genital Warts Also called: Condylomata acuminata, Venereal warts On this page Basics Summary Start Here Prevention and Risk Factors Learn More No links available See, Play and Learn Images Te…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "https://www.nhs.uk/conditions/genital-warts/",
+      "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps that can appear around the vagina, penis or anus. They're a common sexually transmi…"
+    },
+    {
+      "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+      "source": "https://www.cdc.gov/std/treatment-guidelines/anogenital-warts.htm",
+      "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. They are usually flat, papular, or pedunculated growths on the genital mucosa. Anoge…"
+    }
+  ]
+}

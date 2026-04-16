@@ -1,0 +1,50 @@
+{
+  "packet_id": "0d1ecb47-6e7e-4aa8-bee2-97c4a9b9f616",
+  "created_at": "2026-01-21T17:27:56.445811+00:00",
+  "session_id": "675c67d7-79e5-41e9-bd6f-3d311e0669bc",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "ear_pain",
+  "answers": {
+    "duration": "5 days",
+    "fever": "yes",
+    "discharge": "yes",
+    "vertigo": "no",
+    "diabetes": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\n23-year-old adult presents with a 5-day history of ear pain. The patient reports associated fever and ear discharge. No vertigo is present. The patient has a known allergy to penicillin.\n\nO:\nNo physical exam or vitals available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Acute otitis media with otorrhea (likely complicated by tympanic membrane perforation or otitis externa)\n - Differential:\n  1. Acute otitis media with perforation\n  2. Otitis externa\n  3. Mastoiditis (less likely without vertigo or severe symptoms)\n  4. Foreign body or other ear canal pathology\n - Red flags considered:\n  - Persistent fever and discharge for 5 days\n  - No vertigo or neurological symptoms reported\n\nP:\n - Disposition: Urgent care or primary care follow-up recommended if symptoms worsen or do not improve within 48-72 hours.\n - Plan:\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Supportive care:\n   - Follow-up and safety:\n   - Given penicillin allergy, consider alternative antibiotics such as:\n     - Azithromycin 500 mg on day 1, then 250 mg daily for 4 days\n     - Or clarithromycin 500 mg twice daily for 7 days\n   - Recommend analgesics for pain control (e.g., acetaminophen or ibuprofen)\n   - Advise keeping the ear dry and avoiding insertion of objects into the ear canal\n - Safety net:\n   - Seek immediate care if worsening pain, spreading redness/swelling behind the ear, hearing loss, dizziness, or high fever develops\n   - Return for in-person evaluation if no improvement or worsening symptoms after 48-72 hours",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Ear Infection (Otitis Media) information",
+        "source": "https://www.cdc.gov/ear-infection/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+      },
+      {
+        "title": "MedlinePlus: Ear infections",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "source": "https://www.cdc.gov/ear-infection/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "title": "MedlinePlus: Ear infections",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

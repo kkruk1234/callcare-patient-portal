@@ -1,0 +1,43 @@
+{
+  "packet_id": "bc3b59f0-4794-4e9d-819d-8369696cd8f0",
+  "created_at": "2026-03-20T17:36:15.204072+00:00",
+  "session_id": "9dd70006-84a9-48c2-89b7-950ca4bf11f2",
+  "pathway_id": "",
+  "base_queries": [
+    "C. difficile infection diagnosis and management guidelines",
+    "C. difficile infection treatment adult dosing and duration",
+    "red flags and return precautions for diarrhea with C. diff exposure"
+  ],
+  "queries": [
+    "AAFP C. difficile infection diagnosis and management guidelines",
+    "AAFP C. difficile infection treatment adult dosing and duration",
+    "MedlinePlus C. difficile infection diagnosis and management guidelines",
+    "MedlinePlus C. difficile infection treatment adult dosing and duration",
+    "CDC C. difficile infection diagnosis and management guidelines",
+    "CDC C. difficile infection treatment adult dosing and duration",
+    "NIH C. difficile infection diagnosis and management guidelines",
+    "NIH C. difficile infection treatment adult dosing and duration",
+    "NICE C. difficile infection diagnosis and management guidelines",
+    "NICE C. difficile infection treatment adult dosing and duration",
+    "WHO C. difficile infection diagnosis and management guidelines",
+    "WHO C. difficile infection treatment adult dosing and duration"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Clostridioides difficile Infection:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/0201/p168.pdf",
+      "accessed": "2026-03-20",
+      "snippet": ""
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0600/p678.pdf",
+      "accessed": "2026-03-20",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a one-week history of progressively worsening diarrhea. She reports initially having one episode on the first day, now with more frequent bouts. There is a small amount of mucus noted in the stool but no visible blood. She denies fever, chills, or night sweats. She has mild abdominal pain, cramping, and bloating associated with the diarrhea. She has been feeling mildly dehydrated but has improved with oral hydration using Gatorade. There is no recent antibiotic use, no recent travel, and no known immunosuppression or inflammatory bowel disease. She was recently exposed to her father who has Clostridioides difficile infection (C. diff).\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is infectious diarrhea, with a high suspicion for Clostridioides difficile infection given the exposure history and clinical presentation.\nDifferential:\n1. Clostridioides difficile infection\n2. Other bacterial infectious gastroenteritis\n3. Viral gastroenteritis\n4. Inflammatory bowel disease flare\n\nP: - First-line medication: Oral vancomycin 125 mg by mouth four times daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Oral fidaxomicin 200 mg by mouth twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient allergic to penicillin; no renal or liver disease; monitor for worsening symptoms or adverse effects\n- Follow-up recommendations: Seek in-person medical care urgently if diarrhea worsens, develops blood, severe abdominal pain, fever, or signs of dehydration\n- Testing: Arrange stool testing for C. difficile toxin and other pathogens to confirm diagnosis"
+}

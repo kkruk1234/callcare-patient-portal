@@ -1,0 +1,10 @@
+{
+  "title": "Variants and Genomic Surveillance | COVID-19 | CDC",
+  "url": "https://www.cdc.gov/covid/php/variants/variants-and-genomic-surveillance.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "growth rate may have a higher degree of uncertainty (wider prediction interval) when it is just beginning to spread and still has low weighted estimates . Projections may also be uncertain during times of delayed reporting (e.g., around holidays). CDC frequently evaluates Nowcast to improve performance. \nUsing CDC&rsquo;s Variant Proportions Dashboard \nInstructions : Data in the chart and table show the estimated variant proportions for the most common variants in the specific timeframe. To see the proportions and confidence intervals/prediction intervals for all the common variants in the specific timeframe, hover over a bar (timeframe) in the chart.\nNowcasting: The default setting for the chart is to display CDC's Nowcast estimates . Estimates of variant proportions for more recent periods may change as more data are reported. \nEmpiric Proportions: To provide more representative estimates of circulating variant proportions, CDC uses a subset of the sequence data available. For example, sequences generated from outbreak investigations (such as in a long-term care facility) or from airport surveillance may not represent what is circulating in those communities or nationally. To be included in CDC's analysis, sequences either must be generated at CDC from SARS-CoV-2 specimens submitted for surveillance, or they must be submitted to and tagged in a public database (such as GenBan",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_php_variants_variants_and_genomic_surveillance_html_fbc91f6c0a72",
+  "chunk_id": "chunk_005"
+}

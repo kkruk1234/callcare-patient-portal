@@ -1,0 +1,133 @@
+{
+  "packet_id": "7f51fd98-a6d7-4b77-9e22-7c5fcbb1b9e1",
+  "created_at": "2026-02-07T17:30:33.704711+00:00",
+  "session_id": "c813192c-30ea-4069-a487-b3d1da1778f2",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located?",
+    "intake_a3": "next to sternum on the right",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, injury, or heavy lifting before the chest pain started?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Any swelling, bruising, or tenderness where you feel the pain?",
+    "intake_a6": "tenderness",
+    "intake_q7": "Does the chest pain get worse with movement, deep breaths, or coughing?",
+    "intake_a7": "a little bit",
+    "intake_q8": "Any fever, chills, or recent infections?",
+    "intake_a8": "no",
+    "intake_summary": "The patient has had sharp chest pain next to the right sternum for 1 week, associated with tenderness and worsened by movement and deep breaths. There are no systemic symptoms or signs of cardiac or pulmonary causes. The pain started after heavy lifting, suggesting musculoskeletal etiology.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://medlineplus.gov/heartattack.html",
+        "https://www.nhs.uk/conditions/pericarditis/",
+        "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "https://medlineplus.gov/lab-tests/troponin-test/",
+        "https://medlineplus.gov/chestpain.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 45-year-old female presenting with sharp chest pain located next to the right side of the sternum, ongoing for one week. The pain began after heavy lifting and is associated with tenderness at the site. The pain worsens slightly with movement and deep breaths. There are no accompanying symptoms such as shortness of breath, sweating, nausea, or radiation of pain to the arm or jaw. The patient denies fever, chills, or recent infections.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal chest pain likely due to strain or minor injury from heavy lifting, consistent with costochondritis or muscle strain. \nDifferential: \n1. Costochondritis or musculoskeletal chest wall pain \n2. Rib contusion or minor injury from heavy lifting \n3. Less likely pleuritic pain without systemic symptoms \n4. Cardiac causes unlikely given absence of typical features. Patient is not pregnant.\n\nP: \n - First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain and inflammation, for 7 days. Avoid if history of allergy to NSAIDs, active gastrointestinal ulcer, or severe renal impairment. \n - Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, for 7 days; avoid if liver disease or allergy. \n - Naproxen 250 mg orally twice daily as needed for pain, for 7 days; avoid if allergy to NSAIDs or severe renal impairment. \n - Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease reported. NSAIDs should be used cautiously if any new contraindications arise. \n - Return precautions: Seek urgent care if chest pain worsens significantly, develops with shortness of breath, sweating, nausea, radiation to arm or jaw, or if new systemic symptoms such as fever or chills develop. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+      },
+      {
+        "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+        "source": "https://medlineplus.gov/heartattack.html",
+        "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+      },
+      {
+        "title": "Pericarditis - NHS",
+        "source": "https://www.nhs.uk/conditions/pericarditis/",
+        "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+      },
+      {
+        "title": "Heart Disease in Women | MedlinePlus",
+        "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "snippet": "ull and heavy or sharp Pain in the neck, jaw, throat, upper belly, or back Nausea or vomiting Unusual fatigue Shortness of breath (feeling like you can't get enough air) during physical activity Women who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also…"
+      },
+      {
+        "title": "Troponin Test: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+        "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+      },
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "at you are having a heart attack . There can be many other causes, including: Other heart problems, such as angina Panic attacks Digestive problems, such as heartburn or esophagus disorders Sore muscles Lung diseases, such as pneumonia , pleurisy , or pulmonary embolism Costochondritis - an inflammation of joints in your chest Some of these problems can be s…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+    },
+    {
+      "title": "Heart Disease in Women | MedlinePlus",
+      "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+      "snippet": "ull and heavy or sharp Pain in the neck, jaw, throat, upper belly, or back Nausea or vomiting Unusual fatigue Shortness of breath (feeling like you can't get enough air) during physical activity Women who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also…"
+    },
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    },
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "at you are having a heart attack . There can be many other causes, including: Other heart problems, such as angina Panic attacks Digestive problems, such as heartburn or esophagus disorders Sore muscles Lung diseases, such as pneumonia , pleurisy , or pulmonary embolism Costochondritis - an inflammation of joints in your chest Some of these problems can be s…"
+    }
+  ],
+  "state": null
+}

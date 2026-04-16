@@ -1,0 +1,470 @@
+"""
+CallCare — HTTP Evidence via OpenAI web_search (Python 3.9 safe)
+
+Core guarantees:
+- Canonical URL extraction from web_search_call.action.sources (NOT results).
+- Blocks PubMed/PMC/NCBI.
+- Fetches <title> to stabilize citations.
+- Adds TWO stability guards:
+  (1) LLM relevance gate on (title + url) vs the complaint/diagnosis seed.
+  (2) Publisher diversity cap (default: max 2 per publisher), so we don't return 6 NHS pages.
+- Formatting helper returns EXACT required format:
+  TITLE. PUBLISHER. URL. Accessed YYYY-MM-DD.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from datetime import date
+from html import unescape
+import re
+import socket
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
+from urllib.request import Request, urlopen
+
+try:
+    from openai import OpenAI  # type: ignore
+except Exception:  # pragma: no cover
+    OpenAI = None  # type: ignore
+
+
+@dataclass
+class EvidenceRef:
+    title: str
+    publisher: str
+    url: str
+    accessed: str  # YYYY-MM-DD
+    snippet: Optional[str] = None
+
+
+# -----------------------------
+# Domain policy
+# -----------------------------
+
+BLOCK_HOST_SUBSTRINGS = (
+    "pubmed.ncbi.nlm.nih.gov",
+    "pmc.ncbi.nlm.nih.gov",
+    "ncbi.nlm.nih.gov",
+    "europepmc.org",
+    "researchgate.net",
+)
+
+PREFERRED_HOST_SUBSTRINGS = (
+    "nhs.uk",
+    "nice.org.uk",
+    "medlineplus.gov",
+    "cdc.gov",
+    "who.int",
+    "aafp.org",
+    "merckmanuals.com",
+    "mayoclinic.org",
+    "clevelandclinic.org",
+)
+
+PUBLISHER_BY_HOST = (
+    ("nhs.uk", "NHS"),
+    ("nice.org.uk", "NICE"),
+    ("medlineplus.gov", "MedlinePlus (NIH)"),
+    ("cdc.gov", "CDC"),
+    ("who.int", "WHO"),
+    ("aafp.org", "AAFP"),
+    ("merckmanuals.com", "Merck Manual"),
+    ("mayoclinic.org", "Mayo Clinic"),
+    ("clevelandclinic.org", "Cleveland Clinic"),
+)
+
+
+# -----------------------------
+# Public API
+# -----------------------------
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    diagnosis_hint: Optional[str] = None,
+    context: Optional[str] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    timeout_s: int = 12,
+    debug: bool = False,
+    max_per_publisher: int = 2,
+) -> List[EvidenceRef]:
+    """
+    Retrieve evidence using OpenAI Responses API + web_search tool.
+
+    Stability features:
+      - LLM relevance gate removes off-topic results (e.g., "back of the hand")
+      - Publisher cap reduces repetitive sources (e.g., 6 NHS pages)
+
+    If web_search returns no sources, returns [] (cannot guess URLs).
+    """
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+
+    seed = (diagnosis_hint or context or chief_complaint or "").strip()
+    if not seed:
+        seed = chief_complaint.strip()
+
+    client = OpenAI(timeout=60)
+
+    queries = _build_queries(chief_complaint=chief_complaint, seed=seed)
+
+    # We will keep collecting across queries until we have enough AFTER filtering.
+    candidate_urls: List[str] = []
+    seen = set()
+
+    for q in queries:
+        urls = _openai_web_search_urls(client=client, query=q, timeout_s=timeout_s, debug=debug)
+        for u in urls:
+            nu = _normalize_url(u)
+            if not nu:
+                continue
+            if _is_blocked(nu):
+                continue
+            if nu in seen:
+                continue
+            seen.add(nu)
+            candidate_urls.append(nu)
+
+        # Don't stop early just because we have many URLs; we need filtered+diverse refs.
+        # But do prevent runaway list growth.
+        if len(candidate_urls) >= 30:
+            break
+
+    # If still thin, try a fallback ladder (still broad, still on-topic).
+    if len(candidate_urls) < min_urls:
+        for q in _build_fallback_queries(chief_complaint=chief_complaint, seed=seed):
+            urls = _openai_web_search_urls(client=client, query=q, timeout_s=timeout_s, debug=debug)
+            for u in urls:
+                nu = _normalize_url(u)
+                if not nu or _is_blocked(nu) or nu in seen:
+                    continue
+                seen.add(nu)
+                candidate_urls.append(nu)
+            if len(candidate_urls) >= 30:
+                break
+
+    ranked_urls = _rank_urls(candidate_urls)
+
+    today = date.today().isoformat()
+
+    # Build refs with titles (needed for relevance gate and final formatting).
+    refs: List[EvidenceRef] = []
+    for url in ranked_urls:
+        title = _fetch_title(url, timeout_s=timeout_s)
+        publisher = _publisher_from_url(url)
+        if not title:
+            title = _fallback_title_from_url(url)
+        refs.append(EvidenceRef(title=title, publisher=publisher, url=url, accessed=today))
+        if len(refs) >= 18:  # cap candidates to keep LLM gating cheap
+            break
+
+    # Relevance gate: keep only refs relevant to seed/complaint.
+    filtered: List[EvidenceRef] = []
+    for r in refs:
+        if _llm_is_relevant(
+            client=client,
+            seed=seed,
+            chief_complaint=chief_complaint,
+            title=r.title,
+            url=r.url,
+        ):
+            filtered.append(r)
+        if len(filtered) >= max_urls * 2:
+            break
+
+    # Publisher diversity cap: max N per publisher.
+    final: List[EvidenceRef] = []
+    counts: Dict[str, int] = {}
+    for r in filtered:
+        k = (r.publisher or "Source").strip()
+        counts[k] = counts.get(k, 0)
+        if counts[k] >= max_per_publisher:
+            continue
+        counts[k] += 1
+        final.append(r)
+        if len(final) >= max_urls:
+            break
+
+    # If we still don't have enough, relax publisher cap (but keep relevance).
+    if len(final) < min_urls:
+        for r in filtered:
+            if r in final:
+                continue
+            final.append(r)
+            if len(final) >= max_urls:
+                break
+
+    return final
+
+
+def format_evidence_lines(evs: Sequence[EvidenceRef]) -> List[str]:
+    """
+    Required output format:
+      TITLE. PUBLISHER. URL. Accessed YYYY-MM-DD.
+    """
+    lines: List[str] = []
+    for e in evs:
+        title = _clean_sentence(e.title)
+        publisher = _clean_sentence(e.publisher)
+        url = (e.url or "").strip()
+        accessed = (e.accessed or "").strip()
+        lines.append(f"{title}. {publisher}. {url}. Accessed {accessed}.")
+    return lines
+
+
+# -----------------------------
+# OpenAI web_search parsing
+# -----------------------------
+
+def _openai_web_search_urls(*, client: Any, query: str, timeout_s: int, debug: bool) -> List[str]:
+    resp = client.responses.create(
+        model="gpt-4o-mini",
+        input=query,
+        tools=[{"type": "web_search"}],
+        include=["web_search_call.action.sources"],
+    )
+
+    output = getattr(resp, "output", None) or []
+    urls: List[str] = []
+
+    for item in output:
+        itype = getattr(item, "type", None) or (item.get("type") if isinstance(item, dict) else None)
+        if itype != "web_search_call":
+            continue
+
+        action = _get(item, "action", default={})
+        sources = _get(action, "sources", default=[]) or []
+
+        for s in sources:
+            u = _get(s, "url", default=None)
+            if u:
+                urls.append(str(u))
+
+        if debug:
+            try:
+                slen = len(sources)
+            except Exception:
+                slen = -1
+            print(f"[DEBUG web_search] query={query!r} action.sources_len={slen} urls_extracted={len(urls)}")
+
+    return _dedupe_keep_order(urls)
+
+
+def _get(obj: Any, key: str, default: Any = None) -> Any:
+    if obj is None:
+        return default
+    if isinstance(obj, dict):
+        return obj.get(key, default)
+    return getattr(obj, key, default)
+
+
+def _dedupe_keep_order(items: Iterable[str]) -> List[str]:
+    out: List[str] = []
+    seen = set()
+    for x in items:
+        if x in seen:
+            continue
+        seen.add(x)
+        out.append(x)
+    return out
+
+
+# -----------------------------
+# Query strategy (broad, scalable)
+# -----------------------------
+
+def _build_queries(*, chief_complaint: str, seed: str) -> List[str]:
+    cc = chief_complaint.strip()
+    s = seed.strip()
+
+    # Keep it broad, but make sure we get treatment/dosing sources (MedlinePlus/Merck often show up here).
+    return [
+        f"{cc} advice red flags when to seek urgent care",
+        f"{cc} treatment pain relief acetaminophen ibuprofen dosing",
+        f"{cc} MedlinePlus medicines pain relief",
+        f"{cc} Merck Manual patient information",
+        f"{s} guideline treatment and red flags",
+        f"{cc} NICE guidance",
+    ]
+
+
+def _build_fallback_queries(*, chief_complaint: str, seed: str) -> List[str]:
+    cc = chief_complaint.strip()
+    s = seed.strip()
+    return [
+        f"{cc} NHS",
+        f"{cc} patient information leaflet pain relief",
+        f"{s} self care red flags treatment",
+    ]
+
+
+# -----------------------------
+# Filtering / normalization / ranking
+# -----------------------------
+
+def _normalize_url(url: str) -> Optional[str]:
+    url = (url or "").strip()
+    if not url:
+        return None
+    url = url.strip("()[]{}<>'\" \t\r\n")
+
+    try:
+        p = urlparse(url)
+    except Exception:
+        return None
+
+    if p.scheme not in ("http", "https"):
+        return None
+    if not p.netloc:
+        return None
+
+    q = [(k, v) for (k, v) in parse_qsl(p.query, keep_blank_values=True) if not k.lower().startswith("utm_")]
+    p = p._replace(query=urlencode(q, doseq=True))
+    p = p._replace(fragment="")
+
+    return urlunparse(p)
+
+
+def _is_blocked(url: str) -> bool:
+    host = (urlparse(url).netloc or "").lower()
+    for bad in BLOCK_HOST_SUBSTRINGS:
+        if bad in host:
+            return True
+    return False
+
+
+def _rank_urls(urls: List[str]) -> List[str]:
+    def score(u: str) -> Tuple[int, int]:
+        host = (urlparse(u).netloc or "").lower()
+        pref = 0
+        for good in PREFERRED_HOST_SUBSTRINGS:
+            if good in host:
+                pref = 1
+                break
+        return (pref, -len(u))
+    return sorted(urls, key=score, reverse=True)
+
+
+def _publisher_from_url(url: str) -> str:
+    host = (urlparse(url).netloc or "").lower()
+    for key, label in PUBLISHER_BY_HOST:
+        if key in host:
+            return label
+    return host or "Source"
+
+
+# -----------------------------
+# Title fetching
+# -----------------------------
+
+_TITLE_RE = re.compile(r"<\s*title[^>]*>(.*?)<\s*/\s*title\s*>", re.IGNORECASE | re.DOTALL)
+
+
+def _fetch_title(url: str, timeout_s: int) -> str:
+    socket.setdefaulttimeout(timeout_s)
+    headers = {
+        "User-Agent": "CallCareEvidenceBot/1.0",
+        "Accept": "text/html,application/xhtml+xml",
+    }
+
+    try:
+        req = Request(url, headers=headers)
+        with urlopen(req, timeout=timeout_s) as resp:
+            ctype = (resp.headers.get("Content-Type") or "").lower()
+            raw = resp.read(150_000)
+    except Exception:
+        return _fallback_title_from_url(url)
+
+    if "html" not in ctype and b"<html" not in raw[:5000].lower():
+        return _fallback_title_from_url(url)
+
+    try:
+        text = raw.decode("utf-8", errors="ignore")
+    except Exception:
+        return _fallback_title_from_url(url)
+
+    m = _TITLE_RE.search(text)
+    if not m:
+        return _fallback_title_from_url(url)
+
+    title = unescape(m.group(1))
+    title = re.sub(r"\s+", " ", title).strip()
+    title = title.strip(" -|•\u2013\u2014")
+    return title or _fallback_title_from_url(url)
+
+
+def _fallback_title_from_url(url: str) -> str:
+    host = (urlparse(url).netloc or "").lower()
+    path = (urlparse(url).path or "").strip("/")
+    if not path:
+        return host or "Reference"
+    seg = path.split("/")[-1]
+    seg = seg.replace("-", " ").replace("_", " ").strip()
+    return (seg[:80] if seg else host) or "Reference"
+
+
+def _clean_sentence(s: str) -> str:
+    s = (s or "").strip()
+    s = re.sub(r"\s+", " ", s)
+    s = s.strip(" .")
+    return s or "Reference"
+
+
+# -----------------------------
+# LLM relevance gate (scalable, not body-part hardcoding)
+# -----------------------------
+
+def _llm_is_relevant(
+    *,
+    client: Any,
+    seed: str,
+    chief_complaint: str,
+    title: str,
+    url: str,
+) -> bool:
+    """
+    Keep only sources relevant to the chief complaint / seed diagnosis.
+    This prevents obvious wrong pages like "back of the hand" from sneaking in.
+
+    Returns True/False only.
+    """
+    seed = (seed or "").strip()
+    cc = (chief_complaint or "").strip()
+
+    prompt = (
+        "You are filtering medical reference links for a telephone triage/urgent-care note.\n"
+        "Decide if the candidate link is about the patient's complaint/condition.\n\n"
+        f"Complaint: {cc}\n"
+        f"Condition seed: {seed}\n"
+        f"Candidate title: {title}\n"
+        f"Candidate url: {url}\n\n"
+        "Answer with exactly one word: RELEVANT or IRRELEVANT.\n"
+        "RELEVANT means directly about the complaint/condition (e.g., back pain guidance/treatment/red flags).\n"
+        "IRRELEVANT means different body part/condition or unrelated.\n"
+    )
+
+    try:
+        r = client.responses.create(
+            model="gpt-4o-mini",
+            input=prompt,
+        )
+        txt = ""
+        out = getattr(r, "output_text", None)
+        if isinstance(out, str) and out.strip():
+            txt = out.strip().upper()
+        else:
+            # Fallback: try to read text content from output items if SDK differs
+            items = getattr(r, "output", None) or []
+            for it in items:
+                if getattr(it, "type", None) == "message":
+                    c = getattr(it, "content", None) or []
+                    for part in c:
+                        if getattr(part, "type", None) == "output_text":
+                            txt = (getattr(part, "text", "") or "").strip().upper()
+                            break
+        return txt.startswith("RELEVANT")
+    except Exception:
+        # If LLM gating fails, default to KEEP (avoid dropping too much)
+        return True

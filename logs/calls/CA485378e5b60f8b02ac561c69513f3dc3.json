@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA485378e5b60f8b02ac561c69513f3dc3",
+  "session_id": "57d233b1-a761-4cbf-80f2-d3d11b96a3fc",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-04T13:11:51.938670+00:00",
+  "ended_at": "2026-04-04T13:18:14.307166+00:00",
+  "packet_id": "7f79e235-ff8a-47ea-b591-5a2b05d73fc7",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I am feeling rather dizzy."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the dizziness start?"
+    },
+    {
+      "role": "user",
+      "text": "The dizziness started, like, 2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the dizziness—do you feel like the room is spinning, or more like lightheadedness or imbalance?"
+    },
+    {
+      "role": "user",
+      "text": "I feel like the room is spinning."
+    },
+    {
+      "role": "assistant",
+      "text": "Any hearing loss, ringing in the ears, or recent head injury?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea or vomiting with the dizziness?"
+    },
+    {
+      "role": "user",
+      "text": "Nausea, no vomiting."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent upper respiratory infection, cold, or sinus symptoms before the dizziness started?"
+    },
+    {
+      "role": "user",
+      "text": "No. But I have had a very runny nose, and I've been blowing my nose kind of incessantly. And last night, when the dizziness started, I had been blowing my nose several times. And then when I was done blowing my nose, it then everything started feeling a little dizzy. But not much. Then I watched some TV, and then things started spinning a lot more right before bedtime."
+    },
+    {
+      "role": "assistant",
+      "text": "Any double vision, difficulty speaking, weakness, numbness, or difficulty walking?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of migraine headaches or previous episodes of similar dizziness?"
+    },
+    {
+      "role": "user",
+      "text": "I do have a history of migraine headaches, but I haven't had 1 in years. And I have had similar episodes of dizziness maybe every I don't know, 3 months or so, 4 months or so. I'll get an episode like this."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent use of new medications, or changes in your usual medications?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent ear pain, fullness, or discharge?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have been getting on and off ear pain over the last, like, 3 years. But right now, for, like, the last at least 3 to 6 months, I haven't had any ear pain."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent fever, chills, or signs of infection besides the runny nose?"
+    },
+    {
+      "role": "user",
+      "text": "Last night, I feel like I had chills, no fever, and no other signs of infection."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing vertigo, which is a sensation of the room spinning, likely related to a benign inner ear issue possibly triggered by nasal congestion and frequent nose blowing. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe medication to help with your dizziness. For now, if you notice any new symptoms like weakness, numbness, trouble speaking, severe headache, or if your dizziness worsens significantly or comes with chest pain or shortness of breath, please seek urgent or emergency care right away. If you need an in-person exam or testing, you should go to an urgent care center, emergency department, or see your primary care clinician. A physician will review your case soon and guide any next steps."
+    }
+  ]
+}

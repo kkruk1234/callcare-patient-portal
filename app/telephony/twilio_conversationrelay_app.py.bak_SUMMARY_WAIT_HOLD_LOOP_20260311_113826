@@ -1,0 +1,432 @@
+from __future__ import annotations
+
+import asyncio
+import json
+import logging
+import os
+from pathlib import Path
+from typing import Any, Dict, Optional
+from xml.sax.saxutils import escape as xml_escape
+
+from fastapi import FastAPI, Request, Response, WebSocket, WebSocketDisconnect, HTTPException
+from fastapi.responses import PlainTextResponse, FileResponse
+
+from app.telephony.callcare_bridge import CallCareBridge
+
+log = logging.getLogger("callcare.twilio")
+logging.basicConfig(level=logging.INFO)
+
+app = FastAPI(title="CallCare Twilio ConversationRelay")
+bridge = CallCareBridge()
+
+STATIC_DIR = Path("app") / "telephony" / "static"
+STATIC_DIR.mkdir(parents=True, exist_ok=True)
+
+_PENDING_PROMPT_TASKS: Dict[str, asyncio.Task] = {}
+_COMPLETING_CALLS: set[str] = set()
+_COMPLETION_TASKS: Dict[str, asyncio.Task] = {}
+
+
+def _env(name: str, default: str = "") -> str:
+    return os.getenv(name, default).strip()
+
+
+def _bool_env(name: str, default: bool = False) -> bool:
+    val = _env(name, "")
+    if not val:
+        return default
+    return val.lower() in {"1", "true", "yes", "on"}
+
+
+def _public_wss_url() -> str:
+    url = _env("CALLCARE_TWILIO_WSS_URL")
+    if not url:
+        raise RuntimeError("CALLCARE_TWILIO_WSS_URL is not set")
+    if not url.startswith("wss://"):
+        raise RuntimeError("CALLCARE_TWILIO_WSS_URL must start with wss://")
+    return url
+
+
+def _conversationrelay_language() -> str:
+    return _env("CALLCARE_TWILIO_LANGUAGE", "en-US")
+
+
+def _conversationrelay_voice() -> str:
+    return _env("CALLCARE_TWILIO_VOICE", "en-US-Wavenet-D")
+
+
+def _conversationrelay_tts_provider() -> str:
+    return _env("CALLCARE_TWILIO_TTS_PROVIDER", "Google")
+
+
+def _hold_audio_url() -> str:
+    return _env("CALLCARE_TWILIO_HOLD_AUDIO_URL", "")
+
+
+def _build_twiml() -> str:
+    url = xml_escape(_public_wss_url(), {'"': "&quot;"})
+    language = xml_escape(_conversationrelay_language(), {'"': "&quot;"})
+    tts_provider = xml_escape(_conversationrelay_tts_provider(), {'"': "&quot;"})
+    voice = xml_escape(_conversationrelay_voice(), {'"': "&quot;"})
+
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        "<Response>"
+        "<Connect>"
+        f'<ConversationRelay url="{url}" language="{language}" ttsProvider="{tts_provider}" voice="{voice}">'
+        '<Parameter name="app" value="callcare" />'
+        '<Parameter name="channel" value="voice" />'
+        "</ConversationRelay>"
+        "</Connect>"
+        "</Response>"
+    )
+
+
+def _validate_ws_signature_if_enabled(websocket: WebSocket) -> bool:
+    if not _bool_env("TWILIO_VALIDATE_SIGNATURE", False):
+        return True
+
+    auth_token = _env("TWILIO_AUTH_TOKEN")
+    if not auth_token:
+        log.warning("TWILIO_VALIDATE_SIGNATURE=1 but TWILIO_AUTH_TOKEN is empty")
+        return False
+
+    try:
+        from twilio.request_validator import RequestValidator
+    except Exception:
+        log.warning("twilio package not installed; cannot validate X-Twilio-Signature")
+        return False
+
+    sig = websocket.headers.get("x-twilio-signature", "")
+    if not sig:
+        log.warning("Missing X-Twilio-Signature header on WebSocket handshake")
+        return False
+
+    url = str(websocket.url)
+    try:
+        validator = RequestValidator(auth_token)
+        ok = validator.validate(url, {}, sig)
+        if not ok:
+            log.warning("Twilio WebSocket signature validation failed for %s", url)
+        return ok
+    except Exception as e:
+        log.exception("Twilio WebSocket signature validation error: %s", e)
+        return False
+
+
+async def _send_text(ws: WebSocket, text: str) -> None:
+    cleaned = str(text or "")
+    cleaned = cleaned.replace("9-1-1", "__CALLCARE_911__")
+    cleaned = cleaned.replace("911", "__CALLCARE_911__")
+    cleaned = cleaned.replace("yes/no", "yes or no")
+    cleaned = cleaned.replace("yes / no", "yes or no")
+    cleaned = cleaned.replace("yes/no/unknown", "yes or no or unknown")
+
+    token = cleaned
+    if _conversationrelay_tts_provider() == "Google":
+        cleaned = cleaned.replace("__CALLCARE_911__", '<say-as interpret-as="digits">911</say-as>')
+        token = f"<speak><break time=\"180ms\"/><prosody rate=\"92%\">{cleaned}</prosody></speak>"
+    else:
+        cleaned = cleaned.replace("__CALLCARE_911__", "9 1 1")
+
+    payload = {
+        "type": "text",
+        "token": token,
+        "last": True,
+        "interruptible": False,
+        "preemptible": False,
+    }
+    await ws.send_text(json.dumps(payload))
+
+
+async def _send_play(ws: WebSocket, source: str, loop: int = 1) -> None:
+    if not source:
+        return
+    payload = {
+        "type": "play",
+        "source": source,
+        "loop": loop,
+        "preemptible": True,
+        "interruptible": False,
+    }
+    await ws.send_text(json.dumps(payload))
+
+
+async def _send_end(ws: WebSocket, reason_code: str = "callcare-complete", reason: str = "CallCare call complete") -> None:
+    payload = {
+        "type": "end",
+        "handoffData": json.dumps(
+            {
+                "reasonCode": reason_code,
+                "reason": reason,
+            }
+        ),
+    }
+    await ws.send_text(json.dumps(payload))
+
+
+async def _try_start_hold_music(ws: WebSocket) -> None:
+    hold_url = _hold_audio_url()
+    if not hold_url:
+        log.info("No CALLCARE_TWILIO_HOLD_AUDIO_URL set; skipping hold music")
+        return
+    try:
+        log.info("Starting hold music from %s", hold_url)
+        await _send_play(ws, hold_url, loop=1)
+    except Exception:
+        log.exception("Hold music failed to start")
+
+
+async def _run_completion_flow(websocket: WebSocket, call_sid: str) -> None:
+    try:
+        log.info("Starting bridge.complete_session for callSid=%s", call_sid)
+
+        summary = await asyncio.wait_for(
+            asyncio.to_thread(bridge.complete_session, call_sid),
+            timeout=120.0,
+        )
+
+        log.info("Completed bridge.complete_session for callSid=%s", call_sid)
+
+        await asyncio.sleep(0.10)
+        await _send_text(websocket, summary)
+        await asyncio.sleep(0.75)
+        await _send_text(websocket, "Thank you, goodbye.")
+        await asyncio.sleep(0.40)
+        await _send_end(websocket, reason_code="callcare-complete", reason="CallCare intake complete")
+        bridge.end_session(call_sid)
+
+    except asyncio.TimeoutError:
+        log.exception("bridge.complete_session timed out for callSid=%s", call_sid)
+        fallback = (
+            "Your intake is complete, but I need more time to finish processing your chart. "
+            "A physician will review your information. Thank you, goodbye."
+        )
+        try:
+            await _send_text(websocket, fallback)
+            await asyncio.sleep(0.75)
+            await _send_end(websocket, reason_code="callcare-timeout", reason="CallCare processing timeout")
+        except Exception:
+            pass
+        bridge.end_session(call_sid)
+
+    except Exception:
+        log.exception("Completion flow failed for callSid=%s", call_sid)
+        try:
+            await _send_text(
+                websocket,
+                "I'm sorry, something went wrong while processing your call. Please call back if you still need help. Thank you, goodbye."
+            )
+            await asyncio.sleep(0.75)
+            await _send_end(websocket, reason_code="callcare-error", reason="CallCare processing error")
+        except Exception:
+            pass
+        bridge.end_session(call_sid)
+
+    finally:
+        _COMPLETING_CALLS.discard(call_sid)
+        _COMPLETION_TASKS.pop(call_sid, None)
+
+
+async def _start_completion_now(websocket: WebSocket, call_sid: str) -> None:
+    if call_sid in _COMPLETING_CALLS:
+        return
+
+    _COMPLETING_CALLS.add(call_sid)
+
+    pending = _PENDING_PROMPT_TASKS.pop(call_sid, None)
+    if pending is not None and not pending.done():
+        pending.cancel()
+
+    processing_text = "Thank you for your responses. This may take up to a minute to process. Please stay on the line."
+
+    log.info("Starting processing speech for callSid=%s", call_sid)
+    await _send_text(websocket, processing_text)
+    log.info("Finished processing speech for callSid=%s", call_sid)
+
+    await _try_start_hold_music(websocket)
+
+    log.info("Scheduling completion task for callSid=%s", call_sid)
+    task = asyncio.create_task(_run_completion_flow(websocket, call_sid))
+    _COMPLETION_TASKS[call_sid] = task
+
+
+async def _debounced_handle_prompt(websocket: WebSocket, call_sid: str) -> None:
+    try:
+        await asyncio.sleep(1.0)
+
+        if call_sid in _COMPLETING_CALLS:
+            log.info("Ignoring prompt because call is completing: callSid=%s", call_sid)
+            return
+
+        full_prompt = bridge.consume_partial_prompt(call_sid)
+        log.info("ConversationRelay prompt debounced final: callSid=%s text=%r", call_sid, full_prompt)
+
+        result = bridge.handle_prompt_text(call_sid, full_prompt)
+
+        if result.done:
+            log.info("Bridge returned done=True for callSid=%s", call_sid)
+            await _start_completion_now(websocket, call_sid)
+        else:
+            await _send_text(websocket, result.say)
+            await asyncio.sleep(0.45)
+
+    except asyncio.CancelledError:
+        raise
+    except Exception:
+        log.exception("Debounced prompt handler failed for callSid=%s", call_sid)
+        try:
+            await _send_text(
+                websocket,
+                "I'm sorry, something went wrong while processing your call. Please call back if you still need help."
+            )
+            await asyncio.sleep(0.50)
+            await _send_end(websocket, reason_code="callcare-error", reason="CallCare processing error")
+        except Exception:
+            pass
+        bridge.end_session(call_sid)
+        _COMPLETING_CALLS.discard(call_sid)
+    finally:
+        current = _PENDING_PROMPT_TASKS.get(call_sid)
+        if current is not None and current.done():
+            _PENDING_PROMPT_TASKS.pop(call_sid, None)
+
+
+@app.get("/healthz")
+async def healthz() -> PlainTextResponse:
+    return PlainTextResponse("ok")
+
+
+@app.get("/static/hold_music.mp3")
+async def hold_music() -> FileResponse:
+    path = STATIC_DIR / "hold_music.mp3"
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="hold_music.mp3 not found")
+    return FileResponse(path, media_type="audio/mpeg")
+
+
+@app.post("/twilio/voice")
+async def twilio_voice(_: Request) -> Response:
+    xml = _build_twiml()
+    return Response(content=xml, media_type="application/xml")
+
+
+@app.websocket("/twilio/conversationrelay")
+async def conversationrelay_ws(websocket: WebSocket) -> None:
+    if not _validate_ws_signature_if_enabled(websocket):
+        await websocket.close(code=1008)
+        return
+
+    await websocket.accept()
+
+    active_call_sid: Optional[str] = None
+
+    try:
+        while True:
+            raw = await websocket.receive_text()
+            msg: Dict[str, Any] = json.loads(raw)
+            msg_type = str(msg.get("type") or "").strip().lower()
+
+            if msg_type == "setup":
+                call_sid = str(msg.get("callSid") or "").strip()
+                active_call_sid = call_sid
+                from_number = str(msg.get("from") or "").strip()
+                to_number = str(msg.get("to") or "").strip()
+
+                log.info("ConversationRelay setup: callSid=%s from=%s to=%s", call_sid, from_number, to_number)
+
+                _, opening = bridge.start_session(
+                    call_sid=call_sid,
+                    from_number=from_number,
+                    to_number=to_number,
+                )
+
+                opening = f"Hello. {opening}"
+                await _send_text(websocket, opening)
+                await asyncio.sleep(0.45)
+                continue
+
+            if msg_type == "prompt":
+                if not active_call_sid:
+                    await _send_text(
+                        websocket,
+                        "We couldn't initialize your call session. Please hang up and try again.",
+                    )
+                    await asyncio.sleep(0.50)
+                    await _send_end(websocket, reason_code="missing-session", reason="No active call session")
+                    continue
+
+                if active_call_sid in _COMPLETING_CALLS:
+                    log.info("Ignoring prompt during completion: callSid=%s", active_call_sid)
+                    continue
+
+                voice_prompt = str(msg.get("voicePrompt") or "").strip()
+                is_last = bool(msg.get("last", True))
+
+                if voice_prompt:
+                    bridge.append_partial_prompt(active_call_sid, voice_prompt)
+
+                if not is_last:
+                    continue
+
+                prior = _PENDING_PROMPT_TASKS.get(active_call_sid)
+                if prior is not None and not prior.done():
+                    prior.cancel()
+
+                task = asyncio.create_task(_debounced_handle_prompt(websocket, active_call_sid))
+                _PENDING_PROMPT_TASKS[active_call_sid] = task
+                continue
+
+            if msg_type == "dtmf":
+                digit = str(msg.get("digit") or "").strip()
+                if active_call_sid and digit:
+                    if active_call_sid in _COMPLETING_CALLS:
+                        log.info("Ignoring dtmf during completion: callSid=%s", active_call_sid)
+                        continue
+
+                    bridge.append_partial_prompt(active_call_sid, digit)
+
+                    prior = _PENDING_PROMPT_TASKS.get(active_call_sid)
+                    if prior is not None and not prior.done():
+                        prior.cancel()
+
+                    task = asyncio.create_task(_debounced_handle_prompt(websocket, active_call_sid))
+                    _PENDING_PROMPT_TASKS[active_call_sid] = task
+                continue
+
+            if msg_type == "interrupt":
+                log.info("ConversationRelay interrupt: callSid=%s", active_call_sid)
+                continue
+
+            if msg_type == "error":
+                log.warning("ConversationRelay error message: %s", msg)
+                continue
+
+            log.info("Ignoring unsupported ConversationRelay message type: %s", msg_type)
+
+    except WebSocketDisconnect:
+        log.info("ConversationRelay websocket disconnected: callSid=%s", active_call_sid)
+        if active_call_sid:
+            pending = _PENDING_PROMPT_TASKS.pop(active_call_sid, None)
+            if pending is not None and not pending.done():
+                pending.cancel()
+            completion = _COMPLETION_TASKS.pop(active_call_sid, None)
+            if completion is not None and not completion.done():
+                completion.cancel()
+            _COMPLETING_CALLS.discard(active_call_sid)
+            bridge.end_session(active_call_sid)
+    except Exception:
+        log.exception("ConversationRelay WebSocket handler failed")
+        try:
+            await websocket.close(code=1011)
+        except Exception:
+            pass
+        if active_call_sid:
+            pending = _PENDING_PROMPT_TASKS.pop(active_call_sid, None)
+            if pending is not None and not pending.done():
+                pending.cancel()
+            completion = _COMPLETION_TASKS.pop(active_call_sid, None)
+            if completion is not None and not completion.done():
+                completion.cancel()
+            _COMPLETING_CALLS.discard(active_call_sid)
+            bridge.end_session(active_call_sid)

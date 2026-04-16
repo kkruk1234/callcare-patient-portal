@@ -1,0 +1,235 @@
+from __future__ import annotations
+
+from datetime import date
+from typing import Optional, List, Dict, Any, Callable, Tuple
+from urllib.parse import urlparse, urlunparse
+import re
+
+try:
+    from openai import OpenAI  # type: ignore
+except Exception:
+    OpenAI = None  # type: ignore
+
+
+# --------------------------------------------------
+# Helpers
+# --------------------------------------------------
+
+def _today_iso() -> str:
+    try:
+        return date.today().isoformat()
+    except Exception:
+        return ""
+
+
+def _host(url: str) -> str:
+    try:
+        return (urlparse(url).netloc or "").lower().replace("www.", "")
+    except Exception:
+        return ""
+
+
+def _strip_tracking(url: str) -> str:
+    """
+    Remove tracking parameters like ?utm_source=openai
+    """
+    try:
+        p = urlparse(url)
+        clean = p._replace(query="", fragment="")
+        return urlunparse(clean)
+    except Exception:
+        return url
+
+
+def _allow_hosts() -> Tuple[str, ...]:
+    return (
+        "nhs.uk",
+        "nice.org.uk",
+        "aafp.org",
+        "cdc.gov",
+        "medlineplus.gov",
+        "nih.gov",
+        "ncbi.nlm.nih.gov",
+        "pubmed.ncbi.nlm.nih.gov",
+        "who.int",
+        "mayoclinic.org",
+        "merckmanuals.com",
+        "idsociety.org",
+        "acog.org",
+        "accessdata.fda.gov",
+    )
+
+
+def _is_allowed(url: str) -> bool:
+    u = (url or "").strip()
+    if not u.startswith("http"):
+        return False
+    h = _host(u)
+    if not h:
+        return False
+    for ah in _allow_hosts():
+        if h == ah or h.endswith("." + ah):
+            return True
+    return False
+
+
+# --------------------------------------------------
+# STRICT URL_CITATION EXTRACTION
+# --------------------------------------------------
+
+def _extract_url_citations(resp: Any) -> List[Dict[str, Any]]:
+    """
+    Extract only official url_citation annotations.
+    Use the annotation-provided title.
+    """
+    out = getattr(resp, "output", None)
+    if out is None and isinstance(resp, dict):
+        out = resp.get("output")
+
+    if not isinstance(out, list):
+        return []
+
+    results: List[Dict[str, Any]] = []
+
+    for item in out:
+        t = getattr(item, "type", None) if not isinstance(item, dict) else item.get("type")
+        if t != "message":
+            continue
+
+        content = getattr(item, "content", None)
+        if content is None and isinstance(item, dict):
+            content = item.get("content")
+
+        if not isinstance(content, list):
+            continue
+
+        for part in content:
+            annotations = None
+            if isinstance(part, dict):
+                annotations = part.get("annotations")
+            else:
+                annotations = getattr(part, "annotations", None)
+
+            if not isinstance(annotations, list):
+                continue
+
+            for a in annotations:
+                if isinstance(a, dict):
+                    atype = a.get("type")
+                    title = a.get("title")
+                    url = a.get("url")
+                else:
+                    atype = getattr(a, "type", None)
+                    title = getattr(a, "title", None)
+                    url = getattr(a, "url", None)
+
+                if atype != "url_citation":
+                    continue
+
+                if not title or not url:
+                    continue
+
+                url = _strip_tracking(url)
+
+                if not _is_allowed(url):
+                    continue
+
+                results.append(
+                    {
+                        "title": re.sub(r"\s+", " ", title).strip(),
+                        "source": _host(url),
+                        "url": url,
+                        "accessed": _today_iso(),
+                        "snippet": "",
+                    }
+                )
+
+    # Deduplicate by URL
+    seen = set()
+    final: List[Dict[str, Any]] = []
+    for r in results:
+        u = r["url"]
+        if u in seen:
+            continue
+        seen.add(u)
+        final.append(r)
+
+    return final
+
+
+# --------------------------------------------------
+# Public Function
+# --------------------------------------------------
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    queries: Optional[List[str]] = None,
+    diagnosis_hint: Optional[str] = None,
+    context: Optional[str] = None,
+    assessment_text: Optional[str] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    timeout_s: int = 12,
+    max_queries: int = 2,
+    debug: bool = False,
+    trace_fn: Optional[Callable[..., None]] = None,
+    **_ignored,
+) -> List[Dict[str, Any]]:
+    """
+    STRICT WEB-ONLY evidence retrieval using url_citation annotations.
+    """
+
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available")
+
+    anchor = (
+        (assessment_text or "").strip()
+        or (diagnosis_hint or "").strip()
+        or (context or "").strip()
+        or (chief_complaint or "").strip()
+    )
+
+    if not anchor:
+        return []
+
+    qs = queries if queries else [
+        f"{anchor} outpatient management guideline",
+        f"{anchor} treatment dosing contraindications",
+    ]
+
+    qs = qs[: max(1, int(max_queries or 1))]
+
+    client = OpenAI()
+    model = "gpt-4.1-mini"
+
+    collected: List[Dict[str, Any]] = []
+
+    for q in qs:
+        try:
+            resp = client.responses.create(
+                model=model,
+                input=q,
+                tools=[{"type": "web_search"}],
+                timeout=timeout_s,
+            )
+        except Exception as e:
+            if trace_fn:
+                trace_fn(marker="web_search_error", error=str(e))
+            continue
+
+        items = _extract_url_citations(resp)
+        collected.extend(items)
+
+        if len(collected) >= min_urls:
+            break
+
+    # Cap to max_urls
+    final = collected[: int(max_urls or 6)]
+
+    if debug:
+        print("STRICT_EVID_LEN =", len(final))
+        for i, r in enumerate(final[:3], 1):
+            print(i, r["title"], "|", r["url"])
+
+    return final

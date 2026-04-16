@@ -1,0 +1,80 @@
+{
+  "packet_id": "cc88d400-9262-4d75-a6b5-3e6d3efcf64e",
+  "created_at": "2026-03-03T22:05:30.959786+00:00",
+  "session_id": "f958a07c-6584-49e3-ae7a-0b7f744b9600",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the quality of your back pain and whether it changes with movement or breathing?",
+    "intake_a10": "dull ache and it improves with better posture",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adult",
+      "back pain treatment adult dosing acetaminophen contraindications",
+      "back pain red flags and when to seek emergency care"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. She denies any recent trauma, fever, chills, weight loss, respiratory symptoms, or neurological deficits. The pain improves with better posture and has not responded well to acetaminophen. There is no history of kidney problems, urinary symptoms, osteoporosis, cancer, or recent infections. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely related to postural strain or intercostal muscle irritation given the location and quality of pain and absence of systemic or neurological symptoms.\nDifferential:\n1. Musculoskeletal strain or intercostal muscle irritation\n2. Costochondritis\n3. Rib fracture (less likely without trauma)\n4. Early herpes zoster (pre-eruption phase)\n\nP:\n- Medication safety considerations: Avoid NSAIDs if there is a history of gastrointestinal issues or renal impairment; acetaminophen dosing should not exceed 3 grams per day\n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - NSAIDs such as ibuprofen for pain relief and inflammation reduction (avoid in renal disease; especially severe CKD/dialysis)\n- Return precautions: Seek urgent care if fever, worsening pain, neurological symptoms, chest pain, or respiratory symptoms develop\n- Testing: Not indicated at this time given absence of red flags; consider imaging if symptoms persist beyond 6 weeks or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "ncbi.nlm.nih.gov: NBK538173",
+        "source": "NIH",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538173/?utm_source=openai",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "aafp.org: practice guidelines low back pain.html",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html?utm_source=openai",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "ncbi.nlm.nih.gov: NBK538173",
+      "source": "NIH",
+      "snippet": ""
+    },
+    {
+      "title": "aafp.org: practice guidelines low back pain.html",
+      "source": "AAFP",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

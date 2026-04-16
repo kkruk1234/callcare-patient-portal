@@ -1,0 +1,67 @@
+{
+  "packet_id": "dbd36116-4516-4076-96d1-9b698186819f",
+  "created_at": "2026-02-27T19:45:54.448619+00:00",
+  "session_id": "40b017d0-ac94-4695-b304-89f38883aa59",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back hurts?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain with breathing, coughing, or movement?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney stones, urinary symptoms, or abdominal pain?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of cancer, recent infections, or immune system problems?",
+    "intake_a9": "no",
+    "intake_q10": "Do you have any swelling, bruising, or visible skin changes over the painful area?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, pain with breathing, coughing, or movement. There is no history of kidney stones, urinary symptoms, abdominal pain, numbness, tingling, weakness in the legs or feet, cancer, recent infections, immune system problems, swelling, bruising, or visible skin changes over the painful area. She has tried acetaminophen (Tylenol) without significant relief. O: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage, likely due to a strain or minor soft tissue injury without trauma. \nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis\n3. Intercostal nerve irritation\n4. Early presentation of rib fracture or occult injury\n\nP:\n- First-line medication: Acetaminophen 500 mg every 6 hours as needed for pain\n- Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen 400 mg every 6 to 8 hours as needed if no contraindications\n- Medication safety considerations: Avoid NSAIDs if history of gastrointestinal issues or renal impairment; acetaminophen should not exceed 3000 mg per day\n- Return precautions: Advise patient to seek care if pain worsens, if new symptoms develop such as fever, swelling, bruising, numbness, weakness, or if pain becomes severe or unrelenting\n- Testing: Not indicated at this time given absence of red flag symptoms; consider imaging if symptoms persist beyond 6 weeks or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

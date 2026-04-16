@@ -1,0 +1,31 @@
+id: med_refill
+version: 0.1
+match:
+  any_keywords: ["refill", "renew", "medication", "blood pressure", "lisinopril", "metformin"]
+questions:
+  - id: med_name
+    prompt: "Which medication are you trying to renew? (name)"
+    store_as: med_name
+
+  - id: previously_prescribed
+    prompt: "Was this medication previously prescribed by a licensed clinician and you are already taking it? (yes/no)"
+    store_as: previously_prescribed
+    type: yesno
+
+  - id: side_effects
+    prompt: "Any concerning side effects or bad reactions? (yes/no)"
+    store_as: side_effects_concern
+    type: yesno
+
+  - id: new_worse
+    prompt: "Any new or worsening symptoms since your last prescription? (yes/no)"
+    store_as: new_or_worse_symptoms
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["med_name", "previously_prescribed", "side_effects", "new_worse"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_PROTOCOL
+  tier_fallback: TIER_2_REVIEW

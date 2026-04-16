@@ -1,0 +1,99 @@
+{
+  "packet_id": "fc63b654-873f-4731-8726-864cd4983442",
+  "created_at": "2026-01-22T12:25:49.865248+00:00",
+  "session_id": "edc3a9ae-1955-4ce9-816c-63ced96ca0a0",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "yes",
+  "pathway_id": "ear_pain",
+  "answers": {
+    "pregnancy_possible": "yes",
+    "duration": "5 days",
+    "fever": "yes",
+    "discharge": "yes",
+    "tragus": "no",
+    "swimming": "no",
+    "itching": "no",
+    "uri": "yes",
+    "vertigo": "no",
+    "diabetes": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO twice daily x 7 days",
+      "sig": "875/125 mg PO twice daily x 7 days",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "7 days",
+      "notes": "Reasonable option when otorrhea/perforation suspected, recurrent AOM, or recent amoxicillin exposure. Confirm indication + duration based on severity and exam availability.",
+      "exclusions": "Avoid if anaphylaxis/angioedema to penicillins/cephalosporins; adjust for renal impairment per clinician judgment.",
+      "tier": "Tier 1",
+      "pathway_id": "ear_pain",
+      "source_file": "data/protocols/meds/ear_pain.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Azithromycin",
+      "dosing": "500 mg PO day 1, then 250 mg PO daily days 2–5",
+      "sig": "500 mg PO day 1, then 250 mg PO daily days 2–5",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "Option for immediate-type beta-lactam allergy. Pregnancy: generally considered acceptable; still confirm pregnancy status and review QT/interaction risks.",
+      "exclusions": "Macrolide allergy; QT prolongation risk/interaction review.",
+      "tier": "Tier 1",
+      "pathway_id": "ear_pain",
+      "source_file": "data/protocols/meds/ear_pain.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Clindamycin",
+      "dosing": "300 mg PO every 6 hours x 7–10 days",
+      "sig": "300 mg PO every 6 hours x 7–10 days",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "Alternative when beta-lactams contraindicated; does not cover H. influenzae well—use clinician judgment. Pregnancy: generally considered acceptable; confirm status and trimester considerations.",
+      "exclusions": "History of C. difficile/high CDI risk; lincosamide allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "ear_pain",
+      "source_file": "data/protocols/meds/ear_pain.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with a 5-day history of ear pain. They report associated fever and ear discharge. There is a history of upper respiratory infection symptoms. The patient does not report itching, vertigo, or recent swimming. There is no tenderness of the tragus. No known medication allergies. Pregnancy is possible.\n\nO:\nNo physical exam or vital signs available due to phone-only history.\n\nA:\n - Working diagnosis (most likely): Acute otitis media with possible secondary otitis externa given ear discharge and fever.\n - Differential:\n  1. Acute otitis media\n  2. Otitis externa\n  3. Viral upper respiratory infection with referred ear pain\n  4. Mastoiditis (less likely without exam findings)\n - Red flags considered:\n  - Persistent fever and ear discharge warrant evaluation for complications such as mastoiditis.\n  - No vertigo or neurological symptoms reported.\n\nP:\n - Disposition: Patient advised to seek in-person evaluation if symptoms worsen or do not improve within 48-72 hours.\n - Plan: Amoxicillin-clavulanate — 875/125 mg PO twice daily x 7 days.  Alternative: Azithromycin (500 mg PO day 1, then 250 mg PO daily days 2–5).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Amoxicillin-clavulanate — 875/125 mg PO twice daily x 7 days\n     - Notes: Reasonable option when otorrhea/perforation suspected, recurrent AOM, or recent amoxicillin exposure. Confirm indication + duration based on severity and exam availability.\n     - Exclusions: Avoid if anaphylaxis/angioedema to penicillins/cephalosporins; adjust for renal impairment per clinician judgment.\n   - Azithromycin — 500 mg PO day 1, then 250 mg PO daily days 2–5\n     - Notes: Option for immediate-type beta-lactam allergy. Pregnancy: generally considered acceptable; still confirm pregnancy status and review QT/interaction risks.\n     - Exclusions: Macrolide allergy; QT prolongation risk/interaction review.\n   - Clindamycin — 300 mg PO every 6 hours x 7–10 days\n     - Notes: Alternative when beta-lactams contraindicated; does not cover H. influenzae well—use clinician judgment. Pregnancy: generally considered acceptable; confirm status and trimester considerations.\n     - Exclusions: History of C. difficile/high CDI risk; lincosamide allergy.\n   - Supportive care:\n   - Analgesia: OTC analgesics/antipyretics if safe (avoid dosing instructions by phone).\n   - Hydration/rest: Encourage fluids and rest.\n   - Follow-up and safety:\n   - Follow-up: Re-evaluation in 48–72 hours if not improving; sooner for worsening symptoms.\n   - Return precautions: Seek urgent care/ED for severe/worsening pain, mastoid tenderness/swelling, high fever, new vertigo, severe headache/neck stiffness, facial weakness, altered mental status, or signs of dehydration.\n - Safety net: Instruct patient to seek urgent care if worsening ear pain, spreading redness/swelling behind the ear, hearing loss, dizziness, or high fever develops.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Ear Infection (Otitis Media) information",
+        "source": "https://www.cdc.gov/ear-infection/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+      },
+      {
+        "title": "MedlinePlus: Ear infections",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "source": "https://www.cdc.gov/ear-infection/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "title": "MedlinePlus: Ear infections",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

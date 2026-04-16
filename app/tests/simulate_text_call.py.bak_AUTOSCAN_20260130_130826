@@ -1,0 +1,202 @@
+"""
+CallCare TEXT CALL SIMULATOR (robust)
+
+Run:
+  cd ~/Desktop/callcare
+  python3 -m app.tests.simulate_text_call
+"""
+
+from __future__ import annotations
+
+import importlib
+import uuid
+
+from app.core.models import CallState
+
+
+def _pick_handler(sm):
+    for name in ("process_answer", "process", "process_input", "handle_answer", "advance_state"):
+        fn = getattr(sm, name, None)
+        if callable(fn):
+            return fn, name
+    raise RuntimeError(
+        "No input handler found in app/clinical/state_machine.py. "
+        "Expected one of: process_answer, process, process_input, handle_answer, advance_state."
+    )
+
+
+def _pick_prompt(sm):
+    for name in ("next_prompt", "get_prompt", "prompt"):
+        fn = getattr(sm, name, None)
+        if callable(fn):
+            return fn, name
+    raise RuntimeError(
+        "No prompt function found in app/clinical/state_machine.py. "
+        "Expected next_prompt() (recommended) or get_prompt()/prompt()."
+    )
+
+
+def _try_natural_question(raw: str, state: CallState) -> str:
+    """
+    Try to naturalize the question via LLM (if llm_dialogue exists).
+    Fall back to raw prompt on any error (rate limits, missing key, etc).
+    """
+    try:
+        llm = importlib.import_module("app.clinical.llm_dialogue")
+        make_natural_question = getattr(llm, "make_natural_question")
+        return make_natural_question(raw, state=state)
+    except Exception:
+        return raw
+
+
+def _extract_evidence(note, state: CallState):
+    """
+    Evidence can exist in multiple places depending on the build:
+    - note.evidence (preferred)
+    - state.decision.evidence (common older behavior)
+    - state.evidence / state.evidence_used (fallback)
+    """
+    ev = getattr(note, "evidence", None)
+    if ev:
+        return list(ev)
+
+    decision = getattr(state, "decision", None)
+    if decision is not None:
+        dev = getattr(decision, "evidence", None)
+        if dev:
+            return list(dev)
+
+    for attr in ("evidence", "evidence_used"):
+        sev = getattr(state, attr, None)
+        if sev:
+            return list(sev)
+
+    return []
+
+
+def _print_evidence(evidence_items):
+    if not evidence_items:
+        print("\n--- EVIDENCE USED ---")
+        print("(none found — check that manifests were fetched and evidence indexing exists for this pathway)")
+        return
+
+    print("\n--- EVIDENCE USED ---")
+    for e in evidence_items:
+        title = (getattr(e, "title", "") or "").strip()
+        source = (getattr(e, "source", "") or "").strip()
+        url = (getattr(e, "url", "") or "").strip()
+        snippet = (getattr(e, "snippet", "") or "").strip().replace("\n", " ")
+
+        # Build a citation-like line
+        label = title or source or "Source"
+        if url:
+            print(f"- {label} — {url}")
+        else:
+            print(f"- {label}")
+
+        if snippet:
+            print("  ", snippet[:280])
+
+
+def _print_note(note, state: CallState):
+    print("\n--- CLINICAL NOTE (SOAP) ---")
+    soap = getattr(note, "soap", "") or ""
+    print(soap.strip() if soap.strip() else "(no soap text)")
+
+    instr = getattr(note, "patient_instructions", None)
+    if instr:
+        print("\n--- PATIENT INSTRUCTIONS ---")
+        for x in instr:
+            print("-", x)
+
+    cq = getattr(note, "clinician_questions", None)
+    if cq:
+        print("\n--- CLINICIAN QUESTIONS (for async review) ---")
+        for x in cq:
+            print("-", x)
+
+    rf = getattr(note, "risk_flags", None)
+    if rf:
+        print("\n--- RISK FLAGS ---")
+        for x in rf:
+            print("-", x)
+
+    # Evidence (with citation lines + URL if available)
+    evidence_items = _extract_evidence(note, state)
+    _print_evidence(evidence_items)
+
+
+def _print_patient_summary(note):
+    try:
+        mod = importlib.import_module("app.clinical.llm_patient_summary")
+        gen = getattr(mod, "generate_patient_summary")
+        soap = getattr(note, "soap", "") or ""
+        if soap.strip():
+            summary = (gen(soap) or "").strip()
+            if summary:
+                print("\n--- SPOKEN SUMMARY TO PATIENT ---")
+                print(summary)
+    except Exception:
+        return
+
+
+def run():
+    print("\n--- CallCare TEXT CALL SIMULATOR ---\n")
+
+    sm = importlib.import_module("app.clinical.state_machine")
+    handler, handler_name = _pick_handler(sm)
+    prompt_fn, prompt_name = _pick_prompt(sm)
+
+    print(f"(Using handler: {handler_name}; prompt: {prompt_name})\n")
+
+    state = CallState(session_id=str(uuid.uuid4()))
+
+    while True:
+        raw_prompt = prompt_fn(state)
+
+        # End-of-encounter signals:
+        # - None: clean completion
+        # - "" (blank string): some state machines "end" by returning empty prompt
+        if raw_prompt is None:
+            break
+        if isinstance(raw_prompt, str) and raw_prompt.strip() == "":
+            break
+
+        prompt = _try_natural_question(raw_prompt, state)
+        print("AI:", prompt)
+        user = input("YOU: ").strip()
+
+        if user.lower() in ("quit", "exit"):
+            print("AI: Ending session.")
+            break
+
+        handler(state, user)
+
+        if getattr(state, "stage", "") in ("DONE", "COMPLETE", "END", "FINISHED"):
+            break
+
+    # Build note + queue review (Tier 1)
+    try:
+        nb = importlib.import_module("app.clinical.note_builder")
+        build_note = getattr(nb, "build_note")
+        note = build_note(state)
+
+        _print_note(note, state)
+        _print_patient_summary(note)
+
+        try:
+            rq = importlib.import_module("app.clinical.review_queue")
+            enqueue_for_review = getattr(rq, "enqueue_for_review")
+            enqueue_for_review(state, note)
+            print("\n(Queued for async physician review.)")
+        except Exception as e:
+            print("\n(Warn) Review queue failed:", str(e))
+
+    except Exception as e:
+        print("\n(Warn) Could not build note:", str(e))
+
+    print("\n--- END SIMULATION ---\n")
+
+
+if __name__ == "__main__":
+    run()

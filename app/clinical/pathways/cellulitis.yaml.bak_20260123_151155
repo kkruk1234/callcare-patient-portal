@@ -1,0 +1,54 @@
+id: cellulitis
+version: 0.5
+match:
+  any_keywords:
+    [
+      "cellulitis",
+      "skin redness spreading",
+      "hot red skin",
+      "skin infection spreading",
+      "red swollen skin",
+      "red swollen leg",
+      "red swollen foot",
+    ]
+
+questions:
+  # --- Medication gating (required for prescribing pathways) ---
+  - id: pregnancy_possible
+    prompt: "Is there any chance you are pregnant right now? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: pregnancy_possible
+
+  - id: renal_disease
+    prompt: "Have you ever been told you have kidney disease or reduced kidney function? (yes/no/unknown)"
+    type: text
+    store_as: renal_disease
+
+  # --- Cellulitis symptom cluster ---
+  - id: limb_infection_signs
+    prompt: "Which of these are you having? Say all that apply (or say 'none'): redness, warmth, swelling, tenderness to touch."
+    type: text
+    store_as: limb_infection_signs
+
+  - id: limb_portal_or_systemic
+    prompt: "Which of these are you having? Say all that apply (or say 'none'): skin break/wound/insect bite, fever, chills."
+    type: text
+    store_as: limb_portal_or_systemic
+
+  # --- Laterality (helps cellulitis vs edema, but also flags possible DVT pattern) ---
+  - id: unilateral_swelling
+    prompt: "Is the swelling mainly on one side (one leg/one limb), rather than both sides? (yes/no/unknown)"
+    type: text
+    store_as: unilateral_swelling
+
+  # --- Minimal PE screen for safety only (do NOT do DVT risk-factor battery in cellulitis) ---
+  - id: pe_symptoms
+    prompt: "Right now, which are you having? Say all that apply: new shortness of breath, chest pain. Or say 'neither'."
+    type: text
+    store_as: pe_symptoms
+
+  # --- Nec fasc screen (keep single-idea) ---
+  - id: pain_out_of_proportion
+    prompt: "Is the pain severe compared with what you can see on the skin? (yes/no/unknown)"
+    type: text
+    store_as: pain_out_of_proportion

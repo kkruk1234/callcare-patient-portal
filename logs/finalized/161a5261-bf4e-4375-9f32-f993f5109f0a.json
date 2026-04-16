@@ -1,0 +1,133 @@
+{
+  "packet_id": "b6770440-ee00-40a7-9aa6-218bdfeb3554",
+  "created_at": "2026-02-07T20:25:56.320265+00:00",
+  "session_id": "161a5261-bf4e-4375-9f32-f993f5109f0a",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, pressure-like, burning, or something else?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located?",
+    "intake_a3": "next to my sternum on the right",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, heavy lifting, or injury to your chest area?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Does the chest pain change with movement, breathing, or position?",
+    "intake_a6": "it gets a little worse",
+    "intake_q7": "Any fever, chills, or recent infections?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of heart disease, blood clots, or lung problems?",
+    "intake_a8": "no",
+    "intake_summary": "A patient presents with sharp chest pain next to the right side of the sternum for 1 week, worsened by movement and heavy lifting, without associated symptoms such as shortness of breath, sweating, nausea, or fever, and no relevant cardiac or pulmonary history. This is likely musculoskeletal chest pain.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://medlineplus.gov/heartattack.html",
+        "https://www.nhs.uk/conditions/pericarditis/",
+        "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "https://medlineplus.gov/chestpain.html",
+        "https://www.nhs.uk/conditions/pleurisy/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain localized next to the right side of the sternum that began one week ago. The pain worsens slightly with movement and heavy lifting. She denies any associated symptoms such as shortness of breath, sweating, nausea, pain radiating to the arm or jaw, fever, chills, or recent infections. There is no history of heart disease, blood clots, or lung problems. The pain is likely musculoskeletal in origin given the history of heavy lifting and positional exacerbation. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nWorking diagnosis: Musculoskeletal chest pain, likely costochondritis or muscle strain related to heavy lifting. \nDifferential: \n1. Costochondritis or musculoskeletal strain \n2. Rib fracture or contusion from heavy lifting \n3. Gastroesophageal reflux disease (less likely without burning quality or positional relief) \n4. Cardiac causes (less likely given absence of typical symptoms and risk factors)\n\nP: \n- First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 7 days. Avoid if history of allergy to NSAIDs, active gastrointestinal ulcer, or severe renal impairment. \n- Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, for 7 days; avoid if liver disease or allergy. \n - Naproxen 250 mg orally twice daily as needed for pain, for 7 days; avoid if allergy to NSAIDs or severe renal impairment. \n- Medication safety considerations: No known medication allergies, no pregnancy, no renal or liver disease reported. NSAIDs should be used cautiously if any new contraindications develop. \n- Return precautions: Seek urgent care if chest pain worsens significantly, develops with shortness of breath, sweating, nausea, radiates to arm or jaw, or if new symptoms such as fever or swelling occur. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+      },
+      {
+        "title": "Pericarditis - NHS",
+        "source": "https://www.nhs.uk/conditions/pericarditis/",
+        "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+      },
+      {
+        "title": "Thoracic outlet syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/thoracic-outlet-syndrome/",
+        "snippet": "if: you have sudden breathlessness, sharp chest pain (this may be worse when you breathe in) and a cough or coughing up blood What happens at your appointment If you have symptoms of thoracic outlet syndrome, a GP will usually check your arms, chest and neck to look for possible causes of your symptoms. They may refer you for an X-ray or other tests, such as…"
+      },
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "at you are having a heart attack . There can be many other causes, including: Other heart problems, such as angina Panic attacks Digestive problems, such as heartburn or esophagus disorders Sore muscles Lung diseases, such as pneumonia , pleurisy , or pulmonary embolism Costochondritis - an inflammation of joints in your chest Some of these problems can be s…"
+      },
+      {
+        "title": "Pleurisy - NHS",
+        "source": "https://www.nhs.uk/conditions/pleurisy/",
+        "snippet": "﻿ Pleurisy - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pleurisy Pleurisy is inflammation around the lungs, which causes sharp chest pain. It's easy to treat and usually gets better in a few…"
+      },
+      {
+        "title": "Methotrexate Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a682018.html",
+        "snippet": "e method of birth control during your treatment and for 3 months after your last dose. If you or your partner become pregnant, call your doctor immediately. Methotrexate may cause harm or death to the fetus. Tell your doctor if you have or have ever had excess fluid in your stomach area or in the space around your lungs and if you have or have ever had kidne…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+    },
+    {
+      "title": "Heart Disease in Women | MedlinePlus",
+      "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+      "snippet": "ull and heavy or sharp Pain in the neck, jaw, throat, upper belly, or back Nausea or vomiting Unusual fatigue Shortness of breath (feeling like you can't get enough air) during physical activity Women who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also…"
+    },
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "at you are having a heart attack . There can be many other causes, including: Other heart problems, such as angina Panic attacks Digestive problems, such as heartburn or esophagus disorders Sore muscles Lung diseases, such as pneumonia , pleurisy , or pulmonary embolism Costochondritis - an inflammation of joints in your chest Some of these problems can be s…"
+    },
+    {
+      "title": "Pleurisy - NHS",
+      "source": "https://www.nhs.uk/conditions/pleurisy/",
+      "snippet": "﻿ Pleurisy - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pleurisy Pleurisy is inflammation around the lungs, which causes sharp chest pain. It's easy to treat and usually gets better in a few…"
+    }
+  ],
+  "state": null
+}

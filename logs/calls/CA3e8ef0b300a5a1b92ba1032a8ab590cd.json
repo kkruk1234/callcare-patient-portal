@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA3e8ef0b300a5a1b92ba1032a8ab590cd",
+  "session_id": "6d7eeddf-6890-4dac-b332-f035b124383f",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-24T13:26:23.645881+00:00",
+  "ended_at": "2026-03-24T13:30:50.124824+00:00",
+  "packet_id": "c6382783-f3e4-4660-9503-06c18ed9ed2a",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have low back pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your low back pain start?"
+    },
+    {
+      "role": "user",
+      "text": "About 3 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain and if it radiates anywhere?"
+    },
+    {
+      "role": "user",
+      "text": "It is sharp and stabbing. And it kind of moves down to my right buttocks area, I guess, you would call it. Yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, weakness, or tingling in your legs or feet?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any bladder or bowel problems like difficulty urinating or loss of control?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent trauma or heavy lifting before the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "Well, I was helping a friend move. So I guess you can call that heavy lifting. I helped them move a pool table. So, yeah, I guess some heavy lifting."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your back pain so far?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or unexplained weight loss since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "Well, actually, that's a lot. I did do some icing on the first day because I was in a little bit of pain after helping them move. But after that, I tried Tylenol, and didn't really help."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of cancer, osteoporosis, or recent infections?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty walking or standing due to the pain?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. It feels like it's a little difficult to walk sometimes because it kinda feels like it goes out as I'm walking."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of similar back pain episodes in the past?"
+    },
+    {
+      "role": "user",
+      "text": "But I just hold on to something for a second or 2, and then it it gets better."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re dealing with acute low back pain likely caused by muscle strain from heavy lifting. Since I can’t examine you or run tests over the phone, a licensed physician will review your information and may recommend medication like naproxen or acetaminophen to help with the pain. For now, you can try these medications if approved, and avoid activities that worsen your pain. If you develop new symptoms like numbness, weakness, trouble controlling your bladder or bowels, or if the pain gets much worse or you can’t walk, please seek in-person care the same day. Otherwise, if your pain doesn’t improve in about two weeks or gets worse, consider seeing a healthcare provider. This service doesn’t include in-person visits, so for any urgent concerns, please go to urgent care or the emergency room."
+    }
+  ]
+}

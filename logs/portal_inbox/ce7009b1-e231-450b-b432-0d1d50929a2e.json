@@ -1,0 +1,57 @@
+{
+  "packet_id": "ce7009b1-e231-450b-b432-0d1d50929a2e",
+  "created_at": "2026-03-29T21:25:41.045418+00:00",
+  "session_id": "76bfa19d-6940-432c-b52c-2bbc0d1e6f2f",
+  "pathway_id": "",
+  "base_queries": [
+    "appendicitis diagnosis and management guidelines",
+    "appendicitis adult antibiotic treatment dosing and duration",
+    "appendicitis red flags and indications for urgent imaging"
+  ],
+  "queries": [
+    "AAFP appendicitis diagnosis and management guidelines",
+    "AAFP appendicitis adult antibiotic treatment dosing and duration",
+    "MedlinePlus appendicitis diagnosis and management guidelines",
+    "MedlinePlus appendicitis adult antibiotic treatment dosing and duration",
+    "CDC appendicitis diagnosis and management guidelines",
+    "CDC appendicitis adult antibiotic treatment dosing and duration",
+    "NIH appendicitis diagnosis and management guidelines",
+    "NIH appendicitis adult antibiotic treatment dosing and duration",
+    "NICE appendicitis diagnosis and management guidelines",
+    "NICE appendicitis adult antibiotic treatment dosing and duration",
+    "WHO appendicitis diagnosis and management guidelines",
+    "WHO appendicitis adult antibiotic treatment dosing and duration"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Acute Abdominal Pain in Children: Evaluation and Management | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/1200/acute-abdominal-pain-children.pdf",
+      "accessed": "2026-03-29",
+      "snippet": ""
+    },
+    {
+      "title": "Appendicitis: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000256.htm",
+      "accessed": "2026-03-29",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Acute Appendicitis:​ Efficient",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/0701/p25.pdf",
+      "accessed": "2026-03-29",
+      "snippet": ""
+    },
+    {
+      "title": "Appendicitis Tests: MedlinePlus Medical Test",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/lab-tests/appendicitis-tests",
+      "accessed": "2026-03-29",
+      "snippet": "https://www.urmc.rochester.edu/encyclopedia/content.aspx?contenttypeid=85&contentid=P00358 Related Health Topics Abdominal Pain Anesthesia Antibiotics Appendicitis Bacterial Infections CT Scans Infectious Diseases MRI Scans Surgery X-Rays Related Medical Tests Blood in Urine C-Reactive Protein (CRP) Test Crystals in Urine How to Cope with Medical Test Anxiety How to Understand Your Lab Results Laparoscopy Nitrites in Urine Ultrasound What You Need to Know About Blood Testing White Blood Count (WBC) The information on this site should not be used as a substitute for professional medical care or advice."
+    }
+  ],
+  "note_text": "S: The patient is a 17-year-old female presenting with a 12-hour history of abdominal pain that started around the belly button and migrated to the lower right abdomen. She reports extreme pain with mild cramping, associated nausea, vomiting, fever without chills, and loss of appetite. The pain worsens with movement and coughing. She denies urinary symptoms, vaginal discharge, or recent sexual activity and is currently menstruating. There is no history of similar episodes or known gynecological issues.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The clinical presentation is consistent with acute appendicitis, given the migratory abdominal pain to the right lower quadrant, fever, nausea, vomiting, and pain exacerbated by movement and coughing.\nDifferential:\n1. Acute appendicitis\n2. Ovarian cyst or torsion\n3. Pelvic inflammatory disease\n4. Gastroenteritis\n\nP: - First-line medication: None prescribed over the phone; urgent surgical evaluation recommended (Physician must verify medication/dosing)\n- Alternatives: None appropriate without further evaluation\n- Medication safety considerations: Patient allergic to penicillin; no other medication history available\n- Follow-up recommendations: Seek in-person medical care urgently for surgical evaluation due to suspicion of appendicitis; seek emergency care if pain worsens, fever increases, or vomiting persists\n- Testing: Urgent abdominal imaging (ultrasound or CT scan) and laboratory studies (CBC, inflammatory markers) to confirm diagnosis and guide management"
+}

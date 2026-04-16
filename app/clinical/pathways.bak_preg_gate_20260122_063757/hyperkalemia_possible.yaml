@@ -1,0 +1,22 @@
+id: hyperkalemia_possible
+version: 0.1
+match:
+  any_keywords: ["kidney failure", "missed dialysis", "high potassium", "muscle weakness", "heart feels irregular"]
+questions:
+  - id: chest
+    prompt: "Any chest pressure, fainting, or severe weakness? (yes/no)"
+    store_as: danger_signs
+    type: yesno
+  - id: dialysis
+    prompt: "Do you have kidney failure or dialysis? (yes/no)"
+    store_as: dialysis_or_kidney_failure
+    type: yesno
+  - id: palpitations
+    prompt: "Do you feel an irregular heartbeat or severe palpitations right now? (yes/no)"
+    store_as: palpitations
+    type: yesno
+stop_rules:
+  - if_all_answered: ["chest", "dialysis", "palpitations"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

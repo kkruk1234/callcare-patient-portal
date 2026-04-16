@@ -1,0 +1,58 @@
+{
+  "packet_id": "241b22f9-593e-40fc-b32a-0ffccf0788ed",
+  "created_at": "2026-03-12T18:10:26.101578+00:00",
+  "session_id": "0c5c7416-86e4-4f70-a8f3-635a6ae63ae6",
+  "pathway_id": "",
+  "base_queries": [
+    "lower abdominal pain management guidelines adult",
+    "treatment dosing fever and lower abdominal pain adults mg duration",
+    "red flags lower abdominal pain fever nausea adult",
+    "diagnostic tests for lower abdominal pain with fever adults"
+  ],
+  "queries": [
+    "AAFP lower abdominal pain management guidelines adult",
+    "AAFP treatment dosing fever and lower abdominal pain adults mg duration",
+    "MedlinePlus lower abdominal pain management guidelines adult",
+    "MedlinePlus treatment dosing fever and lower abdominal pain adults mg duration",
+    "CDC lower abdominal pain management guidelines adult",
+    "CDC treatment dosing fever and lower abdominal pain adults mg duration",
+    "NIH lower abdominal pain management guidelines adult",
+    "NIH treatment dosing fever and lower abdominal pain adults mg duration",
+    "NICE lower abdominal pain management guidelines adult",
+    "NICE treatment dosing fever and lower abdominal pain adults mg duration",
+    "WHO lower abdominal pain management guidelines adult",
+    "WHO treatment dosing fever and lower abdominal pain adults mg duration"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Acute Abdominal Pain in Adults:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0600/acute-abdominal-pain-adults.pdf",
+      "accessed": "2026-03-12",
+      "snippet": ""
+    },
+    {
+      "title": "Abdominal aortic aneurysm: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000162.htm",
+      "accessed": "2026-03-12",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Evaluation of Acute Pelvic Pain in Women | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0800/acute-pelvic-pain.html",
+      "accessed": "2026-03-12",
+      "snippet": "Urinalysis of a midstream urine specimen should be considered to assess for urinary tract infection. Urine culture is often beneficial to confirm suspected urinary tract infection, identify specific organisms, and guide antibiotic use. If testing for gonorrhea and chlamydia, first-void urine collected without cleaning of the urethra (“dirty” catch) has historically been recommended, often requiring two urine samples for full evaluation. 26 Logistically this can be challenging. One study found that a midstream sample for chlamydia testing is still 96% accurate, and another study found a sensitivity of 86.2% for chlamydia and 94.4% for gonorrhea. This shows noninferiority to a dirty catch; therefore, one urine sample may be sufficient. 26 , 27"
+    },
+    {
+      "title": "Palliative care - managing pain: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000532.htm",
+      "accessed": "2026-03-12",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with lower abdominal pain that started 2 days ago. She reports associated fever, chills, and some nausea but denies vomiting, urinary symptoms, vaginal bleeding or discharge, and changes in bowel habits.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute lower abdominal pain likely due to an infectious or inflammatory process such as pelvic inflammatory disease or a urinary tract infection without dysuria.\nDifferential:\n1. Pelvic inflammatory disease\n2. Urinary tract infection (atypical presentation without dysuria)\n3. Gastrointestinal infection or inflammation (e.g., diverticulitis)\n4. Gynecologic causes such as ovarian cyst or endometriosis flare\n\nP: - First-line medication: Empiric oral doxycycline 100 mg twice daily for 14 days (Physician must verify medication/dosing)\n- Alternatives: Oral azithromycin 1 g once, then 500 mg daily for 2 days (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies, no pregnancy, no renal or liver disease reported\n- Follow-up recommendations: Seek in-person medical care urgently if worsening abdominal pain, persistent fever, vomiting, or new vaginal bleeding develops; seek emergency care if severe abdominal pain or signs of sepsis occur\n- Testing: Recommend pelvic examination, urine analysis and culture, and pelvic ultrasound to further evaluate etiology"
+}

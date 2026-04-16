@@ -1,0 +1,143 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse, PlainTextResponse
+
+app = FastAPI(title="CallCare Physician Portal")
+
+PORTAL_INBOX_DIR = Path("logs") / "portal_inbox"
+PORTAL_INBOX_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _load_json(path: Path) -> Dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _packet_files() -> List[Path]:
+    return sorted(PORTAL_INBOX_DIR.glob("*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+
+
+@app.get("/healthz")
+async def healthz() -> PlainTextResponse:
+    return PlainTextResponse("ok")
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home() -> str:
+    rows = []
+    for p in _packet_files():
+        if p.name.endswith(".meta.json"):
+            continue
+        try:
+            d = _load_json(p)
+        except Exception:
+            continue
+
+        pid = _safe_str(d.get("packet_id") or p.stem)
+        created = _safe_str(d.get("created_at"))
+        pathway = _safe_str(d.get("pathway_id"))
+        ev_count = len(d.get("evidence", []) or [])
+        rows.append(
+            f"<tr>"
+            f"<td><a href='/packet/{pid}'>{pid}</a></td>"
+            f"<td>{created}</td>"
+            f"<td>{pathway}</td>"
+            f"<td>{ev_count}</td>"
+            f"</tr>"
+        )
+
+    body = "".join(rows) or "<tr><td colspan='4'>No routed review packets yet.</td></tr>"
+
+    return f"""
+    <html>
+      <head>
+        <title>CallCare Physician Portal</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          table {{ border-collapse: collapse; width: 100%; }}
+          th, td {{ border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }}
+          th {{ background: #f5f5f5; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <h1>CallCare Physician Portal</h1>
+        <p>Routed review packets from telephone encounters.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Packet ID</th>
+              <th>Created</th>
+              <th>Pathway</th>
+              <th>Evidence Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {body}
+          </tbody>
+        </table>
+      </body>
+    </html>
+    """
+
+
+@app.get("/packet/{packet_id}", response_class=HTMLResponse)
+async def packet_detail(packet_id: str) -> str:
+    path = PORTAL_INBOX_DIR / f"{packet_id}.json"
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    d = _load_json(path)
+    note_text = _safe_str(d.get("note_text"))
+    evidence = d.get("evidence", []) or []
+
+    ev_html = ""
+    for i, ev in enumerate(evidence, 1):
+        ev_html += (
+            f"<h4>Evidence {i}</h4>"
+            f"<p><strong>Title:</strong> {_safe_str(ev.get('title'))}<br>"
+            f"<strong>Source:</strong> {_safe_str(ev.get('source'))}<br>"
+            f"<strong>URL:</strong> {_safe_str(ev.get('url'))}<br>"
+            f"<strong>Accessed:</strong> {_safe_str(ev.get('accessed'))}</p>"
+            f"<pre>{_safe_str(ev.get('snippet'))}</pre>"
+        )
+
+    if not ev_html:
+        ev_html = "<p>No evidence attached.</p>"
+
+    return f"""
+    <html>
+      <head>
+        <title>Packet {packet_id}</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          pre {{ white-space: pre-wrap; border: 1px solid #ccc; padding: 12px; background: #fafafa; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <p><a href="/">← Back to inbox</a></p>
+        <h1>Packet {packet_id}</h1>
+        <p><strong>Created:</strong> {_safe_str(d.get('created_at'))}</p>
+        <p><strong>Session ID:</strong> {_safe_str(d.get('session_id'))}</p>
+        <p><strong>Pathway:</strong> {_safe_str(d.get('pathway_id'))}</p>
+
+        <h2>Clinical Note</h2>
+        <pre>{note_text}</pre>
+
+        <h2>Evidence</h2>
+        {ev_html}
+      </body>
+    </html>
+    """

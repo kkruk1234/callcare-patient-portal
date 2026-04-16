@@ -1,0 +1,43 @@
+{
+  "packet_id": "7fe4666d-67fd-41cf-8f24-3bd54feafe78",
+  "created_at": "2026-03-09T01:13:30.766577+00:00",
+  "session_id": "77fa53ac-d0d4-49e2-bb9a-b063ed08d17c",
+  "pathway_id": "",
+  "base_queries": [
+    "upper abdominal pain management guidelines adults",
+    "treatment dosing antacids or proton pump inhibitors adults",
+    "red flags and return precautions for upper stomach pain"
+  ],
+  "queries": [
+    "AAFP upper abdominal pain management guidelines adults",
+    "AAFP treatment dosing antacids or proton pump inhibitors adults",
+    "MedlinePlus upper abdominal pain management guidelines adults",
+    "MedlinePlus treatment dosing antacids or proton pump inhibitors adults",
+    "CDC upper abdominal pain management guidelines adults",
+    "CDC treatment dosing antacids or proton pump inhibitors adults",
+    "NIH upper abdominal pain management guidelines adults",
+    "NIH treatment dosing antacids or proton pump inhibitors adults",
+    "NICE upper abdominal pain management guidelines adults",
+    "NICE treatment dosing antacids or proton pump inhibitors adults",
+    "WHO upper abdominal pain management guidelines adults",
+    "WHO treatment dosing antacids or proton pump inhibitors adults"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Diagnostic Imaging of Acute Abdominal Pain in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2015/0401/p452.html",
+      "accessed": "2026-03-08",
+      "snippet": "The decision to use oral or intravenous contrast media with abdominal imaging depends on the suspected diagnosis as well as specific patient characteristics. Oral contrast media is used for bowel visualization, and intravenous contrast media allows for enhanced visualization of vascular structures and solid organs. 25 The ACR Appropriateness Criteria outline whether contrast is recommended for various indications ( Tables 1 through 5 3 – 12 and eTable A ) , and note that protocols on the use of contrast media vary among institutions. Although studies have shown improved sensitivity and specificity for diagnosing acute abdominal pain with the use of contrast enhancement, the accuracy of CT or MRI remains high regardless of the use of contrast media. 5"
+    },
+    {
+      "title": "Functional Dyspepsia: Evaluation and Management | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/0115/p84.html",
+      "accessed": "2026-03-08",
+      "snippet": "A systematic review of psychotropic medications compared with placebo for the treatment of functional dyspepsia included three trials of tricyclic antidepressants (TCAs) and found a reduction in dyspepsia symptoms (NNT = 6; 95% CI, 4 to 16). 24 The dosages for these trials were 25 mg of amitriptyline per day and 50 mg of imipramine per day. Two trials compared selective serotonin reuptake inhibitors with placebo and found no significant effect for dyspepsia symptoms. Given these findings, guidelines recommend the use of TCAs, before using prokinetics, for functional dyspepsia that is not improving with treatment for H. pylori or PPI use. 2 A small placebo-controlled study found buspirone (Buspar) reduced fullness and bloating. 25"
+    }
+  ],
+  "note_text": "S: The patient is a 51-year-old female presenting with a 2-hour history of upper dull stomach pain accompanied by nausea but no vomiting or changes in bowel movements. She reports no fever, chills, or sweating, and denies chest pain or shortness of breath. The pain started after eating spicy Thai food earlier today. There is no history of similar stomach pain or known digestive issues, and no history of liver or gallbladder problems. She has not taken NSAIDs, aspirin, or alcohol today.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute gastritis likely triggered by recent ingestion of spicy food.\nDifferential:\n1. Acute gastritis\n2. Peptic ulcer disease\n3. Gallbladder disease (e.g., biliary colic)\n4. Pancreatitis\n\nP: - First-line medication: Oral antacid such as calcium carbonate 500 mg chewable tablets, 1-2 tablets as needed after meals and at bedtime for up to 7 days (Physician must verify medication/dosing)\n- Alternatives: Oral H2 receptor antagonist such as ranitidine 150 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, no renal or liver disease; monitor for adverse effects\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, develops fever, vomiting, or signs of gastrointestinal bleeding such as black stools or vomiting blood\n- Testing: Not indicated at this time based on telephone assessment; consider abdominal ultrasound or upper endoscopy if symptoms persist or worsen"
+}

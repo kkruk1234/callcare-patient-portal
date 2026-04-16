@@ -1,0 +1,98 @@
+[
+  {
+    "pathway_id": "sinusitis",
+    "source_id": "cdc_sinus_infection",
+    "url": "https://www.cdc.gov/antibiotic-use/sinus-infection.html",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "neck_pain_nontraumatic",
+    "source_id": "medline_neck_pain",
+    "url": "https://medlineplus.gov/neckpain.html",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "urinary_retention",
+    "source_id": "urinary_retention_cdc",
+    "url": "https://www.urologyhealth.org/",
+    "error": "HTTP 307: Temporary Redirect"
+  },
+  {
+    "pathway_id": "otitis_media_child",
+    "source_id": "cdc_ear_infection_children",
+    "url": "https://www.cdc.gov/antibiotic-use/ear-infection.html",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "otitis_media_child",
+    "source_id": "nice_cks_otitis_media_acute",
+    "url": "https://cks.nice.org.uk/topics/otitis-media-acute/",
+    "error": "HTTP 403: Forbidden"
+  },
+  {
+    "pathway_id": "bronchitis_uncomplicated",
+    "source_id": "cdc_bronchitis",
+    "url": "https://www.cdc.gov/antibiotic-use/bronchitis.html",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "bell_palsy_possible",
+    "source_id": "cdc_stroke_warning_signs",
+    "url": "https://www.cdc.gov/stroke/signs_symptoms.htm",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "bell_palsy_possible",
+    "source_id": "nice_bells_palsy_overview",
+    "url": "https://cks.nice.org.uk/topics/bells-palsy/",
+    "error": "HTTP 403: Forbidden"
+  },
+  {
+    "pathway_id": "caregiver_stress_noncrisis",
+    "source_id": "caregiver_stress_noncrisis_ref",
+    "url": "https://www.nia.nih.gov/",
+    "error": "HTTP 405: Not Allowed"
+  },
+  {
+    "pathway_id": "acute_angle_closure_glaucoma_possible",
+    "source_id": "ophthalmology_journal_pacd_ppp",
+    "url": "https://www.aaojournal.org/article/S0161-6420(20)31023-X/fulltext",
+    "error": "HTTP 403: Forbidden"
+  },
+  {
+    "pathway_id": "minor_wound_care",
+    "source_id": "cdc_wound",
+    "url": "https://www.cdc.gov/infectioncontrol/guidelines/healthcare-personnel/wound-care.html",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "ear_pain_child",
+    "source_id": "cdc_ear_infection",
+    "url": "https://www.cdc.gov/antibiotic-use/ear-infection.html",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "shoulder_pain_overuse",
+    "source_id": "aaos_shoulder_pain",
+    "url": "https://orthoinfo.aaos.org/en/diseases--conditions/shoulder-pain/",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "dental_pain",
+    "source_id": "ada_toothache",
+    "url": "https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/toothache",
+    "error": "HTTP 404: Not Found"
+  },
+  {
+    "pathway_id": "hyperemesis_gravidarum_possible",
+    "source_id": "nice_cks_nvp",
+    "url": "https://cks.nice.org.uk/topics/nausea-vomiting-in-pregnancy/",
+    "error": "HTTP 403: Forbidden"
+  },
+  {
+    "pathway_id": "insect_bite_sting",
+    "source_id": "cdc_tickborne",
+    "url": "https://www.cdc.gov/ticks/diseases/index.html",
+    "error": "HTTP 404: Not Found"
+  }
+]

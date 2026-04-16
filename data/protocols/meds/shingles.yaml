@@ -1,0 +1,17 @@
+rx_options:
+- med: Antiviral (valacyclovir / acyclovir / famciclovir)
+  dosing: Use standard guideline dosing; best within 72 hours of rash onset.
+  exclusions: Renal adjustment; immunocompromised; pregnancy considerations.
+  notes: Eye/face involvement (V1 or tip of nose) → urgent same-day ophthalmic evaluation.
+- med: Pain control
+  dosing: Use clinician judgement; avoid speaking dosing to patient.
+  exclusions: NSAID contraindications etc.
+  notes: Consider neuropathic pain options if severe, per clinician.
+supportive_care:
+- item: Skin care
+  details: Keep rash clean/dry; avoid contact with high-risk individuals until crusted.
+followup_and_safety:
+- item: Escalate
+  details: Eye symptoms, facial involvement, immunocompromised, fever/systemic toxicity
+    → urgent today / ED if severe.
+requires_pregnancy_status: true

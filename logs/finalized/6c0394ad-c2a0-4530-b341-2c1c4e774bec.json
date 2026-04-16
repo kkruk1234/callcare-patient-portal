@@ -1,0 +1,50 @@
+{
+  "packet_id": "6c0394ad-c2a0-4530-b341-2c1c4e774bec",
+  "created_at": "2026-04-04T15:44:30.848978+00:00",
+  "session_id": "2ca75c4d-3f77-4ff3-9fc3-753b754d7908",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for itchy blistering rash on arms",
+    "treatment and dosing for adult blistering skin rash",
+    "red flags and when to seek care for worsening skin rash"
+  ],
+  "queries": [
+    "AAFP management guidelines for itchy blistering rash on arms",
+    "AAFP treatment and dosing for adult blistering skin rash",
+    "MedlinePlus management guidelines for itchy blistering rash on arms",
+    "MedlinePlus treatment and dosing for adult blistering skin rash",
+    "CDC management guidelines for itchy blistering rash on arms",
+    "CDC treatment and dosing for adult blistering skin rash",
+    "NIH management guidelines for itchy blistering rash on arms",
+    "NIH treatment and dosing for adult blistering skin rash",
+    "NICE management guidelines for itchy blistering rash on arms",
+    "NICE treatment and dosing for adult blistering skin rash",
+    "WHO management guidelines for itchy blistering rash on arms",
+    "WHO treatment and dosing for adult blistering skin rash"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Pruritic Rash on the Arms and Legs | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2009/0515/p901.html",
+      "accessed": "2026-04-04",
+      "snippet": "The clinical presentation of the contact dermatitis varies depending on the patient's sensitivity and the amount of exposure to the allergen. The pruritic rash is typically erythematous with papular lesions in a linear pattern. Papules and vesicles develop and may enlarge into bullae and plaques. Skin thickness on the palms prevents eruptions, but other areas of the extremities are commonly affected. A history of plant exposure or outdoor activities may suggest contact dermatitis. Lesions usually appear within 12 to 48 hours of exposure in a previously sensitized person. Topical steroids are effective in treating early or limited lesions. Antihistamines and cool compresses with Burow solution may be used to relieve the pruritus. Oral steroids may be needed if the rash is severe. Physicians should consider longer tapers of oral steroids because symptoms often require a longer duration of"
+    },
+    {
+      "title": "Pemphigus Foliaceus - StatPearls - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK499829/",
+      "accessed": "2026-04-04",
+      "snippet": "Other treatment options for refractory disease, or in case of contraindications to immunosuppressive agents include hydroxychloroquine 200 mg twice daily, dapsone 100 mg per day or up to 1.5 mg/kg per day, methotrexate 10 to 20 mg/week, intravenous immunoglobulin 2 g/kg per month or rituximab, given as either 4 weekly infusions of 375 mg/m2 or as 2 1-g infusions, separated by 2 weeks."
+    },
+    {
+      "title": "Erythema Multiforme: Recognition and Management | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2019/0715/p82.html",
+      "accessed": "2026-04-04",
+      "snippet": "Recurrent HSV-associated erythema multiforme can be treated with continuous prophylactic antiviral therapy. 28 , 41 Data to support treatment are limited, with a single placebo-controlled trial of 20 patients finding a significant reduction in recurrences with 400 mg of acyclovir administered twice daily over a six-month period (median zero vs. three recurrences over six months, P 41 It has been recommended based on pathophysiologic reasoning that therapy may be continuous or intermittent, but only continuous therapy has been studied. 1 , 41 Options include acyclovir (400 mg twice per day), valacyclovir (Valtrex; 500 mg twice per day), or famciclovir (250 mg twice per day), but there are insufficient studies to determine the recommended duration of treatment. 1 For patients who do not respond to antiviral medications, a variety of other treatment options include immunosuppressives, antim"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female with a history of renal disease who reports a progressively worsening rash on both arms for about one week. The rash is described as red, raised, and blister-like, very itchy, with occasional oozing of clear to yellowish fluid and crusting. The rash extends from just above the elbows down to the wrists bilaterally. She denies fever, chills, swollen lymph nodes, joint pain, mouth sores, eye redness, or recent exposure to poison ivy, oak, or sumac. She has seasonal allergies but no prior skin allergies or eczema. She has tried calamine lotion and Tiger Balm without relief. She reports feeling generally unwell and fatigued but attributes fatigue to work stress.\n\nO: Phone encounter only; no vital signs or physical examination available.\n\nA: The working diagnosis is likely a bilateral, pruritic, blistering dermatitis possibly of allergic or irritant origin, complicated by secondary infection given the oozing and crusting.\nDifferential:\n1. Allergic contact dermatitis with secondary infection\n2. Irritant contact dermatitis\n3. Bullous impetigo or other superficial skin infection\n4. Dyshidrotic eczema\n\nP: - First-line medication: Topical mupirocin 2% ointment applied to affected areas three times daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Oral cephalexin 500 mg by mouth every 6 hours for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Renal disease present; adjust dosing as needed and monitor for adverse effects; no known allergies; pregnancy not possible\n- Follow-up recommendations: Seek in-person medical care urgently if rash worsens, spreads beyond current areas, or if systemic symptoms such as fever develop; seek emergency care if difficulty breathing or severe swelling occurs\n- Testing: Not assessed in this telephone encounter; consider skin swab culture if no improvement or worsening"
+}

@@ -1,0 +1,25 @@
+id: dvt_possible
+version: 0.1
+match:
+  any_keywords: ["one leg swollen", "calf swelling", "calf pain and swelling", "leg pain with swelling", "leg is swollen and warm", "possible blood clot"]
+questions:
+  - id: sob
+    prompt: "Any new shortness of breath, chest pain, or coughing up blood? (yes/no)"
+    store_as: pe_like
+    type: yesno
+
+  - id: one_leg
+    prompt: "Is it mainly one leg that's swollen or painful? (yes/no)"
+    store_as: one_leg
+    type: yesno
+
+  - id: risk
+    prompt: "Any recent surgery, long travel/immobility, cancer, pregnancy/postpartum, or prior blood clots? (yes/no/unknown)"
+    store_as: risk_factor
+
+stop_rules:
+  - if_all_answered: ["sob", "one_leg", "risk"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,10 @@
+{
+  "title": "Overview of Testing for SARS-CoV-2 | COVID-19 | CDC",
+  "url": "https://www.cdc.gov/covid/hcp/clinical-care/overview-testing-sars-cov-2.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ccines use the SARS-CoV-2 spike protein to generate an immune response, a positive serologic (antibody) test for spike protein IgM/IgG could indicate either previous infection or vaccination.\nAntibody testing is not currently recommended to assess a person's protection against SARS-CoV-2 infection or severe COVID-19 following COVID-19 vaccination or prior infection, or to assess the need for vaccination in an unvaccinated person. Antibody testing can be used in the diagnosis of Multisystem Inflammatory Syndrome in Children (MIS-C) or Multisystem Inflammatory Syndrome in Adults (MIS-A) .\nTo evaluate for evidence of previous infection in a vaccinated individual, use an antibody test specifically evaluating IgM/IgG to the nucleocapsid protein. For example, specific antibody tests can be used for public health surveillance.\nTable 1. NAAT and Antigen Test* Differences \nNAATs \nAntigen Tests* \nIntended Use \nDiagnose current infection \nDiagnose current infection \nAnalyte Detected \nViral ribonucleic acid (RNA) \nViral antigens \nSpecimen Type(s) \nNasal, nasopharyngeal, oropharyngeal, sputum, saliva \nNasal, nasopharyngeal \nSensitivity \nVaries by test, but generally high for laboratory-based tests and moderate-to-high for point-of-care (POC) tests \nLess sensitive than NAATs. Varies by test and depending on the course of infection+* \nSpecificity \nHigh \nHigh \nTest Complexity \nVaries by test",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_hcp_clinical_care_overview_testing_sars_cov_2_html_90fc83f93c28",
+  "chunk_id": "chunk_007"
+}

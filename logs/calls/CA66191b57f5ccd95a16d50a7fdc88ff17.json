@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA66191b57f5ccd95a16d50a7fdc88ff17",
+  "session_id": "6d298c4c-a98b-4071-ab8e-8fd3d26d8487",
+  "from_number": "+16318072183",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-04T15:08:46.652419+00:00",
+  "ended_at": "2026-04-04T15:14:27.915578+00:00",
+  "packet_id": "0ffb91e2-451d-4b13-acb1-41f6cf4becca",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a pain in my right elbow."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the pain in your right elbow start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what kind of pain it is and if anything makes it better or worse?"
+    },
+    {
+      "role": "user",
+      "text": "It's a lingering stabbing pain."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent injury, trauma, or overuse of your right elbow?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swelling, redness, or warmth around the right elbow?"
+    },
+    {
+      "role": "user",
+      "text": "Warm."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever or chills since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any limitation in moving your right elbow or weakness in your arm?"
+    },
+    {
+      "role": "user",
+      "text": "A little weakness."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or changes in sensation in your right arm or hand?"
+    },
+    {
+      "role": "user",
+      "text": "Tingling in my hand."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent or current infections, such as skin infections or systemic infections?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of nerve problems, diabetes, or other chronic conditions?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent activities or repetitive motions involving your right arm or elbow, such as sports, typing, or lifting?"
+    },
+    {
+      "role": "user",
+      "text": "Listing."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "70"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing pain and some numbness in your right elbow and hand, likely from nerve irritation or inflammation related to recent lifting. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment like naproxen or acetaminophen may help, and a licensed physician will review your case to decide if that’s appropriate. If you notice worsening pain, swelling, fever, or increasing weakness or numbness, please seek in-person care the same day. If you suddenly lose strength or sensation, go to the emergency room immediately. If your symptoms don’t improve or get worse, you may need an in-person exam and possibly nerve or imaging tests. Take care, and watch for any urgent changes."
+    }
+  ]
+}

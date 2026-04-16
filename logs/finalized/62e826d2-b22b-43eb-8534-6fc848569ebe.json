@@ -1,0 +1,124 @@
+{
+  "packet_id": "ddb926d4-7f98-432d-8264-e12a1bca3fc4",
+  "created_at": "2026-02-05T03:34:07.410112+00:00",
+  "session_id": "62e826d2-b22b-43eb-8534-6fc848569ebe",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "yesterday",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "right by my sternum on the right",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or dizziness with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, heavy lifting, or coughing that might have triggered the chest pain?",
+    "intake_a5": "I helped a friend move and was lifting a lot of boxes",
+    "intake_q6": "Does the chest pain get worse with movement, deep breaths, or coughing?",
+    "intake_a6": "movement and deep breaths",
+    "intake_q7": "Any history of heart problems, lung disease, or blood clots?",
+    "intake_a7": "no",
+    "intake_q8": "Any swelling, redness, or tenderness over the chest area where the pain is located?",
+    "intake_a8": "no",
+    "intake_q9": "Have you noticed any fever, chills, or recent infections?",
+    "intake_a9": "no, but I forgot to mention that it is tender over the chest in that area",
+    "intake_q10": "Any pain or discomfort when you press on the chest area where it is tender?",
+    "intake_a10": "yes",
+    "age_years": 51,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "https://medlineplus.gov/chestpain.html",
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.nhs.uk/conditions/turner-syndrome/",
+        "https://www.nhs.uk/conditions/wolff-parkinson-white-syndrome/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 51-year-old female presenting with sharp chest pain that began yesterday. The pain is localized to the right side of the sternum and is tender to palpation. She reports that the pain worsens with movement and deep breaths. There is no associated shortness of breath, sweating, nausea, dizziness, fever, chills, or recent infections. She denies any history of heart problems, lung disease, or blood clots. The pain started after lifting many boxes while helping a friend move. There is no swelling or redness over the painful area. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available beyond patient report of tenderness on palpation.\n\nA: \nThe working diagnosis is costochondritis, an inflammation of the cartilage connecting the ribs to the sternum, likely related to recent physical strain from lifting. This condition typically presents with localized chest pain that worsens with movement and palpation.\n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal strain or injury \n3. Cardiac ischemia (less likely given absence of typical symptoms and risk factors) \n4. Pulmonary causes such as pleuritis (less likely without respiratory symptoms)\n\nP: \n- First-line medication: \n NSAIDs such as ibuprofen 400-600 mg orally every 6-8 hours as needed for pain and inflammation, for 7-10 days. Avoid if history of gastrointestinal bleeding or allergy to NSAIDs. Dosing details were not found in retrieved evidence; prescriber should verify.\n\n- Alternatives: \n - Acetaminophen 500-1000 mg orally every 6 hours as needed for pain, for 7-10 days; avoid if liver disease or allergy. \n - Topical analgesics (e.g., diclofenac gel) applied to the painful area, if oral NSAIDs contraindicated. \n - Physical therapy or gentle stretching exercises after acute pain improves.\n\n- Medication safety considerations: \n No known medication allergies. Not pregnant. No renal or liver disease reported. NSAIDs should be used cautiously in patients with gastrointestinal risk factors or cardiovascular disease, but none reported here.\n\n- Return precautions: \n Advise patient to seek urgent care if chest pain worsens, becomes constant, radiates to jaw or arm, or is associated with shortness of breath, sweating, nausea, dizziness, or syncope.\n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Heart Disease in Women | MedlinePlus",
+        "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+      },
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+      },
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+      },
+      {
+        "title": "Turner syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/turner-syndrome/",
+        "snippet": "e typical features or symptoms of the condition are noticed – a blood test can confirm the diagnosis during pregnancy if problems with the heart or kidneys are found during routine ultrasound scans If you're pregnant and your maternity team think your baby could have Turner syndrome, you may be offered tests to check for the condition. This could be either:\nchorionic villus sampling (CVS) amniocentesis \nCauses of Turner syndrome \nTurner syndrome is a genetic condition, caused by a missing or partially missing sex chromosome.\nIt's not possible to prevent Turner syndrome.\nVery rarely it can be passed to a child by a parent, but most of the time it happens by chance. It is not linked to age or anything the parents did before or during pregnancy.\nHow Turner syndrome affects your life \nTurner syndrome can slightly reduce how long someone is expected to live, but most people should be able to"
+      },
+      {
+        "title": "Wolff-Parkinson-White syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/wolff-parkinson-white-syndrome/",
+        "snippet": "and can range from every day to a few times a year or less.\nWhen this happens you may get symptoms such as:\na fluttering feeling in your chest or your heartbeat pounding, racing or going too slowly (heart palpitations) feeling dizzy or faint shortness of breath chest pain or discomfort Symptoms usually start in adults aged between 30 and 50, but it can happen at any age.\nSome people with Wolff-Parkinson-White syndrome do not have any symptoms. Sometimes it's found when you have tests for another reason.\nImmediate action required: Call 999 or go to A&E if:\nYou or someone else gets a fast heartbeat and:\nyou have a fast heartbeat or heart palpit"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Heart Disease in Women | MedlinePlus",
+      "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+      "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+    },
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+    },
+    {
+      "title": "Turner syndrome - NHS",
+      "source": "https://www.nhs.uk/conditions/turner-syndrome/",
+      "snippet": "e typical features or symptoms of the condition are noticed – a blood test can confirm the diagnosis during pregnancy if problems with the heart or kidneys are found during routine ultrasound scans If you're pregnant and your maternity team think your baby could have Turner syndrome, you may be offered tests to check for the condition. This could be either:\nchorionic villus sampling (CVS) amniocentesis \nCauses of Turner syndrome \nTurner syndrome is a genetic condition, caused by a missing or partially missing sex chromosome.\nIt's not possible to prevent Turner syndrome.\nVery rarely it can be passed to a child by a parent, but most of the time it happens by chance. It is not linked to age or anything the parents did before or during pregnancy.\nHow Turner syndrome affects your life \nTurner syndrome can slightly reduce how long someone is expected to live, but most people should be able to"
+    },
+    {
+      "title": "Wolff-Parkinson-White syndrome - NHS",
+      "source": "https://www.nhs.uk/conditions/wolff-parkinson-white-syndrome/",
+      "snippet": "and can range from every day to a few times a year or less.\nWhen this happens you may get symptoms such as:\na fluttering feeling in your chest or your heartbeat pounding, racing or going too slowly (heart palpitations) feeling dizzy or faint shortness of breath chest pain or discomfort Symptoms usually start in adults aged between 30 and 50, but it can happen at any age.\nSome people with Wolff-Parkinson-White syndrome do not have any symptoms. Sometimes it's found when you have tests for another reason.\nImmediate action required: Call 999 or go to A&E if:\nYou or someone else gets a fast heartbeat and:\nyou have a fast heartbeat or heart palpit"
+    }
+  ]
+}

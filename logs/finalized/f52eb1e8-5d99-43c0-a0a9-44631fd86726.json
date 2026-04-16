@@ -1,0 +1,49 @@
+{
+  "packet_id": "efa9d753-c946-45d1-9757-92e545d48014",
+  "created_at": "2026-01-19T22:52:17.674936+00:00",
+  "session_id": "f52eb1e8-5d99-43c0-a0a9-44631fd86726",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "(NOTE: LLM note generation unavailable: TypeError: generate_note_text() missing 1 required positional argument: 'evidence')\nS: 34-year-old patient reports a tick bite after exposure in Georgia with the tick attached for approximately 37 hours. Patient describes a rash with a bullseye / erythema migrans appearance. Patient is not pregnant.\nO: No physical exam available due to phone-only encounter. Patient describes a characteristic erythema migrans-type rash (bullseye appearance).\nA: Phone-history consistent with tick bite; consider early Lyme disease if erythema migrans is present.\nP:\n- Disposition: Outpatient management with clinician review for antibiotic selection when indicated.\n- Plan: Provide treatment recommendations per pathway rules; confirm pregnancy/allergy status before prescribing.\n- Safety net: Seek urgent care/ED for fever, severe headache/neck stiffness, neurologic symptoms, spreading rash, or worsening illness.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  },
+  "evidence": []
+}

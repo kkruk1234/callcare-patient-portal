@@ -1,0 +1,113 @@
+{
+  "packet_id": "86f4e6e1-619b-430e-9bf8-e8ead9b09522",
+  "created_at": "2026-01-22T12:12:17.318509+00:00",
+  "session_id": "cce7f7d4-b137-4138-8f3b-316f8d79afcd",
+  "chief_complaint": "ear infection",
+  "age_band": "",
+  "pregnancy_possible": "yes",
+  "pathway_id": "otitis_media",
+  "answers": {
+    "pregnancy_possible": "yes",
+    "severe": "yes",
+    "fever": "no",
+    "drainage": "yes",
+    "age_note": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO twice daily x 7 days",
+      "sig": "875/125 mg PO twice daily x 7 days",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "7 days",
+      "notes": "Reasonable option when otorrhea/perforation suspected, recurrent AOM, or recent amoxicillin exposure. Confirm indication + duration based on severity and exam availability.",
+      "exclusions": "Avoid if anaphylaxis/angioedema to penicillins/cephalosporins; adjust for renal impairment per clinician judgment.",
+      "tier": "Tier 1",
+      "pathway_id": "otitis_media",
+      "source_file": "data/protocols/meds/otitis_media.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Azithromycin",
+      "dosing": "500 mg PO day 1, then 250 mg PO daily days 2–5",
+      "sig": "500 mg PO day 1, then 250 mg PO daily days 2–5",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "Option for immediate-type beta-lactam allergy. Pregnancy: generally considered acceptable; still confirm pregnancy status and review QT/interaction risks.",
+      "exclusions": "Macrolide allergy; QT prolongation risk/interaction review.",
+      "tier": "Tier 1",
+      "pathway_id": "otitis_media",
+      "source_file": "data/protocols/meds/otitis_media.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Clindamycin",
+      "dosing": "300 mg PO every 6 hours x 7–10 days",
+      "sig": "300 mg PO every 6 hours x 7–10 days",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "Alternative when beta-lactams contraindicated; does not cover H. influenzae well—use clinician judgment. Pregnancy: generally considered acceptable; confirm status and trimester considerations.",
+      "exclusions": "History of C. difficile/high CDI risk; lincosamide allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "otitis_media",
+      "source_file": "data/protocols/meds/otitis_media.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult female with a possible pregnancy who presents with a severe ear infection. She reports ear drainage (otorrhea) but denies fever. There is concern for mastoiditis.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter. No reported fever. Otorrhea is present. No other systemic symptoms reported.\n\nA:\n - Working diagnosis (most likely): Acute otitis media with otorrhea, complicated by possible mastoiditis.\n - Differential:\n  1. Acute otitis media with tympanic membrane perforation\n  2. Mastoiditis\n  3. Otitis externa with secondary infection\n  4. Cholesteatoma (less likely without chronic history)\n - Red flags considered:\n   Mastoiditis (due to severity and drainage), pregnancy status, absence of fever.\n\nP:\n - Disposition: Urgent in-person evaluation recommended given severity, presence of drainage, and concern for mastoiditis.\n - Plan: Amoxicillin-clavulanate — 875/125 mg PO twice daily x 7 days.  Alternative: Azithromycin (500 mg PO day 1, then 250 mg PO daily days 2–5).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Amoxicillin-clavulanate — 875/125 mg PO twice daily x 7 days\n     - Notes: Reasonable option when otorrhea/perforation suspected, recurrent AOM, or recent amoxicillin exposure. Confirm indication + duration based on severity and exam availability.\n     - Exclusions: Avoid if anaphylaxis/angioedema to penicillins/cephalosporins; adjust for renal impairment per clinician judgment.\n   - Azithromycin — 500 mg PO day 1, then 250 mg PO daily days 2–5\n     - Notes: Option for immediate-type beta-lactam allergy. Pregnancy: generally considered acceptable; still confirm pregnancy status and review QT/interaction risks.\n     - Exclusions: Macrolide allergy; QT prolongation risk/interaction review.\n   - Clindamycin — 300 mg PO every 6 hours x 7–10 days\n     - Notes: Alternative when beta-lactams contraindicated; does not cover H. influenzae well—use clinician judgment. Pregnancy: generally considered acceptable; confirm status and trimester considerations.\n     - Exclusions: History of C. difficile/high CDI risk; lincosamide allergy.\n   - Supportive care:\n   - Analgesia: OTC analgesics/antipyretics if safe (avoid dosing instructions by phone).\n   - Hydration/rest: Encourage fluids and rest.\n   - Follow-up and safety:\n   - Follow-up: Re-evaluation in 48–72 hours if not improving; sooner for worsening symptoms.\n   - Return precautions: Seek urgent care/ED for severe/worsening pain, mastoid tenderness/swelling, high fever, new vertigo, severe headache/neck stiffness, facial weakness, altered mental status, or signs of dehydration.\n   1. Advise immediate referral to urgent care or emergency department for otolaryngology evaluation and possible imaging.\n   2. Empiric antibiotic therapy may be initiated after clinical assessment; choice and dosing to be determined by reviewing physician.\n   3. Pain management with acetaminophen or ibuprofen as tolerated.\n - Safety net:\n   Instruct patient to seek emergency care if symptoms worsen, including increasing ear pain, swelling behind the ear, fever, headache, or changes in mental status.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "otitis_media references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "otitis_media references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      },
+      {
+        "title": "otitis_media references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "otitis_media references (starter)",
+        "source": "https://www.aaai.org/",
+        "snippet": "Listed in pathway manifest https://www.aaai.org/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "otitis_media references (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    },
+    {
+      "title": "otitis_media references (starter)",
+      "source": "https://www.nih.gov/",
+      "snippet": "Listed in pathway manifest https://www.nih.gov/"
+    },
+    {
+      "title": "otitis_media references (starter)",
+      "source": "https://www.aafp.org/",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/"
+    },
+    {
+      "title": "otitis_media references (starter)",
+      "source": "https://www.aaai.org/",
+      "snippet": "Listed in pathway manifest https://www.aaai.org/"
+    }
+  ]
+}

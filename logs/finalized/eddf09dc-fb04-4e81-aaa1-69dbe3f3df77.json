@@ -1,0 +1,110 @@
+{
+  "packet_id": "acf28f5e-b159-4fdc-bf91-6542fcfd524c",
+  "created_at": "2026-01-25T18:49:52.076878+00:00",
+  "session_id": "eddf09dc-fb04-4e81-aaa1-69dbe3f3df77",
+  "chief_complaint": "cat bit my hand",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "cat_bite_wound",
+  "answers": {
+    "pregnancy_possible": "no",
+    "renal_disease": "no",
+    "bite_location": "hand",
+    "deep_puncture_or_crush": "no",
+    "severe_or_spreading": "no",
+    "fever_chills": "no",
+    "immunocompromised": "no",
+    "tetanus_status": "unknown"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection",
+      "sig": "875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "5 days",
+      "notes": "First-line for cat bites (high Pasteurella risk). Consider in-person eval for deep puncture, hand bites, immunocompromise, spreading cellulitis, or systemic symptoms.",
+      "exclusions": "Immediate-type beta-lactam allergy; significant renal impairment requires adjustment; severe hepatic disease with prior cholestatic jaundice from amox-clav",
+      "tier": "Tier 1",
+      "pathway_id": "cat_bite_wound",
+      "source_file": "data/protocols/meds/cat_bite_wound.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Doxycycline + Metronidazole",
+      "dosing": "Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)",
+      "sig": "Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Alternative for severe beta-lactam allergy when polymicrobial coverage needed.",
+      "exclusions": "Pregnancy; children <8 years (doxycycline); alcohol use with metronidazole; significant liver disease; drug interactions",
+      "tier": "Tier 1",
+      "pathway_id": "cat_bite_wound",
+      "source_file": "data/protocols/meds/cat_bite_wound.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Clindamycin + Trimethoprim-sulfamethoxazole (TMP-SMX)",
+      "dosing": "Clindamycin 300–450 mg PO TID + TMP-SMX DS (160/800) PO BID x 5–7 days (or 7–10 days if infection)",
+      "sig": "Clindamycin 300–450 mg PO TID + TMP-SMX DS (160/800) PO BID x 5–7 days (or 7–10 days if infection)",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Alternative when MRSA risk is present or for beta-lactam allergy (clinician judgment).",
+      "exclusions": "Sulfa allergy; pregnancy considerations (avoid 1st trimester if possible and near term); C. difficile history/high CDI risk (clindamycin); infant jaundice/prematurity caution if breastfeeding with TMP-SMX",
+      "tier": "Tier 1",
+      "pathway_id": "cat_bite_wound",
+      "source_file": "data/protocols/meds/cat_bite_wound.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\n34-year-old adult presents with a cat bite to the hand. No deep puncture or crush injury reported. No severe or spreading symptoms. No fever or chills. No immunocompromise. Tetanus status unknown. Patient is not pregnant.\n\nO:\nPhone history only; no physical exam or vital signs available.\n\nA:\n - Working diagnosis (most likely): Cat bite wound to the hand without signs of severe infection.\n - Differential:\n  1. Localized bacterial infection (early cellulitis)\n  2. Pasteurella multocida infection\n  3. Tetanus risk due to unknown immunization status\n  4. Secondary soft tissue infection (abscess formation)\n - Red flags considered: No fever, no spreading redness or swelling, no deep puncture or crush injury, no immunocompromise.\n\nP:\n - Disposition: Patient can be managed outpatient with close follow-up.\n - Plan: Amoxicillin-clavulanate — 875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection. Alternative: Doxycycline + Metronidazole (Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Amoxicillin-clavulanate — 875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection\n     - Notes: First-line for cat bites (high Pasteurella risk). Consider in-person eval for deep puncture, hand bites, immunocompromise, spreading cellulitis, or systemic symptoms.\n     - Exclusions: Immediate-type beta-lactam allergy; significant renal impairment requires adjustment; severe hepatic disease with prior cholestatic jaundice from amox-clav\n   - Doxycycline + Metronidazole — Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)\n     - Notes: Alternative for severe beta-lactam allergy when polymicrobial coverage needed.\n     - Exclusions: Pregnancy; children <8 years (doxycycline); alcohol use with metronidazole; significant liver disease; drug interactions\n   - Clindamycin + Trimethoprim-sulfamethoxazole (TMP-SMX) — Clindamycin 300–450 mg PO TID + TMP-SMX DS (160/800) PO BID x 5–7 days (or 7–10 days if infection)\n     - Notes: Alternative when MRSA risk is present or for beta-lactam allergy (clinician judgment).\n     - Exclusions: Sulfa allergy; pregnancy considerations (avoid 1st trimester if possible and near term); C. difficile history/high CDI risk (clindamycin); infant jaundice/prematurity caution if breastfeeding with TMP-SMX\n   - Supportive care:\n   - Local wound care: Copious irrigation if possible; gentle cleansing; keep clean/dry; avoid occlusive dressings unless directed.\n   - Pain control: Acetaminophen (Tylenol) if safe. Ibuprofen (Advil) if safe and no contraindications.\n   - Tetanus / rabies considerations: Assess tetanus status; rabies risk assessment based on animal status/local guidance; in-person evaluation if uncertain.\n   - Follow-up and safety:\n   - In-person evaluation recommended: Hand bites, deep puncture wounds, immunocompromise, rapidly spreading redness, severe pain, fever/chills, numbness/limited motion, or concern for tendon/joint involvement.\n   - Urgent/ED now: Rapidly progressive swelling/redness, severe pain, fever/toxicity, red streaking, loss of function, or signs of systemic infection.\n   - Initiate empiric antibiotic therapy appropriate for cat bite wounds (e.g., amoxicillin-clavulanate).\n   - Review tetanus immunization status and update tetanus vaccine if indicated.\n   - Educate patient on wound care, signs of infection, and when to seek urgent care.\n - Safety net: Advise patient to seek immediate care if increasing redness, swelling, pain, fever, or systemic symptoms develop.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "Cat bites have a high risk of infection. Gently wash the area with soap and running water. Do not soak the wound.",
+      "If the bite is on the hand or wrist, get in-person care today (urgent care or emergency department), even if it seems mild.",
+      "Get urgent care immediately if redness is spreading, swelling worsens, pus develops, pain increases, fever or chills occur, red streaks appear, numbness develops, or finger/hand movement becomes difficult.",
+      "Go to the emergency department now or call 911 if you feel very ill, develop confusion, or symptoms are rapidly worsening.",
+      "If you are not up to date on tetanus (or unsure), you should get a tetanus booster in person."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC — Tetanus (clinical overview and vaccination guidance)",
+        "source": "https://www.cdc.gov/tetanus/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/tetanus/index.html"
+      },
+      {
+        "title": "AAFP — Dog and Cat Bites (clinical review; wound care, infection risk, antibiotics, tetanus/rabies considerations)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2014/0815/p239.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2014/0815/p239.html"
+      },
+      {
+        "title": "IDSA — Practice Guidelines for Skin and Soft Tissue Infections (management considerations relevant to bite wounds)",
+        "source": "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC — Tetanus (clinical overview and vaccination guidance)",
+      "source": "https://www.cdc.gov/tetanus/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/tetanus/index.html"
+    },
+    {
+      "title": "AAFP — Dog and Cat Bites (clinical review; wound care, infection risk, antibiotics, tetanus/rabies considerations)",
+      "source": "https://www.aafp.org/pubs/afp/issues/2014/0815/p239.html",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2014/0815/p239.html"
+    },
+    {
+      "title": "IDSA — Practice Guidelines for Skin and Soft Tissue Infections (management considerations relevant to bite wounds)",
+      "source": "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/",
+      "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA46f05921177b0ff068a81aaf7b69f072",
+  "session_id": "83851b61-3e5a-4906-8550-80a22cc5e1d1",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-04T13:57:41.031398+00:00",
+  "ended_at": "2026-04-04T14:06:23.245808+00:00",
+  "packet_id": "8cc777e5-1a58-498d-b79a-79d8a8e77ae7",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm feeling a lot of anxiety."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your anxiety start?"
+    },
+    {
+      "role": "user",
+      "text": "Oh, I don't know. It's been on and off for years now, but it seems to be getting worse over the last, probably about a month. I would say, and it's just getting to, like, a fever pitch the last few days. So I I guess the last month and the last few days would be a little bit more accurate."
+    },
+    {
+      "role": "assistant",
+      "text": "What symptoms are you experiencing with your anxiety right now?"
+    },
+    {
+      "role": "user",
+      "text": "I am getting help every now and then, and I just have a general feeling like I've forgotten something or that I miss"
+    },
+    {
+      "role": "assistant",
+      "text": "Are you experiencing any symptoms like chest pain, shortness of breath, dizziness, or fainting?"
+    },
+    {
+      "role": "user",
+      "text": "something or that, I'm it's no. I'm not feeling any of those, but you did just interrupt my answer."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe any other symptoms you are experiencing with your anxiety, such as trouble sleeping, changes in appetite, or feelings of hopelessness?"
+    },
+    {
+      "role": "user",
+      "text": "I do feel a little hopeless My sleep I've been having a lot of interrupted sleep, not trouble falling asleep. Asleep. But it's been I've been waking up multiple times a night."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any thoughts of harming yourself or suicide recently?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your anxiety recently, and if so, what has helped or not helped?"
+    },
+    {
+      "role": "user",
+      "text": "I have about a year or 2 years ago, I had tried some medication for my anxiety. It did not help. Recently, I I haven't tried absolutely anything for my anxiety. I I guess I tried to mind"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any recent major stressors or changes in your life that might be contributing to your anxiety?"
+    },
+    {
+      "role": "user",
+      "text": "a few years ago too, like some meditation mindfulness, actually. Exercises, but that didn't help either. It just made me more anxious."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any recent changes in appetite or weight?"
+    },
+    {
+      "role": "user",
+      "text": "My okay. You didn't let me finish the answer to my last question, and I have had changes in my appetite and weight, but that's because I am on medication for weight loss."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about the medication you are taking for weight loss and any other medications or medical conditions you have?"
+    },
+    {
+      "role": "user",
+      "text": "I'm taking Zep Bound once weekly, 7.5 milligrams. And I've been on that dosage and that medication. I've been on the medication for probably about 4 or 5 months now. And I've been at that dosage for 2 months now."
+    },
+    {
+      "role": "assistant",
+      "text": "Any other medical conditions or medications besides the weight loss medication?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No. But I did answer female to the last question."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’ve been experiencing increased anxiety and trouble sleeping recently, which may be related to generalized anxiety disorder. Because this is a phone visit, I can’t examine you or run tests, but based on what you’ve shared, medication treatment might help. A licensed physician will review your information and may prescribe medication like sertraline if appropriate. In the meantime, if you notice any worsening symptoms, new feelings of hopelessness, or thoughts of harming yourself, please seek urgent in-person care right away. If you need an in-person exam or testing, you can go to urgent care or the emergency department. A physician will review your case soon and guide the next steps."
+    }
+  ]
+}

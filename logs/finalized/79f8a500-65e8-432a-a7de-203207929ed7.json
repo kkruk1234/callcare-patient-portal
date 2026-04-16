@@ -1,0 +1,57 @@
+{
+  "packet_id": "79f8a500-65e8-432a-a7de-203207929ed7",
+  "created_at": "2026-03-23T14:37:21.360364+00:00",
+  "session_id": "9b5c1ec1-e613-490f-a420-4632e0faa6f8",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for itchy blistering arm rash with oozing",
+    "adult treatment dosing for topical creams in blistering rash",
+    "red flags and return precautions for oozing arm rash"
+  ],
+  "queries": [
+    "AAFP management guidelines for itchy blistering arm rash with oozing",
+    "AAFP adult treatment dosing for topical creams in blistering rash",
+    "MedlinePlus management guidelines for itchy blistering arm rash with oozing",
+    "MedlinePlus adult treatment dosing for topical creams in blistering rash",
+    "CDC management guidelines for itchy blistering arm rash with oozing",
+    "CDC adult treatment dosing for topical creams in blistering rash",
+    "NIH management guidelines for itchy blistering arm rash with oozing",
+    "NIH adult treatment dosing for topical creams in blistering rash",
+    "NICE management guidelines for itchy blistering arm rash with oozing",
+    "NICE adult treatment dosing for topical creams in blistering rash",
+    "WHO management guidelines for itchy blistering arm rash with oozing",
+    "WHO adult treatment dosing for topical creams in blistering rash"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Diagnosis and Management of Contact Dermatitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2010/0801/p249.html",
+      "accessed": "2026-03-23",
+      "snippet": "If allergic contact dermatitis involves an extensive area of skin (greater than 20 percent), systemic steroid therapy is often required and offers relief within 12 to 24 hours. 4 Five to seven days of prednisone, 0.5 to 1 mg per kg daily, is recommended. If the patient is comfortable after this initial therapy, the dose may be reduced by 50 percent for the next five to seven days. The rate of reduction of the steroid dosage depends on factors such as the severity and duration of allergic contact dermatitis, and how effectively the allergen can be avoided. 4 In severe rhus dermatitis, oral prednisone should be tapered over two to three weeks because rapid discontinuation of steroids can cause rebound dermatitis. A steroid dose pack has insufficient dosing and duration and should not be prescribed. There is no evidence to support the use of long-acting injectable steroids in the treatment"
+    },
+    {
+      "title": "Bullous pemphigoid",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/conditions/bullous-pemphigoid/",
+      "accessed": "2026-03-23",
+      "snippet": "skin infections, which can be very serious if they get deeper into your body ( sepsis ) side effects of steroid treatment, such as high blood pressure, weakened bones and a higher chance of getting infections Steroids will be used as little as possible, and at the lowest possible dose, to help avoid side effects."
+    },
+    {
+      "title": "Atopic Dermatitis: An Overview | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2012/0701/p35.html",
+      "accessed": "2026-03-23",
+      "snippet": "Amount of Topical Corticosteroids to Prescribe Based on the Rule of Hand* \" description=\" *— According to the rule of hand, the area of the side of one adult hand is equal to 1 percent of body surface area, and requires 0.25 g of medication for one application. Amounts listed are for twice daily application for 14 days, rounded to the nearest 10 for amounts of 20 g or greater ."
+    },
+    {
+      "title": "Health A to Z - Wirral Community Health and Care NHS Foundation Trust",
+      "source": "wchc.nhs.uk",
+      "url": "https://www.wchc.nhs.uk/health-care/health/pompholyx/pompholyx/",
+      "accessed": "2026-03-23",
+      "snippet": "moisturisers ( emollients ) – used every day to stop the skin becoming dry steroid creams and ointments (topical steroids) – used for a few weeks at a time to reduce irritation and soreness If the blisters leak fluid, a GP may suggest soaking your skin in potassium permanganate solution. This helps dry the blisters and reduces the risk of them getting infected."
+    }
+  ],
+  "note_text": "S: The patient reports a rash on both arms from the wrists to the elbows that started about 2 days ago. The rash is very itchy with a red, bumpy surface and small blisters. The rash oozes clear fluid and has some crusting but no signs of infection such as yellow or green discharge or swelling. The patient denies fever, chills, or systemic symptoms but states feeling \"not great\" without specific complaints. The patient has tried an over-the-counter cream, possibly Benadryl or calamine, without clear improvement. There is no known exposure to new soaps, lotions, plants, or chemicals reported.\n\nO: Phone encounter only; no vital signs or physical exam available.\n\nA: The working diagnosis is acute contact dermatitis with secondary irritation and mild oozing. \nDifferential:\n1. Allergic contact dermatitis\n2. Irritant contact dermatitis\n3. Dyshidrotic eczema\n4. Early bullous impetigo\n\nP: - First-line medication: Topical corticosteroid, such as triamcinolone acetonide 0.1% cream applied to affected areas twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Topical calcineurin inhibitor, such as tacrolimus 0.1% ointment applied twice daily for up to 14 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid topical antibiotics given no signs of bacterial infection; monitor for allergic reactions; patient allergic to penicillin but this does not affect topical corticosteroids\n- Follow-up recommendations: Seek in-person medical care urgently if rash worsens, develops yellow or green discharge, increased pain, swelling, fever, or systemic symptoms\n- Testing: Not indicated at this time based on telephone assessment"
+}

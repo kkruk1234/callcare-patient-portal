@@ -1,0 +1,238 @@
+{
+  "packet_id": "2d89a9c9-0051-4863-8d84-daf399368208",
+  "created_at": "2026-03-04T12:09:29.077251+00:00",
+  "session_id": "8bff5c7e-62ea-47c7-b3a4-77dc6fd9a67e",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She describes the pain as a dull ache that improves with good posture and avoiding leaning on the area when sitting. There is no history of trauma, fever, chills, weight loss, respiratory symptoms, or neurological symptoms such as numbness or weakness. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, cancer, osteoporosis, or steroid use.\n\nO: Phone consultation only; no physical exam or vitals available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage, likely due to soft tissue strain or possible intercostal nerve irritation. The absence of trauma, systemic symptoms, or neurological deficits lowers suspicion for more serious pathology.\nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Intercostal nerve irritation or neuropathy\n3. Costochondritis or rib cartilage inflammation\n4. Early presentation of rib fracture or occult injury\n\nP:\n - First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation relief.\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated.\n - Medication safety considerations: Confirm no history of renal or liver disease before NSAID use; avoid NSAIDs if gastrointestinal risk factors present.\n - Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, respiratory symptoms, neurological deficits, or unexplained weight loss.\n - Testing: Not indicated at this time given stable symptoms and lack of red flags; consider imaging if symptoms persist or worsen.\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust",
+        "source": "hey.nhs.uk",
+        "snippet": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust | hey.nhs.uk | https://www.hey.nhs.uk/patient-leaflet/__trashed-35/"
+      },
+      {
+        "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+        "source": "nhs.uk",
+        "snippet": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services | nhs.uk | https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/"
+      },
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "mayoclinic.org",
+        "snippet": "Costochondritis - Diagnosis & treatment - Mayo Clinic | mayoclinic.org | https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180"
+      },
+      {
+        "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate",
+        "source": "transform.england.nhs.uk",
+        "snippet": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate | transform.england.nhs.uk | https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/"
+      }
+    ]
+  },
+  "evidence": [],
+  "state": {
+    "session_id": "8bff5c7e-62ea-47c7-b3a4-77dc6fd9a67e",
+    "transcript": [],
+    "chief_complaint": "back pain",
+    "age_band": "adult",
+    "age_years": null,
+    "pregnancy_possible": "no",
+    "symptoms": {
+      "_answers": {
+        "intake_q1": "When did your back pain start?",
+        "intake_a1": "3 weeks ago",
+        "intake_q2": "Can you describe where exactly your back pain is located?",
+        "intake_a2": "left side lower rib cage",
+        "intake_q3": "Any recent injury or trauma to your back or ribs?",
+        "intake_a3": "no",
+        "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+        "intake_a4": "no",
+        "intake_q5": "Any shortness of breath, coughing, or chest pain along with your back pain?",
+        "intake_a5": "no",
+        "intake_q6": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+        "intake_a6": "no",
+        "intake_q7": "Any history of kidney problems, urinary symptoms, or recent infections?",
+        "intake_a7": "no",
+        "intake_q8": "Have you tried any treatments or medications for your back pain, and did they help?",
+        "intake_a8": "I tried tylenol but it didn't help much",
+        "intake_q9": "Any history of cancer, osteoporosis, or recent steroid use?",
+        "intake_a9": "no",
+        "intake_q10": "Can you describe the quality of your back pain and whether it changes with movement or breathing?",
+        "intake_a10": "dull ache and it's better with good posture and not leaning on the area when sitting",
+        "age_years": 47,
+        "allergies": "none",
+        "sex_at_birth": "female",
+        "pregnancy_possible": "no",
+        "pregnancy": "no",
+        "renal_disease": "no",
+        "liver_disease": "no",
+        "evidence_search_queries": [
+          "musculoskeletal rib cage pain management",
+          "costochondritis treatment guidelines",
+          "intercostal nerve pain therapy",
+          "NSAIDs safety in musculoskeletal pain"
+        ],
+        "evidence_used": [
+          {
+            "title": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust",
+            "source": "hey.nhs.uk",
+            "url": "https://www.hey.nhs.uk/patient-leaflet/__trashed-35/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+            "source": "nhs.uk",
+            "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+            "source": "mayoclinic.org",
+            "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate",
+            "source": "transform.england.nhs.uk",
+            "url": "https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          }
+        ],
+        "evidence": [
+          {
+            "title": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust",
+            "source": "hey.nhs.uk",
+            "url": "https://www.hey.nhs.uk/patient-leaflet/__trashed-35/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+            "source": "nhs.uk",
+            "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+            "source": "mayoclinic.org",
+            "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate",
+            "source": "transform.england.nhs.uk",
+            "url": "https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          }
+        ]
+      },
+      "_llm_intake_turns": [
+        {
+          "q": "When did your back pain start?",
+          "a": "3 weeks ago"
+        },
+        {
+          "q": "Can you describe where exactly your back pain is located?",
+          "a": "left side lower rib cage"
+        },
+        {
+          "q": "Any recent injury or trauma to your back or ribs?",
+          "a": "no"
+        },
+        {
+          "q": "Any fever, chills, or unexplained weight loss since the pain started?",
+          "a": "no"
+        },
+        {
+          "q": "Any shortness of breath, coughing, or chest pain along with your back pain?",
+          "a": "no"
+        },
+        {
+          "q": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+          "a": "no"
+        },
+        {
+          "q": "Any history of kidney problems, urinary symptoms, or recent infections?",
+          "a": "no"
+        },
+        {
+          "q": "Have you tried any treatments or medications for your back pain, and did they help?",
+          "a": "I tried tylenol but it didn't help much"
+        },
+        {
+          "q": "Any history of cancer, osteoporosis, or recent steroid use?",
+          "a": "no"
+        },
+        {
+          "q": "Can you describe the quality of your back pain and whether it changes with movement or breathing?",
+          "a": "dull ache and it's better with good posture and not leaning on the area when sitting"
+        }
+      ],
+      "_llm_intake_extract": {
+        "onset": "3 weeks ago",
+        "key_symptoms": "back pain",
+        "location": "left side lower rib cage",
+        "red_flags": "no fever, chills, unexplained weight loss, no numbness, weakness, or tingling",
+        "relevant_history": "no recent injury, no history of cancer, osteoporosis, or steroid use",
+        "treatments_tried": "Tylenol without much relief"
+      },
+      "_llm_intake_summary": "",
+      "_llm_last_q": "Can you describe the quality of your back pain and whether it changes with movement or breathing?",
+      "_llm_intake_error": "",
+      "age_years": 47,
+      "age_band": "adult",
+      "pregnancy_possible": "no",
+      "renal_disease": "no",
+      "liver_disease": "no",
+      "evidence_used": [
+        {
+          "title": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust",
+          "source": "hey.nhs.uk",
+          "url": "https://www.hey.nhs.uk/patient-leaflet/__trashed-35/",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        },
+        {
+          "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+          "source": "nhs.uk",
+          "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        },
+        {
+          "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+          "source": "mayoclinic.org",
+          "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        },
+        {
+          "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate",
+          "source": "transform.england.nhs.uk",
+          "url": "https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        }
+      ]
+    },
+    "red_flags": [],
+    "decision": null,
+    "stage": "DECIDE",
+    "note_draft": null
+  }
+}

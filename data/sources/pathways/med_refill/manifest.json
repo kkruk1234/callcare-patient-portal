@@ -1,0 +1,26 @@
+{
+  "pathway_id": "medication_renewal",
+  "sources": [
+    {
+      "id": "cdc_high_blood_pressure",
+      "type": "web",
+      "url": "https://www.cdc.gov/high-blood-pressure/index.html",
+      "title": "CDC: High Blood Pressure (Overview)",
+      "license_note": "Public health guidance."
+    },
+    {
+      "id": "aha_high_blood_pressure",
+      "type": "web",
+      "url": "https://www.heart.org/en/health-topics/high-blood-pressure",
+      "title": "American Heart Association: High Blood Pressure",
+      "license_note": "Educational overview; excerpt briefly."
+    },
+    {
+      "id": "aafp_refills_rethinking_approach",
+      "type": "web",
+      "url": "https://www.aafp.org/pubs/fpm/issues/2011/1100/p16.html",
+      "title": "AAFP FPM: Rethinking Your Approach to Prescription “Refills”",
+      "license_note": "Practice management guidance; short excerpts only."
+    }
+  ]
+}

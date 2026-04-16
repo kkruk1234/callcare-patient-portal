@@ -1,0 +1,122 @@
+{
+  "packet_id": "20108dac-95eb-4c12-9677-1860111a93e4",
+  "created_at": "2026-02-06T01:03:43.513693+00:00",
+  "session_id": "b8cf1c91-4c73-47ea-9b7b-2fa781c8f3b5",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located?",
+    "intake_a3": "next to my sternum on the right",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, heavy lifting, or injury to your chest area?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Does the chest pain worsen with movement, deep breathing, or coughing?",
+    "intake_a6": "only a little",
+    "intake_q7": "Any fever, chills, or recent infections?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a8": "no",
+    "intake_q9": "Have you tried any treatments or medications for the chest pain, and if so, did they help?",
+    "intake_a9": "no",
+    "intake_q10": "Any swelling, redness, or tenderness over the painful area?",
+    "intake_a10": "tenderness",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "https://medlineplus.gov/chestpain.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain located next to the sternum on the right side, which started one week ago. The pain is associated with tenderness over the area and was preceded by heavy lifting. The pain worsens only slightly with movement, deep breathing, or coughing. She denies shortness of breath, sweating, nausea, pain radiating to the arm or jaw, fever, chills, or recent infections. There is no history of heart disease, lung problems, or blood clots. She has not tried any treatments or medications for the chest pain. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings available beyond patient-reported tenderness.\n\nA: \nThe working diagnosis is costochondritis, likely related to mechanical strain from heavy lifting, given the localized sharp pain near the sternum with tenderness and minimal exacerbation by movement or breathing. \n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal chest wall strain or injury \n3. Gastroesophageal reflux disease (GERD) \n4. Cardiac ischemia (less likely given absence of typical symptoms)\n\nP: \n - First-line medication: Naproxen 250-500 mg orally twice daily for 7-10 days, avoiding use if history of gastrointestinal ulcers or bleeding. Dosing details were not found in retrieved evidence; prescriber should verify. \n - Alternatives: \n - Ibuprofen 400 mg orally every 6-8 hours as needed for pain, duration 7-10 days, avoid if history of GI bleeding or renal impairment. \n - Acetaminophen 500-1000 mg orally every 6 hours as needed for pain, duration 7-10 days, avoid exceeding maximum daily dose. \n - Medication safety considerations: No known medication allergies, not pregnant, no renal or liver disease. Avoid NSAIDs if history of gastrointestinal bleeding or ulcers. \n - Return precautions: Advise patient to seek immediate care if chest pain worsens, becomes severe, is associated with shortness of breath, sweating, nausea, or radiation to arm or jaw. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+      },
+      {
+        "title": "Heart Disease in Women | MedlinePlus",
+        "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+      },
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+      },
+      {
+        "title": "Heart attack - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_heart_attack_ca362a1d898a/chunk_002.json",
+        "snippet": "ing The chest pain is often severe, but some people may only experience minor pain, similar to indigestion.\nWhile the most common symptom is chest pain, symptoms can vary from person to person. Some people may have other symptoms such as shortness of breath, feeling or being sick and back or jaw pain without any chest pain.\nCall 999 immediately if you think someone might be having a heart attack. The faster you act, the better their chances.\nTreating heart attacks \nWhile waiting for an ambulance, it may help to chew and then swallow a tablet of aspirin (ideally 300mg), as long as the person having a heart attack is not allergic to aspirin.\nAspirin helps to thin the blood and improves blood flow to the heart.\nIn hospital, treatment for a heart attack depends on the type of heart attack, and how serious it is.\nThe 2 main treatments are:\nusing medicines to dissolve blood clots surgery to he"
+      },
+      {
+        "title": "Naproxen: MedlinePlus Drug Information",
+        "source": "library/medlineplus_gov/medlineplus_gov_druginfo_meds_a681029_html_73c74fb5d132/chunk_003.json",
+        "snippet": "G; a type of heart surgery), you should not take naproxen right before or right after the surgery.\nNSAIDs such as naproxen may cause ulcers, bleeding, or holes in the esophagus (tube between the mouth and stomach), stomach, or intestine. These problems may develop at any time during treatment, may happen without warning symptoms, and may cause death. The risk may be higher for people who take NSAIDs for a long time or at higher doses, are older in age, have poor health, who smoke, or who drink large amounts of alcohol while taking naproxen. Tell your doctor if you take any of the following medications: anticoagulants (''blood thinners'') such as warfarin (Coumadin, Jantoven); aspirin; other NSAIDs such as ibuprofen (Advil, Motrin) and ketoprofen; oral steroids such as dexamethasone, methylprednisolone (Medrol), and prednisone (Rayos); salicylate pain relievers such as diflunisal, magnesi"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+    },
+    {
+      "title": "Heart Disease in Women | MedlinePlus",
+      "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+      "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+    },
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+    },
+    {
+      "title": "Heart attack - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_heart_attack_ca362a1d898a/chunk_002.json",
+      "snippet": "ing The chest pain is often severe, but some people may only experience minor pain, similar to indigestion.\nWhile the most common symptom is chest pain, symptoms can vary from person to person. Some people may have other symptoms such as shortness of breath, feeling or being sick and back or jaw pain without any chest pain.\nCall 999 immediately if you think someone might be having a heart attack. The faster you act, the better their chances.\nTreating heart attacks \nWhile waiting for an ambulance, it may help to chew and then swallow a tablet of aspirin (ideally 300mg), as long as the person having a heart attack is not allergic to aspirin.\nAspirin helps to thin the blood and improves blood flow to the heart.\nIn hospital, treatment for a heart attack depends on the type of heart attack, and how serious it is.\nThe 2 main treatments are:\nusing medicines to dissolve blood clots surgery to he"
+    },
+    {
+      "title": "Naproxen: MedlinePlus Drug Information",
+      "source": "library/medlineplus_gov/medlineplus_gov_druginfo_meds_a681029_html_73c74fb5d132/chunk_003.json",
+      "snippet": "G; a type of heart surgery), you should not take naproxen right before or right after the surgery.\nNSAIDs such as naproxen may cause ulcers, bleeding, or holes in the esophagus (tube between the mouth and stomach), stomach, or intestine. These problems may develop at any time during treatment, may happen without warning symptoms, and may cause death. The risk may be higher for people who take NSAIDs for a long time or at higher doses, are older in age, have poor health, who smoke, or who drink large amounts of alcohol while taking naproxen. Tell your doctor if you take any of the following medications: anticoagulants (''blood thinners'') such as warfarin (Coumadin, Jantoven); aspirin; other NSAIDs such as ibuprofen (Advil, Motrin) and ketoprofen; oral steroids such as dexamethasone, methylprednisolone (Medrol), and prednisone (Rayos); salicylate pain relievers such as diflunisal, magnesi"
+    }
+  ]
+}

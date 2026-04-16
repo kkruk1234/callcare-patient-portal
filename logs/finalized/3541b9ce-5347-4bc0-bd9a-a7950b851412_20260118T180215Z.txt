@@ -1,0 +1,19 @@
+S:
+Patient reports tick bite. Reports a tick bite with a bullseye rash present. No systemic symptoms reported. Exposure occurred in Georgia.
+O: Unable to perform physical exam due to phone-only encounter. Patient describes rash consistent with erythema migrans.
+
+A:
+  - Working diagnosis (most likely): Early localized Lyme disease, given the characteristic bullseye rash and tick exposure in an endemic area.
+  - Differential:
+    1. Early Lyme disease
+    2. Tick-bite hypersensitivity reaction
+    3. Cellulitis or local skin infection
+    4. Other tick-borne illnesses (e.g., Southern tick-associated rash illness)
+  - Red flags considered: No systemic symptoms such as fever, neurologic signs, or cardiorespiratory symptoms reported.
+
+P:
+  - Disposition: Urgent in-person evaluation recommended for clinical confirmation and initiation of treatment.
+  - Plan: Advise patient to seek prompt medical evaluation for physical examination and possible antibiotic therapy for Lyme disease. Educate on signs of systemic illness or progression.
+  - Safety net: Instruct patient to seek emergency care if fever, worsening rash, joint pain, neurological symptoms, or cardiorespiratory symptoms develop.
+
+Evidence (snippets used): None retrieved; clinical decision based on typical presentation of erythema migrans and CDC guidance on Lyme disease diagnosis and management.

@@ -1,0 +1,34 @@
+rx_options:
+- med: Ciprofloxacin
+  dosing: 500 mg PO twice daily x 7 days
+  exclusions: Reserve due to adverse-effect profile; QT/tendon/neuropathy/aortic risk
+    counseling; interactions; avoid if local resistance high or prior FQ-resistant
+    isolate.
+  notes: Outpatient option for stable patients when susceptibility/resistance patterns
+    support.
+- med: Levofloxacin
+  dosing: 750 mg PO once daily x 5 days
+  exclusions: Same fluoroquinolone cautions; reserve when benefits outweigh risks.
+  notes: Outpatient option when appropriate.
+- med: Trimethoprim-sulfamethoxazole (TMP-SMX) DS
+  dosing: 160/800 mg (1 DS tab) PO twice daily x 14 days (if susceptible)
+  exclusions: Sulfa allergy; renal dosing; interactions.
+  notes: Use when organism known/suspected susceptible; typically longer course than
+    FQ.
+supportive_care:
+- item: Hydration
+  details: Encourage oral fluids as tolerated.
+- item: Antiemetic / symptom control
+  details: Supportive care as clinically appropriate.
+followup_and_safety:
+- item: Culture
+  details: Urine culture recommended for suspected pyelonephritis (before antibiotics
+    when feasible).
+- item: Escalation / more aggressive path
+  details: If pregnancy, severe pain, inability to tolerate PO, persistent vomiting,
+    sepsis concern, unstable vitals, or no improvement within 48 hours → urgent in-person
+    evaluation and consider IV therapy/imaging.
+- item: Return precautions
+  details: Urgent evaluation for fever/rigors, worsening flank pain, persistent vomiting,
+    confusion, hypotension, or worsening symptoms.
+requires_pregnancy_status: true

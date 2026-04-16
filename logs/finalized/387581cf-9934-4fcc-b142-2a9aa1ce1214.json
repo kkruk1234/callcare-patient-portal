@@ -1,0 +1,57 @@
+{
+  "packet_id": "387581cf-9934-4fcc-b142-2a9aa1ce1214",
+  "created_at": "2026-04-03T21:07:19.227989+00:00",
+  "session_id": "8a32deba-a2ba-4314-86a1-be425976aae1",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat management guidelines adults",
+    "treatment sore throat adult penicillin allergy dosing",
+    "sore throat red flags difficulty swallowing breathing"
+  ],
+  "queries": [
+    "AAFP sore throat management guidelines adults",
+    "AAFP treatment sore throat adult penicillin allergy dosing",
+    "MedlinePlus sore throat management guidelines adults",
+    "MedlinePlus treatment sore throat adult penicillin allergy dosing",
+    "CDC sore throat management guidelines adults",
+    "CDC treatment sore throat adult penicillin allergy dosing",
+    "NIH sore throat management guidelines adults",
+    "NIH treatment sore throat adult penicillin allergy dosing",
+    "NICE sore throat management guidelines adults",
+    "NICE treatment sore throat adult penicillin allergy dosing",
+    "WHO sore throat management guidelines adults",
+    "WHO treatment sore throat adult penicillin allergy dosing"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "IDSA Clinical Practice Guideline Update on Group A Streptococcal (GAS) Pharyngitis",
+      "source": "idsociety.org",
+      "url": "https://www.idsociety.org/practice-guideline/streptococcal-pharyngitis2/",
+      "accessed": "2026-04-03",
+      "snippet": "Streptococcus pyogenes is the etiology of pharyngitis in up to 15% of adults and 30% of children with pharyngitis . 2   In this guideline we will refer to S. pyogenes as group A Streptococcus (GAS) , though in rare circumstances, group A antigen may be expressed by other streptococci such as the anginosus group and S. dysgalactiae subspecies equisimilis , which are members of the upper airway flora, but which are not commonly associated with pharyngitis.   GAS is important to identify and treat in order to decrease the risks of nonsuppurative and suppurative sequelae that can be severe . However, the literature assessing the degree of effect of antibiotic treatment in preventing these sequelae is primarily from studies that were performed before the modern era of randomized clinical trials , and the relevance of their conclusions to current practice may be limited by their having include"
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-04-03",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Sore Throat | Pharyngitis | Sore Throat Causes | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/sorethroat.html",
+      "accessed": "2026-04-03",
+      "snippet": "Treatment depends on the cause. Sucking on lozenges, drinking lots of liquids, and gargling may ease the pain. Over-the-counter pain relievers can also help, but children should not take aspirin."
+    },
+    {
+      "title": "Pharyngitis - sore throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000655.htm",
+      "accessed": "2026-04-03",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old adult presenting with a sore throat that started 2 days ago. They report significant pain when swallowing but no difficulty swallowing or breathing. They have a runny nose and nasal congestion but no cough. They deny fever, chills, night sweats, or swollen glands in the neck. They note white spots on their tonsils.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute pharyngitis, likely bacterial given the presence of white spots on the tonsils and absence of cough.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Other bacterial pharyngitis\n\nP: - First-line medication: Azithromycin 500 mg orally on day 1, then 250 mg orally daily on days 2 through 5 (Physician must verify medication/dosing)\n- Alternatives: Clindamycin 300 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient has penicillin allergy; avoid penicillin and related beta-lactams. Other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing or swallowing develops, or if symptoms worsen or fail to improve within 48-72 hours.\n- Testing: Throat culture or rapid antigen detection test for Group A Streptococcus if available to confirm diagnosis and guide therapy."
+}

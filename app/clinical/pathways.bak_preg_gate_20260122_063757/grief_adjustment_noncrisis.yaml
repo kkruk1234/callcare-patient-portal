@@ -1,0 +1,22 @@
+id: grief_adjustment_noncrisis
+version: 0.1
+match:
+  any_keywords: ["grief", "mourning", "loss", "bereavement", "can't cope after loss"]
+questions:
+  - id: self_harm
+    prompt: "Are you having thoughts of harming yourself right now? (yes/no)"
+    store_as: self_harm_now
+    type: yesno
+  - id: function
+    prompt: "Are you able to eat, drink, and do basic daily tasks today? (yes/no)"
+    store_as: basic_function
+    type: yesno
+  - id: support
+    prompt: "Do you have someone you can reach out to for support today? (yes/no)"
+    store_as: support_available
+    type: yesno
+stop_rules:
+  - if_all_answered: ["self_harm", "function", "support"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

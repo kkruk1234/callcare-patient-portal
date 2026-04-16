@@ -1,0 +1,22 @@
+id: cat_bite_wound
+version: 0.1
+match:
+  any_keywords: ["cat bite", "bit by a cat", "cat bit me"]
+questions:
+  - id: hand
+    prompt: "Is the bite on the hand or wrist? (yes/no)"
+    store_as: hand_wrist
+    type: yesno
+  - id: swelling
+    prompt: "Is there fast swelling, spreading redness, or severe pain? (yes/no)"
+    store_as: severe_or_spreading
+    type: yesno
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+stop_rules:
+  - if_all_answered: ["hand", "swelling", "fever"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

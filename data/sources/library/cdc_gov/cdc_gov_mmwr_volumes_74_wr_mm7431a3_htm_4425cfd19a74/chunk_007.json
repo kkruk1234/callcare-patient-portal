@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Syncytial Virus Immunization Coverage Among Infants Through Receipt of Nirsevimab Monoclonal Antibody or Maternal Vaccination â United States, October 2023âMarch 20",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7431a3.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ns received through March 31, 2024. IIS data from New York City and Philadelphia were combined with their state data from New York and Pennsylvania, respectively, for an analytic sample of 33 states and DC. Among these jurisdictions, two (Montana and Pennsylvania) have an opt-in consent policy both for children and adults that requires explicit consent to be provided for their data to be included in the IIS. Two other jurisdictions (New York and New York City) have opt-in consent policies only for adults aged &ge;19 years. All other included jurisdictions have opt-out or mandatory inclusion policies.\nAnalysis \nThe overall and state-specific percentages of infants covered by one of the two RSV products were estimated by summing the number of infants who received at least 1 dose of nirsevimab and the total number of women aged 18&ndash;49 years who received at least 1 dose of RSV vaccine (as reported to the jurisdictional IIS) and dividing the total by the number of live births to women in this age group during October 2023&ndash;March 2024 (from CDC WONDER natality data), calculated by state. Percentages were also stratified by recipient characteristics, including age, month of immunization receipt, VFC program eligibility, and infant birth month. SAS software (version 9.4; SAS Institute) and Azure Databricks (Version 14.0, Databricks Runtime) were used to conduct all analyses.",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7431a3_htm_4425cfd19a74",
+  "chunk_id": "chunk_007"
+}

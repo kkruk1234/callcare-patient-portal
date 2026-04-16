@@ -1,0 +1,136 @@
+{
+  "packet_id": "4d53cf5a-9683-435e-a8b7-5972f7ea729b",
+  "created_at": "2026-02-16T02:10:15.352839+00:00",
+  "session_id": "578ea97a-de12-472a-93ee-3f7a5e40015e",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the elbow pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe what activities or movements make the elbow pain worse or better?",
+    "intake_a2": "tennis makes it worse and rest makes it better",
+    "intake_q3": "Any swelling, redness, or warmth around the elbow?",
+    "intake_a3": "no",
+    "intake_q4": "Any numbness, tingling, or weakness in your arm or hand?",
+    "intake_a4": "no",
+    "intake_q5": "Any history of trauma or injury to the elbow before the pain started?",
+    "intake_a5": "No, but the pain started while I was playing tennis",
+    "intake_q6": "Can you point to the exact spot on your elbow where the pain is located?",
+    "intake_a6": "outside",
+    "intake_q7": "Any previous episodes of similar elbow pain or other joint problems?",
+    "intake_a7": "no",
+    "intake_q8": "Any fever, chills, or other systemic symptoms?",
+    "intake_a8": "no",
+    "intake_q9": "Have you tried any treatments or medications for the elbow pain, and if so, what were they and did they help?",
+    "intake_a9": "I iced it the first day and it helped the pain a little",
+    "intake_q10": "Any difficulty gripping or lifting objects with your affected arm?",
+    "intake_a10": "pain with lifting objects",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/orf/",
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://www.nhs.uk/conditions/reactive-arthritis/",
+        "https://www.nhs.uk/conditions/tennis-elbow/",
+        "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+        "https://medlineplus.gov/juvenilearthritis.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 45-year-old female presenting with a 3-week history of pain localized to the outside of her elbow. The pain began while playing tennis and worsens with tennis activity and lifting objects, while rest improves it. She reports no swelling, redness, warmth, numbness, tingling, weakness, fever, or systemic symptoms. She tried icing the elbow on the first day, which provided some relief. There is no history of trauma or prior similar episodes.\n\nO: Phone evaluation only; no physical exam or vital signs available.\n\nA: The clinical presentation is consistent with lateral epicondylitis (tennis elbow), characterized by lateral elbow pain exacerbated by activity involving wrist extension and gripping. The absence of systemic symptoms and neurological signs supports this diagnosis.\n\nDifferential:\n1. Lateral epicondylitis (tennis elbow)\n2. Radial tunnel syndrome\n3. Osteoarthritis of the elbow\n4. Referred pain from cervical radiculopathy. Patient is not pregnant.\n\nP: \n - First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen at recommended doses. \n - Alternatives: Topical NSAID gels applied over the affected area. \n - Medication safety considerations: NSAIDs can cause gastrointestinal upset, bleeding, and renal or liver impairment; avoid exceeding recommended doses and monitor for side effects. \n - Return precautions: Return if pain worsens, if there is new numbness, weakness, swelling, redness, or warmth around the elbow, or if systemic symptoms such as fever develop. \n - Testing: Not indicated at this time based on history and symptomatology; consider imaging or referral if symptoms persist or worsen despite treatment.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "rvices without needing a referral from a GP. Get NHS help for back or joint problems Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treat…"
+      },
+      {
+        "title": "Orf - NHS",
+        "source": "https://www.nhs.uk/conditions/orf/",
+        "snippet": "um%3d1%26flip%3d0%26pl%3d Credit: BIOPHOTO ASSOCIATES / SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/479030/view Other symptoms Other symptoms of orf include: a high temperature general tiredness (fatigue) swollen glands on the inside of your elbow or under your arm Non-urgent advice: See a GP if: you have a mark or blister on your finger, hand,…"
+      },
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+      },
+      {
+        "title": "Reactive arthritis - NHS",
+        "source": "https://www.nhs.uk/conditions/reactive-arthritis/",
+        "snippet": "﻿ Reactive arthritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Reactive arthritis Reactive arthritis is where your joints become sore and swollen after you&#x27;ve had an infection. It us…"
+      },
+      {
+        "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+        "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+        "snippet": "olitis, diverticulitis, IBD, IBS Gynecologic: ectopic pregnancy, fibroids, ovarian mass, torsion, PID Renal: cystitis, nephrolithiasis, pyelonephritis Left lower quadrant Colonic: colitis, diverticulitis, IBD, IBS Gynecologic: ectopic pregnancy, fibroids, ovarian mass, torsion, PID Renal: nephrolithiasis, pyelonephritis Any location Abdominal wall: herpes zo…"
+      },
+      {
+        "title": "Juvenile Arthritis | Still&#x27;s Disease | JRA | MedlinePlus",
+        "source": "https://medlineplus.gov/juvenilearthritis.html",
+        "snippet": "oms can vary depending on the type of JA. The symptoms of most types include joint pain, swelling, warmth, and stiffness. Your child may not complain of pain or stiffness, but one early sign of JA may be limping or clumsiness in the morning or after resting. Larger joints, such as the knee, may be swollen. Certain types of JA can cause a high fever , swollen…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Orf - NHS",
+      "source": "https://www.nhs.uk/conditions/orf/",
+      "snippet": "um%3d1%26flip%3d0%26pl%3d Credit: BIOPHOTO ASSOCIATES / SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/479030/view Other symptoms Other symptoms of orf include: a high temperature general tiredness (fatigue) swollen glands on the inside of your elbow or under your arm Non-urgent advice: See a GP if: you have a mark or blister on your finger, hand,…"
+    },
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+    },
+    {
+      "title": "Reactive arthritis - NHS",
+      "source": "https://www.nhs.uk/conditions/reactive-arthritis/",
+      "snippet": "﻿ Reactive arthritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Reactive arthritis Reactive arthritis is where your joints become sore and swollen after you&#x27;ve had an infection. It us…"
+    },
+    {
+      "title": "Tennis elbow - NHS",
+      "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+      "snippet": "﻿ Tennis elbow - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Tennis elbow Tennis elbow is a condition that causes pain around the outside of the elbow. It usually goes away with rest but can…"
+    },
+    {
+      "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+      "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "snippet": "olitis, diverticulitis, IBD, IBS Gynecologic: ectopic pregnancy, fibroids, ovarian mass, torsion, PID Renal: cystitis, nephrolithiasis, pyelonephritis Left lower quadrant Colonic: colitis, diverticulitis, IBD, IBS Gynecologic: ectopic pregnancy, fibroids, ovarian mass, torsion, PID Renal: nephrolithiasis, pyelonephritis Any location Abdominal wall: herpes zo…"
+    },
+    {
+      "title": "Juvenile Arthritis | Still&#x27;s Disease | JRA | MedlinePlus",
+      "source": "https://medlineplus.gov/juvenilearthritis.html",
+      "snippet": "oms can vary depending on the type of JA. The symptoms of most types include joint pain, swelling, warmth, and stiffness. Your child may not complain of pain or stiffness, but one early sign of JA may be limping or clumsiness in the morning or after resting. Larger joints, such as the knee, may be swollen. Certain types of JA can cause a high fever , swollen…"
+    }
+  ],
+  "state": null
+}

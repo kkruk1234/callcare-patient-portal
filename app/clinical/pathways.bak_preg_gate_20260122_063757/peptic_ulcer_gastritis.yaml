@@ -1,0 +1,22 @@
+id: peptic_ulcer_gastritis
+version: 0.1
+match:
+  any_keywords: ["burning stomach pain", "gnawing stomach pain", "ulcer", "gastritis", "pain better with food", "pain worse when hungry"]
+questions:
+  - id: bleed
+    prompt: "Any black/tarry stool or vomiting blood/coffee-ground material? (yes/no)"
+    store_as: gi_bleed
+    type: yesno
+  - id: severe
+    prompt: "Is the pain severe, constant, or with fainting/confusion? (yes/no)"
+    store_as: severe
+    type: yesno
+  - id: nsaid
+    prompt: "Have you been using ibuprofen/naproxen/aspirin often recently? (yes/no)"
+    store_as: nsaid_use
+    type: yesno
+stop_rules:
+  - if_all_answered: ["bleed", "severe", "nsaid"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

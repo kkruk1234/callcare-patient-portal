@@ -1,0 +1,20 @@
+id: otitis_media
+version: 0.1
+match:
+  any_keywords: ["ear infection", "otitis media", "ear pain with fever", "ear pain child", "pulling at ear", "earache fever"]
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+  - id: renal_disease
+    prompt: "Do you have kidney disease or are you on dialysis? (yes/no/not sure)"
+    type: text
+    store_as: renal_disease
+
+
+  - id: severe
+    prompt: "Is there severe pain, swelling behind the ear, or the ear sticking out more than usual? (yes/no)"
+    store_as: mastoiditis_concern
+    type: yesno
+

@@ -1,0 +1,26 @@
+{
+  "pathway_id": "bronchiolitis_infant",
+  "sources": [
+    {
+      "id": "bronchiolitis_infant_src_1",
+      "source_id": "bronchiolitis_infant_src_1",
+      "title": "bronchiolitis_infant references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "bronchiolitis_infant_src_2",
+      "source_id": "bronchiolitis_infant_src_2",
+      "title": "bronchiolitis_infant references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "bronchiolitis_infant_src_3",
+      "source_id": "bronchiolitis_infant_src_3",
+      "title": "bronchiolitis_infant references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

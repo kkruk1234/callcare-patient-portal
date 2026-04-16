@@ -1,0 +1,41 @@
+id: hyperemesis_gravidarum_possible
+version: 0.2
+match:
+  any_keywords: ["pregnant", "pregnancy nausea", "pregnancy vomiting", "can't keep anything down", "throwing up all day", "hyperemesis", "morning sickness severe"]
+questions:
+  - id: gest_age
+    prompt: "How many weeks pregnant are you (or when was your last menstrual period)?"
+    store_as: gest_age
+  - id: fluids_24h
+    prompt: "Have you been unable to keep fluids down for 24 hours? (yes/no)"
+    store_as: fluids_24h
+    type: yesno
+  - id: dehydration
+    prompt: "Any dizziness when standing, very dark urine, or urinating much less than usual? (yes/no)"
+    store_as: dehydration
+    type: yesno
+  - id: weight_loss
+    prompt: "Have you had significant weight loss since the vomiting started? (yes/no)"
+    store_as: weight_loss
+    type: yesno
+  - id: severe_abd_pain
+    prompt: "Any severe abdominal pain? (yes/no)"
+    store_as: severe_abd_pain
+    type: yesno
+  - id: vaginal_bleeding
+    prompt: "Any vaginal bleeding? (yes/no)"
+    store_as: vaginal_bleeding
+    type: yesno
+  - id: fever
+    prompt: "Any fever? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: severe_headache_vision
+    prompt: "Any severe headache or vision changes? (yes/no)"
+    store_as: severe_headache_vision
+    type: yesno
+stop_rules:
+  - if_all_answered: ["gest_age", "fluids_24h", "dehydration", "weight_loss", "severe_abd_pain", "vaginal_bleeding", "fever", "severe_headache_vision"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

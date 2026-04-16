@@ -1,0 +1,67 @@
+{
+  "packet_id": "3bcdaa57-bb85-46a9-9753-1c4b91aae331",
+  "created_at": "2026-02-27T03:03:05.170020+00:00",
+  "session_id": "d6d1c351-dedb-460e-bd19-0e6d909c497f",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of lung or heart disease, or recent travel or exposure to sick contacts?",
+    "intake_a9": "no",
+    "intake_q10": "Any pain with deep breaths or when pressing on the painful area?",
+    "intake_a10": "pain with pressing on the area",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, difficulty breathing, coughing, chest pain, numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) with minimal relief. The pain worsens with pressing on the affected area. There is no history of kidney problems, urinary symptoms, recent infections, lung or heart disease, recent travel, or sick contacts. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely due to a localized strain or inflammation of the left lower rib cage area. The absence of systemic symptoms and neurological deficits makes serious pathology less likely.\nDifferential:\n1. Musculoskeletal strain or costochondritis\n2. Rib fracture or contusion (occult trauma)\n3. Herpes zoster (early stage without rash)\n4. Referred pain from visceral causes (less likely without systemic symptoms)\n\nP:\n- Medication safety considerations: Avoid NSAIDs if history of gastrointestinal bleeding, renal impairment, or allergy; use acetaminophen cautiously in liver disease\n - Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen (avoid in renal disease; especially severe CKD/dialysis)\n - Return precautions: Return if fever, worsening pain, new neurological symptoms, chest pain, difficulty breathing, or rash develops\n - Testing: Not indicated at this time given lack of red flag symptoms; consider imaging if symptoms persist or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

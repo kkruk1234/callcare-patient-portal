@@ -1,0 +1,10 @@
+{
+  "title": "RSV-NET | RSV | CDC",
+  "url": "https://www.cdc.gov/rsv/php/surveillance/rsv-net.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ic, as not all topics have filters available. \n3) Select different ways to view the data \nThe data can be displayed in a graph or as a table. Right click anywhere in the graph for a tabular view. Hovering your mouse over or selecting a data point or bar in the graph will display detailed information. Some graphs allow you to hide or show data from the legend for detailed analysis.\nThis dashboard is updated weekly. Data are preliminary and subject to change as more data become available. Rates for recent hospital admissions are subject to reporting delays that might increase around holidays or during periods of increased hospital utilization. As new data are received each week, previous rates are updated accordingly.\nWhy RSV-NET data are important \nRSV-associated hospitalization rates are used to understand trends in virus circulation, estimate disease burden, and respond to outbreaks. However, the rates are unadjusted and do not account for undertesting, differing provider or facility testing practices, and diagnostic test sensitivity. The rates presented in the interactive dashboard might underestimate the true burden of RSV-associated hospitalizations in the United States, but the trends by age group and geographic location remain useful for monitoring disease severity. \nDemographic and detailed clinical information, including underlying conditions, allows CDC to better under",
+  "source_type": "library",
+  "source_id": "cdc_gov_rsv_php_surveillance_rsv_net_html_e8119c231d0a",
+  "chunk_id": "chunk_003"
+}

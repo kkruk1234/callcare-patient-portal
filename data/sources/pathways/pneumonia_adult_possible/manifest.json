@@ -1,0 +1,20 @@
+{
+  "pathway_id": "pneumonia_adult_possible",
+  "sources": [
+    {
+      "title": "Pneumonia (adult) overview and when to seek care",
+      "source": "CDC",
+      "url": "https://www.cdc.gov/pneumonia/"
+    },
+    {
+      "title": "Community-acquired pneumonia in adults: patient info",
+      "source": "NHS",
+      "url": "https://www.nhs.uk/conditions/pneumonia/"
+    },
+    {
+      "title": "Community-acquired pneumonia guidelines",
+      "source": "IDSA/ATS (guideline landing page)",
+      "url": "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+id: acute_allergic_reaction_nonanaphylaxis
+version: 0.1
+match:
+  any_keywords: ["allergic reaction", "hives after", "itchy rash after", "swollen lips mild", "allergy symptoms after food", "itchy welts after medication"]
+questions:
+  - id: breathing
+    prompt: "Any trouble breathing, throat tightness, wheezing, or hoarse voice? (yes/no)"
+    store_as: breathing_throat
+    type: yesno
+
+  - id: faint
+    prompt: "Do you feel faint, dizzy, or like you might pass out? (yes/no)"
+    store_as: faint
+    type: yesno
+
+  - id: face_swelling
+    prompt: "Any swelling of the lips, tongue, or face? (yes/no)"
+    store_as: face_swelling
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["breathing", "faint", "face_swelling"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

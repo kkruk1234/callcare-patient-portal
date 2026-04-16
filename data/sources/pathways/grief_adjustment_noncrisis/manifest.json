@@ -1,0 +1,12 @@
+{
+  "pathway_id": "grief_adjustment_noncrisis",
+  "sources": [
+    {
+      "id": "grief_adjustment_noncrisis_ref",
+      "source_id": "grief_adjustment_noncrisis_ref",
+      "title": "Grief and adjustment info (starter)",
+      "url": "https://www.nimh.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

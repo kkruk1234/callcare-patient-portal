@@ -1,0 +1,58 @@
+{
+  "packet_id": "a6b0b55d-0a36-4096-985f-5dea4d2b80d9",
+  "created_at": "2026-03-04T22:46:01.472004+00:00",
+  "session_id": "1de45208-a712-4254-832c-e3cf5e923583",
+  "pathway_id": "",
+  "base_queries": [
+    "management of musculoskeletal back pain with NSAIDs",
+    "treatment options for lower rib cage musculoskeletal pain"
+  ],
+  "queries": [
+    "NHS management of musculoskeletal back pain with NSAIDs",
+    "NHS treatment options for lower rib cage musculoskeletal pain",
+    "NICE management of musculoskeletal back pain with NSAIDs",
+    "NICE treatment options for lower rib cage musculoskeletal pain",
+    "CDC management of musculoskeletal back pain with NSAIDs",
+    "CDC treatment options for lower rib cage musculoskeletal pain",
+    "MedlinePlus management of musculoskeletal back pain with NSAIDs",
+    "MedlinePlus treatment options for lower rib cage musculoskeletal pain"
+  ],
+  "evidence": [
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Back pain",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/conditions/back-pain/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Musculoskeletal Chest Wall Pain | CUH",
+      "source": "cuh.nhs.uk",
+      "url": "https://www.cuh.nhs.uk/patient-information/musculoskeletal-chest-wall-pain/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Costochondritis",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/conditions/costochondritis/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. The pain improves with better posture and is not associated with any recent trauma, fever, chills, weight loss, respiratory symptoms, or neurological deficits. She has tried acetaminophen (Tylenol) without significant relief.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal back pain likely related to postural strain or soft tissue injury.\nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib dysfunction\n3. Early intercostal nerve irritation\n4. Less likely visceral causes such as pleuritis or referred pain from abdominal organs\n\nP: First-line medication: Naproxen 500 mg PO twice daily for 7 days with food\nAlternatives: Diclofenac 50 mg PO three times daily for 7 days; Meloxicam 15 mg PO once daily for 7 days (Physician must verify medication/dosing)\nMedication safety considerations: Use with caution in patients with gastrointestinal risk factors; take with food to minimize GI irritation; avoid in patients with known NSAID allergy or bleeding disorders\nReturn precautions: Return if pain worsens, new neurological symptoms develop (numbness, weakness), fever or systemic symptoms occur, or if no improvement after 7 days of treatment\nTesting: Not indicated at this time given absence of red flag symptoms and normal systemic review"
+}

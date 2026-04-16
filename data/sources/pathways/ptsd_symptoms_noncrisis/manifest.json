@@ -1,0 +1,12 @@
+{
+  "pathway_id": "ptsd_symptoms_noncrisis",
+  "sources": [
+    {
+      "id": "ptsd_symptoms_noncrisis_ref",
+      "source_id": "ptsd_symptoms_noncrisis_ref",
+      "title": "PTSD information (starter)",
+      "url": "https://www.nimh.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

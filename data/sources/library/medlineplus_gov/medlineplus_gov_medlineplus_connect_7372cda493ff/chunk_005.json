@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect",
+  "url": "https://medlineplus.gov/medlineplus-connect/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "omizability of your system. \nImplementing MedlinePlus Connect is a one-time effort. Once you make this change in your system, MedlinePlus Connect will update and maintain the links between the codes and the consumer health information. \nSee examples of health care organizations, electronic health records systems, and other systems using MedlinePlus Connect . \nQuick Facts \nMedlinePlus Connect is free and does not require registration. \nMedlinePlus Connect may help you achieve one of the criteria for Meaningful Use of Health Information Technology. \nImplementing MedlinePlus Connect will make a global change; you don't need to create individual links. \nYou don't have to use MedlinePlus Connect exclusively to link to patient education information. Many EHR systems can be configured to link to more than one source of consumer health information. \nMedlinePlus Connect isn't a replacement for MedlinePlus. It is a value-added service to bring MedlinePlus content to electronic health record systems. \nMedlinePlus Connect provides links to copyrighted drug information from American Society of Health-System Pharmacists, ASHP, Inc. Users of MedlinePlus Connect are prohibited from ingesting and/or branding this copyrighted content in their EHR or other health IT system. If you want to incorporate this content into your EHR or brand it, you must license the content directly from the informatio",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_7372cda493ff",
+  "chunk_id": "chunk_005"
+}

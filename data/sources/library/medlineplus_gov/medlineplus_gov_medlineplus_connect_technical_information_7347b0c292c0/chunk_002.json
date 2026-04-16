@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Technical Information",
+  "url": "https://medlineplus.gov/medlineplus-connect/technical-information/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "ideas with your colleagues. It's the best way for us to keep you informed of updates and enhancements. Please tell us if you implement MedlinePlus Connect by\ncontacting us .\nTechnical Quick Facts: \nMedlinePlus Connect is an API provided by the National Library of Medicine. It is available as a Web application or a Web service .\nMedlinePlus Connect will update and maintain the responses to code requests. The possible types of queries and reponses are described on the How it Works page .\nQueries are URL-based. Connect uses the GET method not POST. \nOnly one code can be submitted per request. \nSupports the HL7 Context-Aware Knowledge Retrieval (Infobutton) standard .\nConnects using HTTPS connections.\nA personal health record (PHR) or electronic health record (EHR) vendor may activate MedlinePlus Connect at an enterprise level so it is available to all users.\nHealth IT managers, such as at hospital systems or health care providers, may implement MedlinePlus Connect in their system if they have the administrative rights to make these adjustments.\nFor detailed implementation instructions, request parameters, demonstrations, and examples, go to the\nWeb Application Technical Information Page \nWeb Service Technical Information Page \nMedlinePlus Connect Implementation Options \nWeb Application \nHow does it work? \nResponds to requests with an on-demand, formatted MedlinePlus Connect Web pa",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_technical_information_7347b0c292c0",
+  "chunk_id": "chunk_002"
+}

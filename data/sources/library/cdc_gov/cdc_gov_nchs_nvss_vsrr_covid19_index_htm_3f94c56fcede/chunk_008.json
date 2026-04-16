@@ -1,0 +1,10 @@
+{
+  "title": "Provisional COVID-19 Mortality Surveillance",
+  "url": "https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ge, and cause of death. Until data for a calendar year are finalized, typically in December of the following year, completeness of provisional data cannot be determined. However, completeness can be estimated in a variety of ways. For the purposes of COVID-19 surveillance, completeness is approximated by comparing the provisional number of deaths received to the number of expected deaths based on prior years data. Percent of expected deaths provided in this data release are based on the total count of deaths in the most recent weeks of the current year, compared with an average across the same weeks in previous years. These estimates of completeness are calculated by week, month and year, jurisdiction of occurrence, and age group.\nPercent of expected deaths provided in this release are shown to provide context for interpreting provisional counts of COVID-19 deaths and deaths due to related causes. Where estimated values are high (e.g., greater than 100%), this suggests that mortality is higher in 2020-2023 relative to the same weeks of prior years. Where estimated values of completeness are low, this could indicate that data are incomplete due to delayed reporting, or that mortality is lower in 2020-2023 compared with prior years, or some combination of these factors.\nDelays in reporting \nProvisional counts of deaths are underestimated relative to final counts. This is due to t",
+  "source_type": "library",
+  "source_id": "cdc_gov_nchs_nvss_vsrr_covid19_index_htm_3f94c56fcede",
+  "chunk_id": "chunk_008"
+}

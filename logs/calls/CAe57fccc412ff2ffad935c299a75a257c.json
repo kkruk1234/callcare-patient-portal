@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAe57fccc412ff2ffad935c299a75a257c",
+  "session_id": "f1cbce3a-4714-42b0-a778-510e718c2061",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-26T13:43:21.566399+00:00",
+  "ended_at": "2026-03-26T13:46:50.032724+00:00",
+  "packet_id": "5a4e64f8-f527-4e63-b628-39fab9a97ce4",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "My toe hurts."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your toe pain start?"
+    },
+    {
+      "role": "user",
+      "text": "It started yesterday."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain and if there is any swelling, redness, or warmth around the toe?"
+    },
+    {
+      "role": "user",
+      "text": "The pain is sharp and throbbing."
+    },
+    {
+      "role": "assistant",
+      "text": "Is there any visible swelling, redness, or warmth around the toe?"
+    },
+    {
+      "role": "user",
+      "text": "There is redness"
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or other signs of infection?"
+    },
+    {
+      "role": "user",
+      "text": "and warmth around the toe and bruising all around the toe."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent trauma or injury to the toe, such as stubbing it or dropping something on it?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I dropped a"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you finish telling me what you dropped on your toe and if you have been able to walk or put weight on it since the injury?"
+    },
+    {
+      "role": "user",
+      "text": "a bowling ball on it yesterday."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you been able to walk or put weight on the toe since the injury?"
+    },
+    {
+      "role": "user",
+      "text": "And it's it is killing me now. So yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any numbness, tingling, or loss of movement in the toe since the injury?"
+    },
+    {
+      "role": "user",
+      "text": "Oneness. Yeah. I guess it is a little numb."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you move your toe at all, or is it completely stuck?"
+    },
+    {
+      "role": "user",
+      "text": "I don't feel much of a pain."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any open wounds, cuts, or drainage from the toe since the injury?"
+    },
+    {
+      "role": "user",
+      "text": "Loss of movement, it's really swollen. So I don't I it's being limited by all the swelling."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Now."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No. Because I said I was a man."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have a painful injury to your toe from dropping a bowling ball on it, with swelling, bruising, and limited movement. This is most likely a traumatic injury that could involve a bruise or possibly a fracture. Because I can’t examine you or do any tests over the phone, it’s important to get an in-person evaluation soon, including X-rays, to know for sure and get the right treatment. For now, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you can safely take them to help with pain and swelling. A licensed physician will review this note and may prescribe medication if needed. If your pain worsens, swelling increases, numbness continues, or you can’t move your toe, please seek urgent care the same day. Also, if you develop fever or spreading redness, go to the emergency room right away. This service doesn’t include in-person visits, so please get checked out in person as soon as you can."
+    }
+  ]
+}

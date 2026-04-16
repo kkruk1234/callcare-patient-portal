@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "minimal\" to \"very low\" for the level descriptions on the Your Community Snapshot page. \nWhy:&#8239;This change improves clarity and better communicates the severity levels associated with respiratory illness activity. \n3. Updates to the Emergency Department (ED) Visit Chart on the Activity Level page. \nWhat:&#8239; \nWe are switching to a new ED Visit Chart that features small multiples and a combo box filter for selecting county/state information. \nWhy:&#8239; \nUser feedback indicated confusion when attempting to look up county-specific results without first selecting a state. The new design addresses this issue by providing a more intuitive interface. Additionally, small multiples create a cohesive visual presentation that increases readability, especially for mobile users. \nDecember 20, 2024 release \nMajor updates: \n1. Adding new data on hospitalizations to the Severe Viral Respiratory Illness page\nWhat: \nWe are incorporating hospitalization rates for COVID-19, flu, and RSV as reported by all acute care and critical access hospitals in the United States to the CDC's National Health Safety Network (NHSN). These data are aggregated to the national and state/territory levels. \nAs of November 1, 2024, the Centers for Medicare and Medicaid Services (CMS) requires acute care and critical access hospitals to electronically report information via NHSN regarding COVID-19, influenza, R",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_019"
+}

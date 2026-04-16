@@ -1,0 +1,11 @@
+{
+  "pathway_id": "dehydration_mild",
+  "sources": [
+    {
+      "source_id": "medline_dehydration",
+      "type": "url",
+      "title": "MedlinePlus: Dehydration",
+      "url": "https://medlineplus.gov/dehydration.html"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA01eb6a530801c937ecdc0d756cf5f023",
+  "session_id": "b12cf23d-9759-46c4-9e04-4c9cd00ab900",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-11T18:03:38.162685+00:00",
+  "ended_at": "2026-03-11T18:08:41.818759+00:00",
+  "packet_id": "6a7b1c9d-7b33-4f0c-b1c7-fc7dc78c51b1",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any fever, chills, or night sweats?"
+    },
+    {
+      "role": "user",
+      "text": "I have fever or I've had fever, chills, but no night sweats."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any difficulty swallowing or breathing?"
+    },
+    {
+      "role": "user",
+      "text": "No. I do not."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any cough, runny nose, or nasal congestion?"
+    },
+    {
+      "role": "user",
+      "text": "No. None of the above."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swollen lymph nodes or rash?"
+    },
+    {
+      "role": "user",
+      "text": "I have swollen lymph nodes, but no rash."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any white patches or pus on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I have."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any prior episodes of sore throat like this, or any history of strep throat?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you taken any medications or treatments for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "I've tried tea with honey and some day but that's it. Nothing really helped."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling or pain in your jaw or neck that makes opening your mouth difficult?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of recent exposure to someone with strep throat or similar symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "My son had strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have symptoms most consistent with strep throat, especially given your fever, sore throat with white patches, swollen lymph nodes, and recent exposure to strep. Because you have a penicillin allergy, medication like azithromycin or clindamycin may be appropriate. A licensed physician will review this information and decide if prescribing one of these antibiotics is right for you. \n\nSince this is a phone visit, I can’t examine you or do tests, so if your symptoms get worse—like trouble breathing or swallowing, or if you develop severe pain or swelling—you should seek urgent in-person care right away. If you notice signs of airway blockage or severe illness, go to the emergency room immediately. \n\nNext, a doctor will review your case and may prescribe medication if appropriate. Meanwhile, you can use acetaminophen or ibuprofen for pain and fever if you can take them safely. If you need an in-person exam or testing, please visit urgent care or your primary care provider."
+    }
+  ]
+}

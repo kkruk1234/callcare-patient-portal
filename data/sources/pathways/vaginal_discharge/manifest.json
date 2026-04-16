@@ -1,0 +1,33 @@
+{
+  "pathway_id": "vaginal_discharge",
+  "sources": [
+    {
+      "id": "vaginal_discharge_src_1",
+      "source_id": "vaginal_discharge_src_1",
+      "title": "vaginal_discharge guideline references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "vaginal_discharge_src_2",
+      "source_id": "vaginal_discharge_src_2",
+      "title": "vaginal_discharge guideline references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "vaginal_discharge_src_3",
+      "source_id": "vaginal_discharge_src_3",
+      "title": "vaginal_discharge guideline references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "vaginal_discharge_src_4",
+      "source_id": "vaginal_discharge_src_4",
+      "title": "vaginal_discharge guideline references (starter)",
+      "url": "https://www.acog.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

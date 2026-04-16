@@ -1,0 +1,26 @@
+id: depression_crisis
+version: 0.1
+match:
+  any_keywords: ["suicidal", "want to die", "can't go on", "hurt myself", "self harm", "end my life", "suicide", "i'm not safe"]
+questions:
+  - id: immediate
+    prompt: "Are you thinking about harming yourself right now? (yes/no)"
+    store_as: active_self_harm
+    type: yesno
+
+  - id: plan
+    prompt: "Do you have a plan or means to harm yourself? (yes/no)"
+    store_as: plan_or_means
+    type: yesno
+
+  - id: alone
+    prompt: "Are you alone right now? (yes/no)"
+    store_as: alone
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["immediate", "plan", "alone"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

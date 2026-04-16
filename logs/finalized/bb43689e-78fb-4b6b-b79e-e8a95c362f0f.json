@@ -1,0 +1,57 @@
+{
+  "packet_id": "bb43689e-78fb-4b6b-b79e-e8a95c362f0f",
+  "created_at": "2026-03-20T16:39:04.834223+00:00",
+  "session_id": "e641e4ad-ee4d-42cc-aacc-4fe7d6961e92",
+  "pathway_id": "",
+  "base_queries": [
+    "depression management guidelines adults with liver disease",
+    "antidepressant treatment dosing and contraindications in adults",
+    "red flags and return precautions for depression patients"
+  ],
+  "queries": [
+    "AAFP depression management guidelines adults with liver disease",
+    "AAFP antidepressant treatment dosing and contraindications in adults",
+    "MedlinePlus depression management guidelines adults with liver disease",
+    "MedlinePlus antidepressant treatment dosing and contraindications in adults",
+    "CDC depression management guidelines adults with liver disease",
+    "CDC antidepressant treatment dosing and contraindications in adults",
+    "NIH depression management guidelines adults with liver disease",
+    "NIH antidepressant treatment dosing and contraindications in adults",
+    "NICE depression management guidelines adults with liver disease",
+    "NICE antidepressant treatment dosing and contraindications in adults",
+    "WHO depression management guidelines adults with liver disease",
+    "WHO antidepressant treatment dosing and contraindications in adults"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Depression: Screening and Diagnosis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/1015/p508.html",
+      "accessed": "2026-03-20",
+      "snippet": "Depression affects an estimated 8% of persons in the United States and accounts for more than $210 billion in health care costs annually. The U.S. Preventive Services Task Force (USPSTF) and American Academy of Family Physicians recommend screening for depression in the general adult population. Additionally, the USPSTF recommends screening children and adolescents 12 to 18 years of age for major depressive disorder. All screening should be implemented with adequate systems in place to ensure accurate diagnosis, effective treatment, and appropriate follow-up. The two-item and nine-item Patient Health Questionnaires (PHQs) are commonly used validated screening tools. The PHQ-2 has sensitivity comparable with the PHQ-9 in most populations; however, the specificity of the PHQ-9 ranges from 91% to 94%, compared with 78% to 92% for the PHQ-2. If the PHQ-2 is positive for depression, the PHQ-9"
+    },
+    {
+      "title": "Recommendations | Depression in adults: treatment and management | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng222/chapter/recommendations",
+      "accessed": "2026-03-20",
+      "snippet": "in people taking 20 mg fluoxetine a day, a period of alternate day dosing can provide a suitable dose reduction in people taking higher doses (40 mg to 60 mg fluoxetine a day), use a gradual withdrawal schedule."
+    },
+    {
+      "title": "Recommendations | Depression in children and young people: identification and management | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng134/chapter/recommendations",
+      "accessed": "2026-03-20",
+      "snippet": "A child or young person prescribed an antidepressant should be closely monitored for the appearance of suicidal behaviour, self‑harm or hostility, particularly at the beginning of treatment, by the prescribing doctor and the healthcare professional delivering the psychological therapy. Unless it is felt that medication needs to be started immediately, symptoms that might be subsequently interpreted as side effects should be monitored for 7 days before prescribing. Once medication is started the patient and their parents or carers should be informed that if there is any sign of new symptoms of these kinds, urgent contact should be made with the prescribing doctor. [2005]"
+    },
+    {
+      "title": "Management of Major Depression: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0300/practice-guidelines-depression.html",
+      "accessed": "2026-03-20",
+      "snippet": "For patients with uncomplicated major depression who are not pregnant or breastfeeding and prefer herbal therapy, St. John’s wort, which reduces symptoms more than placebo and is comparable to antidepressant medications, is an option. Adverse effects are less common than with standard antidepressants and include gastrointestinal upset, mild sedation, restlessness, photosensitivity, and serotonin syndrome. As a cytochrome P450 3A4 enzyme inducer, St. John’s wort can reduce the effectiveness of some medications, including oral contraceptives. Dosing is three times daily, starting at 300 mg per dose. Because St. John’s wort is an herbal medication, dosing may not be consistent among formulations."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male reporting feeling depressed on and off for approximately three months. He denies any suicidal ideation. He describes significant symptoms including poor appetite, low energy, difficulty falling asleep, early morning awakening, and fragmented sleep totaling about six hours with only three hours uninterrupted. He also reports loss of interest in previously enjoyed activities such as playing pickleball. There are no current treatments or medications for depression.\n\nO: Phone encounter only; no physical exam or vitals available.\n\nA: The working diagnosis is major depressive disorder, given the duration of symptoms, mood changes, sleep disturbance, appetite loss, and anhedonia.\nDifferential:\n1. Major depressive disorder\n2. Adjustment disorder with depressed mood\n3. Hypothyroidism or other medical causes of depression\n4. Substance-induced mood disorder\n\nP: - First-line medication: Sertraline 50 mg orally once daily (Physician must verify medication/dosing)\n- Alternatives: Bupropion 150 mg orally once daily (Physician must verify medication/dosing)\n- Medication safety considerations: Given the patient's liver disease, monitor liver function closely and adjust dosing as needed; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if suicidal thoughts develop or symptoms worsen significantly; routine follow-up in 2-4 weeks to assess treatment response and side effects.\n- Testing: Baseline liver function tests and thyroid function tests to evaluate for medical contributors to depression."
+}

@@ -1,0 +1,47 @@
+id: dental_pain
+version: 0.1
+match:
+  any_keywords: ["toothache", "tooth pain", "dental", "gum swelling", "abscess", "jaw pain"]
+questions:
+  - id: duration
+    prompt: "How long have you had the tooth or gum pain?"
+    store_as: duration
+
+  - id: facial_swelling
+    prompt: "Do you have facial swelling, swelling under the jaw, or trouble opening your mouth? (yes/no)"
+    store_as: facial_swelling
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_dental_abscess"]
+
+  - id: trouble_breathing_swallowing
+    prompt: "Any trouble breathing, drooling, or trouble swallowing? (yes/no)"
+    store_as: airway_symptoms
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["airway_red_flag"]
+
+  - id: fever
+    prompt: "Do you have a fever or feel very ill? (yes/no)"
+    store_as: fever
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["systemic_infection_dental"]
+
+  - id: immunocompromised
+    prompt: "Do you have a weakened immune system? (yes/no)"
+    store_as: immunocompromised
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["immunocompromised_dental"]
+
+stop_rules:
+  - if_all_answered: ["duration", "facial_swelling", "trouble_breathing_swallowing", "fever", "immunocompromised"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

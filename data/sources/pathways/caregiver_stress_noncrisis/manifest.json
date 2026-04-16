@@ -1,0 +1,12 @@
+{
+  "pathway_id": "caregiver_stress_noncrisis",
+  "sources": [
+    {
+      "id": "caregiver_stress_noncrisis_ref",
+      "source_id": "caregiver_stress_noncrisis_ref",
+      "title": "Caregiver stress: resources overview (starter)",
+      "url": "https://www.nia.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Clinician-facing medication/dosing protocol for: gerd_nausea
+# Tier 1 reviewer approval required.
+
+rx_options:
+  - med: "H2 blocker (e.g., famotidine)"
+    dosing: "Standard guideline dosing; renal adjustment as needed."
+    exclusions: "Alarm features require evaluation."
+    notes: "Short trial if stable."
+
+  - med: "PPI trial"
+    dosing: "Standard short course per guideline if frequent symptoms."
+    exclusions: "Alarm features (GI bleed, dysphagia) require evaluation."
+    notes: "Consider if persistent."
+
+supportive_care:
+  - item: "Lifestyle"
+    details: "Avoid late meals/trigger foods; elevate head of bed; avoid NSAIDs if worsening."
+
+followup_and_safety:
+  - item: "Escalate"
+    details: "Exertional chest pressure/syncope/severe dyspnea → ED; GI bleed signs → ED; dysphagia → urgent today."

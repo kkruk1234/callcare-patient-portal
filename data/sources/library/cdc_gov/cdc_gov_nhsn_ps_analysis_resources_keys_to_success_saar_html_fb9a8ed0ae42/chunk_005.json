@@ -1,0 +1,10 @@
+{
+  "title": "Keys to Success with the SAAR | Analysis Resources | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/ps-analysis-resources/keys-to-success-saar.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "e &ldquo;No Records Met Your Criteria&rdquo; message when you try to generate a SAAR? Try these quick fixes below to get your SAAR reports up and running.\nGenerate data sets \nNewly uploaded data aren&rsquo;t available in analysis reports until you generate new data sets within NHSN. Be sure to check the &ldquo;Timeboxing&rdquo; and generate new data sets after uploading data into NHSN. See the Generating Datasets Guide [PDF &ndash; 500 KB] for more information.\nCheck your user rights \nNHSN uses the Patient Safety Annual Facility Survey for risk adjustment in the SAARs. Without access to the survey data, you cannot view the SAAR data. Review and correct your user rights with your NHSN Facility Administrator and then generate new data sets. Refer to the guidance document that outlines minimum AU rights [PDF &ndash; 400 KB] .\nCheck the location type \nWhile NHSN encourages facilities to submit AU data from all NHSN-defined inpatient locations, facility-wide inpatient (FacWideIN), and select outpatient acute-care settings (specifically, Emergency Department, Pediatric Emergency Department and 24-hour Observation Area), you can only generate a SAAR for the specific locations included in each SAAR baseline. You can find a list of the locations you can generate 2017 or 2018 baseline SAARs for in Table 5 of the AUR Module Protocol [PDF &ndash; 1 MB] . In the future, as more facilities s",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_ps_analysis_resources_keys_to_success_saar_html_fb9a8ed0ae42",
+  "chunk_id": "chunk_005"
+}

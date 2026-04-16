@@ -1,0 +1,24 @@
+id: tick_bite
+version: 0.1
+match:
+  any_keywords: ["tick bite", "tick on me", "deer tick", "lyme", "bullseye rash", "erythema migrans"]
+questions:
+  - id: fever
+    prompt: "Do you have any of these: fever, chills, severe headache, body aches, or stiff neck? Reply with all that apply, or say none."
+  - id: rash
+    prompt: "Is there an expanding rash, especially a bullseye-like rash? (yes/no)"
+    store_as: systemic_symptoms
+  - id: duration
+    prompt: "Do you know how long the tick may have been attached? (under 24 hours / 24-72 hours / over 72 hours / unknown)"
+    store_as: tick_attachment_timeframe
+  - id: location
+    prompt: "What state are you in (or where was the exposure)?"
+    store_as: exposure_location
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? (yes/no/unknown)"
+    store_as: pregnancy_possible
+stop_rules:
+  - if_all_answered: ["fever", "rash", "duration", "location", "systemic_symptoms", "tick_attachment_timeframe", "pregnancy_possible"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

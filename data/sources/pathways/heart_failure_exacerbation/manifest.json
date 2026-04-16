@@ -1,0 +1,12 @@
+{
+  "pathway_id": "heart_failure_exacerbation",
+  "sources": [
+    {
+      "id": "heart_failure_exacerbation_ref",
+      "source_id": "heart_failure_exacerbation_ref",
+      "title": "Heart failure symptom guidance (starter)",
+      "url": "https://www.nhlbi.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

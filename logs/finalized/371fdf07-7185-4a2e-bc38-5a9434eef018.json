@@ -1,0 +1,135 @@
+{
+  "packet_id": "09123597-caf7-4e1b-bc11-1f54db3089b8",
+  "created_at": "2026-02-13T13:05:03.039071+00:00",
+  "session_id": "371fdf07-7185-4a2e-bc38-5a9434eef018",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your elbow pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly on your elbow the pain is located?",
+    "intake_a2": "the outside on the bone",
+    "intake_q3": "What activities or injuries, if any, preceded the onset of your elbow pain?",
+    "intake_a3": "I was playing tennis",
+    "intake_q4": "Any swelling, redness, or warmth around the elbow?",
+    "intake_a4": "no",
+    "intake_q5": "Any numbness, tingling, or weakness in your hand or arm?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for your elbow pain, and did they help?",
+    "intake_a6": "Icing, but only the first day. It helped at little.",
+    "intake_q7": "Any pain or difficulty when you try to grip or lift objects with your hand?",
+    "intake_a7": "a little",
+    "intake_q8": "Any fever, chills, or other signs of infection since the pain started?",
+    "intake_a8": "no",
+    "intake_q9": "Any prior history of elbow problems or other joint issues?",
+    "intake_a9": "no",
+    "intake_summary": "Patient has 3 weeks of lateral elbow pain after playing tennis, no swelling, redness, or neurologic symptoms, mild grip difficulty, and minimal relief from initial icing. No prior joint issues or signs of infection.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/tennis-elbow/",
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://medlineplus.gov/tendinitis.html",
+        "https://medlineplus.gov/infectiousarthritis.html",
+        "https://www.nhs.uk/conditions/reactive-arthritis/",
+        "https://medlineplus.gov/sportsinjuries.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a 3-week history of pain localized to the outside of her elbow bone. The pain began after playing tennis and is described as mild but persistent. She reports no swelling, redness, warmth, numbness, tingling, or weakness in the hand or arm. She has experienced slight difficulty gripping or lifting objects. Initial treatment with icing on the first day provided minimal relief. There are no systemic symptoms such as fever or chills, and no prior history of elbow or joint problems. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe clinical presentation is consistent with lateral epicondylitis (tennis elbow), characterized by lateral elbow pain following repetitive wrist extension activities such as tennis. The absence of swelling, redness, or neurologic symptoms supports this diagnosis.\n\nDifferential: \n1. Lateral epicondylitis (tennis elbow) \n2. Radial tunnel syndrome \n3. Osteoarthritis of the elbow \n4. Referred pain from cervical radiculopathy \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain relief and inflammation reduction. \n- Alternatives: Acetaminophen for pain control if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; ensure patient is aware of dosing limits and potential side effects. \n- Return precautions: Advise the patient to seek care if pain worsens, if there is new swelling, redness, warmth, numbness, tingling, weakness, or if systemic symptoms such as fever develop. \n- Testing: Not indicated at this time given the typical presentation; consider imaging or referral if symptoms persist beyond 6-8 weeks or worsen despite conservative management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "rvices without needing a referral from a GP. Get NHS help for back or joint problems Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treat…"
+      },
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+      },
+      {
+        "title": "Tendinitis: MedlinePlus",
+        "source": "https://medlineplus.gov/tendinitis.html",
+        "snippet": "onnect muscles to bones. They help your muscles move your bones. Tendinitis is the severe swelling of a tendon. Tendinitis usually happens after repeated injury to an area such as the wrist or ankle. It causes pain and soreness around a joint. Some common forms of tendinitis are named after the sports that increase their risk. They include tennis elbow, golf…"
+      },
+      {
+        "title": "Septic arthritisÂ | Infectious Arthritis | MedlinePlus",
+        "source": "https://medlineplus.gov/infectiousarthritis.html",
+        "snippet": "s Summary Most kinds of arthritis cause pain and swelling in your joints. Joints are places where two bones meet, such as your elbow or knee. Infectious arthritis is an infection in the joint. The infection comes from a bacterial, viral, or fungal infection that spreads from another part of the body. Symptoms of infectious arthritis include: Intense pain in…"
+      },
+      {
+        "title": "Reactive arthritis - NHS",
+        "source": "https://www.nhs.uk/conditions/reactive-arthritis/",
+        "snippet": "﻿ Reactive arthritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Reactive arthritis Reactive arthritis is where your joints become sore and swollen after you&#x27;ve had an infection. It us…"
+      },
+      {
+        "title": "Sports Injuries: MedlinePlus",
+        "source": "https://medlineplus.gov/sportsinjuries.html",
+        "snippet": "ou, but sometimes you can injure yourself when you play sports or exercise. Accidents, poor training practices, or improper gear can cause them. Some people get hurt because they are not in shape. Not warming up or stretching enough can also lead to injuries. The most common sports injuries are: Sprains and strains Knee injuries Swollen muscles Achilles tend…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Tennis elbow - NHS",
+      "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+      "snippet": "﻿ Tennis elbow - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Tennis elbow Tennis elbow is a condition that causes pain around the outside of the elbow. It usually goes away with rest but can…"
+    },
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+    },
+    {
+      "title": "Tendinitis: MedlinePlus",
+      "source": "https://medlineplus.gov/tendinitis.html",
+      "snippet": "onnect muscles to bones. They help your muscles move your bones. Tendinitis is the severe swelling of a tendon. Tendinitis usually happens after repeated injury to an area such as the wrist or ankle. It causes pain and soreness around a joint. Some common forms of tendinitis are named after the sports that increase their risk. They include tennis elbow, golf…"
+    },
+    {
+      "title": "Septic arthritisÂ | Infectious Arthritis | MedlinePlus",
+      "source": "https://medlineplus.gov/infectiousarthritis.html",
+      "snippet": "s Summary Most kinds of arthritis cause pain and swelling in your joints. Joints are places where two bones meet, such as your elbow or knee. Infectious arthritis is an infection in the joint. The infection comes from a bacterial, viral, or fungal infection that spreads from another part of the body. Symptoms of infectious arthritis include: Intense pain in…"
+    },
+    {
+      "title": "Reactive arthritis - NHS",
+      "source": "https://www.nhs.uk/conditions/reactive-arthritis/",
+      "snippet": "﻿ Reactive arthritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Reactive arthritis Reactive arthritis is where your joints become sore and swollen after you&#x27;ve had an infection. It us…"
+    },
+    {
+      "title": "Sports Injuries: MedlinePlus",
+      "source": "https://medlineplus.gov/sportsinjuries.html",
+      "snippet": "ou, but sometimes you can injure yourself when you play sports or exercise. Accidents, poor training practices, or improper gear can cause them. Some people get hurt because they are not in shape. Not warming up or stretching enough can also lead to injuries. The most common sports injuries are: Sprains and strains Knee injuries Swollen muscles Achilles tend…"
+    }
+  ],
+  "state": null
+}

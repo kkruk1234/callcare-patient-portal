@@ -1,0 +1,57 @@
+{
+  "packet_id": "91509289-83be-4eb5-b877-71ec9f849749",
+  "created_at": "2026-03-11T22:15:59.743875+00:00",
+  "session_id": "34b2b84b-98d5-41f9-8ac4-2502e15ef282",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for right lower quadrant abdominal pain in adults",
+    "adult dosing and contraindications for analgesics in abdominal pain",
+    "red flags and urgent testing for abdominal pain above groin"
+  ],
+  "queries": [
+    "AAFP management guidelines for right lower quadrant abdominal pain in adults",
+    "AAFP adult dosing and contraindications for analgesics in abdominal pain",
+    "MedlinePlus management guidelines for right lower quadrant abdominal pain in adults",
+    "MedlinePlus adult dosing and contraindications for analgesics in abdominal pain",
+    "CDC management guidelines for right lower quadrant abdominal pain in adults",
+    "CDC adult dosing and contraindications for analgesics in abdominal pain",
+    "NIH management guidelines for right lower quadrant abdominal pain in adults",
+    "NIH adult dosing and contraindications for analgesics in abdominal pain",
+    "NICE management guidelines for right lower quadrant abdominal pain in adults",
+    "NICE adult dosing and contraindications for analgesics in abdominal pain",
+    "WHO management guidelines for right lower quadrant abdominal pain in adults",
+    "WHO adult dosing and contraindications for analgesics in abdominal pain"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Acute Abdominal Pain in Adults: Evaluation and Diagnosis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0600/acute-abdominal-pain-adults.html",
+      "accessed": "2026-03-11",
+      "snippet": "Clinicians should rapidly identify patients with hemodynamic instability, signs of peritonitis, or pain out of proportion to physical examination findings because these patients often need urgent resuscitation or surgery. 4 Once hemodynamic stability has been confirmed, history and examination help narrow the differential diagnosis. Table 2 lists the value of selected symptoms and signs in presentations of acute abdominal pain. 3 , 5 – 14 Approximately 10% of primary care patients with abdominal pain of any duration require immediate treatment. 15 That proportion in patients with acute pain is likely higher. Delayed or missed diagnoses are associated with increased morbidity and mortality. 16 For example, immunocompromised patients are more likely to have atypical presentations and opportunistic infections, which can lead to a delay in diagnosis and resulting complications. 17"
+    },
+    {
+      "title": "Appendicitis | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/appendicitis.html",
+      "accessed": "2026-03-11",
+      "snippet": "Swelling in the abdomen Loss of appetite Nausea and vomiting Constipation or diarrhea Inability to pass gas Low fever Not everyone with appendicitis has all these symptoms."
+    },
+    {
+      "title": "Prescribing Opioids for Pain: Guidelines From the Centers for Disease Control and Prevention | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/1100/practice-guidelines-opioids-pain.html",
+      "accessed": "2026-03-11",
+      "snippet": "When initiating opioids, the lowest effective dose should be used, especially for opioid-naive patients. This is usually a single dose of morphine equivalent, up to 10 mg, or a dosage of up to 30 mg daily of morphine equivalent ( Table 2 ) . Avoid rapid dosing increases because a risk of sedation, respiratory depression, and overdose can occur. Doses of more than 50 mg do not improve pain relief for most patients with noncancer pain, and overdose risk increases with dosing increases."
+    },
+    {
+      "title": "Appendicitis: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000256.htm",
+      "accessed": "2026-03-11",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient is a 55-year-old female presenting with cramping abdominal pain that started last night. The pain is localized to the right area just above the groin. She denies fever, chills, nausea, vomiting, changes in bowel movements, difficulty urinating, trauma, history of kidney stones or urinary tract infections, pain or swelling in the groin or testicular area, blood in urine or stool, recent sexual activity, or pregnancy possibility.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is likely a musculoskeletal or gastrointestinal cause of right lower abdominal cramping pain without systemic symptoms.\nDifferential:\n1. Muscular strain or abdominal wall pain\n2. Early appendicitis (without systemic signs yet)\n3. Gastrointestinal causes such as constipation or gas\n4. Hernia (early or small, not yet swollen or painful in groin)\n\nP: - First-line medication: Acetaminophen 500 mg orally every 6 hours as needed for pain (Physician must verify medication/dosing)\n- Alternatives: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no renal or liver disease, not pregnant\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, fever develops, vomiting occurs, or new symptoms such as swelling or urinary changes arise. Seek emergency care if severe pain or signs of acute abdomen develop.\n- Testing: Not indicated at this time based on telephone assessment; consider imaging or labs if symptoms progress or do not improve"
+}

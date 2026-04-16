@@ -1,0 +1,10 @@
+{
+  "title": "Promoting Interoperability Program | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/cdaportal/datainteroperability.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "l Use and Resistance reporting. Use this site to check if your vendor has been certified . \nFacilities that have registered their intent shall receive a data submission status report monthly regarding whether AUR data are successfully uploaded to NHSN. An email shall be sent to the Facility Administrator and two optional emails as designated on the AUR PI Program registration page. Registered facilities will receive an emailed annual report detailing the previous year&rsquo;s submissions of AUR data on February 1 of each year. \nFor more detailed information on NHSN CDA files, view the NHSN CDA Submission Support Portal (CSSP) site. \nDownload AU and AR CDA Toolkits \nToolkits include Extensible Markup Language (XML) samples, helpful hints, vocabulary, business rule information, important links, etc. \nTop of Page AUR Synthetic Data Set Validation \nFacilities are required to use vendor software that has been validated by NHSN. The NHSN vendor validation process involves using NHSN-provided synthetic data to confirm vendor software can accurately compile and aggregate AU and AR data according the NHSN AUR Module protocol. Vendors, please see the AUR SDS webpage for details on this initiative.\nTop of Page AUR Promoting Interoperability Program Validation Tool \nTo be considered a meaningful user and avoid a downward payment adjustment, eligible hospitals and CAHs attesting to the Medi",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_cdaportal_datainteroperability_html_dab5c2515c9c",
+  "chunk_id": "chunk_004"
+}

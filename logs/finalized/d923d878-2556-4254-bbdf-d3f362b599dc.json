@@ -1,0 +1,89 @@
+{
+  "packet_id": "69376c81-f72b-4043-a26b-3eb4593a9c5a",
+  "created_at": "2026-02-21T14:08:50.734175+00:00",
+  "session_id": "d923d878-2556-4254-bbdf-d3f362b599dc",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent trauma or injury to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since your back pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a6": "I tried tylenol and it didn't help much",
+    "intake_q7": "Any pain with breathing or coughing?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of kidney problems, such as infections or stones?",
+    "intake_a8": "no",
+    "intake_q9": "Any recent activities or movements that seemed to trigger or worsen your back pain?",
+    "intake_a9": "leaning against it when sitting makes it worse as well as poor posture",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately three weeks ago. She denies any recent trauma, fever, chills, unexplained weight loss, numbness, weakness, or tingling in her legs or feet. The pain worsens with leaning against the area when sitting and with poor posture. She has tried acetaminophen (Tylenol) with minimal relief. There is no pain associated with breathing or coughing. She has no history of kidney problems, osteoporosis, cancer, or recent infections. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain likely related to poor posture and mechanical strain. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Costovertebral joint dysfunction \n3. Intercostal muscle strain \n4. Early presentation of a rib or vertebral pathology (less likely given absence of trauma or systemic symptoms)\n\nP: \n - First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, not to exceed 1200 mg per day. \n - Alternatives: Naproxen 250 mg orally twice daily as needed for pain. \n - Medication safety considerations: Use NSAIDs with caution if any gastrointestinal symptoms develop; avoid in patients with known renal or liver disease (not present in this patient). Take with food to minimize gastrointestinal irritation. \n - Return precautions: Return or seek immediate care if pain worsens significantly, if new neurological symptoms develop such as numbness, weakness, or tingling in the legs or feet, if fever or chills occur, or if there is unexplained weight loss. \n - Testing: Not indicated at this time given the absence of red flag symptoms; consider imaging if symptoms persist beyond 6 weeks or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "Find out how to relieve back pain, what can cause it, and when to get medical advice."
+      },
+      {
+        "title": "Back Pain",
+        "source": "https://medlineplus.gov/backpain.html",
+        "snippet": "Lumbago is pain on the lower part of your back. Back pain is very common. Treatment varies from medicines to surgery depending on the cause and kind of pain."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back pain - NHS",
+      "source": "https://www.nhs.uk/conditions/back-pain/",
+      "snippet": "Find out how to relieve back pain, what can cause it, and when to get medical advice."
+    },
+    {
+      "title": "Back Pain",
+      "source": "https://medlineplus.gov/backpain.html",
+      "snippet": "Lumbago is pain on the lower part of your back. Back pain is very common. Treatment varies from medicines to surgery depending on the cause and kind of pain."
+    }
+  ],
+  "state": null
+}

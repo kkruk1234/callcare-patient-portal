@@ -1,0 +1,21 @@
+{
+  "pathway_id": "cat_bite_wound",
+  "version": "0.2",
+  "sources": [
+    {
+      "title": "CDC — Tetanus (clinical overview and vaccination guidance)",
+      "url": "https://www.cdc.gov/tetanus/index.html",
+      "type": "guideline"
+    },
+    {
+      "title": "AAFP — Dog and Cat Bites (clinical review; wound care, infection risk, antibiotics, tetanus/rabies considerations)",
+      "url": "https://www.aafp.org/pubs/afp/issues/2014/0815/p239.html",
+      "type": "review"
+    },
+    {
+      "title": "IDSA — Practice Guidelines for Skin and Soft Tissue Infections (management considerations relevant to bite wounds)",
+      "url": "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/",
+      "type": "guideline"
+    }
+  ]
+}

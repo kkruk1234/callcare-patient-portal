@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAa6876143c73271e5a4de328bf36c5eea",
+  "session_id": "d7a03834-2fec-4c2a-9a5c-36f0c3303bb2",
+  "from_number": "+16318072183",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-13T13:55:26.203753+00:00",
+  "ended_at": "2026-03-13T14:00:28.209574+00:00",
+  "packet_id": "974df90a-ae65-4212-91a1-4f3c9d1ff74a",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a very bad headache."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your headache start?"
+    },
+    {
+      "role": "user",
+      "text": "It started yesterday."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the location of your headache?"
+    },
+    {
+      "role": "user",
+      "text": "It's behind my eyes."
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea, vomiting, or sensitivity to light or sound with your headache?"
+    },
+    {
+      "role": "user",
+      "text": "Vomiting."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, neck stiffness, or recent head trauma?"
+    },
+    {
+      "role": "user",
+      "text": "Next distance."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about what you mean by 'Next distance' when I asked about fever, neck stiffness, or recent head trauma?"
+    },
+    {
+      "role": "user",
+      "text": "Neck stiffness."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever or recent head trauma?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any changes in your vision, weakness, numbness, difficulty speaking, or confusion?"
+    },
+    {
+      "role": "user",
+      "text": "My eyes are blurry."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of migraines or similar headaches in the past?"
+    },
+    {
+      "role": "user",
+      "text": "History of migraines."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any weakness, numbness, difficulty speaking, or confusion along with your headache?"
+    },
+    {
+      "role": "user",
+      "text": "Numbness in my left hand."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any difficulty with balance, coordination, or walking since the headache started?"
+    },
+    {
+      "role": "user",
+      "text": "Dizziness."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "73."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "You described a very severe headache with concerning symptoms like neck stiffness, vomiting, blurry vision, numbness, and dizziness. These signs suggest a potentially serious condition that needs urgent in-person evaluation to rule out things like bleeding in the brain, infection, or stroke. Because this is a phone visit, I can’t examine you or run tests, so it’s important you seek emergency or urgent care right away for proper evaluation and imaging. A licensed physician will review this note, but no medication is recommended over the phone at this time. If you develop worsening symptoms such as sudden weakness, difficulty speaking, loss of consciousness, or severe confusion, please go to the emergency room immediately. Otherwise, please get urgent medical care today to ensure your safety."
+    }
+  ]
+}

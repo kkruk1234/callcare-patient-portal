@@ -1,0 +1,135 @@
+{
+  "packet_id": "5fe6cac6-f403-4be2-a4e6-cae1191a9be4",
+  "created_at": "2026-02-20T20:07:57.099776+00:00",
+  "session_id": "2cd752d5-f7b5-4adf-82fc-da2dac4e34cd",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a4": "no",
+    "intake_q5": "Have you had any recent trauma or injury to your back or ribs?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a6": "I tried tylenol but it didn't help much",
+    "intake_q7": "Any recent cough, shortness of breath, or chest pain?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of kidney problems or urinary symptoms like pain or blood in urine?",
+    "intake_a8": "no",
+    "intake_q9": "Any recent weight loss, fatigue, or other unexplained symptoms?",
+    "intake_a9": "no",
+    "intake_q10": "Have you noticed any swelling, redness, or tenderness over the painful area?",
+    "intake_a10": "tenderness",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/endocarditis.html",
+        "https://www.nhs.uk/conditions/pericarditis/",
+        "https://medlineplus.gov/lab-tests/strep-b-test/",
+        "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+        "https://www.cdc.gov/flu/signs-symptoms/index.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She reports tenderness over the painful area but denies any fever, chills, night sweats, numbness, weakness, tingling in the legs or feet, recent trauma, cough, shortness of breath, chest pain, urinary symptoms, or unexplained weight loss or fatigue. She has tried acetaminophen (Tylenol) without significant relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is mechanical musculoskeletal back pain localized to the left lower rib cage area, likely due to strain or minor soft tissue injury given the absence of systemic symptoms or neurological deficits. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Costochondritis or rib inflammation \n3. Intercostal muscle strain \n4. Early herpes zoster (pre-eruption phase) \n\nP:\nTreatment:\n- First-line: Acetaminophen 500-1000 mg every 6 hours as needed for pain, not to exceed 3000 mg per day.\n- Alternatives: Ibuprofen 400-600 mg every 6-8 hours as needed for pain, not to exceed 3200 mg per day, or Naproxen 250-500 mg every 12 hours as needed, not to exceed 1000 mg per day.\n\nTesting:\n- No imaging is indicated at this time as there are no red flags present. If symptoms worsen or do not improve in 4-6 weeks, consider re-evaluation and possible imaging.\n\nReturn precautions:\n- Return to clinic or seek immediate care if experiencing worsening pain, new neurological symptoms (numbness, weakness), or any signs of systemic illness (fever, unexplained weight loss).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "AAFP: Mechanical Low Back Pain",
+        "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "snippet": "This source provides guidelines on the management of mechanical low back pain, which is relevant to the patient's diagnosis."
+      },
+      {
+        "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+        "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "snippet": "This resource offers patient-friendly information on managing back pain, including self-care strategies."
+      },
+      {
+        "title": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)",
+        "source": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+        "snippet": "This source discusses when imaging is appropriate for low back pain, helping to identify red flags."
+      },
+      {
+        "title": "AAFP: VA/DoD Low Back Pain Guideline Summary",
+        "source": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+        "snippet": "This guideline summary provides insights into evaluating low back pain and identifying serious conditions."
+      },
+      {
+        "title": "Back Injuries | MedlinePlus",
+        "source": "https://medlineplus.gov/backinjuries.html",
+        "snippet": "This source covers various back injuries and their management, relevant to the patient's condition."
+      },
+      {
+        "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/chestinjuriesanddisorders.html",
+        "snippet": "This resource discusses chest injuries, which may be relevant given the localization of the patient's pain."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Endocarditis | Infective Endocarditis | IE | MedlinePlus",
+      "source": "https://medlineplus.gov/endocarditis.html",
+      "snippet": "or very mild. They may start suddenly or slowly. And they can vary from person to person. The possible symptoms of endocarditis include: Fever and chills New or worsening heart murmur (an unusual sound heard between heartbeats) Chest pain Cough Muscle, joint, and back pain Night sweats (heavy sweating during sleep) Shortness of breath (feeling like you can't…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/900fa94e5b4c0ed8/content.txt",
+      "snippet": "ing, usually in the area of the 2nd and 3rd ribs. - Traumatic muscle pain and overuse myalgia: This condition is precipitated by exercising the upper extremities vigorously during occupational or sporting activities. Patients may have a history of trauma to the area. Systemic Disorders - Fibromyalgia: Patients may exhibit chest pain but commonly experience c…"
+    },
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+    },
+    {
+      "title": "Strep B Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/strep-b-test/",
+      "snippet": "ng Lack of energy (hard to wake up) Irritability Blue-ish skin color Unstable blood pressure (a pattern where the blood pressure suddenly spikes and then falls back to normal) Kidney problems If you are pregnant, you usually do not feel sick or have any symptoms of GBS. Symptoms of bacteremia include: Fever Chills Low alertness Symptoms of pneumonia include:…"
+    },
+    {
+      "title": "Broken or bruised ribs - NHS",
+      "source": "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+      "snippet": "﻿ Broken or bruised ribs - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Broken or bruised ribs Bruised or broken ribs can be very painful, but usually heal by themselves. Symptoms of bruised o…"
+    },
+    {
+      "title": "Signs and Symptoms of Flu | Influenza (Flu) | CDC",
+      "source": "https://www.cdc.gov/flu/signs-symptoms/index.html",
+      "snippet": "Flu) Symptom onset Gradual Abrupt Fever Rare Common; lasts 3-4 days Aches Slight Common; often severe Chills Uncommon Fairly common Fatigue, weakness Sometimes Usual Sneezing Common Sometimes Chest discomfort, cough Mild to moderate; hacking cough Common; can be severe Stuffy nose Common Sometimes Sore throat Common Sometimes Headache Rare Common Emergency W…"
+    }
+  ],
+  "state": null
+}

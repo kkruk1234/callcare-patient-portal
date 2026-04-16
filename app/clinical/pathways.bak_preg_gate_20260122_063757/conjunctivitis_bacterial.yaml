@@ -1,0 +1,31 @@
+id: conjunctivitis_bacterial
+version: 0.1
+match:
+  any_keywords: ["goopy eye", "eye crusting", "stuck shut", "eye discharge", "yellow discharge", "eye pus", "crusted eye"]
+questions:
+  - id: vision_change
+    prompt: "Any new vision loss or a major change in vision? (yes/no)"
+    store_as: vision_loss
+    type: yesno
+
+  - id: contact_lens
+    prompt: "Do you wear contact lenses? (yes/no)"
+    store_as: contact_lens
+    type: yesno
+
+  - id: severe_pain
+    prompt: "Is the eye pain severe, or are you very sensitive to light? (yes/no)"
+    store_as: severe_pain_or_photophobia
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever or swelling around the eye/eyelid that is worsening? (yes/no)"
+    store_as: fever_or_periorbital_swelling
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["vision_change", "contact_lens", "severe_pain", "fever"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

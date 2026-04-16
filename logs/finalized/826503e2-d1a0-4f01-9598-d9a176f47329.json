@@ -1,0 +1,134 @@
+{
+  "packet_id": "96297bf0-024e-424b-8342-bf8ebb752eb1",
+  "created_at": "2026-02-08T18:10:17.784892+00:00",
+  "session_id": "826503e2-d1a0-4f01-9598-d9a176f47329",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, burning, or pressure-like?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "next to sternum on the right and it doesn't radiate",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or palpitations with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, heavy lifting, or coughing that might have triggered the chest pain?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Any fever, chills, or recent infections?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a7": "no",
+    "intake_q8": "Any swelling, redness, or tenderness over the chest wall where the pain is?",
+    "intake_a8": "tenderness",
+    "intake_q9": "Can you describe the tenderness—does it worsen with movement, deep breaths, or pressing on the area?",
+    "intake_a9": "worse with pressing on the area and deep breaths",
+    "intake_q10": "Have you tried any treatments or medications for the chest pain, and did they help?",
+    "intake_a10": "no",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartattack.html",
+        "https://www.nhs.uk/conditions/pericarditis/",
+        "https://medlineplus.gov/lab-tests/troponin-test/",
+        "https://www.nhs.uk/conditions/costochondritis/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain located next to the right side of the sternum that started one week ago. The pain does not radiate and is associated with tenderness over the chest wall. The tenderness worsens with pressing on the area and with deep breaths. There are no associated symptoms such as shortness of breath, sweating, nausea, or palpitations. The pain began after heavy lifting. The patient denies fever, chills, recent infections, or history of heart disease, lung problems, or blood clots. She has not tried any treatments or medications yet. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nThe working diagnosis is musculoskeletal chest pain likely due to chest wall strain from heavy lifting. The localized tenderness and pain exacerbated by palpation and deep breaths support this diagnosis.\n\nDifferential: \n1. Costochondritis \n2. Muscle strain or chest wall injury \n3. Pleuritis \n4. Less likely cardiac causes given absence of radiation, associated symptoms, or risk factors \n\nP: \n- First-line medication: \n Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 7 days. Avoid if history of allergy to NSAIDs, active gastrointestinal bleeding, or severe renal impairment. \n\n- Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, for 7 days; avoid if liver disease or allergy to acetaminophen. \n - Naproxen 250 mg orally twice daily as needed for pain, for 7 days; avoid if allergy to NSAIDs or severe renal impairment. \n\n- Medication safety considerations: \n No known medication allergies. Patient is not pregnant and has no known renal or liver disease. NSAIDs should be used cautiously if any new contraindications arise. \n\n- Return precautions: \n Advise the patient to seek urgent care if chest pain worsens, becomes pressure-like or radiates, is associated with shortness of breath, sweating, nausea, palpitations, or syncope. \n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "source.json",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "www.nhs.uk authoritative_patient_clinician NHS: practical outpatient management language msk_chest_wall_pain 2026-02-08T14:37:23.207462+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "source.json",
+        "source": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+        "snippet": "www.mayoclinic.org authoritative_patient_clinician Mayo Clinic: diagnosis + treatment overview msk_chest_wall_pain 2026-02-08T14:37:22.062924+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/900fa94e5b4c0ed8/content.txt",
+        "snippet": "9. [PubMed: 20406787] - 11. - Epstein SE, Gerber LH, Borer JS. Chest wall syndrome. A common cause of unexplained cardiac pain. JAMA. 1979 Jun 29;241(26):2793-7. [PubMed: 448839] - 12. - Ayloo A, Cvengros T, Marella S. Evaluation and treatment of musculoskeletal chest pain. Prim Care. 2013 Dec;40(4):863-87, viii. [PubMed: 24209723] - 13. - Expert Panel on Th…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "pain.4 In this series, no definite cause of chest pain was found in 39 percent of cases.4 In a prospective series of children three to 15 years of age presenting to an emergency department or cardiac clinic with chest pain, chest wall pain was the most common diagnosis, with respiratory and psychogenic conditions the next most common diagnoses.13 Costochondr…"
+      },
+      {
+        "title": "Pericarditis - NHS",
+        "source": "https://www.nhs.uk/conditions/pericarditis/",
+        "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+    },
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/3ca85874a0800355/content.txt",
+      "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/0ab356777c93e3b9/content.txt",
+      "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    }
+  ],
+  "state": null
+}

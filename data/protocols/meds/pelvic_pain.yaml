@@ -1,0 +1,13 @@
+rx_options:
+- med: Analgesia
+  dosing: Clinician-directed; avoid dosing in patient summary.
+  exclusions: NSAID contraindications; pregnancy status.
+  notes: Pregnancy possible + severe pain/bleeding/syncope → ED now.
+supportive_care:
+- item: None if red flags
+  details: Do not delay urgent evaluation when red flags are present.
+followup_and_safety:
+- item: Escalate
+  details: Pregnancy possible + severe pain or bleeding/syncope → ED now; fever/severe
+    pain → urgent today.
+requires_pregnancy_status: true

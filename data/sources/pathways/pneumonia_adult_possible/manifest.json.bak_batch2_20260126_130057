@@ -1,0 +1,12 @@
+{
+  "pathway_id": "pneumonia_adult_possible",
+  "sources": [
+    {
+      "id": "pneumonia_adult_possible_cdc",
+      "source_id": "pneumonia_adult_possible_cdc",
+      "title": "Pneumonia/respiratory guidance (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

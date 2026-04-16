@@ -1,0 +1,77 @@
+1. BMC Public Health. 2024 Oct 14;24(1):2820. doi: 10.1186/s12889-024-20248-8.
+
+How, why and when are delayed (back-up) antibiotic prescriptions used in primary 
+care? A realist review integrating concepts of uncertainty in healthcare.
+
+Mcleod M(#)(1)(2), Campbell A(#)(1), Hayhoe B(3)(4), Borek AJ(5), Tonkin-Crine 
+S(5)(6), Moore MV(7), Butler CC(5), Walker AS(6)(8)(9), Holmes A(1), Wong G(10); 
+STEP-UP study team.
+
+Collaborators: Anyanwu PE, Bright N, Buchanan J, Costelloe C, Hopkins S, Majeed 
+A, Morrell L, Pouwels KB, Robotham JV, Roope LSJ, Wordsworth S, Wright C, Yadav 
+S, Zalevski A.
+
+Author information:
+(1)National Institute for Health Research (NIHR) Health Protection Research Unit 
+in Healthcare Associated Infections and Antimicrobial Resistance, Imperial 
+College London, London, UK.
+(2)NIHR Imperial Patient Safety Translational Research Centre, Imperial College 
+London, London, UK.
+(3)Department of Primary Care and Public Health, School of Public Health, 
+Imperial College London, London, UK.
+(4)NIHR Applied Research Collaboration Northwest London, London, UK.
+(5)Nuffield Department of Primary Care Health Sciences, University of Oxford, 
+Oxford, UK.
+(6)NIHR Health Protection Research Unit in Healthcare Associated Infections and 
+Antimicrobial Resistance, University of Oxford, Oxford, UK.
+(7)Primary Care, Population Sciences and Medical Education, Faculty of Medicine, 
+University of Southampton, Southampton, UK.
+(8)NIHR Oxford Biomedical Research Centre, Oxford, UK.
+(9)Nuffield Department of Medicine, University of Oxford, Oxford, UK.
+(10)Nuffield Department of Primary Care Health Sciences, University of Oxford, 
+Oxford, UK. geoffrey.wong@phc.ox.ac.uk.
+(#)Contributed equally
+
+BACKGROUND: Antimicrobial resistance is a global patient safety priority and 
+inappropriate antimicrobial use is a key contributing factor. Evidence have 
+shown that delayed (back-up) antibiotic prescriptions (DP) are an effective and 
+safe strategy for reducing unnecessary antibiotic consumption but its use is 
+controversial.
+METHODS: We conducted a realist review to ask why, how, and in what contexts 
+general practitioners (GPs) use DP. We searched five electronic databases for 
+relevant articles and included DP-related data from interviews with healthcare 
+professionals in a related study. Data were analysed using a realist 
+theory-driven approach - theorising which context(s) influenced (mechanisms) 
+resultant outcome(s) (context-mechanism-outcome-configurations: CMOCs).
+RESULTS: Data were included from 76 articles and 41 interviews to develop a 
+program theory comprising nine key and 56 related CMOCs. These explain the 
+reasons for GPs' tolerance of risk to different uncertainties and how these may 
+interact with GPs' work environment, self-efficacy and perceived patient 
+concordance to make using DP as a safety-net or social tool more or less likely, 
+at a given time-point. For example, when a GP uses clinical scores or diagnostic 
+tests: a clearly high or low score/test result may mitigate scientific 
+uncertainty and lead to an immediate or no antibiotic decision; an intermediary 
+result may provoke hermeneutic (interpretation-related) uncertainty and lead to 
+DP becoming preferred and used as a safety net. Our program theory explains how 
+DP can be used to mitigate some uncertainties but also provoke or exacerbate 
+others.
+CONCLUSION: This review explains how, why and in what contexts GPs are more or 
+less likely to use DP, as well as various uncertainties GPs face which DP may 
+mitigate or provoke. We recommend that efforts to plan and implement 
+interventions to optimise antibiotic prescribing in primary care consider these 
+uncertainties and the contexts when DP may be (dis)preferred over other 
+interventions to reduce antibiotic prescribing. We also recommend the following 
+and have included example activities for: (i) reducing demand for immediate 
+antibiotics; (ii) framing DP as an 'active' prescribing option; (iii) 
+documenting the decision-making process around DP; and (iv) facilitating social 
+and system support.
+
+© 2024. The Author(s).
+
+DOI: 10.1186/s12889-024-20248-8
+PMCID: PMC11476980
+PMID: 39402467 [Indexed for MEDLINE]
+
+Conflict of interest statement: BH works for eConsult, a provider of 
+asynchronous consultations in primary, secondary, and urgent/emergency care. 
+Other authors declare no conflict of interest.

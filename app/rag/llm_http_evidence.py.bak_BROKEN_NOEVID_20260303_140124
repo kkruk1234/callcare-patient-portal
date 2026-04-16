@@ -1,0 +1,333 @@
+from __future__ import annotations
+
+import os
+import re
+import time
+from datetime import date
+from typing import Any, Dict, List, Optional, Tuple
+from urllib.parse import urlparse
+
+
+def _today_iso() -> str:
+    try:
+        return date.today().isoformat()
+    except Exception:
+        return ""
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _host(url: str) -> str:
+    try:
+        u = urlparse(url)
+        h = (u.netloc or "").lower().strip()
+        if h.startswith("www."):
+            h = h[4:]
+        return h
+    except Exception:
+        return ""
+
+
+def _publisher_from_host(h: str) -> str:
+    if not h:
+        return "Source"
+    parts = h.split(".")
+    if len(parts) >= 2:
+        core = parts[-2]
+        return core.upper() if len(core) <= 6 else core.capitalize()
+    return h
+
+
+def _normalize_result_item(item: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """
+    Convert any web search result-like dict into:
+      {title, source, url, accessed, snippet}
+    """
+    if not isinstance(item, dict):
+        return None
+
+    url = _safe_str(item.get("url") or item.get("link") or item.get("source_url") or "")
+    if not (url.startswith("http://") or url.startswith("https://")):
+        return None
+
+    title = _safe_str(item.get("title") or item.get("name") or "")
+    snippet = _safe_str(
+        item.get("snippet")
+        or item.get("description")
+        or item.get("summary")
+        or item.get("text")
+        or ""
+    )
+
+    h = _host(url)
+    source = _safe_str(item.get("source") or item.get("publisher") or "")
+    if not source:
+        source = _publisher_from_host(h)
+
+    # hard clamp title
+    if title:
+        title = re.sub(r"\s+", " ", title).strip()
+        if len(title) > 180:
+            title = title[:177].rstrip() + "..."
+
+    return {
+        "title": title or url[:160],
+        "source": source or "Source",
+        "url": url,
+        "accessed": _today_iso(),
+        "snippet": snippet,
+    }
+
+
+def _extract_web_search_results(resp: Any) -> List[Dict[str, Any]]:
+    """
+    Robust extraction across different OpenAI Responses schemas.
+    We look for any nested structure containing a list of result dicts with 'url' fields.
+    """
+    out: List[Dict[str, Any]] = []
+
+    # 1) Try official SDK patterns: resp.output is a list of items
+    try:
+        output = getattr(resp, "output", None)
+        if isinstance(output, list):
+            for item in output:
+                if isinstance(item, dict):
+                    # tool outputs sometimes live in item["content"] or item["results"]
+                    for key in ("results", "web_search_results"):
+                        if key in item and isinstance(item[key], list):
+                            out.extend([x for x in item[key] if isinstance(x, dict)])
+                    # content blocks
+                    content = item.get("content")
+                    if isinstance(content, list):
+                        for c in content:
+                            if isinstance(c, dict):
+                                if "results" in c and isinstance(c["results"], list):
+                                    out.extend([x for x in c["results"] if isinstance(x, dict)])
+                else:
+                    # some SDKs return objects w/ __dict__
+                    d = getattr(item, "__dict__", None)
+                    if isinstance(d, dict):
+                        if "results" in d and isinstance(d["results"], list):
+                            out.extend([x for x in d["results"] if isinstance(x, dict)])
+    except Exception:
+        pass
+
+    # 2) Try dict-like response
+    try:
+        if isinstance(resp, dict):
+            if "output" in resp and isinstance(resp["output"], list):
+                for item in resp["output"]:
+                    if isinstance(item, dict):
+                        if "results" in item and isinstance(item["results"], list):
+                            out.extend([x for x in item["results"] if isinstance(x, dict)])
+                        content = item.get("content")
+                        if isinstance(content, list):
+                            for c in content:
+                                if isinstance(c, dict) and isinstance(c.get("results"), list):
+                                    out.extend([x for x in c["results"] if isinstance(x, dict)])
+            # older patterns
+            if "results" in resp and isinstance(resp["results"], list):
+                out.extend([x for x in resp["results"] if isinstance(x, dict)])
+    except Exception:
+        pass
+
+    # 3) Last resort: scan any attribute that looks like tool results
+    try:
+        for attr in ("result", "results", "tool_results", "tools"):
+            v = getattr(resp, attr, None)
+            if isinstance(v, list):
+                for x in v:
+                    if isinstance(x, dict) and isinstance(x.get("results"), list):
+                        out.extend([y for y in x["results"] if isinstance(y, dict)])
+    except Exception:
+        pass
+
+    # Normalize to our evidence dict shape
+    normalized: List[Dict[str, Any]] = []
+    for r in out:
+        n = _normalize_result_item(r)
+        if n:
+            normalized.append(n)
+    return normalized
+
+
+def _openai_web_search(query: str, *, timeout_s: int = 12, debug: bool = False) -> List[Dict[str, Any]]:
+    """
+    Single web_search call. No preview tool (cuts latency).
+    Returns normalized evidence dicts: title/source/url/accessed/snippet.
+    """
+    q = _safe_str(query)
+    if not q:
+        return []
+
+    # Delayed import so module import doesn't fail if openai isn't available in some contexts.
+    try:
+        from openai import OpenAI  # type: ignore
+    except Exception:
+        return []
+
+    client = OpenAI()
+
+    # Keep the model configurable via env; default to something you already use in the project.
+    model = os.environ.get("CALLCARE_WEB_SEARCH_MODEL") or os.environ.get("OPENAI_WEB_SEARCH_MODEL") or "gpt-4.1-mini"
+
+    # Short, tool-focused prompt
+    user_msg = f"Find authoritative clinical guidance relevant to: {q}"
+
+    try:
+        resp = client.responses.create(
+            model=model,
+            input=user_msg,
+            tools=[{"type": "web_search"}],
+            timeout=timeout_s,
+        )
+    except Exception as e:
+        if debug:
+            print("WEB_SEARCH_EXCEPTION =", type(e).__name__, str(e)[:180])
+        return []
+
+    results = _extract_web_search_results(resp)
+
+    if debug:
+        # Print a tiny summary without dumping entire response
+        print("WEB_SEARCH_QUERY =", q[:140])
+        print("WEB_SEARCH_RESULTS_LEN =", len(results))
+        if results:
+            print("WEB_SEARCH_FIRST_URL =", results[0].get("url"))
+
+    return results
+
+
+def _dedupe(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    seen = set()
+    for x in items or []:
+        if not isinstance(x, dict):
+            continue
+        url = _safe_str(x.get("url"))
+        key = url.lower()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append(x)
+    return out
+
+
+def _domain_allowed(url: str, allowed_domains: Optional[List[str]]) -> bool:
+    if not allowed_domains:
+        return True
+    h = _host(url)
+    if not h:
+        return False
+    for d in allowed_domains:
+        dd = (d or "").lower().strip()
+        if not dd:
+            continue
+        if h == dd or h.endswith("." + dd):
+            return True
+    return False
+
+
+def _apply_limits(
+    items: List[Dict[str, Any]],
+    *,
+    max_urls: int,
+    max_per_publisher: int,
+) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    counts: Dict[str, int] = {}
+    for x in items:
+        src = _safe_str(x.get("source") or "")
+        key = src.strip().lower() or "source"
+        counts[key] = counts.get(key, 0)
+        if counts[key] >= max_per_publisher:
+            continue
+        counts[key] += 1
+        out.append(x)
+        if len(out) >= max_urls:
+            break
+    return out
+
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    assessment_text: Optional[str] = None,
+    queries: Optional[List[str]] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    max_queries: int = 4,
+    max_per_publisher: int = 1,
+    allowed_domains: Optional[List[str]] = None,
+    debug: bool = False,
+) -> List[Dict[str, Any]]:
+    """
+    Web-only evidence retrieval.
+
+    Returns list[dict] where each dict contains:
+      - title
+      - source (publisher label)
+      - url (REAL URL)
+      - accessed (YYYY-MM-DD)
+      - snippet
+
+    Notes:
+      - No local library, no indexing, no preview calls.
+      - If allowed_domains is provided, results are filtered to those domains.
+      - Tries to meet min_urls by broadening queries slightly if needed (still web_search only).
+    """
+    cc = _safe_str(chief_complaint)
+    ax = _safe_str(assessment_text or "")
+    qs = queries or []
+    qs = [_safe_str(q) for q in qs if _safe_str(q)]
+    qs = qs[: max(1, min(max_queries, 6))]
+
+    if not qs:
+        anchor = " ".join([x for x in [ax, cc] if x]).strip() or cc or "outpatient clinical guidance"
+        qs = [
+            f"{anchor} guideline",
+            f"{anchor} treatment medication dosing duration",
+            f"{anchor} red flags return precautions testing",
+        ][: max(1, min(max_queries, 3))]
+
+    all_items: List[Dict[str, Any]] = []
+    for q in qs:
+        # If allowed_domains provided, we do NOT force a single site: query (too brittle).
+        # We search normally, then filter results to the allowlist.
+        items = _openai_web_search(q, timeout_s=12, debug=debug)
+        if allowed_domains:
+            items = [x for x in items if _domain_allowed(_safe_str(x.get("url")), allowed_domains)]
+        all_items.extend(items)
+
+    all_items = _dedupe(all_items)
+
+    # If we still don't have enough, do one broadened pass (same number of calls as remaining budget)
+    if len(all_items) < min_urls and max_queries > len(qs):
+        extra_budget = min(max_queries - len(qs), 2)
+        broaden = []
+        if cc:
+            broaden.append(f"{cc} evidence based guideline outpatient")
+        if ax and ax != cc:
+            broaden.append(f"{ax} evidence based guideline outpatient")
+        broaden = broaden[:extra_budget]
+        for q in broaden:
+            items = _openai_web_search(q, timeout_s=12, debug=debug)
+            if allowed_domains:
+                items = [x for x in items if _domain_allowed(_safe_str(x.get("url")), allowed_domains)]
+            all_items.extend(items)
+        all_items = _dedupe(all_items)
+
+    # Apply publisher cap + overall cap
+    all_items = _apply_limits(all_items, max_urls=max_urls, max_per_publisher=max_per_publisher)
+
+    if debug:
+        print("EVID_FINAL_LEN =", len(all_items))
+        if all_items:
+            print("EVID_FIRST =", all_items[0].get("title"), all_items[0].get("url"))
+
+    return all_items

@@ -1,0 +1,10 @@
+{
+  "title": "How CDC Classifies Flu Severity each Season in the United States | Influenza (Flu) | CDC",
+  "url": "https://www.cdc.gov/flu/php/surveillance/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "a week in time as additional black bars will be added as time continues and those future weeks will be classified. The dashed lines represent the different threshold values. If a black bar falls below the green dashed line (IT50), the indicator would be classified as having low severity (black bar is only in the green shaded area). If a black bar is between the green dashed line (IT50) and the orange dashed line (IT90), the indicator would be classified as having moderate severity (black bar crosses into the yellow shaded area). If a black bar is between the orange dashed line (IT90) and the red dashed line (IT98), the indicator would be classified as having high severity (black bar crosses into the orange shaded area). If a black bar is above the red dashed line (IT98), the indicator would be classified as having very high severity (black bar crosses into in the red shaded area).\nShow Text Description \nHow researchers classify the severity of each flu season \nFlu severity is assessed across all ages and for three broad age groups using the following data from each season:\nthe percentage of all patient visits to outpatient clinics that are for influenza-like illness (ILI) \nthe rate of flu-related hospitalizations, and \nthe percentage of deaths resulting from flu \nThe Moving Epidemic Method is then used to translate the data into standardized intensity thresholds for each indic",
+  "source_type": "library",
+  "source_id": "cdc_gov_flu_php_surveillance_index_html_0c67f3d290d5",
+  "chunk_id": "chunk_008"
+}

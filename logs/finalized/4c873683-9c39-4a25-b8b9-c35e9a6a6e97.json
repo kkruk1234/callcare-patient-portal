@@ -1,0 +1,62 @@
+{
+  "packet_id": "c1d81fb1-8aea-4e11-824d-2962dc6186f4",
+  "created_at": "2026-01-21T16:14:22.447047+00:00",
+  "session_id": "4c873683-9c39-4a25-b8b9-c35e9a6a6e97",
+  "chief_complaint": "burning when I pee",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "dysuria_uti",
+  "answers": {
+    "sex_at_birth": "female",
+    "duration": "5 days",
+    "fever": "no",
+    "flank": "no",
+    "pregnancy": "no",
+    "discharge": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old female presenting with a 5-day history of burning sensation when urinating. She reports no fever, no flank pain, and no vaginal discharge. She is not pregnant and has a known allergy to sulfa medications.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter. No additional objective data provided.\n\nA:\n - Working diagnosis (most likely): Uncomplicated urinary tract infection (cystitis)\n - Differential:\n  1. Urethritis\n  2. Vaginitis (less likely given no discharge)\n  3. Interstitial cystitis\n  4. Early pyelonephritis (less likely given no fever or flank pain)\n - Red flags considered:\n  No fever, no flank pain, no pregnancy, no vaginal discharge, no signs of systemic infection.\n\nP:\n - Disposition:\n  Patient is stable for outpatient management.\n - Plan:\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Supportive care:\n   - Follow-up and safety:\n  Recommend antibiotic treatment for uncomplicated UTI avoiding sulfa drugs due to allergy. Suggested regimen: Nitrofurantoin 100 mg orally twice daily for 5 days. Alternatives include fosfomycin 3 g single dose or cephalexin 500 mg orally twice daily for 5-7 days. Reviewing physician will confirm appropriateness and prescribe if indicated.\n  Advise increased fluid intake and symptomatic relief measures.\n - Safety net:\n  Instruct patient to seek urgent care if she develops fever, flank pain, worsening symptoms, inability to tolerate oral intake, or signs of systemic illness. If symptoms persist beyond treatment course or worsen, follow-up is recommended.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "IDSA Guideline: Uncomplicated Cystitis and Pyelonephritis",
+        "source": "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/"
+      },
+      {
+        "title": "CDC: Urinary Tract Infection Basics",
+        "source": "https://www.cdc.gov/uti/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/uti/about/index.html"
+      },
+      {
+        "title": "NICE NG109: Urinary Tract Infection (Lower)",
+        "source": "https://www.nice.org.uk/guidance/ng109",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng109"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "IDSA Guideline: Uncomplicated Cystitis and Pyelonephritis",
+      "source": "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/",
+      "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/"
+    },
+    {
+      "title": "CDC: Urinary Tract Infection Basics",
+      "source": "https://www.cdc.gov/uti/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/uti/about/index.html"
+    },
+    {
+      "title": "NICE NG109: Urinary Tract Infection (Lower)",
+      "source": "https://www.nice.org.uk/guidance/ng109",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng109"
+    }
+  ]
+}

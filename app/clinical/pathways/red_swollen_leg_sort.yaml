@@ -1,0 +1,29 @@
+id: red_swollen_leg_sort
+version: 0.3
+
+match:
+  any_keywords:
+    - "red and swollen leg"
+    - "red swollen leg"
+    - "swollen leg"
+    - "one leg swollen"
+    - "unilateral leg swelling"
+    - "calf pain"
+    - "leg swelling"
+
+questions:
+
+  - id: pregnancy_possible
+    prompt: "Is there any chance you are pregnant right now? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: pregnancy_possible
+
+  - id: renal_disease
+    prompt: "Have you ever been told you have kidney disease or reduced kidney function? (yes/no/unknown)"
+    type: text
+    store_as: renal_disease
+
+  - id: leg_sort_discriminator
+    prompt: "Before we go further, which of these apply? Say all that apply (or say 'none'): calf pain/tenderness, skin break/infection/wound/insect bite."
+    type: text
+    store_as: leg_sort_discriminator

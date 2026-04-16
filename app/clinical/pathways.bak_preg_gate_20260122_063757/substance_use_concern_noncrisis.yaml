@@ -1,0 +1,22 @@
+id: substance_use_concern_noncrisis
+version: 0.1
+match:
+  any_keywords: ["substance problem", "using too much", "can't stop using", "drug use", "drinking too much", "concern about alcohol use"]
+questions:
+  - id: overdose
+    prompt: "Are you having trouble staying awake, severe confusion, or trouble breathing? (yes/no)"
+    store_as: overdose_signs
+    type: yesno
+  - id: withdrawal
+    prompt: "Are you having severe shaking, hallucinations, seizures, or fainting? (yes/no)"
+    store_as: severe_withdrawal
+    type: yesno
+  - id: ready
+    prompt: "Are you looking for help to cut down or stop? (yes/no)"
+    store_as: ready_for_help
+    type: yesno
+stop_rules:
+  - if_all_answered: ["overdose", "withdrawal", "ready"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

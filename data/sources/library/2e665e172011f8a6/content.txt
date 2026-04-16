@@ -1,0 +1,1041 @@
+Evidence against a genomic code for nucleosome positioning - PMC
+ 
+
+ Skip to main content
+ 
+
+ An official website of the United States government
+ 
+
+Here's how you know
+
+Here's how you know
+
+Official websites use .gov
+
+ A
+ 
+.gov
+ website belongs to an official
+ government organization in the United States.
+ 
+
+Secure .gov websites use HTTPS
+
+ A 
+lock
+ (
+ 
+
+Lock
+
+ Locked padlock icon
+ 
+
+) or 
+https://
+ means you've safely
+ connected to the .gov website. Share sensitive
+ information only on official, secure websites.
+ 
+
+ Search
+ 
+
+ 
+ 
+ 
+ 
+
+Log in
+
+ 
+
+ 
+ Dashboard
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Publications
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Account settings
+ 
+
+ 
+ 
+
+ 
+ 
+
+ Log out
+
+ 
+ 
+ 
+ 
+
+ Search…
+ 
+
+ Search NCBI
+ 
+
+ Primary site navigation
+ 
+
+ Search
+ 
+
+ Logged in as:
+ 
+
+ 
+
+ 
+ Dashboard
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Publications
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Account settings
+ 
+
+ 
+ 
+
+ 
+ 
+
+ Log in
+
+ 
+ 
+ 
+ 
+
+Search PMC Full-Text Archive
+
+Search in PMC
+
+ Journal List
+ 
+
+ User Guide
+ 
+
+PERMALINK
+
+Copy
+
+ As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+ the contents by NLM or the National Institutes of Health.
+
+ Learn more:
+ 
+PMC Disclaimer
+
+ |
+ 
+
+ PMC Copyright Notice
+ 
+
+Nat Struct Mol Biol
+. Author manuscript; available in PMC: 2016 Feb 5.
+
+Published in final edited form as: 
+Nat Struct Mol Biol. 2010 Aug;17(8):920–923. doi: 
+10.1038/nsmb0810-920
+
+Search in PMC
+
+Search in PubMed
+
+View in NLM Catalog
+
+Add to search
+
+Evidence against a genomic code for nucleosome positioning
+
+Yong Zhang
+
+Yong Zhang
+
+1
+Department of Biostatistics and Computational Biology, Dana-Farber Cancer Institute and Harvard School of Public Health, Boston, Massachusetts, USA
+
+Find articles by 
+Yong Zhang
+
+1
+, 
+Zarmik Moqtaderi
+
+Zarmik Moqtaderi
+
+2
+Department of Biological Chemistry and Molecular Pharmacology, Harvard Medical School, Boston, Massachusetts, USA
+
+Find articles by 
+Zarmik Moqtaderi
+
+2
+, 
+Barbara P Rattner
+
+Barbara P Rattner
+
+3
+Section of Molecular Biology, University of California, San Diego, La Jolla, California, USA
+
+Find articles by 
+Barbara P Rattner
+
+3
+, 
+Ghia Euskirchen
+
+Ghia Euskirchen
+
+4
+Department of Molecular, Cellular, and Developmental Biology, Yale University, New Haven, Connecticut, USA
+
+Find articles by 
+Ghia Euskirchen
+
+4
+, 
+Michael Snyder
+
+Michael Snyder
+
+4
+Department of Molecular, Cellular, and Developmental Biology, Yale University, New Haven, Connecticut, USA
+
+Find articles by 
+Michael Snyder
+
+4
+, 
+James T Kadonaga
+
+James T Kadonaga
+
+3
+Section of Molecular Biology, University of California, San Diego, La Jolla, California, USA
+
+Find articles by 
+James T Kadonaga
+
+3
+, 
+X Shirley Liu
+
+X Shirley Liu
+
+1
+Department of Biostatistics and Computational Biology, Dana-Farber Cancer Institute and Harvard School of Public Health, Boston, Massachusetts, USA
+
+Find articles by 
+X Shirley Liu
+
+1
+, 
+Kevin Struhl
+
+Kevin Struhl
+
+2
+Department of Biological Chemistry and Molecular Pharmacology, Harvard Medical School, Boston, Massachusetts, USA
+
+Find articles by 
+Kevin Struhl
+
+2
+
+Author information
+
+Copyright and License information
+
+1
+Department of Biostatistics and Computational Biology, Dana-Farber Cancer Institute and Harvard School of Public Health, Boston, Massachusetts, USA
+
+2
+Department of Biological Chemistry and Molecular Pharmacology, Harvard Medical School, Boston, Massachusetts, USA
+
+3
+Section of Molecular Biology, University of California, San Diego, La Jolla, California, USA
+
+4
+Department of Molecular, Cellular, and Developmental Biology, Yale University, New Haven, Connecticut, USA
+
+PMC Copyright notice
+
+PMCID: PMC4742340  NIHMSID: NIHMS731367  PMID: 
+20683474
+
+The publisher's version of this article is available at 
+Nat Struct Mol Biol
+
+Zhang 
+et al.
+ reply:
+
+It has been proposed that there is a “genomic code for nucleosome positioning”
+1
+ in which the pattern of nucleosome positions 
+in vivo
+ is determined primarily by the genomic DNA sequence and can be predicted. As experimental support for such “DNA-encoded nucleosome organization,” Kaplan 
+et al.
+2
+ generated genome-wide maps of nucleosomes assembled 
+in vitro
+ with purified histones and concluded that these are highly similar to maps of nucleosomes 
+in vivo
+2
+. However, in similar experiments, we concluded that “intrinsic histone-DNA interactions are not the major determinant of nucleosome positions 
+in vivo
+,”
+3
+ thereby arguing against a nucleosome positioning code. The originally submitted correspondence of Kaplan 
+et al.
+, to which our response was written, was entitled “a genomic code for nucleosome positioning,” and it disputed our analyses and major conclusion. We are pleased to see that the current correspondence
+4
+ has now reduced the role of nucleosome sequence preferences from “encoding” to “influencing” 
+in vivo
+ nucleosome organization and leaves the issue of a code “for others to debate.”
+
+The 
+in vitro
+ mapping data in both studies is quite similar, and there is agreement that intrinsic histone-DNA interactions contribute to certain aspects of nucleosome positioning 
+in vivo
+. The implication that we argue against any biological role of intrinsic histone-DNA interactions is incorrect and indeed inconsistent with our work over the past 25 years
+5
+–
+8
+. Nevertheless, we do disagree on the following: (i) the use of nucleosome occupancy measurements to assess nucleosome positioning; (ii) the impact of systematic errors in nucleosome occupancy measurements that overestimate the similarity between 
+in vivo
+ and 
+in vitro
+ samples; (iii) the ability of 
+in vitro
+ assembled nucleosomes to recapitulate the striking 
+in vivo
+ nucleosomal pattern; and (iv) the meaning of a nucleosome code. An independent analysis
+9
+ of the two key papers
+2
+,
+3
+ has supported our viewpoint.
+
+The concept that histones have DNA sequence preferences for nucleosome formation was established 25 years ago. In pioneering experiments involving the sequencing of nucleosomal DNA generated by micrococcal nuclease (MNase), the same technique used today, Horace Drew and Andrew Travers showed that nucleosomal DNA 
+in vivo
+ has strong rotational positioning with 10–base pair (bp) helical periodicity that is due to preferences for dinucleotides that face inwards or outwards with respect to the histones and optimize DNA bending
+10
+,
+11
+. Around the same time, it was shown that poly(dA:dT) disfavors nucleosome formation 
+in vitro
+12
+,
+13
+ and increases chromatin accessibility 
+in vivo
+ via its intrinsic DNA structure, particularly at yeast promoter regions where these sequences are highly enriched
+5
+–
+7
+. Indeed, poly(dA:dT) and (to a lesser extent) dinucleotide frequencies are the most important factors in the algorithm of Kaplan 
+et al.
+2
+ for predicting nucleosome occupancy.
+
+Prior to the initial paper proposing a nucleosome positioning code, a direct comparison of the location of nucleosomes assembled on the yeast 
+PET56-HIS3-DED1
+ region 
+in vivo
+ and 
+in vitro
+ with purified histones revealed that both promoter regions intrinsically disfavor nucleosome formation
+8
+. Furthermore, it was argued that DNA sequence is responsible for nucleosome depletion at most yeast promoter regions 
+in vivo
+, based on genome-wide occupancy measurements 
+in vivo
+. Specifically, the relative paucity of nucleosomes at promoter regions with respect to the corresponding coding regions is independent of transcriptional activity and hence is not due to activator– or RNA polymerase II elongation–dependent histone removal
+8
+. Thus, as the concept and specific aspects of how DNA sequence contributes to nucleosome location 
+in vivo
+ are well established and not at issue, the key disagreement is whether intrinsic histone-DNA interactions have the predominant role in setting up the 
+in vivo
+ pattern and thus constitute a code for nucleosome positioning.
+
+Kaplan 
+et al.
+2
+ and Zhang 
+et al.
+3
+ extend the earlier comparison
+8
+ of nucleosomes assembled 
+in vivo
+ and 
+in vitro
+ to the entire yeast genome, and at higher (in principle, nucleotide) resolution using high-throughput sequencing. In interpreting the resulting maps, a major conceptual issue concerns the difference between nucleosome ‘occupancy’ and ‘positioning’. Nucleosome occupancy reflects the average histone levels on a given region of DNA in a population of cells, but it does not address where individual nucleosomes are positioned (that is, differently positioned nucleosomes within a genomic region all contribute to occupancy). In contrast, the translational position of an individual nucleosome refers to the specific 146-bp sequence covered by the histone octamer. On a population basis, positioning can range from perfect (all nucleosomes occupy a specific 146-bp stretch) to random (nucleosomes occupy all possible genomic positions equally). We did not criticize Kaplan 
+et al.
+2
+ for nucleosome occupancy measurements 
+per se
+ (indeed, we also made this useful measurement; see below for limitations) but rather for using occupancy measurements to infer nucleosome positioning. As acknowledged in their correspondence
+4
+, Kaplan 
+et al.
+2
+ did not perform translational positioning analyses in their original paper. In addition, the independent validation experiment mentioned in the correspondence
+4
+ uses a different method to measure histone occupancy
+14
+, but it does not address translational positioning, the key point of disagreement.
+
+Zhang 
+et al.
+3
+ explicitly examined translational positioning and the relationship between nucleosomes generated 
+in vivo
+ and 
+in vitro
+, and we disagree with the correspondence
+4
+ on this point. Specifically, we defined positioned nucleosomes from the 
+in vivo
+ mapping as 20-bp windows centered on the peak position on a gene-by-gene and location basis (+1, +2, etc. with respect to the mRNA initiation site). We then measured the percentage of nucleosome centers within these windows (100% being the value expected for perfect positioning) in the 
+in vitro
+ (and 
+in vivo
+) data and compared this to randomly positioned nucleosomes (Fig. 4b–d of ref. 
+3
+). This analysis is unaffected by nucleosome centers flanking the 20-bp window, and hence the problematic example given in the correspondence
+4
+ is incorrect and irrelevant (the issue raised does affect the genome-wide measurement of maximal nucleosome positioning degree in Fig. 4a of ref. 
+3
+, but this is not relevant to the direct comparison of 
+in vitro
+ and 
+in vivo
+ positions). We note that our analysis is restricted to nucleosomes that are well positioned 
+in vivo
+, but the role of intrinsic histone-DNA interactions in setting up the striking 
+in vivo
+ pattern is the key biological issue. The analysis cannot be done on weakly positioned nucleosomes, as their locations are ill defined due to sequencing limitations.
+
+Using 
+in vitro
+ data generated in either paper, we estimated that ~20% of the 
+in vivo
+ positioned nucleosomes are positioned due to intrinsic histone-DNA interactions. As done previously
+15
+ and in contrast to the correspondence
+4
+, this estimate involved an explicit correction for random chance occurrence. Our estimate is consistent both with the previous observation that 2 out of 7 
+in vivo
+ positioned nucleosomes in the 
+PET56-HIS3-DED1
+ region were observed 
+in vitro
+8
+ and with a previous estimate of ~25% based on computational predictions of positioned nucleosomes
+15
+.
+
+In the correspondence
+4
+, the authors performed a related positioning analysis using 40-bp windows and obtained a value of 34–41% (perhaps as high as 49% with unspecified data smoothing). However, the calculated values strongly depend on the input parameters and definitions, and the size of the window is particularly important. Indeed, we obtain a value of ~30% when using 40-bp windows (quite similar to that in the correspondence
+4
+) but only ~15% when using 10-bp windows. Conceptually, a positioned nucleosome has a unique location (1-bp window), and the operational reason for using larger windows is to account for incomplete or excessive trimming of nucleosomes by MNase, which is experimentally unavoidable. Hence, values at smaller window sizes are more meaningful for nucleosome positioning measurements, whereas larger window sizes (for example, 40 bp, or ~25% of all possible positions) begin to approach measurements of nucleosome occupancy (that is, all possible positions), not positioning. In addition, by reporting positioning measurements at each individual base pair (as opposed to restricting such measurements to positioned nucleosomes), the correspondence
+4
+ is essentially converting positioning information into nucleosome occupancy.
+
+We agree with Kaplan 
+et al.
+2
+ that nucleosome occupancy is an important concept, and indeed the central conclusion of our earlier work
+8
+ is that “intrinsic histone-DNA interactions and low nucleosome density are important for preferential accessibility of promoter regions in yeast.” However, we disagree that nucleosome occupancy can be measured simply by counting nucleosome reads. In particular, the use of MNase and Illumina sequencing introduces systematic errors in the measurements and results in overestimates of the similarity between 
+in vivo
+ and 
+in vitro
+ samples. Illumina sequencing shows systematic differences in DNA sequence coverage depending on base composition and causes artifactually high correlations between samples
+16
+. Indeed, although Kaplan 
+et al.
+2
+ emphasize a correlation of 0.74 between their 
+in vitro
+ and 
+in vivo
+ samples, Stein 
+et al.
+9
+ have shown that the correlation is only 0.3 when their 
+in vitro
+ sample is compared to an 
+in vivo
+ sample analyzed by high-resolution microarrays. MNase has well-known DNA sequence specificity
+17
+, and this influences both the relative cleavage of linker regions and the relative cleavage of nucleosomal regions as a function of MNase concentration
+3
+,
+18
+. We agree with Kaplan 
+et al.
+2
+ that other parameters, notably sparseness of data, might lead to an underestimation of the correlation, but this issue has not been investigated.
+
+Kaplan 
+et al.
+2
+ does not have an explicit control for either DNA sequencing or for sequence specificity of MNase cleavage, making it difficult to determine the extent to which these issues affect the correlation between their 
+in vivo
+ and 
+in vitro
+ samples. Zhang 
+et al.
+3
+ analyzed a sonicated control sample to assess DNA sequencing effects and observed a correlation of 0.15–0.2. In a recently performed control, we observed a correlation of 0.3 between MNase-digested naked DNA with all 
+in vitro
+ and 
+in vivo
+ nucleosomal samples, and this may be an underestimate due to sparseness of data. Thus, not only do nucleosome occupancy measurements not address nucleosome positioning, but methodological considerations also significantly reduce the correlation between 
+in vivo
+ and 
+in vitro
+ nucleosome occupancy.
+
+Aside from the technical issues raised above, both studies agree that 
+in vitro
+ assembled nucleosomes do not show the striking 
+in vivo
+ pattern in which the +1 nucleosome centered just downstream from the mRNA initiation site is highly positioned, with more downstream nucleosomes arrayed in the coding region becoming gradually less positioned
+19
+,
+20
+. This pattern is the hallmark of ‘statistical positioning’ of nucleosomes from a fixed barrier such as a DNA-binding protein
+21
+ or perhaps a nucleosome-free region
+20
+. Kaplan 
+et al.
+2
+ correctly argue that the low and nonphysiological level of histones in their 
+in vitro
+ assembly reaction is unsuitable for forming nucleosome arrays and hence observing statistical positioning, but this issue does not apply to Zhang 
+et al.
+3
+, where the histone:DNA ratio was physiological and nucleosome arrays clearly evident. The use of limiting histone concentrations by Kaplan 
+et al.
+2
+ is advantageous for measuring intrinsic affinities of different genomic regions. In this regard, differences in nucleosome positioning and occupancy between the two studies are of potential interest, although they do not affect the key issues discussed here.
+
+The mechanism by which the +1 nucleosome is positioned is the key to understanding how the 
+in vivo
+ nucleosomal pattern is generated. 
+In vitro
+, correctly localized +1 nucleosomes are formed only to a limited extent, and unlike the situation 
+in vivo
+, the +1 nucleosome behaves similarly to all other nucleosomes (to +10) with respect to the degree of localization. In contrast, as shown by Zhang 
+et al.
+3
+, the position of the +1 nucleosome 
+in vivo
+ is strikingly linked to the location of the mRNA initiation site and preinitiation complex in both yeast and flies, arguing for a transcription-based mechanism. A transcription-based mechanism for positioning the +1 (and more downstream) nucleosomes is further supported by the observation that the barrier for the 
+in vivo
+ pattern of statistical positioning occurs specifically at promoters (as opposed to terminator regions that also appear to be depleted of nucleosomes) and is unidirectional (only in the downstream direction)
+3
+. Lastly, the loss of RNA polymerase II significantly alters nucleosome positioning to more closely match 
+in vitro
+ preferences, arguing for an important role of transcription in determining nucleosome positioning 
+in vivo
+18
+. These observations are in striking contrast to the transcription-independent depletion of nucleosomes at yeast promoter regions with respect to their corresponding coding regions
+8
+. Further, these observations are inconsistent with the idea that intrinsic histone-DNA interactions are central to establishing where nucleosomes are actually positioned (as opposed to being absent) 
+in vivo
+, and the correspondence
+4
+ does not address these inconsistencies.
+
+Lastly, we do not agree with the use of the terms “nucleosome code” and “DNA-encoded nucleosome organization” to describe the experimental observations, and indeed, these terms are not clearly defined
+9
+. In common parlance, a code involves a system of words, letters or symbols that convey definite meanings. The genetic code, by which nucleic acid sequence is translated into protein sequence with high accuracy, clearly fits this definition. In contrast, 15–40% similarity (depending on definitions and methods, and we believe that the lower values are more relevant for positioning) between 
+in vitro
+ and 
+in vivo
+ nucleosome positions clearly does not convey a definite meaning for DNA sequence. More generally, ‘preferences’ are conceptually different from ‘codes’. Thus, although intrinsic histone-DNA interactions contribute, they are not the major determinant of nucleosome positions 
+in vivo
+. As such, the proposed nucleosome code is not supported.
+
+Footnotes
+
+COMPETING FINANCIAL INTERESTS
+
+The authors declare no competing financial interests.
+
+References
+
+1.
+Segal E, et al. Nature. 2006;442:772–778. doi: 10.1038/nature04979.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+2.
+Kaplan N, et al. Nature. 2009;458:362–366. doi: 10.1038/nature07667.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+3.
+Zhang Y, et al. Nat. Struct. Mol. Biol. 2009;16:847–852. doi: 10.1038/nsmb.1636.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+4.
+Kaplan N, et al. Nat. Struct. Mol. Biol. 2010;17:918–920. doi: 10.1038/nsmb0810-918.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+5.
+Struhl K. Proc. Natl. Acad. Sci. USA. 1985;82:8419–8423. doi: 10.1073/pnas.82.24.8419.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+6.
+Chen W, Tabor S, Struhl K. Cell. 1987;50:1047–1055. doi: 10.1016/0092-8674(87)90171-1.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+7.
+Iyer V, Struhl K. EMBO J. 1995;14:2570–2579. doi: 10.1002/j.1460-2075.1995.tb07255.x.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+8.
+Sekinger EA, Moqtaderi Z, Struhl K. Mol. Cell. 2005;18:735–748. doi: 10.1016/j.molcel.2005.05.003.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+9.
+Stein A, Takasuka TE, Collings CK. Nucleic Acids Res. 2010;38:709–719. doi: 10.1093/nar/gkp1043.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+10.
+Drew HR, Travers AA. J. Mol. Biol. 1985;186:773–790. doi: 10.1016/0022-2836(85)90396-1.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+11.
+Satchwell SC, Drew HR, Travers AA. J. Mol. Biol. 1986;191:659–675. doi: 10.1016/0022-2836(86)90452-3.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+12.
+Kunkel GR, Martinson HG. Nucleic Acids Res. 1981;9:6869–6888. doi: 10.1093/nar/9.24.6869.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+13.
+Prunell A. EMBO J. 1982;1:173–179. doi: 10.1002/j.1460-2075.1982.tb01143.x.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+14.
+Visnapuu ML, Greene EC. Nat. Struct. Mol. Biol. 2009;16:1056–1062. doi: 10.1038/nsmb.1655.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+15.
+Peckham HE, et al. Genome Res. 2007;17:1170–1177. doi: 10.1101/gr.6101007.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+16.
+Harismendy O, et al. Genome Biol. 2009;10:R32. doi: 10.1186/gb-2009-10-3-r32.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+17.
+Horz W, Altenburger W. Nucleic Acids Res. 1981;9:2643–2658. doi: 10.1093/nar/9.12.2643.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+18.
+Weiner A, Hughes A, Yassour M, Rando OJ, Friedman N. Genome Res. 2010;20:90–100. doi: 10.1101/gr.098509.109.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+19.
+Yuan G-C, et al. Science. 2005;309:626–630. doi: 10.1126/science.1112178.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+20.
+Mavrich TN, et al. Genome Res. 2008;18:1073–1083. doi: 10.1101/gr.078261.108.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+21.
+Fedor MJ, Lue NF, Kornberg RD. J. Mol. Biol. 1988;204:109–127. doi: 10.1016/0022-2836(88)90603-1.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+ACTIONS
+
+View on publisher site
+
+PDF (65.8 KB)
+
+Cite
+
+Collections
+
+Permalink
+
+PERMALINK
+
+Copy
+
+RESOURCES
+
+ Similar articles
+ 
+
+ Cited by other articles
+ 
+
+ Links to NCBI Databases
+ 
+
+Cite
+
+Copy
+
+Download .nbib
+
+.nbib
+
+Format:
+
+ AMA
+ 
+
+ APA
+ 
+
+ MLA
+ 
+
+ NLM
+ 
+
+Add to Collections
+
+Create a new collection
+
+Add to an existing collection
+
+ Name your collection
+ 
+*
+
+ Choose a collection
+ 
+
+ Unable to load your collection due to an error
+
+Please try again
+
+ Add
+ 
+
+ Cancel
+ 
+
+ Follow NCBI
+ 
+
+NCBI on X (formerly known as Twitter)
+
+NCBI on Facebook
+
+NCBI on LinkedIn
+
+NCBI on GitHub
+
+NCBI RSS feed
+
+ Connect with NLM
+ 
+
+NLM on X (formerly known as Twitter)
+
+NLM on Facebook
+
+NLM on YouTube
+
+National Library of Medicine
+ 
+ 8600 Rockville Pike
+ Bethesda, MD 20894
+
+ 
+
+ 
+ Web Policies
+ 
+
+ 
+ 
+
+ 
+
+ 
+ FOIA
+ 
+
+ 
+ 
+
+ 
+
+ 
+ HHS Vulnerability Disclosure
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Help
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Accessibility
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Careers
+ 
+
+ 
+ 
+
+ 
+
+ 
+ NLM
+ 
+
+ 
+ 
+
+ 
+
+ 
+ NIH
+ 
+
+ 
+ 
+
+ 
+
+ 
+ HHS
+ 
+
+ 
+ 
+
+ 
+
+ 
+ USA.gov
+ 
+
+ 
+ 
+
+Back to Top

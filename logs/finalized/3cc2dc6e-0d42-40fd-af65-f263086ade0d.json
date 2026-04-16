@@ -1,0 +1,67 @@
+{
+  "packet_id": "04279fbd-4a9f-4a83-8b96-f3a07f1156ae",
+  "created_at": "2026-02-25T21:51:53.474758+00:00",
+  "session_id": "3cc2dc6e-0d42-40fd-af65-f263086ade0d",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent trauma or injury to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Can you tell me if the pain changes with breathing, coughing, or movement?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for the back pain, and if so, what was the effect?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent changes in bowel or bladder function?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent trauma or injury, fever, chills, unexplained weight loss, or changes in bowel or bladder function. The pain does not change with breathing, coughing, or movement. She has no numbness, tingling, or weakness in her legs or feet. She tried acetaminophen (Tylenol) with minimal relief. There is no history of kidney problems, urinary symptoms, infections, cancer, osteoporosis, or recent steroid use. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely related to strain or minor soft tissue injury given the localized nature and absence of systemic symptoms. \nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of rib fracture or occult injury\n\nP:\n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n- Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n - NSAIDs such as ibuprofen for pain relief and inflammation reduction (avoid in renal disease; especially severe CKD/dialysis)\n- Medication safety considerations: Avoid NSAIDs if history of renal disease or gastrointestinal bleeding; monitor for side effects\n- Return precautions: Return if pain worsens, new neurological symptoms develop, fever or systemic symptoms appear, or if there is any change in bowel or bladder function\n- Testing: Not indicated at this time unless symptoms worsen or new concerning features develop",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

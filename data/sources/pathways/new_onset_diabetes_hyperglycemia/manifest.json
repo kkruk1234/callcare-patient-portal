@@ -1,0 +1,26 @@
+{
+  "pathway_id": "new_onset_diabetes_hyperglycemia",
+  "sources": [
+    {
+      "id": "new_onset_diabetes_hyperglycemia_src_1",
+      "source_id": "new_onset_diabetes_hyperglycemia_src_1",
+      "title": "new_onset_diabetes_hyperglycemia references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "new_onset_diabetes_hyperglycemia_src_2",
+      "source_id": "new_onset_diabetes_hyperglycemia_src_2",
+      "title": "new_onset_diabetes_hyperglycemia references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "new_onset_diabetes_hyperglycemia_src_3",
+      "source_id": "new_onset_diabetes_hyperglycemia_src_3",
+      "title": "new_onset_diabetes_hyperglycemia references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

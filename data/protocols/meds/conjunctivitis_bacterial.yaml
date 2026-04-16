@@ -1,0 +1,29 @@
+# Clinician-facing medication/dosing protocol for: conjunctivitis_bacterial
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: "Trimethoprim-polymyxin B ophthalmic drops"
+    dosing: "1 drop affected eye(s) QID x 5–7 days"
+    exclusions: "Hypersensitivity"
+    notes: "Good broad coverage for uncomplicated bacterial conjunctivitis."
+  - med: "Erythromycin ophthalmic ointment"
+    dosing: "Apply ~1 cm ribbon to affected eye(s) QID x 5–7 days"
+    exclusions: "Hypersensitivity"
+    notes: "Useful when drops are difficult (children) or for lubrication."
+  - med: "Ofloxacin ophthalmic drops"
+    dosing: "1–2 drops affected eye(s) QID x 5–7 days"
+    exclusions: "Hypersensitivity"
+    notes: "Consider if higher risk organisms or more severe purulent discharge; avoid unnecessary fluoroquinolone use when mild."
+
+supportive_care:
+  - item: "Hygiene"
+    details: "Hand hygiene; avoid touching eyes; do not share towels/makeup; discard/replace eye makeup."
+  - item: "Contact lens precautions"
+    details: "If contact lenses are worn: stop lenses until fully resolved; replace lenses/case; consider separate contact-lens pathway if pain/photophobia."
+  - item: "Comfort"
+    details: "Cool compresses; artificial tears as needed."
+
+followup_and_safety:
+  - item: "Urgent eye evaluation"
+    details: "Eye pain, photophobia, decreased vision, contact lens wearer with redness/pain, severe unilateral redness, corneal opacity, or symptoms not improving within 24–48 hours."
+  - item: "ED now"
+    details: "Sudden vision loss, severe pain, or concern for chemical injury/acute glaucoma."

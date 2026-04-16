@@ -1,0 +1,136 @@
+{
+  "packet_id": "1bb67d2a-2915-4cd4-94d0-d4fb2786c3be",
+  "created_at": "2026-02-15T17:41:04.346761+00:00",
+  "session_id": "894f44c1-07f0-419a-b929-74ce2a72d227",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the elbow pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly on the elbow the pain is located?",
+    "intake_a2": "outsid",
+    "intake_q3": "Any injury or trauma to the elbow before the pain started?",
+    "intake_a3": "no, but I was playing tennis when the pain started",
+    "intake_q4": "Any swelling, redness, or warmth around the elbow?",
+    "intake_a4": "no",
+    "intake_q5": "Can you describe what activities or movements make the elbow pain worse or better?",
+    "intake_a5": "tennis makes it worse and rest makes it better",
+    "intake_q6": "Any numbness, tingling, or weakness in your hand or arm?",
+    "intake_a6": "no",
+    "intake_q7": "Any fever, chills, or night sweats since the elbow pain started?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your elbow pain so far?",
+    "intake_a8": "I iced it the first day",
+    "intake_q9": "Any difficulty gripping or lifting objects with your affected arm?",
+    "intake_a9": "pain with lifting objects",
+    "intake_q10": "Any prior history of elbow problems or repetitive strain injuries?",
+    "intake_a10": "no",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "https://www.nhs.uk/conditions/orf/",
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://www.nhs.uk/conditions/reactive-arthritis/",
+        "https://www.nhs.uk/conditions/tennis-elbow/",
+        "https://medlineplus.gov/alpha1antitrypsindeficiency.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a 3-week history of pain localized to the outside of her elbow. The pain began while playing tennis without any preceding injury or trauma. She reports that tennis exacerbates the pain, while rest alleviates it. There is no associated swelling, redness, or warmth. She denies numbness, tingling, weakness, fever, chills, or night sweats. She has experienced pain with lifting objects but no prior history of elbow problems or repetitive strain injuries. She initially tried icing the elbow on the first day of symptoms. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe clinical presentation is consistent with lateral epicondylitis (tennis elbow), characterized by lateral elbow pain worsened by activity and relieved by rest, without signs of infection or neurological involvement. \n\nDifferential: \n1. Lateral epicondylitis (tennis elbow) \n2. Radial tunnel syndrome \n3. Osteoarthritis of the elbow \n4. Referred pain from cervical radiculopathy \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain relief. \n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; avoid exceeding recommended doses. \n- Return precautions: Advise the patient to seek care if there is worsening pain, development of swelling, redness, warmth, fever, numbness, tingling, or weakness in the arm or hand. \n- Testing: Not indicated at this time; consider imaging or specialist referral if symptoms persist beyond 6-8 weeks or worsen despite conservative management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "rvices without needing a referral from a GP. Get NHS help for back or joint problems Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treat…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      },
+      {
+        "title": "Orf - NHS",
+        "source": "https://www.nhs.uk/conditions/orf/",
+        "snippet": "um%3d1%26flip%3d0%26pl%3d Credit: BIOPHOTO ASSOCIATES / SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/479030/view Other symptoms Other symptoms of orf include: a high temperature general tiredness (fatigue) swollen glands on the inside of your elbow or under your arm Non-urgent advice: See a GP if: you have a mark or blister on your finger, hand,…"
+      },
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+      },
+      {
+        "title": "Reactive arthritis - NHS",
+        "source": "https://www.nhs.uk/conditions/reactive-arthritis/",
+        "snippet": "ut redness can be harder to see on black and brown skin) feeling very tired It usually affects knees and feet, but your hands, elbows, spine and tendons around joints might also be affected. Other symptoms can include: mouth ulcers pain when peeing flaky skin, usually on your soles or palms, which might have yellow pus underneath a grey or white patchy rash…"
+      },
+      {
+        "title": "Alpha-1 Antitrypsin Deficiency | Alpha 1 Antitrypsin | MedlinePlus",
+        "source": "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+        "snippet": "such as colds and the flu Chest pain Fatigue Faster-than-normal heartbeat when you stand up Vision problems Losing weight without trying Some people who have AAT deficiency may have liver damage. Signs of liver damage include jaundice (a condition that causes your skin and eyes to turn yellow) and swelling in your legs. Rarely, AAT deficiency can cause skin…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    },
+    {
+      "title": "Orf - NHS",
+      "source": "https://www.nhs.uk/conditions/orf/",
+      "snippet": "um%3d1%26flip%3d0%26pl%3d Credit: BIOPHOTO ASSOCIATES / SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/479030/view Other symptoms Other symptoms of orf include: a high temperature general tiredness (fatigue) swollen glands on the inside of your elbow or under your arm Non-urgent advice: See a GP if: you have a mark or blister on your finger, hand,…"
+    },
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+    },
+    {
+      "title": "Reactive arthritis - NHS",
+      "source": "https://www.nhs.uk/conditions/reactive-arthritis/",
+      "snippet": "ut redness can be harder to see on black and brown skin) feeling very tired It usually affects knees and feet, but your hands, elbows, spine and tendons around joints might also be affected. Other symptoms can include: mouth ulcers pain when peeing flaky skin, usually on your soles or palms, which might have yellow pus underneath a grey or white patchy rash…"
+    },
+    {
+      "title": "Tennis elbow - NHS",
+      "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+      "snippet": "﻿ Tennis elbow - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Tennis elbow Tennis elbow is a condition that causes pain around the outside of the elbow. It usually goes away with rest but can…"
+    },
+    {
+      "title": "Alpha-1 Antitrypsin Deficiency | Alpha 1 Antitrypsin | MedlinePlus",
+      "source": "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+      "snippet": "such as colds and the flu Chest pain Fatigue Faster-than-normal heartbeat when you stand up Vision problems Losing weight without trying Some people who have AAT deficiency may have liver damage. Signs of liver damage include jaundice (a condition that causes your skin and eyes to turn yellow) and swelling in your legs. Rarely, AAT deficiency can cause skin…"
+    }
+  ],
+  "state": null
+}

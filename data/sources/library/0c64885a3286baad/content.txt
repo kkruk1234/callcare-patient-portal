@@ -1,0 +1,1507 @@
+Ibuprofen - StatPearls - NCBI Bookshelf
+
+An official website of the United States government
+
+Here's how you know
+
+The .gov means it's official.
+
+ Federal government websites often end in .gov or .mil. Before
+ sharing sensitive information, make sure you're on a federal
+ government site.
+ 
+
+The site is secure.
+
+ The 
+https://
+ ensures that you are connecting to the
+ official website and that any information you provide is encrypted
+ and transmitted securely.
+ 
+
+Log in
+
+Show account info
+
+Close
+
+Account
+
+ Logged in as:
+
+username
+
+Dashboard
+
+Publications
+
+Account settings
+
+Log out
+
+Access keys
+
+NCBI Homepage
+
+MyNCBI Homepage
+
+Main Content
+
+Main Navigation
+
+Bookshelf
+
+Search database
+Books
+All Databases
+Assembly
+Biocollections
+BioProject
+BioSample
+Books
+ClinVar
+Conserved Domains
+dbGaP
+dbVar
+Gene
+Genome
+GEO DataSets
+GEO Profiles
+GTR
+Identical Protein Groups
+MedGen
+MeSH
+NLM Catalog
+Nucleotide
+OMIM
+PMC
+Protein
+Protein Clusters
+Protein Family Models
+PubChem BioAssay
+PubChem Compound
+PubChem Substance
+PubMed
+SNP
+SRA
+Structure
+Taxonomy
+ToolKit
+ToolKitAll
+ToolKitBookgh
+Search term
+Search
+
+Browse Titles
+
+Advanced
+
+Help
+
+Disclaimer
+
+NCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.
+StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2025 Jan-. 
+StatPearls [Internet].
+Show details
+Treasure Island (FL): 
+StatPearls Publishing
+; 2025 Jan-.
+Search term
+ 
+
+Ibuprofen
+Vincent Trung H. Ngo
+; 
+Tushar Bajaj
+.
+Author Information and Affiliations
+Authors
+Vincent Trung H. Ngo
+1
+; 
+Tushar Bajaj
+2
+.
+Affiliations
+1
+ Ross University
+2
+ University of Chicago
+Last Update: 
+August 11, 2024
+.
+Continuing Education Activity
+Ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) used to manage various conditions, including inflammatory diseases, rheumatoid disorders, mild to moderate pain, fever, dysmenorrhea, and osteoarthritis. This drug is available over-the-counter and in prescription strength. This activity reviews ibuprofen's mechanism of action, adverse event profiles, dosing considerations, pharmacokinetics, contraindications, box warnings, and monitoring protocols, which are critical areas of focus.
+Understanding ibuprofen's pharmacology enables healthcare professionals to optimize dosage regimens and minimize potential adverse effects. This educational activity also discusses the role of the interprofessional healthcare team in providing quality patient care using ibuprofen therapy, improving patient outcomes.
+
+Objectives:
+
+Identify the clinical indications for ibuprofen therapy.
+Evaluate the potential adverse reactions associated with ibuprofen administration.
+Implement effective monitoring strategies for patients receiving ibuprofen therapy.
+Implement effective collaboration and communication between interprofessional team members to improve care for patients who might benefit from ibuprofen therapy.
+
+Access free multiple choice questions on this topic.
+
+Indications
+Ibuprofen is FDA-approved to treat inflammatory and rheumatoid disorders. Dr. Stewart Adams, OBE, discovered ibuprofen during his search for an alternative to corticosteroid therapy for patients with rheumatoid arthritis. Initially patented in 1961 by Dr. Adams and John Nicholson as 2-(4-isobutylphenyl) propionic acid, ibuprofen has become one of the most commonly used medications in the world.
+[1]
+Most current research on ibuprofen as a pain treatment focuses on comparing its efficacy against other NSAIDs (particularly COX-2 inhibitors) or novel treatment methods. A study comparing COX-2 inhibitors with ibuprofen after third molar removal procedures showed no statistically significant differences in pain relief after 6, 8, and 12 hours. However, a substantial dose of rescue analgesia was required for the ibuprofen group at 24 hours. Researchers also noted more significant nausea and vomiting in the ibuprofen group.
+[2]
+ 
+
+FDA-Approved Indications
+
+Oral:
+
+[3]
+
+Osteoarthritis
+Rheumatoid disorders
+Ibuprofen and other NSAIDs are FDA-approved to treat osteoarthritis, often in conjunction with non-pharmacological measures such as weight loss and strengthening exercises. Adjunct medication usage has been explored; one study showed improved outcomes for patients with chronic knee pain due to osteoarthritis who received combination acupuncture and topical ibuprofen therapy compared to patients receiving topical ibuprofen monotherapy.
+[4]
+ A comparative study between celecoxib and ibuprofen revealed equal tolerance and efficacy for patients with knee osteoarthritis.
+[5]
+
+Intravenous injection:
+ 
+Mild to moderate pain
+Moderate to severe pain as an adjunct to opioids in adults and pediatric patients 3 months or older
+Fever in adults and pediatric patients 3 months or older
+
+Intravenous ibuprofen lysine:
+ 
+Patent ductus arteriosus (PDA)
+The FDA has approved intravenous ibuprofen lysine for closing PDA in premature infants, as it is as effective as indomethacin with reduced adverse effects.
+[6]
+ The American Academy of Pediatrics (AAP) recommends IV ibuprofen for symptomatic infants with hemodynamically significant patent ductus arteriosus (hsPDA). 
+Clinically significant and refractory PDA in infants with a body weight of 500 to 1500 g and gestational age of no more than 32 weeks should be closed. No beneficial outcomes have been reported for patients who are administered ibuprofen lysine administration late (more than 6 to 14 days after birth), and it may potentially lead to adverse outcomes such as bronchopulmonary dysplasia (BPD) due to prolonged shunting.
+[7]
+
+Over-the-counter:
+
+Ibuprofen is available as an over-the-counter (OTC) medication and is FDA-approved to treat mild to moderate pain in patients with various conditions, including the following:
+[8]
+Fever
+Musculoskeletal pain
+Primary dysmenorrhea 
+Headache/migraine
+Sore throat
+Cold/flu
+Arthralgia
+Odontalgia
+
+Fever:
+ The use of NSAIDs to treat fever is common in pediatric patients and current research is focused on increasing ibuprofen's efficacy for treating pediatric fever. A literature review in 2017 showed little evidence suggesting superior efficacy between ibuprofen and acetaminophen (paracetamol) for treating fever. Six studies evaluated during this review showed a marginal difference in favor of ibuprofen, but this was insufficient to conclude ibuprofen was the superior treatment.
+[9]
+ In a related study, refractory fevers responded more favorably to alternating acetaminophen and ibuprofen doses compared to monotherapy. However, this was only observed in patients who responded positively to the first treatment cycle.
+[10]
+
+Musculoskeletal pain:
+ The American College of Physicians (ACP) and the American Academy of Family Physicians (AAFP) recommend oral NSAIDs like ibuprofen to alleviate pain and improve physical function in patients with acute pain from non-lower back musculoskeletal injuries.
+[11]
+ Based on a network meta-analysis of randomized clinical trials, ibuprofen exhibits superior efficacy and safety compared to other analgesics for patients with episodic tension-type headaches.
+[12]
+
+Primary dysmenorrhea:
+ This condition typically involves pain during menstruation, which may vary in quality and timing. Dysmenorrhea may be primary, which is usually mediated by prostaglandin production during ovulation, or secondary to another condition, such as endometriosis or pelvic inflammatory disease.
+[13]
+ NSAIDs are a common therapeutic choice and are FDA-approved to treat primary dysmenorrhea. A study exploring the use of cinnamon as an alternative treatment for primary dysmenorrhea study showed beneficial effects for pain reduction compared to placebo, but these were weaker than the effects mediated by ibuprofen.
+[14]
+Transdermal drug delivery has been a research topic in the context of ibuprofen and primary dysmenorrhea; a study investigated essential oils as penetration enhancers for transdermal delivery of ibuprofen in patients with dysmenorrhea. This study was motivated by the known risk of GI bleeding and ulceration after oral NSAID usage and sought to investigate a potentially efficacious method of delivery that would decrease these risks. The study found that one of the essential oils positively affected permeation and pain alleviation when administered with ibuprofen hydrogel.
+[15]
+
+Off-Label Uses
+
+Ibuprofen may be administered for various non-FDA-approved conditions, including:
+Active arthritis
+Acute gout
+Pericarditis
+Postoperative pain
+Colorectal cancer prevention
+Chemotherapy resistance prevention
+
+Active arthritis:
+ According to the American College of Rheumatology, a trial of scheduled NSAIDs, including ibuprofen, is conditionally suggested as part of initial therapy for patients with active oligoarthritis and active temporomandibular joint arthritis.
+[16]
+
+Acute gout:
+ The efficacy of ibuprofen in treating gout attacks or flares has been studied extensively. Schweitz et al demonstrated rapid improvement and symptom resolution in 10 patients with acute gouty arthritis after administering 2400 mg of ibuprofen.
+[17]
+ NSAIDs are commonly used as monotherapy for mild flares and in combination with colchicine for moderate or severe flares.
+[18]
+
+Pericarditis:
+ NSAIDs and colchicine are often used to treat pericarditis due to their anti-inflammatory and analgesic properties. Ibuprofen is a well-documented treatment for pericarditis, and researchers have demonstrated its effectiveness in treating and preventing multiple recurrences of idiopathic pericarditis compared to aspirin (CORP and CORP-2 trials) since 2011. The results of these studies showed no significant difference in treatment or prevention of idiopathic pericarditis between the 2 drugs.
+[19]
+ During a 2014 review, colchicine was found to effectively reduce recurrent pericarditis when used as adjunctive therapy to NSAIDs such as ibuprofen, aspirin, or indomethacin. However, this review also noted limitations in the number of trials and statistical power.
+[20]
+ The American College of Cardiology guidelines recommend ibuprofen as a treatment for acute pericarditis.
+[21]
+
+Postoperative pain:
+ In a randomized, double-blind study comparing intravenous ibuprofen and acetaminophen administration to treat postoperative pain in patients who underwent laparoscopic cholecystectomy, IV ibuprofen was associated with lower pain scores and reduced opioid use in the first 24 hours following procedure compared to acetaminophen.
+[22]
+
+Colorectal cancer prevention:
+ Since 2007, the USPSTF has recommended using aspirin and NSAIDs to prevent colorectal cancer in specific patient populations. In 2016, they updated this and their 2009 statement regarding aspirin and NSAIDs for preventing cardiovascular disease.
+[23]
+ Although the newer recommendations are not for ibuprofen specifically, they still suggest a strong foundation of research that supports a potentially greater role of NSAIDs in cancer prevention and treatment. Recent studies on the efficacy of NSAIDs as part of cancer therapy have shown promise. A review by Hil'ovska et al outlined the potential of NSAIDs for reducing cancer cell growth, movement, and invasion, for the induction of cancer cell death, and for allowing lower doses of cytotoxic drugs.
+[24]
+ The studies reviewed primarily focused on COX-2 inhibitors. For ibuprofen specifically, some studies have suggested it has a stronger effect against breast and lung cancer compared to aspirin, in addition to a reduction in breast cancer risk associated with ibuprofen or aspirin administration.
+[25]
+[26]
+Wawro et al found a potential indication for NSAID use (particularly aspirin and ibuprofen) in patients with colorectal cancer undergoing vincristine monotherapy. The purported role involves preventing chemoresistance by inhibiting the proliferation of cancer-associated fibroblast formation. Vincristine stimulates the growth of cancer-associated fibroblasts via the secretion of tumor growth factors β and interleukin-6; the researchers observed inhibition of this process after aspirin and ibuprofen administration. Their research suggests that the likely mechanism behind this involves NSAIDs affecting the microtubule polymerization rate.
+[27]
+ Current research is directed toward developing an innovative drug therapy for rheumatoid arthritis involving the combination of NSAIDs and carbonic anhydrase inhibitors.
+[28]
+Mechanism of Action
+The primary mechanism of ibuprofen involves inhibiting prostaglandin precursors. After a physiological or pathological stimulus, membrane phospholipids release arachidonic acid through the actions of the enzyme phospholipase A2. Arachidonic acid is fed into 1 of 3 enzymatic pathways: cyclooxygenase (COX), lipoxygenase (LOX), and cytochrome P450 (CYP450). The cyclooxygenase pathway converts arachidonic acid to prostaglandins, prostacyclins, and thromboxanes. The lipoxygenase pathway yields hydroxy-eicosatetraenoic acids (HETEs), leukotrienes, and lipoxins. Lastly, the cytochrome P450 pathway converts arachidonic acid to HETEs and epoxyeicosatrienoic acids (EET).
+[24]
+These pathways all create products called eicosanoids. These molecules are involved in the intercellular and intracellular signaling processes of various physiological processes, including smooth muscle tone regulation, vascular permeability, transporter proteins, platelet aggregation, and cell proliferation. Like cyclooxygenase pathway products, eicosanoids also involve autoimmunity, angiogenesis, atopy, inflammation, and cancer.
+[29]
+The cyclooxygenase pathway is significantly involved in the indicated uses of ibuprofen. The COX pathway yields 3 distinct isoforms: COX-1 (PGH synthase), COX-2, and COX-3. COX-1 is a constitutionally expressed isoform, with levels relatively stable in response to most physiologic or pathologic stimuli. In contrast, COX-2 expression is highly inducible by mitogenic and inflammatory stimuli. The more well-known stimuli include transforming growth factors, fibroblast growth factors, vascular endothelial growth factors, and tumor necrosis factors. The function of the COX-3 isoform remains unknown and is currently under study.
+[24]
+[30]
+ Acetaminophen is known to inhibit the activity of COX-3.
+[31]
+[24]
+Inhibition of the COX-1 and COX-2 pathways reduces the expression of prostaglandin precursors; this, in turn, lessens the degree of cellular response to pathologic or physiologic stimuli. Through this mechanism, non-selective NSAIDs such as ibuprofen derive their analgesic, antipyretic, and anti-inflammatory properties.
+[24]
+ For ibuprofen specifically, COX-1 is inhibited approximately 2.5 times more strongly than COX-2, suggesting the need for research on the efficacy of COX-2 selective inhibitors in treating conditions usually treated with ibuprofen.
+[19]
+Aside from its well-known roles in inflammation, COX-2 is also constitutively expressed during early carcinogenesis.
+[14]
+ Elevated levels of COX-2 are associated with various human cancers, including breast, colorectal, esophageal, lung, and pancreatic.
+[24]
+ The current findings on COX-2 and its various effects suggest that the anticancer effects of NSAIDs occur due to COX-2 inhibition. The precise mechanism underlying this phenomenon remains a topic of ongoing research. Other pathways may be involved in NSAIDs' anticancer and antitumor effects, as NSAIDs reduce cell survival in overexpressed and deficient COX-2 malignant cells.
+[32]
+The potential involvement of NSAIDs in carcinogenesis has been studied for the other 2 enzymatic pathways, but the information is still limited. LOX isoforms, particularly 5-LOX, 12-LOX, and 15-LOX, have been discussed as potential contributors to tumor development and growth. 5-LOX is normally expressed only in immune cells and has been implicated in the early stages of colon cancer, carcinogenesis in oral cavity tissue, and the expression of chronic myeloid leukemia.
+[33]
+[34]
+[35]
+ 12-LOX has proangiogenic functions, as it controls G1/S-phase arrest via regulation of Nf-kB and inhibition of Akt and mitogen-activated protein kinases.
+[4]
+ 15-LOX isoforms promote cell senescence and suppress cell cycle progression.
+[36]
+
+Pharmacokinetics
+
+Absorption:
+ Ibuprofen is absorbed rapidly and completely after oral administration. However, food intake can affect absorption due to changes in gastric pH, emptying, and motility. When taken with food, ibuprofen's maximum plasma concentration (Cmax) is reduced by 30%–50%, and the time to reach maximum concentration (Tmax) is delayed by 30–60 minutes.
+
+Distribution:
+ Ibuprofen is highly bound to plasma proteins, with approximately 99% bound once absorbed.
+
+Metabolism:
+ Ibuprofen is primarily metabolized into hydroxylated and carboxylated compounds, which are the major forms of its metabolites. CYP2C9 and CYP2C8 are the primary CYP enzymes responsible for ibuprofen clearance.
+[37]
+[38]
+
+Elimination:
+ Ibuprofen is primarily excreted through urine as metabolites and conjugates. Approximately 1% of the original drug is excreted unchanged.
+[39]
+Administration
+
+Available Dosage Forms and Strengths
+
+Ibuprofen is available over-the-counter in most countries. Typical formulations include oral capsules, oral suspension, oral tablets, chewable tablets, intravenous solutions, topical gels, and combination kits. Ibuprofen with lysine is a commonly used intravenous formulation. Ibuprofen should not be administered simultaneously with total parenteral nutrition. However, it may be administered through the same IV line; total parenteral nutrition should be paused for 15 minutes before and resumed 15 minutes after ibuprofen dosing. Researchers are currently exploring the possibility of simultaneous delivery of ibuprofen with other IV medications or nutrition. A recent study exploring the chemical compatibility of continuous ibuprofen lysine infusion with total parenteral nutrition demonstrated the physical and chemical compatibility of ibuprofen infusion with 2 different total parenteral nutrition formulations in neonates with PDA.
+[40]
+ Topical ibuprofen is also currently under study as a more efficient therapy for conditions treated with ibuprofen, such as osteoarthritis and dysmenorrhea.
+[15]
+[41]
+
+Adult Dosage
+
+Oral ibuprofen should be consumed with food or milk. Intravenous administration is often preferred in inpatient settings or when oral delivery is unavailable. Infusion should occur over at least 30 minutes for adults and 10 minutes for pediatric patients.
+[6]
+[22]
+
+Pain relief:
+ 200 to 400 mg orally every 4 to 6 hours, with a maximum daily limit of 1200 mg unless otherwise instructed by a physician. Physicians may prescribe higher doses of 400 to 800 mg orally every 6 hours, not to exceed 3200 mg daily.
+[42]
+
+Joint inflammation:
+ 1800 to 2400 mg daily for rheumatoid arthritis, osteoarthritis, and ankylosing spondylitis.
+[37]
+
+Pericarditis:
+ The American College of Cardiology guidelines recommend 600 to 800 mg of ibuprofen every 8 hours to treat acute pericarditis.
+[21]
+
+Specific Patient Populations
+
+Hepatic impairment:
+ The product labeling does not include any information regarding dosage modifications. However, drug-induced liver injury (DILI), including steatohepatitis, is associated with NSAID administration. Ibuprofen should be used with caution for patients with preexisting liver disease.
+[43]
+
+Renal impairment:
+ Stable patients with stage 1 or 2 CKD without significant risk factors may be monitored per standard practice. For patients with stage 3 CKD and minimal risk factors, short-term NSAID use for pain management is acceptable for up to 5 days. Routine laboratory testing and follow-up within 2 to 3 weeks constitute appropriate monitoring. Long-term NSAID use in these patients poses higher risks due to prolonged exposure and the potential for increased toxicity. Therefore, prolonged therapy may be considered with patient education on avoiding high-risk conditions and close medical follow-up. Short-acting NSAIDs are preferred, and dosing intervals should be adjusted for CKD-related reduced drug elimination. NSAIDs should be avoided for patients with conditions dependent on prostaglandin-mediated renal blood flow, such as true extracellular volume depletion, cirrhosis, CHF, or nephrotic syndrome.
+[44]
+The KDIGO (Kidney Disease: Improving Global Outcomes) 2012 guidelines recommend avoiding NSAIDs for patients with a GFR <30 mL/min/1.73 m². Prolonged therapy with NSAIDs is also not recommended for patients with a GFR <60 mL/min/1.73 m². The KDIGO 2024 guidelines emphasize that patients with CKD (particularly those in stages G3-G5) are more susceptible to the nephrotoxic effects of medications, including ibuprofen. When considering these drugs, clinicians should carefully assess the balance between their therapeutic benefits and potential renal risks. NSAIDS can cause interstitial nephritis, analgesic nephropathy, and hyperkalemia. Despite their nephrotoxic potential, NSAIDs may administered to patients with CKD if the anticipated benefits outweigh the potential harm.
+[45]
+
+Pregnancy considerations:
+ In 2020, the FDA cautioned that using nonsteroidal anti-inflammatory drugs (NSAIDs) after 20 weeks of pregnancy could lead to fetal renal dysfunction, causing oligohydramnios and potentially neonatal renal impairment, limb contractures, and delayed lung development. These effects typically manifest days to weeks after starting NSAID treatment, with rare instances of oligohydramnios appearing within 48 hours. Discontinuing NSAIDs often reverses oligohydramnios. NSAID use from 20 to 30 weeks should be restricted to the lowest effective dose and shortest duration possible. NSAIDs are not recommended after 30 weeks due to the elevated risk of premature closure of the fetal ductus arteriosus. Ultrasound monitoring of amniotic fluid may be required if NSAID treatment exceeds 48 hours.
+[46]
+
+Breastfeeding considerations:
+ Ibuprofen is preferred for nursing mothers due to its low levels in breast milk, short half-life, and safe use in infants at higher doses than those present in breast milk. The mean weight-adjusted percentage of the maternal dosage (Relative Infant Dosage [RID]) is estimated to be <0.38%. However, the RID varies with the time postpartum and the milk protein content. During the colostral phase, when milk protein is highest, the RID reaches 0.6%. Fully breastfed infants receive approximately 68 μg/kg daily, equal to 0.2% of the typical pediatric dosing.
+[47]
+ One study indicated that scheduled oral analgesia with 1 g paracetamol (acetaminophen) and 400 mg ibuprofen every 6 hours post-vaginal delivery resulted in higher medication usage and similar pain scores compared to on-demand dosing but increased breastfeeding rates and maternal satisfaction.
+[48]
+
+Pediatric patients:
+ The recommended dose of ibuprofen is 5-10 mg/kg orally every 6-8 hours, with a maximum of 400 mg per dose or 40 mg/kg daily.
+[49]
+ Intravenous ibuprofen is an effective treatment for patients with patent ductus arteriosus (PDA).
+[50]
+[51]
+ Ibuprofen lysine is administered in 3 intravenous doses for treating PDA. An initial dose of 10 mg/kg is followed by 2 doses of 5 mg/kg given 24 and 48 hours later. Dosage is determined based on birth weight. If urinary output falls below 0.6 mL/kg/hr at the scheduled time for the second or third dose of ibuprofen, administration should be postponed until laboratory tests confirm normal renal function.
+
+Older patients
+: According to the American Geriatrics Society (AGS) 2023 guidelines, NSAIDs like ibuprofen should be used long-term only when necessary and in combination with gastroprotective agents (proton pump inhibitor or misoprostol). Short-term use of ibuprofen with corticosteroids, anticoagulants, or antiplatelet agents should be avoided unless alternatives are ineffective and gastroprotection is feasible. High-risk patients, such as those older than 75 or using corticosteroids, anticoagulants, or antiplatelet agents, are more prone to gastrointestinal bleeding or ulcers as a result of NSAID therapy. Proton-pump inhibitors can reduce but not eliminate this risk.
+[52]
+ In patients with an eGFR ≥90 mL/min/1.73 m², the standard dose of ibuprofen is 1600 mg. However, recommendations for dose adjustments based on renal function vary among eGFR equations. The recommended dose is also 1600 mg for patients with an eGFR ≥60 mL/min/1.73 m². For patients with an eGFR of 30–59 mL/min/1.73 m², the recommended dose falls to 1200 mg. Ibuprofen is contraindicated for patients with an eGFR ≤29 mL/min/1.73 m². The choice of eGFR equation significantly influences these recommendations; equations such as the Cockcroft-Gault (CG), Berlin Initiative Study (BIS), Full Age Spectrum (FAS), and Larsson-Male (LMR) generally recommend lower doses compared to the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI) equation, which tends to estimate higher renal function. This variability highlights the importance of precise GFR estimation for appropriate ibuprofen dosing to ensure safety and efficacy, particularly in patients with hip fractures and varying degrees of renal impairment.
+[53]
+Adverse Effects
+Gastrointestinal bleeding is a well-known adverse effect of ibuprofen usage and can lead to gastritis, ulceration, hemorrhage, or perforation. Inhibition of COX isoform production reduces prostaglandin levels, which are involved in gastroprotective mucus secretion.
+[54]
+ This effect is more pronounced with non-selective NSAIDs; selective COX-2 inhibitors are associated with a lower incidence of gastrointestinal complications, which is of particular concern in children. Ibuprofen is more commonly used than other NSAIDs due to its favorable safety profile. Using ibuprofen over-the-counter without medical consultation increases the risk of high dosage levels and short-term interval dosing that may precipitate gastrointestinal complications.
+[55]
+Reduced renal function is also associated with ibuprofen administration. A recent surveillance study demonstrated the nephrotoxic properties of NSAIDs, including in patients with normal kidney function.
+[56]
+Dehydration is a common risk factor for ibuprofen-induced renal injury. Various studies have explored the relationship between NSAIDs and kidney function in patients who are predisposed to dehydration, such as children with renal comorbidities or endurance athletes. A double-blind, placebo-controlled trial involving ultramarathon runners showed an increased rate of acute kidney injury in those who took ibuprofen, with a number needed to harm of 5.5.
+[57]
+ Clinicians must consider a patient's renal function before administering ibuprofen or other NSAIDs.
+Rashes are also known to occur in patients receiving ibuprofen therapy, usually due to drug hypersensitivity or skin irritation after topical administration. A rash may also be a component of severe reactions to ibuprofen, such as anaphylaxis or drug reaction with eosinophilia and systemic symptoms (DRESS) syndrome. This condition can manifest as skin, liver, and hematologic abnormalities in patients who have recently taken ibuprofen. The etiology of DRESS syndrome is poorly understood; theories involving human herpesvirus-6 or hypersensitivity to toxic metabolites have been postulated.
+[58]
+ DRESS syndrome typically occurs in patients taking anticonvulsants, sulfa derivatives, or antimicrobials. Information regarding ibuprofen-induced DRESS syndrome is limited; one case report documented the course of a pediatric patient who presented with DRESS syndrome in 2016. Another report from 2014 described a patient who developed a drug-induced liver injury with multiform exudative erythema after ingesting over-the-counter medication containing ibuprofen for 20 days.
+[59]
+NSAID administration is also associated with hypertension. A 1993 cross-sectional study involving older adults revealed NSAID use to be an independent risk factor for developing hypertension in this age group.
+[60]
+ Researchers have since begun investigating the effect of anti-inflammatory medications on hypertension development, including the comparative differences between NSAIDs. One retrospective cohort study in 2012 reported mild elevations in systolic blood pressure in patients who took ibuprofen and other NSAIDs compared to patients who received acetaminophen. However, this effect was negligible in patients already taking diuretics or multiple antihypertensives.
+[61]
+Intravenous ibuprofen as a treatment for patent ductus arteriosus (PDA) causes hyperbilirubinemia and bilirubin displacement due to the high protein binding of the medication.
+[62]
+
+Drug-Drug Interactions
+
+ACE inhibitors:
+ Ibuprofen may reduce the antihypertensive effects of ACE inhibitors. Monitoring is recommended for patients using these medications concurrently.
+
+Aspirin:
+ Ibuprofen can interfere with aspirin's antiplatelet effects, especially if these medications are taken together or if ibuprofen is taken before aspirin. To minimize this interaction, immediate-release low-dose aspirin should be taken at least 2 hours before ibuprofen. Concurrent use is generally not recommended due to increased cardiovascular risks.
+
+Diuretics:
+ Ibuprofen can diminish the natriuretic effect of diuretics such as furosemide and thiazides, potentially reducing their efficacy. Close monitoring is necessary for patients receiving these medications concurrently, as they are at an increased risk of AKI.
+[63]
+
+Lithium:
+ Ibuprofen can increase plasma lithium levels and reduce renal lithium clearance by inhibiting renal prostaglandin synthesis. When ibuprofen and lithium are administered together, patients should be monitored for signs of lithium toxicity.
+[64]
+
+Anticoagulants:
+ Ibuprofen increases the risk of gastrointestinal bleeding in patients receiving warfarin therapy.
+[65]
+ Patients should be monitored closely for signs of bleeding when these medications are used together.
+Contraindications
+Ibuprofen is contraindicated for patients with a known history of hypersensitivity or allergic reactions to the drug itself, other NSAIDs, or aspirin. Numerous case studies have detailed ibuprofen as a disease precipitant.
+[58]
+[59]
+ NSAIDs are among the medications most frequently associated with hypersensitivity reactions in adult and pediatric patients. These patients are typically diagnosed with urticaria or angioedema caused by cross-intolerance to other drug classes, particularly quinolones and amoxicillin-clavulanic acid.
+[66]
+NSAID-induced hypersensitivity reactions in pediatric patients exhibit a similar prevalence to adult reactions but differ in clinical phenotype. Oral provocation testing remains the gold standard for diagnosing NSAID hypersensitivity, and safe alternatives for cross-intolerant children and adolescents include tolmetin, etoricoxib, paracetamol, and nimesulide.
+[67]
+Ibuprofen lysine IV formulation is contraindicated for preterm neonates with congenital heart disease requiring PDA patency, active bleeding, thrombocytopenia, renal impairment, coagulation defects, and documented or suspected necrotizing enterocolitis. Outside of these scenarios, ibuprofen is not associated with an increased risk of adverse reactions when administered to infants younger than 6 months and remains indicated for pediatric patients without these contraindications.
+[66]
+In Canada, ibuprofen's drug labels list additional contraindications, including active GI or cerebrovascular bleeding, uncontrolled heart failure, lupus, renal impairment, and hepatic impairment or disease.
+
+Box Warnings 
+
+Cardiovascular thrombotic events:
+ Ibuprofen increases the risk of serious cardiovascular events such as myocardial infarction and stroke.
+Coronary artery bypass:
+ Ibuprofen administration is not advised during the perioperative period for patients undergoing coronary artery bypass graft (CABG) surgery.
+[68]
+Gastrointestinal adverse events: 
+NSAIDs such as ibuprofen increase the risk of gastrointestinal complications, including bleeding, perforation, and ulceration. This risk is further elevated in older patients and those with pre-existing gastrointestinal conditions; these patients already have suppressed levels of protective prostaglandins in the gastrointestinal tract.
+
+Warning and Precautions
+
+Ibuprofen and ibuprofen lysine are both available for parenteral use. Ibuprofen lysine is indicated specifically for closing patent ductus arteriosus (PDA) in premature infants; regular ibuprofen is not an appropriate substitute.
+Like many widely used medications, there is increasing concern about the presence of ibuprofen in the environment and the long-term effects of environmental ibuprofen exposure. Recent studies have explored potential bioremediation methods of ibuprofen in the atmosphere via bacterial strains, mineral particles, and solar radiation. The toxicity of ibuprofen's metabolites is minimal compared to ibuprofen's toxicity. Furthermore, studies have also demonstrated ibuprofen's low toxicity in tested organisms and no observable mutagenic activity of the drug. Concerns persist regarding the potential indirect effects of ibuprofen on prostaglandin-regulated processes in the environment, including ovulation, menstruation, inflammation, and pain.
+[69]
+[70]
+Monitoring
+Appropriate monitoring should minimize the possibility of common and uncommon adverse effects associated with ibuprofen therapy. Pain relief and gastrointestinal symptoms should be documented during a patient’s clinical evaluation, as they may suggest desensitization to the analgesic effect of ibuprofen or emerging gastritis or GI bleeding. Blood pressure should also be monitored, especially in older adults or patients with hypertension.
+[60]
+[61]
+ Renal function monitoring is also recommended, given NSAIDs nephrotoxic effects in at-risk and healthy patients.
+[56]
+[57]
+Liver function is not typically monitored in patients receiving ibuprofen. However, documented NSAID-induced liver injury in pediatric patients suggests the need for monitoring in individuals with high-risk factors or at-risk populations. NSAID-induced liver damage occurs less frequently than in patients receiving acetaminophen. However, there is no antidote for liver damage resulting from NSAID use.
+[71]
+ Increasing ibuprofen administration to children suggests the need for further study regarding the effect of NSAIDs on liver function.
+Toxicity
+
+Signs and Symptoms of Overdose
+
+Ibuprofen's toxic potential is derived from its inhibition of the cyclooxygenase pathway and the subsequent effects on various cellular processes and multiple organ systems. Prostaglandins and thromboxanes help maintain the gastric mucosal layer and renal blood flow; ibuprofen is associated with a mildly elevated risk of adverse gastrointestinal and renal events, even at therapeutic levels. Ibuprofen is the most common NSAID involved in overdose cases; 29% of overdoses are the result of ibuprofen ingestion alone. Patients can also overdose by ingesting ibuprofen combined with other analgesics.
+[72]
+ One study created a risk score for improving the risk-benefit ratio of NSAID administration; this score was accurate in categorizing the one-year risk of significant toxicity among NSAID users.
+[73]
+ 
+Reye syndrome is an increasingly rare presentation, primarily due to international efforts to curb aspirin usage since the 1980s. Restricted aspirin administration to children in the United Kingdom reduced the incidence of Reye syndrome from 100 cases in 1984 to 3 cases in 2000.
+[71]
+ NSAIDs damage the mitochondria in hepatocytes, precipitating Reye syndrome.
+[74]
+ Furthermore, the mechanism of NSAID-induced liver damage remains largely unknown. Due to the increasing use of ibuprofen in children, the possibility of increased rates of drug-induced liver damage and Reye syndrome should be considered.
+[71]
+ 
+The maximum recommended daily dose of ibuprofen is 3200 mg. Overdosing on ibuprofen can cause severe toxicity, particularly in children ingesting 400 mg/kg or more. Complications of overdose include seizures, apnea, hypertension, and potential renal and hepatic dysfunction. Chronic administration of high-dose ibuprofen is also associated with increased risks of myocardial infarction.
+[42]
+
+Management of Overdose
+
+There is no available antidote for ibuprofen. The toxicity resolves with time and supportive care. The management of severe ibuprofen toxicity typically involves supportive care and interventions like continuous renal replacement therapy (CRRT) or hemodialysis (HD). Despite ibuprofen's large molecule size and high protein binding, which typically limits dialysis clearance, CRRT can stabilize metabolic balance and support hemodynamics. In patients with significant metabolic acidosis and hemodynamic instability, CRRT may be initiated to facilitate the gradual elimination of ibuprofen and restore homeostasis, even though it does not acutely remove the drug.
+[75]
+ 
+Selective Plasma Adsorption (SPAD) has demonstrated potential as a treatment for severe ibuprofen overdose. This process uses albumin dialysate to eliminate highly protein-bound toxins, improving outcomes for patients with multi-organ failure and shock.
+[76]
+Enhancing Healthcare Team Outcomes 
+Successful medication-based treatment requires updated clinical knowledge, a thorough understanding of the patient, and realistic treatment goals based on current evidence. The primary clinician, physicians, advanced practice providers (eg, NPs PAs), nursing staff, and pharmacists collaborate to ensure the highest quality of patient care involving ibuprofen therapy by adhering to the following principles:   
+Providers should only prescribe ibuprofen for the recommended FDA-approved or off-label indications while considering contraindications or factors that increase the risk of adverse effects.
+Any patient-reported ibuprofen use should be documented, including the frequency and dosage. Nursing staff may obtain and report this information to the attending physician.
+Any patient with suspected gastritis, ulceration, anemia, or thrombocytopenia should be asked about ibuprofen use.
+Ibuprofen toxicity should be considered when assessing patients who have overdosed on an unknown substance.
+Ibuprofen may be administered for primary diagnosis or mild to moderate symptomatic control in patients experiencing pain.
+[28]
+[22]
+[14]
+[15]
+[5]
+NSAIDs such as ibuprofen have demonstrated potential as anticancer agents and should be considered as components of cancer treatment regimens when appropriate and supported by recent research.
+Aspirin and other NSAIDs are recommended for colorectal cancer and cardiovascular disease prevention.
+Appropriate monitoring of pain levels, new GI complaints, blood pressure, and renal function reduces the risk of adverse effects associated with NSAID therapy. Nursing staff can contribute significantly to this effort.
+[57]
+[61]
+Alternating acetaminophen and ibuprofen doses for pediatric patients can reduce refractory fever more effectively than ibuprofen monotherapy.
+[10]
+Ibuprofen and indomethacin are equally effective for closing a PDA in neonatal patients. However, ibuprofen is associated with reduced rates of nephrotoxicity and systemic vasoconstriction.
+[6]
+ Pediatric/neonatal specialty nurses and pharmacists should collaborate to ensure safe administration to these patients.
+Intravenous ibuprofen is compatible with some total parenteral nutrition formulations. These combinations can be administered simultaneously to neonates with PDA.
+[40]
+Ibuprofen or aspirin should be administered with colchicine to relieve acute pericarditis and reduce recurrent pericarditis.
+[19]
+Awareness of these evidence-based principles can improve monitoring and outcomes for patients who may benefit from ibuprofen therapy. An interprofessional team approach and communication among clinicians (MDs, DOs, NPs, PAs), pharmacists, and nurses are crucial to preventing adverse reactions and improving outcomes for patients receiving ibuprofen.
+Review Questions
+
+Access free multiple choice questions on this topic.
+
+Comment on this article.
+
+References
+1.
+Halford GM, Lordkipanidzé M, Watson SP. 50th anniversary of the discovery of ibuprofen: an interview with Dr Stewart Adams. 
+Platelets. 
+2012;
+23
+(6):415-22.
+ [
+PubMed
+: 22098129
+]
+2.
+González-Barnadas A, Camps-Font O, Martín-Fatás P, Figueiredo R, Gay-Escoda C, Valmaseda-Castellón E. Efficacy and safety of selective COX-2 inhibitors for pain management after third molar removal: a meta-analysis of randomized clinical trials. 
+Clin Oral Investig. 
+2020 Jan;
+24
+(1):79-96.
+ [
+PubMed
+: 31016540
+]
+3.
+Upadhyay A, Amanullah A, Joshi V, Dhiman R, Prajapati VK, Poluri KM, Mishra A. Ibuprofen-based advanced therapeutics: breaking the inflammatory link in cancer, neurodegeneration, and diseases. 
+Drug Metab Rev. 
+2021 Feb;
+53
+(1):100-121.
+ [
+PubMed
+: 33820460
+]
+4.
+Terada N, Shimizu Y, Kamba T, Inoue T, Maeno A, Kobayashi T, Nakamura E, Kamoto T, Kanaji T, Maruyama T, Mikami Y, Toda Y, Matsuoka T, Okuno Y, Tsujimoto G, Narumiya S, Ogawa O. Identification of EP4 as a potential target for the treatment of castration-resistant prostate cancer using a novel xenograft model. 
+Cancer Res. 
+2010 Feb 15;
+70
+(4):1606-15.
+ [
+PubMed
+: 20145136
+]
+5.
+Gordo AC, Walker C, Armada B, Zhou D. Efficacy of celecoxib versus ibuprofen for the treatment of patients with osteoarthritis of the knee: A randomized double-blind, non-inferiority trial. 
+J Int Med Res. 
+2017 Feb;
+45
+(1):59-74.
+ [
+PMC free article
+: PMC5536610
+] [
+PubMed
+: 28222627
+]
+6.
+Ferguson JM. Pharmacotherapy for patent ductus arteriosus closure. 
+Congenit Heart Dis. 
+2019 Jan;
+14
+(1):52-56.
+ [
+PubMed
+: 30536827
+]
+7.
+Hamrick SEG, Sallmon H, Rose AT, Porras D, Shelton EL, Reese J, Hansmann G. Patent Ductus Arteriosus of the Preterm Infant. 
+Pediatrics. 
+2020 Nov;
+146
+(5)
+ [
+PMC free article
+: PMC7605084
+] [
+PubMed
+: 33093140
+]
+8.
+Cajaraville JP. Ibuprofen Arginate for Rapid-Onset Pain Relief in Daily Practice: A Review of Its Use in Different Pain Conditions. 
+J Pain Res. 
+2021;
+14
+:117-126.
+ [
+PMC free article
+: PMC7846824
+] [
+PubMed
+: 33531831
+]
+9.
+Narayan K, Cooper S, Morphet J, Innes K. Effectiveness of paracetamol versus ibuprofen administration in febrile children: A systematic literature review. 
+J Paediatr Child Health. 
+2017 Aug;
+53
+(8):800-807.
+ [
+PubMed
+: 28437025
+]
+10.
+Luo S, Ran M, Luo Q, Shu M, Guo Q, Zhu Y, Xie X, Zhang C, Wan C. Alternating Acetaminophen and Ibuprofen versus Monotherapies in Improvements of Distress and Reducing Refractory Fever in Febrile Children: A Randomized Controlled Trial. 
+Paediatr Drugs. 
+2017 Oct;
+19
+(5):479-486.
+ [
+PubMed
+: 28523589
+]
+11.
+Qaseem A, McLean RM, O'Gurek D, Batur P, Lin K, Kansagara DL, Clinical Guidelines Committee of the American College of Physicians. Commission on Health of the Public and Science of the American Academy of Family Physicians. Cooney TG, Forciea MA, Crandall CJ, Fitterman N, Hicks LA, Horwitch C, Maroto M, McLean RM, Mustafa RA, Tufte J, Vijan S, Williams JW. Nonpharmacologic and Pharmacologic Management of Acute Pain From Non-Low Back, Musculoskeletal Injuries in Adults: A Clinical Guideline From the American College of Physicians and American Academy of Family Physicians. 
+Ann Intern Med. 
+2020 Nov 03;
+173
+(9):739-748.
+ [
+PubMed
+: 32805126
+]
+12.
+Xie R, Li J, Jing Y, Tian J, Li H, Cai Y, Wang Y, Chen W, Xu F. Efficacy and safety of simple analgesics for acute treatment of episodic tension-type headache in adults: a network meta-analysis. 
+Ann Med. 
+2024 Dec;
+56
+(1):2357235.
+ [
+PMC free article
+: PMC11141314
+] [
+PubMed
+: 38813682
+]
+13.
+Durain D. Primary dysmenorrhea: assessment and management update. 
+J Midwifery Womens Health. 
+2004 Nov-Dec;
+49
+(6):520-8.
+ [
+PubMed
+: 15544981
+]
+14.
+Jaafarpour M, Hatefi M, Khani A, Khajavikhan J. Comparative effect of cinnamon and Ibuprofen for treatment of primary dysmenorrhea: a randomized double-blind clinical trial. 
+J Clin Diagn Res. 
+2015 Apr;
+9
+(4):QC04-7.
+ [
+PMC free article
+: PMC4437117
+] [
+PubMed
+: 26023601
+]
+15.
+Chen J, Jiang QD, Wu YM, Liu P, Yao JH, Lu Q, Zhang H, Duan JA. Potential of Essential Oils as Penetration Enhancers for Transdermal Administration of Ibuprofen to Treat Dysmenorrhoea. 
+Molecules. 
+2015 Oct 07;
+20
+(10):18219-36.
+ [
+PMC free article
+: PMC6332003
+] [
+PubMed
+: 26457698
+]
+16.
+Onel KB, Horton DB, Lovell DJ, Shenoi S, Cuello CA, Angeles-Han ST, Becker ML, Cron RQ, Feldman BM, Ferguson PJ, Gewanter H, Guzman J, Kimura Y, Lee T, Murphy K, Nigrovic PA, Ombrello MJ, Rabinovich CE, Tesher M, Twilt M, Klein-Gitelman M, Barbar-Smiley F, Cooper AM, Edelheit B, Gillispie-Taylor M, Hays K, Mannion ML, Peterson R, Flanagan E, Saad N, Sullivan N, Szymanski AM, Trachtman R, Turgunbaev M, Veiga K, Turner AS, Reston JT. 2021 American College of Rheumatology Guideline for the Treatment of Juvenile Idiopathic Arthritis: Therapeutic Approaches for Oligoarthritis, Temporomandibular Joint Arthritis, and Systemic Juvenile Idiopathic Arthritis. 
+Arthritis Rheumatol. 
+2022 Apr;
+74
+(4):553-569.
+ [
+PMC free article
+: PMC10161784
+] [
+PubMed
+: 35233993
+]
+17.
+Schweitz MC, Nashel DJ, Alepa FP. Ibuprofen in the treatment of acute gouty arthritis. 
+JAMA. 
+1978 Jan 02;
+239
+(1):34-5.
+ [
+PubMed
+: 579229
+]
+18.
+Coburn BW, Mikuls TR. Treatment Options for Acute Gout. 
+Fed Pract. 
+2016 Jan;
+33
+(1):35-40.
+ [
+PMC free article
+: PMC6366613
+] [
+PubMed
+: 30766136
+]
+19.
+Schwier N, Tran N. Non-Steroidal Anti-Inflammatory Drugs and Aspirin Therapy for the Treatment of Acute and Recurrent Idiopathic Pericarditis. 
+Pharmaceuticals (Basel). 
+2016 Mar 23;
+9
+(2)
+ [
+PMC free article
+: PMC4932535
+] [
+PubMed
+: 27023565
+]
+20.
+Bayes-Genis A, Adler Y, de Luna AB, Imazio M. Colchicine in Pericarditis. 
+Eur Heart J. 
+2017 Jun 07;
+38
+(22):1706-1709.
+ [
+PubMed
+: 30052886
+]
+21.
+Chiabrando JG, Bonaventura A, Vecchié A, Wohlford GF, Mauro AG, Jordan JH, Grizzard JD, Montecucco F, Berrocal DH, Brucato A, Imazio M, Abbate A. Management of Acute and Recurrent Pericarditis: JACC State-of-the-Art Review. 
+J Am Coll Cardiol. 
+2020 Jan 07;
+75
+(1):76-92.
+ [
+PubMed
+: 31918837
+]
+22.
+Ekinci M, Ciftci B, Celik EC, Köse EA, Karakaya MA, Ozdenkaya Y. A Randomized, Placebo-Controlled, Double-Blind Study that Evaluates Efficacy of Intravenous Ibuprofen and Acetaminophen for Postoperative Pain Treatment Following Laparoscopic Cholecystectomy Surgery. 
+J Gastrointest Surg. 
+2020 Apr;
+24
+(4):780-785.
+ [
+PubMed
+: 31012040
+]
+23.
+Bibbins-Domingo K., U.S. Preventive Services Task Force. Aspirin Use for the Primary Prevention of Cardiovascular Disease and Colorectal Cancer: U.S. Preventive Services Task Force Recommendation Statement. 
+Ann Intern Med. 
+2016 Jun 21;
+164
+(12):836-45.
+ [
+PubMed
+: 27064677
+]
+24.
+Hiľovská L, Jendželovský R, Fedoročko P. Potency of non-steroidal anti-inflammatory drugs in chemotherapy. 
+Mol Clin Oncol. 
+2015 Jan;
+3
+(1):3-12.
+ [
+PMC free article
+: PMC4251142
+] [
+PubMed
+: 25469262
+]
+25.
+Harris RE, Beebe-Donk J, Doss H, Burr Doss D. Aspirin, ibuprofen, and other non-steroidal anti-inflammatory drugs in cancer prevention: a critical review of non-selective COX-2 blockade (review). 
+Oncol Rep. 
+2005 Apr;
+13
+(4):559-83.
+ [
+PubMed
+: 15756426
+]
+26.
+Cuzick J, Otto F, Baron JA, Brown PH, Burn J, Greenwald P, Jankowski J, La Vecchia C, Meyskens F, Senn HJ, Thun M. Aspirin and non-steroidal anti-inflammatory drugs for cancer prevention: an international consensus statement. 
+Lancet Oncol. 
+2009 May;
+10
+(5):501-7.
+ [
+PubMed
+: 19410194
+]
+27.
+Wawro ME, Sobierajska K, Ciszewski WM, Niewiarowska J. Nonsteroidal Anti-Inflammatory Drugs Prevent Vincristine-Dependent Cancer-Associated Fibroblasts Formation. 
+Int J Mol Sci. 
+2019 Apr 20;
+20
+(8)
+ [
+PMC free article
+: PMC6515011
+] [
+PubMed
+: 31010006
+]
+28.
+Akgul O, Di Cesare Mannelli L, Vullo D, Angeli A, Ghelardini C, Bartolucci G, Alfawaz Altamimi AS, Scozzafava A, Supuran CT, Carta F. Discovery of Novel Nonsteroidal Anti-Inflammatory Drugs and Carbonic Anhydrase Inhibitors Hybrids (NSAIDs-CAIs) for the Management of Rheumatoid Arthritis. 
+J Med Chem. 
+2018 Jun 14;
+61
+(11):4961-4977.
+ [
+PubMed
+: 29746127
+]
+29.
+Harizi H, Corcuff JB, Gualde N. Arachidonic-acid-derived eicosanoids: roles in biology and immunopathology. 
+Trends Mol Med. 
+2008 Oct;
+14
+(10):461-9.
+ [
+PubMed
+: 18774339
+]
+30.
+Kis B, Snipes JA, Busija DW. Acetaminophen and the cyclooxygenase-3 puzzle: sorting out facts, fictions, and uncertainties. 
+J Pharmacol Exp Ther. 
+2005 Oct;
+315
+(1):1-7.
+ [
+PubMed
+: 15879007
+]
+31.
+BenSalem S, Salem A, Boukhris O, Taheri M, Ammar A, Souissi N, Glenn JM, Trabelsi K, Chtourou H. Acute ingestion of acetaminophen improves cognitive and repeated high intensity short-term maximal performance in well-trained female athletes: a randomized placebo-controlled trial. 
+Eur J Appl Physiol. 
+2024 Nov;
+124
+(11):3387-3398.
+ [
+PMC free article
+: PMC11519302
+] [
+PubMed
+: 38951182
+]
+32.
+Zhang X, Morham SG, Langenbach R, Young DA. Malignant transformation and antineoplastic actions of nonsteroidal antiinflammatory drugs (NSAIDs) on cyclooxygenase-null embryo fibroblasts. 
+J Exp Med. 
+1999 Aug 16;
+190
+(4):451-59.
+ [
+PMC free article
+: PMC2195603
+] [
+PubMed
+: 10449516
+]
+33.
+Wasilewicz MP, Kołodziej B, Bojułko T, Kaczmarczyk M, Sulzyc-Bielicka V, Bielicki D, Ciepiela K. Overexpression of 5-lipoxygenase in sporadic colonic adenomas and a possible new aspect of colon carcinogenesis. 
+Int J Colorectal Dis. 
+2010 Sep;
+25
+(9):1079-85.
+ [
+PMC free article
+: PMC2912725
+] [
+PubMed
+: 20549218
+]
+34.
+Metzger K, Angres G, Maier H, Lehmann WD. Lipoxygenase products in human saliva: patients with oral cancer compared to controls. 
+Free Radic Biol Med. 
+1995 Feb;
+18
+(2):185-94.
+ [
+PubMed
+: 7744301
+]
+35.
+Chen Y, Hu Y, Zhang H, Peng C, Li S. Loss of the Alox5 gene impairs leukemia stem cells and prevents chronic myeloid leukemia. 
+Nat Genet. 
+2009 Jul;
+41
+(7):783-92.
+ [
+PMC free article
+: PMC2887745
+] [
+PubMed
+: 19503090
+]
+36.
+Tang DG, Bhatia B, Tang S, Schneider-Broussard R. 15-lipoxygenase 2 (15-LOX2) is a functional tumor suppressor that regulates human prostate epithelial cell differentiation, senescence, and growth (size). 
+Prostaglandins Other Lipid Mediat. 
+2007 Jan;
+82
+(1-4):135-46.
+ [
+PubMed
+: 17164141
+]
+37.
+Mazaleuskaya LL, Theken KN, Gong L, Thorn CF, FitzGerald GA, Altman RB, Klein TE. PharmGKB summary: ibuprofen pathways. 
+Pharmacogenet Genomics. 
+2015 Feb;
+25
+(2):96-106.
+ [
+PMC free article
+: PMC4355401
+] [
+PubMed
+: 25502615
+]
+38.
+Bagher AM. Association of 
+CYP2C9∗3
+ and 
+CYP2C8∗3
+ Non-Functional Alleles with Ibuprofen-Induced Upper Gastrointestinal Toxicity in a Saudi Patient. 
+Case Rep Med. 
+2023;
+2023
+:6623269.
+ [
+PMC free article
+: PMC10382241
+] [
+PubMed
+: 37520310
+]
+39.
+Su J, Zhang C, Su Y, Huang C, Zhao J, Yang H, Xu Z, Li J, Yang X. Pharmacokinetics, Bioequivalence, and Safety Evaluation of Two Formulations of 0.2-g Ibuprofen Granules. 
+Clin Pharmacol Drug Dev. 
+2023 Jun;
+12
+(6):588-593.
+ [
+PubMed
+: 36575962
+]
+40.
+Garcia J, Garg A, Song Y, Fotios A, Andersen C, Garg S. Compatibility of intravenous ibuprofen with lipids and parenteral nutrition, for use as a continuous infusion. 
+PLoS One. 
+2018;
+13
+(1):e0190577.
+ [
+PMC free article
+: PMC5752020
+] [
+PubMed
+: 29298359
+]
+41.
+Liu SC, Qiao XF, Tang QX, Li XG, Yang JH, Wang TQ, Xiao YJ, Qiao JM. A retrospective study of acupuncture as an adjunctive therapy to topical ibuprofen for chronic knee pain due to osteoarthritis. 
+Medicine (Baltimore). 
+2019 Apr;
+98
+(17):e15308.
+ [
+PMC free article
+: PMC6831154
+] [
+PubMed
+: 31027096
+]
+42.
+Bushra R, Aslam N. An overview of clinical pharmacology of Ibuprofen. 
+Oman Med J. 
+2010 Jul;
+25
+(3):155-1661.
+ [
+PMC free article
+: PMC3191627
+] [
+PubMed
+: 22043330
+]
+43.
+Fontana RJ, Liou I, Reuben A, Suzuki A, Fiel MI, Lee W, Navarro V. AASLD practice guidance on drug, herbal, and dietary supplement-induced liver injury. 
+Hepatology. 
+2023 Mar 01;
+77
+(3):1036-1065.
+ [
+PMC free article
+: PMC9936988
+] [
+PubMed
+: 35899384
+]
+44.
+Baker M, Perazella MA. NSAIDs in CKD: Are They Safe? 
+Am J Kidney Dis. 
+2020 Oct;
+76
+(4):546-557.
+ [
+PubMed
+: 32479922
+]
+45.
+Kidney Disease: Improving Global Outcomes (KDIGO) CKD Work Group. KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. 
+Kidney Int. 
+2024 Apr;
+105
+(4S):S117-S314.
+ [
+PubMed
+: 38490803
+]
+46.
+D'Ambrosio V, Vena F, Scopelliti A, D'Aniello D, Savastano G, Brunelli R, Giancotti A. Use of non-steroidal anti-inflammatory drugs in pregnancy and oligohydramnios: a review. 
+J Matern Fetal Neonatal Med. 
+2023 Dec;
+36
+(2):2253956.
+ [
+PubMed
+: 38092425
+]
+47.
+Drugs and Lactation Database (LactMed®) [Internet].
+ National Institute of Child Health and Human Development; Bethesda (MD): Nov 15, 2024. Ibuprofen. [
+PubMed
+: 30000045
+]
+48.
+Bachar G, Alter A, Justman N, Buchnik Fater G, Farago N, Ben-David C, Abu-Rass H, Siegler Y, Hajaj A, Landau-Levin M, Zipori Y, Khatib N, Weiner Z, Vitner D. Fixed-time interval vs on-demand oral analgesia after vaginal delivery: a randomized controlled trial. 
+Am J Obstet Gynecol MFM. 
+2024 May;
+6
+(5):101372.
+ [
+PubMed
+: 38583715
+]
+49.
+Shamsaee E, Huws A, Gill A, McWilliam SJ, Hawcutt DB. Ibuprofen efficacy, tolerability and safety in obese children: a systematic review. 
+Arch Dis Child. 
+2023 Jan;
+108
+(1):67-71.
+ [
+PubMed
+: 36385006
+]
+50.
+de Martino M, Chiarugi A, Boner A, Montini G, De' Angelis GL. Working Towards an Appropriate Use of Ibuprofen in Children: An Evidence-Based Appraisal. 
+Drugs. 
+2017 Aug;
+77
+(12):1295-1311.
+ [
+PMC free article
+: PMC5529476
+] [
+PubMed
+: 28597358
+]
+51.
+Gupta S, Subhedar NV, Bell JL, Field D, Bowler U, Hutchison E, Johnson S, Kelsall W, Pepperell J, Roberts T, Sinha S, Stanbury K, Wyllie J, Hardy P, Juszczak E., Baby-OSCAR Collaborative Group. Trial of Selective Early Treatment of Patent Ductus Arteriosus with Ibuprofen. 
+N Engl J Med. 
+2024 Jan 25;
+390
+(4):314-325.
+ [
+PMC free article
+: PMC7615774
+] [
+PubMed
+: 38265644
+]
+52.
+By the 2023 American Geriatrics Society Beers Criteria® Update Expert Panel. American Geriatrics Society 2023 updated AGS Beers Criteria® for potentially inappropriate medication use in older adults. 
+J Am Geriatr Soc. 
+2023 Jul;
+71
+(7):2052-2081.
+ [
+PubMed
+: 37139824
+]
+53.
+Houlind MB, Petersen KK, Palm H, Jørgensen LM, Aakjær M, Christrup LL, Petersen J, Andersen O, Treldal C. Creatinine-Based Renal Function Estimates and Dosage of Postoperative Pain Management for Elderly Acute Hip Fracture Patients. 
+Pharmaceuticals (Basel). 
+2018 Sep 18;
+11
+(3)
+ [
+PMC free article
+: PMC6160960
+] [
+PubMed
+: 30231578
+]
+54.
+Rafaniello C, Ferrajolo C, Sullo MG, Sessa M, Sportiello L, Balzano A, Manguso F, Aiezza ML, Rossi F, Scarpignato C, Capuano A. Risk of gastrointestinal complications associated to NSAIDs, low-dose aspirin and their combinations: Results of a pharmacovigilance reporting system. 
+Pharmacol Res. 
+2016 Feb;
+104
+:108-14.
+ [
+PubMed
+: 26739516
+]
+55.
+Mărginean MO, Meliț LE, Mocanu S, Săsăran V. Ibuprofen, a Potential Cause of Acute Hemorrhagic Gastritis in Children - A Case Report. 
+J Crit Care Med (Targu Mures). 
+2018 Oct;
+4
+(4):143-146.
+ [
+PMC free article
+: PMC6296277
+] [
+PubMed
+: 30574567
+]
+56.
+Balestracci A, Ezquer M, Elmo ME, Molini A, Thorel C, Torrents M, Toledo I. Ibuprofen-associated acute kidney injury in dehydrated children with acute gastroenteritis. 
+Pediatr Nephrol. 
+2015 Oct;
+30
+(10):1873-8.
+ [
+PubMed
+: 25895445
+]
+57.
+Lipman GS, Shea K, Christensen M, Phillips C, Burns P, Higbee R, Koskenoja V, Eifling K, Krabak BJ. Ibuprofen versus placebo effect on acute kidney injury in ultramarathons: a randomised controlled trial. 
+Emerg Med J. 
+2017 Oct;
+34
+(10):637-642.
+ [
+PubMed
+: 28679502
+]
+58.
+Koca T, Akcam M. Ibuprofen induced DRESS Syndrome in a Child. 
+Indian Pediatr. 
+2016 Aug 08;
+53
+(8):745.
+ [
+PMC free article
+: PMC7097496
+] [
+PubMed
+: 27567654
+]
+59.
+Watanabe T, Abe M, Tada F, Aritomo K, Ochi H, Koizumi Y, Tokumoto Y, Hirooka M, Kumagi T, Ikeda Y, Matsuura B, Hiasa Y. Drug-induced liver injury with serious multiform exudative erythema following the use of an over-the-counter medication containing ibuprofen. 
+Intern Med. 
+2015;
+54
+(4):395-9.
+ [
+PubMed
+: 25748955
+]
+60.
+Johnson AG, Simons LA, Simons J, Friedlander Y, McCallum J. Non-steroidal anti-inflammatory drugs and hypertension in the elderly: a community-based cross-sectional study. 
+Br J Clin Pharmacol. 
+1993 May;
+35
+(5):455-9.
+ [
+PMC free article
+: PMC1381681
+] [
+PubMed
+: 8512757
+]
+61.
+Aljadhey H, Tu W, Hansen RA, Blalock SJ, Brater DC, Murray MD. Comparative effects of non-steroidal anti-inflammatory drugs (NSAIDs) on blood pressure in patients with hypertension. 
+BMC Cardiovasc Disord. 
+2012 Oct 24;
+12
+:93.
+ [
+PMC free article
+: PMC3502533
+] [
+PubMed
+: 23092442
+]
+62.
+Thibaut C, Hazard A, Huon C, Desfrere L. Effect of ibuprofen on bilirubin-albumin binding during the treatment of patent ductus arteriosus in preterm infant. 
+J Matern Fetal Neonatal Med. 
+2011 Nov;
+24 Suppl 3
+:7-9.
+ [
+PubMed
+: 21815876
+]
+63.
+Weng SE, Hsu WT, Hsiao FY, Lee CM. Non-steroidal anti-inflammatory drugs, renin-angiotensin system blockade or diuretics and risk of acute kidney injury: A case-crossover study. 
+Arch Gerontol Geriatr. 
+2024 Aug;
+123
+:105394.
+ [
+PubMed
+: 38537386
+]
+64.
+Hassan S, Khalid F, Alirhayim Z, Amer S. Lithium toxicity in the setting of nonsteroidal anti-inflammatory medications. 
+Case Rep Nephrol. 
+2013;
+2013
+:839796.
+ [
+PMC free article
+: PMC3914168
+] [
+PubMed
+: 24558630
+]
+65.
+Gomez Lumbreras A, Reese TJ, Del Fiol G, Tan MS, Butler JM, Hurwitz JT, Brown M, Kawamoto K, Thiess H, Wright M, Malone DC. Shared Decision-Making for Drug-Drug Interactions: Formative Evaluation of an Anticoagulant Drug Interaction. 
+JMIR Form Res. 
+2022 Oct 19;
+6
+(10):e40018.
+ [
+PMC free article
+: PMC9631167
+] [
+PubMed
+: 36260377
+]
+66.
+Walsh P, Rothenberg SJ, Bang H. Safety of ibuprofen in infants younger than six months: A retrospective cohort study. 
+PLoS One. 
+2018;
+13
+(6):e0199493.
+ [
+PMC free article
+: PMC6023220
+] [
+PubMed
+: 29953460
+]
+67.
+Cavkaytar O, du Toit G, Caimmi D. Characteristics of NSAID-induced hypersensitivity reactions in childhood. 
+Pediatr Allergy Immunol. 
+2019 Feb;
+30
+(1):25-35.
+ [
+PubMed
+: 30194799
+]
+68.
+Kulik A, Bykov K, Choudhry NK, Bateman BT. Non-steroidal anti-inflammatory drug administration after coronary artery bypass surgery: utilization persists despite the boxed warning. 
+Pharmacoepidemiol Drug Saf. 
+2015 Jun;
+24
+(6):647-53.
+ [
+PubMed
+: 25907164
+]
+69.
+Marchlewicz A, Guzik U, Hupert-Kocurek K, Nowak A, Wilczyńska S, Wojcieszyńska D. Toxicity and biodegradation of ibuprofen by Bacillus thuringiensis B1(2015b). 
+Environ Sci Pollut Res Int. 
+2017 Mar;
+24
+(8):7572-7584.
+ [
+PMC free article
+: PMC5383686
+] [
+PubMed
+: 28116629
+]
+70.
+Rubasinghege G, Gurung R, Rijal H, Maldonado-Torres S, Chan A, Acharya S, Rogelj S, Piyasena M. Abiotic degradation and environmental toxicity of ibuprofen: Roles of mineral particles and solar radiation. 
+Water Res. 
+2018 Mar 15;
+131
+:22-32.
+ [
+PMC free article
+: PMC5995636
+] [
+PubMed
+: 29258002
+]
+71.
+Norman H, Elfineh M, Beijer E, Casswall T, Németh A. [Also ibuprofen, not just paracetamol, can cause serious liver damage in children. NSAIDs should be used with caution in children, as shown in case with fatal outcome]. 
+Lakartidningen. 
+2014 Oct 1-7;
+111
+(40):1709-11.
+ [
+PubMed
+: 25759881
+]
+72.
+Ershad M, Ameer MA, Chen RJ, Vearrier D. 
+StatPearls [Internet].
+ StatPearls Publishing; Treasure Island (FL): Apr 30, 2024. Ibuprofen Toxicity. [
+PubMed
+: 30252334
+]
+73.
+Solomon DH, Shao M, Wolski K, Nissen S, Husni ME, Paynter N. Derivation and Validation of a Major Toxicity Risk Score Among Nonsteroidal Antiinflammatory Drug Users Based on Data From a Randomized Controlled Trial. 
+Arthritis Rheumatol. 
+2019 Aug;
+71
+(8):1225-1231.
+ [
+PubMed
+: 30801994
+]
+74.
+Jaeschke H, McGill MR, Ramachandran A. Oxidant stress, mitochondria, and cell death mechanisms in drug-induced liver injury: lessons learned from acetaminophen hepatotoxicity. 
+Drug Metab Rev. 
+2012 Feb;
+44
+(1):88-106.
+ [
+PMC free article
+: PMC5319847
+] [
+PubMed
+: 22229890
+]
+75.
+Pollack BE, Barbaro RP, Selewski DT, Carlton EF. Lactic acidosis and multisystem organ failure following ibuprofen overdose requiring haemodialysis. 
+BMJ Case Rep. 
+2022 Feb 07;
+15
+(2)
+ [
+PMC free article
+: PMC8823053
+] [
+PubMed
+: 35131772
+]
+76.
+Tao X, Thijssen S, Kotanko P, Ho CH, Henrie M, Stroup E, Handelman G. Improved dialytic removal of protein-bound uraemic toxins with use of albumin binding competitors: an in vitro human whole blood study. 
+Sci Rep. 
+2016 Mar 22;
+6
+:23389.
+ [
+PMC free article
+: PMC4802219
+] [
+PubMed
+: 27001248
+]
+
+Disclosure: 
+Vincent Trung Ngo declares no relevant financial relationships with ineligible companies.
+
+Disclosure: 
+Tushar Bajaj declares no relevant financial relationships with ineligible companies.
+
+Copyright
+ © 2025, StatPearls Publishing LLC.
+
+This book is distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+(
+
+http://creativecommons.org/licenses/by-nc-nd/4.0/
+
+), which permits others to distribute the work, provided that the article is not altered or used commercially. You are not required to obtain permission to distribute this article, provided that you credit the author and journal.
+
+Bookshelf ID: NBK542299
+PMID: 
+31194439
+
+Share
+
+Views
+PubReader
+Print View
+Cite this Page
+Ngo VTH, Bajaj T. Ibuprofen. [Updated 2024 Aug 11]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2025 Jan-. 
+In this Page
+Continuing Education Activity
+Indications
+Mechanism of Action
+Administration
+Adverse Effects
+Contraindications
+Monitoring
+Toxicity
+Enhancing Healthcare Team Outcomes 
+Review Questions
+References
+Related information
+PMC
+PubMed Central citations
+PubMed
+Links to PubMed
+Similar articles in PubMed
+Review
+ Valdecoxib: a review.
+[Clin Ther. 2003]
+Review
+ Valdecoxib: a review.
+Chavez ML, DeKorte CJ. 
+Clin Ther. 2003 Mar; 25(3):817-51. 
+Ibuprofen Toxicity(Archived).
+[StatPearls. 2025]
+Ibuprofen Toxicity(Archived).
+Ershad M, Ameer MA, Chen RJ, Vearrier D. 
+StatPearls. 2025 Jan
+Review
+ Symptomatic treatment of dengue: should the NSAID contraindication be reconsidered?
+[Postgrad Med. 2019]
+Review
+ Symptomatic treatment of dengue: should the NSAID contraindication be reconsidered?
+Kellstein D, Fernandes L. 
+Postgrad Med. 2019 Mar; 131(2):109-116. Epub 2019 Jan 16.
+Review
+ Ibuprofen: from invention to an OTC therapeutic mainstay.
+[Int J Clin Pract Suppl. 2013]
+Review
+ Ibuprofen: from invention to an OTC therapeutic mainstay.
+Rainsford KD. 
+Int J Clin Pract Suppl. 2013 Jan; (178):9-20. 
+Phosphatidylcholine association increases the anti-inflammatory and analgesic activity of ibuprofen in acute and chronic rodent models of joint inflammation: relationship to alterations in bioavailability and cyclooxygenase-inhibitory potency.
+[J Pharmacol Exp Ther. 2001]
+Phosphatidylcholine association increases the anti-inflammatory and analgesic activity of ibuprofen in acute and chronic rodent models of joint inflammation: relationship to alterations in bioavailability and cyclooxygenase-inhibitory potency.
+Lichtenberger LM, Romero JJ, de Ruijter WM, Behbod F, Darling R, Ashraf AQ, Sanduja SK. 
+J Pharmacol Exp Ther. 2001 Jul; 298(1):279-87. 
+See reviews...
+See all...
+Recent Activity
+Clear
+Turn Off
+Turn On
+Ibuprofen - StatPearls
+Ibuprofen - StatPearls
+Your browsing activity is empty.
+Activity recording is turned off.
+Turn recording back on
+See more...
+
+Follow NCBI
+
+Twitter
+
+Facebook
+
+LinkedIn
+
+GitHub
+
+NCBI Insights Blog
+
+Connect with NLM
+
+Twitter
+
+Facebook
+
+Youtube
+
+National Library of Medicine
+
+8600 Rockville Pike
+
+ Bethesda, MD 20894
+
+Web Policies
+
+FOIA
+
+HHS Vulnerability Disclosure
+
+Help
+
+Accessibility
+
+Careers
+
+NLM
+
+NIH
+
+HHS
+
+USA.gov

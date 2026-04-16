@@ -1,0 +1,26 @@
+id: med_adverse_reaction
+version: 0.1
+match:
+  any_keywords: ["started a new medication", "new medicine made me sick", "side effect", "med reaction", "allergic reaction to medication", "after taking a pill"]
+questions:
+  - id: breathing
+    prompt: "Any trouble breathing, throat tightness, wheezing, or swelling of lips/tongue? (yes/no)"
+    store_as: airway_swelling
+    type: yesno
+
+  - id: severe_rash
+    prompt: "Any widespread rash with blistering, skin peeling, or sores in the mouth/eyes? (yes/no)"
+    store_as: severe_rash
+    type: yesno
+
+  - id: vomiting
+    prompt: "Are you vomiting repeatedly or unable to keep fluids down? (yes/no)"
+    store_as: persistent_vomiting
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["breathing", "severe_rash", "vomiting"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

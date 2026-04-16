@@ -1,0 +1,26 @@
+id: headache_redflags
+version: 0.1
+match:
+  any_keywords: ["worst headache of my life", "sudden thunderclap headache", "headache with weakness", "headache and confusion", "new headache with fever stiff neck"]
+questions:
+  - id: sudden
+    prompt: "Did the headache reach maximum intensity suddenly (within 1 minute)? (yes/no)"
+    store_as: thunderclap
+    type: yesno
+
+  - id: neuro
+    prompt: "Any weakness, trouble speaking, new confusion, or one-sided numbness? (yes/no)"
+    store_as: neuro_deficit
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever or stiff neck? (yes/no)"
+    store_as: fever_or_stiff
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["sudden", "neuro", "fever"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

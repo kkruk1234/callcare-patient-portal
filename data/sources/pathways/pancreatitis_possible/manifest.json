@@ -1,0 +1,12 @@
+{
+  "pathway_id": "pancreatitis_possible",
+  "sources": [
+    {
+      "id": "pancreatitis_possible_ref",
+      "source_id": "pancreatitis_possible_ref",
+      "title": "Pancreatitis overview (starter)",
+      "url": "https://www.niddk.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

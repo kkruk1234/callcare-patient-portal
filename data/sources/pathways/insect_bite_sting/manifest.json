@@ -1,0 +1,11 @@
+{
+  "pathway_id": "insect_bite_sting",
+  "sources": [
+    {
+      "source_id": "cdc_tickborne",
+      "type": "url",
+      "title": "CDC: Tickborne Diseases",
+      "url": "https://www.cdc.gov/ticks/diseases/index.html"
+    }
+  ]
+}

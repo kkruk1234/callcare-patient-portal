@@ -1,0 +1,49 @@
+{
+  "packet_id": "9cc4b4fc-74cd-4f51-ae4b-fc6b39767d48",
+  "created_at": "2026-01-19T22:58:48.742171+00:00",
+  "session_id": "ca52a6eb-38b0-47cf-93f2-cae1ef410f64",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nPatient presents via phone with concerns requiring urgent care evaluation. No systemic symptoms reported.\n\nO:\nNo physical exam findings available due to phone-only encounter.\n\nA:\n  - Working diagnosis (most likely): To be determined based on further history and potential in-person evaluation.\n  - Differential: Infection, inflammatory condition, musculoskeletal issue, allergic reaction, other acute medical condition.\n  - Red flags considered: No systemic symptoms reported; no immediate red flags identified on phone assessment.\n\nP:\n  - Disposition: Recommend in-person evaluation if symptoms worsen or new concerning symptoms develop.\n  - Plan: Pending physician review, consider symptomatic treatment as appropriate. Advise patient to monitor symptoms closely.\n  - Safety net: Instruct patient to seek emergency care if they develop severe symptoms such as difficulty breathing, chest pain, altered mental status, or worsening condition. Follow up with primary care or urgent care as needed.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  },
+  "evidence": []
+}

@@ -1,0 +1,22 @@
+id: migraine_headache
+version: 0.1
+match:
+  any_keywords: ["migraine", "throbbing headache", "light sensitivity", "nausea with headache"]
+questions:
+  - id: worst
+    prompt: "Is this the worst headache of your life or a sudden thunderclap headache? (yes/no)"
+    store_as: worst_or_thunderclap
+    type: yesno
+  - id: neuro
+    prompt: "Any new weakness, trouble speaking, confusion, or fainting? (yes/no)"
+    store_as: neuro_redflags
+    type: yesno
+  - id: fever_neck
+    prompt: "Any fever with a stiff neck? (yes/no)"
+    store_as: fever_stiff_neck
+    type: yesno
+stop_rules:
+  - if_all_answered: ["worst", "neuro", "fever_neck"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

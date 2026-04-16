@@ -1,0 +1,21 @@
+id: hypertensive_urgency
+version: 0.1
+match:
+  any_keywords: ["very high blood pressure", "bp is high", "pressure is high", "hypertension crisis", "headache with high blood pressure"]
+questions:
+  - id: neuro
+    prompt: "Any new weakness, trouble speaking, confusion, or vision loss? (yes/no)"
+    store_as: neuro_redflags
+    type: yesno
+  - id: chest
+    prompt: "Any chest pressure, severe shortness of breath, or fainting? (yes/no)"
+    store_as: cardio_redflags
+    type: yesno
+  - id: pregnancy
+    prompt: "Are you pregnant or could you be pregnant? (yes/no/unknown)"
+    store_as: pregnancy_possible
+stop_rules:
+  - if_all_answered: ["neuro", "chest", "pregnancy"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

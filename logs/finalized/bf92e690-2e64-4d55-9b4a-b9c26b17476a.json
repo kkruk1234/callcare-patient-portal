@@ -1,0 +1,51 @@
+{
+  "packet_id": "bf92e690-2e64-4d55-9b4a-b9c26b17476a",
+  "created_at": "2026-03-13T15:08:47.823095+00:00",
+  "session_id": "bd9cc5d3-e772-4214-8c0a-4c24188d668c",
+  "pathway_id": "",
+  "base_queries": [
+    "knee injury diagnosis and management guidelines",
+    "adult knee pain treatment dosing and contraindications",
+    "knee injury red flags and return precautions",
+    "imaging indications for acute knee injury"
+  ],
+  "queries": [
+    "AAFP knee injury diagnosis and management guidelines",
+    "AAFP adult knee pain treatment dosing and contraindications",
+    "MedlinePlus knee injury diagnosis and management guidelines",
+    "MedlinePlus adult knee pain treatment dosing and contraindications",
+    "CDC knee injury diagnosis and management guidelines",
+    "CDC adult knee pain treatment dosing and contraindications",
+    "NIH knee injury diagnosis and management guidelines",
+    "NIH adult knee pain treatment dosing and contraindications",
+    "NICE knee injury diagnosis and management guidelines",
+    "NICE adult knee pain treatment dosing and contraindications",
+    "WHO knee injury diagnosis and management guidelines",
+    "WHO adult knee pain treatment dosing and contraindications"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Management of ACL Injuries: Clinical Practice Guideline from the AAOS | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2015/0801/p232.html",
+      "accessed": "2026-03-13",
+      "snippet": "Treatment . Physicians performing ACL reconstruction should use autograft or allograft tissue that is processed correctly. Studies have found that the clinical outcomes are similar between the two; however, how the allograft is prepared (e.g., procurement, processing, storage, implantation) may cause some differences."
+    },
+    {
+      "title": "A practical approach to joint pain in primary care - PMC",
+      "source": "pmc.ncbi.nlm.nih.gov",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12680288/",
+      "accessed": "2026-03-13",
+      "snippet": "Colchicine doses are adapted from National University Hospital Singapore's Pharmacy Guidance) Renal function Colchicine dose (treatment) Colchicine dose (prophylaxis) eGFR > 60 mL/min 0.5 mg TDS for 3 days 0.5 mg/day eGFR 30-60 mL/min 0.5 mg BD for 3 days 0.5 mg/day (eGFR 40-60 mL/min), 0.5 mg EOD (eGFR 30-39 mL/min) eGFR 0.5 mg OD for 3 days (eGFR 15-29 mL/min), avoid if eGFR 0.5 mg 2x/week (eGFR 11-29 mL/min), avoid if eGFR Renal function Allopurinol starting dose Allopurinol dose increment eGFR > 45 mL/min 100 mg/day 100 mg every 4-6 weeks eGFR 30-45 mL/min 50 mg/day 50 mg every 4-8 weeks eGFR 50 mg every other day 50 mg every other day, every 4-8 weeks Open in a new tab REFERENCES 1."
+    },
+    {
+      "title": "Knee Pain in Adults and Adolescents:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/1101/p576.pdf",
+      "accessed": "2026-03-13",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with acute onset of right knee pain below the kneecap on the right side, starting about 2 hours ago after an injury while walking her dog. She describes the pain as very sharp when putting weight on the knee. There is some swelling and bruising noted on the knee, but she is able to bend and straighten it without numbness, tingling, weakness, fever, chills, or spreading redness. She has not tried any treatments yet and has no history of previous knee injuries or surgeries.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is an acute knee contusion with possible soft tissue injury given the recent trauma, localized swelling, bruising, and sharp pain on weight bearing.\nDifferential:\n1. Knee contusion with soft tissue injury\n2. Ligament sprain (e.g., MCL or LCL)\n3. Meniscal injury\n4. Patellar subluxation or minor fracture\n\nP: - First-line medication: Ibuprofen 400 mg orally every 6 hours as needed for pain for 5 days (Physician must verify medication/dosing)\n- Alternatives: Acetaminophen 500 mg orally every 6 hours as needed for pain for 5 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid NSAIDs if history of gastrointestinal issues or renal impairment; patient has no known renal or liver disease; penicillin allergy does not affect these medications\n- Follow-up recommendations: Seek in-person medical care urgently if the knee becomes increasingly swollen, deformed, unable to bear weight, or if fever develops; seek emergency care if severe worsening pain or inability to move the knee\n- Testing: Recommend in-person evaluation with physical examination and possible imaging (e.g., knee X-ray) if symptoms worsen or do not improve within 5-7 days"
+}

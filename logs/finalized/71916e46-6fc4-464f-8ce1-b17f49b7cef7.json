@@ -1,0 +1,117 @@
+{
+  "packet_id": "ad3dc277-990a-4032-8088-51998f75ed82",
+  "created_at": "2026-01-26T19:58:41.405155+00:00",
+  "session_id": "71916e46-6fc4-464f-8ce1-b17f49b7cef7",
+  "chief_complaint": "I think I have pneumonia",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "pneumonia_possible",
+  "answers": {
+    "breathing_trouble": "no",
+    "chest_pain": "no",
+    "high_risk": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Doxycycline",
+      "dosing": "100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)",
+      "sig": "100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)",
+      "route": "",
+      "frequency": "daily",
+      "duration": "5 days",
+      "notes": "",
+      "exclusions": "Pregnancy/possible pregnancy; severe liver disease; allergy/intolerance",
+      "tier": "Tier 1",
+      "pathway_id": "pneumonia_possible",
+      "source_file": "data/protocols/meds/pneumonia_possible.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Azithromycin",
+      "dosing": "500 mg by mouth on day 1, then 250 mg by mouth daily on days 2–5",
+      "sig": "500 mg by mouth on day 1, then 250 mg by mouth daily on days 2–5",
+      "route": "",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "",
+      "exclusions": "QT prolongation history or on QT-prolonging meds; significant liver disease; allergy/intolerance; use only if locally appropriate",
+      "tier": "Tier 1",
+      "pathway_id": "pneumonia_possible",
+      "source_file": "data/protocols/meds/pneumonia_possible.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Amoxicillin-clavulanate + Azithromycin",
+      "dosing": "Amoxicillin-clavulanate 875/125 mg PO twice daily for 5–7 days PLUS azithromycin 500 mg day 1 then 250 mg daily days 2–5",
+      "sig": "Amoxicillin-clavulanate 875/125 mg PO twice daily for 5–7 days PLUS azithromycin 500 mg day 1 then 250 mg daily days 2–5",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "",
+      "exclusions": "Severe beta-lactam anaphylaxis; QT risk (for azithro); renal dose adjustment may be needed in CKD",
+      "tier": "Tier 1",
+      "pathway_id": "pneumonia_possible",
+      "source_file": "data/protocols/meds/pneumonia_possible.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 45-year-old adult who reports concern for pneumonia. There is no breathing trouble and no chest pain. The patient is not considered high risk. The patient has a penicillin allergy.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Suspected pneumonia without respiratory distress or chest pain.\n - Differential:\n  1. Atypical or mild pneumonia\n  2. Viral respiratory infection\n  3. Bronchitis\n  4. Other non-pneumonic respiratory illness\n - Red flags considered: No breathing difficulty, no chest pain, no high-risk features reported.\n\nP:\n - Disposition: Patient can be managed outpatient with close follow-up.\n - Plan: Given penicillin allergy and suspicion for pneumonia, antibiotic therapy may be considered if clinical course worsens or symptoms persist. Recommended regimen; reviewing physician will confirm appropriateness and prescribe if indicated.\n  - Primary medication option (based on your answers): Doxycycline — 100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Amoxicillin-clavulanate + Azithromycin — Amoxicillin-clavulanate 875/125 mg PO twice daily for 5–7 days PLUS azithromycin 500 mg day 1 then 250 mg daily days 2–5\n     - Exclusions: Severe beta-lactam anaphylaxis; QT risk (for azithro); renal dose adjustment may be needed in CKD\n   - Doxycycline — 100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)\n     - Exclusions: Pregnancy/possible pregnancy; severe liver disease; allergy/intolerance\n   - Azithromycin — 500 mg by mouth on day 1, then 250 mg by mouth daily on days 2–5\n     - Exclusions: QT prolongation history or on QT-prolonging meds; significant liver disease; allergy/intolerance; use only if locally appropriate\n   - Supportive care:\n   - Hydration and rest.\n   - Acetaminophen for fever/pain if safe for you.\n   - Avoid NSAIDs if you have kidney disease, ulcer/GI bleed history, or are on blood thinners.\n   - Follow-up and safety:\n   - Follow-up: Recheck within 24–48 hours if started antibiotics; sooner if worsening.\n   - Expected course: Some improvement by 48–72 hours if bacterial and treated; cough can last longer.\n   - Go to urgent care/ED now if: Trouble breathing, chest pain, blue lips, confusion, fainting, or rapidly worsening symptoms.\n   - In-person evaluation needed if: No improvement by 72 hours, persistent high fever, inability to keep fluids down, or concern for dehydration.\n - Safety net: Advise patient to seek urgent care if they develop breathing difficulty, chest pain, high fever, confusion, or worsening symptoms. Follow up if no improvement within 48-72 hours or sooner if symptoms worsen.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "Hydration and rest.",
+      "Acetaminophen for fever/pain if safe for you.",
+      "Avoid NSAIDs if you have kidney disease, ulcer/GI bleed history, or are on blood thinners.",
+      "Follow-up: Recheck within 24–48 hours if started antibiotics; sooner if worsening.",
+      "Expected course: Some improvement by 48–72 hours if bacterial and treated; cough can last longer.",
+      "Go to urgent care/ED now if: Trouble breathing, chest pain, blue lips, confusion, fainting, or rapidly worsening symptoms.",
+      "In-person evaluation needed if: No improvement by 72 hours, persistent high fever, inability to keep fluids down, or concern for dehydration."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "pneumonia_possible references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "pneumonia_possible references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "pneumonia_possible references (starter)",
+        "source": "https://www.aao.org/",
+        "snippet": "Listed in pathway manifest https://www.aao.org/"
+      },
+      {
+        "title": "pneumonia_possible references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "pneumonia_possible references (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    },
+    {
+      "title": "pneumonia_possible references (starter)",
+      "source": "https://www.aafp.org/",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/"
+    },
+    {
+      "title": "pneumonia_possible references (starter)",
+      "source": "https://www.aao.org/",
+      "snippet": "Listed in pathway manifest https://www.aao.org/"
+    },
+    {
+      "title": "pneumonia_possible references (starter)",
+      "source": "https://www.nih.gov/",
+      "snippet": "Listed in pathway manifest https://www.nih.gov/"
+    }
+  ]
+}

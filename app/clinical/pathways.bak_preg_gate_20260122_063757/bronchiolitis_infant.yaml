@@ -1,0 +1,25 @@
+id: bronchiolitis_infant
+version: 0.1
+match:
+  any_keywords: ["baby wheezing", "infant wheezing", "baby struggling to breathe", "baby cough and fast breathing", "baby ribs pulling in", "bronchiolitis"]
+questions:
+  - id: age_under6m
+    prompt: "Is the baby under 6 months old? (yes/no/unknown)"
+    store_as: under_6m
+
+  - id: breathing
+    prompt: "Any trouble breathing (fast breathing, ribs pulling in, pauses in breathing, or bluish lips)? (yes/no)"
+    store_as: breathing_trouble
+    type: yesno
+
+  - id: feeding
+    prompt: "Is the baby feeding poorly or having fewer wet diapers? (yes/no)"
+    store_as: dehydration_feeding
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["age_under6m", "breathing", "feeding"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

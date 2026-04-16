@@ -1,0 +1,18 @@
+{
+  "pack_id": "auto_bb2ecdb7c77e",
+  "description": "Auto-acquired (OpenAI web search) evidence for: \"elbow pain\" treatment guideline management site:nhs.uk OR site:nice.org.uk OR site:aafp.org OR site:cdc.gov OR site:medlineplus.gov OR site:mayoclinic.org",
+  "sources": [
+    {
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/musculoskeletal-pain.html"
+    },
+    {
+      "url": "https://www.mayoclinic.org/symptoms/elbow-pain/basics/when-to-see-doctor/sym-20050874"
+    },
+    {
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/0700/p63.html"
+    },
+    {
+      "url": "https://www.mayoclinic.org/diseases-conditions/osteoarthritis/diagnosis-treatment/drc-20351930"
+    }
+  ]
+}

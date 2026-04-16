@@ -1,0 +1,51 @@
+{
+  "packet_id": "d7791a2b-4bc2-4319-bbdb-eceadd6a5a8a",
+  "created_at": "2026-01-21T22:20:38.098372+00:00",
+  "session_id": "88262fa2-723b-4403-b4e7-8558ee6ec449",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "ear_pain",
+  "answers": {
+    "duration": "5 days",
+    "fever": "yes",
+    "discharge": "yes",
+    "vertigo": "no",
+    "diabetes": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with a 5-day history of ear pain. They report associated fever and ear discharge. There is no vertigo. The patient has no known medication allergies and no history of diabetes or immune compromise.\n\nO:\nNo physical exam findings or vital signs available due to phone-only evaluation.\n\nA:\n - Working diagnosis (most likely): Acute otitis media with otorrhea (likely tympanic membrane perforation or otitis externa)\n - Differential:\n  1. Acute otitis media with tympanic membrane perforation\n  2. Otitis externa with secondary infection\n  3. Chronic suppurative otitis media\n  4. Mastoiditis (less likely without vertigo or severe symptoms)\n - Red flags considered:\n  - No vertigo or neurological symptoms reported\n  - No signs of systemic toxicity beyond fever reported\n  - No immune compromise\n\nP:\n - Disposition: Urgent care evaluation recommended if symptoms worsen or fail to improve; consider in-person exam for otoscopic evaluation.\n - Plan: Empiric antibiotic therapy may be indicated given fever and ear discharge. Recommend oral antibiotics targeting common pathogens (e.g., amoxicillin-clavulanate). Specific regimen and prescription to be confirmed by reviewing physician.\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Supportive care:\n   - Follow-up and safety:\n - Safety net: Advise patient to seek immediate care if they develop worsening pain, swelling behind the ear, hearing loss, vertigo, high fever, or neurological symptoms.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Ear Infection (Otitis Media) information",
+        "source": "https://www.cdc.gov/ear-infection/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+      },
+      {
+        "title": "MedlinePlus: Ear infections",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "source": "https://www.cdc.gov/ear-infection/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "title": "MedlinePlus: Ear infections",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

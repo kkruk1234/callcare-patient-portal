@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "vaccination trends for children and adults, as well as RSV vaccination trends for individuals aged 75+. \nWe created stacked bar charts for the 2024-25 seasonal COVID-19 and influenza vaccination for vaccination status and intent with a filter option to toggle between children or adults (which will become active once data for children are available). We also created a stacked bar chart for RSV vaccination for vaccination status and intent for adults ages 75+. \nWhy: \nCentralizing vaccination information on one page simplifies navigation and provides a unified resource for users seeking both adult and children's vaccination data. The vaccination page will now contain data for children and adults in one place. \nAdditional data are available on RespVaxView. \nSeptember 6, 2024 release \nMajor updates: \n1. Adding wastewater viral activity levels for influenza A and RSV. \nWhat: We added wastewater viral activity levels for influenza A and RSV to: \nThe 'Your community snapshot , where it can be quickly viewed alongside other helpful data about your community. \nActivity Levels , where you can see a broader view of viral wastewater levels across the country. \nWhy: \nCDC is now releasing wastewater viral activity level data for influenza A and RSV. Wastewater monitoring can detect viruses spreading in a community whether or not people have symptoms, get tested, or go to the doctor. This wil",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_026"
+}

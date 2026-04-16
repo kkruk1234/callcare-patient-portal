@@ -1,0 +1,51 @@
+{
+  "packet_id": "41d617f0-45e6-4911-9c64-f77d2396659c",
+  "created_at": "2026-03-08T21:31:56.781141+00:00",
+  "session_id": "e2bb2cad-c9a0-433e-b611-23ad8df15cc2",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "red flags sore throat when to seek emergency care",
+    "indications for throat culture or rapid strep test adults"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin dosing for adult strep throat treatment mg duration contraindications"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.pdf",
+      "accessed": "2026-03-08",
+      "snippet": ""
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-08",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Diagnosis and Management of Group A Streptococcal Pharyngitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2003/0215/p880.html",
+      "accessed": "2026-03-08",
+      "snippet": "Antimicrobial agent Dosage Duration of therapy* Rating of evidence † Penicillin V‡ Children: 250 mg orally two or three times daily 10 days A-II Adolescents and adults: 250 mg orally three or four times daily 10 days A-II Adolescents and adults: 500 mg orally twice daily 10 days C-III Penicillin G benzathine 1.2 × 10 6 U IM One dose A-II§ 6.0 × 10 5 U IM One dose‖ A-II Mixture of penicillin G benzathine and penicillin G procaine Varies with formulation ¶ given IM One dose B-II For penicillin-allergic patients Erythromycin Varies with formulation#; given orally 10 days A-II First-generation cephalosporin** Varies with agent; given orally 10 days A-II"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sore throat accompanied by fever, chills, swollen glands, painful swallowing, hoarseness, and white patches on the tonsils. She reports recent exposure to strep throat from her son last week. She denies difficulty breathing, chest pain, rash, or joint pain. Initial home remedies including tea with honey and DayQuil have not improved her symptoms.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the presence of fever, swollen cervical lymph nodes, tonsillar exudates, and recent exposure to a confirmed case.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Other bacterial pharyngitis\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, renal, or liver disease reported\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe throat swelling, inability to swallow, or worsening symptoms occur; seek emergency care if severe respiratory distress develops\n- Testing: Arrange for rapid antigen detection test or throat culture to confirm streptococcal infection"
+}

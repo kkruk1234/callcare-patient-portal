@@ -1,0 +1,706 @@
+from pathlib import Path
+from typing import Optional, Tuple, List
+import json
+import re
+
+from app.core.models import ReviewPacket, NoteDraft, CallState, EvidenceRef
+from app.clinical.note_builder import now_iso
+from app.clinical.med_protocols import load_med_protocol_for_state, protocol_to_med_suggestions
+
+
+def _postprocess_soap_global(note, state) -> None:
+    """
+    Global deterministic cleanup of SOAP text:
+    - Inject actual numeric age into the S: line (e.g., "35-year-old patient ...")
+    - Rewrite awkward pregnancy phrasing ("Pregnancy is not possible" -> "Patient is not pregnant")
+    This is intentionally conservative: only rewrites when patterns are clearly present.
+    """
+    try:
+        soap = getattr(note, "soap", None)
+        if not soap or not isinstance(soap, str):
+            return
+
+        sx = getattr(state, "symptoms", None) or {}
+
+        def _as_int(v):
+            try:
+                if v is None:
+                    return None
+                s = str(v).strip()
+                if not s:
+                    return None
+                n = float(s)
+                if n <= 0 or n > 120:
+                    return None
+                return int(round(n))
+            except Exception:
+                return None
+
+        # --- AGE: try multiple locations, then scan symptoms for any plausible 'age' value ---
+        age_val = None
+        for k in ("age_years", "age", "age_in_years", "patient_age", "age_years_int"):
+            if k in sx:
+                iv = _as_int(sx.get(k))
+                if iv is not None:
+                    age_val = iv
+                    break
+        if age_val is None:
+            for k in ("age_years", "age", "age_in_years", "patient_age", "age_years_int"):
+                iv = _as_int(getattr(state, k, None))
+                if iv is not None:
+                    age_val = iv
+                    break
+        if age_val is None:
+            for k, v in sx.items():
+                if "age" not in str(k).lower():
+                    continue
+                iv = _as_int(v)
+                if iv is not None:
+                    age_val = iv
+                    break
+
+        # --- PREGNANCY phrasing cleanup (global) ---
+        soap2 = soap
+        soap2 = re.sub(r"\bPregnancy\s+is\s+not\s+possible\b\.?", "Patient is not pregnant.", soap2, flags=re.IGNORECASE)
+        soap2 = re.sub(r"\bPregnancy\s+not\s+possible\b\.?", "Patient is not pregnant.", soap2, flags=re.IGNORECASE)
+
+        # --- TICK ATTACHMENT narrative correction (avoid "37 hours ago" when user meant attachment duration) ---
+        # If the user answered tick_attachment_timeframe (e.g., "37 hours"), some generators mistakenly write
+        # "tick bite ... 37 hours ago". Convert that to "Tick was attached for ~37 hours" (on S: line only).
+        tf_raw = (
+            sx.get("tick_attachment_timeframe")
+            or sx.get("tick_attached_timeframe")
+            or sx.get("tick_attachment_hours")
+            or ""
+        )
+        tf_raw_s = str(tf_raw).strip().lower()
+        tf_hours = None
+        if "hour" in tf_raw_s:
+            mm = re.search(r"(\d{1,3})\s*hour", tf_raw_s)
+            if mm:
+                try:
+                    tf_hours = int(mm.group(1))
+                except Exception:
+                    tf_hours = None
+
+        # --- AGE injection only on S: line, only if it's missing any 'year-old' already ---
+        if age_val is not None:
+            lines = soap2.splitlines()
+            for i, ln in enumerate(lines):
+                if ln.lstrip().startswith("S:"):
+                    # If tick attachment duration was provided, fix the common mis-phrasing "... <N> hours ago ..."
+                    if tf_hours is not None:
+                        # Most specific pattern
+                        ln2 = re.sub(
+                            r"\btick bite sustained\s+(?:approximately|about)?\s*"
+                            + str(tf_hours)
+                            + r"\s*hours?\s*ago\s+while\s+in\s+([A-Za-z][A-Za-z \-]{0,40})\b\.?",
+                            r"tick bite in \1. Tick was attached for approximately "
+                            + str(tf_hours)
+                            + r" hours.",
+                            ln,
+                            flags=re.IGNORECASE,
+                        )
+                        # More general fallback
+                        if ln2 == ln:
+                            ln2 = re.sub(
+                                r"\btick bite\b([^.\n]{0,120})\b"
+                                + str(tf_hours)
+                                + r"\s*hours?\s*ago\b",
+                                r"tick bite\1Tick was attached for approximately "
+                                + str(tf_hours)
+                                + r" hours",
+                                ln,
+                                flags=re.IGNORECASE,
+                            )
+                        ln = ln2
+
+                    # If the S line already contains "year-old", don't touch it.
+                    if re.search(r"\byear[- ]old\b", ln, flags=re.IGNORECASE):
+                        break
+
+                    # Common format: "S: Patient ..."
+                    if re.search(r"^\s*S:\s*Patient\b", ln):
+                        lines[i] = re.sub(
+                            r"^\s*S:\s*Patient\b",
+                            f"S: {age_val}-year-old patient",
+                            ln,
+                            count=1,
+                        )
+                        break
+
+                    # If S line exists but doesn't start with Patient, insert prefix conservatively
+                    if re.match(r"^\s*S:\s*\S", ln):
+                        lines[i] = re.sub(
+                            r"^\s*S:\s*",
+                            f"S: {age_val}-year-old patient. ",
+                            ln,
+                            count=1,
+                        )
+                        break
+            soap2 = "\n".join(lines)
+
+        if soap2 != soap:
+            setattr(note, "soap", soap2)
+    except Exception:
+        return
+
+
+
+def _postprocess_dvt_possible(note, state) -> None:
+    """
+    Pathway-specific deterministic cleanup for dvt_possible:
+    - Force urgent-now patient instructions (no 'if worsening' boilerplate)
+    - Remove 'return for reassessment' language
+    - Remove calf/laterality hallucinations in Working Diagnosis
+    - Telephone-only safety net phrasing (ED/911)
+    """
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        pid = ""
+        try:
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+        except Exception:
+            pid = ""
+        if (pid or "").strip() != "dvt_possible":
+            # Also allow direct state.pathway_id if present
+            if (getattr(state, "pathway_id", "") or "").strip() != "dvt_possible":
+                return
+
+        # ---- Force patient instructions (what simulator prints) ----
+        try:
+            note.patient_instructions = [
+                "This needs urgent in-person evaluation today for possible deep vein thrombosis (DVT).",
+                "Because this is a phone visit, please go in person today for an exam and testing (typically an ultrasound of the leg).",
+                "Go immediately to the emergency department (or call 911) if you develop chest pain, shortness of breath, coughing up blood, or fainting.",
+                "Go immediately to the emergency department (or call 911) if leg pain or swelling worsens significantly."
+            ]
+        except Exception:
+            pass
+
+        soap = getattr(note, "soap", "") or ""
+        if not isinstance(soap, str):
+            return
+
+        # Remove calf/laterality hallucination
+        soap = re.sub(r"\bleft or right calf\b", "leg", soap, flags=re.IGNORECASE)
+
+        # Remove reassessment / worsening boilerplate in safety net
+        soap = re.sub(r"Return\s+for\s+reassessment.*?(?:\.|\n)", "", soap, flags=re.IGNORECASE)
+
+        # Remove "seek emergency care if symptoms worsen" plan language (DVT needs urgent eval now)
+        soap = re.sub(
+            r"Advise\s+patient\s+to\s+seek\s+emergency\s+care\s+if\s+symptoms\s+worsen.*?(?:\.|\n)",
+            "Advise patient to seek urgent in-person evaluation today for suspected DVT (typically duplex ultrasound). ",
+            soap,
+            flags=re.IGNORECASE
+        )
+
+        # Telephone-only phrasing
+        soap = soap.replace("call or return immediately", "go immediately to the emergency department (or call 911)")
+        soap = soap.replace("call or return", "go immediately to the emergency department")
+        soap = soap.replace("return immediately", "go immediately to the emergency department (or call 911)")
+
+        setattr(note, "soap", soap)
+    except Exception:
+        return
+
+
+FINAL_DIR = Path("logs/finalized")
+MANIFESTS_DIR = Path("data/sources/pathways")
+
+
+def _postprocess_tick_bite_soap(note, state) -> None:
+    """
+    Surgical, pathway-specific cleanups for tick_bite SOAP:
+    - Ensure numeric age appears in the Subjective (S:) line.
+    - Interpret '37 hours' as tick attachment duration, not time-since-bite.
+    - Normalize pregnancy wording to 'Patient is not pregnant.'
+    """
+    try:
+        soap = getattr(note, "soap", "") or ""
+        if not soap.strip():
+            return
+
+        # Only operate when the pathway is tick_bite
+        pid = ""
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+        except Exception:
+            pid = ""
+        if (pid or "").strip() != "tick_bite":
+            return
+
+        age_val = None
+        sx = getattr(state, "symptoms", None) or {}
+
+        def _as_int(v):
+            try:
+                if v is None:
+                    return None
+                s = str(v).strip()
+                if not s:
+                    return None
+                n = float(s)
+                if n <= 0 or n > 120:
+                    return None
+                return int(round(n))
+            except Exception:
+                return None
+
+        for k in ("age_years", "age", "age_years_int", "age_years_float", "patient_age", "age_in_years"):
+            if k in sx:
+                iv = _as_int(sx.get(k))
+                if iv is not None:
+                    age_val = iv
+                    break
+
+        if age_val is None:
+            for k in ("age_years", "age", "age_years_int", "patient_age", "age_in_years"):
+                iv = _as_int(getattr(state, k, None))
+                if iv is not None:
+                    age_val = iv
+                    break
+
+        if age_val is None:
+            for k, v in sx.items():
+                if "age" not in str(k).lower():
+                    continue
+                iv = _as_int(v)
+                if iv is not None:
+                    age_val = iv
+                    break
+
+        lines = soap.splitlines()
+        out_lines = []
+        for line in lines:
+            ln = line
+
+            # Normalize pregnancy language
+            ln = re.sub(r"\bPregnancy\s+is\s+not\s+possible\b", "Patient is not pregnant", ln, flags=re.IGNORECASE)
+            ln = re.sub(r"\bPregnancy\s+not\s+possible\b", "Patient is not pregnant", ln, flags=re.IGNORECASE)
+
+            # Fix the "37 hours ago" misinterpretation ONLY in tick_bite subjective text
+            ln = re.sub(
+                r"(tick bite\s+(?:approximately|about|around)?\s*)(\d{1,3})\s*hours?\s*ago",
+                r"\1; tick may have been attached for about \2 hours",
+                ln,
+                flags=re.IGNORECASE,
+            )
+
+            ln = re.sub(
+                r"(tick bite.*?)(?:lasting|for)\s+(\d{1,3}\s*(?:-|to)\s*\d{1,3}\s*hours?)\b",
+                r"\1 tick may have been attached for \2",
+                ln,
+                flags=re.IGNORECASE,
+            )
+
+            # Ensure age appears in the S: line
+            if age_val is not None and ln.lstrip().startswith("S:"):
+                if not re.search(r"\b\d{1,3}\s*-\s*year\s*-\s*old\b|\b\d{1,3}\s*year\s*old\b|\b\d{1,3}\s*-\s*year-old\b", ln, flags=re.IGNORECASE):
+                    if ln.strip() == "S:":
+                        ln = f"S: {age_val}-year-old patient reports a tick bite."
+                    else:
+                        ln = re.sub(r"^\s*S:\s*", f"S: {age_val}-year-old patient ", ln)
+
+            out_lines.append(ln)
+
+        new_soap = "\n".join(out_lines).rstrip() + "\n"
+        setattr(note, "soap", new_soap)
+    except Exception:
+        return
+
+
+def _extract_disposition_from_state(state: Optional[CallState]) -> Tuple[str, List[str]]:
+    if state is None:
+        return "UNKNOWN", []
+
+    symptoms = getattr(state, "symptoms", None) or {}
+    disp = symptoms.get("_disposition") or "UNKNOWN"
+    reasons = symptoms.get("_disposition_reasons") or []
+
+    if not isinstance(reasons, list):
+        reasons = []
+    reasons = [str(r) for r in reasons if r]
+    return str(disp), reasons
+
+
+def _map_disposition_to_recommendation(disposition: str) -> str:
+    d = (disposition or "").strip().lower()
+    if d == "ed_now":
+        return "ED_NOW"
+    if d == "urgent_today":
+        return "URGENT_IN_PERSON_TODAY"
+    if d == "routine":
+        return "ROUTINE_HOME_CARE"
+    return "AUTO_FINALIZED_PROTOCOL"
+
+
+def _infer_pathway_id(note: NoteDraft, state: Optional[CallState]) -> str:
+    if state is not None:
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+            pid = str(pid).strip()
+            if pid:
+                return pid
+        except Exception:
+            pass
+
+    try:
+        pid = getattr(note, "pathway_id", "") or ""
+        pid = str(pid).strip()
+        if pid:
+            return pid
+    except Exception:
+        pass
+
+    return ""
+
+
+def _load_manifest_sources(pathway_id: str) -> List[dict]:
+    if not pathway_id:
+        return []
+    manifest_path = MANIFESTS_DIR / pathway_id / "manifest.json"
+    if not manifest_path.exists():
+        return []
+
+    try:
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+    sources = data.get("sources") or []
+    if not isinstance(sources, list):
+        return []
+
+    out: List[dict] = []
+    for s in sources:
+        if isinstance(s, dict):
+            out.append(s)
+    return out
+
+
+def _mk_evidence_ref(title: str, url: str, snippet: str, sid: str) -> EvidenceRef:
+    payload = {}
+    if hasattr(EvidenceRef, "model_fields"):  # pydantic v2
+        fields = set(EvidenceRef.model_fields.keys())
+    else:
+        fields = set(getattr(EvidenceRef, "__fields__", {}).keys())
+
+    if "title" in fields:
+        payload["title"] = title
+    if "url" in fields:
+        payload["url"] = url
+    if "source" in fields:
+        payload["source"] = url or title
+    if "snippet" in fields:
+        payload["snippet"] = snippet
+    if "source_id" in fields:
+        payload["source_id"] = sid
+
+    if "url" not in fields and url:
+        if "source" in fields and not payload.get("source"):
+            payload["source"] = url
+        elif "snippet" in fields and url not in str(payload.get("snippet", "")):
+            payload["snippet"] = (str(payload.get("snippet", "")) + " " + url).strip()
+
+    return EvidenceRef(**payload)
+
+
+def _set_note_evidence_from_manifest(note: NoteDraft, pathway_id: str) -> None:
+    sources = _load_manifest_sources(pathway_id)
+    if not sources:
+        return
+
+    ev: List[EvidenceRef] = []
+
+    for s in sources:
+        title = str(s.get("title") or s.get("id") or pathway_id).strip()
+        url = str(s.get("url") or "").strip()
+        sid = str(s.get("id") or "").strip()
+        snippet = "Listed in pathway manifest"
+
+        ev.append(_mk_evidence_ref(title=title, url=url, snippet=snippet, sid=sid))
+
+    try:
+        note.evidence = ev
+    except Exception:
+        pass
+
+
+def _age_years_from_state(state: Optional[CallState]) -> Optional[int]:
+    if state is None:
+        return None
+    sx = getattr(state, "symptoms", None) or {}
+    for k in ("age_years", "age", "age_in_years"):
+        v = sx.get(k) if isinstance(sx, dict) else None
+        if v is not None and str(v).strip() != "":
+            try:
+                return int(float(v))
+            except Exception:
+                pass
+    for attr in ("age_years", "age"):
+        v = getattr(state, attr, None)
+        if v is not None and str(v).strip() != "":
+            try:
+                return int(float(v))
+            except Exception:
+                pass
+    return None
+
+
+def _ensure_age_in_subjective(note: NoteDraft, state: Optional[CallState]) -> None:
+    try:
+        soap = getattr(note, "soap", "") or ""
+    except Exception:
+        return
+    soap_s = str(soap)
+
+    age = _age_years_from_state(state)
+    if age is None:
+        return
+
+    if re.search(rf"\b{age}\s*-\s*year\s*-\s*old\b|\b{age}\s*year\s*old\b|\b{age}\s*-\s*year\s*old\b|\b{age}-year-old\b", soap_s, flags=re.IGNORECASE):
+        return
+
+    if re.search(r"\b\d{1,3}\s*-\s*year\s*-\s*old\b|\b\d{1,3}-year-old\b", soap_s, flags=re.IGNORECASE):
+        return
+
+    lines = soap_s.splitlines()
+    out = []
+    injected = False
+
+    for ln in lines:
+        if not injected and ln.lstrip().startswith("S:"):
+            if ln.strip() == "S:" or ln.strip() == "S:":
+                out.append(ln.rstrip())
+                out.append(f"Patient is a {age}-year-old presenting by phone.")
+            else:
+                out.append(ln.rstrip() + f" Patient is a {age}-year-old.")
+            injected = True
+        else:
+            out.append(ln.rstrip())
+
+    new_soap = "\n".join(out).strip() + "\n"
+    try:
+        setattr(note, "soap", new_soap)
+    except Exception:
+        pass
+
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    """
+    Finalize a note into a ReviewPacket and write it to logs/finalized/<session_id>.json.
+
+    This MUST preserve clinical state into the finalized JSON (if schema supports fields):
+      - chief_complaint
+      - pathway_id
+      - answers
+      - pregnancy_possible
+      - evidence
+      - med_suggestions
+    """
+    import uuid
+
+    FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Infer pathway id early
+    pid = ""
+    try:
+        pid = _infer_pathway_id(note, state)
+    except Exception:
+        pid = ""
+
+    # Try attaching manifest evidence into note.evidence (best-effort)
+    try:
+        if pid:
+            _set_note_evidence_from_manifest(note, pid)
+    except Exception:
+        pass
+
+    disposition, reasons = _extract_disposition_from_state(state)
+    recommended = _map_disposition_to_recommendation(disposition)
+
+    comments = "Tier-1 protocol auto-finalized"
+    if disposition != "UNKNOWN":
+        comments += f" | disposition={disposition}" + (f" reasons={reasons}" if reasons else "")
+    if pid:
+        comments += f" | pathway_id={pid}"
+
+    # Detect ReviewPacket fields (pydantic v2/v1)
+    if hasattr(ReviewPacket, "model_fields"):
+        fields = set(ReviewPacket.model_fields.keys())
+    elif hasattr(ReviewPacket, "__fields__"):
+        fields = set(ReviewPacket.__fields__.keys())
+    else:
+        fields = set()
+
+    now = now_iso()
+    kwargs = {}
+
+    # Required in newer schema
+    if "packet_id" in fields:
+        kwargs["packet_id"] = str(uuid.uuid4())
+    if "created_at" in fields:
+        kwargs["created_at"] = now
+
+    # Pull structured state
+    sx = {}
+    ans = {}
+    try:
+        if state is not None:
+            sx = getattr(state, "symptoms", None) or {}
+    except Exception:
+        sx = {}
+    if not isinstance(sx, dict):
+        sx = {}
+
+    try:
+        ans = sx.get("_answers", {}) or {}
+    except Exception:
+        ans = {}
+    if not isinstance(ans, dict):
+        ans = {}
+
+    # Chief complaint with fallbacks
+    cc = ""
+    try:
+        if state is not None:
+            cc = (getattr(state, "chief_complaint", None) or "").strip()
+    except Exception:
+        cc = ""
+    if not cc:
+        for k in ("chief_complaint", "cc", "main_concern"):
+            v = sx.get(k)
+            if v:
+                cc = str(v).strip()
+                break
+    if not cc:
+        v = ans.get("chief_complaint") or ans.get("cc") or ans.get("main_concern")
+        if v:
+            cc = str(v).strip()
+
+    # Pregnancy possible raw — MUST be a string for ReviewPacket schema
+    preg = ""
+    try:
+        if state is not None and hasattr(state, "pregnancy_possible"):
+            v = getattr(state, "pregnancy_possible", None)
+            if v is not None and str(v).strip() != "":
+                preg = str(v).strip()
+    except Exception:
+        preg = ""
+
+    if not preg:
+        v2 = sx.get("pregnancy_possible", None)
+        if v2 is not None and str(v2).strip() != "":
+            preg = str(v2).strip()
+
+    if preg is None:
+        preg = ""
+
+    # Evidence list from note
+    ev = []
+    try:
+        ev = getattr(note, "evidence", None) or []
+    except Exception:
+        ev = []
+    if not isinstance(ev, list):
+        ev = []
+
+    # Med suggestions (deterministic, from data/protocols/meds/<pathway_id>.yaml)
+    med_suggestions: List[dict] = []
+    try:
+        if state is not None and pid:
+            protocol, _reason = load_med_protocol_for_state(state)
+            if isinstance(protocol, dict):
+                med_suggestions = protocol_to_med_suggestions(protocol, pathway_id=pid) or []
+    except Exception:
+        med_suggestions = []
+
+    # Common fields
+    if "session_id" in fields:
+        kwargs["session_id"] = session_id
+    if "timestamp_iso" in fields and "created_at" not in kwargs:
+        kwargs["timestamp_iso"] = now
+    if "timestamp" in fields and "timestamp_iso" not in kwargs and "created_at" not in kwargs:
+        kwargs["timestamp"] = now
+
+    if "note" in fields:
+        kwargs["note"] = note
+    if "recommended_disposition" in fields:
+        kwargs["recommended_disposition"] = recommended
+    if "status" in fields:
+        kwargs["status"] = "APPROVED"
+    if "reviewer_id" in fields:
+        kwargs["reviewer_id"] = "SYSTEM"
+    if "reviewer_comments" in fields:
+        kwargs["reviewer_comments"] = comments
+
+    # State-preservation fields (only if schema supports them)
+    if "chief_complaint" in fields:
+        kwargs["chief_complaint"] = cc
+    if "pathway_id" in fields:
+        kwargs["pathway_id"] = pid or (getattr(state, "pathway_id", "") if state is not None else "")
+    if "answers" in fields:
+        kwargs["answers"] = ans
+    if "pregnancy_possible" in fields:
+        kwargs["pregnancy_possible"] = preg
+    if "evidence" in fields:
+        kwargs["evidence"] = ev
+    if "med_suggestions" in fields:
+        kwargs["med_suggestions"] = med_suggestions
+
+    # Deterministic cleanup (best effort)
+    try:
+        if state is not None:
+            _postprocess_soap_global(note, state)
+
+            # CELLULITIS_PATIENT_INSTRUCTIONS_FINALIZE_OVERRIDE
+            # Force cellulitis patient instructions at finalize-time (what the simulator prints).
+            try:
+                pid = (getattr(state, "pathway_id", "") or "").strip()
+                if not pid:
+                    sx = getattr(state, "symptoms", None) or {}
+                    pid = ((sx.get("_pathway") or {}).get("id") or "").strip()
+                if pid == "cellulitis":
+                    note.patient_instructions = [
+                        "This appears to be a skin infection (cellulitis). Some redness and swelling can persist early, but symptoms should start to stabilize or improve within 24–48 hours once treatment begins.",
+                        "Go to urgent care the same day if redness is rapidly spreading, pain is worsening, you develop fever or chills, or the area becomes more swollen or tender.",
+                        "Go to the emergency department immediately if you feel very ill, develop confusion, have severe pain out of proportion, rapidly progressing redness, or signs of sepsis.",
+                        "Because this is a phone visit, we cannot examine the area. If you cannot get in-person care promptly or symptoms are not improving within 48 hours, please get evaluated in person."
+                    ]
+            except Exception:
+                pass
+
+
+            # DVT_PATIENT_INSTRUCTIONS_FINALIZE_OVERRIDE
+            # Force DVT patient instructions at finalize-time (what the simulator prints).
+            try:
+                pid = (getattr(state, "pathway_id", "") or "").strip()
+                if not pid:
+                    sx = getattr(state, "symptoms", None) or {}
+                    pid = ((sx.get("_pathway") or {}).get("id") or "").strip()
+                if pid == "dvt_possible":
+                    note.patient_instructions = [
+                        "This needs urgent in-person evaluation today for possible deep vein thrombosis (DVT).",
+                        "Because this is a phone visit, please go in person today for an exam and testing (typically an ultrasound of the leg).",
+                        "Go immediately to the emergency department (or call 911) if you develop chest pain, shortness of breath, coughing up blood, or fainting.",
+                        "Go immediately to the emergency department (or call 911) if leg pain or swelling worsens significantly."
+                    ]
+            except Exception:
+                pass
+
+    except Exception:
+        pass
+
+    packet = ReviewPacket(**kwargs)
+
+    out_path = FINAL_DIR / f"{session_id}.json"
+    try:
+        out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+    except Exception:
+        out_path.write_text(packet.json(indent=2), encoding="utf-8")
+
+    return packet

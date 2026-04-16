@@ -1,0 +1,49 @@
+{
+  "packet_id": "4e092b60-9152-4eec-a38b-5f38a722a396",
+  "created_at": "2026-01-18T21:51:10.268093+00:00",
+  "session_id": "36ad5835-5d97-4f54-8538-3f8ca4314d71",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old adult reports a tick bite with the tick attached for approximately 37 hours after exposure in Georgia. The patient describes a rash with a bullseye or erythema migrans appearance at the site of the bite. There are no systemic symptoms such as fever, chills. Patient is not pregnant.\n\nO: No physical exam available due to phone-only encounter. Patient describes a characteristic bullseye rash consistent with erythema migrans at the tick bite site. No reported systemic signs or symptoms.\n\nA: \n - Working diagnosis (most likely): Early localized Lyme disease presenting with erythema migrans rash. \n - Differential: \n 1. Early Lyme disease \n 2. Southern tick-associated rash illness (STARI) \n 3. Cellulitis or local skin infection \n 4. Allergic reaction to tick bite \n - Red flags considered: No systemic symptoms such as fever, headache, or joint pain; no signs of severe allergic reaction or neurological symptoms.\n\nP: \n - Disposition: Urgent care or primary care follow-up recommended within 1 week to monitor rash progression and symptom development. \n - Plan: Initiate doxycycline 100 mg orally twice daily for 10 days, unless contraindicated. If doxycycline is contraindicated, consider amoxicillin. Educate patient on completing the full antibiotic course. No need for immediate laboratory testing if classic erythema migrans is present. \n - Safety net: Advise patient to seek urgent care if fever, worsening rash, joint pain, neurological symptoms, or other systemic symptoms develop. Return sooner if rash enlarges rapidly or if signs of allergic reaction occur.\n\nEvidence (snippets used): \n- Tick was attached for approximately 37 hours. \n- Exposure location: Georgia. \n- Bullseye rash present. \n- No systemic symptoms. \n- Patient is not pregnant.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  },
+  "evidence": []
+}

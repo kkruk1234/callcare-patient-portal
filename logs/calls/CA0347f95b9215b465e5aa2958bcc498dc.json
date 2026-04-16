@@ -1,0 +1,135 @@
+{
+  "call_sid": "CA0347f95b9215b465e5aa2958bcc498dc",
+  "session_id": "be19fc20-4213-4edd-b837-83c87f2d8d6b",
+  "from_number": "+16318072183",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-13T18:49:46.661141+00:00",
+  "ended_at": "2026-03-13T18:54:08.382102+00:00",
+  "packet_id": "02a4a9fb-2012-4479-8964-e9d4fc45f0b5",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I think I'm going crazy."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what you mean by 'going crazy'? What symptoms are you experiencing?"
+    },
+    {
+      "role": "user",
+      "text": "I have headaches."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your headaches start, and how often do they occur?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago every day."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have had any changes in vision, weakness, numbness, or difficulty speaking along with your headaches?"
+    },
+    {
+      "role": "user",
+      "text": "My arm is weak."
+    },
+    {
+      "role": "assistant",
+      "text": "Is the weakness in your arm on one side only, and did it start suddenly or gradually?"
+    },
+    {
+      "role": "user",
+      "text": "It's started suddenly on the right side."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any difficulty speaking, facial droop, or changes in vision since your symptoms started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or loss of sensation in your right arm or elsewhere?"
+    },
+    {
+      "role": "user",
+      "text": "Tingling"
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, recent infections, or trauma before these symptoms started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "54."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Yeah. No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Email."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you’ve described, your symptoms could be related to a serious neurological condition like a transient ischemic attack or stroke, especially given the sudden weakness and tingling in your arm along with headaches. Because this could be urgent, it’s important that you seek in-person medical care right away for a full evaluation, including imaging and a neurological exam. This phone service can’t provide an exam or tests, so if your symptoms worsen—such as new weakness, difficulty speaking, vision changes, or facial drooping—or if you develop severe headache or confusion, please go to the emergency room immediately. A licensed physician will review this note and guide any further treatment needed."
+    }
+  ]
+}

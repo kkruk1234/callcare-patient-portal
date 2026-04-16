@@ -1,0 +1,26 @@
+{
+  "pathway_id": "sore_throat",
+  "sources": [
+    {
+      "id": "cdc_strep_throat_guidance",
+      "type": "web",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "title": "CDC Clinical Guidance for Group A Strep Pharyngitis",
+      "license_note": "Check CDC site terms; store excerpted text for retrieval."
+    },
+    {
+      "id": "idsa_gas_pharyngitis_guideline",
+      "type": "web",
+      "url": "https://www.idsociety.org/practice-guideline/streptococcal-pharyngitis/",
+      "title": "IDSA Guideline: Group A Streptococcal Pharyngitis",
+      "license_note": "Link and store short excerpts; avoid bulk copying if restricted."
+    },
+    {
+      "id": "nice_ng84",
+      "type": "web",
+      "url": "https://www.nice.org.uk/guidance/ng84",
+      "title": "NICE NG84 Acute Sore Throat Antimicrobial Prescribing",
+      "license_note": "NICE content is copyrighted; store small excerpts + citations, not full PDFs."
+    }
+  ]
+}

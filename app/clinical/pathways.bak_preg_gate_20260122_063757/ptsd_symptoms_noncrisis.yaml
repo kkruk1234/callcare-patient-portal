@@ -1,0 +1,22 @@
+id: ptsd_symptoms_noncrisis
+version: 0.1
+match:
+  any_keywords: ["ptsd", "flashbacks", "nightmares", "panic from trauma", "hypervigilant", "triggered by trauma"]
+questions:
+  - id: self_harm
+    prompt: "Are you having thoughts of harming yourself right now? (yes/no)"
+    store_as: self_harm_now
+    type: yesno
+  - id: psychosis
+    prompt: "Are you feeling out of touch with reality or hearing/seeing things others don't? (yes/no)"
+    store_as: psychosis
+    type: yesno
+  - id: safety
+    prompt: "Do you feel physically safe where you are right now? (yes/no)"
+    store_as: safe_environment
+    type: yesno
+stop_rules:
+  - if_all_answered: ["self_harm", "psychosis", "safety"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

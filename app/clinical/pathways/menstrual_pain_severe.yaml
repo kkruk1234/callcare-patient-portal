@@ -1,0 +1,117 @@
+id: menstrual_pain_severe
+
+match:
+  any_keywords:
+    - "period cramps"
+    - "menstrual cramps"
+    - "painful period"
+    - "dysmenorrhea"
+    - "period pain"
+    - "menstrual pain"
+    - "cramps are so bad"
+    - "severe period pain"
+
+questions:
+  # Core context
+  - id: timing_cycle
+    prompt: "Is this pain during your period (bleeding) or between periods?"
+    type: multiselect
+    options:
+      - "During my period"
+      - "Between periods"
+      - "Not sure"
+    store_as: timing_cycle
+
+  - id: pregnancy_possibility
+    prompt: "Is there any chance you could be pregnant?"
+    type: multiselect
+    options:
+      - "No"
+      - "Yes"
+      - "Not sure"
+    store_as: pregnancy_possible
+
+  # Medication exclusions / risk factors (for NSAIDs and acetaminophen)
+  - id: med_exclusions
+    prompt: "Before we talk about pain meds, do any of these apply to you?"
+    type: multiselect
+    options:
+      - "Kidney disease or reduced kidney function"
+      - "Stomach ulcer or GI bleeding history"
+      - "On a blood thinner (anticoagulant) like warfarin/apixaban/rivaroxaban/heparin"
+      - "Liver disease OR heavy alcohol use"
+      - "None of these"
+      - "Not sure"
+    store_as: med_exclusions
+
+  # Bleeding / hemodynamic red flags
+  - id: bleeding_or_faint
+    prompt: "Which of these are happening right now?"
+    type: multiselect
+    options:
+      - "Soaking through pads/tampons very quickly"
+      - "Passing large clots"
+      - "Feeling faint or like I might pass out"
+      - "None of these"
+    store_as: bleeding_or_faint
+
+  # Ectopic/acute pelvic red flags (includes shoulder pain)
+  - id: ectopic_redflags
+    prompt: "Which of these apply?"
+    type: multiselect
+    options:
+      - "Sudden severe one-sided pelvic/lower belly pain"
+      - "Shoulder pain (especially with pregnancy possibility)"
+      - "Dizziness/lightheadedness"
+      - "None of these"
+    store_as: ectopic_redflags
+
+  # Infection / other causes
+  - id: fever_discharge
+    prompt: "Do you have any of these?"
+    type: multiselect
+    options:
+      - "Fever"
+      - "Foul-smelling vaginal discharge"
+      - "New or unusual vaginal discharge"
+      - "None of these"
+    store_as: fever_discharge
+
+  # Severity / functional impact
+  - id: functional_impact
+    prompt: "How bad is the pain right now?"
+    type: multiselect
+    options:
+      - "Mild"
+      - "Moderate"
+      - "Severe (hard to function)"
+    store_as: pain_severity
+
+stop_rules:
+  - when:
+      any:
+        - field: bleeding_or_faint
+          contains_any: ["Soaking through pads/tampons very quickly", "Feeling faint or like I might pass out"]
+        - field: ectopic_redflags
+          contains_any: ["Sudden severe one-sided pelvic/lower belly pain", "Shoulder pain (especially with pregnancy possibility)", "Dizziness/lightheadedness"]
+        - field: pregnancy_possible
+          equals: "Yes"
+    then:
+      decision: urgent_eval
+
+  - when:
+      any:
+        - field: pain_severity
+          equals: "Severe (hard to function)"
+        - field: fever_discharge
+          contains_any: ["Fever", "Foul-smelling vaginal discharge"]
+    then:
+      decision: urgent_eval
+
+  - when:
+      always: true
+    then:
+      decision: routine_care
+
+routing:
+  tier_default: 1

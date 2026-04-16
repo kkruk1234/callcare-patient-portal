@@ -1,0 +1,124 @@
+{
+  "packet_id": "f73a5561-9b21-42e2-b4a4-86768e2b29ea",
+  "created_at": "2026-02-05T03:22:14.277712+00:00",
+  "session_id": "7c5ede98-c5cf-4741-abc8-fc49f5e4bedc",
+  "chief_complaint": "twisted ankle",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did you twist your ankle?",
+    "intake_a1": "3 days ago",
+    "intake_q2": "Can you describe the pain and swelling in your ankle since the injury?",
+    "intake_a2": "It became huge immediately after and with icing has gone down",
+    "intake_q3": "Are you able to put any weight on the ankle or walk at all?",
+    "intake_a3": "not much weight - I have been limping",
+    "intake_q4": "Any bruising or deformity around the ankle?",
+    "intake_a4": "bruising and no deformity",
+    "intake_q5": "Any numbness, tingling, or inability to move your toes or foot?",
+    "intake_a5": "no",
+    "intake_q6": "Any fever, chills, or redness spreading around the ankle?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments besides icing, such as compression, elevation, or pain medications?",
+    "intake_a7": "elevation and tylenol",
+    "intake_q8": "Have you had any previous ankle injuries or chronic ankle problems on this side?",
+    "intake_a8": "no",
+    "intake_q9": "Can you describe exactly where the pain is located on your ankle?",
+    "intake_a9": "outside directly under the bone",
+    "intake_q10": "Can you describe how much swelling and bruising there is compared to the other ankle?",
+    "intake_a10": "Not much swelling and mild bruising",
+    "age_years": 34,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/ankleinjuriesanddisorders.html",
+        "https://medlineplus.gov/edema.html",
+        "https://www.nhs.uk/conditions/nephrotic-syndrome/",
+        "https://www.nhs.uk/conditions/turner-syndrome/",
+        "https://www.nhs.uk/conditions/undescended-testicles/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nPatient is not pregnant.\nThe patient is a 34-year-old female who twisted her ankle three days ago. She reports immediate significant swelling that has decreased with icing. She has mild bruising on the outside of the ankle directly under the bone but no deformity. She is able to bear some weight but is limping due to pain. She denies numbness, tingling, inability to move toes or foot, fever, chills, or spreading redness. She has been elevating the ankle and taking acetaminophen for pain. There is no history of previous ankle injuries or chronic ankle problems on this side.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings available.\n\nA: \nWorking diagnosis is a mild to moderate ankle sprain with soft tissue injury, given the mechanism, localized pain, swelling, bruising, and preserved neurovascular status. \nDifferential: \n1. Ankle sprain (lateral ligament injury) \n2. Ankle fracture (less likely given no deformity but cannot be excluded without imaging) \n3. Contusion or soft tissue injury \n4. Tendon injury or peroneal tendon involvement \n\nP: \n- First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain and inflammation for up to 7 days. Avoid if history of allergy or gastrointestinal intolerance. Dosing details were not found in retrieved evidence; prescriber should verify. \n- Alternatives: \n - Acetaminophen 500-1000 mg every 6 hours as needed for pain; avoid exceeding 3000 mg/day. \n - Naproxen 220 mg orally twice daily as needed for pain and inflammation; avoid if allergy or gastrointestinal intolerance. \n- Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease. NSAIDs should be used cautiously if gastrointestinal issues arise. \n- Return precautions: Return for in-person evaluation if there is worsening pain, increased swelling or bruising, inability to bear weight, numbness or tingling, deformity, or signs of infection such as fever or spreading redness. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., ankle x-ray, urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Ankle Injuries | Ankle Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/ankleinjuriesanddisorders.html",
+        "snippet": "Ankle Injuries | Ankle Disorders | MedlinePlus \nSkip navigation \nAn official website of the United States government\nHereâs how you know\nHereâs how you know \nOfficial websites use .gov \nA\n.gov website belongs to an official government\norganization in the United States.\nSecure .gov websites use HTTPS \nA\nlock (\nLock \nLocked padlock icon \n) or https:// means youâve safely connected to\nthe .gov website. Share sensitive information only on official,\nsecure websites.\nNational Library of Medicine \nMenu \nHealth Topics \nDrugs & Supplements \nGenetics \nMedical Tests \nMedical Encyclopedia \nAbout MedlinePlus \nSearch \nSearch MedlinePlus \nGO \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nHealth Topics Drugs & Supplements Genetics Medical Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nAnkle Injuries and Disorders \nURL of this page: https://medl"
+      },
+      {
+        "title": "Edema | Dropsy | MedlinePlus",
+        "source": "https://medlineplus.gov/edema.html",
+        "snippet": "Lung, and Blood Institute \nWomen\nWhat Causes Ankle Swelling during Pregnancy -- and What Can I Do about It? \n(Mayo Foundation for Medical Education and Research) \nAlso in Spanish \nPatient Handouts\nAbdominal tap \n(Medical Encyclopedia) \nAlso in Spanish \nAngioedema \n(Medical Encyclopedia) \nAlso in Spanish \nFoot, leg, and ankle swelling \n(Medical Encyclopedia) \nAlso in Spanish \nPulmonary edema \n(Medical Encyclopedia) \nAlso in Spanish \nSwelling \n(Medical Encyclopedia) \nAlso in Spanish \nTopic Image \nMEDICAL ENCYCLOPEDIA \nAbdomen - swollen \nAbdominal tap \nAngioedema \nC1 esterase inhibitor \nFacial swelling \nFoot, leg, and ankle swelling \nHydrops fe"
+      },
+      {
+        "title": "Nephrotic syndrome in children - NHS",
+        "source": "https://www.nhs.uk/conditions/nephrotic-syndrome/",
+        "snippet": "﻿ \nNephrotic syndrome in children\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nNephrotic syndrome in children \nNephrotic syndrome is a condition that causes the kidneys to leak large amounts of protein into the urine. This can lead to a range of problems, including swelling of body tissues and a greater chance of catching infections. \nAlthough nephrotic syndrome can affect people of any age, it's usually first diagnosed in children aged between 1 and 6 years old.\nIt tends to be more common in those with an Asian background, although it's unclear why.\nThe symptoms of nephrotic syndrome can usually be controlled with steroid medication .\nMost children with nephrotic syndrome respond well to steroids and are not at risk"
+      },
+      {
+        "title": "Turner syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/turner-syndrome/",
+        "snippet": "e typical features or symptoms of the condition are noticed – a blood test can confirm the diagnosis during pregnancy if problems with the heart or kidneys are found during routine ultrasound scans If you're pregnant and your maternity team think your baby could have Turner syndrome, you may be offered tests to check for the condition. This could be either:\nchorionic villus sampling (CVS) amniocentesis \nCauses of Turner syndrome \nTurner syndrome is a genetic condition, caused by a missing or partially missing sex chromosome.\nIt's not possible to prevent Turner syndrome.\nVery rarely it can be passed to a child by a parent, but most of the time it happens by chance. It is not linked to age or anything the parents did before or during pregnancy.\nHow Turner syndrome affects your life \nTurner syndrome can slightly reduce how long someone is expected to live, but most people should be able to"
+      },
+      {
+        "title": "Undescended testicles - NHS",
+        "source": "https://www.nhs.uk/conditions/undescended-testicles/",
+        "snippet": "﻿ \nUndescended testicles\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nUndescended testicles \nUndescended testicles are where the testicles are not in the usual place in the scrotum. It’s common in young boys, and the testicles often move to where they should be on their own, but sometimes surgery is needed.\nSymptoms of undescended testicles \nThe main symptom of undescended testicles is not being able to feel 2 round glands (testicles) inside your child's scrotum. You may only be able to feel 1 testicle, or neither.\nUndescended testicles are usually found when your child has their newborn physical examination . This examination usually happens in the first few days after they're born.\nIt's rare for adult men to h"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Ankle Injuries | Ankle Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/ankleinjuriesanddisorders.html",
+      "snippet": "Ankle Injuries | Ankle Disorders | MedlinePlus \nSkip navigation \nAn official website of the United States government\nHereâs how you know\nHereâs how you know \nOfficial websites use .gov \nA\n.gov website belongs to an official government\norganization in the United States.\nSecure .gov websites use HTTPS \nA\nlock (\nLock \nLocked padlock icon \n) or https:// means youâve safely connected to\nthe .gov website. Share sensitive information only on official,\nsecure websites.\nNational Library of Medicine \nMenu \nHealth Topics \nDrugs & Supplements \nGenetics \nMedical Tests \nMedical Encyclopedia \nAbout MedlinePlus \nSearch \nSearch MedlinePlus \nGO \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nHealth Topics Drugs & Supplements Genetics Medical Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nAnkle Injuries and Disorders \nURL of this page: https://medl"
+    },
+    {
+      "title": "Edema | Dropsy | MedlinePlus",
+      "source": "https://medlineplus.gov/edema.html",
+      "snippet": "Lung, and Blood Institute \nWomen\nWhat Causes Ankle Swelling during Pregnancy -- and What Can I Do about It? \n(Mayo Foundation for Medical Education and Research) \nAlso in Spanish \nPatient Handouts\nAbdominal tap \n(Medical Encyclopedia) \nAlso in Spanish \nAngioedema \n(Medical Encyclopedia) \nAlso in Spanish \nFoot, leg, and ankle swelling \n(Medical Encyclopedia) \nAlso in Spanish \nPulmonary edema \n(Medical Encyclopedia) \nAlso in Spanish \nSwelling \n(Medical Encyclopedia) \nAlso in Spanish \nTopic Image \nMEDICAL ENCYCLOPEDIA \nAbdomen - swollen \nAbdominal tap \nAngioedema \nC1 esterase inhibitor \nFacial swelling \nFoot, leg, and ankle swelling \nHydrops fe"
+    },
+    {
+      "title": "Nephrotic syndrome in children - NHS",
+      "source": "https://www.nhs.uk/conditions/nephrotic-syndrome/",
+      "snippet": "﻿ \nNephrotic syndrome in children\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nNephrotic syndrome in children \nNephrotic syndrome is a condition that causes the kidneys to leak large amounts of protein into the urine. This can lead to a range of problems, including swelling of body tissues and a greater chance of catching infections. \nAlthough nephrotic syndrome can affect people of any age, it's usually first diagnosed in children aged between 1 and 6 years old.\nIt tends to be more common in those with an Asian background, although it's unclear why.\nThe symptoms of nephrotic syndrome can usually be controlled with steroid medication .\nMost children with nephrotic syndrome respond well to steroids and are not at risk"
+    },
+    {
+      "title": "Turner syndrome - NHS",
+      "source": "https://www.nhs.uk/conditions/turner-syndrome/",
+      "snippet": "e typical features or symptoms of the condition are noticed – a blood test can confirm the diagnosis during pregnancy if problems with the heart or kidneys are found during routine ultrasound scans If you're pregnant and your maternity team think your baby could have Turner syndrome, you may be offered tests to check for the condition. This could be either:\nchorionic villus sampling (CVS) amniocentesis \nCauses of Turner syndrome \nTurner syndrome is a genetic condition, caused by a missing or partially missing sex chromosome.\nIt's not possible to prevent Turner syndrome.\nVery rarely it can be passed to a child by a parent, but most of the time it happens by chance. It is not linked to age or anything the parents did before or during pregnancy.\nHow Turner syndrome affects your life \nTurner syndrome can slightly reduce how long someone is expected to live, but most people should be able to"
+    },
+    {
+      "title": "Undescended testicles - NHS",
+      "source": "https://www.nhs.uk/conditions/undescended-testicles/",
+      "snippet": "﻿ \nUndescended testicles\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nUndescended testicles \nUndescended testicles are where the testicles are not in the usual place in the scrotum. It’s common in young boys, and the testicles often move to where they should be on their own, but sometimes surgery is needed.\nSymptoms of undescended testicles \nThe main symptom of undescended testicles is not being able to feel 2 round glands (testicles) inside your child's scrotum. You may only be able to feel 1 testicle, or neither.\nUndescended testicles are usually found when your child has their newborn physical examination . This examination usually happens in the first few days after they're born.\nIt's rare for adult men to h"
+    }
+  ]
+}

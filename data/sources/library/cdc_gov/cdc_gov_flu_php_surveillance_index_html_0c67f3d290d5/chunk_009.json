@@ -1,0 +1,10 @@
+{
+  "title": "How CDC Classifies Flu Severity each Season in the United States | Influenza (Flu) | CDC",
+  "url": "https://www.cdc.gov/flu/php/surveillance/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "tage of deaths resulting from flu \nThe Moving Epidemic Method is then used to translate the data into standardized intensity thresholds for each indicator by age group. Severity is assessed across all ages and by the three age groups including: children (0-17 years), adults (18-64 years) and older adults (&ge;65 years). Using this method, the peak value of an indicator by age group and across all ages is compared to the respective IT for that indicator to arrive at a severity classification.\nSeverity is classified as \"low\" if at least 2 of 3 indicators for the overall population peak below the respective systems' lowest IT. \nSeverity is classified as \"moderate\" if at least two indicators for the overall population peak between the respective systems' lowest (50 th percentile) and mid-range ITs (90 th ). \nSeverity is classified as \"high\" if at least two indicators for the overall population peak between the respective systems' mid-range (90 th percentile) and high ITs (98 th percentile). \nSeverity is classified as \"very high\" if at least two indicators for the overall population peak above the respective systems' highest IT (98 th percentile). \nHow severity varies by age group \nSeasonal severity can vary by age group. Older adults (65 years and older) experienced four seasons that were classified as high severity (2003&ndash;2004, 2012&ndash;2013, 2014&ndash;2015, and 2017-2018)",
+  "source_type": "library",
+  "source_id": "cdc_gov_flu_php_surveillance_index_html_0c67f3d290d5",
+  "chunk_id": "chunk_009"
+}

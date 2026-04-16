@@ -1,0 +1,25 @@
+{
+  "session_id": "484eb7da-94fa-44bd-93a6-654ea4b36c11",
+  "timestamp_iso": "2026-01-14T00:47:52.981510+00:00",
+  "note": {
+    "soap": "S: Medication renewal request. Medication: lisinopril. Previously prescribed: yes. Side effects concern: no. New/worsening symptoms: no. Age band: 18-64.\nO: Phone encounter. No vitals available.\nA: Medication renewal - protocol-eligible (Tier 1) pending final order entry.\nP: Approve renewal per protocol constraints; if any exclusion criteria present, route to clinician review.\n",
+    "patient_instructions": [
+      "If you develop new or worsening symptoms, concerning side effects, chest pain, or severe trouble breathing, seek urgent care or call 911.",
+      "If your condition changes, contact a clinician for reassessment."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "source": "protocol_med_renewal_demo.txt",
+        "title": "Renewal protocol excerpt",
+        "url": null,
+        "snippet": "TITLE: Medication Renewal Protocol (Prototype)\n\nINCLUSION:\n- Patient requests renewal/refill of an existing medication previously prescribed.\n- Patient confirms currently taking the medication as directed.\n\nEXCLUSIONS (route to clinician review):\n- New or worsening symptoms\n- Concerning side effects or adverse reaction\n- Any emergency red flags (ch"
+      }
+    ]
+  },
+  "recommended_disposition": "AUTO_FINALIZED_PROTOCOL",
+  "status": "APPROVED",
+  "reviewer_id": "SYSTEM",
+  "reviewer_comments": "Tier-1 protocol auto-finalized"
+}

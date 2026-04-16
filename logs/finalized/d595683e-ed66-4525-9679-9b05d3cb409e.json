@@ -1,0 +1,64 @@
+{
+  "packet_id": "d595683e-ed66-4525-9679-9b05d3cb409e",
+  "created_at": "2026-03-08T21:09:45.106791+00:00",
+  "session_id": "d4ae7638-bbf3-4acc-a1a1-3f93fdce9cc1",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin dosing and duration for adult strep throat treatment",
+    "red flags and return precautions for sore throat with fever"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin dosing and duration for adult strep throat treatment",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin dosing and duration for adult strep throat treatment",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin dosing and duration for adult strep throat treatment",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin dosing and duration for adult strep throat treatment",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin dosing and duration for adult strep throat treatment",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin dosing and duration for adult strep throat treatment"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.pdf",
+      "accessed": "2026-03-08",
+      "snippet": ""
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-08",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Streptococcal screen: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/003745.htm",
+      "accessed": "2026-03-08",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Diagnosis and Management of Group A Streptococcal Pharyngitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2003/0215/p880.html",
+      "accessed": "2026-03-08",
+      "snippet": "Antimicrobial agent Dosage Duration of therapy* Rating of evidence † Penicillin V‡ Children: 250 mg orally two or three times daily 10 days A-II Adolescents and adults: 250 mg orally three or four times daily 10 days A-II Adolescents and adults: 500 mg orally twice daily 10 days C-III Penicillin G benzathine 1.2 × 10 6 U IM One dose A-II§ 6.0 × 10 5 U IM One dose‖ A-II Mixture of penicillin G benzathine and penicillin G procaine Varies with formulation ¶ given IM One dose B-II For penicillin-allergic patients Erythromycin Varies with formulation#; given orally 10 days A-II First-generation cephalosporin** Varies with agent; given orally 10 days A-II"
+    },
+    {
+      "title": "Strep throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000639.htm",
+      "accessed": "2026-03-08",
+      "snippet": "Certain other antibiotics may also work against the strep bacteria. Antibiotics should be taken for 10 days, even though symptoms are often gone within a few days. The following tips may help your sore throat feel better:"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a sore throat that started 2 days ago. She reports associated fever, chills, and swollen glands but denies difficulty swallowing or breathing. She has no cough, runny nose, or nasal congestion. There is no rash or joint pain. She has tried symptomatic treatment with tea and DayQuil without relief. Notably, she had recent exposure to strep throat from her son last week.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the sore throat, fever, chills, swollen glands, and recent exposure to a confirmed case.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Other bacterial pharyngitis\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies reported; no pregnancy; no renal or liver disease; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, swallowing, or worsening symptoms develop; seek emergency care if severe throat pain or high fever persists.\n- Testing: Arrange for rapid antigen detection test or throat culture to confirm streptococcal infection if possible."
+}

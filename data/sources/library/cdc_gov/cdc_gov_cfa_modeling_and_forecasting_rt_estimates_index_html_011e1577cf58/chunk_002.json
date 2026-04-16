@@ -1,0 +1,10 @@
+{
+  "title": "Current Epidemic Trends (Based on Rt) for States | CFA: Modeling and Forecasting | CDC",
+  "url": "https://www.cdc.gov/cfa-modeling-and-forecasting/rt-estimates/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "k \nAbout Behind the Model \nQualitative Assessments \nInsight Net \nCFA: Modeling and Forecasting \nModeling and Forecasting \nCOVID-19 Hospital Admissions Forecast \nMeasles Outbreak Simulator \nCurrent Epidemic Trends (Based on R t ) for States \nTechnical Briefs \nView Menu \nCurrent Epidemic Trends (Based on R t ) for States \nJan. 23, 2026 \nAt a glance \nFor U.S. states, CFA and NCIRD estimate the time-varying reproductive number, R t &mdash;a measure that helps quickly assess whether infections are increasing or decreasing. This helps public health practitioners prepare and respond. \nEpidemic trends \nWe estimate the time-varying reproductive number, R t , a measure of transmission based on data from incident emergency department (ED) visits. The method for determining epidemic status estimates the probability that R t is greater than 1 (map below). Estimated R t values above 1 indicate epidemic growth.\nThe second figure below shows the estimated R t and uncertainty interval from November 26, 2025 through January 20, 2026 for the U.S. and for each reported state. (Click on the map to view the data for a specific state). While R t tells us if the number of infections is likely growing or declining, it does not reflect the burden of disease. \nR t should be used alongside other surveillance metrics (such as the percentage of ED visits, which are displayed in the callout boxes in the map)",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_modeling_and_forecasting_rt_estimates_index_html_011e1577cf58",
+  "chunk_id": "chunk_002"
+}

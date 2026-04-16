@@ -1,0 +1,64 @@
+{
+  "packet_id": "07e415bb-0fff-4bb6-8437-4ef00b4281c1",
+  "created_at": "2026-03-15T20:40:58.391196+00:00",
+  "session_id": "7ff1b7ba-7d12-4479-881a-6b2935c7d018",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for adult ear pain after swimming",
+    "adult ear pain treatment dosing and contraindications",
+    "red flags and return precautions for ear pain without discharge or fever"
+  ],
+  "queries": [
+    "AAFP management guidelines for adult ear pain after swimming",
+    "AAFP adult ear pain treatment dosing and contraindications",
+    "MedlinePlus management guidelines for adult ear pain after swimming",
+    "MedlinePlus adult ear pain treatment dosing and contraindications",
+    "CDC management guidelines for adult ear pain after swimming",
+    "CDC adult ear pain treatment dosing and contraindications",
+    "NIH management guidelines for adult ear pain after swimming",
+    "NIH adult ear pain treatment dosing and contraindications",
+    "NICE management guidelines for adult ear pain after swimming",
+    "NICE adult ear pain treatment dosing and contraindications",
+    "WHO management guidelines for adult ear pain after swimming",
+    "WHO adult ear pain treatment dosing and contraindications"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Acute Otitis Externa (Swimmer's Ear) | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0200/patient-information-acute-otitis-externa.html",
+      "accessed": "2026-03-15",
+      "snippet": "You should use the ear drops for seven to 10 days. Use them until your symptoms have been better for three days. Most symptoms should improve after three days of treatment."
+    },
+    {
+      "title": "Centers for Disease Control and Prevention",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/mmwr/pdf/wk/mm6019.pdf",
+      "accessed": "2026-03-15",
+      "snippet": ""
+    },
+    {
+      "title": "Swimmer's ear : MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000622.htm",
+      "accessed": "2026-03-15",
+      "snippet": "In most cases, you will need to use antibiotic ear drops for 10 to 14 days. If the ear canal is very swollen, a wick may be put into the ear. The wick will allow the drops to travel to the end of the canal. Your provider can show you how to do this."
+    },
+    {
+      "title": "Swimmer's ear - Diagnosis & treatment - Mayo Clinic",
+      "source": "mayoclinic.org",
+      "url": "https://www.mayoclinic.org/diseases-conditions/swimmers-ear/basics/prevention/con-20014723",
+      "accessed": "2026-03-15",
+      "snippet": "Swimmer's ear - Diagnosis & treatment - Mayo Clinic .cmp-expando__button>.cmp-button:focus{outline:var(--mc-focus-outline-width)var(--mc-focus-outline-style)var(--mc-color-focus-primary);outline-offset:var(--mc-focus-outline-offset)}.cmp-expando__button>.cmp-button:focus:not(:focus-visible){outline:none}.cmp-expando__button>.cmp-button:focus:not(:focus-visible)::before{outline:none}.cmp-expando__button-inner{display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.cmp-expando__button-title{color:var(--mc-color-text-caption);text-decoration:underline;text-underline-offset:1px;display:inline-block;cursor:pointer}.cmp-expando--body-xsmall .cmp-expando__button-title{font-family:var(--mc-typography-font-family-"
+    },
+    {
+      "title": "Acute Otitis Externa: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0200/acute-otitis-externa.html",
+      "accessed": "2026-03-15",
+      "snippet": "Medication Dosing Cost * Use if tympanic membrane perforated Comments Acetic acid 2% Four to six times daily $15 for 15 mL (—) No May be less effective; can use for prophylaxis Ciprofloxacin 0.2%/hydrocortisone 1% (Cipro HC) Twice daily — for 10 mL ($330) No Less risk for sensitization Ciprofloxacin 0.3%/dexamethasone 0.1% (Ciprodex Otic) Twice daily $50 for 7.5 mL ($250) Yes Less risk for sensitization Hydrocortisone 1%/acetic acid 2% Four to six times daily $15 for 10 mL (—) No May cause irritation and pain Neomycin/polymyxin B/hydrocortisone (Cortisporin) Three to four times daily $25 for 10 mL (—) No May cause hypersensitivity or contact reactions Ofloxacin 0.3% One to two times daily $15 for 5 mL, $25 for 10 mL (—) Yes Less risk for sensitization"
+    }
+  ],
+  "note_text": "S: The patient is a 51-year-old female who reports a dull, frothing ear pain that started about 3 days ago. She describes a sensation of ear blockage but denies hearing loss, ear discharge, ringing, dizziness, fever, chills, or recent upper respiratory symptoms. She has no history of ear infections or ear problems. She did go swimming last week. She has taken Tylenol without relief.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is otitis externa, likely related to recent swimming exposure causing ear canal irritation or infection.\nDifferential:\n1. Otitis externa\n2. Otitis media\n3. Cerumen impaction\n4. Referred pain from temporomandibular joint dysfunction or dental issues\n\nP: - First-line medication: Ciprofloxacin 0.3% otic drops, 4 drops in affected ear twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Ofloxacin 0.3% otic drops, 10 drops in affected ear once daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies reported; no renal or liver disease; not pregnant; monitor for local irritation or hypersensitivity\n- Follow-up recommendations: Seek in-person medical care urgently if ear pain worsens, hearing loss develops, fever occurs, or ear discharge appears; seek emergency care if severe swelling or systemic symptoms develop\n- Testing: Not indicated at this time based on telephone assessment"
+}

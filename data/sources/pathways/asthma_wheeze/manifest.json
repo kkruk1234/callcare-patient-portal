@@ -1,0 +1,33 @@
+{
+  "pathway_id": "asthma_wheeze",
+  "sources": [
+    {
+      "id": "asthma_wheeze_src_1",
+      "source_id": "asthma_wheeze_src_1",
+      "title": "asthma_wheeze guideline references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "asthma_wheeze_src_2",
+      "source_id": "asthma_wheeze_src_2",
+      "title": "asthma_wheeze guideline references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "asthma_wheeze_src_3",
+      "source_id": "asthma_wheeze_src_3",
+      "title": "asthma_wheeze guideline references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "asthma_wheeze_src_4",
+      "source_id": "asthma_wheeze_src_4",
+      "title": "asthma_wheeze guideline references (starter)",
+      "url": "https://www.acog.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

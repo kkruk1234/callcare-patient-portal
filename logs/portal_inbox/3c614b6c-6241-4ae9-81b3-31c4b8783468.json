@@ -1,0 +1,64 @@
+{
+  "packet_id": "3c614b6c-6241-4ae9-81b3-31c4b8783468",
+  "created_at": "2026-03-12T15:14:05.458168+00:00",
+  "session_id": "a209db3a-c55b-416f-89c4-6fa19dc7cfc0",
+  "pathway_id": "",
+  "base_queries": [
+    "lower abdominal pain management guidelines in adult females",
+    "treatment dosing for pelvic inflammatory disease in adults",
+    "red flags and return precautions for lower abdominal pain with fever"
+  ],
+  "queries": [
+    "AAFP lower abdominal pain management guidelines in adult females",
+    "AAFP treatment dosing for pelvic inflammatory disease in adults",
+    "MedlinePlus lower abdominal pain management guidelines in adult females",
+    "MedlinePlus treatment dosing for pelvic inflammatory disease in adults",
+    "CDC lower abdominal pain management guidelines in adult females",
+    "CDC treatment dosing for pelvic inflammatory disease in adults",
+    "NIH lower abdominal pain management guidelines in adult females",
+    "NIH treatment dosing for pelvic inflammatory disease in adults",
+    "NICE lower abdominal pain management guidelines in adult females",
+    "NICE treatment dosing for pelvic inflammatory disease in adults",
+    "WHO lower abdominal pain management guidelines in adult females",
+    "WHO treatment dosing for pelvic inflammatory disease in adults"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Evaluation of Acute Pelvic Pain in Women | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0800/acute-pelvic-pain.html",
+      "accessed": "2026-03-12",
+      "snippet": "Urinalysis of a midstream urine specimen should be considered to assess for urinary tract infection. Urine culture is often beneficial to confirm suspected urinary tract infection, identify specific organisms, and guide antibiotic use. If testing for gonorrhea and chlamydia, first-void urine collected without cleaning of the urethra (“dirty” catch) has historically been recommended, often requiring two urine samples for full evaluation. 26 Logistically this can be challenging. One study found that a midstream sample for chlamydia testing is still 96% accurate, and another study found a sensitivity of 86.2% for chlamydia and 94.4% for gonorrhea. This shows noninferiority to a dirty catch; therefore, one urine sample may be sufficient. 26 , 27"
+    },
+    {
+      "title": "Pelvic Inflammatory Disease (PID) | Right Decisions",
+      "source": "rightdecisions.scot.nhs.uk",
+      "url": "https://rightdecisions.scot.nhs.uk/antimicrobial-prescribing-nhs-borders/adult-hospital-guidance/genital-tract-and-sexually-transmitted-infections/pelvic-inflammatory-disease-pid/",
+      "accessed": "2026-03-12",
+      "snippet": "Therapy First line if able to tolerate oral medication Ceftriaxone IV 2g daily Plus Doxycycline oral 100mg 12 hourly Plus Metronidazole oral 400mg 12 hourly Review ceftriaxone daily and STOP 24 hours after clinical improvement - single dose treatment acceptable Second line treatment (severe penicillin or cephalosporin allergy or oral route not available or doxycycline contraindicated) Ciprofloxacin IV 400mg 12 hourly plus Metronidazole IV 500mg 8 hourly If signs of sepsis with organ dysfunction:"
+    },
+    {
+      "title": "Table: Regimens for Treatment of Pelvic Inflammatory Disease*-Merck Manual Professional Edition",
+      "source": "merckmanuals.com",
+      "url": "https://www.merckmanuals.com/professional/multimedia/table/regimens-for-treatment-of-pelvic-inflammatory-disease",
+      "accessed": "2026-03-12",
+      "snippet": "Ceftriaxone 500 mg IM in a single dose‡ Ceftriaxone 500 mg IM in a single dose‡ PLUS Doxycycline 100 mg orally twice a day for 14 days Doxycycline 100 mg orally twice a day for 14 days WITH Metronidazole 500 mg orally twice a day for 14 days Metronidazole 500 mg orally twice a day for 14 days Regimen B:"
+    },
+    {
+      "title": "Period Pain | Menstrual Cramps | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/periodpain.html",
+      "accessed": "2026-03-12",
+      "snippet": "If your period pain is primary dysmenorrhea and you need medical treatment, your health care provider might suggest using hormonal birth control, such as the pill, patch, ring, or IUD. Another treatment option might be prescription pain relievers."
+    },
+    {
+      "title": "Living with endometriosis: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000714.htm",
+      "accessed": "2026-03-12",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sharp, stabbing lower abdominal pain that is tender to palpation. She reports associated fever and chills but denies nausea, vomiting, changes in bowel or urinary habits, vaginal bleeding aside from a heavier than normal period, discharge, or missed periods. There is no pain with urination or bowel movements, and no history of similar episodes or known abdominal or pelvic conditions. She is not pregnant and has no renal or liver disease. She is allergic to penicillin.\n\nO: Phone encounter only; no vital signs or physical exam available.\n\nA: The working diagnosis is acute lower abdominal pain with systemic signs of infection, likely due to an intra-abdominal or pelvic inflammatory process.\nDifferential:\n1. Pelvic inflammatory disease (PID)\n2. Acute appendicitis\n3. Ovarian cyst rupture or torsion\n4. Urinary tract infection or pyelonephritis\n\nP: - First-line medication: Doxycycline 100 mg orally twice daily for 14 days (Physician must verify medication/dosing)\n- Alternatives: Azithromycin 500 mg orally on day 1, then 250 mg orally daily for 4 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; monitor for gastrointestinal side effects; assess for contraindications to tetracyclines or macrolides\n- Follow-up recommendations: Seek in-person medical care urgently if abdominal pain worsens, fever persists or increases, or new symptoms such as vomiting or vaginal bleeding develop; seek emergency care if severe abdominal pain or signs of sepsis occur\n- Testing: Recommend pelvic ultrasound and laboratory studies including CBC, inflammatory markers, and urine analysis when feasible to evaluate for PID, appendicitis, or other intra-abdominal pathology"
+}

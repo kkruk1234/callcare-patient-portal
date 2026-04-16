@@ -1,0 +1,12 @@
+{
+  "pathway_id": "epistaxis_nosebleed",
+  "sources": [
+    {
+      "id": "epistaxis_nosebleed_cdc",
+      "source_id": "epistaxis_nosebleed_cdc",
+      "title": "Nosebleed first aid reference (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

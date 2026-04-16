@@ -1,0 +1,30 @@
+id: pelvic_pain
+version: 0.1
+match:
+  any_keywords: ["pelvic pain", "lower abdominal pain", "ovary pain", "cramps severe", "ectopic", "pain with sex", "pid"]
+questions:
+  - id: pregnancy
+    prompt: "Is pregnancy possible? (yes/no/unknown)"
+    store_as: pregnancy_possible
+
+  - id: severe
+    prompt: "Is the pain severe right now or getting rapidly worse? (yes/no)"
+    store_as: severe_pain
+    type: yesno
+
+  - id: bleeding
+    prompt: "Any heavy vaginal bleeding, dizziness, or fainting? (yes/no)"
+    store_as: heavy_bleeding_or_syncope
+    type: yesno
+
+  - id: fever
+    prompt: "Do you have fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["pregnancy", "severe", "bleeding", "fever"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

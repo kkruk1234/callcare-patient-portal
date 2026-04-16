@@ -1,0 +1,147 @@
+{
+  "call_sid": "CA0769fa4c75948ac65b5bcd33fd74b2df",
+  "session_id": "8236f7fe-433d-49d8-be27-edd3d7e73994",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T14:51:11.610990+00:00",
+  "ended_at": "2026-03-08T14:54:57.460461+00:00",
+  "packet_id": "",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or night sweats since your sore throat started?"
+    },
+    {
+      "role": "user",
+      "text": "I've had fever and chills."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty swallowing or breathing?"
+    },
+    {
+      "role": "user",
+      "text": "No. But it does hurt when I swallow."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swollen glands or lumps in your neck?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Any white patches or pus on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I do have that."
+    },
+    {
+      "role": "assistant",
+      "text": "Any rash or joint pain accompanying your sore throat and fever?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any exposure to anyone with strep throat or similar symptoms recently?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. My son had strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty opening your mouth or severe throat pain that limits swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "user",
+      "text": "That was supposed to be less of a this is supposed to be less of a delay."
+    },
+    {
+      "role": "user",
+      "text": "Yeah. I don't know what's going on."
+    }
+  ]
+}

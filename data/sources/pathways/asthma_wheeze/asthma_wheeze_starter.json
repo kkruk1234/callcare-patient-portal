@@ -1,0 +1,6 @@
+{
+  "title": "asthma_wheeze (starter evidence summary)",
+  "source_id": "asthma_wheeze_starter",
+  "url": "https://www.cdc.gov/",
+  "text": "STARTER EVIDENCE SUMMARY (placeholder)\n- This is a starter note so the RAG store has at least one document.\n- Replace/expand this with real guideline content via your manifest fetcher.\n- Phone-only constraints: no exam, no vitals, no tests. Triage is based on red flags and symptom severity.\n- Tier 1 model: AI suggests likely causes and a plan, but clinician approves or edits meds and disposition."
+}

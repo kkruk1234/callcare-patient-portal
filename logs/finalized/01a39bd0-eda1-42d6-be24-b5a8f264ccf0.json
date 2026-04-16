@@ -1,0 +1,133 @@
+{
+  "packet_id": "9b61eb1e-27dc-4e2f-9f3c-d1f3631aa35c",
+  "created_at": "2026-01-22T19:45:52.425239+00:00",
+  "session_id": "01a39bd0-eda1-42d6-be24-b5a8f264ccf0",
+  "chief_complaint": "It burns when I pee.",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "dysuria_uti",
+  "answers": {
+    "renal_disease": "yes",
+    "sex_at_birth": "female",
+    "duration": "3 days",
+    "fever": "no",
+    "flank": "no",
+    "pregnancy": "no",
+    "discharge": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Cephalexin",
+      "dosing": "500 mg PO QID x 5–7 days",
+      "sig": "500 mg PO QID x 5–7 days",
+      "route": "PO",
+      "frequency": "QID",
+      "duration": "",
+      "notes": "Pregnancy-compatible option; a safe default when pregnancy is possible/confirmed.",
+      "exclusions": "Cephalosporin allergy; use caution with immediate-type severe beta-lactam allergy; adjust if renal impairment.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO BID x 5–7 days",
+      "sig": "875/125 mg PO BID x 5–7 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Pregnancy-compatible alternative; confirm indication/local resistance.",
+      "exclusions": "Immediate-type beta-lactam allergy; adjust for renal impairment.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Nitrofurantoin (macrocrystals/monohydrate)",
+      "dosing": "100 mg PO BID x 5 days",
+      "sig": "100 mg PO BID x 5 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "5 days",
+      "notes": "Common first-line for uncomplicated cystitis when not near term and renal function adequate.",
+      "exclusions": "Avoid if pyelonephritis suspected (fever, flank pain); avoid if CrCl < 30 mL/min; nitrofurantoin allergy; caution near term pregnancy.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    },
+    {
+      "rank": 4,
+      "med": "Fosfomycin tromethamine",
+      "dosing": "3 g PO once",
+      "sig": "3 g PO once",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "Single-dose alternative; generally pregnancy-compatible but confirm clinician judgment and local guidance.",
+      "exclusions": "Not for suspected pyelonephritis; consider availability/cost.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    },
+    {
+      "rank": 5,
+      "med": "Trimethoprim-sulfamethoxazole (TMP-SMX)",
+      "dosing": "160/800 mg (1 DS tab) PO BID x 3 days",
+      "sig": "160/800 mg (1 DS tab) PO BID x 3 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "3 days",
+      "notes": "Alternative when pregnancy status/trimester allows and resistance risk acceptable.",
+      "exclusions": "Sulfa allergy; avoid 1st trimester if possible (folate antagonist) and near term (kernicterus risk); consider local resistance; drug interactions.",
+      "tier": "Tier 1",
+      "pathway_id": "dysuria_uti",
+      "source_file": "data/protocols/meds/dysuria_uti.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old female with a history of renal disease who reports burning sensation when urinating for the past 3 days. She denies fever, flank pain, or vaginal discharge. Patient is not pregnant.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Uncomplicated urinary tract infection (cystitis)\n - Differential:\n  1. Urethritis\n  2. Vaginitis (less likely without discharge)\n  3. Early pyelonephritis (less likely given no fever or flank pain)\n  4. Interstitial cystitis (less likely given acute onset)\n - Red flags considered:\n  - Fever or flank pain suggesting pyelonephritis (absent)\n  - Signs of complicated UTI given renal disease (not fully assessable remotely)\n\nP:\n - Disposition: Patient can be managed outpatient with close follow-up due to renal disease.\n - Plan: Fosfomycin tromethamine — 3 g PO once. Alternative: Nitrofurantoin (macrocrystals/monohydrate) (100 mg PO BID x 5 days).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Cephalexin — 500 mg PO QID x 5–7 days\n     - Notes: Pregnancy-compatible option; a safe default when pregnancy is possible/confirmed.\n     - Exclusions: Cephalosporin allergy; use caution with immediate-type severe beta-lactam allergy; adjust if renal impairment.\n   - Amoxicillin-clavulanate — 875/125 mg PO BID x 5–7 days\n     - Notes: Pregnancy-compatible alternative; confirm indication/local resistance.\n     - Exclusions: Immediate-type beta-lactam allergy; adjust for renal impairment.\n   - Nitrofurantoin (macrocrystals/monohydrate) — 100 mg PO BID x 5 days\n     - Notes: Common first-line for uncomplicated cystitis when not near term and renal function adequate.\n     - Exclusions: Avoid if pyelonephritis suspected (fever, flank pain); avoid if CrCl < 30 mL/min; nitrofurantoin allergy; caution near term pregnancy.\n   - Fosfomycin tromethamine — 3 g PO once\n     - Notes: Single-dose alternative; generally pregnancy-compatible but confirm clinician judgment and local guidance.\n     - Exclusions: Not for suspected pyelonephritis; consider availability/cost.\n   - Trimethoprim-sulfamethoxazole (TMP-SMX) — 160/800 mg (1 DS tab) PO BID x 3 days\n     - Notes: Alternative when pregnancy status/trimester allows and resistance risk acceptable.\n     - Exclusions: Sulfa allergy; avoid 1st trimester if possible (folate antagonist) and near term (kernicterus risk); consider local resistance; drug interactions.\n   - Supportive care:\n   - Hydration: Encourage fluids as tolerated.\n   - Pain control: Acetaminophen or ibuprofen if safe for patient (avoid NSAIDs in late pregnancy; avoid if renal disease, ulcer/GI bleed risk).\n   - Follow-up and safety:\n   - Expected course: Should start improving within 24–48 hours after antibiotics.\n   - Re-evaluation: If not improving within 48–72 hours, reassess diagnosis/resistance and consider urine culture and/or in-person evaluation.\n   - Urgent/ED: Seek urgent care/ED for flank pain, persistent high fever/chills, vomiting/dehydration, pregnancy with systemic symptoms, inability to urinate, or worsening despite treatment.\n - Safety net: Advise patient to seek urgent care if she develops fever, flank pain, worsening symptoms, or inability to tolerate oral medications. Follow-up if symptoms persist beyond 48-72 hours after starting antibiotics.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "IDSA Guideline: Uncomplicated Cystitis and Pyelonephritis",
+        "source": "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/"
+      },
+      {
+        "title": "CDC: Urinary Tract Infection Basics",
+        "source": "https://www.cdc.gov/uti/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/uti/about/index.html"
+      },
+      {
+        "title": "NICE NG109: Urinary Tract Infection (Lower)",
+        "source": "https://www.nice.org.uk/guidance/ng109",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng109"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "IDSA Guideline: Uncomplicated Cystitis and Pyelonephritis",
+      "source": "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/",
+      "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/"
+    },
+    {
+      "title": "CDC: Urinary Tract Infection Basics",
+      "source": "https://www.cdc.gov/uti/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/uti/about/index.html"
+    },
+    {
+      "title": "NICE NG109: Urinary Tract Infection (Lower)",
+      "source": "https://www.nice.org.uk/guidance/ng109",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng109"
+    }
+  ]
+}

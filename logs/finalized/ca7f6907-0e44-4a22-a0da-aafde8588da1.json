@@ -1,0 +1,43 @@
+{
+  "packet_id": "ca7f6907-0e44-4a22-a0da-aafde8588da1",
+  "created_at": "2026-04-03T13:51:40.138221+00:00",
+  "session_id": "f4e3408c-9876-4a1d-ad13-09f776d0a31a",
+  "pathway_id": "",
+  "base_queries": [
+    "thunderclap headache diagnosis and management guidelines",
+    "adult treatment for thunderclap headache including medication dosing and contraindications",
+    "red flags and urgent testing for sudden severe headache with neurological symptoms"
+  ],
+  "queries": [
+    "AAFP thunderclap headache diagnosis and management guidelines",
+    "AAFP adult treatment for thunderclap headache including medication dosing and contraindications",
+    "MedlinePlus thunderclap headache diagnosis and management guidelines",
+    "MedlinePlus adult treatment for thunderclap headache including medication dosing and contraindications",
+    "CDC thunderclap headache diagnosis and management guidelines",
+    "CDC adult treatment for thunderclap headache including medication dosing and contraindications",
+    "NIH thunderclap headache diagnosis and management guidelines",
+    "NIH adult treatment for thunderclap headache including medication dosing and contraindications",
+    "NICE thunderclap headache diagnosis and management guidelines",
+    "NICE adult treatment for thunderclap headache including medication dosing and contraindications",
+    "WHO thunderclap headache diagnosis and management guidelines",
+    "WHO adult treatment for thunderclap headache including medication dosing and contraindications"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Acute Headache in Adults: A Diagnostic Approach | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0900/acute-headache-adults.html",
+      "accessed": "2026-04-03",
+      "snippet": "Conjunctival erythema or lacrimation Rhinorrhea Forehead or facial diaphoresis Upper eyelid ptosis or constricted pupil Other symptoms With or without pericranial tenderness With or without aura Restlessness or agitation Duration 30 minutes to 7 days 4 to 72 hours 15 minutes to Frequency At least 10 attacks in a lifetime At least 5 attacks in a lifetime At least 5 attacks in a lifetime Each cluster attack occurs from every other day to 8 per day Cluster attacks cycle between remission periods of a few months Chronic type diagnosis requirement Symptoms ≥ 15 days per month for > 3 months Symptoms ≥ 15 days per month for > 3 months Remission interval TENSION-TYPE HEADACHE Tension-type headache (TTH) is the most common primary headache disorder but may not be addressed in the clinical setting because it is not typically disabling unless chronic."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/0900/p316.pdf",
+      "accessed": "2026-04-03",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 59-year-old male presenting with a sudden onset thunderclap headache described as the worst headache of his life, accompanied by dizziness and mild confusion. He reports some difficulty speaking initially but clarifies it is more related to brain fog and confusion rather than severe aphasia. He notes possible mild numbness on the left side but is uncertain about this finding. There are no reports of fever, neck stiffness, nausea, vomiting, vision changes, or recent head trauma. This is the fourth time he has experienced headaches, but this episode is significantly worse than prior ones.\n\nO: Phone encounter only; no physical examination or vital signs available.\n\nA: The working diagnosis is a thunderclap headache with neurological symptoms concerning for a possible serious intracranial event such as subarachnoid hemorrhage or stroke.\nDifferential:\n1. Subarachnoid hemorrhage\n2. Ischemic stroke or transient ischemic attack\n3. Migraine with aura or complicated migraine\n4. Other intracranial hemorrhage or mass effect\n\nP: - First-line medication: None prescribed at this time due to need for urgent in-person evaluation (Physician must verify medication/dosing)\n- Alternatives: None appropriate until diagnostic evaluation completed\n- Medication safety considerations: Patient allergic to tetracycline; liver disease status uncertain\n- Follow-up recommendations: Seek in-person medical care urgently for neuroimaging and evaluation given thunderclap headache and neurological symptoms. Seek emergency care if symptoms worsen, including increased confusion, weakness, vision changes, or loss of consciousness.\n- Testing: Immediate neuroimaging (non-contrast head CT) and possible lumbar puncture to rule out subarachnoid hemorrhage or other intracranial pathology"
+}

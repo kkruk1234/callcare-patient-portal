@@ -1,0 +1,10 @@
+{
+  "title": "2025-2026 Respiratory Disease Season Outlook - December Update | CFA: Qualitative Assessments | CDC",
+  "url": "https://www.cdc.gov/cfa-qualitative-assessments/php/data-research/season-outlook25-26-dec-update.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "as on key drivers for a season with a higher peak hospitalization rate. Experts assigned uncertainty levels to their answers as a way of reflecting their uncertainty in their response. The results were used to inform our initial outlook and as inputs into scenario modeling. See our expert elicitation methods for further information on this process.\nCOVID-19 scenario modeling methods \nScenario modeling explores longer-term hypothetical outcomes under different assumptions about the future. Our COVID-19 scenario modeling utilizes a transmission model with a compartmental modeling structure that takes into account population age structure, infection history, vaccination history, immunity waning status, and infecting strain. Immunity is determined by immunogenic events (infections and vaccinations) and time since the most recent event. Protection against infection is strain-specific: past infection with a more similar variant, or vaccination with a better-matched vaccine, provides a higher level of protection against the challenging strain. The model uses mathematical equations to describe how groups move between compartments (e.g., from uninfected to infected, or from unvaccinated to vaccinated). See our Behind the Model to learn more about how scenario modeling can be used to inform decision-making.\nBoth scenarios presented here assume that only people over the age of 65 and thos",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_qualitative_assessments_php_data_research_season_outlook25_26_dec_update_html_821b8380e410",
+  "chunk_id": "chunk_014"
+}

@@ -1,0 +1,96 @@
+{
+  "packet_id": "04a2e434-f03b-47d8-87a2-5b59318fab5f",
+  "created_at": "2026-02-27T02:07:35.556456+00:00",
+  "session_id": "22f39576-3be2-4d1c-b67b-22ba61ccc395",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of chronic illnesses like osteoporosis, cancer, or recent travel?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the quality of the pain and whether it changes with movement or breathing?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, numbness, tingling, or weakness in her legs or feet. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of kidney problems, urinary symptoms, chronic illnesses such as osteoporosis or cancer, or recent travel. The pain quality and its relation to movement or breathing were not described. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage area, likely due to a strain or minor soft tissue injury given the absence of trauma and systemic symptoms.\nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral causes such as renal or pulmonary pathology (less likely given absence of systemic symptoms)\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen\n- Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n- Medication safety considerations: Use NSAIDs with caution if history of gastrointestinal issues; avoid NSAIDs in renal or liver disease (not present in this patient)\n- Return precautions: Advise patient to seek care if she develops fever, worsening pain, neurological symptoms, chest pain, shortness of breath, or urinary symptoms\n- Testing: Not indicated at this time given lack of red flag symptoms; consider imaging or labs if symptoms worsen or fail to improve",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain",
+        "accessed": "2026-02-26",
+        "snippet": "View image online ( https://my.clevelandclinic.org/-/scassets/images/org/health/articles/musculoskeletal-chest-pain.jpg ) Musculoskeletal chest pain may come from your chest muscles, ribcage or connective tissues."
+      },
+      {
+        "title": "How to Cope with an Intercostal Muscle Strain",
+        "source": "Cleveland Clinic",
+        "url": "https://health.clevelandclinic.org/how-to-cope-with-an-intercostal-muscle-strain",
+        "accessed": "2026-02-26",
+        "snippet": "https://health.clevelandclinic.org/beef-tallow-for-skin Although it could be used as a moisturizer, this new trend is not recommended Sex & Relationships How To Set Healthy Boundaries https://health.clevelandclinic.org/how-to-set-boundaries Communicating clear limits helps protect your time, energy and emotional well-being Heart Health What To Know About..."
+      },
+      {
+        "title": "Muscle pain When to see a doctor - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/symptoms/muscle-pain/basics/when-to-see-doctor/sym-20050866",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

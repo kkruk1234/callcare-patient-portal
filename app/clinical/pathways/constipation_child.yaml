@@ -1,0 +1,43 @@
+id: constipation_child
+version: 0.1
+match:
+  any_keywords: ["child constipation", "kid constipation", "toddler constipation", "no poop", "hard poop", "stool withholding"]
+questions:
+  - id: age_child
+    prompt: "How old is the child? (under 1, 1-4, 5-12, 13-17)"
+    store_as: age_child
+
+  - id: duration
+    prompt: "How long has the child been constipated?"
+    store_as: duration
+
+  - id: vomiting
+    prompt: "Any vomiting, severe belly swelling, or unable to keep fluids down? (yes/no)"
+    store_as: vomiting
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["vomiting_child_constipation"]
+
+  - id: blood
+    prompt: "Any black/tarry stool or large amounts of blood? (yes/no)"
+    store_as: blood
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["gi_bleeding_red_flag_child"]
+
+  - id: lethargy
+    prompt: "Is the child unusually sleepy, hard to wake, or very ill-appearing? (yes/no)"
+    store_as: lethargy
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["ill_appearing_child"]
+
+stop_rules:
+  - if_all_answered: ["age_child", "duration", "vomiting", "blood", "lethargy"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

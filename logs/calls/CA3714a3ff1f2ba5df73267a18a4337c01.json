@@ -1,0 +1,119 @@
+{
+  "call_sid": "CA3714a3ff1f2ba5df73267a18a4337c01",
+  "session_id": "67e70838-7a82-4d08-bf7e-be80f13a21fd",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-12T17:47:17.474581+00:00",
+  "ended_at": "2026-03-12T17:51:22.310026+00:00",
+  "packet_id": "c13cf65e-0230-4241-8a3f-731d1160f561",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have lower abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your lower abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain and if it radiates anywhere?"
+    },
+    {
+      "role": "user",
+      "text": "It's a sharp stabbing pain and it does not radiate anywhere."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, nausea, vomiting, or changes in bowel or urinary habits?"
+    },
+    {
+      "role": "user",
+      "text": "I have fever and chills."
+    },
+    {
+      "role": "assistant",
+      "text": "Any vaginal bleeding, discharge, or pregnancy concerns?"
+    },
+    {
+      "role": "user",
+      "text": "A little bit of nausea, and nothing else."
+    },
+    {
+      "role": "assistant",
+      "text": "Any urinary symptoms like pain with urination, increased frequency, or urgency?"
+    },
+    {
+      "role": "user",
+      "text": "I have no pregnancy concerns and no changes in urinary function."
+    },
+    {
+      "role": "assistant",
+      "text": "The following questions may be repetitive but are important for medication and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Gmail."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing sharp lower abdominal pain with fever and chills, which may suggest an infection or inflammation such as appendicitis or another abdominal issue. Because I can’t examine you or run tests over the phone, a licensed physician will review your information and may decide that antibiotic treatment is appropriate. If your pain worsens, your fever stays high or gets worse, or you develop new symptoms like vomiting or vaginal bleeding, please seek in-person care urgently at an urgent care center or emergency room. For now, you can use acetaminophen (Tylenol) or ibuprofen (Advil) if you can take them safely to help with pain and fever. A doctor will review your case and may recommend further testing like imaging or lab work to confirm the diagnosis and guide treatment."
+    }
+  ]
+}

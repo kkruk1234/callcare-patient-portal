@@ -1,0 +1,64 @@
+{
+  "packet_id": "d94bc31e-c413-49f3-97be-3a14e2d57238",
+  "created_at": "2026-01-23T16:32:29.734851+00:00",
+  "session_id": "d8607b1d-6220-44fd-9bd9-b9a4e4c8f844",
+  "chief_complaint": "red and swollen leg",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "dvt_possible",
+  "answers": {
+    "pregnancy_possible": "no",
+    "renal_disease": "no",
+    "leg_sort_discriminator": "calf pain and tenderness",
+    "unilateral_swelling": "yes",
+    "dvt_symptoms": "all",
+    "dvt_risk_factors_recent": "long travel with little movement",
+    "dvt_risk_factors_additional": "none",
+    "pe_symptoms": "neither"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 51-year-old adult presenting with a red and swollen leg. They report unilateral swelling with calf pain and tenderness. All symptoms consistent with deep vein thrombosis (DVT) are present. The patient has a recent history of long travel with little movement, a known risk factor for DVT. There are no symptoms suggestive of pulmonary embolism (PE). The patient has no known allergies and no history of renal disease. Patient is not pregnant.\n\nO:\nNo physical exam or vital signs available due to phone-only history.\n\nA:\n - Working diagnosis (most likely): Deep vein thrombosis (DVT) of the leg\n - Differential:\n  1. Cellulitis\n  2. Muscle strain or tear\n  3. Venous insufficiency or thrombophlebitis\n  4. Baker’s cyst rupture\n - Red flags considered:\n   - Signs of PE (none reported)\n   - Severe limb ischemia (not reported)\n   - Systemic infection or sepsis (not reported)\n\nP:\n - Disposition: Urgent in-person evaluation recommended for diagnostic imaging (e.g., Doppler ultrasound) to confirm DVT.\n - Plan: Advise patient to seek immediate medical attention if symptoms worsen or if new symptoms such as chest pain, shortness of breath, or sudden leg swelling occur. Discuss risk factors and importance of early diagnosis.\n - Safety net: Instruct patient to go to the emergency department if they develop symptoms suggestive of pulmonary embolism or if leg pain/swelling rapidly worsens.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    },
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.aafp.org/",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/"
+    },
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.nih.gov/",
+      "snippet": "Listed in pathway manifest https://www.nih.gov/"
+    }
+  ]
+}

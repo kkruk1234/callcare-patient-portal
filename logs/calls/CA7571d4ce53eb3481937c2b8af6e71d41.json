@@ -1,0 +1,23 @@
+{
+  "call_sid": "CA7571d4ce53eb3481937c2b8af6e71d41",
+  "session_id": "78ffd0c7-47f0-4047-855c-98bfc2b43baa",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T14:01:55.814690+00:00",
+  "ended_at": "2026-03-08T14:02:38.486258+00:00",
+  "packet_id": "fa0c9202-5862-4db8-94e7-609e4ca95436",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "I hear nothing."
+    },
+    {
+      "role": "assistant",
+      "text": "Since you didn’t share any specific symptoms during our call, there’s no clear diagnosis or treatment needed right now. If you do start to feel unwell or notice any new or worsening symptoms, it’s important to seek in-person care at an urgent care center or emergency room depending on how severe things feel. This phone service can’t provide exams or tests, so if you need those, please go to a healthcare facility. A licensed physician will review this note, but for now, just keep an eye on how you’re feeling and get urgent care if anything concerning comes up."
+    }
+  ]
+}

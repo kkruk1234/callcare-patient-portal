@@ -1,0 +1,395 @@
+1. Trials. 2025 Dec 8;27(1):31. doi: 10.1186/s13063-025-09350-3.
+
+Can TElemedicine system replace doctor consultations to Achieve non-inferior 
+blood pressure in patients with Controlled Hypertension (TEACH)? Study protocol 
+for a randomised controlled trial.
+
+Ng SN(1), Yip BH(1), Wang S(1), Leung M(2), Choi SYK(2), Leung SY(2), Han JJ(2), 
+Tsui WW(3), Lai SY(4), Chan L(4)(5)(6), Mihailidou AS(7), McManus RJ(8), Sy 
+J(4), Lee EK(9).
+
+Author information:
+(1)The Jockey Club School of Public Health and Primary Care, The Chinese 
+University of Hong Kong, Hong Kong SAR, China.
+(2)Department of Family Medicine, New Territory East Cluster, Hospital 
+Authority, Hong Kong SAR, China.
+(3)Family Medicine & Primary Healthcare, Queen Mary Hospital, Hospital 
+Authority, Hong Kong SAR, China.
+(4)Department of Family Medicine and Primary Care, Li Ka Shing Faculty of 
+Medicine, The University of Hong Kong, Hong Kong SAR, China.
+(5)The Bau Institute of Medical and Health Sciences Education, Li Ka Shing 
+Faculty of Medicine, The University of Hong Kong, Hong Kong SAR, China.
+(6)Department of Family Medicine and Primary Care, The University of Hong 
+Kong-Shenzhen Hospital, Shenzhen, Guangdong, China.
+(7)Department of Cardiology and Kolling Institute, Royal North Shore Hospital, 
+Sydney, NSW, Australia.
+(8)Brighton and Sussex Medical School, University of Brighton and University of 
+Sussex, Brighton, UK.
+(9)The Jockey Club School of Public Health and Primary Care, The Chinese 
+University of Hong Kong, Hong Kong SAR, China. lkp032@cuhk.edu.hk.
+
+BACKGROUND: Hypertension is the most prevalent chronic condition and is the 
+leading cause of cardiovascular diseases, imposing enormous burdens on the 
+healthcare system. Although telemedicine may provide improved blood pressure 
+(BP) monitoring and control, it remains unclear whether it could replace 
+face-to-face consultations for patients with optimal BP control. Thus, the 
+primary objective of this study is to investigate whether participants assigned 
+to the telemedicine group show non-inferior BP control compared to the usual 
+care group at 12 months.
+METHODS: This randomised controlled trial (RCT) will involve 364 patients 
+receiving anti-HT medications who have well-controlled BP on out-of-office BP 
+measurements, including HBPM or ambulatory blood pressure measurements (ABPM). 
+Participants will be randomised to either the telemedicine (HealthCap) group or 
+usual care (control) group (1:1). Patients in the intervention group will 
+measure and transmit their 7-day home BP measurements (HBPM) to the physician's 
+office. The medications will be refilled without consultation when optimal 
+control (<135/85 mmHg for patients without comorbidities and <130/80 mmHg for 
+patients with comorbidities that increase cardiovascular risk) and safety 
+questions are confirmed. Nevertheless, if any of the answers in the safety 
+questions are positive or the HBPM mean is suboptimal, patients will have 
+consultations as planned. Investigators will be blinded to the randomisation 
+sequence and allocation. The primary outcome is the daytime ABPM systolic BP at 
+12 months. Secondary outcomes include HT treatment adherence, self-efficacy, 
+number of visits to primary care clinics where they have clinical follow-up, 
+health care utilisation other than general outpatient clinics (GOPCs) in both 
+arms at baseline, 6 months, and 12 months. Acceptability will be assessed 
+through interviews with the telemedicine study participants and the physician.
+DISCUSSION AND SIGNIFICANCE: This trial will examine whether patients in the 
+telemedicine group would have non-inferior BP control compared to patients in 
+the usual care group. It has the potential to change clinical practice and have 
+important research implications because patients with optimal BP can monitor 
+their BP through a telemedicine system and will have fewer frequent clinical 
+visits. This will empower primary care and allow effective and safe allocation 
+of scarce medical resources to patients in need. Moreover, it will save patients 
+time because of the long wait to see doctors and collect medications in GOPCs. 
+It is also encouraging the engagement of patients in their health because they 
+will play a proactive role in managing their chronic illnesses.
+TRIAL REGISTRATION: ClinicalTrials.gov NCT06524180. Registered on July 29, 2024. 
+https://clinicaltrials.gov/study/NCT06524180?term=NCT06524180&rank=1#more-information 
+.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s13063-025-09350-3
+PMID: 41361824 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: This trial has been reviewed and approved by the Joint Chinese 
+University of Hong Kong-New Territories East Cluster Clinical Research Ethics 
+Committee (2023.525) and Institutional Review Board of the University of Hong 
+Kong/Hospital Authority Hong Kong West Cluster (UW25-086). The evaluator will 
+explain the informed consent to the participants thoroughly. Before giving 
+informed consent, the participants will have time to consider and ask the 
+evaluator questions. Consent for publication: Not applicable. Competing 
+interests: The authors report no conflict of interest.
+
+
+2. J Manag Care Spec Pharm. 2025 Nov;31(11):1156-1165. doi: 
+10.18553/jmcp.2025.31.11.1156.
+
+Pharmacist care for attention-deficit/hyperactivity disorder electronic 
+medication refills: A cluster randomized trial.
+
+Lieu TA(1)(2)(3), Parry D(1)(4), deLaunay A(5), Margaret Warton E(2), Prausnitz 
+S(2), Ahmed O(5), Mancha MR(4), Smallberg E(6), Quesenberry C(2), Lee K(1)(4), 
+Reed M(2); Permanente Medical Group Virtual Care Study Team.
+
+Author information:
+(1)The Permanente Medical Group, Pleasanton, CA.
+(2)Division of Research, Kaiser Permanente Northern California, Pleasanton.
+(3)JAMA, Chicago, IL.
+(4)Virtual Care Team, The Permanente Medical Group, Pleasanton, CA.
+(5)Pharmacy Services, Kaiser Permanente Northern California, Pleasanton.
+(6)The Permanente Medical Group Consulting Services, Pleasanton, CA.
+
+BACKGROUND: During the pandemic, the US government loosened restrictions on 
+telemedicine prescribing for controlled substance refills. Parent requests for 
+attention-deficit/hyperactivity disorder (ADHD) medication refills have 
+increased electronic inbox workload for physicians. Pharmacists can now fulfill 
+these requests via collaborative practice agreements, but scant information 
+exists on the effectiveness of this approach.
+OBJECTIVE: To compare pharmacist with pediatrician management of ADHD medication 
+refill requests regarding quality, timeliness, and parent ratings.
+METHODS: This cluster randomized clinical trial assigned electronic ADHD 
+medication refill requests from 63 medical facilities in a regional health care 
+system to either Pharmacist Care by a regional team (32 facilities) or local 
+Pediatrician Care (31 facilities) from May 14, 2024, to June 21, 2024. The 
+primary outcome was prespecified in the study protocol as a quality measure to 
+be evaluated among patients without weight and height recorded within 180 days 
+before the refill request. This measure was based on national clinical guideline 
+recommendations to monitor weight and height in children taking ADHD 
+medications, which can be associated with reduced weight gain. It was met if the 
+prescribing clinician collected a weight and height by parent report or 
+initiated an in-person appointment.
+RESULTS: Among 2,442 eligible refill requests among study patients (mean 
+age = 11.6 [SD = 3.1] years, 28.6% female), 512 received Pharmacist Care and 
+1,930 received Pediatrician Care; the latter group included 706 patients with 
+unintended crossover from the group assigned to Pharmacist Care. Of the 793 
+refill requests eligible for evaluation of the primary outcome, 88.6% (132/149) 
+with Pharmacist Care and 66.1% (426/644) with Pediatrician Care met the quality 
+measure (adjusted rate ratio = 1.26; 95% CI = 1.13-1.40). Compared with 
+pediatricians, pharmacists had slightly longer times to prescription ordering 
+(median = 2.15 vs 1.78 hours, difference = 22 minutes) but similar times to 
+medication filling and similar parent ratings of quality.
+CONCLUSIONS: Pharmacist management yielded more consistent quality of care and 
+similar timeliness and parent ratings as pediatrician management of electronic 
+ADHD medication refill requests.Study registration number: ClinicalTrials.gov 
+NCT06388694.
+
+DOI: 10.18553/jmcp.2025.31.11.1156
+PMCID: PMC12577722
+PMID: 41171067 [Indexed for MEDLINE]
+
+
+3. Implement Sci. 2025 Jan 22;20(1):6. doi: 10.1186/s13012-025-01418-7.
+
+Looking under the hood of a hybrid two-way texting intervention to improve early 
+retention on antiretroviral therapy in Malawi: an implementation fidelity 
+evaluation.
+
+Klabbers RE(1)(2), Feldacker C(3)(4), Huwa J(5), Kiruthu-Kamamia C(4)(5), 
+Thawani A(5), Tweya H(3)(4).
+
+Author information:
+(1)Department of Global Health, University of Washington, Seattle, WA, USA. 
+reklabb@uw.edu.
+(2)Department of Emergency Medicine, University of Washington, Seattle, WA, USA. 
+reklabb@uw.edu.
+(3)Department of Global Health, University of Washington, Seattle, WA, USA.
+(4)International Training and Education Center for Health (I-TECH), Seattle, WA, 
+USA.
+(5)Lighthouse Trust, Lilongwe, Malawi.
+
+Update of
+    Res Sq. 2024 Dec 19:rs.3.rs-4965561. doi: 10.21203/rs.3.rs-4965561/v1.
+
+BACKGROUND: While key to interpreting findings and assessing generalizability, 
+implementation fidelity is underreported in mobile health (mHealth) literature. 
+We evaluated implementation fidelity of an opt-in, hybrid, two-way texting (2wT) 
+intervention previously demonstrated to improve 12-month retention on 
+antiretroviral therapy (ART) among people living with HIV (PLHIV) in a 
+quasi-experimental study in Lilongwe, Malawi.
+METHODS: Short message service (SMS) data and ART refill visit records were used 
+to evaluate adherence to 2wT content, frequency and duration through the lens of 
+the Conceptual Framework for Implementation Fidelity. Message delivery and 2wT 
+participant interactions were considered across four core 2wT components: 1) 
+weekly motivational SMS messages; 2) proactive SMS appointment reminders; 3) SMS 
+reminders after missed appointments; and 4) interactive messaging with 2wT staff 
+about transfers and appointment rescheduling. Using mixed-effects logistic 
+regression models adjusted for participant demographics, we examined the effect 
+of core 2wT component fidelity on a) on-time appointment attendance and b) 
+timely return to care after a missed appointment, presenting adjusted odds 
+ratios (aORs) and 95% confidence intervals (CIs).
+RESULTS: The 468 2wT participants had a median of 52 study weeks (interquartile 
+range [IQR] 34 - 52) with 6 ART appointments (IQR 4-7) of which 2 (IQR 1 - 3) 
+were missed. On average, participants received a motivation message for 75% (IQR 
+56%-83%) of enrolled weeks, a reminder before 83% (IQR 67%-100%) of 
+appointments, and after 67% (IQR 0%-100%) of missed appointments. Participants 
+reported 9 transfers and rescheduled 46 appointments through 2wT prompts; 196 
+appointments were changed via unprompted interaction. Participants with 10% 
+higher expected motivation message delivery were more likely to attend clinic 
+appointments on time (aOR: 1.08; 95%CI: 1.01 - 1.16, p = 0.03). Receiving and 
+responding to an appointment reminder in any way were also associated with 
+increased on-time appointment attendance (aOR: 1.35; 95%CI: 1.03 - 1.79, 
+p = 0.03 and aOR: 1.47, 95%CI: 1.16 - 1.87, p = 0.001, respectively). No 
+associations were found for 2wT messages and timely return to care following a 
+missed appointment.
+CONCLUSION: Greater 2wT implementation fidelity was associated with improved 
+care outcomes. Although implementation fidelity monitoring of mHealth 
+interventions is complex, it should be integrated into study design.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s13012-025-01418-7
+PMCID: PMC11753095
+PMID: 39844335 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: The study protocol was approved by the Malawi National Health 
+Sciences Research Committee (#20/06/2565) and the University of Washington, 
+Seattle, USA ethics review board (STUDY000101060). At enrolment, 2wT 
+participants provided written informed consent in either Chichewa or English, 
+according to their preference. SoC clients did not consent as only 
+de-identified, routine monitoring and evaluation data was collected from the 
+EMRS. Consent for publication: Not applicable. Competing interests: The authors 
+declare that they have no competing interests.
+
+
+4. JMIR Res Protoc. 2021 Oct 27;10(10):e28723. doi: 10.2196/28723.
+
+A Behavioral Economics-Electronic Health Record Module to Promote Appropriate 
+Diabetes Management in Older Adults: Protocol for a Pragmatic Cluster Randomized 
+Controlled Trial.
+
+Belli HM(1), Troxel AB(1), Blecker SB(2)(3), Anderman J(4), Wong C(4), Martinez 
+TR(2), Mann DM(2)(3)(4).
+
+Author information:
+(1)Division of Biostatistics, Department of Population Health, Grossman School 
+of Medicine, New York University, New York, NY, United States.
+(2)Division of Healthcare Delivery Science, Department of Population Health, 
+Grossman School of Medicine, New York University, New York, NY, United States.
+(3)Department of Medicine, Grossman School of Medicine, New York University, New 
+York, NY, United States.
+(4)Medical Center Information Technology, New York University Langone Health, 
+New York, NY, United States.
+
+BACKGROUND: The integration of behavioral economics (BE) principles and 
+electronic health records (EHRs) using clinical decision support (CDS) tools is 
+a novel approach to improving health outcomes. Meanwhile, the American 
+Geriatrics Society has created the Choosing Wisely (CW) initiative to promote 
+less aggressive glycemic targets and reduction in pharmacologic therapy in older 
+adults with type 2 diabetes mellitus. To date, few studies have shown the 
+effectiveness of combined BE and EHR approaches for managing chronic conditions, 
+and none have addressed guideline-driven deprescribing specifically in type 2 
+diabetes. We previously conducted a pilot study aimed at promoting appropriate 
+CW guideline adherence using BE nudges and EHRs embedded within CDS tools at 5 
+clinics within the New York University Langone Health (NYULH) system. The BE-EHR 
+module intervention was tested for usability, adoption, and early effectiveness. 
+Preliminary results suggested a modest improvement of 5.1% in CW compliance.
+OBJECTIVE: This paper presents the protocol for a study that will investigate 
+the effectiveness of a BE-EHR module intervention that leverages BE nudges with 
+EHR technology and CDS tools to reduce overtreatment of type 2 diabetes in 
+adults aged 76 years and older, per the CW guideline.
+METHODS: A pragmatic, investigator-blind, cluster randomized controlled trial 
+was designed to evaluate the BE-EHR module. A total of 66 NYULH clinics will be 
+randomized 1:1 to receive for 18 months either (1) a 6-component BE-EHR module 
+intervention + standard care within the NYULH EHR, or (2) standard care only. 
+The intervention will be administered to clinicians during any patient encounter 
+(eg, in person, telemedicine, medication refill, etc). The primary outcome will 
+be patient-level CW compliance. Secondary outcomes will measure the frequency of 
+intervention component firings within the NYULH EHR, and provider utilization 
+and interaction with the BE-EHR module components.
+RESULTS: Study recruitment commenced on December 7, 2020, with the activation of 
+all 6 BE-EHR components in the NYULH EHR.
+CONCLUSIONS: This study will test the effectiveness of a previously developed, 
+iteratively refined, user-tested, and pilot-tested BE-EHR module aimed at 
+providing appropriate diabetes care to elderly adults, compared to usual care 
+via a cluster randomized controlled trial. This innovative research will be the 
+first pragmatic randomized controlled trial to use BE principles embedded within 
+the EHR and delivered using CDS tools to specifically promote CW guideline 
+adherence in type 2 diabetes. The study will also collect valuable information 
+on clinician workflow and interaction with the BE-EHR module, guiding future 
+research in optimizing the timely delivery of BE nudges within CDS tools. This 
+work will address the effectiveness of BE-inspired interventions in diabetes and 
+chronic disease management.
+TRIAL REGISTRATION: ClinicalTrials.gov NCT04181307; 
+https://clinicaltrials.gov/ct2/show/NCT04181307.
+INTERNATIONAL REGISTERED REPORT IDENTIFIER (IRRID): DERR1-10.2196/28723.
+
+©Hayley M Belli, Andrea B Troxel, Saul B Blecker, Judd Anderman, Christina Wong, 
+Tiffany R Martinez, Devin M Mann. Originally published in JMIR Research 
+Protocols (https://www.researchprotocols.org), 27.10.2021.
+
+DOI: 10.2196/28723
+PMCID: PMC8581753
+PMID: 34704959
+
+Conflict of interest statement: Conflicts of Interest: None declared.
+
+
+5. BMJ Open. 2016 Jan 20;6(1):e010120. doi: 10.1136/bmjopen-2015-010120.
+
+Lay health supporters aided by a mobile phone messaging system to improve care 
+of villagers with schizophrenia in Liuyang, China: protocol for a randomised 
+control trial.
+
+Xu DR(1), Gong W(2), Caine ED(3), Xiao S(4), Hughes JP(5), Ng M(6), Simoni J(7), 
+He H(8), Smith KL(9), Brown HS 3rd(10), Gloyd S(11).
+
+Author information:
+(1)Sun Yat-sen Global Health Institute (SGHI), School of Public Health, Sun 
+Yat-sen University, Guangzhou, Guangdong, China Department of Global Health, 
+University of Washington, Seattle, Washington, USA.
+(2)Xiangya School of Public Health, Central South University, Changsha, Hunan, 
+China Department of Psychiatry, University of Rochester Medical Center, 
+Rochester, New York, USA.
+(3)Department of Psychiatry, University of Rochester Medical Center, Rochester, 
+New York, USA.
+(4)Xiangya School of Public Health, Central South University, Changsha, Hunan, 
+China.
+(5)Department of Biostatistics, University of Washington, Seattle, Washington, 
+USA.
+(6)Institute for Health Metrics and Evaluation, University of Washington, 
+Seattle, Washington, USA.
+(7)Department of Phycology, University of Washington, Seattle, Washington, USA.
+(8)Department of Epidemiology, School of Public Health and Tropical Medicine, 
+Tulane University, New Orleans, Louisiana, USA.
+(9)Division of Health Promotion and Behavioral Sciences, University of Texas 
+Health Science Center School of Public Health at Houston, Houston, Texas, USA.
+(10)Austin Regional Campus Michael & Susan Dell Center for Healthy Living, 
+UTHealth School of Public Health, Austin, Texas, USA.
+(11)Department of Global Health, University of Washington, Seattle, Washington, 
+USA.
+
+INTRODUCTION: Schizophrenia is a severe, chronic and disabling mental illness. 
+Non-adherence to medication and relapse may lead to poorer patient function. 
+This randomised controlled study, under the acronym LEAN (Lay health supporter, 
+e-platform, award, and iNtegration), is designed to improve medication adherence 
+and high relapse among people with schizophrenia in resource poor settings.
+METHODS/ANALYSIS: The community-based LEAN has four parts: (1) Lay health 
+supporters (LHSs), mostly family members who will help supervise patient 
+medication, monitor relapse and side effects, and facilitate access to care, (2) 
+an E-platform to support two-way mobile text and voice messaging to remind 
+patients to take medication; and alert LHSs when patients are non-adherent, (3) 
+an Award system to motivate patients and strengthen LHS support, and (4) 
+iNtegration of the efforts of patients and LHSs with those of village doctors, 
+township mental health administrators and psychiatrists via the e-platform. A 
+random sample of 258 villagers with schizophrenia will be drawn from the 
+schizophrenic '686' Program registry for the 9 Xiang dialect towns of the 
+Liuyang municipality in China. The sample will be further randomised into a 
+control group and a treatment group of equal sizes, and each group will be 
+followed for 6 months after launch of the intervention. The primary outcome will 
+be medication adherence as measured by pill counts and supplemented by pharmacy 
+records. Other outcomes include symptoms and level of function. Outcomes will be 
+assessed primarily when patients present for medication refill visits scheduled 
+every 2 months over the 6-month follow-up period. Data from the study will be 
+analysed using analysis of covariance for the programme effect and an 
+intent-to-treat approach.
+ETHICS AND DISSEMINATION: University of Washington: 49464 G; Central South 
+University: CTXY-150002-6. Results will be published in peer-reviewed journals 
+with deidentified data made available on FigShare.
+TRIAL REGISTRATION NUMBER: ChiCTR-ICR-15006053; Pre-results.
+
+Published by the BMJ Publishing Group Limited. For permission to use (where not 
+already granted under a licence) please go to 
+http://www.bmj.com/company/products-services/rights-and-licensing/
+
+DOI: 10.1136/bmjopen-2015-010120
+PMCID: PMC4735204
+PMID: 26792221 [Indexed for MEDLINE]
+
+
+6. Proc AMIA Symp. 2002:290-4.
+
+Pediatric Cancer CareLink--supporting home management of childhood leukemia.
+
+Goldsmith DM(1), Silverman LB, Safran C.
+
+Author information:
+(1)Clinician Support Technology, Framingham, MA, USA.
+
+We conducted a descriptive evaluation of an Internet-based system designed to 
+support home management of childhood leukemia (Pediatric Cancer CareLink). 
+Twenty-five parents of children with ALL and thirty-four clinicians were 
+interviewed to identify functional requirements and to demonstrate the system's 
+potential to improve the experience and outcomes of children with acute 
+lymphoblastic leukemia (ALL). Parental interviews focused on: medication and 
+side effect management in the home; communication with the health care team; and 
+the use of a computer for ALL home management. Results from these interviews 
+provide strong evidence that parents of children with ALL are struggling to 
+manage the complexity of their children's care in the home. Parents revealed an 
+urgent need for tools that would help them to safely organize the medicines that 
+their children receive while on ALL protocols. Forty percent of parents needed 
+to know more about what to expect during their child's therapy and how to be 
+prepared for it. Clinician interviews focused on the clinical impact and 
+workflow issues associated with such a system. Decision support, prescription 
+refill management, and educational and emotional support functions were 
+considered key components. Clinicians were concerned that such a system would 
+increase their already overburdened workload. Conversely, parents believed that 
+access to such a system would eliminate unnecessary phone calls to the care 
+team. Our findings show that parents would embrace collaborative Internet-based 
+tools that would help with the home management of their child's leukemia.
+
+PMCID: PMC2244563
+PMID: 12463833 [Indexed for MEDLINE]

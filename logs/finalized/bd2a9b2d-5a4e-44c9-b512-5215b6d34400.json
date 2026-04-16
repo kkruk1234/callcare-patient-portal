@@ -1,0 +1,50 @@
+{
+  "packet_id": "bd2a9b2d-5a4e-44c9-b512-5215b6d34400",
+  "created_at": "2026-04-12T19:01:43.248181+00:00",
+  "session_id": "fade86fc-b6a4-4479-8b10-c9189e344997",
+  "pathway_id": "",
+  "base_queries": [
+    "right elbow injury management guidelines",
+    "adult elbow contusion treatment dosing and duration",
+    "red flags and return precautions for elbow trauma"
+  ],
+  "queries": [
+    "AAFP right elbow injury management guidelines",
+    "AAFP adult elbow contusion treatment dosing and duration",
+    "MedlinePlus right elbow injury management guidelines",
+    "MedlinePlus adult elbow contusion treatment dosing and duration",
+    "CDC right elbow injury management guidelines",
+    "CDC adult elbow contusion treatment dosing and duration",
+    "NIH right elbow injury management guidelines",
+    "NIH adult elbow contusion treatment dosing and duration",
+    "NICE right elbow injury management guidelines",
+    "NICE adult elbow contusion treatment dosing and duration",
+    "WHO right elbow injury management guidelines",
+    "WHO adult elbow contusion treatment dosing and duration"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Evaluation of Elbow Pain in Adults",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2014/0415/p649.pdf",
+      "accessed": "2026-04-12",
+      "snippet": ""
+    },
+    {
+      "title": "Elbow Trauma - StatPearls - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK542228/",
+      "accessed": "2026-04-12",
+      "snippet": "Simple elbow dislocations (ie, no associated fracture) can be managed with closed reduction and sling immobilization for 10 to 14 days to prioritize ROM. The treating medical team should be guided by the initial post-reduction examination, including documented ROM and neurovascular status upon successful reduction of the joint. Performing this examination in the acute setting can help guide the duration of joint immobilization in a sling and the possibility of developing posterolateral rotatory instability (PLRI) that presents chronically with painful clicking, weakness, and instability during physical exertion. These patients require operative intervention to mitigate the risk of a poor outcome. [2] [9]"
+    },
+    {
+      "title": "Management of Chronic Tendon Injuries | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2019/0801/p147.html",
+      "accessed": "2026-04-12",
+      "snippet": "Although tendinopathy is a degenerative noninflammatory process, corticosteroids and nonsteroidal anti-inflammatory drugs (NSAIDs) are commonly used in its treatment. 1 , 2 NSAIDs can be administered orally or topically and have benefit with short-term use (seven to 14 days). Risks of long-term use include gastrointestinal bleeding, impaired renal function, and mildly increased risk of cardiovascular disease. 3 , 4 , 13 A single peritendinous corticosteroid injection is as effective as NSAIDs for acute pain relief, but repeated injections may worsen chronic pain and result in tendon rupture. 3 , 4 , 13 Many clinicians perform tendon fenestration with corticosteroid injections. This involves rapidly moving the needle throughout the area of injured tendon to create microtrauma, which increases bleeding and recruits local regenerative factors. Fenestration is effective as a solo technique."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with right elbow pain that started 2 days ago after a fall over the handlebars of a bike, landing on her right elbow. She reports swelling, bruising, and some scratches on the elbow, with a noticeable lump that may represent swelling or a deformity. She denies numbness, tingling, or inability to move her fingers or hand. She can bend and straighten the elbow and has only slight pain when rotating her forearm palm-up. There is no fever, chills, or increasing redness.\n\nO: Phone encounter; no vital signs or physical exam available.\n\nA: The working diagnosis is a right elbow contusion with possible soft tissue injury or fracture given the trauma, swelling, bruising, and lump suggestive of deformity.\nDifferential:\n1. Elbow fracture (e.g., olecranon fracture)\n2. Elbow dislocation or subluxation\n3. Soft tissue contusion with hematoma\n4. Ligamentous injury or tendon injury around the elbow\n\nP: - First-line medication: Acetaminophen 500 mg orally every 6 hours as needed for pain (Physician must verify medication/dosing)\n- Alternatives: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain and inflammation (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, no renal or liver disease; monitor for gastrointestinal side effects with NSAIDs\n- Follow-up recommendations: Seek in-person medical care urgently if increasing pain, inability to move the elbow or hand, numbness, or signs of infection such as fever or spreading redness\n- Testing: Arrange for urgent imaging of the right elbow (X-ray) to evaluate for fracture or dislocation"
+}

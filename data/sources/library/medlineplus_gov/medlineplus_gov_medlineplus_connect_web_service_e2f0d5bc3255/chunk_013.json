@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Service",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-service/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "base URL is:\nhttps://connect.medlineplus.gov/service\nThese are two required parameters for any procedure query to this application:\nIdentify the procedure code system you will be using.\nFor CPT use: \nmainSearchCriteria.v.cs= 2.16.840.1.113883.6.12 \nFor SNOMED CT use: \nmainSearchCriteria.v.cs=2.16.840.1.113883.6.96 \nIdentify the actual code you are trying to look up. \nmainSearchCriteria.v.c=59015 \nOptional Parameters \nIdentify the name/title of the procedure. However, this information does not impact the response.\nmainSearchCriteria.v.dn=Chorionic villus sampling \nIdentify if you would like the request to be in English or Spanish. MedlinePlus Connect will assume English is the language if it is not specified.\nIf you wish the response to the procedure code lookup to be in Spanish, use:\ninformationRecipient.languageCode.c=es (=sp or =spa also accepted) \nTo specify English, use the following:\ninformationRecipient.languageCode.c=en \nExamples of Requests for Medical Procedures \nTo request information by CPT code for an English speaker, your request may look like one of the following:\nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.c=0001A&mainSearchCriteria.v.cs=2.16.840.1.113883.6.12&mainSearchCriteria.v.dn=&informationRecipient.languageCode.c=en \nTo request information by SNOMED code for a Spanish speaker, your request may look like this:\nhttps://connect.medlineplus.go",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_service_e2f0d5bc3255",
+  "chunk_id": "chunk_013"
+}

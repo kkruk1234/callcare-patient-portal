@@ -1,0 +1,135 @@
+{
+  "packet_id": "423ae609-68df-40ea-bc24-1b5e7cdb6e86",
+  "created_at": "2026-02-12T15:59:50.159659+00:00",
+  "session_id": "9d9b4ac2-96cd-4797-ae2a-d16edd21d939",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "2 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "Left side at the lower part of my ribs",
+    "intake_q3": "Any recent injury or trauma to your back or side?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain with urination, blood in urine, or changes in bowel habits?",
+    "intake_a5": "no",
+    "intake_q6": "Any shortness of breath, cough, or chest pain?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "tylenol and it helped. Also not drinking anymore soda seems to have helped",
+    "intake_q8": "Any history of kidney stones, urinary tract infections, or other kidney problems?",
+    "intake_a8": "no",
+    "intake_q9": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the quality of the pain and whether it changes with movement or breathing?",
+    "intake_a10": "a pressure that sometimes gets better with better posture",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/ankylosingspondylitis.html",
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/",
+        "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib area back pain that started approximately two weeks ago. She denies any recent injury or trauma, fever, chills, weight loss, urinary symptoms, or neurological symptoms such as numbness or weakness. The pain is described as a pressure that sometimes improves with better posture. She has tried acetaminophen, which provided some relief, and reports that reducing soda intake also helped. There are no respiratory symptoms or history of kidney problems. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is mechanical back pain localized to the left lower rib area, likely musculoskeletal in origin given the absence of red flag symptoms and improvement with posture and acetaminophen. \n\nDifferential: \n1. Musculoskeletal strain or myofascial pain \n2. Costovertebral joint irritation or rib dysfunction \n3. Early intercostal muscle strain \n4. Less likely visceral causes such as renal or pulmonary pathology given lack of systemic or urinary symptoms \n\nP: \n - First-line medication: Acetaminophen 500-1000 mg every 6 hours as needed for pain, not to exceed 3000 mg per day, for 7 days. Avoid if liver disease or allergy (none present). \n - Alternatives: \n - NSAIDs such as ibuprofen 400 mg every 6-8 hours as needed for 7 days; avoid if renal impairment or gastrointestinal risk (not present). \n - Topical analgesics (e.g., diclofenac gel) applied to the painful area, if oral medications are contraindicated or not tolerated. \n - Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease. Use acetaminophen within recommended dosing limits. NSAIDs should be used cautiously if any future renal or GI issues arise. \n - Return precautions: Return or seek urgent care if symptoms worsen, develop new neurological symptoms such as numbness or weakness, fever, unexplained weight loss, or if pain becomes severe and unrelenting. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "﻿ Back pain - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Back pain Back pain, particularly lower back pain, is very common. It usually improves within a few weeks but can sometimes last longer or…"
+      },
+      {
+        "title": "Polymyalgia rheumatica - NHS",
+        "source": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/",
+        "snippet": "﻿ Polymyalgia rheumatica - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Polymyalgia rheumatica Contents Overview Symptoms Diagnosis Treatment Polymyalgia rheumatica (PMR) is a condi…"
+      },
+      {
+        "title": "Spondylolisthesis - NHS",
+        "source": "https://www.nhs.uk/conditions/spondylolisthesis/",
+        "snippet": "nts include: avoiding activities that make symptoms worse, such as bending, lifting, athletics and gymnastics taking anti-inflammatory painkillers such as ibuprofen or stronger painkillers on prescription steroid injections in your back to relieve pain, numbness and tingling in your leg physiotherapy to strengthen and stretch the muscles in your lower back,…"
+      },
+      {
+        "title": "Ankylosing Spondylitis | MedlinePlus",
+        "source": "https://medlineplus.gov/ankylosingspondylitis.html",
+        "snippet": "may include: Pain, stiffness, and inflammation of the joints. Difficulty taking a deep breath. This could occur if the joints connecting the ribs are affected. Changes in vision. Fatigue . Loss of appetite. Weight loss. Skin rashes, such as psoriasis. Abdominal (belly) pain and loose stools (poop). How is ankylosing spondylitis diagnosed? There is no single…"
+      },
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+      },
+      {
+        "title": "Non-alcoholic fatty liver disease (NAFLD) - NHS",
+        "source": "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/",
+        "snippet": "It's usually found when you have tests for another reason. Some people have symptoms including: feeling very tired feeling generally unwell liver pain or discomfort, which is felt in your tummy (abdomen) under the right side of your ribs Who is more likely to get non-alcoholic fatty liver disease Non-alcoholic fatty liver disease is very common. You're more…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Ankylosing Spondylitis | MedlinePlus",
+      "source": "https://medlineplus.gov/ankylosingspondylitis.html",
+      "snippet": "may include: Pain, stiffness, and inflammation of the joints. Difficulty taking a deep breath. This could occur if the joints connecting the ribs are affected. Changes in vision. Fatigue . Loss of appetite. Weight loss. Skin rashes, such as psoriasis. Abdominal (belly) pain and loose stools (poop). How is ankylosing spondylitis diagnosed? There is no single…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    },
+    {
+      "title": "Non-alcoholic fatty liver disease (NAFLD) - NHS",
+      "source": "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/",
+      "snippet": "It's usually found when you have tests for another reason. Some people have symptoms including: feeling very tired feeling generally unwell liver pain or discomfort, which is felt in your tummy (abdomen) under the right side of your ribs Who is more likely to get non-alcoholic fatty liver disease Non-alcoholic fatty liver disease is very common. You're more…"
+    },
+    {
+      "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+      "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "snippet": "tonitis tend to lie very still, whereas those with renal colic seem unable to stay still. Fever suggests infection; however, its absence does not rule it out, especially in patients who are older or immunocompromised. Tachycardia and orthostatic hypotension suggest hypovolemia. The location of pain guides the remainder of the physical examination. Physicians…"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/0ab356777c93e3b9/content.txt",
+      "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+    }
+  ],
+  "state": null
+}

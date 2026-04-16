@@ -1,0 +1,117 @@
+{
+  "packet_id": "dd46a406-ab36-4add-b9b2-3eb5ab2f511d",
+  "created_at": "2026-01-31T20:35:28.246651+00:00",
+  "session_id": "dc8bd9fc-cbfb-487b-8899-994fab59412f",
+  "chief_complaint": "trouble speaking and sudden numbness",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the trouble speaking and numbness start?",
+    "intake_a1": "yesterday",
+    "intake_q2": "Can you describe which parts of your body feel numb and if the numbness is on one side or both sides?",
+    "intake_a2": "face, arm, and leg on my left side",
+    "intake_q3": "Any weakness or difficulty moving the left side of your body?",
+    "intake_a3": "yes",
+    "intake_q4": "Any difficulty understanding others or confusion?",
+    "intake_a4": "yes",
+    "intake_q5": "Any headache, vision changes, or loss of consciousness?",
+    "intake_a5": "yes",
+    "intake_q6": "Can you describe the headache and vision changes you are experiencing, and did you lose consciousness at any point?",
+    "intake_a6": "I can't see out of my left eye and I lost consciousness last night",
+    "intake_summary": "A patient presents with sudden onset of trouble speaking, left-sided numbness and weakness involving face, arm, and leg, confusion, inability to see out of left eye, headache, and a loss of consciousness episode last night, starting yesterday.",
+    "age_years": 58,
+    "allergies": "penicillin",
+    "sex_at_birth": "male",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/dysarthria/",
+        "https://www.nhs.uk/conditions/digeorge-syndrome/",
+        "https://www.nhs.uk/conditions/aphasia/",
+        "https://www.nhs.uk/conditions/cerebral-palsy/",
+        "https://www.nhs.uk/conditions/brain-abscess/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 58-year-old male who presents with sudden onset of trouble speaking, numbness, and weakness on the left side of the body involving the face, arm, and leg. He also reports confusion, difficulty understanding others, a headache, vision loss in the left eye, and an episode of loss of consciousness last night. These symptoms began yesterday and have persisted since onset. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe clinical presentation is highly suggestive of an acute cerebrovascular event, likely an ischemic stroke affecting the right cerebral hemisphere, given the left-sided motor and sensory deficits, aphasia, visual loss, and altered consciousness.\n\nDifferential: \n1. Acute ischemic stroke \n2. Intracerebral hemorrhage \n3. Brain abscess or mass lesion causing focal neurological deficits \n4. Complex migraine with neurological deficits \n\nP: \n- First-line medication: Not initiated via phone due to need for urgent in-person evaluation and imaging to confirm diagnosis and guide therapy. \n- Alternatives: Not applicable until diagnosis is confirmed. \n- Medication safety considerations: No known medication allergies except penicillin; no pregnancy, renal, or liver disease reported. Medication decisions require confirmation of diagnosis and assessment of contraindications. \n- Return precautions: Immediate emergency evaluation if symptoms worsen, new neurological deficits develop, or altered consciousness recurs. Urgent in-person assessment is critical given the severity and progression of symptoms. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., neuroimaging such as CT or MRI brain, urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Dysarthria (difficulty speaking) - NHS",
+        "source": "https://www.nhs.uk/conditions/dysarthria/",
+        "snippet": "﻿ \nDysarthria (difficulty speaking)\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nDysarthria (difficulty speaking) \nDysarthria is where you have difficulty speaking because the muscles you use for speech are weak. It can be caused by conditions that damage your brain or nerves and some medicines. Speech and language therapy can help. \nImmediate action required: Call 999 if:\nsomebody's face droops on 1 side (the mouth or eye may have drooped) a person cannot lift up both arms and keep them there a person has difficulty speaking (speech may be slurred or garbled) These can be signs of a stroke, which is a medical emergency. The symptoms of a stroke usually come on suddenly.\nInformation: \nDo not drive yourself to A&"
+      },
+      {
+        "title": "DiGeorge syndrome (22q11 deletion) - NHS - NHS",
+        "source": "https://www.nhs.uk/conditions/digeorge-syndrome/",
+        "snippet": "including temporary hearing loss due to frequent ear infections, being slow to start talking and having a \"nasal-sounding\" voice mouth and feeding problems – including a gap in the top of the mouth or lip  (cleft lip or palate) , difficulty feeding and sometimes bringing food back up through the nose heart problems – some children and adults have heart defects from birth (congenital heart disease) hormone problems – underdeveloped parathyroid glands produce too little parathyroid hormone (hypoparathyroidism) , which can lead to problems such as shaking (tremors) and seizures (fits) Other possible problems include:\na higher risk of getting infections – such as ear infections ,  oral thrush  and  chest infections  – because the immune system (the body's natural defence against illness) is weaker than normal bone, muscle and joint problems – including leg pains that keep coming back, an unu"
+      },
+      {
+        "title": "Aphasia - NHS",
+        "source": "https://www.nhs.uk/conditions/aphasia/",
+        "snippet": "﻿ \nAphasia\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nAphasia \nAphasia (also called dysphasia) is a condition that makes it difficult to communicate. It can make it hard to speak, read, write and understand others. It&#x27;s often caused by a stroke or brain injury. There&#x27;s no cure, but people usually improve with treatment.\nSymptoms of aphasia \nAphasia causes problems with communication including speaking, understanding others, reading and writing.\nIt affects people in different ways, but symptoms may include:\nnot being able to say the right words , speaking very slowly or with long pauses finding it very difficult to speak, or speaking in very short or incomplete sentences repeating, mixing up or missin"
+      },
+      {
+        "title": "Cerebral palsy - NHS",
+        "source": "https://www.nhs.uk/conditions/cerebral-palsy/",
+        "snippet": "﻿ \nCerebral palsy\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nOverview\n- \nCerebral palsy\nContents \nOverview \nSymptoms \nCauses \nDiagnosis \nTreatment \nCerebral palsy is the name for a group of lifelong conditions that affect movement and co-ordination. It's caused by a problem with the brain that develops before, during or soon after birth. \nSymptoms of cerebral palsy The symptoms of cerebral palsy are not usually obvious just after a baby is born. They normally become noticeable from an early age.\nSymptoms can include:\ndelays in reaching development milestones – for example, not sitting by 8 months or not walking by 18 months seeming too stiff or too floppy weak arms or legs fidgety, jerky or clumsy movements random,"
+      },
+      {
+        "title": "Brain abscess - NHS",
+        "source": "https://www.nhs.uk/conditions/brain-abscess/",
+        "snippet": "he  – which is often severe, located in a single section of the head and cannot be relieved with painkillers changes in mental state – such as confusion or irritability problems with nerve function – such as muscle weakness, slurred speech or  paralysis on one side of the body a high temperature seizures (fits) feeling sick being sick stiff neck changes in vision – such as blurring, greying of vision or  double vision (due to the abscess putting pressure on the optic nerve) \nWhen to get medical advice Any symptoms that suggest a problem with the brain and nervous system should be treated as a medical emergency. These include:\nslurred speech m"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Dysarthria (difficulty speaking) - NHS",
+      "source": "https://www.nhs.uk/conditions/dysarthria/",
+      "snippet": "﻿ \nDysarthria (difficulty speaking)\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nDysarthria (difficulty speaking) \nDysarthria is where you have difficulty speaking because the muscles you use for speech are weak. It can be caused by conditions that damage your brain or nerves and some medicines. Speech and language therapy can help. \nImmediate action required: Call 999 if:\nsomebody's face droops on 1 side (the mouth or eye may have drooped) a person cannot lift up both arms and keep them there a person has difficulty speaking (speech may be slurred or garbled) These can be signs of a stroke, which is a medical emergency. The symptoms of a stroke usually come on suddenly.\nInformation: \nDo not drive yourself to A&"
+    },
+    {
+      "title": "DiGeorge syndrome (22q11 deletion) - NHS - NHS",
+      "source": "https://www.nhs.uk/conditions/digeorge-syndrome/",
+      "snippet": "including temporary hearing loss due to frequent ear infections, being slow to start talking and having a \"nasal-sounding\" voice mouth and feeding problems – including a gap in the top of the mouth or lip  (cleft lip or palate) , difficulty feeding and sometimes bringing food back up through the nose heart problems – some children and adults have heart defects from birth (congenital heart disease) hormone problems – underdeveloped parathyroid glands produce too little parathyroid hormone (hypoparathyroidism) , which can lead to problems such as shaking (tremors) and seizures (fits) Other possible problems include:\na higher risk of getting infections – such as ear infections ,  oral thrush  and  chest infections  – because the immune system (the body's natural defence against illness) is weaker than normal bone, muscle and joint problems – including leg pains that keep coming back, an unu"
+    },
+    {
+      "title": "Aphasia - NHS",
+      "source": "https://www.nhs.uk/conditions/aphasia/",
+      "snippet": "﻿ \nAphasia\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nAphasia \nAphasia (also called dysphasia) is a condition that makes it difficult to communicate. It can make it hard to speak, read, write and understand others. It&#x27;s often caused by a stroke or brain injury. There&#x27;s no cure, but people usually improve with treatment.\nSymptoms of aphasia \nAphasia causes problems with communication including speaking, understanding others, reading and writing.\nIt affects people in different ways, but symptoms may include:\nnot being able to say the right words , speaking very slowly or with long pauses finding it very difficult to speak, or speaking in very short or incomplete sentences repeating, mixing up or missin"
+    },
+    {
+      "title": "Cerebral palsy - NHS",
+      "source": "https://www.nhs.uk/conditions/cerebral-palsy/",
+      "snippet": "﻿ \nCerebral palsy\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nOverview\n- \nCerebral palsy\nContents \nOverview \nSymptoms \nCauses \nDiagnosis \nTreatment \nCerebral palsy is the name for a group of lifelong conditions that affect movement and co-ordination. It's caused by a problem with the brain that develops before, during or soon after birth. \nSymptoms of cerebral palsy The symptoms of cerebral palsy are not usually obvious just after a baby is born. They normally become noticeable from an early age.\nSymptoms can include:\ndelays in reaching development milestones – for example, not sitting by 8 months or not walking by 18 months seeming too stiff or too floppy weak arms or legs fidgety, jerky or clumsy movements random,"
+    },
+    {
+      "title": "Brain abscess - NHS",
+      "source": "https://www.nhs.uk/conditions/brain-abscess/",
+      "snippet": "he  – which is often severe, located in a single section of the head and cannot be relieved with painkillers changes in mental state – such as confusion or irritability problems with nerve function – such as muscle weakness, slurred speech or  paralysis on one side of the body a high temperature seizures (fits) feeling sick being sick stiff neck changes in vision – such as blurring, greying of vision or  double vision (due to the abscess putting pressure on the optic nerve) \nWhen to get medical advice Any symptoms that suggest a problem with the brain and nervous system should be treated as a medical emergency. These include:\nslurred speech m"
+    }
+  ]
+}

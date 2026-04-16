@@ -1,0 +1,80 @@
+{
+  "packet_id": "b0de4ab3-6e6c-4c9b-aee0-b18501772938",
+  "created_at": "2026-03-02T13:42:40.477747+00:00",
+  "session_id": "0c76ca33-94fa-49b4-b2fe-091d54739002",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any swelling, bruising, or tenderness over the painful area?",
+    "intake_a7": "tenderness",
+    "intake_q8": "Have you tried any treatments or medications for the back pain, and if so, what was the effect?",
+    "intake_a8": "I tried tylenol but it didn't really help much",
+    "intake_q9": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent coughing, sneezing, or activities that worsen the pain?",
+    "intake_a10": "poor posture and leaning against the area when sitting worsens the pain",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adult",
+      "acetaminophen dosing for adult back pain mg duration contraindications",
+      "red flags for back pain requiring urgent evaluation"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, difficulty breathing, chest pain, numbness, tingling, or weakness in her legs or feet. She reports tenderness over the painful area and notes that poor posture and leaning against the area when sitting worsen the pain. She has tried acetaminophen (Tylenol) without much relief. There is no history of osteoporosis, cancer, or recent infections. O: Phone evaluation only; no physical exam or vitals available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely related to posture and mechanical strain. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib dysfunction\n3. Intercostal nerve irritation\n4. Early presentation of vertebral or rib pathology (less likely given absence of trauma or systemic symptoms)\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - Medication safety considerations: Use NSAIDs with caution if gastrointestinal or renal risk factors develop; acetaminophen dosing should not exceed 3000 mg per day\n - Return precautions: Advise patient to seek urgent care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, chest pain, or difficulty breathing\n - Testing: Not indicated at this time given absence of red flags; consider imaging if symptoms persist beyond 6 weeks or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back Pain - StatPearls - NCBI Bookshelf",
+        "source": "NIH",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538173/",
+        "accessed": "2026-03-02",
+        "snippet": "Back pain is one of the most common reasons for primary- and emergency-care consultations. An estimated $200 billion is spent annually on managing back pain. Additionally, work hours, productivity, and workers"
+      },
+      {
+        "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+        "accessed": "2026-03-02",
+        "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back Pain - StatPearls - NCBI Bookshelf",
+      "source": "NIH",
+      "snippet": "Back pain is one of the most common reasons for primary- and emergency-care consultations. An estimated $200 billion is spent annually on managing back pain. Additionally, work hours, productivity, and workers"
+    },
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "AAFP",
+      "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+    }
+  ],
+  "state": null
+}

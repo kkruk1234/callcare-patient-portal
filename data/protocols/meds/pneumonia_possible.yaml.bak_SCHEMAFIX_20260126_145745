@@ -1,0 +1,119 @@
+pathway_id: pneumonia_possible
+version: 1
+last_updated: "2026-01-26"
+
+scope:
+  summary: >
+    Outpatient empiric treatment options for suspected community-acquired pneumonia (CAP) in adults
+    in a phone-only setting. Tier 1 physician review required before any prescription is issued.
+  exclusions:
+    - age_under_18
+    - severe_respiratory_distress_or_cannot_speak_full_sentences
+    - confusion_or_altered_mental_status
+    - cyanosis_blue_lips
+    - persistent_chest_pain_pressure_or_severe_pleuritic_pain
+    - hemoptysis_more_than_streaks
+    - immunocompromised_significant
+    - pregnancy_or_postpartum_6weeks
+    - unable_to_tolerate_oral_fluids_or_meds
+    - recent_hospitalization_or_iv_antibiotics_last_90_days
+
+safety_checks:
+  required_questions:
+    - pregnancy_status
+    - severe_beta_lactam_anaphylaxis_history
+    - significant_renal_disease_or_dialysis
+    - significant_liver_disease
+    - history_qt_prolongation_or_on_qt_prolonging_meds
+    - recent_antibiotics_last_90_days
+  comorbidities_to_flag:
+    - chronic_heart_disease
+    - chronic_lung_disease
+    - chronic_liver_disease
+    - chronic_kidney_disease
+    - diabetes
+    - alcoholism
+    - malignancy
+    - asplenia
+
+treatment_logic_notes:
+  - >
+    This protocol is intentionally conservative because there are no vitals, no exam, and no imaging.
+    Any red flags or high-risk features should trigger in-person evaluation.
+  - >
+    Antibiotic choice depends on local resistance patterns, comorbidities, recent antibiotics, and allergy history.
+    Final selection must be confirmed by the supervising physician (Tier 1).
+
+antibiotic_options:
+  - name: "Doxycycline (adult outpatient, lower risk; useful in penicillin allergy)"
+    when_consider:
+      - low_risk_outpatient
+      - beta_lactam_allergy_nonpregnant
+    regimen:
+      drug: doxycycline
+      dose: "100 mg"
+      route: PO
+      frequency: "twice daily"
+      duration: "5 days minimum; extend to 7 if slow improvement"
+    avoid_if:
+      - pregnancy_or_possible_pregnancy
+      - severe_liver_disease
+    counsel:
+      - "Take with a full glass of water; stay upright 30 minutes."
+      - "Photosensitivity precautions."
+  - name: "Azithromycin (only if appropriate locally; QT risk)"
+    when_consider:
+      - low_risk_outpatient
+      - cannot_take_doxycycline
+    regimen:
+      drug: azithromycin
+      dose: "500 mg day 1, then 250 mg daily days 2-5"
+      route: PO
+      frequency: "daily"
+      duration: "5 days"
+    avoid_if:
+      - history_qt_prolongation_or_on_qt_prolonging_meds
+      - significant_liver_disease
+    counsel:
+      - "Review QT-prolonging medications; seek care if palpitations/syncope."
+  - name: "Beta-lactam + macrolide (comorbidities; only if NOT severe anaphylaxis)"
+    when_consider:
+      - comorbidities_present
+      - no_severe_beta_lactam_anaphylaxis_history
+    regimen:
+      - drug: amoxicillin_clavulanate
+        dose: "875/125 mg"
+        route: PO
+        frequency: "twice daily"
+        duration: "5-7 days"
+      - drug: azithromycin
+        dose: "500 mg day 1, then 250 mg daily days 2-5"
+        route: PO
+        frequency: "daily"
+        duration: "5 days"
+    avoid_if:
+      - severe_beta_lactam_anaphylaxis_history
+      - history_qt_prolongation_or_on_qt_prolonging_meds
+    counsel:
+      - "If true anaphylaxis to penicillin/cephalosporins, avoid beta-lactams."
+      - "Consider renal dosing adjustments if CKD."
+
+supportive_care:
+  - "Hydration, rest."
+  - "Acetaminophen for fever/pain if safe for patient."
+  - "Avoid NSAIDs if contraindicated (ulcer/GI bleed risk, renal disease, anticoagulants)."
+
+follow_up:
+  reassess_window: "24-48 hours if started antibiotics; sooner if worsening"
+  expected_improvement: "Some improvement by 48-72 hours; cough may persist longer"
+  in_person_if:
+    - worsening_shortness_of_breath
+    - persistent_or_worsening_chest_pain
+    - new_confusion
+    - persistent_high_fever
+    - inability_to_keep_fluids_down
+    - no_improvement_by_72_hours_on_antibiotics
+
+patient_instructions_snippet:
+  - "Seek urgent care immediately for trouble breathing, chest pain, confusion, blue lips, or worsening symptoms."
+  - "If you are not improving within 48–72 hours, you need in-person evaluation (may require chest imaging)."

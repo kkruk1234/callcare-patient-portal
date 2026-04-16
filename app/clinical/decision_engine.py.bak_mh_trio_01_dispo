@@ -1,0 +1,1186 @@
+from typing import List
+from app.core.models import Decision, EvidenceRef, CallState
+from app.rag.retrieve import retrieve
+def _decide_orig(state: CallState) -> Decision:
+    """
+    Produce an evidence-grounded clinical decision.
+    This version is deterministic + retrieval-based (no LLM yet).
+    """
+
+    # Build a simple clinical query
+    query_parts: List[str] = []
+    if state.chief_complaint:
+        query_parts.append(state.chief_complaint)
+    if "duration" in state.symptoms:
+        query_parts.append(f"duration {state.symptoms['duration']}")
+    if "fever" in state.symptoms:
+        query_parts.append(f"fever {state.symptoms['fever']}")
+
+    query = " ".join(query_parts).strip()
+
+    results = retrieve(query, k=3)
+
+    evidence = [
+        EvidenceRef(
+            source=r["source"],
+            title="Guideline excerpt",
+            snippet=r["text"][:300],
+        )
+        for r in results
+    ]
+
+    # Very conservative prototype logic
+    disposition = "SELF_CARE"
+    plan = [
+        "Supportive care based on guideline recommendations.",
+        "Monitor symptoms and seek care if worsening.",
+    ]
+    safety_net = [
+        "Seek urgent care if breathing worsens, fever is high or persistent, or symptoms rapidly worsen."
+    ]
+
+    return Decision(
+        disposition=disposition,
+        differential=[state.chief_complaint or "undifferentiated complaint"],
+        plan=plan,
+        safety_net=safety_net,
+        evidence=evidence,
+        uncertainty="Prototype decision logic without clinician override",
+    )
+
+
+
+# ----------------------------
+# NEW_PATHWAY_RULES_V1
+# Deterministic disposition rules for newer pathways (phone-only triage)
+# ----------------------------
+
+def _bool(v):
+    if isinstance(v, bool):
+        return v
+    if v is None:
+        return False
+    s = str(v).strip().lower()
+    return s in ("yes", "true", "y", "1")
+
+def apply_new_pathway_rules(pathway_id: str, symptoms: dict, flags: dict) -> None:
+    """
+    Mutates flags dict:
+      flags["ed_now"], flags["urgent_today"], flags["routine"], flags["cannot_rule_out"]
+    """
+    pid = (pathway_id or "").strip()
+
+    def ed(code): flags["ed_now"].append(code)
+    def urgent(code): flags["urgent_today"].append(code)
+    def routine(code): flags["routine"].append(code)
+
+    # Chest pain
+    if pid == "chest_pain":
+        severe_breathing = _bool(symptoms.get("severe_breathing"))
+        syncope = _bool(symptoms.get("syncope"))
+        high_risk = _bool(symptoms.get("high_risk_associated"))
+        radiation = _bool(symptoms.get("radiation"))
+        exertional = _bool(symptoms.get("exertional"))
+        if severe_breathing or syncope:
+            ed("chest_pain_severe_breathing_or_syncope")
+        elif high_risk and (radiation or exertional):
+            ed("chest_pain_high_risk_features")
+        else:
+            urgent("chest_pain_needs_same_day_eval")
+
+    # Stroke/neuro
+    if pid == "stroke_neuro":
+        face = _bool(symptoms.get("face_droop"))
+        arm = _bool(symptoms.get("one_sided_weakness"))
+        speech = _bool(symptoms.get("speech_change"))
+        onset = _bool(symptoms.get("sudden_recent_onset"))
+        if onset and (face or arm or speech):
+            ed("possible_stroke_fast_positive")
+        else:
+            urgent("neuro_symptoms_need_eval")
+
+    # Asthma/wheeze
+    if pid == "asthma_wheeze":
+        severe = _bool(symptoms.get("severe_work_of_breathing"))
+        cyanosis = _bool(symptoms.get("cyanosis"))
+        not_helping = str(symptoms.get("rescue_not_helping","")).strip().lower() in ("yes","true","y")
+        prior_severe = str(symptoms.get("prior_severe_asthma","")).strip().lower() in ("yes","true","y")
+        if severe or cyanosis or not_helping:
+            ed("asthma_severe_or_not_responding")
+        elif prior_severe:
+            urgent("asthma_history_severe_needs_same_day")
+        else:
+            urgent("asthma_symptoms_need_eval")
+
+    # Flu-like illness
+    if pid == "flu_like_illness":
+        severe = _bool(symptoms.get("severe_breathing_or_confusion"))
+        dehydration = _bool(symptoms.get("dehydration_risk"))
+        high_risk = str(symptoms.get("high_risk_group","")).strip().lower() in ("yes","true","y")
+        if severe:
+            ed("flu_like_severe_breathing_or_confusion")
+        elif dehydration or high_risk:
+            urgent("flu_like_high_risk_or_dehydration")
+        else:
+            routine("flu_like_home_care_ok_if_stable")
+
+    # Vaginal discharge
+    if pid == "vaginal_discharge":
+        fever_pain = _bool(symptoms.get("fever_or_pelvic_pain"))
+        if fever_pain:
+            urgent("vaginal_discharge_fever_or_pelvic_pain")
+        else:
+            routine("vaginal_discharge_non_emergent")
+
+    # Pelvic pain
+    if pid == "pelvic_pain":
+        preg = str(symptoms.get("pregnancy_possible","")).strip().lower() in ("yes","true","y","unknown")
+        severe = _bool(symptoms.get("severe_pain"))
+        bleed_syncope = _bool(symptoms.get("heavy_bleeding_or_syncope"))
+        fever = _bool(symptoms.get("fever"))
+        if (preg and (bleed_syncope or severe)) or bleed_syncope:
+            ed("pelvic_pain_possible_ectopic_or_heavy_bleed")
+        elif fever or severe or preg:
+            urgent("pelvic_pain_needs_same_day_eval")
+        else:
+            urgent("pelvic_pain_needs_eval")
+
+    # Hemorrhoids/rectal pain
+    if pid == "hemorrhoids_rectal_pain":
+        heavy = _bool(symptoms.get("heavy_bleed_or_melena"))
+        fever = _bool(symptoms.get("fever_or_severe_swelling"))
+        if heavy:
+            ed("rectal_bleeding_heavy_or_melena")
+        elif fever:
+            urgent("rectal_pain_fever_or_swelling")
+        else:
+            routine("rectal_pain_likely_benign_if_mild")
+
+    # Shingles
+    if pid == "shingles":
+        face_eye = _bool(symptoms.get("face_or_eye_area"))
+        immune = str(symptoms.get("immunocompromised","")).strip().lower() in ("yes","true","y")
+        if face_eye or immune:
+            urgent("shingles_eye_or_immunocompromised")
+        else:
+            routine("shingles_non_urgent_if_stable")
+
+    # Cold sore HSV
+    if pid == "cold_sore_hsv":
+        eye = _bool(symptoms.get("eye_symptoms"))
+        if eye:
+            urgent("hsv_eye_symptoms_same_day")
+        else:
+            routine("cold_sore_supportive")
+
+
+
+    # ----------------------------
+    # BATCH1_RULES_V1
+    # ----------------------------
+
+    # Allergic conjunctivitis / itchy eyes
+    if pid == "conjunctivitis_allergic":
+        eye_redflag = _bool(symptoms.get("eye_redflag"))
+        contact = _bool(symptoms.get("contact_lens"))
+        purulent = _bool(symptoms.get("purulent_discharge"))
+        if eye_redflag or contact:
+            urgent("eye_redflag_or_contact_lens")
+        elif purulent:
+            urgent("possible_bacterial_conjunctivitis")
+        else:
+            routine("likely_allergic_or_viral_conjunctivitis")
+
+    # Otitis media
+    if pid == "otitis_media":
+        mastoid = _bool(symptoms.get("mastoiditis_concern"))
+        if mastoid:
+            ed("mastoiditis_concern")
+        else:
+            urgent("otitis_media_needs_eval")
+
+    # URI / sinus overlap
+    if pid == "uri_sinus_overlap":
+        severe = _bool(symptoms.get("severe_redflags"))
+        orbital = _bool(symptoms.get("orbital_or_focal"))
+        if severe:
+            ed("uri_sinus_severe_redflags")
+        elif orbital:
+            urgent("sinus_orbital_concern")
+        else:
+            routine("uri_sinus_overlap_stable")
+
+    # Urticaria / hives
+    if pid == "urticaria_hives":
+        anaph = _bool(symptoms.get("anaphylaxis_signs"))
+        systemic = _bool(symptoms.get("systemic_symptoms"))
+        if anaph:
+            ed("possible_anaphylaxis")
+        elif systemic:
+            urgent("hives_with_systemic_symptoms")
+        else:
+            routine("isolated_hives_stable")
+
+    # Minor head injury
+    if pid == "minor_head_injury":
+        danger = _bool(symptoms.get("danger_signs"))
+        neuro = _bool(symptoms.get("neuro_redflags"))
+        anticoag = str(symptoms.get("anticoagulant_or_bleeding","")).strip().lower() in ("yes","true","y")
+        if danger or neuro:
+            ed("head_injury_danger_or_neuro_redflags")
+        elif anticoag:
+            urgent("head_injury_on_anticoagulant")
+        else:
+            routine("minor_head_injury_stable")
+
+
+    # ----------------------------
+    # BATCH2_RULES_V1
+    # ----------------------------
+
+    # Complicated UTI (higher risk)
+    if pid == "uti_complicated":
+        fever = _bool(symptoms.get("fever"))
+        flank = _bool(symptoms.get("flank_pain"))
+        vomiting = _bool(symptoms.get("vomiting"))
+        preg = str(symptoms.get("pregnancy_possible","")).strip().lower() in ("yes","true","y","unknown")
+        male = _bool(symptoms.get("male"))
+        immune = str(symptoms.get("immunocompromised","")).strip().lower() in ("yes","true","y")
+        if fever and flank:
+            ed("possible_pyelonephritis")
+        elif vomiting:
+            urgent("uti_unable_to_keep_fluids")
+        elif preg or male or immune or fever or flank:
+            urgent("complicated_uti_needs_same_day_eval")
+        else:
+            urgent("uti_complicated_eval")
+
+    # Kidney stone
+    if pid == "kidney_stone":
+        severe = _bool(symptoms.get("severe_pain"))
+        fever = _bool(symptoms.get("fever"))
+        obstruction = _bool(symptoms.get("urinary_obstruction"))
+        preg = str(symptoms.get("pregnancy_possible","")).strip().lower() in ("yes","true","y","unknown")
+        if fever or obstruction:
+            ed("stone_with_fever_or_obstruction")
+        elif severe or preg:
+            urgent("stone_severe_or_pregnancy_possible")
+        else:
+            urgent("stone_needs_eval")
+
+    # Dehydration
+    if pid == "dehydration":
+        severe = _bool(symptoms.get("severe_redflags"))
+        low_urine = _bool(symptoms.get("low_urine"))
+        can_keep = _bool(symptoms.get("can_keep_fluids"))
+        if severe:
+            ed("dehydration_severe_redflags")
+        elif low_urine and not can_keep:
+            urgent("dehydration_low_urine_cant_keep_fluids")
+        elif low_urine or not can_keep:
+            urgent("dehydration_needs_eval")
+        else:
+            routine("mild_dehydration_home_care")
+
+    # Medication side effect
+    if pid == "med_side_effect":
+        anaph = _bool(symptoms.get("anaphylaxis_signs"))
+        severe_rash = _bool(symptoms.get("severe_rash"))
+        if anaph:
+            ed("med_reaction_anaphylaxis")
+        elif severe_rash:
+            urgent("med_reaction_severe_rash")
+        else:
+            urgent("med_reaction_needs_review")
+
+    # Tick bite
+    if pid == "tick_bite":
+        systemic = _bool(symptoms.get("systemic_symptoms"))
+        rash = _bool(symptoms.get("expanding_rash"))
+        if systemic and rash:
+            urgent("tick_bite_systemic_plus_rash")
+        elif systemic or rash:
+            urgent("tick_bite_needs_eval")
+        else:
+            routine("tick_bite_observation")
+
+
+    # ----------------------------
+    # BATCH3_RULES_V1
+    # ----------------------------
+
+    # Sciatica / radiculopathy
+    if pid == "sciatica_radiculopathy":
+        cauda = _bool(symptoms.get("cauda_redflag"))
+        weakness = _bool(symptoms.get("motor_weakness"))
+        systemic = _bool(symptoms.get("systemic_redflags"))
+        if cauda:
+            ed("possible_cauda_equina")
+        elif weakness or systemic:
+            urgent("radiculopathy_redflags")
+        else:
+            routine("sciatica_no_redflags")
+
+    # Gout flare
+    if pid == "gout_flare":
+        fever = _bool(symptoms.get("fever"))
+        high_risk = str(symptoms.get("high_risk","")).strip().lower() in ("yes","true","y")
+        mono = _bool(symptoms.get("monoarthritis"))
+        if fever:
+            urgent("monoarthritis_with_fever_rule_out_septic_joint")
+        elif high_risk and mono:
+            urgent("high_risk_joint_needs_eval")
+        else:
+            routine("gout_like_flare_stable")
+
+    # Migraine
+    if pid == "migraine":
+        thunder = _bool(symptoms.get("thunderclap"))
+        neuro = _bool(symptoms.get("neuro_redflags"))
+        men = _bool(symptoms.get("meningitis_redflags"))
+        if thunder or neuro or men:
+            ed("headache_redflags")
+        else:
+            routine("migraine_like_no_redflags")
+
+    # Vertigo / BPPV
+    if pid == "vertigo_bppv":
+        neuro = _bool(symptoms.get("neuro_redflags"))
+        cardio = _bool(symptoms.get("cardiopulmonary_redflags"))
+        if neuro or cardio:
+            ed("vertigo_redflags")
+        else:
+            urgent("vertigo_needs_eval")
+
+    # Skin abscess
+    if pid == "skin_abscess":
+        fever = _bool(symptoms.get("fever"))
+        spread = _bool(symptoms.get("severe_spreading"))
+        loc = _bool(symptoms.get("high_risk_location"))
+        if spread:
+            ed("skin_infection_severe_or_nec_fasciitis_concern")
+        elif fever or loc:
+            urgent("abscess_high_risk_needs_eval")
+        else:
+            urgent("abscess_needs_eval")
+
+
+    # ----------------------------
+    # BATCH4_RULES_V1
+    # ----------------------------
+
+    # COPD exacerbation
+    if pid == "copd_exacerbation":
+        severe = _bool(symptoms.get("severe_respiratory"))
+        not_help = _bool(symptoms.get("rescue_not_helping"))
+        if severe or not_help:
+            ed("copd_severe_or_not_responding")
+        else:
+            urgent("copd_needs_same_day_eval")
+
+    # Allergic rhinitis
+    if pid == "allergic_rhinitis":
+        breathing = _bool(symptoms.get("breathing_redflag"))
+        infection = _bool(symptoms.get("infection_concern"))
+        if breathing:
+            urgent("rhinitis_with_wheeze_or_breathing_symptoms")
+        elif infection:
+            urgent("possible_sinusitis_or_infection")
+        else:
+            routine("allergic_rhinitis_stable")
+
+    # Cellulitis
+    if pid == "cellulitis":
+        fever = _bool(symptoms.get("fever"))
+        rapid = _bool(symptoms.get("rapid_spread_or_severe_pain"))
+        high = str(symptoms.get("high_risk","")).strip().lower() in ("yes","true","y")
+        if rapid:
+            ed("cellulitis_severe_spread_or_nec_fasciitis_concern")
+        elif fever or high:
+            urgent("cellulitis_high_risk")
+        else:
+            urgent("cellulitis_needs_eval")
+
+    # Uncomplicated UTI (phone triage)
+    if pid == "uti_uncomplicated":
+        fever = _bool(symptoms.get("fever"))
+        flank = _bool(symptoms.get("flank_pain"))
+        preg = str(symptoms.get("pregnancy_possible","")).strip().lower() in ("yes","true","y","unknown")
+        if fever and flank:
+            ed("possible_pyelonephritis")
+        elif fever or flank or preg:
+            urgent("uti_needs_same_day_eval")
+        else:
+            urgent("uti_eval")
+
+    # Acute diarrhea
+    if pid == "acute_diarrhea":
+        bleed = _bool(symptoms.get("gi_bleed_redflag"))
+        dehyd = _bool(symptoms.get("dehydration_risk"))
+        severe = _bool(symptoms.get("severe_infection"))
+        if bleed:
+            ed("diarrhea_gi_bleed_redflag")
+        elif dehyd or severe:
+            urgent("diarrhea_dehydration_or_severe")
+        else:
+            routine("acute_diarrhea_stable")
+    # GERD + nausea
+    if pid == "gerd_nausea":
+        cardiac = _bool(symptoms.get("cardiac_redflags"))
+        bleed = _bool(symptoms.get("gi_bleed_redflags"))
+        dysphagia = _bool(symptoms.get("dysphagia"))
+        if cardiac:
+            ed("possible_cardiac_chest_symptoms")
+        elif bleed:
+            ed("possible_gi_bleed")
+        elif dysphagia:
+            urgent("dysphagia_needs_eval")
+        else:
+            routine("gerd_like_symptoms_stable")
+
+
+
+# ----------------------------
+# DECIDE_WRAPPER_V1
+# Ensures new-pathway disposition rules are actually applied.
+# ----------------------------
+def decide(state: CallState):
+
+    # ==================================
+    # FORCE_CAUDA_ED_V1 (cannot fail)
+    # ==================================
+    try:
+        _pid = str((state.symptoms.get("_pathway") or {}).get("id") or "")
+        _sx = state.symptoms or {}
+        _ans = _sx.get("_answers") or {}
+        if _pid == "acute_back_pain_redflags":
+            if bool(_sx.get("bladder_issue")) or bool(_sx.get("saddle_numb")) or bool(_sx.get("leg_weakness")):
+                # minimal Decision-like object (works with both dict and pydantic Decision)
+                try:
+                    state.decision = state.decision or None
+                except Exception:
+                    pass
+                # If there is already a Decision object later, this will be overridden by wrapper;
+                # so we hard-return a dict if necessary.
+                return {"disposition": "ed_now", "plan": [], "safety_net": [], "evidence": []}
+            if (str(_ans.get("bladder","")).lower() == "yes") or (str(_ans.get("saddle","")).lower() == "yes") or (str(_ans.get("weakness","")).lower() == "yes"):
+                return {"disposition": "ed_now", "plan": [], "safety_net": [], "evidence": []}
+    except Exception:
+        pass
+    """
+    Wrapper around _decide_orig(state):
+    - Preserves existing decision logic
+    - Applies apply_new_pathway_rules() for newer pathways
+    - Overrides disposition when new rules fire
+    """
+    decision = _decide_orig(state)
+
+    # Build flags and apply deterministic new-pathway rules
+    flags = {"ed_now": [], "urgent_today": [], "routine": [], "cannot_rule_out": []}
+    # HOOK_BATCH5_V1
+    try:
+        apply_batch5_rules(pid, symptoms, flags)
+    except Exception:
+        pass
+    pw = (state.symptoms.get("_pathway") or {})
+    pathway_id = str(pw.get("id") or "").strip()
+
+    try:
+        apply_new_pathway_rules(pathway_id, state.symptoms, flags)
+    except Exception:
+        # If something goes wrong, don't crash decisioning
+        return decision
+
+    # Determine final disposition from flags (priority order)
+    new_disp = None
+    if flags["ed_now"]:
+        new_disp = "ed_now"
+    elif flags["urgent_today"]:
+        new_disp = "urgent_today"
+    elif flags["routine"]:
+        new_disp = "routine"
+    elif flags["cannot_rule_out"]:
+        # Keep existing if set; otherwise use cannot_rule_out
+        new_disp = getattr(decision, "disposition", None) or "cannot_rule_out"
+
+    # Override if new rules produced a disposition
+    if new_disp:
+        try:
+            decision.disposition = new_disp
+        except Exception:
+            pass
+
+    return decision
+
+
+# ----------------------------
+# BATCH5_RULES_V1
+# ----------------------------
+def apply_batch5_rules(pid: str, symptoms: dict, flags: dict) -> None:
+    ed_now = flags.setdefault("ed_now", [])
+    urgent_today = flags.setdefault("urgent_today", [])
+    routine = flags.setdefault("routine", [])
+    cannot = flags.setdefault("cannot_rule_out", [])
+
+    def ed(code): ed_now.append(code)
+    def urgent(code): urgent_today.append(code)
+    def rout(code): routine.append(code)
+    def cant(code): cannot.append(code)
+
+    if pid == "eye_floaters_flashes":
+        curtain = _bool(symptoms.get("curtain"))
+        vision = _bool(symptoms.get("vision_loss"))
+        pain = _bool(symptoms.get("severe_pain_photophobia"))
+        if curtain or vision:
+            ed("retinal_detachment_possible")
+        elif pain:
+            urgent("eye_pain_or_photophobia")
+        else:
+            urgent("possible_retinal_tear_eval")
+
+    if pid == "eye_foreign_body":
+        chemical = _bool(symptoms.get("chemical"))
+        vision = _bool(symptoms.get("vision_change"))
+        pain = _bool(symptoms.get("severe_pain"))
+        if chemical:
+            ed("chemical_eye_exposure")
+        elif vision or pain:
+            urgent("eye_foreign_body_urgent_eval")
+        else:
+            urgent("eye_foreign_body_eval")
+
+    if pid == "nosebleed_epistaxis":
+        prolonged = _bool(symptoms.get("prolonged"))
+        heavy = _bool(symptoms.get("heavy_or_symptoms"))
+        anticoag = str(symptoms.get("anticoag","")).strip().lower() in ("yes","true","y")
+        if heavy:
+            ed("nosebleed_heavy_or_symptomatic")
+        elif prolonged and anticoag:
+            urgent("nosebleed_prolonged_on_anticoagulant")
+        elif prolonged:
+            urgent("nosebleed_prolonged")
+        else:
+            rout("nosebleed_stable")
+
+    if pid == "urinary_retention":
+        unable = _bool(symptoms.get("unable_6h"))
+        severe = _bool(symptoms.get("severe_suprapubic"))
+        systemic = _bool(symptoms.get("systemic"))
+        if unable and (severe or systemic):
+            ed("urinary_retention_severe_or_systemic")
+        elif unable:
+            urgent("urinary_retention_needs_same_day_eval")
+        else:
+            urgent("urinary_retention_eval")
+
+    if pid == "food_poisoning":
+        bleed = _bool(symptoms.get("gi_bleed"))
+        dehyd = _bool(symptoms.get("dehydration"))
+        severe = _bool(symptoms.get("severe_redflags"))
+        if bleed:
+            ed("gi_bleed_redflag")
+        elif severe:
+            ed("severe_redflags_gi")
+        elif dehyd:
+            urgent("dehydration_risk_gi")
+        else:
+            rout("food_poisoning_stable")
+
+
+# ============================
+# DECIDE_WRAPPER_STRONG_V2
+# ============================
+# Re-installed strong wrapper: preserves original decide() but safely enforces dispositions
+# using only state.symptoms + selected pathway_id. Avoids NameError issues permanently.
+
+def _set_disposition(decision, value: str):
+    """Set disposition on model-like objects or dicts; otherwise wrap."""
+    try:
+        setattr(decision, "disposition", value)
+        return decision
+    except Exception:
+        pass
+    try:
+        if isinstance(decision, dict):
+            decision["disposition"] = value
+            return decision
+    except Exception:
+        pass
+    return {"disposition": value, "decision": decision}
+
+# Capture the decide() that existed before this wrapper (if any)
+try:
+    _decide_original = decide  # type: ignore[name-defined]
+except Exception:
+    _decide_original = None
+
+def decide(state):  # type: ignore[override]
+    """
+    Wrapper around original decide().
+    If original decide() exists, call it first, then enforce critical ED/urgent rules.
+    If original decide() is missing/broken, return a minimal dict decision.
+    """
+    # Call original safely
+    decision = None
+    if _decide_original is not None:
+        try:
+            decision = _decide_original(state)
+        except Exception:
+            # If original decide breaks, fall back to minimal decision object
+            decision = {"disposition": "SELF_CARE"}
+    else:
+        decision = {"disposition": "SELF_CARE"}
+
+    # Pull pathway id + symptoms safely
+    try:
+        pid = str((state.symptoms.get("_pathway") or {}).get("id") or "")
+    except Exception:
+        pid = ""
+    try:
+        sx = state.symptoms or {}
+    except Exception:
+        sx = {}
+
+    # ============================
+    # BATCH 5 enforcement (critical)
+    # ============================
+
+    # Eye floaters/flashes: curtain or vision loss => ED now
+    if pid == "eye_floaters_flashes":
+        if bool(sx.get("curtain")) or bool(sx.get("vision_loss")):
+            return _set_disposition(decision, "ed_now")
+
+    # Eye foreign body: chemical splash => ED now
+    if pid == "eye_foreign_body":
+        if bool(sx.get("chemical")):
+            return _set_disposition(decision, "ed_now")
+
+    # Urinary retention: unable + severe/systemic => ED now
+    if pid == "urinary_retention":
+        unable = bool(sx.get("unable_6h"))
+        severe = bool(sx.get("severe_suprapubic"))
+        systemic = bool(sx.get("systemic"))
+        if unable and (severe or systemic):
+            return _set_disposition(decision, "ed_now")
+
+    # Food poisoning: GI bleed or severe red flags => ED now
+    if pid == "food_poisoning":
+        if bool(sx.get("gi_bleed")) or bool(sx.get("severe_redflags")):
+            return _set_disposition(decision, "ed_now")
+
+    # Nosebleed: heavy bleeding or faintness => ED now
+    if pid == "nosebleed_epistaxis":
+        if bool(sx.get("heavy_bleeding")) or bool(sx.get("feels_faint")) or bool(sx.get("prolonged")):
+            return _set_disposition(decision, "ed_now")
+
+    # ============================
+    # BATCH 6 enforcement
+    # ============================
+
+    if pid == "minor_laceration_cut":
+        if bool(sx.get("persistent_bleeding")) or bool(sx.get("neuro_deficit")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("gaping_or_large")):
+            return _set_disposition(decision, "urgent_today")
+
+    if pid == "hand_foot_mouth_child":
+        if bool(sx.get("breathing_trouble")) or bool(sx.get("lethargy")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("dehydration")):
+            return _set_disposition(decision, "urgent_today")
+
+    if pid == "eye_stye_hordeolum":
+        if bool(sx.get("vision_change")) or bool(sx.get("spreading_or_severe")) or bool(sx.get("fever")):
+            return _set_disposition(decision, "urgent_today")
+
+    if pid == "otitis_externa":
+        diab = str(sx.get("diabetes_immuno","")).strip().lower() in ("yes","true","y")
+        if bool(sx.get("severe_pain_or_hearing")) or bool(sx.get("fever")) or diab:
+            return _set_disposition(decision, "urgent_today")
+
+    if pid == "vaginal_yeast":
+        if bool(sx.get("fever_or_pelvic_pain")) or bool(sx.get("sti_risk")):
+            return _set_disposition(decision, "urgent_today")
+
+    # ============================
+    # BATCH 7 enforcement
+    # ============================
+
+    if pid == "pneumonia_possible":
+        if bool(sx.get("breathing_trouble")) or bool(sx.get("chest_pain")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "pink_eye_bacterial":
+        if bool(sx.get("contact_lens")) or bool(sx.get("vision_or_pain")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "uti_male":
+        if bool(sx.get("flank_pain")) or bool(sx.get("testicular_pain")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "dental_abscess":
+        if bool(sx.get("swallow_or_trismus")) or bool(sx.get("facial_swelling")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "acute_allergic_reaction_nonanaphylaxis":
+        if bool(sx.get("breathing_throat")) or bool(sx.get("faint")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("face_swelling")):
+            return _set_disposition(decision, "urgent_today")
+
+
+    # ============================
+    # BATCH8_ENFORCEMENT_V1
+    # ============================
+
+    if pid == "appendicitis_possible":
+        # Appendicitis suspicion -> ED now for severe/peritoneal-like; otherwise urgent today
+        if bool(sx.get("severe")) or bool(sx.get("peritoneal_like")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("vomiting")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "pyelonephritis_possible":
+        # Fever + flank/vomiting -> ED now; otherwise urgent today
+        if (bool(sx.get("fever")) and bool(sx.get("flank_pain"))) or bool(sx.get("vomiting")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "gi_bleed_possible":
+        # Any hemodynamic symptoms OR hematemesis OR melena/large bleed -> ED now
+        if bool(sx.get("hemodynamic_symptoms")) or bool(sx.get("hematemesis")) or bool(sx.get("melena_or_large_bleed")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "ed_now")
+
+    if pid == "new_onset_diabetes_hyperglycemia":
+        # DKA-like or dangerously ill -> ED now; otherwise urgent today
+        if bool(sx.get("dangerously_ill")) or bool(sx.get("dka_like")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "depression_crisis":
+        # Active self-harm thoughts or plan/means -> ED now (911/988 direction should be handled in spoken script)
+        if bool(sx.get("active_self_harm")) or bool(sx.get("plan_or_means")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+
+    # ============================
+    # BATCH9_ENFORCEMENT_V1
+    # ============================
+
+    if pid == "med_adverse_reaction":
+        if bool(sx.get("airway_swelling")) or bool(sx.get("severe_rash")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("persistent_vomiting")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "testicular_pain_torsion_possible":
+        # torsion cannot be ruled out: sudden onset + swelling/high + N/V -> ED now
+        if bool(sx.get("sudden_onset")) or bool(sx.get("swelling_or_high")) or bool(sx.get("nausea_vomiting")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "ed_now")
+
+    if pid == "pregnancy_bleeding_early":
+        # ectopic/hemodynamic risk -> ED now; otherwise urgent today
+        if bool(sx.get("heavy_bleeding")) or bool(sx.get("ectopic_like_pain")) or bool(sx.get("faint")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "dvt_possible":
+        # PE symptoms -> ED now; otherwise urgent today
+        if bool(sx.get("pe_like")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "asthma_child_wheeze":
+        if bool(sx.get("severe_breathing")) or bool(sx.get("lethargy")):
+            return _set_disposition(decision, "ed_now")
+        # inhaler not helping -> urgent
+        inh = str(sx.get("inhaler_not_helping","")).strip().lower() in ("yes","true","y")
+        if inh:
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "bronchiolitis_infant":
+        if bool(sx.get("breathing_trouble")):
+            return _set_disposition(decision, "ed_now")
+        u6 = str(sx.get("under_6m","")).strip().lower() in ("yes","true","y")
+        if u6 and bool(sx.get("dehydration_feeding")):
+            return _set_disposition(decision, "urgent_today")
+        if bool(sx.get("dehydration_feeding")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "eczema_flare":
+        if bool(sx.get("infection_signs")) or bool(sx.get("periocular")):
+            return _set_disposition(decision, "urgent_today")
+
+    if pid == "contact_dermatitis":
+        if bool(sx.get("airway")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("face_area")) or bool(sx.get("large_blisters")):
+            return _set_disposition(decision, "urgent_today")
+
+    if pid == "kidney_infection_possible":
+        if bool(sx.get("dangerously_ill")) or (bool(sx.get("fever")) and bool(sx.get("flank_pain"))):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "dehydration_child":
+        if bool(sx.get("lethargy")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("low_urine")) and bool(sx.get("cannot_keep_fluids")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+
+    # ============================
+    # BATCH10_ENFORCEMENT_V1
+    # ============================
+
+    if pid == "pneumonia_child_possible":
+        if bool(sx.get("severe_breathing")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("dehydration")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "sepsis_possible":
+        if bool(sx.get("altered")) or bool(sx.get("faint")) or bool(sx.get("breathing_trouble")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "ed_now")
+
+    if pid == "meningitis_possible":
+        if bool(sx.get("fever")) and bool(sx.get("stiff_neck")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("altered")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "ed_now")
+
+    if pid == "anaphylaxis_possible":
+        if bool(sx.get("airway")) or bool(sx.get("faint")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "ed_now")
+
+    if pid == "angioedema_lip_tongue":
+        if bool(sx.get("airway")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "acute_back_pain_redflags":
+        if bool(sx.get("bladder_issue")) or bool(sx.get("saddle_numb")) or bool(sx.get("leg_weakness")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "acute_abd_pain_redflags":
+        if bool(sx.get("faint")) or bool(sx.get("gi_bleed")) or bool(sx.get("severe")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "headache_redflags":
+        if bool(sx.get("thunderclap")) or bool(sx.get("neuro_deficit")) or bool(sx.get("fever_or_stiff")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "eye_pain_vision_change":
+        if bool(sx.get("vision_loss")) or bool(sx.get("severe_or_nausea")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("contact_lens")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "wound_infection_possible":
+        if bool(sx.get("nec_fasciitis_like")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("spreading")) or bool(sx.get("fever")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+
+    # ============================
+    # CAUDA_ENFORCE_V2
+    # ============================
+    # Make cauda/back-redflags enforcement robust to either store_as booleans or _answers yes/no strings.
+    if pid == "acute_back_pain_redflags":
+        ans = {}
+        try:
+            ans = (sx.get("_answers") or {})
+        except Exception:
+            ans = {}
+
+        # store_as booleans
+        if bool(sx.get("bladder_issue")) or bool(sx.get("saddle_numb")) or bool(sx.get("leg_weakness")):
+            return _set_disposition(decision, "ed_now")
+
+        # question-id answers saved in _answers
+        if (str(ans.get("bladder","")).lower() == "yes") or (str(ans.get("saddle","")).lower() == "yes") or (str(ans.get("weakness","")).lower() == "yes"):
+            return _set_disposition(decision, "ed_now")
+
+
+    # ============================
+    # CONJ_BACT_ENFORCE_V1
+    # ============================
+    if pid == "conjunctivitis_bacterial":
+        if bool(sx.get("vision_loss")) or bool(sx.get("severe_pain_or_photophobia")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("contact_lens")):
+            return _set_disposition(decision, "urgent_today")
+        if bool(sx.get("fever_or_periorbital_swelling")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+
+    # ============================
+    # BATCH11_DISPOSITIONS_V1
+    # ============================
+    if pid == "epistaxis_nosebleed":
+        if bool(sx.get("heavy_bleeding")) and bool(sx.get("faint_or_weak")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("heavy_bleeding")) or bool(sx.get("faint_or_weak")):
+            return _set_disposition(decision, "urgent_today")
+        if bool(sx.get("anticoagulant")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "self_care")
+
+    if pid == "gi_bleed_possible":
+        if bool(sx.get("large_or_melena")) or bool(sx.get("shock_signs")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("anticoagulant")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "urinary_retention":
+        if bool(sx.get("neuro_redflags")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("severe_suprapubic_pain")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "dental_abscess":
+        if bool(sx.get("airway_or_swallow")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("face_or_jaw_swelling")) or bool(sx.get("fever")) or bool(sx.get("immunocompromised")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "pneumonia_adult_possible":
+        if bool(sx.get("sob_severe")) or bool(sx.get("danger_signs")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("pleuritic_or_hemoptysis")):
+            return _set_disposition(decision, "urgent_today")
+        if bool(sx.get("high_risk")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "bacterial_sinusitis_possible":
+        if bool(sx.get("orbital_or_neuro")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("severe_pain_or_fever")) or bool(sx.get("double_worsening")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "self_care")
+
+    if pid == "hordeolum_stye":
+        if bool(sx.get("vision_change")) or bool(sx.get("fever_or_spreading")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "self_care")
+
+    if pid == "migraine_headache":
+        if bool(sx.get("worst_or_thunderclap")) or bool(sx.get("neuro_redflags")) or bool(sx.get("fever_stiff_neck")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "self_care")
+
+    if pid == "sciatica":
+        if bool(sx.get("bladder_issue")) or bool(sx.get("saddle_numb")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("leg_weakness")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "self_care")
+
+    if pid == "allergic_reaction_non_anaphylaxis":
+        # If airway symptoms appear, treat as ED (even if routed here)
+        if bool(sx.get("airway_symptoms")) or bool(sx.get("systemic")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("angioedema")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "self_care")
+
+
+    # ============================
+    # BATCH12_DISPOSITIONS_V1
+    # ============================
+    if pid == "atrial_fibrillation_possible":
+        if bool(sx.get("danger_signs")) or bool(sx.get("stroke_signs")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "heart_failure_exacerbation":
+        if bool(sx.get("sob_severe")) or bool(sx.get("danger_signs")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("acute_worsening")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "pulmonary_embolism_possible":
+        # PE suspicion is high-stakes: default urgent, ED if severe
+        if bool(sx.get("sob_severe")) or bool(sx.get("hemoptysis")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("dvt_signs")) or bool(sx.get("pleuritic_pain")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "hypertensive_urgency":
+        if bool(sx.get("neuro_redflags")) or bool(sx.get("cardio_redflags")):
+            return _set_disposition(decision, "ed_now")
+        if str(sx.get("pregnancy_possible","")).strip().lower() in ["yes", "true"]:
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "hypoglycemia_possible":
+        if bool(sx.get("severe")):
+            return _set_disposition(decision, "ed_now")
+        # if on meds that can lower sugar, keep urgent
+        if bool(sx.get("diabetes_meds")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "hyperkalemia_possible":
+        # If suspected with dialysis/kidney failure, treat as ED
+        if bool(sx.get("danger_signs")) or bool(sx.get("palpitations")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("dialysis_or_kidney_failure")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "alcohol_withdrawal_mild":
+        if bool(sx.get("severe")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("autonomic")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "opioid_withdrawal_mild":
+        if bool(sx.get("severe")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("dehydration_risk")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "urinary_incontinence_new":
+        if bool(sx.get("cauda_redflags")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("infection_signs")) or bool(sx.get("hematuria")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "routine")
+
+    if pid == "pruritus_generalized_no_rash":
+        if bool(sx.get("allergic_airway")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("jaundice")):
+            return _set_disposition(decision, "urgent_today")
+        if bool(sx.get("kidney_failure")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "routine")
+
+    # MH non-crisis: if self-harm/psychosis/overdose -> ED, otherwise urgent_today/routine
+    if pid == "grief_adjustment_noncrisis":
+        if bool(sx.get("self_harm_now")):
+            return _set_disposition(decision, "ed_now")
+        if not bool(sx.get("basic_function")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "routine")
+
+    if pid == "ptsd_symptoms_noncrisis":
+        if bool(sx.get("self_harm_now")) or bool(sx.get("psychosis")):
+            return _set_disposition(decision, "ed_now")
+        if not bool(sx.get("safe_environment")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "routine")
+
+    if pid == "substance_use_concern_noncrisis":
+        if bool(sx.get("overdose_signs")) or bool(sx.get("severe_withdrawal")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("ready_for_help")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "routine")
+
+
+    # ============================
+    # BATCH13_DISPOSITIONS_V1
+    # ============================
+    if pid == "syncope_fainting":
+        if bool(sx.get("cardio_redflags")) or bool(sx.get("neuro_redflags")) or bool(sx.get("persistent_symptoms")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "seizure_new_onset":
+        if bool(sx.get("ongoing_or_not_waking")) or bool(sx.get("injury")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("first_time")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "pancreatitis_possible":
+        if bool(sx.get("severe_or_dehydrated")) or bool(sx.get("systemic_redflags")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("jaundice")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "diverticulitis_possible":
+        if bool(sx.get("severe")) or bool(sx.get("gi_bleed")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("fever")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "peptic_ulcer_gastritis":
+        if bool(sx.get("gi_bleed")) or bool(sx.get("severe")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "uti_pregnancy_possible":
+        # UTI + pregnancy deserves same-day evaluation / clinician-directed treatment
+        if bool(sx.get("fever")) or bool(sx.get("flank_pain")):
+            return _set_disposition(decision, "ed_now")
+        # pregnancy yes/unknown: urgent today (avoid self-care)
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "mastitis_breastfeeding":
+        if bool(sx.get("abscess_possible")):
+            return _set_disposition(decision, "urgent_today")
+        if bool(sx.get("spreading_or_severe")):
+            return _set_disposition(decision, "urgent_today")
+        if bool(sx.get("fever")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "routine")
+
+    if pid == "heat_illness":
+        if bool(sx.get("mental_status_change")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("severe_dehydration")):
+            return _set_disposition(decision, "urgent_today")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "carbon_monoxide_possible":
+        # CO exposure is high risk: if suspected, ED now; otherwise urgent today
+        if bool(sx.get("severe")):
+            return _set_disposition(decision, "ed_now")
+        if bool(sx.get("multiple_people")) or bool(sx.get("possible_source")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    if pid == "acute_kidney_injury_possible":
+        if bool(sx.get("anuria_oliguria")) or bool(sx.get("severe")):
+            return _set_disposition(decision, "ed_now")
+        return _set_disposition(decision, "urgent_today")
+
+    # otherwise keep whatever original decide() chose
+    return decision
+

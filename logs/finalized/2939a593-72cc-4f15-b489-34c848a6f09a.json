@@ -1,0 +1,395 @@
+{
+  "packet_id": "b070fd7a-e8b6-48f1-b13c-ae0365e62259",
+  "created_at": "2026-02-07T16:18:59.445764+00:00",
+  "session_id": "2939a593-72cc-4f15-b489-34c848a6f09a",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "next to sternum on the right and it doesn't radiate",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or palpitations with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, injury, or heavy physical activity that might have caused this chest pain?",
+    "intake_a5": "heavy lifting of boxes helping a friend move",
+    "intake_q6": "Any fever, chills, or cough recently?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of heart disease, lung problems, or recent travel?",
+    "intake_a7": "no",
+    "intake_q8": "Does the chest pain worsen with movement, deep breathing, or pressing on the area?",
+    "intake_a8": "worse with pressing on the area and just a little worse with deep breathing",
+    "intake_q9": "Any swelling, redness, or bruising over the area where the pain is?",
+    "intake_a9": "no",
+    "intake_summary": "A patient presents with sharp chest pain next to the right sternum for 1 week, worsened by pressing on the area and slightly by deep breathing, without radiation, shortness of breath, or systemic symptoms. The pain started after heavy lifting. No history of heart or lung disease or recent travel. No signs of infection or trauma.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "https://www.nhs.uk/conditions/turner-syndrome/",
+        "https://medlineplus.gov/chestpain.html",
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.nhs.uk/conditions/congenital-heart-disease/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain localized next to the right side of the sternum, persisting for one week. The pain began after heavy lifting while helping a friend move boxes. It does not radiate and is worsened by pressing on the affected area and slightly by deep breathing. She denies shortness of breath, sweating, nausea, palpitations, fever, chills, cough, swelling, redness, or bruising. There is no history of heart disease, lung problems, or recent travel. Patient is not pregnant., and she has no known medication allergies. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings available.\n\nA: \nThe working diagnosis is costochondritis, an inflammation of the costal cartilage often caused by repetitive strain or trauma such as heavy lifting, presenting as localized sharp chest pain worsened by palpation and deep breathing. \n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal strain or injury related to heavy lifting \n3. Precordial catch syndrome \n4. Less likely cardiac causes given absence of radiation, systemic symptoms, or risk factors \n\nP: \n - First-line medication: \n Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 7 to 10 days. Avoid if history of gastrointestinal bleeding or allergy to NSAIDs. Dosing details were not found in retrieved evidence; prescriber should verify. \n - Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, for 7 to 10 days; avoid if liver disease or allergy. \n - Naproxen 250 mg orally twice daily as needed for pain, for 7 to 10 days; avoid if allergy to NSAIDs or gastrointestinal bleeding. \n - Medication safety considerations: \n No known allergies, no pregnancy, no renal or liver disease. NSAIDs should be used cautiously if any gastrointestinal issues arise. \n - Return precautions: \n Return promptly if chest pain worsens, becomes constant, radiates, or is associated with shortness of breath, sweating, nausea, palpitations, or any new systemic symptoms. \n - Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Heart Disease in Women | MedlinePlus",
+        "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+      },
+      {
+        "title": "Turner syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/turner-syndrome/",
+        "snippet": "e typical features or symptoms of the condition are noticed – a blood test can confirm the diagnosis during pregnancy if problems with the heart or kidneys are found during routine ultrasound scans If you're pregnant and your maternity team think your baby could have Turner syndrome, you may be offered tests to check for the condition. This could be either:\nchorionic villus sampling (CVS) amniocentesis \nCauses of Turner syndrome \nTurner syndrome is a genetic condition, caused by a missing or partially missing sex chromosome.\nIt's not possible to prevent Turner syndrome.\nVery rarely it can be passed to a child by a parent, but most of the time it happens by chance. It is not linked to age or anything the parents did before or during pregnancy.\nHow Turner syndrome affects your life \nTurner syndrome can slightly reduce how long someone is expected to live, but most people should be able to"
+      },
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+      },
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+      },
+      {
+        "title": "Congenital heart disease - NHS",
+        "source": "https://www.nhs.uk/conditions/congenital-heart-disease/",
+        "snippet": "face.\nThese are signs of a serious medical problem.\nInformation: \nDo not drive yourself to A&E. \nThe person you speak to at 999 will give you advice about what to do.\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if:\nyou think you or your child may have symptoms of congenital heart disease You can call 111 or get help from 111 online . Call 111 if you need advice for a child under 5 years old.\nDiagnosing congenital heart disease \nCongenital heart disease is screened for during the 20-week pregnancy screening scan . The 20-week scan cannot find all conditions, so it’s possible for congenital heart disease to be misse"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Heart Disease in Women | MedlinePlus",
+      "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+      "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+    },
+    {
+      "title": "Turner syndrome - NHS",
+      "source": "https://www.nhs.uk/conditions/turner-syndrome/",
+      "snippet": "e typical features or symptoms of the condition are noticed – a blood test can confirm the diagnosis during pregnancy if problems with the heart or kidneys are found during routine ultrasound scans If you're pregnant and your maternity team think your baby could have Turner syndrome, you may be offered tests to check for the condition. This could be either:\nchorionic villus sampling (CVS) amniocentesis \nCauses of Turner syndrome \nTurner syndrome is a genetic condition, caused by a missing or partially missing sex chromosome.\nIt's not possible to prevent Turner syndrome.\nVery rarely it can be passed to a child by a parent, but most of the time it happens by chance. It is not linked to age or anything the parents did before or during pregnancy.\nHow Turner syndrome affects your life \nTurner syndrome can slightly reduce how long someone is expected to live, but most people should be able to"
+    },
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+    },
+    {
+      "title": "Congenital heart disease - NHS",
+      "source": "https://www.nhs.uk/conditions/congenital-heart-disease/",
+      "snippet": "face.\nThese are signs of a serious medical problem.\nInformation: \nDo not drive yourself to A&E. \nThe person you speak to at 999 will give you advice about what to do.\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if:\nyou think you or your child may have symptoms of congenital heart disease You can call 111 or get help from 111 online . Call 111 if you need advice for a child under 5 years old.\nDiagnosing congenital heart disease \nCongenital heart disease is screened for during the 20-week pregnancy screening scan . The 20-week scan cannot find all conditions, so it’s possible for congenital heart disease to be misse"
+    }
+  ],
+  "state": {
+    "session_id": "2939a593-72cc-4f15-b489-34c848a6f09a",
+    "transcript": [],
+    "chief_complaint": "chest pain",
+    "age_band": "adult",
+    "age_years": null,
+    "pregnancy_possible": "no",
+    "symptoms": {
+      "_answers": {
+        "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+        "intake_a1": "sharp",
+        "intake_q2": "When did the chest pain start?",
+        "intake_a2": "1 week ago",
+        "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+        "intake_a3": "next to sternum on the right and it doesn't radiate",
+        "intake_q4": "Any shortness of breath, sweating, nausea, or palpitations with the chest pain?",
+        "intake_a4": "no",
+        "intake_q5": "Any recent trauma, injury, or heavy physical activity that might have caused this chest pain?",
+        "intake_a5": "heavy lifting of boxes helping a friend move",
+        "intake_q6": "Any fever, chills, or cough recently?",
+        "intake_a6": "no",
+        "intake_q7": "Any history of heart disease, lung problems, or recent travel?",
+        "intake_a7": "no",
+        "intake_q8": "Does the chest pain worsen with movement, deep breathing, or pressing on the area?",
+        "intake_a8": "worse with pressing on the area and just a little worse with deep breathing",
+        "intake_q9": "Any swelling, redness, or bruising over the area where the pain is?",
+        "intake_a9": "no",
+        "intake_summary": "A patient presents with sharp chest pain next to the right sternum for 1 week, worsened by pressing on the area and slightly by deep breathing, without radiation, shortness of breath, or systemic symptoms. The pain started after heavy lifting. No history of heart or lung disease or recent travel. No signs of infection or trauma.",
+        "age_years": 45,
+        "allergies": "none",
+        "sex_at_birth": "female",
+        "pregnancy_possible": "no",
+        "pregnancy": "no",
+        "renal_disease": "no",
+        "liver_disease": "no"
+      },
+      "_llm_intake_turns": [
+        {
+          "q": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+          "a": "sharp"
+        },
+        {
+          "q": "When did the chest pain start?",
+          "a": "1 week ago"
+        },
+        {
+          "q": "Where exactly is the chest pain located, and does it radiate anywhere?",
+          "a": "next to sternum on the right and it doesn't radiate"
+        },
+        {
+          "q": "Any shortness of breath, sweating, nausea, or palpitations with the chest pain?",
+          "a": "no"
+        },
+        {
+          "q": "Any recent trauma, injury, or heavy physical activity that might have caused this chest pain?",
+          "a": "heavy lifting of boxes helping a friend move"
+        },
+        {
+          "q": "Any fever, chills, or cough recently?",
+          "a": "no"
+        },
+        {
+          "q": "Any history of heart disease, lung problems, or recent travel?",
+          "a": "no"
+        },
+        {
+          "q": "Does the chest pain worsen with movement, deep breathing, or pressing on the area?",
+          "a": "worse with pressing on the area and just a little worse with deep breathing"
+        },
+        {
+          "q": "Any swelling, redness, or bruising over the area where the pain is?",
+          "a": "no"
+        }
+      ],
+      "_llm_intake_extract": {
+        "chief_complaint": "chest pain",
+        "key_symptoms": "sharp chest pain, worsened by pressing on the area and slightly by deep breathing, no radiation",
+        "onset": "1 week ago",
+        "location": "next to sternum on the right",
+        "red_flags": "no shortness of breath, sweating, nausea, palpitations, fever, chills, cough",
+        "relevant_history": "no heart disease, no lung problems, no recent travel",
+        "exposures": "heavy lifting of boxes",
+        "treatments_tried": "none reported",
+        "prior_testing": "none reported"
+      },
+      "_llm_intake_summary": "A patient presents with sharp chest pain next to the right sternum for 1 week, worsened by pressing on the area and slightly by deep breathing, without radiation, shortness of breath, or systemic symptoms. The pain started after heavy lifting. No history of heart or lung disease or recent travel. No signs of infection or trauma.",
+      "_llm_last_q": "Any swelling, redness, or bruising over the area where the pain is?",
+      "_llm_intake_error": "",
+      "age_years": 45,
+      "age_band": "adult",
+      "pregnancy_possible": "no",
+      "renal_disease": "no",
+      "liver_disease": "no",
+      "_rag": {
+        "query_pull1": "chest pain | A patient presents with sharp chest pain next to the right sternum for 1 week, worsened by pressing on the area and slightly by deep breathing, without radiation, shortness of breath, or systemic symptoms. The pain started after heavy lifting. No history of heart or lung disease or recent travel. No signs of infection or trauma. | onset:1 week ago location:next to sternum on the right red_flags:no shortness of breath, sweating, nausea, palpitations, fever, chills, cough | age:45 pregnancy_possible:no renal_disease:no liver_disease:no",
+        "evidence": [
+          {
+            "score": 0.7205901145935059,
+            "source": "library/nhs_uk/nhs_uk_conditions_costochondritis_0ab356777c93/chunk_001.json",
+            "title": "Costochondritis - NHS",
+            "url": "https://www.nhs.uk/conditions/costochondritis/",
+            "text": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+          },
+          {
+            "score": 0.7162336111068726,
+            "source": "library/medlineplus_gov/medlineplus_gov_heartattack_html_b8eeee843479/chunk_002.json",
+            "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+            "url": "https://medlineplus.gov/heartattack.html",
+            "text": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. \nShortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of physical activity. \nDiscomfort in the upper body. You may feel pain or discomfort in one or both arms, the back, shoulders, neck, jaw, or upper part of the stomach. \nYou may also have other symptoms, such as nausea, vomiting, dizziness, and lightheadedness. You may break out in a cold swe"
+          },
+          {
+            "score": 0.6894084215164185,
+            "source": "library/nhs_uk/nhs_uk_conditions_costochondritis_0ab356777c93/chunk_001.json",
+            "title": "Costochondritis - NHS",
+            "url": "https://www.nhs.uk/conditions/costochondritis/",
+            "text": "have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online .\nImmediate action required: Call 999 if:\nYou have sudden chest pain that:\nspreads to your arms, back, neck, or jaw makes your chest feel tight or heavy started with a shortness of breath, sweating, feeling sick or being sick lasts more than 15 minutes You could be having a heart attack. Call 999 immediately as you need immediate treatment in hospital.\nTreatments for costochondritis \nCostochondritis usually gets better on its own, over time. It can last for a few weeks to several months.\nPainki"
+          },
+          {
+            "score": 0.6842222809791565,
+            "source": "library/nhs_uk/nhs_uk_conditions_pericarditis_88919a586ab5/chunk_001.json",
+            "title": "Pericarditis - NHS",
+            "url": "https://www.nhs.uk/conditions/pericarditis/",
+            "text": "﻿ \nPericarditis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nPericarditis \nPericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but it can sometimes cause serious health problems. Get medical advice if you have chest pain. \nSymptoms of pericarditis \nThe main symptom of pericarditis is chest pain.\nThe chest pain usually:\nfeels sharp or stabbing spreads to your shoulders, arms or tummy gets worse when you breathe in deeply, swallow, cough or lie down (especially when you lie down on your left side) gets better when you lean forward You may also have:\na high temperature, or feel hot, cold or shivery a cough painful joints If you get pericarditis, it often "
+          },
+          {
+            "score": 0.6807567477226257,
+            "source": "library/nhs_uk/nhs_uk_conditions_pericarditis_88919a586ab5/chunk_001.json",
+            "title": "Pericarditis - NHS",
+            "url": "https://www.nhs.uk/conditions/pericarditis/",
+            "text": "er when you lean forward You may also have:\na high temperature, or feel hot, cold or shivery a cough painful joints If you get pericarditis, it often follows a viral infection like a cold or flu.\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if:\nYou have chest pain and it:\nis sharp or stabbing gets worse when you take a deep breath in, swallow, cough or lie down You can call 111 or get help from 111 online .\nImmediate action required: Call 999 if:\nYou have sudden chest pain that:\nspreads to your arms, back, neck or jaw makes your chest feel tight or heavy also started with shortness of breath, sweating and feeling o"
+          },
+          {
+            "score": 0.6665313243865967,
+            "source": "library/medlineplus_gov/medlineplus_gov_heartdiseaseinwomen_html_79fbfd437b7d/chunk_005.json",
+            "title": "Heart Disease in Women | MedlinePlus",
+            "url": "https://medlineplus.gov/heartdiseaseinwomen.html",
+            "text": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+          },
+          {
+            "score": 0.6393080949783325,
+            "source": "library/medlineplus_gov/medlineplus_gov_chestpain_html_c2921ade5df1/chunk_002.json",
+            "title": "Chest Pain | MedlinePlus",
+            "url": "https://medlineplus.gov/chestpain.html",
+            "text": "at you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems, such as heartburn or esophagus disorders \nSore muscles \nLung diseases, such as pneumonia , pleurisy , or pulmonary embolism \nCostochondritis - an inflammation of joints in your chest \nSome of these problems can be serious. Get immediate medical care if you have chest pain that does not go away, crushing pain or pressure in the chest, or chest pain along with nausea, sweating, dizziness or shortness of breath. Treatment depends on the cause of the pain.\nStart Here\nChest Pain \n(Mayo Foundation for Medical Education and Research) \nAlso in Spanish \nDiagnosis and Tests\nHeartburn or Heart Attack: When to Worry \n(Mayo Foundation for Medical Education and Research) \nAlso in Spanish \nStress Tests \n(National Library of Medicine) \nAlso in Spanish \nTr"
+          },
+          {
+            "score": 0.6363307237625122,
+            "source": "library/nhs_uk/nhs_uk_conditions_pleurisy_e4cbd977bdfb/chunk_001.json",
+            "title": "Pleurisy - NHS",
+            "url": "https://www.nhs.uk/conditions/pleurisy/",
+            "text": "in that comes and goes, or only happens when breathing or coughing you have sharp chest pain that has not got better after a few days you've coughed up a few small spots, flecks or streaks of blood, or noticed blood in your phlegm or on a handkerchief you're feeling short of breath regularly You can call 111 or get help from 111 online .\nImmediate action required: Call 999 or go to A&E if:\nyou have sudden chest pain that lasts for 15 minutes or more you have sudden chest pain that spreads to your arms, back, neck or jaw you have difficulty breathing you're coughing up more than just a few spots or streaks of blood you're coughing up blood and"
+          },
+          {
+            "score": 0.6354856491088867,
+            "source": "library/medlineplus_gov/medlineplus_gov_lab_tests_troponin_test_51556bce6f92/chunk_003.json",
+            "title": "Troponin Test: MedlinePlus Medical Test",
+            "url": "https://medlineplus.gov/lab-tests/troponin-test/",
+            "text": " mild or intense, and they can come and go over several hours. They include:\nChest pain, heaviness, or discomfort in the center or left side of the chest \nPain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button \nTrouble breathing when resting or doing light physical activity \nNausea and vomiting \nFeeling unusually tired for no reason, sometimes for days \nDizziness and light-headedness \nSweating a lot for no reason \nRapid or irregular heartbeat (arrhythmia) \nIf you have symptoms of a heart attack, call 911 immediately. Quick medical attention could save your life.\nYou may also need troponin testing i"
+          },
+          {
+            "score": 0.6336373090744019,
+            "source": "pathways/heartburn_gerd/starter_1.json",
+            "title": "GERD/Heartburn (starter evidence summary)",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults",
+            "text": "Heartburn/GERD commonly presents as burning discomfort behind the breastbone, often after meals or when lying down.\nTelephone triage must prioritize ruling out cardiac causes of chest pain.\n\nEmergency red flags (ER now):\n- Chest pressure/heaviness, especially with exertion\n- Shortness of breath, sweating, nausea, or pain radiating to arm/jaw\n- Vomiting blood or black/tarry stools\n\nUrgent evaluation (same-day):\n- Trouble swallowing, pain with swallowing, or food sticking (possible esophageal complication)\n- Unintentional weight loss, persistent vomiting, or severe persistent pain\n\nSupportive measures (if low risk):\n- Avoid trigger foods, avoid lying down after meals, smaller meals.\n- OTC acid reducers may help if safe; do not provide dosing.\n- Seek in-person care if symptoms worsen or red flags develop."
+          },
+          {
+            "score": 0.6276735663414001,
+            "source": "library/nhs_uk/nhs_uk_conditions_pericarditis_88919a586ab5/chunk_002.json",
+            "title": "Pericarditis - NHS",
+            "url": "https://www.nhs.uk/conditions/pericarditis/",
+            "text": "pain that:\nspreads to your arms, back, neck or jaw makes your chest feel tight or heavy also started with shortness of breath, sweating and feeling or being sick lasts more than 15 minutes You could be having a heart attack . Call 999 immediately as you need immediate treatment in hospital.\nInformation: \nDo not drive yourself to A&E. \nThe person you speak to at 999 will give you advice about what to do.\nTests for pericarditis \nA GP will listen to your heart to check for pericarditis. This is because it can change the sound your heart makes.\nTo confirm pericarditis, the GP may:\ndo some blood tests refer you for a chest X-ray, electrocardiogram (ECG) or echocardiogram in hospital ECGs are safe and painless, and some GPs can do them at the surgery.\nTreatment for pericarditis \nTreatment for pericarditis will depend on what's causing it. You may be given anti-inflammatory painkillers, such as"
+          },
+          {
+            "score": 0.6262725591659546,
+            "source": "library/nhs_uk/nhs_uk_conditions_heart_attack_ca362a1d898a/chunk_001.json",
+            "title": "Heart attack - NHS",
+            "url": "https://www.nhs.uk/conditions/heart-attack/",
+            "text": "ack \nSymptoms of a heart attack can include:\nchest pain – a feeling of pressure, heaviness, tightness or squeezing across your chest pain in other parts of the body – it can feel as if the pain is spreading from your chest to your arms (usually the left arm, but it can affect both arms), jaw, neck, back and tummy feeling lightheaded or dizzy sweating shortness of breath feeling sick (nausea) or being sick (vomiting) an overwhelming feeling of anxiety (similar to a panic attack) coughing or wheezing The chest pain is often severe, but some people may only experience minor pain, similar to indigestion.\nWhile the most common symptom is chest pai"
+          },
+          {
+            "score": 0.6220649480819702,
+            "source": "library/nhs_uk/nhs_uk_conditions_pleurisy_e4cbd977bdfb/chunk_001.json",
+            "title": "Pleurisy - NHS",
+            "url": "https://www.nhs.uk/conditions/pleurisy/",
+            "text": "﻿ \nPleurisy\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nPleurisy \nPleurisy is inflammation around the lungs, which causes sharp chest pain. It's easy to treat and usually gets better in a few days, but can sometimes be a sign of something more serious, like pneumonia. \nSymptoms of pleurisy \nThe main symptom of pleurisy is sharp chest pain when you breathe in.\nThe pain may be worse when you cough, sneeze or move around.\nIt may also spread to your shoulders and back.\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if:\nyou have sharp chest pain that comes and goes, or only happens when breathing or coughing you have sharp chest pain that has not got better after a few days you've coughed u"
+          },
+          {
+            "score": 0.6219687461853027,
+            "source": "library/nhs_uk/nhs_uk_conditions_broken_or_bruised_ribs_44ae8b85bb7f/chunk_002.json",
+            "title": "Broken or bruised ribs - NHS",
+            "url": "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+            "text": "mproved within a few weeks you're coughing up yellow or green mucus you have a very high temperature, or feel hot, cold or shivery You might need stronger painkillers or have a chest infection that needs antibiotics.\nYou can call 111 or get help from 111 online .\nImmediate action required: Call 999 or go to A&E if:\nYou have a broken or bruised rib and:\nyour injury was caused by a serious accident, such as a car accident you have shortness of breath that's getting worse the chest pain is getting worse you have pain in your tummy or shoulder you're coughing up blood It could mean a broken rib has damaged something else, like your lung, liver or"
+          },
+          {
+            "score": 0.6206369996070862,
+            "source": "library/medlineplus_gov/medlineplus_gov_chestinjuriesanddisorders_html_e079a2f75113/chunk_005.json",
+            "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+            "url": "https://medlineplus.gov/chestinjuriesanddisorders.html",
+            "text": "so in Spanish \nTopic Image \nMEDICAL ENCYCLOPEDIA \nChest CT \nChest MRI \nChest tube insertion \nChest tube insertion - series \nChest x-ray \nCostochondritis \nMediastinal tumor \nMediastinitis \nMediastinoscopy with biopsy \nPectus carinatum \nPectus excavatum \nPectus excavatum - discharge \nPectus excavatum repair \nPectus excavatum repair - series \nPneumomediastinum \nRib fracture - aftercare \nRibcage pain \nSlipping rib syndrome \nShow More \nShow Less \nRelated Health Topics \nChest Pain \nCollapsed Lung \nPleural Disorders \nDisclaimers \nMedlinePlus links to health information from the National Institutes of Health and other federal government agencies. Med"
+          },
+          {
+            "score": 0.5967038869857788,
+            "source": "library/medlineplus_gov/medlineplus_gov_chestpain_html_c2921ade5df1/chunk_001.json",
+            "title": "Chest Pain | MedlinePlus",
+            "url": "https://medlineplus.gov/chestpain.html",
+            "text": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+          },
+          {
+            "score": 0.5899413228034973,
+            "source": "library/nhs_uk/nhs_uk_conditions_pulmonary_hypertension_0391ebce9e99/chunk_002.json",
+            "title": "Pulmonary hypertension - NHS",
+            "url": "https://www.nhs.uk/conditions/pulmonary-hypertension/",
+            "text": "tummy (abdomen) The symptoms often get worse during exercise, which can limit your ability to take part in physical activities.\nIf you have a type of pulmonary hypertension known as pulmonary arterial hypertension (PAH), you may not have any symptoms until the condition is quite advanced.\nWhen to get medical help \nSee a GP if you have any symptoms of pulmonary hypertension. They may ask you about your symptoms and medical history, and they may carry out a physical examination.\nCall 999 or go to A&E if you get sudden chest pain that does not stop after a few minutes, or you have heart palpitations with chest pain, shortness of breath or feeling faint. These could be a sign of another condition such as a blood clot in your lungs or a serious heart problem.\nCorrectly diagnosing pulmonary hypertension can sometimes take time because its symptoms are similar to those of many other heart and l"
+          },
+          {
+            "score": 0.5886678695678711,
+            "source": "library/nhs_uk/nhs_uk_conditions_high_blood_pressure_3ba91d3bc68f/chunk_002.json",
+            "title": "High blood pressure - NHS",
+            "url": "https://www.nhs.uk/conditions/high-blood-pressure/",
+            "text": "Urgent advice: Get help from NHS 111 if:\nyou often have headaches or blurred vision you have chest pain that comes and goes you have other symptoms you're worried could be caused by high blood pressure You can call 111 or get help from 111 online .\nImmediate action required: Call 999 if:\nyou get sudden pain or discomfort in your chest that does not go away – the pain can feel like squeezing or pressure inside your chest, burning or indigestion you get pain that spreads to your left or right arm, or your neck, jaw, stomach or back you have chest pain and you feel sweaty, sick, light headed or short of breath You could be having a heart attack."
+          },
+          {
+            "score": 0.58847975730896,
+            "source": "library/medlineplus_gov/medlineplus_gov_angina_html_755cf07fe42e/chunk_002.json",
+            "title": "Angina | Chest Pain | MedlinePlus",
+            "url": "https://medlineplus.gov/angina.html",
+            "text": "ow a pattern and can happen without physical exertion. It does not go away with rest or medicine. It is a sign that you could have a heart attack soon. \nVariant angina is rare. It happens when you are resting. Medicines can help. \nNot all chest pain or discomfort is angina. If you have chest pain, you should see your health care provider.\nNIH: National Heart, Lung, and Blood Institute\nStart Here\nAngina \n(Mayo Foundation for Medical Education and Research) \nAngina (Chest Pain) \n(American Heart Association) \nStable Angina \n(American Heart Association) \nWhat Is Angina? \n(National Heart, Lung, and Blood Institute) \nAlso in Spanish \nDiagnosis and"
+          },
+          {
+            "score": 0.5855023860931396,
+            "source": "library/nhs_uk/nhs_uk_conditions_cardiomyopathy_09ac0c7ffdbf/chunk_008.json",
+            "title": "Cardiomyopathy - NHS",
+            "url": "https://www.nhs.uk/conditions/cardiomyopathy/",
+            "text": "to experience a temporary heart problem.\nThe heart muscle becomes suddenly weakened or \"stunned\", causing the left ventricle (one of the heart's main chambers) to change shape. It may be caused by a surge of hormones, particularly adrenaline, during a period of stress.\nThe main symptoms are chest pain and breathlessness, similar to those of a heart attack. Always call 999 if you or someone else experiences these.\nThe condition – known medically as Takotsubo cardiomyopathy, or acute stress cardiomyopathy – is more common in women. It's temporary and reversible. It's unusual for it to happen again.\nFind out more about Takotsubo cardiomyopathy on Cardiomyopathy UK .\nPage last reviewed: 25 May 2023\nNext review due: 25 May 2026\nSupport links \nHome \nHealth A to Z \nNHS services \nLive Well \nMental health \nCare and support \nPregnancy \nCOVID-19 \nNHS App \nFind my NHS number \nView your GP health rec"
+          },
+          {
+            "score": 0.5837526917457581,
+            "source": "library/nhs_uk/nhs_uk_conditions_angina_1d4234d5ad6f/chunk_001.json",
+            "title": "Angina - NHS",
+            "url": "https://www.nhs.uk/conditions/angina/",
+            "text": "﻿ \nAngina\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nAngina \nAngina is a feeling of pain or tightness, usually in your chest. It can be a sign of a heart problem, so it&#x27;s important to see a GP as soon as possible if you think you may have it.\nSymptoms of angina \nThe main symptom of angina is sudden pain in your chest, neck, shoulders, jaw or arms.\nThe pain may:\nfeel like tightness, squeezing or pressure, or like a dull ache make you feel sick, breathless, dizzy or sweaty These symptoms may be called an angina attack, episode or pain.\nThey are often brought on by exercise, stress, emotion or cold temperatures – although sometimes there's no obvious trigger.\nAngina attacks usually last less than 10 minutes "
+          },
+          {
+            "score": 0.5826553106307983,
+            "source": "library/nhs_uk/nhs_uk_conditions_chest_infection_5afb67ba713b/chunk_002.json",
+            "title": "Chest infection - NHS",
+            "url": "https://www.nhs.uk/conditions/chest-infection/",
+            "text": "ears old.\nFind a pharmacy \nNon-urgent advice: See a GP if:\nYou have a chest infection and:\nyou feel very unwell or your symptoms get worse you cough up blood or blood-stained mucus you've had a cough for more than 3 weeks you're pregnant you're over 65 your immune system is weak – for example, you have a condition like diabetes or you're having chemotherapy you have a long-term health condition, such as a heart, lung or kidney condition You may have pneumonia if your symptoms are severe.\nTreatment from a GP for a chest infection \nTreatment for a chest infection will depend on the cause.\nA chest infection will either be caused by:\na virus (lik"
+          },
+          {
+            "score": 0.5813684463500977,
+            "source": "library/nhs_uk/nhs_uk_conditions_heart_valve_disease_2cc97e8f73e7/chunk_001.json",
+            "title": "Heart valve disease - NHS",
+            "url": "https://www.nhs.uk/conditions/heart-valve-disease/",
+            "text": "ymptoms. Sometimes it's found by chance if a doctor hears an unusual sound (a heart murmur) when they listen to your chest.\nNon-urgent advice: See a GP if:\nyou're feeling short of breath regularly you feel tired, weak or dizzy when doing normal activities you have heart palpitations that keep coming back, last longer than a few minutes or are getting worse you have swollen ankles or feet you have chest pain that comes and goes These symptoms can be caused by many different conditions. Having them does not definitely mean you have heart valve disease. But it's important to get them checked by a GP.\nImmediate action required: Call 999 or go to"
+          },
+          {
+            "score": 0.5790286064147949,
+            "source": "library/nhs_uk/nhs_uk_conditions_broken_or_bruised_ribs_44ae8b85bb7f/chunk_002.json",
+            "title": "Broken or bruised ribs - NHS",
+            "url": "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+            "text": "own swelling\nrest and take time off work if you need to\nbreathe normally and cough when you need to – this helps clear mucus from your lungs to prevent chest infections\nhold a pillow against your chest if you need to cough\nwalk around and sometimes move your shoulders to help you breathe and clear mucus from your lungs\nregularly take slow, deep breaths to help clear your lungs\ntry to sleep more upright for the first few nights\nDon&rsquo;t\ndo not lie down or stay still for a long time\ndo not strain yourself or lift heavy objects\ndo not play any sports or do any exercise that makes your pain worse\ndo not smoke\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if:\nYou have a broken or bruised rib and:\nyour pain has not improved within a few weeks you're coughing up yellow or green mucus you have a very high temperature, or feel hot, cold or shivery You might need stro"
+          }
+        ]
+      }
+    },
+    "red_flags": [],
+    "decision": null,
+    "stage": "DECIDE",
+    "note_draft": null
+  }
+}

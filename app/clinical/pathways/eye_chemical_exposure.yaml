@@ -1,0 +1,22 @@
+id: eye_chemical_exposure
+version: 0.1
+match:
+  any_keywords: ["chemical in my eye", "bleach in my eye", "cleaner in my eye", "acid in my eye", "alkali in my eye", "eye chemical splash"]
+questions:
+  - id: rinse
+    prompt: "Have you started flushing the eye with clean water for at least 15 minutes? (yes/no)"
+    store_as: rinsed_15
+    type: yesno
+  - id: vision
+    prompt: "Any decreased vision or severe eye pain right now? (yes/no)"
+    store_as: severe_vision_pain
+    type: yesno
+  - id: contact
+    prompt: "Were you wearing contact lenses when it happened? (yes/no)"
+    store_as: contacts
+    type: yesno
+stop_rules:
+  - if_all_answered: ["rinse", "vision", "contact"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

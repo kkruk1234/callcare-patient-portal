@@ -1,0 +1,87 @@
+{
+  "packet_id": "8da1c0a8-c6f8-4513-843a-f58487714342",
+  "created_at": "2026-02-28T13:19:06.200403+00:00",
+  "session_id": "db8537dc-e2df-4dc1-87bd-d8c1d44415e1",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back hurts and if the pain radiates anywhere?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent trauma, injury, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or changes in bladder or bowel function?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of liver disease, gallbladder problems, or abdominal issues?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent changes in your activity level or new exercises that might have strained your back?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adult",
+      "back pain treatment dosing acetaminophen adult mg duration",
+      "back pain red flags neurological symptoms bladder bowel changes"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with back pain that started 3 weeks ago. She localizes the pain to the left side of her lower rib cage without radiation. She denies any recent trauma, injury, or heavy lifting prior to onset. There are no associated systemic symptoms such as fever, chills, or unexplained weight loss. She reports no difficulty breathing, coughing, chest pain, numbness, weakness, or changes in bladder or bowel function. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of kidney, liver, or abdominal problems, and no recent changes in activity or exercise that might have contributed to the pain. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely due to muscle strain or soft tissue irritation given the absence of trauma, systemic symptoms, or neurological deficits.\nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costovertebral joint dysfunction\n3. Intercostal muscle strain\n4. Early presentation of visceral pathology such as renal or splenic issues (less likely given no urinary or systemic symptoms)\n\nP:\n- First-line medication: Acetaminophen 500 mg orally every 6 hours as needed for pain, not to exceed 3000 mg per day\n - Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen if no contraindications\n - Medication safety considerations: Monitor for liver toxicity with acetaminophen; avoid NSAIDs if history of renal disease or gastrointestinal issues\n - Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), bladder or bowel dysfunction, or chest pain\n - Testing: Not indicated at this time given absence of red flags; consider imaging or labs if symptoms worsen or fail to improve over the next 4 weeks",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal lower back pain - Symptoms, diagnosis and treatment | BMJ Best Practice US",
+        "source": "bestpractice.bmj.com",
+        "url": "https://bestpractice.bmj.com/topics/en-us/778?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

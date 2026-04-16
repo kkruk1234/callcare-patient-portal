@@ -1,0 +1,124 @@
+{
+  "packet_id": "dc2c438b-53e7-47e6-85f9-4923580c9f60",
+  "created_at": "2026-02-05T19:55:59.940604+00:00",
+  "session_id": "248967d6-2f10-43dc-b75f-80138e6c0ff9",
+  "chief_complaint": "red and swollen finger",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did you first notice the finger became red and swollen?",
+    "intake_a1": "3 days ago",
+    "intake_q2": "Is the finger painful or tender to touch?",
+    "intake_a2": "yes",
+    "intake_q3": "Any fever or chills since the finger became red and swollen?",
+    "intake_a3": "no",
+    "intake_q4": "Any recent injury, cut, or puncture to the finger?",
+    "intake_a4": "I bit a hangnail off the finger",
+    "intake_q5": "Any pus, drainage, or open wound on the finger?",
+    "intake_a5": "there is an open wound where the hangnail was ripped off",
+    "intake_q6": "Any spreading redness, streaks, or swelling extending beyond the finger?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications on the finger so far?",
+    "intake_a7": "I've been soaking it, cleaning it, and putting neosporin on it",
+    "intake_q8": "Do you have any history of diabetes, immune problems, or recent infections elsewhere?",
+    "intake_a8": "no",
+    "intake_q9": "Any difficulty moving the finger or increased pain with movement?",
+    "intake_a9": "no",
+    "intake_q10": "Any numbness, tingling, or severe throbbing pain in the finger?",
+    "intake_a10": "it's throbbing a little, but not severe",
+    "age_years": 34,
+    "allergies": "penicillin",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/hand-foot-mouth-disease/",
+        "https://www.nhs.uk/conditions/nephrotic-syndrome/",
+        "https://www.nhs.uk/conditions/henoch-schonlein-purpura-hsp/",
+        "https://www.nhs.uk/conditions/varicose-eczema/",
+        "https://medlineplus.gov/genetics/condition/terminal-osseous-dysplasia/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 34-year-old female presenting with a red and swollen finger noticed 3 days ago. The finger is painful and tender to touch with a throbbing sensation that is not severe. She reports biting off a hangnail which left an open wound at the site. There is no fever, chills, spreading redness, streaks, or swelling beyond the finger. She has been soaking, cleaning, and applying Neosporin to the finger. There is no difficulty moving the finger or increased pain with movement. She denies numbness or severe throbbing pain. She has no history of diabetes, immune problems, or recent infections elsewhere. She has a known penicillin allergy. Patient is not pregnant., and she has no known renal or liver disease. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nThe working diagnosis is a localized bacterial paronychia or soft tissue infection of the finger following trauma from biting off a hangnail, complicated by an open wound. There is no systemic involvement or signs of spreading infection at this time.\n\nDifferential: \n1. Paronychia (bacterial infection of the nail fold) \n2. Felon (infection of the fingertip pulp) \n3. Herpetic whitlow (viral infection, less likely given open wound and no vesicles) \n4. Cellulitis without abscess \n\nP: \n- First-line medication: \n Clindamycin 300 mg orally every 6 hours for 7 days, avoiding penicillin due to allergy. Dosing details were not found in retrieved evidence; prescriber should verify.\n\n- Alternatives: \n - Doxycycline 100 mg orally twice daily for 7 days, avoid if pregnant. \n - Trimethoprim-sulfamethoxazole (TMP-SMX) one double-strength tablet orally twice daily for 7 days, avoid if sulfa allergy or pregnancy. \n\n- Medication safety considerations: \n Patient has a penicillin allergy; avoid beta-lactam antibiotics. No pregnancy or renal/liver disease concerns. Confirm no contraindications to clindamycin or alternatives before prescribing.\n\n- Return precautions: \n Seek urgent care if fever, chills, spreading redness or swelling beyond the finger, increased pain, numbness, or difficulty moving the finger develops.\n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Hand, foot and mouth disease - NHS",
+        "source": "https://www.nhs.uk/conditions/hand-foot-mouth-disease/",
+        "snippet": "h ulcers , which can be painful a raised rash of spots on the hands and feet, and sometimes the groin area and bottom The rash of spots can look pink, red, or darker than the surrounding skin, depending on your skin tone.\nThe spots can turn into blisters, which might be grey or lighter than surrounding skin and can be painful.\nSymptoms are usually mild and are the same in adults and children.\nMouth ulcers \nCredit: Hercules Robinson / Alamy Stock Photo https://www.alamy.com/stock-photo-vesicle-on-tongue-of-child-with-coxsackie-a16-virus-infection-hand-12876583.html?pv=1&stamp=2&imageid=E0442865-9287-42AE-A268-26DB0F32DA91&p=18517&n=0&orientati"
+      },
+      {
+        "title": "Nephrotic syndrome in children - NHS",
+        "source": "https://www.nhs.uk/conditions/nephrotic-syndrome/",
+        "snippet": "﻿ \nNephrotic syndrome in children\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nNephrotic syndrome in children \nNephrotic syndrome is a condition that causes the kidneys to leak large amounts of protein into the urine. This can lead to a range of problems, including swelling of body tissues and a greater chance of catching infections. \nAlthough nephrotic syndrome can affect people of any age, it's usually first diagnosed in children aged between 1 and 6 years old.\nIt tends to be more common in those with an Asian background, although it's unclear why.\nThe symptoms of nephrotic syndrome can usually be controlled with steroid medication .\nMost children with nephrotic syndrome respond well to steroids and are not at risk"
+      },
+      {
+        "title": "Henoch-Schönlein purpura (HSP) - NHS",
+        "source": "https://www.nhs.uk/conditions/henoch-schonlein-purpura-hsp/",
+        "snippet": "﻿ \nHenoch-Schönlein purpura (HSP)\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nHenoch-Schönlein purpura (HSP) \nHenoch-Schönlein purpura (HSP) affects the blood vessels and causes a spotty rash. It's not usually serious, but can sometimes lead to kidney problems. It's more common in children, but adults can get it too. \nSymptoms of Henoch-Schönlein purpura (HSP) \nThe main symptom of Henoch-Schönlein purpura (HSP) is a rash with raised red or purple spots. The spots look like small bruises or blood spots.\nThe rash usually appears on the legs, bottom, tummy, chest or back.\nCredit: John Watney/SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/618969/view\nThere may be lots of spots or just a few.\nCredit: DR P."
+      },
+      {
+        "title": "Varicose eczema - NHS",
+        "source": "https://www.nhs.uk/conditions/varicose-eczema/",
+        "snippet": "TO LIBRARY : https://www.sciencephoto.com/media/643944/view\nCredit: Science Photo Library: https://www.sciencephoto.com/media/1145274/view\nThe affected skin can change colour and become:\nitchy and swollen dry and flaky scaly, crusty or blistered On white skin it looks red or brown. On black or brown skin it tends to look dark brown, purple or grey and can sometimes be more difficult to see.\nThere may be periods when these symptoms improve and periods when they are more severe.\nYour legs may become swollen, especially at the end of the day or after long periods of standing. Varicose veins (swollen and enlarged veins) are often visible on the l"
+      },
+      {
+        "title": "Terminal osseous dysplasia: MedlinePlus Genetics",
+        "source": "https://medlineplus.gov/genetics/condition/terminal-osseous-dysplasia/",
+        "snippet": "poplasia), shortening, or fusion of the bones in the wrists and hands. The outer layer of bone (cortex) in other parts of the skeleton may be abnormal, and some affected individuals have bowed arms or legs or are shorter than their peers.\nSkin abnormalities are also common in terminal osseous dysplasia. Many individuals with the condition have dark patches of skin on their face, often near the temples. In addition, affected infants commonly develop noncancerous (benign) tumors called fibromas on their fingers or toes. The tumors may reappear after being removed, but they tend to go away and stop reoccurring in childhood.\nOther signs and sympt"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Hand, foot and mouth disease - NHS",
+      "source": "https://www.nhs.uk/conditions/hand-foot-mouth-disease/",
+      "snippet": "h ulcers , which can be painful a raised rash of spots on the hands and feet, and sometimes the groin area and bottom The rash of spots can look pink, red, or darker than the surrounding skin, depending on your skin tone.\nThe spots can turn into blisters, which might be grey or lighter than surrounding skin and can be painful.\nSymptoms are usually mild and are the same in adults and children.\nMouth ulcers \nCredit: Hercules Robinson / Alamy Stock Photo https://www.alamy.com/stock-photo-vesicle-on-tongue-of-child-with-coxsackie-a16-virus-infection-hand-12876583.html?pv=1&stamp=2&imageid=E0442865-9287-42AE-A268-26DB0F32DA91&p=18517&n=0&orientati"
+    },
+    {
+      "title": "Nephrotic syndrome in children - NHS",
+      "source": "https://www.nhs.uk/conditions/nephrotic-syndrome/",
+      "snippet": "﻿ \nNephrotic syndrome in children\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nNephrotic syndrome in children \nNephrotic syndrome is a condition that causes the kidneys to leak large amounts of protein into the urine. This can lead to a range of problems, including swelling of body tissues and a greater chance of catching infections. \nAlthough nephrotic syndrome can affect people of any age, it's usually first diagnosed in children aged between 1 and 6 years old.\nIt tends to be more common in those with an Asian background, although it's unclear why.\nThe symptoms of nephrotic syndrome can usually be controlled with steroid medication .\nMost children with nephrotic syndrome respond well to steroids and are not at risk"
+    },
+    {
+      "title": "Henoch-Schönlein purpura (HSP) - NHS",
+      "source": "https://www.nhs.uk/conditions/henoch-schonlein-purpura-hsp/",
+      "snippet": "﻿ \nHenoch-Schönlein purpura (HSP)\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nHenoch-Schönlein purpura (HSP) \nHenoch-Schönlein purpura (HSP) affects the blood vessels and causes a spotty rash. It's not usually serious, but can sometimes lead to kidney problems. It's more common in children, but adults can get it too. \nSymptoms of Henoch-Schönlein purpura (HSP) \nThe main symptom of Henoch-Schönlein purpura (HSP) is a rash with raised red or purple spots. The spots look like small bruises or blood spots.\nThe rash usually appears on the legs, bottom, tummy, chest or back.\nCredit: John Watney/SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/618969/view\nThere may be lots of spots or just a few.\nCredit: DR P."
+    },
+    {
+      "title": "Varicose eczema - NHS",
+      "source": "https://www.nhs.uk/conditions/varicose-eczema/",
+      "snippet": "TO LIBRARY : https://www.sciencephoto.com/media/643944/view\nCredit: Science Photo Library: https://www.sciencephoto.com/media/1145274/view\nThe affected skin can change colour and become:\nitchy and swollen dry and flaky scaly, crusty or blistered On white skin it looks red or brown. On black or brown skin it tends to look dark brown, purple or grey and can sometimes be more difficult to see.\nThere may be periods when these symptoms improve and periods when they are more severe.\nYour legs may become swollen, especially at the end of the day or after long periods of standing. Varicose veins (swollen and enlarged veins) are often visible on the l"
+    },
+    {
+      "title": "Terminal osseous dysplasia: MedlinePlus Genetics",
+      "source": "https://medlineplus.gov/genetics/condition/terminal-osseous-dysplasia/",
+      "snippet": "poplasia), shortening, or fusion of the bones in the wrists and hands. The outer layer of bone (cortex) in other parts of the skeleton may be abnormal, and some affected individuals have bowed arms or legs or are shorter than their peers.\nSkin abnormalities are also common in terminal osseous dysplasia. Many individuals with the condition have dark patches of skin on their face, often near the temples. In addition, affected infants commonly develop noncancerous (benign) tumors called fibromas on their fingers or toes. The tumors may reappear after being removed, but they tend to go away and stop reoccurring in childhood.\nOther signs and sympt"
+    }
+  ]
+}

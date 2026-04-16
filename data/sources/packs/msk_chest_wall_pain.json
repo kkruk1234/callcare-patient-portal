@@ -1,0 +1,46 @@
+{
+  "pack_id": "msk_chest_wall_pain",
+  "description": "Outpatient MSK chest wall pain / costochondritis sources (authoritative + primary care oriented).",
+  "sources": [
+    {
+      "url": "https://www.aafp.org/pubs/afp/issues/2009/0915/p617.html",
+      "source_type": "primary_care_review",
+      "notes": "AAFP clinical review: diagnosis + outpatient management"
+    },
+    {
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/0700/p73.html",
+      "source_type": "primary_care_review",
+      "notes": "AAFP Rapid Evidence Review: outpatient-focused"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK532931/",
+      "source_type": "professional_reference",
+      "notes": "NCBI Bookshelf (StatPearls): includes management"
+    },
+    {
+      "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+      "source_type": "authoritative_patient_clinician",
+      "notes": "Mayo Clinic: diagnosis + treatment overview"
+    },
+    {
+      "url": "https://www.nhs.uk/conditions/costochondritis/",
+      "source_type": "authoritative_patient_clinician",
+      "notes": "NHS: practical outpatient management language"
+    },
+    {
+      "url": "https://www.nhsinform.scot/illnesses-and-conditions/muscle-bone-and-joints/chest-and-rib-problems-and-conditions/costochondritis",
+      "source_type": "authoritative_patient_clinician",
+      "notes": "NHS Inform (Scotland): outpatient/self-care and when-to-seek-care"
+    },
+    {
+      "url": "https://www.ruh.nhs.uk/patients/patient_information/BRU029_Costochondritis.pdf",
+      "source_type": "authoritative_pdf",
+      "notes": "UK NHS PDF patient info: conservative management language"
+    },
+    {
+      "url": "https://now.aapmr.org/costochondritis/",
+      "source_type": "professional_reference",
+      "notes": "AAPM&R KnowledgeNow: clinician-oriented summary"
+    }
+  ]
+}

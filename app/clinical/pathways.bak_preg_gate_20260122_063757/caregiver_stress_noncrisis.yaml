@@ -1,0 +1,22 @@
+id: caregiver_stress_noncrisis
+version: 0.1
+match:
+  any_keywords: ["caregiver stress", "taking care of my", "caregiving", "caregiver burnout", "exhausted caring for", "dementia caregiver"]
+questions:
+  - id: safety
+    prompt: "Are you having thoughts of harming yourself or someone else? (yes/no)"
+    store_as: self_harm_thoughts
+    type: yesno
+  - id: respite
+    prompt: "Do you have any help or breaks (even a few hours) available this week? (yes/no)"
+    store_as: respite_available
+    type: yesno
+  - id: symptoms
+    prompt: "Are you having panic symptoms, severe insomnia, or not eating most days? (yes/no)"
+    store_as: severe_stress_symptoms
+    type: yesno
+stop_rules:
+  - if_all_answered: ["safety", "respite", "symptoms"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

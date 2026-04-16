@@ -1,0 +1,51 @@
+{
+  "packet_id": "93fa6787-1f05-45cc-b852-46bfd0fab5a1",
+  "created_at": "2026-03-04T23:11:43.819997+00:00",
+  "session_id": "e7d7d363-8844-4dee-a440-b525b300a1ff",
+  "pathway_id": "",
+  "base_queries": [
+    "management of musculoskeletal back pain lower rib cage",
+    "NSAID dosing for musculoskeletal back pain"
+  ],
+  "queries": [
+    "NHS management of musculoskeletal back pain lower rib cage",
+    "NHS NSAID dosing for musculoskeletal back pain",
+    "NICE management of musculoskeletal back pain lower rib cage",
+    "NICE NSAID dosing for musculoskeletal back pain",
+    "CDC management of musculoskeletal back pain lower rib cage",
+    "CDC NSAID dosing for musculoskeletal back pain",
+    "MedlinePlus management of musculoskeletal back pain lower rib cage",
+    "MedlinePlus NSAID dosing for musculoskeletal back pain"
+  ],
+  "evidence": [
+    {
+      "title": "Back pain",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/live-well/exercise/lower-back-pain-exercises/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Musculoskeletal Chest Wall Pain | CUH",
+      "source": "cuh.nhs.uk",
+      "url": "https://www.cuh.nhs.uk/patient-information/musculoskeletal-chest-wall-pain/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, night sweats, difficulty breathing, coughing, chest pain, numbness, weakness, tingling, swelling, bruising, or redness over the area. She has no history of kidney problems, urinary symptoms, abdominal pain, recent weight loss, fatigue, or other systemic symptoms. She tried acetaminophen (Tylenol) but it did not provide significant relief.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage area without signs of systemic illness or neurological involvement.\nDifferential:\n1. Musculoskeletal strain or sprain\n2. Costochondritis or rib dysfunction\n3. Intercostal muscle strain\n4. Early presentation of herpes zoster (pre-eruptive phase)\n\nP: First-line medication: Naproxen 500 mg PO twice daily for 7 days with food\nAlternatives: Diclofenac 50 mg PO three times daily for 7 days; Meloxicam 15 mg PO once daily for 7 days (Physician must verify medication/dosing)\nMedication safety considerations: Use with caution in patients with gastrointestinal risk factors; advise taking with food to minimize GI irritation; avoid in patients with known NSAID allergy or bleeding disorders\nReturn precautions: Return if pain worsens, new neurological symptoms develop (numbness, weakness, tingling), fever or systemic symptoms appear, or if no improvement after 2 weeks of treatment\nTesting: Not indicated at this time given absence of red flags or systemic symptoms"
+}

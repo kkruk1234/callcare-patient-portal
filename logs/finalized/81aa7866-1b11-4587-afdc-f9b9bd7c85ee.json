@@ -1,0 +1,105 @@
+{
+  "packet_id": "18664e88-9304-4355-a7b9-434e10dc7c87",
+  "created_at": "2026-02-22T15:47:11.309844+00:00",
+  "session_id": "81aa7866-1b11-4587-afdc-f9b9bd7c85ee",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain with breathing, coughing, or movement?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of chronic illnesses like osteoporosis, cancer, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent travel, exposure to sick contacts, or unusual activities in the past month?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately three weeks ago. She denies any recent injury, trauma, or heavy lifting prior to onset. There are no associated symptoms such as fever, chills, unexplained weight loss, pain with breathing or movement, numbness, tingling, or weakness in the legs or feet. She has no history of kidney problems, urinary symptoms, abdominal pain, chronic illnesses including osteoporosis or cancer, recent infections, travel, or exposure to sick contacts. She has tried acetaminophen (Tylenol) with minimal relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage area, likely of benign etiology given the absence of systemic symptoms or neurological deficits. \n\nDifferential: \n1. Musculoskeletal strain or myofascial pain \n2. Costovertebral joint dysfunction \n3. Intercostal muscle strain or irritation \n4. Early presentation of rib fracture or occult injury \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. (avoid in renal disease; especially severe CKD/dialysis)\n- Medication safety considerations: Avoid NSAIDs if there is a history of renal disease, liver disease, or gastrointestinal bleeding; monitor for side effects such as gastrointestinal upset. \n- Return precautions: Advise the patient to seek immediate care if she develops fever, chills, worsening pain, neurological symptoms such as numbness or weakness, new urinary symptoms, or if the pain does not improve or worsens over the next 1-2 weeks. \n- Testing: Not indicated at this time given the absence of red flag symptoms; consider imaging if symptoms persist or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain | NELFT NHS Foundation Trust",
+        "snippet": null
+      },
+      {
+        "title": "back pain",
+        "snippet": null
+      },
+      {
+        "title": "Medicines for back pain: MedlinePlus Medical Encyclopedia",
+        "snippet": null
+      },
+      {
+        "title": "Low back pain - chronic: MedlinePlus Medical Encyclopedia",
+        "snippet": null
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back pain | NELFT NHS Foundation Trust",
+      "source": "https://www.nelft.nhs.uk/back-pain/",
+      "snippet": "Back pain | NELFT NHS Foundation Trust"
+    },
+    {
+      "title": "back pain",
+      "source": "https://www.merseycare.nhs.uk/back-pain",
+      "snippet": "back pain"
+    },
+    {
+      "title": "Medicines for back pain: MedlinePlus Medical Encyclopedia",
+      "source": "https://medlineplus.gov/ency/article/007486.htm",
+      "snippet": "Medicines for back pain: MedlinePlus Medical Encyclopedia"
+    },
+    {
+      "title": "Low back pain - chronic: MedlinePlus Medical Encyclopedia",
+      "source": "https://medlineplus.gov/ency/article/007422.htm",
+      "snippet": "Low back pain - chronic: MedlinePlus Medical Encyclopedia"
+    }
+  ],
+  "state": null
+}

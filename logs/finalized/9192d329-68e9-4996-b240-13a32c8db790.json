@@ -1,0 +1,93 @@
+{
+  "packet_id": "7b8a0b67-2368-4651-9d27-e18addaaf203",
+  "created_at": "2026-03-04T18:01:11.753327+00:00",
+  "session_id": "9192d329-68e9-4996-b240-13a32c8db790",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any swelling, bruising, or skin changes over the painful area?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a8": "I tried tylenol but it didn't really help much",
+    "intake_q9": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "NSAID dosing for musculoskeletal back pain",
+      "treatment of intercostal muscle strain",
+      "differential diagnosis of rib cage pain",
+      "management of non-traumatic rib pain"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, weight loss, respiratory symptoms, neurological symptoms, or skin changes. She has no history of kidney problems, urinary symptoms, abdominal pain, osteoporosis, cancer, or steroid use. She tried acetaminophen without significant relief.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage area, likely due to muscle strain or intercostal irritation given the absence of systemic or neurological symptoms.\nDifferential:\n1. Musculoskeletal strain or intercostal muscle irritation\n2. Costochondritis\n3. Rib fracture (occult)\n4. Herpes zoster (early stage without rash)\n\nP: \n- First-line medication: NSAIDs such as ibuprofen 400 mg orally every 6 to 8 hours with food, not to exceed 1200 mg per day for up to 7 days.\n- Alternatives: If NSAIDs are contraindicated or not tolerated, consider topical analgesics such as diclofenac gel.\n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; advise taking with food to reduce GI irritation.\n- Return precautions: Advise patient to seek urgent care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), rash, or respiratory symptoms.\n- Testing: Not indicated at this time given lack of red flags; consider imaging if symptoms persist beyond 4-6 weeks or worsen.\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Management of Acute Musculoskeletal Pain - Clinical Practice Guideline | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/musculoskeletal-pain.html",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      },
+      {
+        "title": "New guideline for managing acute pain from musculoskeletal injuries | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/afp-community-blog/entry/new-guideline-for-managing-acute-pain-from-musculoskeletal-injuries.html",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      },
+      {
+        "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Management of Acute Musculoskeletal Pain - Clinical Practice Guideline | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "New guideline for managing acute pain from musculoskeletal injuries | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

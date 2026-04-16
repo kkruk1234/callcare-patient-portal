@@ -1,0 +1,34 @@
+id: abdominal_pain
+version: 0.1
+match:
+  any_keywords: ["abdominal pain", "stomach pain", "belly pain", "nausea", "vomiting"]
+questions:
+  - id: onset
+    prompt: "When did the abdominal pain start? (hours/days) and is it getting worse? (yes/no)"
+    store_as: onset_worse
+
+  - id: location
+    prompt: "Where is the pain located? (upper, lower, right, left, diffuse)"
+    store_as: pain_location
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: vomiting
+    prompt: "Any repeated vomiting or inability to keep fluids down? (yes/no)"
+    store_as: persistent_vomiting
+    type: yesno
+
+  - id: blood
+    prompt: "Any blood in vomit or stool, or black tarry stools? (yes/no)"
+    store_as: gi_bleeding
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["onset", "location", "fever", "vomiting", "blood"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

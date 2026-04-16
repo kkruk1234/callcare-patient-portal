@@ -1,0 +1,11 @@
+{
+  "pathway_id": "sinusitis",
+  "sources": [
+    {
+      "source_id": "cdc_sinus_infection",
+      "type": "url",
+      "title": "CDC: Sinus Infection (Sinusitis) Basics",
+      "url": "https://www.cdc.gov/antibiotic-use/sinus-infection.html"
+    }
+  ]
+}

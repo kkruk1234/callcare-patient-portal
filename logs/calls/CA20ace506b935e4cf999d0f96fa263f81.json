@@ -1,0 +1,167 @@
+{
+  "call_sid": "CA20ace506b935e4cf999d0f96fa263f81",
+  "session_id": "14d36987-9c9b-4cb0-a34e-573fea7595b3",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T20:39:25.431438+00:00",
+  "ended_at": "2026-04-03T20:45:33.027636+00:00",
+  "packet_id": "2e6d33d8-7c98-418c-bff9-fbfc6880b47d",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a red right eye."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first notice the redness in your right eye?"
+    },
+    {
+      "role": "user",
+      "text": "This morning when I woke up."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain, discharge, or changes in vision in the red eye?"
+    },
+    {
+      "role": "user",
+      "text": "It hurts a little bit, but no dish discharge and no changes in vision."
+    },
+    {
+      "role": "assistant",
+      "text": "Any sensitivity to light or feeling like something is in your eye?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I am sensitive to light. 2 bright of lights are bothering me, but that doesn't feel like there's anything in it."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of trauma to the eye or recent contact with someone who has an eye infection?"
+    },
+    {
+      "role": "user",
+      "text": "No trauma to the eye, but an I don't think I was around anybody with an eye infection but I was at a very busy grocery store yesterday. So I don't know. Maybe I came in touch"
+    },
+    {
+      "role": "assistant",
+      "text": "Any headache, nausea, or vomiting along with the eye symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "who was also there with an eye issue."
+    },
+    {
+      "role": "assistant",
+      "text": "Any headache, nausea, or vomiting along with the eye symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of glaucoma or use of corticosteroid eye drops?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent use of contact lenses or eye medications?"
+    },
+    {
+      "role": "user",
+      "text": "No. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any blurring of vision or seeing halos around lights?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any eye redness or symptoms in your left eye as well?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "Can you repeat the question?"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No. Because I said I was a man."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have redness and mild pain in one eye, which is most likely a viral eye infection called conjunctivitis. Because this is a phone visit, I can’t examine your eye or run tests. Based on what you told me, using artificial tears may help ease your discomfort. A licensed physician will review this note and may prescribe medication if needed. If you notice any worsening symptoms like increased redness, discharge, vision changes, or severe pain, please seek in-person care the same day. If you experience sudden vision loss or very severe eye pain, go to the emergency room immediately. For now, watch your symptoms, and if they don’t improve in a few days, you may need an eye exam."
+    }
+  ]
+}

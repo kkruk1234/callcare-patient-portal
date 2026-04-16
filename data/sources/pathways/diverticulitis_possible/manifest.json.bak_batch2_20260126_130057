@@ -1,0 +1,12 @@
+{
+  "pathway_id": "diverticulitis_possible",
+  "sources": [
+    {
+      "id": "diverticulitis_possible_ref",
+      "source_id": "diverticulitis_possible_ref",
+      "title": "Diverticular disease overview (starter)",
+      "url": "https://www.niddk.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

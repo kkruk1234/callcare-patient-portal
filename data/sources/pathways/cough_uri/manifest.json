@@ -1,0 +1,26 @@
+{
+  "pathway_id": "cough_uri",
+  "sources": [
+    {
+      "id": "cdc_adult_outpatient_antibiotic_guidance",
+      "type": "web",
+      "url": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+      "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "nice_ng120_cough",
+      "type": "web",
+      "url": "https://www.nice.org.uk/guidance/ng120",
+      "title": "NICE NG120: Cough (acute)",
+      "license_note": "Use short excerpts only."
+    },
+    {
+      "id": "bmj_best_practice_acute_cough",
+      "type": "web",
+      "url": "https://bestpractice.bmj.com/topics/en-us/3000116",
+      "title": "BMJ Best Practice: Acute Cough",
+      "license_note": "Summarize concepts; do not reproduce full text."
+    }
+  ]
+}

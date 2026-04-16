@@ -1,0 +1,108 @@
+{
+  "packet_id": "db73f0ea-ea38-4e3f-82bb-4b5b262f76b8",
+  "created_at": "2026-01-26T02:53:11.083060+00:00",
+  "session_id": "6d73da2c-6fb0-474a-a9c5-e2bad5b96dab",
+  "chief_complaint": "my period cramps are so bad I feel faint",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "menstrual_pain_severe",
+  "answers": {
+    "timing_cycle": "during my period",
+    "pregnancy_possibility": "no",
+    "med_exclusions": "reduced kidney function",
+    "bleeding_or_faint": "soaking pads very quickly",
+    "ectopic_redflags": "none of these",
+    "fever_discharge": "none of these",
+    "functional_impact": "severe"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Ibuprofen",
+      "dosing": "400–600 mg PO q6–8h PRN with food (max per labeling; short course)",
+      "sig": "400–600 mg PO q6–8h PRN with food (max per labeling; short course)",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "NSAIDs are first-line for dysmenorrhea if no contraindications.",
+      "exclusions": "Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "menstrual_pain_severe",
+      "source_file": "data/protocols/meds/menstrual_pain_severe.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Naproxen",
+      "dosing": "500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)",
+      "sig": "500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "Alternative NSAID option.",
+      "exclusions": "Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "menstrual_pain_severe",
+      "source_file": "data/protocols/meds/menstrual_pain_severe.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Acetaminophen",
+      "dosing": "650–1000 mg PO q6–8h PRN (max per labeling)",
+      "sig": "650–1000 mg PO q6–8h PRN (max per labeling)",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "Use when NSAIDs contraindicated; may be less effective alone.",
+      "exclusions": "Severe liver disease; heavy alcohol use; allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "menstrual_pain_severe",
+      "source_file": "data/protocols/meds/menstrual_pain_severe.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S: \n23-year-old female reports severe menstrual cramps occurring during her period. She describes the pain as so intense that she feels faint. She is soaking pads very quickly, indicating heavy menstrual bleeding. She reports no fever, abnormal discharge, or ectopic pregnancy red flags. She has a history of reduced kidney function, which limits medication options. The severe pain is causing significant functional impact. Patient is not pregnant.\n\nO: \nNo physical exam or vitals available due to phone-only history.\n\nA: \n- Working diagnosis (most likely): \n Severe primary dysmenorrhea with heavy menstrual bleeding.\n\n- Differential: \n 1. Secondary dysmenorrhea (e.g., endometriosis, fibroids) \n 2. Coagulopathy or bleeding disorder causing heavy bleeding \n 3. Pelvic infection (less likely given no fever or discharge) \n 4. Other gynecologic pathology (e.g., adenomyosis)\n\n- Red flags considered: \n Heavy bleeding causing faintness, but no signs of ectopic pregnancy or infection.\n\nP: \n- Disposition: \n Urgent evaluation recommended due to heavy bleeding and faintness. Patient should be seen in person promptly for assessment and possible labs.\n\n- Plan: \n  - Primary medication option (based on your answers): Acetaminophen — 650–1000 mg PO q6–8h PRN (max per labeling)\n  Medication protocol (from data/protocols/meds):\n  - Medication recommendations (Tier 1):\n  - Reviewing physician will confirm appropriateness and prescribe if indicated.\n  - Ibuprofen — 400–600 mg PO q6–8h PRN with food (max per labeling; short course)\n    - Notes: NSAIDs are first-line for dysmenorrhea if no contraindications.\n    - Exclusions: Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy.\n  - Naproxen — 500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)\n    - Notes: Alternative NSAID option.\n    - Exclusions: Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy.\n  - Acetaminophen — 650–1000 mg PO q6–8h PRN (max per labeling)\n    - Notes: Use when NSAIDs contraindicated; may be less effective alone.\n    - Exclusions: Severe liver disease; heavy alcohol use; allergy.\n  - Supportive care:\n  - Non-pharmacologic: Heat pack to the lower abdomen, gentle activity/stretching as tolerated, hydration, and rest.\n  - Medication safety: If you have kidney disease/reduced kidney function, stomach ulcers/GI bleeding, or take blood thinners, avoid NSAIDs like ibuprofen/naproxen unless a clinician specifically says it is safe for you.\n  - Pregnancy safety: If there is any chance of pregnancy or your bleeding/pain is unusual for you, you may need pregnancy testing rather than assuming typical period cramps.\n  - Follow-up and safety:\n  - Re-evaluation: If severe pain is new, progressively worsening, associated with heavy bleeding, syncope, fever, pelvic pain between cycles, or concern for secondary dysmenorrhea—needs evaluation.\n  - Urgent/ED now: Fainting, severe one-sided pelvic pain, suspected pregnancy/ectopic, soaking >1 pad/hour, severe weakness, or signs of shock.\n 1. Advise patient to seek urgent in-person care for evaluation of heavy menstrual bleeding and severe pain. \n 2. Avoid NSAIDs or other nephrotoxic medications due to reduced kidney function; acetaminophen may be used for pain relief if appropriate. \n 3. Consider referral for gynecologic evaluation including ultrasound and labs to assess bleeding cause. \n 4. Discuss possible hormonal management options with specialist after evaluation.\n\n- Safety net: \n Instruct patient to go to emergency department immediately if she experiences worsening dizziness, syncope, chest pain, shortness of breath, or if bleeding continues to worsen.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "Non-pharmacologic: Heat pack to the lower abdomen, gentle activity/stretching as tolerated, hydration, and rest.",
+      "Medication safety: If you have kidney disease/reduced kidney function, stomach ulcers/GI bleeding, or take blood thinners, avoid NSAIDs like ibuprofen/naproxen unless a clinician specifically says it is safe for you.",
+      "Re-evaluation: If severe pain is new, progressively worsening, associated with heavy bleeding, syncope, fever, pelvic pain between cycles, or concern for secondary dysmenorrhea—needs evaluation.",
+      "Urgent/ED now: Fainting, severe one-sided pelvic pain, suspected pregnancy/ectopic, soaking >1 pad/hour, severe weakness, or signs of shock."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "ACOG Committee Opinion: Dysmenorrhea and Endometriosis in the Adolescent (2018)",
+        "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/12/dysmenorrhea-and-endometriosis-in-the-adolescent",
+        "snippet": "Listed in pathway manifest https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/12/dysmenorrhea-and-endometriosis-in-the-adolescent"
+      },
+      {
+        "title": "AAFP: Dysmenorrhea (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/0800/p164.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/0800/p164.html"
+      },
+      {
+        "title": "PubMed: ACOG Committee Opinion No. 760 (citation record)",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/30461694/",
+        "snippet": "Listed in pathway manifest https://pubmed.ncbi.nlm.nih.gov/30461694/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "ACOG Committee Opinion: Dysmenorrhea and Endometriosis in the Adolescent (2018)",
+      "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/12/dysmenorrhea-and-endometriosis-in-the-adolescent",
+      "snippet": "Listed in pathway manifest https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/12/dysmenorrhea-and-endometriosis-in-the-adolescent"
+    },
+    {
+      "title": "AAFP: Dysmenorrhea (2021)",
+      "source": "https://www.aafp.org/pubs/afp/issues/2021/0800/p164.html",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/0800/p164.html"
+    },
+    {
+      "title": "PubMed: ACOG Committee Opinion No. 760 (citation record)",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/30461694/",
+      "snippet": "Listed in pathway manifest https://pubmed.ncbi.nlm.nih.gov/30461694/"
+    }
+  ]
+}

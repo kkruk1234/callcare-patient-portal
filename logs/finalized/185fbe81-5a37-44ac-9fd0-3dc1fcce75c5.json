@@ -1,0 +1,97 @@
+{
+  "packet_id": "2ad931a5-7a6e-4f68-beac-11691fc998b8",
+  "created_at": "2026-01-22T11:26:31.782562+00:00",
+  "session_id": "185fbe81-5a37-44ac-9fd0-3dc1fcce75c5",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "ear_pain",
+  "answers": {
+    "duration": "5 days",
+    "fever": "no",
+    "discharge": "yes",
+    "tragus": "yes",
+    "swimming": "yes",
+    "itching": "yes",
+    "uri": "no",
+    "vertigo": "no",
+    "diabetes": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Ofloxacin otic drops",
+      "dosing": "10 drops in affected ear once daily x 7 days (or 5 drops BID x 7 days)",
+      "sig": "10 drops in affected ear once daily x 7 days (or 5 drops BID x 7 days)",
+      "route": "",
+      "frequency": "daily",
+      "duration": "7 days",
+      "notes": "FIRST-LINE for telephone care when TM status is unknown or otorrhea is present; non-ototoxic and safe with TM perforation.",
+      "exclusions": "Use otic formulation only.",
+      "tier": "Tier 1",
+      "pathway_id": "ear_pain",
+      "source_file": "data/protocols/meds/ear_pain.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Ciprofloxacin/dexamethasone otic drops",
+      "dosing": "4 drops in affected ear BID x 7 days",
+      "sig": "4 drops in affected ear BID x 7 days",
+      "route": "",
+      "frequency": "BID",
+      "duration": "7 days",
+      "notes": "SECOND-LINE; consider when inflammation is prominent or if inadequate response to ofloxacin. Often preferred when TM integrity is known.",
+      "exclusions": "If severe canal edema prevents drops or severe pain out of proportion, requires in-person evaluation.",
+      "tier": "Tier 1",
+      "pathway_id": "ear_pain",
+      "source_file": "data/protocols/meds/ear_pain.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Neomycin/polymyxin B/hydrocortisone otic drops",
+      "dosing": "4 drops TID–QID x 7 days",
+      "sig": "4 drops TID–QID x 7 days",
+      "route": "",
+      "frequency": "TID",
+      "duration": "7 days",
+      "notes": "ONLY when TM is known intact and no neomycin allergy.",
+      "exclusions": "Avoid if tympanic membrane perforation suspected or known; avoid neomycin sensitivity.",
+      "tier": "Tier 1",
+      "pathway_id": "ear_pain",
+      "source_file": "data/protocols/meds/ear_pain.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with a 5-day history of ear pain. There is associated ear discharge and tenderness over the tragus. The patient reports recent swimming and ear itching. There are no fever, upper respiratory infection symptoms, or vertigo.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Otitis externa (swimmer’s ear)\n - Differential:\n  1. Otitis externa\n  2. Acute otitis media with perforation\n  3. Foreign body or trauma to the ear canal\n  4. Contact dermatitis or allergic reaction of the ear canal\n - Red flags considered:\n  No fever, no vertigo, no systemic symptoms, no signs of deeper infection or mastoid involvement reported.\n\nP:\n - Disposition: Manage as outpatient with close follow-up if symptoms worsen or fail to improve.\n - Plan: Ofloxacin otic drops — 10 drops in affected ear once daily x 7 days (or 5 drops BID x 7 days).  Alternative: Ciprofloxacin/dexamethasone otic drops (4 drops in affected ear BID x 7 days).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Ofloxacin otic drops — 10 drops in affected ear once daily x 7 days (or 5 drops BID x 7 days)\n     - Notes: FIRST-LINE for telephone care when TM status is unknown or otorrhea is present; non-ototoxic and safe with TM perforation.\n     - Exclusions: Use otic formulation only.\n   - Ciprofloxacin/dexamethasone otic drops — 4 drops in affected ear BID x 7 days\n     - Notes: SECOND-LINE; consider when inflammation is prominent or if inadequate response to ofloxacin. Often preferred when TM integrity is known.\n     - Exclusions: If severe canal edema prevents drops or severe pain out of proportion, requires in-person evaluation.\n   - Neomycin/polymyxin B/hydrocortisone otic drops — 4 drops TID–QID x 7 days\n     - Notes: ONLY when TM is known intact and no neomycin allergy.\n     - Exclusions: Avoid if tympanic membrane perforation suspected or known; avoid neomycin sensitivity.\n   - Supportive care:\n   - Keep ear dry: Avoid swimming or water exposure; no cotton swabs; ear protection for showers.\n   - Pain control: Acetaminophen or ibuprofen if safe (avoid NSAIDs in late pregnancy, kidney disease, ulcer/GI bleed risk).\n   - Follow-up and safety:\n   - Re-evaluation: If not improving within 48–72 hours or worsening pain, swelling, or drainage, seek in-person evaluation.\n   - Urgent/ED now: Severe pain out of proportion, fever with diabetes/immunocompromise, facial weakness, severe dizziness/vertigo, mastoid swelling/tenderness, altered mental status.\n   - Recommend topical antibiotic and corticosteroid ear drops for otitis externa (e.g., ciprofloxacin with dexamethasone drops, 3-4 times daily for 7 days).\n   - Keep ear dry; avoid swimming or water exposure during treatment.\n   - Use analgesics as needed for pain control.\n - Safety net:\n   - Advise patient to seek urgent care if fever develops, pain worsens significantly, hearing loss occurs, or if symptoms do not improve within 3-5 days of treatment.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Ear Infection (Otitis Media) information",
+        "source": "https://www.cdc.gov/ear-infection/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+      },
+      {
+        "title": "MedlinePlus: Ear infections",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "source": "https://www.cdc.gov/ear-infection/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "title": "MedlinePlus: Ear infections",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

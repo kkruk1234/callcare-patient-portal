@@ -1,0 +1,25 @@
+S:
+Patient reports tick bite. Reports a tick bite with a bullseye rash present. No systemic symptoms reported. Exposure occurred in Georgia.
+O: Unable to perform physical exam due to phone encounter. Patient describes characteristic erythema migrans rash (bullseye appearance).
+
+A:
+  - Working diagnosis (most likely): Early localized Lyme disease
+  - Differential:
+    1. Early Lyme disease
+    2. Southern tick-associated rash illness (STARI)
+    3. Cellulitis or other tick-bite associated skin infection
+    4. Allergic reaction to tick bite
+  - Red flags considered: No systemic symptoms such as fever, chills, malaise, or neurologic symptoms reported. No signs of severe allergic reaction or anaphylaxis.
+
+P:
+  - Disposition: Routine follow-up with primary care provider recommended
+  - Plan: Initiate empiric antibiotic treatment for early Lyme disease as per guidelines (e.g., doxycycline 100 mg twice daily for 10-21 days), given presence of erythema migrans and tick exposure >36 hours in an endemic area. Educate patient on signs of progression or systemic symptoms. No immediate emergency care required.
+  - Safety net: Advise patient to seek urgent care if fever, worsening rash, joint pain, neurologic symptoms, or other systemic signs develop. Return for in-person evaluation if rash expands or new symptoms arise.
+
+Evidence (snippets used): CDC guidance recommends treatment of erythema migrans with doxycycline when tick exposure >36 hours in endemic areas such as Georgia. Early Lyme disease diagnosis is clinical based on characteristic rash and exposure history.
+Evidence Used:
+- CDC: What to Do After a Tick Bite
+- CDC: Tick Bite—What to Do (PDF)
+- CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)
+- IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease
+- AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)

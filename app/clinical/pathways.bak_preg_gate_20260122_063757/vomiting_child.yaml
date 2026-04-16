@@ -1,0 +1,38 @@
+id: vomiting_child
+version: 0.1
+match:
+  any_keywords: ["child vomiting", "kid vomiting", "throwing up child", "toddler vomiting", "baby vomiting"]
+questions:
+  - id: age
+    prompt: "How old is the child? (under 3 months, 3-12 months, 1-2 years, 3-12 years, 13-17)"
+    store_as: age_group
+
+  - id: dehydration
+    prompt: "Any signs of dehydration (no urine for 8+ hours, very dry mouth, no tears)? (yes/no)"
+    store_as: dehydration
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_dehydration_child"]
+
+  - id: blood_bile
+    prompt: "Any blood in vomit, or green (bile) vomit? (yes/no)"
+    store_as: blood_or_bile
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["gi_emergency_red_flag"]
+
+  - id: severe_pain
+    prompt: "Severe belly pain, hard belly, or the child is very ill-appearing? (yes/no)"
+    store_as: severe_pain
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_obstruction_or_sepsis"]
+
+stop_rules:
+  - if_all_answered: ["age","dehydration","blood_bile","severe_pain"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

@@ -1,0 +1,11 @@
+{
+  "pathway_id": "constipation_child",
+  "sources": [
+    {
+      "source_id": "healthychildren_constipation",
+      "type": "url",
+      "title": "HealthyChildren.org: Constipation",
+      "url": "https://www.healthychildren.org/English/health-issues/conditions/abdominal/Pages/Constipation.aspx"
+    }
+  ]
+}

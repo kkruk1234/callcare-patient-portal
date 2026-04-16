@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA95a8edbdb860bec91401fe00a5d9eaac",
+  "session_id": "17d5d3b3-d264-4b7d-910c-439f5667b130",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-04T12:34:44.136001+00:00",
+  "ended_at": "2026-04-04T12:39:33.142124+00:00",
+  "packet_id": "ce76cbec-d378-475c-8cc5-c776c629b158",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have hair loss."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first notice the hair loss?"
+    },
+    {
+      "role": "user",
+      "text": "It's been"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me when exactly you first noticed the hair loss?"
+    },
+    {
+      "role": "user",
+      "text": "falling out more and more, it seems, over the last 6 months."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe where on your scalp or body the hair loss is occurring?"
+    },
+    {
+      "role": "user",
+      "text": "Over the"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you finish describing where on your scalp or body the hair loss is occurring?"
+    },
+    {
+      "role": "user",
+      "text": "I it's on the my head. It is on my head."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the pattern of hair loss on your head, such as thinning on the top, receding hairline, or patchy areas?"
+    },
+    {
+      "role": "user",
+      "text": "Sitting on the top."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any itching, redness, pain, or scaling on your scalp where the hair is thinning?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any recent significant stress, illness, or changes in your diet or medications in the past 6 months?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any other symptoms such as weight changes, fatigue, or changes in your menstrual cycle?"
+    },
+    {
+      "role": "user",
+      "text": "My period is getting further and further apart because I'm perimenopausal, I guess."
+    },
+    {
+      "role": "assistant",
+      "text": "Any family history of hair loss or thinning, especially on the top of the head?"
+    },
+    {
+      "role": "user",
+      "text": "My mother says her hair is thinning."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or remedies for your hair loss so far?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "51"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you’ve described, your hair loss most likely fits a common pattern called androgenetic alopecia, which tends to run in families and progresses gradually. Because this is a phone visit, I can’t examine you or do tests, but a licensed physician will review your information and may recommend starting a topical medication like minoxidil to help slow hair loss. If you notice any sudden or rapid hair loss, scalp pain, redness, or signs of infection, please seek in-person care urgently. Otherwise, you can consider supportive care and monitor your symptoms. A physician will review your case and decide if medication is appropriate. If you need an in-person exam or testing, please go to an urgent care or see your primary care clinician, as this service does not include in-person visits."
+    }
+  ]
+}

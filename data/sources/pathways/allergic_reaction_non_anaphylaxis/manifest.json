@@ -1,0 +1,12 @@
+{
+  "pathway_id": "allergic_reaction_non_anaphylaxis",
+  "sources": [
+    {
+      "id": "allergic_reaction_non_anaphylaxis_cdc",
+      "source_id": "allergic_reaction_non_anaphylaxis_cdc",
+      "title": "Allergic reaction guidance (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

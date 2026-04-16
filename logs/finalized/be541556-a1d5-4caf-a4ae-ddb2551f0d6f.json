@@ -1,0 +1,67 @@
+{
+  "packet_id": "df934bf0-f282-4068-b201-9631674044fa",
+  "created_at": "2026-02-25T21:05:19.493633+00:00",
+  "session_id": "be541556-a1d5-4caf-a4ae-ddb2551f0d6f",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the nature of your back pain? For example, is it sharp, dull, burning, or something else?",
+    "intake_a10": "dull",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of dull back pain localized to the left side of the lower rib cage. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, numbness, weakness, or tingling in her legs or feet. She has no history of kidney problems, urinary symptoms, abdominal pain, osteoporosis, cancer, or recent infections. She tried acetaminophen (Tylenol) without significant relief. O: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely due to a strain or minor soft tissue injury given the localized dull pain without systemic symptoms or neurological deficits. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib dysfunction\n3. Intercostal nerve irritation\n4. Early presentation of visceral causes such as pleuritis or referred pain from abdominal organs\n\nP:\n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated.\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. (avoid in renal disease; especially severe CKD/dialysis)\n- Medication safety considerations: Use NSAIDs with caution if gastrointestinal issues arise; avoid in patients with renal impairment or liver disease (not present in this patient).\n- Return precautions: Advise patient to seek care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), chest pain, shortness of breath, or any new systemic symptoms.\n- Testing: Not indicated at this time given absence of red flag symptoms; consider imaging or labs if symptoms worsen or fail to improve after conservative management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

@@ -1,0 +1,51 @@
+from typing import List
+from app.core.models import Decision, EvidenceRef, CallState
+from app.rag.retrieve import retrieve
+
+
+def decide(state: CallState) -> Decision:
+    """
+    Produce an evidence-grounded clinical decision.
+    This version is deterministic + retrieval-based (no LLM yet).
+    """
+
+    # Build a simple clinical query
+    query_parts: List[str] = []
+    if state.chief_complaint:
+        query_parts.append(state.chief_complaint)
+    if "duration" in state.symptoms:
+        query_parts.append(f"duration {state.symptoms['duration']}")
+    if "fever" in state.symptoms:
+        query_parts.append(f"fever {state.symptoms['fever']}")
+
+    query = " ".join(query_parts).strip()
+
+    results = retrieve(query, k=3)
+
+    evidence = [
+        EvidenceRef(
+            source=r["source"],
+            title="Guideline excerpt",
+            snippet=r["text"][:300],
+        )
+        for r in results
+    ]
+
+    # Very conservative prototype logic
+    disposition = "SELF_CARE"
+    plan = [
+        "Supportive care based on guideline recommendations.",
+        "Monitor symptoms and seek care if worsening.",
+    ]
+    safety_net = [
+        "Seek urgent care if breathing worsens, fever is high or persistent, or symptoms rapidly worsen."
+    ]
+
+    return Decision(
+        disposition=disposition,
+        differential=[state.chief_complaint or "undifferentiated complaint"],
+        plan=plan,
+        safety_net=safety_net,
+        evidence=evidence,
+        uncertainty="Prototype decision logic without clinician override",
+    )

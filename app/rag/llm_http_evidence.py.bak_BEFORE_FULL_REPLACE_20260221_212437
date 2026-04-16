@@ -1,0 +1,296 @@
+import os
+import re
+import time
+from typing import Optional, List, Dict, Any, Tuple
+from urllib.parse import urlparse, urlunparse, ParseResult
+from urllib.request import Request, urlopen
+
+from openai import OpenAI
+
+from app.core.models import EvidenceRef
+
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini")
+
+# Keep this fairly tight; expand later if needed.
+ALLOWLIST_DOMAINS = {
+    "nhs.uk",
+    "nice.org.uk",
+    "nih.gov",
+    "ncbi.nlm.nih.gov",
+    "medlineplus.gov",
+    "merckmanuals.com",
+    "idsociety.org",
+    "who.int",
+    # Optional adds that are usually stable:
+    "arthritis.org",
+}
+
+# User preference: NO PubMed / PubMed Central
+BLOCKLIST_DOMAINS = {
+    "pubmed.ncbi.nlm.nih.gov",
+    "pmc.ncbi.nlm.nih.gov",
+}
+
+BAD_TITLE_SIGNALS = [
+    "page not found",
+    "not found",
+    "error",
+    "access denied",
+    "forbidden",
+    "unauthorized",
+    "oops",
+    "we can’t find",
+    "we can't find",
+]
+
+def _trace(trace_fn, event: str, **kw):
+    try:
+        if callable(trace_fn):
+            trace_fn(event, **kw)
+    except Exception:
+        pass
+
+def _strip_utm(url: str) -> str:
+    try:
+        u = (url or "").strip()
+        if not u:
+            return u
+        pr = urlparse(u)
+        pr2 = ParseResult(
+            scheme=pr.scheme,
+            netloc=pr.netloc,
+            path=pr.path,
+            params=pr.params,
+            query="",
+            fragment="",
+        )
+        clean = urlunparse(pr2)
+        if clean.endswith("/"):
+            clean = clean[:-1]
+        return clean
+    except Exception:
+        return (url or "").strip()
+
+def _domain(url: str) -> str:
+    try:
+        host = urlparse(url).netloc.lower().split(":")[0]
+        if host.startswith("www."):
+            host = host[4:]
+        return host
+    except Exception:
+        return ""
+
+def _domain_allowed(url: str) -> bool:
+    host = _domain(url)
+    if not host:
+        return False
+    if host in BLOCKLIST_DOMAINS:
+        return False
+    for d in ALLOWLIST_DOMAINS:
+        if host == d or host.endswith("." + d):
+            return True
+    return False
+
+def _org_label_from_host(host: str) -> str:
+    if host.endswith("nhs.uk"):
+        return "NHS"
+    if host.endswith("nice.org.uk"):
+        return "NICE"
+    if host.endswith("medlineplus.gov"):
+        return "MedlinePlus (NIH)"
+    if host.endswith("nih.gov") or host.endswith("ncbi.nlm.nih.gov"):
+        return "NIH/NCBI"
+    if host.endswith("merckmanuals.com"):
+        return "Merck Manual"
+    if host.endswith("idsociety.org"):
+        return "IDSA"
+    if host.endswith("who.int"):
+        return "WHO"
+    if host.endswith("arthritis.org"):
+        return "Arthritis Foundation"
+    return host
+
+def _fetch_html_title(url: str, timeout_s: int = 8) -> Tuple[str, str]:
+    """
+    Returns (title, snippet). Snippet is optional.
+    Uses urllib only (no extra deps).
+    """
+    title = ""
+    snippet = ""
+    try:
+        req = Request(
+            url,
+            headers={
+                "User-Agent": "CallCareEvidenceBot/1.0 (+https://example.invalid)",
+                "Accept": "text/html,application/xhtml+xml",
+            },
+        )
+        with urlopen(req, timeout=timeout_s) as resp:
+            raw = resp.read(200000)
+        html = raw.decode("utf-8", errors="ignore")
+
+        m = re.search(r"<title[^>]*>(.*?)</title>", html, flags=re.I | re.S)
+        if m:
+            t = re.sub(r"\s+", " ", re.sub(r"<.*?>", "", m.group(1))).strip()
+            title = t
+
+        # very small snippet: first ~200 chars of visible-ish text
+        text = re.sub(r"(?is)<(script|style).*?>.*?</\\1>", " ", html)
+        text = re.sub(r"(?s)<.*?>", " ", text)
+        text = re.sub(r"\s+", " ", text).strip()
+        if text:
+            snippet = text[:220]
+    except Exception:
+        pass
+    return title, snippet
+
+def _bad_title(title: str) -> bool:
+    t = (title or "").strip().lower()
+    if not t:
+        return False
+    for s in BAD_TITLE_SIGNALS:
+        if s in t:
+            return True
+    return False
+
+def _get_attr(obj: Any, key: str, default=None):
+    try:
+        if isinstance(obj, dict):
+            return obj.get(key, default)
+        return getattr(obj, key, default)
+    except Exception:
+        return default
+
+def _extract_web_search_sources(resp) -> List[Dict[str, Any]]:
+    """
+    Responses API output includes items like:
+      - web_search_call with .action.sources (list of {type,url,(maybe title)})
+      - message output
+    We want action.sources.
+    """
+    out = _get_attr(resp, "output", None) or []
+    sources: List[Dict[str, Any]] = []
+    for item in out:
+        itype = _get_attr(item, "type", "")
+        if itype != "web_search_call":
+            continue
+        action = _get_attr(item, "action", None) or {}
+        action_sources = _get_attr(action, "sources", None) or []
+        for s in action_sources:
+            url = _get_attr(s, "url", "") or ""
+            title = _get_attr(s, "title", "") or ""
+            if url:
+                sources.append({"url": url, "title": title})
+    return sources
+
+def _web_search(q: str, model: str, trace_fn=None) -> List[Dict[str, Any]]:
+    client = OpenAI()
+    t0 = time.time()
+    resp = client.responses.create(
+        model=model,
+        input=q,
+        tools=[{"type": "web_search"}],
+        tool_choice="required",
+    )
+    sources = _extract_web_search_sources(resp)
+    _trace(trace_fn, "web_search_done", q=q, sources=len(sources), latency_s=round(time.time() - t0, 3), model=model)
+    return sources
+
+def llm_http_evidence(
+    context: str,
+    diagnosis_hint: str = "",
+    chief_complaint: str = "",
+    max_urls: int = 6,
+    min_urls: int = 4,
+    model: Optional[str] = None,
+    trace_fn=None,
+) -> List[EvidenceRef]:
+    """
+    Retrieve EvidenceRef list using OpenAI web_search tool (Responses API).
+    Uses action.sources (not results).
+    Enforces min_urls by trying several related queries.
+    """
+    model = model or DEFAULT_MODEL
+
+    dx = (diagnosis_hint or context or "").strip()
+    cc = (chief_complaint or "").strip()
+
+    _trace(trace_fn, "llm_http_evidence_start", dx=dx, cc=cc, model=model)
+
+    # Query set: start specific, then broaden
+    base = " ".join([x for x in [dx, cc] if x]).strip() or "medical guidance"
+    queries = [
+        base,
+        base + " self care red flags",
+        base + " acetaminophen ibuprofen naproxen dosing",
+        base + " when to seek urgent care",
+        base + " guideline",
+        cc or dx or base,
+    ]
+
+    seen = set()
+    candidates: List[Tuple[str, str]] = []  # (url, title_hint)
+
+    # Gather sources
+    for q in queries:
+        q = re.sub(r"\s+", " ", (q or "")).strip()
+        if not q:
+            continue
+        _trace(trace_fn, "web_search_start", q=q, model=model)
+        try:
+            srcs = _web_search(q, model=model, trace_fn=trace_fn) or []
+        except Exception as e:
+            _trace(trace_fn, "web_search_error", q=q, err_type=type(e).__name__, err=str(e)[:300])
+            srcs = []
+
+        for s in srcs:
+            url = _strip_utm((s.get("url") or "").strip())
+            if not url:
+                continue
+            if url in seen:
+                continue
+            if not _domain_allowed(url):
+                continue
+            seen.add(url)
+            candidates.append((url, (s.get("title") or "").strip()))
+
+        # early stop if we have plenty of candidates
+        if len(candidates) >= (max_urls * 3):
+            break
+
+    _trace(trace_fn, "llm_http_evidence_candidates", kept=len(candidates), min_urls=min_urls, max_urls=max_urls)
+
+    refs: List[EvidenceRef] = []
+    for (url, title_hint) in candidates:
+        if len(refs) >= max_urls:
+            break
+        host = _domain(url)
+        org = _org_label_from_host(host)
+
+        title = title_hint
+        snippet = ""
+
+        if not title:
+            t, sn = _fetch_html_title(url)
+            title = t or ""
+            snippet = sn or ""
+
+        if _bad_title(title):
+            continue
+
+        # If still no title, provide a minimal non-URL title
+        if (not title) or title.lower().startswith("http"):
+            title = f"{org} resource"
+
+        try:
+            refs.append(EvidenceRef(title=title, source=url, snippet=(snippet or "Authoritative clinical reference (see source).")))
+        except Exception:
+            # fallback dict-like if EvidenceRef construction fails
+            refs.append(EvidenceRef.model_validate({"title": title, "source": url, "snippet": (snippet or "Authoritative clinical reference (see source).")}))
+
+    _trace(trace_fn, "llm_http_evidence_done", refs=len(refs), min_urls=min_urls, max_urls=max_urls)
+
+    if len(refs) < int(min_urls or 0):
+        _trace(trace_fn, "llm_http_evidence_under_min", refs=len(refs), required=min_urls)
+
+    return refs

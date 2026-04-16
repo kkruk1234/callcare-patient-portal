@@ -1,0 +1,60 @@
+{
+  "packet_id": "e7c182f8-86bb-4a22-8420-a9ad59d572b0",
+  "created_at": "2026-01-25T14:30:16.072750+00:00",
+  "session_id": "ef5e6064-a8a2-4d08-be05-c2c8e5250bf0",
+  "chief_complaint": "cat bit my hand",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "cough_uri",
+  "answers": {
+    "duration": "0 days",
+    "fever": "no",
+    "sob": "no",
+    "chest_pain": "no",
+    "high_risk": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult who reports a cat bite to the hand that occurred today (0 days duration). There is no fever, shortness of breath, or chest pain. The patient has no known medication allergies and no chronic lung disease. No high-risk features were reported.\n\nO:\nNo physical exam or vital signs available due to phone-only history.\n\nA:\n - Working diagnosis (most likely): Cat bite to the hand, acute injury without systemic symptoms.\n - Differential:\n  1. Localized bacterial infection (e.g., Pasteurella multocida)\n  2. Soft tissue injury without infection\n  3. Early cellulitis\n  4. Allergic reaction to the bite (less likely without rash or swelling reported)\n - Red flags considered:\n   No fever or systemic symptoms, no signs of respiratory distress or chest pain, no high-risk comorbidities.\n\nP:\n - Disposition: Patient can be managed outpatient with close follow-up.\n - Plan:\n   1. Advise thorough wound cleaning and hygiene.\n   2. Educate on signs of infection such as increasing redness, swelling, warmth, pain, or fever.\n   3. Consider prophylactic antibiotics given the high risk of infection from cat bites; typical regimen includes amoxicillin-clavulanate 875 mg/125 mg orally twice daily for 5 days. Alternatives include doxycycline or a combination of clindamycin plus a fluoroquinolone if allergic to penicillin.\n   4. Recommend tetanus update if not current.\n   5. Review by physician to confirm appropriateness and prescribe antibiotics if indicated.\n - Safety net:\n   Instruct patient to seek urgent care if they develop fever, spreading redness, increased pain, swelling, or any systemic symptoms. Return for evaluation if no improvement or worsening within 48 hours.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+        "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+      },
+      {
+        "title": "NICE NG120: Cough (acute)",
+        "source": "https://www.nice.org.uk/guidance/ng120",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+      },
+      {
+        "title": "BMJ Best Practice: Acute Cough",
+        "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+        "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+      "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+    },
+    {
+      "title": "NICE NG120: Cough (acute)",
+      "source": "https://www.nice.org.uk/guidance/ng120",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+    },
+    {
+      "title": "BMJ Best Practice: Acute Cough",
+      "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+      "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ing medical care.\nWhat: We utilize the ARI metric to categorize the level of respiratory illnesses as Minimal, Low, Moderate, High, or Very High in two places: \n'Your community snapshot ' on the main page of the Respiratory Illness Data Channel alongside other state and community data. \nRespiratory Virus Activity Levels , where we replaced the map based on influenza-like illness (ILI) with a map using the new ARI metric to capture the level of respiratory illness activity across the US. ILI data continues to be available on the ILINet State Activity Indicator Map . \nWhy: \nThe ARI metric provides a broader picture than ILI for evaluating overall respiratory illness trends. Some respiratory illnesses do not have fever as a main symptom and are not captured consistently in measures using ILI, which uses fever as a criterion. \nThe new summary metric characterizes overall ARI activity to monitor the combined effects of multiple respiratory illnesses and when used in combination with laboratory confirmed pathogen specific surveillance can help monitor trends in illness associated with respiratory pathogens. \n3. Enhancing emergency department data.\nWhat: \nWe added a way to understand how often COVID, flu, and RSV is being seen in emergency departments in 'Your community snapshot.' Levels are categorized as Minimal, Low, Moderate, High, or Very High. \nThese categories are relative to a",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_022"
+}

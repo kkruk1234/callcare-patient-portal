@@ -1,0 +1,21 @@
+# Clinician-facing medication/dosing protocol for: asthma_wheeze
+# Tier 1 reviewer approval required. Phone-only: no peak flow; triage based on symptoms.
+
+rx_options:
+  - med: "Short-acting bronchodilator (rescue inhaler) if patient already has one"
+    dosing: "Reinforce standard use per clinician judgement; do not speak exact dosing in patient summary."
+    exclusions: "If severe symptoms / cyanosis / unable to speak → ED now."
+    notes: "If no inhaler available and symptoms moderate-to-severe → urgent evaluation."
+
+  - med: "Systemic steroid consideration"
+    dosing: "Per guideline if moderate/severe exacerbation; clinician to decide."
+    exclusions: "Infection considerations, diabetes, etc."
+    notes: "Tier 1: reviewer must approve."
+
+supportive_care:
+  - item: "Trigger avoidance"
+    details: "Smoke/allergen avoidance; upright positioning; monitor for worsening."
+
+followup_and_safety:
+  - item: "Escalate"
+    details: "Severe work of breathing, cyanosis, rescue not helping → ED now."

@@ -1,0 +1,26 @@
+{
+  "pathway_id": "pyelonephritis_possible",
+  "sources": [
+    {
+      "id": "pyelonephritis_possible_src_1",
+      "source_id": "pyelonephritis_possible_src_1",
+      "title": "pyelonephritis_possible references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "pyelonephritis_possible_src_2",
+      "source_id": "pyelonephritis_possible_src_2",
+      "title": "pyelonephritis_possible references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "pyelonephritis_possible_src_3",
+      "source_id": "pyelonephritis_possible_src_3",
+      "title": "pyelonephritis_possible references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

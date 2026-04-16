@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Activity Levels | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/activity-levels.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "or each of the 10 U.S. Department of Health and Human Services Regions separately, we identified the weeks with the lowest activity for respiratory illnesses. This was done using clinical and public health laboratory test positivity data for COVID-19 and RSV from&#8239;National Respiratory and Enteric Virus Surveillance System (NREVSS), and public health laboratory data from FluView , excluding H5, for recent surveillance years (2022-2023, 2023-2024, and 2024-2025 defined as epidemiologic Week 27 through Week 26 of the following calendar year). The lowest activity weeks serve as the reference periods. \nLowest activity for COVID-19 and RSV: identified as weeks in a given year when, for at least two consecutive weeks, <1% of tests for COVID-19 and RSV are positive. \nLowest activity for influenza: identified as weeks in a given year when, for at least two consecutive weeks, <2% of tests for influenza in those weeks are positive. \nWeek 27 through Week 26 of the following calendar year was used to define a surveillance year in order to capture summer COVID-19 activity as the start of a given season. \nLowest activity weeks for ARI were identified as weeks when COVID-19, influenza, and RSV were all identified as having low activity according to their separate thresholds. \nFor each state within a region, the reference periods were used to calculate the values that created the levels (c",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_activity_levels_html_f3cd8bd52f62",
+  "chunk_id": "chunk_005"
+}

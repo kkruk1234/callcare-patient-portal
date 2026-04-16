@@ -1,0 +1,22 @@
+id: syncope_fainting
+version: 0.1
+match:
+  any_keywords: ["fainted", "passed out", "blackout", "blacked out", "nearly fainted", "almost passed out", "syncope"]
+questions:
+  - id: persistent
+    prompt: "Are you still lightheaded, confused, or too weak to stand? (yes/no)"
+    store_as: persistent_symptoms
+    type: yesno
+  - id: chest
+    prompt: "Any chest pressure, severe shortness of breath, or heart racing right now? (yes/no)"
+    store_as: cardio_redflags
+    type: yesno
+  - id: neuro
+    prompt: "Any new one-sided weakness, trouble speaking, or severe headache? (yes/no)"
+    store_as: neuro_redflags
+    type: yesno
+stop_rules:
+  - if_all_answered: ["persistent", "chest", "neuro"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

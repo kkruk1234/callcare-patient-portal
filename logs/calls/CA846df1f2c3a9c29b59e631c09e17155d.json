@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA846df1f2c3a9c29b59e631c09e17155d",
+  "session_id": "2ca75c4d-3f77-4ff3-9fc3-753b754d7908",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-04T15:38:23.221842+00:00",
+  "ended_at": "2026-04-04T15:45:29.627518+00:00",
+  "packet_id": "6c0394ad-c2a0-4530-b341-2c1c4e774bec",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a rash on my arms."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first notice the rash on your arms?"
+    },
+    {
+      "role": "user",
+      "text": "About a week ago, it started, but it's been progressively getting worse."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what the rash looks like and if it itches, burns, or is painful?"
+    },
+    {
+      "role": "user",
+      "text": "The rash is red red and raised and it has these little blister like things on it that are very, very, very itchy. And when I itched them some sometimes they break and oozic clearish yellowish liquid and gives, like, crusting to it."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any fever, chills, or feeling generally unwell since the rash started?"
+    },
+    {
+      "role": "user",
+      "text": "I've been feeling generally unwell for a while now. Before the rash even started. So but the fever and chills, no. I haven't had any of that."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you recently been exposed to any new soaps, detergents, plants, animals, or medications before the rash appeared?"
+    },
+    {
+      "role": "user",
+      "text": "We got a new dog, but I it's the same breed that we had the before, so I don't know why I would be allergic to it now."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or remedies on the rash so far, and if so, what were they and did they help?"
+    },
+    {
+      "role": "user",
+      "text": "I tried what is it, Calamine lotion on it. And that has not really helped very much. I tried Tiger Balm on it too. That didn't help at all."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of eczema, allergies, or similar skin problems in the past?"
+    },
+    {
+      "role": "user",
+      "text": "I have seasonal allergies, but not allergies related to my skin."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed if the rash is spreading beyond your arms or if you have any swollen lymph nodes nearby?"
+    },
+    {
+      "role": "user",
+      "text": "Well, the rash goes above my elbow like an inch or 2 above my elbow and then down to my wrists on both arms. So it hasn't gotten any further than that, and I have no swollen lymph nodes."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent insect bites or exposure to areas with poison ivy, oak, or sumac?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any other symptoms like joint pain, mouth sores, or eye redness?"
+    },
+    {
+      "role": "user",
+      "text": "No. None of the above."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any changes in your general health such as weight loss, night sweats, or fatigue?"
+    },
+    {
+      "role": "user",
+      "text": "I feel fatigued, but I do also work a lot So I think that's kinda normal. So but no no other changes."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have a red, itchy rash with blisters on both arms that may be irritated or infected. Because I can’t examine you or run tests over the phone, a licensed physician will review your information and may recommend medication like a topical antibiotic or oral antibiotics if needed. For now, you can try to keep the area clean and avoid scratching. If the rash spreads, worsens, or if you develop fever, chills, or any difficulty breathing or severe swelling, please seek urgent or emergency care right away. This service doesn’t include in-person visits, so if you need an exam or testing, please go to urgent care or the emergency room. A doctor will review your case soon and decide on the best treatment."
+    }
+  ]
+}

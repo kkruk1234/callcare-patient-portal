@@ -1,0 +1,17 @@
+# Clinician-facing medication/dosing protocol for: chest_pain
+# Tier 1: reviewer must approve/modify.
+# NOTE: Chest pain is primarily a triage pathway. Avoid suggesting outpatient meds if ED criteria met.
+
+rx_options:
+  - med: "None (triage-first)"
+    dosing: "N/A"
+    exclusions: "N/A"
+    notes: "If ED-now criteria met, do not delay care for meds. If clearly musculoskeletal after evaluation, treat per clinician judgement."
+
+supportive_care:
+  - item: "Avoid exertion"
+    details: "Advise rest and urgent evaluation if concerning features present."
+
+followup_and_safety:
+  - item: "Escalate immediately"
+    details: "Exertional chest pressure, syncope, severe dyspnea, diaphoresis + radiation → ED now."

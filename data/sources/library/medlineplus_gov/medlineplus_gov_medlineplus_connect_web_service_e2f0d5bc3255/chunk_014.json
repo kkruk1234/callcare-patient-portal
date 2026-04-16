@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Service",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-service/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "ipient.languageCode.c=en \nTo request information by SNOMED code for a Spanish speaker, your request may look like this:\nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.c=104107006&mainSearchCriteria.v.cs=2.16.840.1.113883.6.96&mainSearchCriteria.v.dn=&informationRecipient.languageCode.c=es \nAcceptable Use Policy \nIn order to avoid overloading the MedlinePlus servers, NLM requires that users of MedlinePlus Connect send no more than 100 requests per minute per IP address. Requests that exceed this limit will not be serviced, and service will not be restored for 300 seconds or until the request rate falls beneath the limit, whichever comes later. To limit the number of requests that you send to Connect, NLM recommends caching results for a 12-24 hour period.\nThis policy is in place to ensure that the service remains available and accessible to all users. If you have a specific use case that requires you to send a large number of requests to MedlinePlus Connect, and thus exceed the request rate limit outlined in this policy, please contact us . NLM staff will evaluate your request and determine if an exception may be granted. Please also review the MedlinePlus XML files documentation. These XML files contain complete health topic records and can serve as an alternate method of accessing MedlinePlus data.\nMore Information \nHow MedlinePlus Connect Works \nMedlinePlus Conn",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_service_e2f0d5bc3255",
+  "chunk_id": "chunk_014"
+}

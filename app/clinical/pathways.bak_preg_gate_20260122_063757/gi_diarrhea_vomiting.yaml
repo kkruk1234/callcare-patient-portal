@@ -1,0 +1,35 @@
+id: gi_diarrhea_vomiting
+version: 0.1
+match:
+  any_keywords: ["diarrhea", "vomiting", "throwing up", "nausea", "stomach bug", "gastroenteritis", "food poisoning"]
+questions:
+  - id: duration
+    prompt: "How long have symptoms been going on? (hours/days)"
+    store_as: duration
+
+  - id: blood
+    prompt: "Any blood in stool or black/tarry stools? (yes/no)"
+    store_as: bloody_stool
+    type: yesno
+
+  - id: dehydration
+    prompt: "Are you unable to keep fluids down, very dizzy, or barely urinating? (yes/no)"
+    store_as: dehydration_redflag
+    type: yesno
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: severe_abd_pain
+    prompt: "Is abdominal pain severe or worsening? (yes/no)"
+    store_as: severe_abd_pain
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["duration","blood","dehydration","fever","severe_abd_pain"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

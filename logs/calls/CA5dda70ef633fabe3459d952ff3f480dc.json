@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA5dda70ef633fabe3459d952ff3f480dc",
+  "session_id": "61061f05-5e6c-4a1a-8591-d7429ff1f9a1",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T12:52:18.209372+00:00",
+  "ended_at": "2026-04-03T12:59:40.349611+00:00",
+  "packet_id": "6319f706-1544-4c5d-a7d7-c4145e0783fd",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm having leg cramps."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your leg cramps start?"
+    },
+    {
+      "role": "user",
+      "text": "About 2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Where exactly in your leg are you experiencing the cramps?"
+    },
+    {
+      "role": "user",
+      "text": "My calf muscles."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling, redness, or warmth in your calf?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. In the left calf. I have noticed that. But, realistically, I've had that for years now, and it was checked out for a DVT previously. So this is that is not new. What is new is the leg cramps. The leg cramps are brand new and just have been happening the last 2 days, and they've been happening at night. Well, actually, it's more in the morning. When I wake up in the morning, if my toes are pointing down or if I'm just, like, stretching and pointing my toes down, then the cramps start. But if I flex my toes upwards, then it breaks the cramp."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent trauma, prolonged immobility, or travel that might increase your risk for blood clots?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or weakness in your leg along with the cramps?"
+    },
+    {
+      "role": "user",
+      "text": "I guess I've been having a little bit I don't know if you would call it tingling. It's more like a jerking sensation that I have to move my legs because they're it's I it's just uncomfortable until I until I move it."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of peripheral artery disease, diabetes, or nerve problems in your legs?"
+    },
+    {
+      "role": "user",
+      "text": "Not that I'm aware of."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent changes in your medications, hydration, or activity level that might relate to the new leg cramps?"
+    },
+    {
+      "role": "user",
+      "text": "Well, I am definitely not drinking as much as I should. I drink about 33 ounces a day, and that's it of water. I do drink coffee during the day, and I have 1 soda during the day. But on a whole, I don't think I'm drinking enough water."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or general feeling of illness?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cramping or pain in your legs during walking or exercise that improves with rest?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or remedies for the leg cramps so far, and if so, what was the effect?"
+    },
+    {
+      "role": "user",
+      "text": "As I said, if I if I pull my toes upward and instead of pointing them down, it breaks the cramp. But I'll of the that physical motion, I haven't tried anything for the the leg cramps. Because they just started 2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like your leg cramps are most likely related to mild dehydration and muscle fatigue. Since I can’t examine you or run tests over the phone, a licensed physician will review your information and may recommend medication like magnesium to help. In the meantime, try to stay well hydrated and gently stretch the muscles. If you notice worsening swelling, redness, pain, numbness, weakness, or any sudden severe leg pain, please seek urgent in-person care right away. If you develop signs of infection like fever or chills, or if symptoms become severe, go to the emergency room. A physician will review your case and decide if further testing or treatment is needed."
+    }
+  ]
+}

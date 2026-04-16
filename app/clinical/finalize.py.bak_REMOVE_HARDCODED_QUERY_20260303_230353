@@ -1,0 +1,422 @@
+from __future__ import annotations
+
+import json
+import re
+import uuid
+from datetime import date, datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List
+
+try:
+    from app.core.models import ReviewPacket, NoteDraft  # type: ignore
+except Exception:
+    ReviewPacket = None  # type: ignore
+    NoteDraft = None  # type: ignore
+
+FINAL_DIR = Path("logs") / "finalized"
+FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def now_iso() -> str:
+    try:
+        return datetime.now(timezone.utc).isoformat()
+    except Exception:
+        return datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _publisher_from_url(url: str) -> str:
+    u = _safe_str(url).lower()
+    if not u:
+        return "Source"
+    try:
+        host = re.sub(r"^https?://", "", u).split("/")[0]
+        host = host.replace("www.", "").strip()
+        if not host:
+            return "Source"
+        parts = host.split(".")
+        if len(parts) >= 2:
+            core = parts[-2]
+            return core.upper() if len(core) <= 6 else core.capitalize()
+        return host
+    except Exception:
+        return "Source"
+
+
+def _extract_dx_cue_from_note(note: Any) -> str:
+    soap = _safe_str(getattr(note, "soap", "") or "")
+    if not soap:
+        return ""
+    m = re.search(r"(?ims)\nA:\s*\n(.*?)(?:\n\n|\nP:\s*\n|\Z)", soap)
+    if m:
+        first = (m.group(1) or "").strip().splitlines()[0].strip()
+        return " ".join(first.split()[:16]).strip()
+    m2 = re.search(r"(?im)^\s*A:\s*(.+)$", soap)
+    if m2:
+        return " ".join((m2.group(1) or "").strip().split()[:16]).strip()
+    return ""
+
+
+def _extract_cc_from_state(state: Any) -> str:
+    try:
+        return _safe_str(getattr(state, "chief_complaint", "") or getattr(state, "chief", "") or "")
+    except Exception:
+        return ""
+
+
+def _soap_section(soap: str, header: str) -> str:
+    if not soap:
+        return ""
+    h = header.strip().rstrip(":").upper()
+    m = re.search(rf"(?is)\b{re.escape(h)}:\s*(.*?)(?=\n\s*[SOAP]:\s|\Z)", soap)
+    if m:
+        return _safe_str(m.group(1) or "")
+    return ""
+
+
+def _extract_location_phrases_from_soap(note: Any, max_phrases: int = 3) -> List[str]:
+    soap = _safe_str(getattr(note, "soap", "") or "")
+    if not soap:
+        return []
+
+    subj = _soap_section(soap, "S") or ""
+    obj = _soap_section(soap, "O") or ""
+    text = (subj + "\n" + obj).strip()
+    if not text:
+        text = soap
+
+    text = re.sub(r"\s+", " ", text).strip()
+
+    patterns = [
+        r"\b(left|right|bilateral|both|midline)\b[^.]{0,80}",
+        r"\b(under|below|above|near|around|along|between|over|at|in|on)\b[^.]{0,80}",
+        r"\bradiat(?:e|es|ed|ing)\b[^.]{0,80}",
+    ]
+
+    raw: List[str] = []
+    for pat in patterns:
+        for m in re.finditer(pat, text, flags=re.I):
+            frag = _safe_str(m.group(0) or "")
+            frag = re.sub(r"[,;:()\[\]\"']", " ", frag)
+            frag = re.sub(r"\s+", " ", frag).strip()
+            if frag:
+                raw.append(frag)
+
+    cleaned: List[str] = []
+    seen = set()
+    for frag in raw:
+        w = frag.split()
+        frag2 = " ".join(w[:10]).strip()
+        key = frag2.lower()
+        if not frag2:
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        cleaned.append(frag2)
+        if len(cleaned) >= max_phrases:
+            break
+
+    return cleaned
+
+
+def _get_answers_dict(state: Any) -> Dict[str, Any]:
+    if state is None:
+        return {}
+    try:
+        a = getattr(state, "answers", None)
+        if isinstance(a, dict):
+            return a
+    except Exception:
+        pass
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            a = sx.get("_answers")
+            if isinstance(a, dict):
+                return a
+    except Exception:
+        pass
+    return {}
+
+
+def _get_evidence_queries(state: Any, note: Any, max_q: int = 4) -> List[str]:
+    ans = _get_answers_dict(state)
+    qs = None
+    try:
+        qs = ans.get("evidence_search_queries")
+    except Exception:
+        qs = None
+
+    if isinstance(qs, list):
+        out0 = [_safe_str(x) for x in qs if _safe_str(x)]
+        return out0[:max_q]
+
+    dx = _extract_dx_cue_from_note(note) or _safe_str(getattr(state, "working_diagnosis", "") if state is not None else "")
+    cc = _extract_cc_from_state(state)
+    loc_phrases = _extract_location_phrases_from_soap(note, max_phrases=3)
+    loc_blob = " ".join(loc_phrases).strip()
+
+    anchor = " ".join([x for x in [dx, cc] if x]).strip()
+    if not anchor:
+        anchor = cc or "patient complaint"
+
+    q = []
+    q.append(" ".join([anchor, loc_blob, "outpatient management guideline"]).strip())
+    q.append(" ".join([anchor, loc_blob, "treatment medication dosing duration contraindications"]).strip())
+    q.append(" ".join([anchor, loc_blob, "red flags return precautions testing"]).strip())
+
+    out: List[str] = []
+    seen = set()
+    for x in q:
+        x2 = " ".join(_safe_str(x).split()).strip()
+        if not x2:
+            continue
+        k = x2.lower()
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(x2)
+
+    return out[:max_q]
+
+
+def _note_has_evidence(note: Any) -> bool:
+    try:
+        ev = getattr(note, "evidence", None)
+        return isinstance(ev, list) and len(ev) > 0
+    except Exception:
+        return False
+
+
+def _as_printable_evidence_dicts(refs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    today = ""
+    try:
+        today = date.today().isoformat()
+    except Exception:
+        today = ""
+
+    out: List[Dict[str, Any]] = []
+    seen = set()
+    for r in refs or []:
+        if not isinstance(r, dict):
+            continue
+        title = _safe_str(r.get("title") or "")
+        url = _safe_str(r.get("url") or r.get("source") or "")
+        src = _safe_str(r.get("source") or _publisher_from_url(url))
+        snip = _safe_str(r.get("snippet") or r.get("text") or "")
+        if not title and not url:
+            continue
+        key = url or title
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(
+            {
+                "title": title or (url[:160] if url else "Source"),
+                "source": src or "Source",
+                "url": url,
+                "accessed": _safe_str(r.get("accessed") or today),
+                "snippet": snip,
+            }
+        )
+    return out
+
+
+def _packet_fields() -> set:
+    try:
+        if hasattr(ReviewPacket, "model_fields"):
+            return set(ReviewPacket.model_fields.keys())
+        if hasattr(ReviewPacket, "__fields__"):
+            return set(ReviewPacket.__fields__.keys())
+    except Exception:
+        pass
+    return set()
+
+
+def _set_packet_evidence(kwargs: Dict[str, Any], note: Any) -> None:
+    fields = _packet_fields()
+    ev_print = []
+    try:
+        ev_print = getattr(note, "evidence", None) or []
+    except Exception:
+        ev_print = []
+    if not isinstance(ev_print, list):
+        ev_print = []
+
+    ev_packet: List[Dict[str, str]] = []
+    for e in ev_print:
+        if not isinstance(e, dict):
+            continue
+        t = _safe_str(e.get("title") or "")
+        s = _safe_str(e.get("source") or e.get("publisher") or "Source")
+        sn = _safe_str(e.get("snippet") or "")
+        if t:
+            ev_packet.append({"title": t, "source": s or "Source", "snippet": sn})
+
+    if "evidence" in fields:
+        kwargs["evidence"] = ev_packet
+    if "evidence_used" in fields:
+        kwargs["evidence_used"] = ev_packet
+
+
+def _write_finalized(packet: Any, session_id: str) -> None:
+    out_path = FINAL_DIR / f"{session_id}.json"
+    try:
+        if hasattr(packet, "model_dump_json"):
+            out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+            return
+    except Exception:
+        pass
+    try:
+        if hasattr(packet, "json"):
+            out_path.write_text(packet.json(indent=2), encoding="utf-8")
+            return
+    except Exception:
+        pass
+    try:
+        out_path.write_text(json.dumps(packet, indent=2, default=str), encoding="utf-8")
+    except Exception:
+        pass
+
+
+def finalize(session_id: str, note: Any, state: Any = None) -> Any:
+    if session_id is None or not str(session_id).strip():
+        session_id = str(uuid.uuid4())
+
+    if note is None:
+        try:
+            from app.clinical.note_builder import build_note_with_reason  # type: ignore
+            if state is not None:
+                note, _ = build_note_with_reason(state)
+        except Exception:
+            note = None
+
+    if note is None:
+        try:
+            from app.clinical.note_builder import fallback_note_from_state  # type: ignore
+            note = fallback_note_from_state(state)
+        except Exception:
+            try:
+                note = NoteDraft()  # type: ignore
+            except Exception:
+                note = {"soap": ""}
+
+    try:
+        if isinstance(note, tuple):
+            note = note[0]
+    except Exception:
+        pass
+
+    try:
+        cc = _extract_cc_from_state(state)
+        dx_cue = _extract_dx_cue_from_note(note)
+        qs = _get_evidence_queries(state, note, max_q=4)
+
+        ans = _get_answers_dict(state)
+        if isinstance(ans, dict):
+            ans["evidence_search_queries"] = qs
+            try:
+                if hasattr(state, "answers"):
+                    state.answers = ans
+            except Exception:
+                pass
+
+        do_evidence = not _note_has_evidence(note)
+        if do_evidence:
+            try:
+                from app.rag.llm_http_evidence import llm_http_evidence  # type: ignore
+
+                assessment_text = ""
+                try:
+                    soap0 = _safe_str(getattr(note, "soap", "") or "")
+                    m = re.search(r"(?is)\bA:\s*(.*?)(?:\n\s*P:|\Z)", soap0)
+                    if m:
+                        assessment_text = _safe_str(m.group(1) or "")
+                    if not assessment_text:
+                        assessment_text = dx_cue
+                    if assessment_text and len(assessment_text) > 600:
+                        assessment_text = assessment_text[:600]
+                except Exception:
+                    assessment_text = dx_cue
+
+                refs = llm_http_evidence(
+                    chief_complaint=cc or "chief complaint",
+                    assessment_text=assessment_text or None,
+                    queries=qs,
+                    min_urls=4,
+                    max_urls=6,
+                    max_queries=min(4, len(qs)),
+                    max_per_publisher=1,
+                    debug=False,
+                ) or []
+
+                if isinstance(refs, list) and refs:
+                    ev_print = _as_printable_evidence_dicts([r for r in refs if isinstance(r, dict)])
+                    if ev_print:
+                        try:
+                            setattr(note, "evidence", ev_print)
+                        except Exception:
+                            pass
+                        try:
+                            if state is not None:
+                                setattr(state, "evidence_used", ev_print)
+                        except Exception:
+                            pass
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+    kwargs: Dict[str, Any] = {}
+    fields = _packet_fields()
+    now = now_iso()
+
+    if "packet_id" in fields:
+        kwargs["packet_id"] = str(uuid.uuid4())
+    if "created_at" in fields:
+        kwargs["created_at"] = now
+    if "session_id" in fields:
+        kwargs["session_id"] = session_id
+    if "timestamp_iso" in fields and "created_at" not in kwargs:
+        kwargs["timestamp_iso"] = now
+    if "timestamp" in fields and "created_at" not in kwargs and "timestamp_iso" not in kwargs:
+        kwargs["timestamp"] = now
+
+    if "note" in fields:
+        kwargs["note"] = note
+
+    cc2 = _extract_cc_from_state(state)
+    if "chief_complaint" in fields:
+        kwargs["chief_complaint"] = cc2
+
+    if "answers" in fields:
+        kwargs["answers"] = _get_answers_dict(state)
+
+    if "status" in fields:
+        kwargs["status"] = "APPROVED"
+    if "reviewer_id" in fields:
+        kwargs["reviewer_id"] = "SYSTEM"
+    if "reviewer_comments" in fields:
+        kwargs["reviewer_comments"] = "Tier-1 protocol auto-finalized"
+
+    _set_packet_evidence(kwargs, note)
+
+    packet = None
+    packet = ReviewPacket(**kwargs)  # type: ignore
+
+    try:
+        _write_finalized(packet, session_id)
+    except Exception:
+        pass
+
+    return packet
+
+
+CALLCARE_FINALIZE_FULLFILE_V2 = True

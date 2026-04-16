@@ -1,0 +1,313 @@
+from __future__ import annotations
+
+from pathlib import Path
+from datetime import datetime, timezone
+from typing import Any, Dict, Optional, List
+
+import json
+
+from app.core.models import ReviewPacket, NoteDraft, CallState, EvidenceRef
+
+
+FINAL_DIR = Path("logs/finalized")
+FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+MANIFESTS_DIR = Path("data/sources/pathways")
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _model_field_names(model_cls) -> set:
+    if hasattr(model_cls, "model_fields"):  # pydantic v2
+        return set(model_cls.model_fields.keys())
+    if hasattr(model_cls, "__fields__"):  # pydantic v1
+        return set(model_cls.__fields__.keys())
+    return set()
+
+
+_REVIEW_FIELDS = _model_field_names(ReviewPacket)
+_EVID_FIELDS = _model_field_names(EvidenceRef)
+
+
+def _mk_evidence_ref(data: Dict[str, Any]) -> EvidenceRef:
+    safe = {k: v for k, v in data.items() if k in _EVID_FIELDS}
+    if "source" in _EVID_FIELDS and not safe.get("source"):
+        safe["source"] = "Unknown source"
+    if "title" in _EVID_FIELDS and not safe.get("title"):
+        safe["title"] = safe.get("source", "Evidence")
+    if "snippet" in _EVID_FIELDS and safe.get("snippet") is None:
+        safe["snippet"] = ""
+    return EvidenceRef(**safe)
+
+
+def _safe_state_dict(state: CallState) -> Dict[str, Any]:
+    try:
+        if hasattr(state, "model_dump"):
+            return state.model_dump()
+    except Exception:
+        pass
+    try:
+        if hasattr(state, "dict"):
+            return state.dict()
+    except Exception:
+        pass
+    out: Dict[str, Any] = {}
+    for k in dir(state):
+        if k.startswith("_"):
+            continue
+        try:
+            v = getattr(state, k)
+        except Exception:
+            continue
+        if callable(v):
+            continue
+        out[k] = v
+    return out
+
+
+def _safe_note_dict(note: NoteDraft) -> Dict[str, Any]:
+    try:
+        if hasattr(note, "model_dump"):
+            return note.model_dump()
+    except Exception:
+        pass
+    try:
+        if hasattr(note, "dict"):
+            return note.dict()
+    except Exception:
+        pass
+    out: Dict[str, Any] = {}
+    for k in dir(note):
+        if k.startswith("_"):
+            continue
+        try:
+            v = getattr(note, k)
+        except Exception:
+            continue
+        if callable(v):
+            continue
+        out[k] = v
+    return out
+
+
+def _mk_packet_id(session_id: str) -> str:
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    return f"{session_id}_{ts}"
+
+
+def _get_pathway_id(state: Optional[CallState]) -> str:
+    if state is None:
+        return ""
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    if pid:
+        return str(pid).strip()
+    # fallback from symptoms._pathway.id
+    sx = getattr(state, "symptoms", None) or {}
+    if isinstance(sx, dict):
+        p = sx.get("_pathway", {})
+        if isinstance(p, dict) and p.get("id"):
+            return str(p["id"]).strip()
+    return ""
+
+
+def _load_manifest_evidence(pathway_id: str, max_items: int = 8) -> List[EvidenceRef]:
+    """
+    Load evidence sources from data/sources/pathways/<pathway_id>/manifest.json
+    Returns EvidenceRef list (title/source/url/snippet when available).
+    """
+    if not pathway_id:
+        return []
+    mpath = MANIFESTS_DIR / pathway_id / "manifest.json"
+    if not mpath.exists():
+        return []
+
+    try:
+        data = json.loads(mpath.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+    sources = data.get("sources") or data.get("evidence") or data.get("refs") or []
+    if not isinstance(sources, list):
+        return []
+
+    out: List[EvidenceRef] = []
+    for s in sources[:max_items]:
+        if not isinstance(s, dict):
+            continue
+        title = (s.get("title") or s.get("name") or s.get("source") or "").strip()
+        src = (s.get("source") or s.get("publisher") or s.get("org") or title or "Source").strip()
+        url = (s.get("url") or s.get("link") or "").strip()
+        snippet = (s.get("snippet") or s.get("summary") or s.get("notes") or "").strip()
+        if not (title or src or url or snippet):
+            continue
+        out.append(_mk_evidence_ref({
+            "title": title or src or "Evidence",
+            "source": src or title or "Source",
+            "url": url,
+            "snippet": snippet[:1200],
+        }))
+
+    return out
+
+
+def _merge_evidence(primary: List[EvidenceRef], secondary: List[EvidenceRef], max_total: int = 10) -> List[EvidenceRef]:
+    seen = set()
+    merged: List[EvidenceRef] = []
+    for ev in primary + secondary:
+        key = (
+            (getattr(ev, "title", "") or ""),
+            (getattr(ev, "source", "") or ""),
+            (getattr(ev, "url", "") or ""),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(ev)
+        if len(merged) >= max_total:
+            break
+    return merged
+
+
+def _append_evidence_sections_if_missing(soap_text: str, evidence: List[EvidenceRef]) -> str:
+    """
+    Deterministically append evidence sections at the end IF they aren't already present.
+    No regex. No rewriting of S/O/A/P content.
+    """
+    soap = (soap_text or "").rstrip() + "\n"
+    low = soap.lower()
+
+    has_used = "evidence used" in low
+    has_snips = "evidence (snippets used)" in low or "evidence snippets" in low
+
+    if (has_used and has_snips) or not evidence:
+        return soap
+
+    lines: List[str] = []
+    if not has_used:
+        lines.append("Evidence Used:")
+        for ev in evidence[:10]:
+            title = (getattr(ev, "title", "") or getattr(ev, "source", "") or "Evidence").strip()
+            url = (getattr(ev, "url", "") or "").strip()
+            if url:
+                lines.append(f"- {title} — {url}")
+            else:
+                lines.append(f"- {title}")
+
+    if not has_snips:
+        lines.append("Evidence (snippets used):")
+        any_snip = False
+        for ev in evidence[:6]:
+            src = (getattr(ev, "source", "") or getattr(ev, "title", "") or "Source").strip()
+            snip = (getattr(ev, "snippet", "") or "").strip()
+            if snip:
+                any_snip = True
+                lines.append(f"- {src}: {snip}")
+        if not any_snip:
+            lines.append("- (No evidence snippets retrieved.)")
+
+    return soap + "\n".join(lines).rstrip() + "\n"
+
+
+def _write_final_outputs(packet: ReviewPacket, note: NoteDraft, state: Optional[CallState]) -> None:
+    pid = getattr(packet, "packet_id", None) or _mk_packet_id(getattr(state, "session_id", "session") if state else "session")
+    json_path = FINAL_DIR / f"{pid}.json"
+    txt_path = FINAL_DIR / f"{pid}.txt"
+
+    payload = {
+        "packet": None,
+        "state": _safe_state_dict(state) if state is not None else None,
+        "note": _safe_note_dict(note),
+    }
+
+    try:
+        if hasattr(packet, "model_dump"):
+            payload["packet"] = packet.model_dump()
+        elif hasattr(packet, "dict"):
+            payload["packet"] = packet.dict()
+        else:
+            payload["packet"] = {"packet_id": getattr(packet, "packet_id", None)}
+    except Exception:
+        payload["packet"] = {"packet_id": getattr(packet, "packet_id", None)}
+
+    try:
+        json_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    except Exception:
+        pass
+
+    try:
+        soap = getattr(note, "soap", "") or ""
+        txt_path.write_text(soap, encoding="utf-8")
+    except Exception:
+        pass
+
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    """
+    Finalize encounter output into a ReviewPacket.
+
+    HARD RULES:
+    - Do NOT rewrite S/O/A/P text.
+    - Do NOT run regex cleanups.
+    - DO restore manifest-based evidence so Evidence Used works.
+    """
+    created_at = now_iso()
+
+    # 1) Ensure evidence exists: merge existing note evidence + manifest evidence
+    existing: List[EvidenceRef] = []
+    try:
+        ev = getattr(note, "evidence", None)
+        if isinstance(ev, list):
+            existing = [x for x in ev if isinstance(x, EvidenceRef)]
+    except Exception:
+        existing = []
+
+    pid = _get_pathway_id(state)
+    manifest_ev = _load_manifest_evidence(pid, max_items=10)
+    merged_ev = _merge_evidence(existing, manifest_ev, max_total=10)
+
+    # Attach merged evidence back onto note (no SOAP rewriting here)
+    try:
+        setattr(note, "evidence", merged_ev)
+    except Exception:
+        pass
+
+    # 2) If SOAP is missing Evidence sections, append them deterministically
+    try:
+        soap = getattr(note, "soap", "") or ""
+        soap2 = _append_evidence_sections_if_missing(soap, merged_ev)
+        if soap2 != soap:
+            setattr(note, "soap", soap2)
+    except Exception:
+        pass
+
+    # 3) Build ReviewPacket with supported fields only
+    packet_data: Dict[str, Any] = {}
+    if "packet_id" in _REVIEW_FIELDS:
+        packet_data["packet_id"] = _mk_packet_id(session_id)
+    if "created_at" in _REVIEW_FIELDS:
+        packet_data["created_at"] = created_at
+    if "session_id" in _REVIEW_FIELDS:
+        packet_data["session_id"] = session_id
+
+    if "note" in _REVIEW_FIELDS:
+        packet_data["note"] = note
+    elif "note_draft" in _REVIEW_FIELDS:
+        packet_data["note_draft"] = note
+
+    if state is not None:
+        if "state" in _REVIEW_FIELDS:
+            packet_data["state"] = state
+        elif "call_state" in _REVIEW_FIELDS:
+            packet_data["call_state"] = state
+
+    packet = ReviewPacket(**packet_data)
+
+    # 4) Write outputs (best-effort)
+    try:
+        _write_final_outputs(packet, note, state)
+    except Exception:
+        pass
+
+    return packet

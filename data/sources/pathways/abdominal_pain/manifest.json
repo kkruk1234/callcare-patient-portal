@@ -1,0 +1,26 @@
+{
+  "pathway_id": "abdominal_pain",
+  "sources": [
+    {
+      "id": "aafp_abdominal_pain",
+      "type": "web",
+      "url": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+      "license_note": "AAFP educational article; excerpts allowed."
+    },
+    {
+      "id": "acg_abdominal_pain",
+      "type": "web",
+      "url": "https://gi.org/topics/abdominal-pain/",
+      "title": "American College of Gastroenterology: Abdominal Pain",
+      "license_note": "Patient-facing educational content."
+    },
+    {
+      "id": "bmj_best_practice_abdominal_pain",
+      "type": "web",
+      "url": "https://bestpractice.bmj.com/topics/en-us/184",
+      "title": "BMJ Best Practice: Abdominal Pain",
+      "license_note": "Summarize; avoid full reproduction."
+    }
+  ]
+}

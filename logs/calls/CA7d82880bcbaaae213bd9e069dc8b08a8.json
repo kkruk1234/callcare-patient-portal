@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA7d82880bcbaaae213bd9e069dc8b08a8",
+  "session_id": "42aa2373-f4d7-4e36-bea8-cebab846c58d",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-12T13:37:43.019791+00:00",
+  "ended_at": "2026-03-12T13:42:48.549575+00:00",
+  "packet_id": "4f6568b9-1749-4e09-83e9-de028a64fc3d",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm having lower abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your lower abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "3 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain you are feeling in your lower abdomen?"
+    },
+    {
+      "role": "user",
+      "text": "It's a sharp and"
+    },
+    {
+      "role": "assistant",
+      "text": "Any associated symptoms like fever, nausea, vomiting, diarrhea, or urinary symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "coming and going."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about the associated symptoms you are experiencing, such as fever, nausea, vomiting, diarrhea, or urinary symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "I think I was running a fever."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have noticed any changes in your urine, such as pain with urination, blood, or increased frequency?"
+    },
+    {
+      "role": "user",
+      "text": "But outside of that, a little bit of nausea."
+    },
+    {
+      "role": "assistant",
+      "text": "Any vaginal symptoms like discharge or bleeding?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any vomiting, diarrhea, or any worsening of your pain since it started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any chance you could be pregnant or any recent pregnancy history?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you point to the exact spot where your lower abdominal pain is the worst?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Where exactly in your lower abdomen is the pain the worst? Please describe the location as precisely as you can."
+    },
+    {
+      "role": "user",
+      "text": "On the left side, a few inches below my belly button."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing left lower belly pain that could be due to an infection or inflammation, such as diverticulitis. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe antibiotics. It’s important to watch for worsening pain, a higher fever, new vomiting, or urinary symptoms—if these happen, please seek urgent in-person care the same day. If you develop severe abdominal pain or signs of infection like feeling very weak or confused, go to the emergency room right away. Next steps include getting an in-person evaluation with imaging and lab tests to confirm the diagnosis and guide treatment. If you need pain relief, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you can safely do so."
+    }
+  ]
+}

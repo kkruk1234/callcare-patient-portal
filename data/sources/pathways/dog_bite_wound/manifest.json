@@ -1,0 +1,12 @@
+{
+  "pathway_id": "dog_bite_wound",
+  "sources": [
+    {
+      "id": "dog_bite_wound_ref",
+      "source_id": "dog_bite_wound_ref",
+      "title": "Animal bites: general guidance (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

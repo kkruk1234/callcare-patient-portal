@@ -1,0 +1,37 @@
+id: dental_abscess
+version: 0.1
+match:
+  any_keywords: ["toothache", "tooth pain", "gum swollen", "gum swelling", "pus", "dental pain", "abscess tooth"]
+questions:
+
+  - id: pregnancy_possible
+    prompt: "Is there any chance you are pregnant right now? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: pregnancy_possible
+
+  - id: renal_disease
+    prompt: "Have you ever been told you have kidney disease or reduced kidney function? (yes/no/unknown)"
+    type: text
+    store_as: renal_disease
+
+  - id: fever
+    prompt: "Any fever? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: face_swelling
+    prompt: "Any swelling of the face or under the jaw? (yes/no)"
+    store_as: face_or_jaw_swelling
+    type: yesno
+  - id: trouble_swallow
+    prompt: "Any trouble swallowing, drooling, or trouble breathing? (yes/no)"
+    store_as: airway_or_swallow
+    type: yesno
+  - id: immune
+    prompt: "Any major immune system problems (chemo, transplant meds)? (yes/no)"
+    store_as: immunocompromised
+    type: yesno
+stop_rules:
+  - if_all_answered: ["fever", "face_swelling", "trouble_swallow", "immune"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

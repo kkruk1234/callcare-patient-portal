@@ -1,0 +1,67 @@
+{
+  "packet_id": "da204bcb-43fb-4719-98bc-3b28aee0165f",
+  "created_at": "2026-02-25T14:33:26.432622+00:00",
+  "session_id": "38ac6870-699c-43b1-8758-aaf24181735e",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting that might have triggered the pain?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Does the pain get worse with breathing, coughing, or movement?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol and it didn't help very much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any chest pain, shortness of breath, or cough?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury, trauma, or heavy lifting that might have triggered the pain. There are no associated symptoms such as fever, chills, unexplained weight loss, chest pain, shortness of breath, cough, numbness, weakness, or tingling in the legs or feet. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of kidney problems, urinary symptoms, abdominal pain, cancer, osteoporosis, or recent steroid use. O: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage area without red flag symptoms. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib dysfunction\n3. Intercostal nerve irritation\n4. Early presentation of visceral pathology such as renal or splenic causes (less likely given absence of urinary or systemic symptoms)\n\nP:\n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Use NSAIDs with caution if gastrointestinal issues develop; avoid NSAIDs in patients with renal impairment or liver disease (not present in this patient)\n - Return precautions: Advise patient to seek care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, chest pain, shortness of breath, or urinary symptoms\n - Testing: Not indicated at this time given absence of red flag symptoms; consider imaging or labs if symptoms worsen or fail to improve with conservative management",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

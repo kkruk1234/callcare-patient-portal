@@ -1,0 +1,12 @@
+{
+  "pathway_id": "substance_use_concern_noncrisis",
+  "sources": [
+    {
+      "id": "substance_use_concern_noncrisis_ref",
+      "source_id": "substance_use_concern_noncrisis_ref",
+      "title": "Substance use help info (starter)",
+      "url": "https://www.samhsa.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

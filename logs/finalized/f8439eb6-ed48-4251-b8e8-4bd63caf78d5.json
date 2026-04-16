@@ -1,0 +1,57 @@
+{
+  "packet_id": "f8439eb6-ed48-4251-b8e8-4bd63caf78d5",
+  "created_at": "2026-03-08T14:44:00.643266+00:00",
+  "session_id": "c09e8a48-e107-48e6-8816-37736bb27bb7",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin allergy alternative antibiotics dosing strep throat adults",
+    "red flags and return precautions sore throat with fever and white patches"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin allergy alternative antibiotics dosing strep throat adults",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin allergy alternative antibiotics dosing strep throat adults",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin allergy alternative antibiotics dosing strep throat adults",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin allergy alternative antibiotics dosing strep throat adults",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin allergy alternative antibiotics dosing strep throat adults",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin allergy alternative antibiotics dosing strep throat adults"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.pdf",
+      "accessed": "2026-03-08",
+      "snippet": ""
+    },
+    {
+      "title": "Recommendations | Sore throat (acute): antimicrobial prescribing | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng84/chapter/Recommendations",
+      "accessed": "2026-03-08",
+      "snippet": "250 mg to 500 mg four times a day or 500 mg to 1,000 mg twice a day for 5 days Erythromycin is preferred if a macrolide is needed in pregnancy, for example, if there is true penicillin allergy and the benefits of antibiotic treatment outweigh the harms."
+    },
+    {
+      "title": "Strep throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000639.htm",
+      "accessed": "2026-03-08",
+      "snippet": "Certain other antibiotics may also work against the strep bacteria. Antibiotics should be taken for 10 days, even though symptoms are often gone within a few days. The following tips may help your sore throat feel better:"
+    },
+    {
+      "title": "Management of Group A Beta-Hemolytic Streptococcal Pharyngitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2001/0415/p1557.html/1000",
+      "accessed": "2026-03-08",
+      "snippet": "Antibiotic Dose/dosage Dosing frequency Duration of therapy Cost (generic) * Penicillin V (Veetids) Child: 250 mg Two or three times daily 10 days $ 1.50 (1.00 to 1.25) Adult: 500 mg Two or three times daily 10 days 2.50 (1.75 to 2.00) Penicillin G benzathine (Bicillin L-A) Child: 600,000 units Single injection — 10.25 Adult: 1,200,000 units Single injection — 17.75 Amoxicillin (Amoxil) Child: 40 mg per kg per day Three divided doses 10 days 5.25 (6.00 to 6.75)† Adult: 500 mg Three times daily 10 days 16.50 (11.75 to 17.50) Erythromycin ethylsuccinate (E.E.S. 400) Child: 40 mg per kg per day Two to four divided doses 10 days 8.50 (11.00 to 12.25)‡ Adult: 400 mg Four times daily 10 days 9.25 (11.00 to 12.50) Erythromycin estolate Child: 20 to 40 mg per kg per day Two to four divided doses 10 days (15.00to31.50)§ Adult: not recommended — — — Azithromycin (Zithromax) Child: 12 mg per kg for"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sore throat accompanied by fever, chills, painful swallowing without difficulty, swollen lymph nodes, and white patches on the tonsils. She reports no cough, nasal congestion, or rash. There is a known recent exposure to strep throat from her son last week. She has no history of rheumatic fever or heart valve problems and has a penicillin allergy.\n\nO: Phone encounter only; no physical exam or vitals available.\n\nA: The working diagnosis is streptococcal pharyngitis given the acute onset of sore throat with fever, tonsillar exudates, tender cervical lymphadenopathy, and known exposure to strep throat.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Other bacterial pharyngitis\n\nP: - First-line medication: Azithromycin 500 mg orally on day 1, then 250 mg orally once daily on days 2 through 5 (Physician must verify medication/dosing)\n- Alternatives: Clindamycin 300 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; monitor for gastrointestinal side effects with macrolides and clindamycin; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, drooling, inability to swallow saliva, worsening symptoms, or high fever develops; seek emergency care if severe respiratory distress occurs.\n- Testing: Recommend in-person rapid antigen detection test or throat culture for confirmation of streptococcal infection if symptoms persist or worsen."
+}

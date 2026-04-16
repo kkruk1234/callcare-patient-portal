@@ -1,0 +1,10 @@
+{
+  "title": "Keys to Success with the SAAR | Analysis Resources | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/ps-analysis-resources/keys-to-success-saar.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "I is the range of values in which we have a high degree of confidence that the true SAAR value lies. However, the SAAR is the most likely value.\nIf the 95% CI does not include 1.0 (for example: 95% CI = [0.85, 0.92]), the SAAR is statistically significantly different than 1.0 (specifically, the reported antimicrobial days are significantly different than the predicted antimicrobial days). \nIf the 95% CI includes 1.0 (for example: 95% CI = [0.85, 1.24]), the SAAR is not statistically significantly different than 1.0 (specifically, the reported antimicrobial days are not significantly different than the predicted antimicrobial days). \nSAAR Percentile The SAAR percentile is the percentile a SAAR falls into based on the distribution of location specific SAARs found in the NHSN AU Option Report Data Tables . SAARs were calculated for each SAAR location reporting nine or more months of data and percentiles are based on those location-year-level distributions. The 50th percentile is the median location-specific SAAR value. For example, a SAAR for a medical ICU location with a SAAR percentile of 90 indicates 89% of SAAR values reported from medical ICU locations are less than that SAAR and 10% of SAAR values reported from medical ICU locations are higher than it based on data reported into the AU Option.\nTop of Page SAAR Baselines NHSN currently offers three SAAR baselines, each applic",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_ps_analysis_resources_keys_to_success_saar_html_fb9a8ed0ae42",
+  "chunk_id": "chunk_003"
+}

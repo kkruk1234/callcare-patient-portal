@@ -1,0 +1,317 @@
+import os, json, time, re
+from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
+from typing import Optional, Callable, Any, Dict, List, Tuple
+
+from openai import OpenAI
+
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini")
+
+# Authoritative allowlist (including subdomains).
+# NOTE: user explicitly requested NO PubMed; we therefore do NOT include pubmed.ncbi.nlm.nih.gov.
+ALLOWLIST_DOMAINS = {
+    "nih.gov",
+    "ncbi.nlm.nih.gov",
+    "medlineplus.gov",
+    "nice.org.uk",
+    "nhs.uk",
+    "who.int",
+    "merckmanuals.com",
+    "idsociety.org",
+    "acog.org",
+    "acep.org",
+    "aaos.org",
+    "aafp.org",
+}
+
+# Explicitly forbidden domains even if they appear in allowlist-like areas
+BLOCKLIST_DOMAINS = {
+    "pubmed.ncbi.nlm.nih.gov",
+}
+
+BAD_TITLE_SIGNALS = [
+    "page not found",
+    "not found",
+    "error",
+    "access denied",
+    "forbidden",
+    "unauthorized",
+    "oops",
+    "we can’t find",
+    "we can't find",
+    "there doesn't seem to be anything here",
+    "value is what coveo indexes",
+]
+
+STOPWORDS = {
+    "the","a","an","and","or","of","to","in","on","for","with","without","is","are",
+    "this","that","it","as","by","from","at","be","been","was","were","can","may",
+    "your","you","patient","patients","adult","adults","child","children",
+}
+
+TraceFn = Optional[Callable[[str, Any], None]]
+
+
+def _now_ts() -> float:
+    return time.time()
+
+
+def _trace(trace_fn: TraceFn, event: str, **kw) -> None:
+    if not trace_fn:
+        return
+    try:
+        trace_fn(event, **kw)
+    except Exception:
+        pass
+
+
+def _normalize_url(u: str) -> str:
+    u = (u or "").strip()
+    if not u:
+        return ""
+    # drop trailing slash
+    if u.endswith("/"):
+        u = u[:-1]
+    # strip utm_source=openai + other utm_*
+    try:
+        p = urlparse(u)
+        q = [(k, v) for (k, v) in parse_qsl(p.query, keep_blank_values=True) if not k.lower().startswith("utm_")]
+        newq = urlencode(q, doseq=True)
+        p2 = p._replace(query=newq)
+        u = urlunparse(p2)
+    except Exception:
+        pass
+    # strip www
+    u = u.replace("://www.", "://")
+    return u
+
+
+def _host(url: str) -> str:
+    try:
+        h = urlparse(url).netloc.lower().split(":")[0]
+        if h.startswith("www."):
+            h = h[4:]
+        return h
+    except Exception:
+        return ""
+
+
+def _domain_allowed(url: str) -> bool:
+    try:
+        h = _host(url)
+        if not h:
+            return False
+        for b in BLOCKLIST_DOMAINS:
+            if h == b or h.endswith("." + b):
+                return False
+        for d in ALLOWLIST_DOMAINS:
+            if h == d or h.endswith("." + d):
+                return True
+        return False
+    except Exception:
+        return False
+
+
+def _bad_title(title: str) -> bool:
+    t = (title or "").strip().lower()
+    if not t:
+        return True
+    for s in BAD_TITLE_SIGNALS:
+        if s in t:
+            return True
+    return False
+
+
+def _parse_response_to_dict(resp) -> Dict[str, Any]:
+    """
+    Robustly convert OpenAI SDK response object to a plain dict.
+    """
+    try:
+        if hasattr(resp, "model_dump"):
+            return resp.model_dump()
+    except Exception:
+        pass
+    try:
+        if hasattr(resp, "model_dump_json"):
+            return json.loads(resp.model_dump_json())
+    except Exception:
+        pass
+    try:
+        # fallback
+        return json.loads(json.dumps(resp, default=lambda o: getattr(o, "__dict__", str(o))))
+    except Exception:
+        return {}
+
+
+def _extract_web_search_results(resp_dict: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Pull web_search_call.results from the response dict.
+    We use include=["web_search_call.results"] so these should be present.
+    """
+    out = resp_dict.get("output") or []
+    results: List[Dict[str, Any]] = []
+    for item in out:
+        if not isinstance(item, dict):
+            continue
+        if item.get("type") != "web_search_call":
+            continue
+        r = item.get("results") or []
+        if isinstance(r, list):
+            for x in r:
+                if isinstance(x, dict):
+                    results.append(x)
+    return results
+
+
+def _web_search(query: str, model: str, trace_fn: TraceFn = None) -> List[Dict[str, Any]]:
+    """
+    Uses OpenAI built-in web_search tool. IMPORTANT:
+    We must request tool output payload via include=["web_search_call.results"].
+    """
+    client = OpenAI()
+    t0 = _now_ts()
+    q = (query or "").strip()
+    if not q:
+        return []
+
+    _trace(trace_fn, "web_search_start", q=q, model=model)
+
+    try:
+        resp = client.responses.create(
+            model=model,
+            input=q,
+            tools=[{"type": "web_search"}],
+            tool_choice="required",
+            include=[
+                "web_search_call.results",
+                "web_search_call.action.sources",
+            ],
+        )
+    except Exception as e:
+        _trace(trace_fn, "web_search_error", q=q, model=model, err_type=type(e).__name__, err=str(e))
+        return []
+
+    d = _parse_response_to_dict(resp)
+    results = _extract_web_search_results(d)
+
+    _trace(
+        trace_fn,
+        "web_search_done",
+        q=q,
+        model=model,
+        sources=len(results),
+        latency_s=(_now_ts() - t0),
+    )
+    return results
+
+
+def _result_url(r: Dict[str, Any]) -> str:
+    for k in ("url", "link", "source", "href"):
+        v = r.get(k)
+        if isinstance(v, str) and v.strip():
+            return v.strip()
+    return ""
+
+
+def _result_title(r: Dict[str, Any]) -> str:
+    for k in ("title", "name"):
+        v = r.get(k)
+        if isinstance(v, str) and v.strip():
+            return v.strip()
+    return ""
+
+
+def _result_snippet(r: Dict[str, Any]) -> str:
+    for k in ("snippet", "description", "summary", "content"):
+        v = r.get(k)
+        if isinstance(v, str) and v.strip():
+            return v.strip()
+    return ""
+
+
+def llm_http_evidence(
+    context: str,
+    diagnosis_hint: str,
+    chief_complaint: str,
+    max_urls: int = 6,
+    min_urls: int = 4,
+    trace_fn: TraceFn = None,
+    model: Optional[str] = None,
+) -> List[Any]:
+    """
+    Returns a list of EvidenceRef objects (app.core.models.EvidenceRef).
+    Strategy:
+      - Use web_search tool (OpenAI) to fetch candidate sources.
+      - Keep only allowlisted domains, reject PubMed explicitly, reject bad titles.
+      - Build EvidenceRef(title, source=url, snippet=snippet).
+    """
+    model = model or DEFAULT_MODEL
+    dx = (diagnosis_hint or "").strip()
+    cc = (chief_complaint or "").strip()
+    ctx = (context or "").strip()
+
+    _trace(trace_fn, "llm_http_evidence_start", dx=dx, cc=cc, model=model)
+
+    # Queries (broad but relevant; do NOT force anatomical sublocation hard-codes)
+    base = " ".join([dx, cc, ctx]).strip()
+    if not base:
+        base = cc or dx or "medical condition"
+
+    queries = [
+        f"{base}",
+        f"{base} self care red flags",
+        f"{base} acetaminophen ibuprofen naproxen dosing",
+        f"{base} when to seek urgent care",
+        f"{base} guideline",
+    ]
+
+    seen = set()
+    kept: List[Tuple[str, str, str]] = []  # (url, title, snippet)
+
+    for q in queries:
+        results = _web_search(q, model=model, trace_fn=trace_fn) or []
+        for r in results:
+            url = _normalize_url(_result_url(r))
+            if not url:
+                continue
+            if url in seen:
+                continue
+            seen.add(url)
+
+            if not _domain_allowed(url):
+                continue
+
+            title = _result_title(r)
+            snippet = _result_snippet(r)
+
+            if _bad_title(title):
+                continue
+
+            kept.append((url, title, snippet))
+            if len(kept) >= max_urls:
+                break
+        if len(kept) >= max_urls:
+            break
+
+    _trace(trace_fn, "llm_http_evidence_candidates", kept=len(kept), min_urls=min_urls, max_urls=max_urls)
+
+    # Convert to EvidenceRef (import here to avoid circulars at import time)
+    try:
+        from app.core.models import EvidenceRef
+    except Exception as e:
+        _trace(trace_fn, "llm_http_evidence_error", err_type=type(e).__name__, err=f"EvidenceRef import failed: {e}")
+        return []
+
+    refs: List[Any] = []
+    for (url, title, snippet) in kept[:max_urls]:
+        try:
+            refs.append(EvidenceRef(title=title, source=url, snippet=snippet or ""))
+        except Exception as e:
+            _trace(trace_fn, "llm_http_evidence_ref_error", url=url, err_type=type(e).__name__, err=str(e))
+
+    _trace(trace_fn, "llm_http_evidence_done", refs=len(refs), min_urls=min_urls, max_urls=max_urls)
+
+    if len(refs) < min_urls:
+        _trace(trace_fn, "llm_http_evidence_under_min", refs=len(refs), required=min_urls)
+        return []
+
+    return refs

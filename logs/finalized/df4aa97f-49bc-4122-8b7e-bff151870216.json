@@ -1,0 +1,77 @@
+{
+  "packet_id": "df4aa97f-49bc-4122-8b7e-bff151870216",
+  "created_at": "2026-03-06T17:06:10.123775+00:00",
+  "session_id": "554d1ee7-47c5-4fd7-824b-a25715f57001",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin dosing and duration for adult strep throat treatment",
+    "red flags and return precautions for adult sore throat"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin dosing and duration for adult strep throat treatment",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin dosing and duration for adult strep throat treatment",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin dosing and duration for adult strep throat treatment",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin dosing and duration for adult strep throat treatment",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin dosing and duration for adult strep throat treatment",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin dosing and duration for adult strep throat treatment"
+  ],
+  "raw_evidence_count": 6,
+  "raw_domain_counts": {
+    "nhs.uk": 3,
+    "aafp.org": 2,
+    "cdc.gov": 1
+  },
+  "selected_evidence_count": 5,
+  "selected_domains": [
+    "aafp.org",
+    "cdc.gov",
+    "nhs.uk",
+    "aafp.org",
+    "nhs.uk"
+  ],
+  "evidence": [
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.pdf",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "This Patient Group Direction (PGD) must only be used by registered healthcare",
+      "source": "england.nhs.uk",
+      "url": "https://www.england.nhs.uk/wp-content/uploads/2023/11/PRN01010-5a.-sore-throat-phenoxymethylpenicillin-patient-group-direction-pharmacy-first.pdf",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Management of Group A Beta-Hemolytic Streptococcal Pharyngitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2001/0415/p1557.html",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Tonsillitis | Right Decisions",
+      "source": "rightdecisions.scot.nhs.uk",
+      "url": "https://rightdecisions.scot.nhs.uk/antimicrobial-prescribing-nhs-lothian/body-systems/ear-nose-throat-infections/tonsillitis/",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sore throat accompanied by fever and painful swallowing. She reports swollen lymph nodes in the neck area and visible white patches on her tonsils. There is no cough, runny nose, or nasal congestion. She denies difficulty breathing or swallowing liquids. She has recent exposure to a household contact diagnosed with strep throat last week. There is no history of rheumatic fever or heart valve disease.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the presence of fever, tonsillar exudates, tender cervical lymphadenopathy, and recent exposure to a confirmed case.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Peritonsillar abscess (less likely given no severe pain or difficulty swallowing liquids)\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; no pregnancy or renal/liver disease; monitor for allergic reactions\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe throat pain, inability to swallow liquids, or high fever develops; seek emergency care if airway obstruction occurs\n- Testing: Arrange rapid antigen detection test or throat culture for group A Streptococcus if possible to confirm diagnosis"
+}

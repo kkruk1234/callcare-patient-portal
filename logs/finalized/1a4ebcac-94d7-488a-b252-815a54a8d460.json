@@ -1,0 +1,92 @@
+{
+  "packet_id": "38ba926c-fcc4-4508-b5c2-d8add0a55acc",
+  "created_at": "2026-01-30T21:06:33.779642+00:00",
+  "session_id": "1a4ebcac-94d7-488a-b252-815a54a8d460",
+  "chief_complaint": "it burns when I pee",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "onset": "4 days ago",
+    "location": "my privates",
+    "course": "same",
+    "characteristics": "burning when I pee",
+    "aggravating": "no",
+    "associated": "increased frequency",
+    "treatments_tried": "no",
+    "severity": "moderate",
+    "age_years": 34,
+    "allergies": "penicillin",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "renal_disease": "yes",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "renal disease status is yes/unknown (dose adjustment / avoid certain meds)",
+        "liver disease status is yes/unknown (avoid hepatotoxic meds / adjust dosing)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/lab-tests/burn-evaluation/",
+        "https://www.nhs.uk/conditions/cystitis/",
+        "https://www.nhs.uk/conditions/bladder-stones/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 34-year-old female presenting with a 4-day history of burning sensation when urinating, localized to her genital area. She reports increased urinary frequency but no aggravating factors or treatments tried so far. The symptoms have remained the same in severity, described as moderate. She has a history of renal disease and a penicillin allergy. She is not pregnant. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nLikely uncomplicated urinary tract infection (cystitis) given dysuria and increased frequency without systemic symptoms. Differential includes bladder stones or other lower urinary tract irritation, but no signs of systemic infection or severe complications are reported. Renal disease may complicate management.\n\nP: \n - Medication/treatment support (deterministic):\n   - Plan assessment:\n     - Working impression based on telephone history. Management below is limited by telephone-only evaluation (no vitals/labs available during the call).\n   - Rx candidates:\n     - Supportive care — symptom relief and supportive management\n   - Gating flags:\n     - Pregnancy: no\n     - Renal disease: unknown\n     - Liver disease: unknown\n   - Return precautions:\n     - Go to urgent care/ED now for severe or rapidly worsening symptoms, trouble breathing, chest pain, confusion, fainting, or inability to keep fluids down.\n     - Seek urgent in-person care for new high fever, severe pain, dehydration concerns, or any red-flag symptoms discussed during the call.\n   - Testing:\n     - If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).\n- Plan assessment: \nThe presentation is consistent with cystitis. Given the history of renal disease and penicillin allergy, antibiotic selection must be cautious. Symptomatic treatment and monitoring are appropriate initially. Working impression based on telephone history. Management below is limited by telephone-only evaluation (no vitals/labs available during the call).\n\n- Medication options: \nConsider non-penicillin antibiotics appropriate for cystitis and renal disease, such as nitrofurantoin or fosfomycin, if no contraindications. Symptomatic relief with urinary analgesics may be considered.\n\n- Medication safety considerations: \nAvoid penicillin due to allergy. Adjust antibiotic choice and dosing considering renal disease to prevent toxicity.\n\n- Return precautions: \nAdvise patient to seek in-person care if symptoms worsen, fever develops, flank pain occurs, or no improvement within 48–72 hours.\n\n- Testing: \nRecommend in-person evaluation and urine testing if symptoms do not improve or worsen within 48–72 hours.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Burn Evaluation: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/burn-evaluation/",
+        "snippet": "ep into the skin \nIs larger than 3 inches across \nLooks leathery and dry \nHas patches of white, brown, or black \nSwells very fast \nGets more painful over time, has pus, or causes a fever , which may be signs of an infection \nAlso, get medical help for all burns that:\nAre caused by electricity or chemicals \nAre on the face, hands, genitals, buttocks, over a joint, or go all the way around a part of the body, such as a leg or the chest \nHappen with inhalation (breathing in) of smoke, hot gasses, or chemicals \nHappen to a child under age 5 or an adult older than age 70 \nReferences \nAgrawal A, Raibagkar SC, Vora HJ. Friction Burns: Epidemiology and Prevention. Ann Burns Fire Disasters [Internet]. 2008 Mar 31 [cited 2023 Mar 8]; 21(1): 3-6. Available from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3188131 \nAmerican Burn Association [Internet]. Chicago (IL): American Burn Association; c2022"
+      },
+      {
+        "title": "Cystitis - NHS",
+        "source": "https://www.nhs.uk/conditions/cystitis/",
+        "snippet": "﻿ \nCystitis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCystitis \nCystitis is a urinary tract infection (UTI) that affects the bladder. It's common, particularly in women. It often gets better by itself, but may sometimes be treated with antibiotics. \nSome people get cystitis frequently and may need regular or long-term treatment.\nSymptoms of cystitis \nSymptoms of cystitis include:\npain, burning or stinging when you pee needing to pee more often and urgently than usual pee that's dark, cloudy or strong smelling pain low down in your tummy Symptoms in young children may also include:\na high temperature – they feel hotter than usual if you touch their neck, back or tummy wetting themselves reduced appetite and being s"
+      },
+      {
+        "title": "Bladder stones - NHS",
+        "source": "https://www.nhs.uk/conditions/bladder-stones/",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Burn Evaluation: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/burn-evaluation/",
+      "snippet": "ep into the skin \nIs larger than 3 inches across \nLooks leathery and dry \nHas patches of white, brown, or black \nSwells very fast \nGets more painful over time, has pus, or causes a fever , which may be signs of an infection \nAlso, get medical help for all burns that:\nAre caused by electricity or chemicals \nAre on the face, hands, genitals, buttocks, over a joint, or go all the way around a part of the body, such as a leg or the chest \nHappen with inhalation (breathing in) of smoke, hot gasses, or chemicals \nHappen to a child under age 5 or an adult older than age 70 \nReferences \nAgrawal A, Raibagkar SC, Vora HJ. Friction Burns: Epidemiology and Prevention. Ann Burns Fire Disasters [Internet]. 2008 Mar 31 [cited 2023 Mar 8]; 21(1): 3-6. Available from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3188131 \nAmerican Burn Association [Internet]. Chicago (IL): American Burn Association; c2022"
+    },
+    {
+      "title": "Cystitis - NHS",
+      "source": "https://www.nhs.uk/conditions/cystitis/",
+      "snippet": "﻿ \nCystitis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCystitis \nCystitis is a urinary tract infection (UTI) that affects the bladder. It's common, particularly in women. It often gets better by itself, but may sometimes be treated with antibiotics. \nSome people get cystitis frequently and may need regular or long-term treatment.\nSymptoms of cystitis \nSymptoms of cystitis include:\npain, burning or stinging when you pee needing to pee more often and urgently than usual pee that's dark, cloudy or strong smelling pain low down in your tummy Symptoms in young children may also include:\na high temperature – they feel hotter than usual if you touch their neck, back or tummy wetting themselves reduced appetite and being s"
+    },
+    {
+      "title": "Bladder stones - NHS",
+      "source": "https://www.nhs.uk/conditions/bladder-stones/",
+      "snippet": ""
+    }
+  ]
+}

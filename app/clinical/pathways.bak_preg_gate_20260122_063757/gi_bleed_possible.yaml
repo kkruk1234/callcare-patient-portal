@@ -1,0 +1,22 @@
+id: gi_bleed_possible
+version: 0.1
+match:
+  any_keywords: ["black stool", "tarry stool", "vomit blood", "coffee ground vomit", "maroon stool", "bright red blood in stool"]
+questions:
+  - id: large
+    prompt: "Is there a large amount of blood, or black tarry stools? (yes/no)"
+    store_as: large_or_melena
+    type: yesno
+  - id: faint
+    prompt: "Do you feel faint, confused, or very weak? (yes/no)"
+    store_as: shock_signs
+    type: yesno
+  - id: anticoag
+    prompt: "Are you on blood thinners? (yes/no)"
+    store_as: anticoagulant
+    type: yesno
+stop_rules:
+  - if_all_answered: ["large", "faint", "anticoag"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

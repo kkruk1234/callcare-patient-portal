@@ -1,0 +1,115 @@
+import json
+import re
+from pathlib import Path
+
+import faiss
+import numpy as np
+
+from app.clinical.embeddings import get_embedder  # EMBED_HARDEN_PATCH_V1
+
+
+# --- Robust paths (do not depend on current working directory) ---
+BASE_DIR = Path(__file__).resolve().parents[2]
+INDEX_DIR = BASE_DIR / "data" / "index"
+FAISS_PATH = INDEX_DIR / "faiss.index"
+DOCS_PATH = INDEX_DIR / "docs.json"
+
+
+# --- Lazy globals ---
+_model = None
+_index = None
+_DOCS = None
+
+
+def _ensure_loaded():
+    global _model, _index, _DOCS
+    if _model is None:
+        _model = get_embedder()
+    if _index is None:
+        if not FAISS_PATH.exists():
+            raise FileNotFoundError(f"FAISS index not found: {FAISS_PATH}")
+        _index = faiss.read_index(str(FAISS_PATH))
+    if _DOCS is None:
+        if not DOCS_PATH.exists():
+            raise FileNotFoundError(f"Docs file not found: {DOCS_PATH}")
+        with open(DOCS_PATH, "r", encoding="utf-8") as f:
+            _DOCS = json.load(f)
+
+
+def _norm(s: str) -> str:
+    return (s or "").strip().lower()
+
+
+def _tokens(s: str) -> set:
+    return {t for t in re.findall(r"[a-z0-9]+", _norm(s)) if len(t) >= 3}
+
+
+def retrieve(query: str, k: int = 5):
+    """
+    Return a list[dict] of retrieval hits:
+      {score, source, title, url, text}
+
+    Uses FAISS vector search over docs.json entries.
+    """
+    _ensure_loaded()
+
+    if query is None:
+        query = ""
+    query = str(query).strip()
+    if not query:
+        return []
+
+    q = _model.encode([query]).astype("float32")
+    faiss.normalize_L2(q)
+    scores, ids = _index.search(q, int(k))
+
+    results = []
+    for score, idx in zip(scores[0], ids[0]):
+        if idx is None:
+            continue
+        try:
+            d = _DOCS[int(idx)]
+        except Exception:
+            continue
+
+        # docs.json keys can vary; be defensive
+        title = d.get("title") or d.get("id") or "Guideline excerpt"
+        url = d.get("url") or d.get("source") or ""
+        text = d.get("text") or d.get("snippet") or ""
+
+        results.append(
+            {
+                "score": float(score),
+                "source": d.get("source", "") or "",
+                "title": title,
+                "url": url,
+                "text": text,
+            }
+        )
+
+    # --- CallCare safety: dedupe + relevance tighten (minimal, scalable) ---
+    # 1) Deduplicate identical sources crowding top-K
+    dedup = []
+    seen = set()
+    for r in results:
+        url = _norm(r.get("url", ""))
+        title = _norm(r.get("title", ""))
+        key = url or title
+        if not key:
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        dedup.append(r)
+
+    # 2) Re-rank by overlap with query tokens (reduces semantic drift)
+    q_toks = _tokens(query)
+    scored = []
+    for r in dedup:
+        t = r.get("title", "") or ""
+        tx = r.get("text", "") or ""
+        overlap = len(q_toks & _tokens(t + " " + tx))
+        scored.append((overlap, r))
+
+    scored.sort(key=lambda x: (x[0], x[1].get("score", 0.0)), reverse=True)
+    return [r for _ov, r in scored]

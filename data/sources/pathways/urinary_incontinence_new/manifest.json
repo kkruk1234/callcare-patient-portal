@@ -1,0 +1,12 @@
+{
+  "pathway_id": "urinary_incontinence_new",
+  "sources": [
+    {
+      "id": "urinary_incontinence_new_ref",
+      "source_id": "urinary_incontinence_new_ref",
+      "title": "Urinary symptoms overview (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

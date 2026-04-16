@@ -1,0 +1,50 @@
+{
+  "packet_id": "c13cf65e-0230-4241-8a3f-731d1160f561",
+  "created_at": "2026-03-12T17:50:19.645912+00:00",
+  "session_id": "67e70838-7a82-4d08-bf7e-be80f13a21fd",
+  "pathway_id": "",
+  "base_queries": [
+    "lower abdominal pain management guidelines adults",
+    "treatment dosing for lower abdominal pain with fever adults",
+    "red flags and return precautions for lower abdominal pain with fever"
+  ],
+  "queries": [
+    "AAFP lower abdominal pain management guidelines adults",
+    "AAFP treatment dosing for lower abdominal pain with fever adults",
+    "MedlinePlus lower abdominal pain management guidelines adults",
+    "MedlinePlus treatment dosing for lower abdominal pain with fever adults",
+    "CDC lower abdominal pain management guidelines adults",
+    "CDC treatment dosing for lower abdominal pain with fever adults",
+    "NIH lower abdominal pain management guidelines adults",
+    "NIH treatment dosing for lower abdominal pain with fever adults",
+    "NICE lower abdominal pain management guidelines adults",
+    "NICE treatment dosing for lower abdominal pain with fever adults",
+    "WHO lower abdominal pain management guidelines adults",
+    "WHO treatment dosing for lower abdominal pain with fever adults"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Acute Abdominal Pain in Adults:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0600/acute-abdominal-pain-adults.pdf",
+      "accessed": "2026-03-12",
+      "snippet": ""
+    },
+    {
+      "title": "Abdominal Pain | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/abdominalpain.html",
+      "accessed": "2026-03-12",
+      "snippet": "The information on this site should not be used as a substitute for professional medical care or advice. Contact a health care provider if you have questions about your health."
+    },
+    {
+      "title": "Evaluation of Acute Pelvic Pain in Women | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0800/acute-pelvic-pain.html",
+      "accessed": "2026-03-12",
+      "snippet": "Urinalysis of a midstream urine specimen should be considered to assess for urinary tract infection. Urine culture is often beneficial to confirm suspected urinary tract infection, identify specific organisms, and guide antibiotic use. If testing for gonorrhea and chlamydia, first-void urine collected without cleaning of the urethra (“dirty” catch) has historically been recommended, often requiring two urine samples for full evaluation. 26 Logistically this can be challenging. One study found that a midstream sample for chlamydia testing is still 96% accurate, and another study found a sensitivity of 86.2% for chlamydia and 94.4% for gonorrhea. This shows noninferiority to a dirty catch; therefore, one urine sample may be sufficient. 26 , 27"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old adult presenting with a 2-day history of sharp, stabbing lower abdominal pain that does not radiate. The pain is accompanied by fever and chills, as well as a little nausea. There are no changes in urinary function, no vaginal bleeding or discharge, and no pregnancy concerns.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute lower abdominal pain likely due to an infectious or inflammatory process given the presence of fever and chills.\nDifferential:\n1. Acute appendicitis\n2. Pelvic inflammatory disease\n3. Diverticulitis\n4. Urinary tract infection without urinary symptoms\n\nP: - First-line medication: Empiric antibiotic therapy such as ciprofloxacin 500 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin-clavulanate 875 mg/125 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, no renal or liver disease; monitor for antibiotic side effects\n- Follow-up recommendations: Seek in-person medical care urgently if abdominal pain worsens, fever persists or increases, or new symptoms develop such as vomiting or vaginal bleeding\n- Testing: Recommend in-person evaluation with abdominal imaging (e.g., ultrasound or CT) and laboratory studies including CBC and urinalysis to clarify diagnosis"
+}

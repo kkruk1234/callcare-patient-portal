@@ -1,0 +1,245 @@
+import os
+import json
+import re
+from typing import Any, Dict, List, Optional, Tuple
+
+from openai import OpenAI
+
+from app.core.models import CallState  # type: ignore
+
+
+# ============================
+# CallCare LLM Intake (free-text only)
+# ============================
+
+SYSTEM = """
+You are a practicing urgent care / primary care physician conducting a TELEPHONE intake.
+
+GOAL:
+- Ask the minimum number of questions needed to safely reach a working diagnosis and an initial management plan.
+- Questions must be HIGH-YIELD and must change disposition, testing, or treatment.
+
+CRITICAL RULES:
+- DO NOT ask redundant questions.
+  - If the patient already answered something (including by explicitly not endorsing it), do not ask again.
+- DO NOT ask "severity" or "how bad" questions unless the answer changes disposition or management.
+- DO NOT ask about symptoms the patient did not endorse unless you have a specific safety/decision reason.
+- Use free-text questions only (no multi-choice, no yes/no-only prompts).
+  - If you need a yes/no concept, ask it in a free-text way: "Any fever?" (patient can answer freely).
+- Telephone-only: no vitals/exam unless the patient states them.
+
+OUTPUT MUST BE VALID JSON ONLY (no extra text).
+Choose ONE action:
+
+1) Ask one next question:
+{
+  "action": "ask",
+  "question": "<single free-text question>",
+  "why": "<short reason this question is needed>",
+  "extract": { "<field>": "<value>", ... }   // only facts supported by prior patient text
+}
+
+2) Stop intake:
+{
+  "action": "stop",
+  "why": "<short reason you have enough>",
+  "summary": "<1-3 sentences summarizing the intake in clinician language, using only stated facts>",
+  "extract": { "<field>": "<value>", ... }   // only facts supported by prior patient text
+}
+
+EXTRACT FIELDS (when available from patient text; never invent):
+- onset
+- location
+- key_symptoms
+- red_flags
+- exposures
+- relevant_history
+- treatments_tried
+- prior_testing
+- pregnancy_context (only if patient said it; otherwise omit)
+- renal_context (only if patient said it; otherwise omit)
+- liver_context (only if patient said it; otherwise omit)
+""".strip()
+
+
+def _client_and_model() -> Tuple[OpenAI, str]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+    client = OpenAI(api_key=api_key)
+    model = os.getenv("CALLCARE_INTAKE_MODEL", "").strip() or "gpt-4.1-mini"
+    return client, model
+
+
+def _safe_json_load(s: str) -> Optional[dict]:
+    if not s or not isinstance(s, str):
+        return None
+    txt = s.strip()
+
+    # If model wrapped JSON in code fences, strip them.
+    txt = re.sub(r"^```(?:json)?\s*", "", txt)
+    txt = re.sub(r"\s*```$", "", txt)
+
+    # Try direct JSON parse
+    try:
+        obj = json.loads(txt)
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        pass
+
+    # Try to find first JSON object substring
+    m = re.search(r"\{.*\}", txt, flags=re.DOTALL)
+    if not m:
+        return None
+    try:
+        obj = json.loads(m.group(0))
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        return None
+
+
+def _sx(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None)
+    if not isinstance(sx, dict):
+        state.symptoms = {"_answers": {}}
+        sx = state.symptoms
+    if "_answers" not in sx or not isinstance(sx.get("_answers"), dict):
+        sx["_answers"] = {}
+    return sx
+
+
+def _ans(state: CallState) -> Dict[str, Any]:
+    return _sx(state)["_answers"]
+
+
+def _history_lines(turns: List[Dict[str, str]], max_chars: int = 7000) -> str:
+    # Build compact transcript for prompt context.
+    chunks: List[str] = []
+    for t in turns[-30:]:
+        q = (t.get("q") or "").strip()
+        a = (t.get("a") or "").strip()
+        if not q and not a:
+            continue
+        chunks.append(f"Q: {q}\nA: {a}".strip())
+    out = "\n\n".join(chunks).strip()
+    if len(out) > max_chars:
+        out = out[-max_chars:]
+    return out
+
+
+def next_intake_step(state: CallState) -> Dict[str, Any]:
+    """
+    Returns dict:
+      - action: "ask"|"stop"|"error"
+      - question (if ask)
+      - why
+      - summary (if stop)
+      - extract (dict)
+    Never raises.
+    """
+    try:
+        sx = _sx(state)
+        ans = _ans(state)
+
+        chief = (getattr(state, "chief_complaint", "") or "").strip()
+
+        # Storage
+        turns = sx.get("_llm_intake_turns")
+        if not isinstance(turns, list):
+            turns = []
+            sx["_llm_intake_turns"] = turns
+
+        extract_store = sx.get("_llm_intake_extract")
+        if not isinstance(extract_store, dict):
+            extract_store = {}
+            sx["_llm_intake_extract"] = extract_store
+
+        # Hard cap to prevent runaway
+        max_q = int(os.getenv("CALLCARE_LLM_INTAKE_MAX_Q", "10"))
+        if len(turns) >= max_q:
+            return {
+                "action": "stop",
+                "why": f"Reached max intake questions ({max_q}).",
+                "summary": "Telephone intake reached the maximum question limit; proceed with available history.",
+                "extract": dict(extract_store),
+            }
+
+        transcript = _history_lines(turns)
+
+        user_payload = {
+            "chief_complaint": chief,
+            "transcript": transcript or "(none yet)",
+            "structured_answers_so_far": dict(ans),
+            "instruction": "Generate the next best single intake step per system rules.",
+        }
+
+        client, model = _client_and_model()
+        resp = client.responses.create(
+            model=model,
+            input=[
+                {"role": "system", "content": SYSTEM},
+                {"role": "user", "content": json.dumps(user_payload, ensure_ascii=False)},
+            ],
+            temperature=0.2,
+            max_output_tokens=450,
+        )
+
+        text = getattr(resp, "output_text", "") or ""
+        obj = _safe_json_load(text)
+
+        if not obj:
+            return {"action": "error", "why": "LLM did not return valid JSON.", "raw": text[:500]}
+
+        action = str(obj.get("action") or "").strip().lower()
+        why = str(obj.get("why") or "").strip()
+        extract = obj.get("extract") if isinstance(obj.get("extract"), dict) else {}
+
+        # Merge extracts (patient-fact only; we trust model to follow rule, but still only merge strings)
+        for k, v in (extract or {}).items():
+            if v is None:
+                continue
+            vs = str(v).strip()
+            if vs:
+                extract_store[str(k)] = vs
+
+        if action == "ask":
+            q = str(obj.get("question") or "").strip()
+            if not q:
+                return {"action": "error", "why": "LLM asked but did not provide a question.", "raw": text[:500]}
+            return {"action": "ask", "question": q, "why": why, "extract": dict(extract_store)}
+
+        if action == "stop":
+            summary = str(obj.get("summary") or "").strip()
+            if summary:
+                sx["_llm_intake_summary"] = summary
+                ans["intake_summary"] = summary
+            return {"action": "stop", "why": why, "summary": summary, "extract": dict(extract_store)}
+
+        return {"action": "error", "why": f"Unknown action: {action}", "raw": text[:500]}
+
+    except Exception as e:
+        return {"action": "error", "why": f"{type(e).__name__}: {str(e)[:200]}"}
+
+
+def record_answer(state: CallState, question: str, answer: str) -> None:
+    """
+    Record Q/A into sx._llm_intake_turns and also into structured answers (non-redundant keys).
+    """
+    sx = _sx(state)
+    ans = _ans(state)
+
+    turns = sx.get("_llm_intake_turns")
+    if not isinstance(turns, list):
+        turns = []
+        sx["_llm_intake_turns"] = turns
+
+    q = (question or "").strip()
+    a = (answer or "").strip()
+
+    turns.append({"q": q, "a": a})
+
+    # Store in structured answers with stable keys so downstream note writing can use them.
+    # Keys: intake_q1, intake_a1, ...
+    n = len(turns)
+    ans[f"intake_q{n}"] = q
+    ans[f"intake_a{n}"] = a

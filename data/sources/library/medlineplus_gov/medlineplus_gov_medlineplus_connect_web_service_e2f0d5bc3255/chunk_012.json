@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Service",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-service/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "7-2&mainSearchCriteria.v.dn=Factor%20IX%20assay&informationRecipient.languageCode.c=en \nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.cs=2.16.840.1.113883.6.1&mainSearchCriteria.v.c=3187-2&informationRecipient.languageCode.c=en \nTo request information for a Spanish speaker, your request may look like one of the following:\nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.cs=2.16.840.1.113883.6.1&mainSearchCriteria.v.c=3187-2&mainSearchCriteria.v.dn=Factor%20IX%20assay&informationRecipient.languageCode.c=es \nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.cs=2.16.840.1.113883.6.1&mainSearchCriteria.v.c=3187-2&informationRecipient.languageCode.c=es \nMedical Procedure Code Requests \nFor medical procedure codes, MedlinePlus Connect supports:\nCPTÂ® (Current Procedural Terminology) \nSNOMED CTÂ® â¯(Systematized Nomenclature of Medicine, Clinical Terms) \nMedlinePlus Connect matches CPTÂ® or SNOMED CT procedure codes to related MedlinePlusâ¯ health topic pages or medical test pages . MedlinePlus Connect can provide responses to procedure requests in English or Spanish and will return a link to a results page with the best matches from MedlinePlus.\nFor requests for medical procedure information, the base URL is:\nhttps://connect.medlineplus.gov/service\nThese are two required parameters for any procedure query to this application:\nIdentify the proce",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_service_e2f0d5bc3255",
+  "chunk_id": "chunk_012"
+}

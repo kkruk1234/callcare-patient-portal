@@ -1,0 +1,30 @@
+# Clinician-facing medication/dosing protocol for: menstrual_pain_severe
+# Tier 1: reviewer must approve/modify.
+
+rx_options:
+  - med: "Ibuprofen"
+    dosing: "400–600 mg PO q6–8h PRN with food (max per labeling; short course)"
+    exclusions: "Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy."
+    notes: "NSAIDs are first-line for dysmenorrhea if no contraindications."
+
+  - med: "Naproxen"
+    dosing: "500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)"
+    exclusions: "Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy."
+    notes: "Alternative NSAID option."
+
+  - med: "Acetaminophen"
+    dosing: "650–1000 mg PO q6–8h PRN (max per labeling)"
+    exclusions: "Severe liver disease; heavy alcohol use; allergy."
+    notes: "Use when NSAIDs contraindicated; may be less effective alone."
+
+supportive_care:
+  - item: "Non-pharmacologic"
+    details: "Heat pack to lower abdomen; gentle activity/stretching; hydration."
+  - item: "Assess pregnancy possibility"
+    details: "If pregnancy is possible or period is abnormal for patient, consider pregnancy evaluation rather than assuming dysmenorrhea."
+
+followup_and_safety:
+  - item: "Re-evaluation"
+    details: "If severe pain is new, progressively worsening, associated with heavy bleeding, syncope, fever, pelvic pain between cycles, or concern for secondary dysmenorrhea—needs evaluation."
+  - item: "Urgent/ED now"
+    details: "Fainting, severe one-sided pelvic pain, suspected pregnancy/ectopic, soaking >1 pad/hour, severe weakness, or signs of shock."

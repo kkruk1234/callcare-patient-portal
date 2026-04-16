@@ -1,0 +1,101 @@
+{
+  "packet_id": "2c0d08d0-0fae-4beb-836a-e02bd36ebc8f",
+  "created_at": "2026-02-28T13:44:41.878214+00:00",
+  "session_id": "54676f56-50db-4309-9f39-c8de462faaac",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any pain radiating to your abdomen, flank, or groin?",
+    "intake_a3": "no",
+    "intake_q4": "Any recent trauma or injury to your back or ribs?",
+    "intake_a4": "no",
+    "intake_q5": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a5": "no",
+    "intake_q6": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of kidney stones, urinary tract infections, or recent changes in urination?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a8": "I tried tylenol but it didn't really help much",
+    "intake_q9": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent unexplained weight loss or history of cancer?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adults",
+      "adult back pain treatment dosing acetaminophen contraindications",
+      "red flags in back pain evaluation adults"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any trauma, fever, chills, night sweats, respiratory symptoms, or radiation of pain to the abdomen, flank, or groin. She has no numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney stones, urinary tract infections, unexplained weight loss, or cancer. O: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage without red flag symptoms. \nDifferential:\n1. Musculoskeletal strain or sprain\n2. Costochondritis or rib dysfunction\n3. Intercostal muscle strain\n4. Early presentation of visceral causes such as pleuritis or referred pain from abdominal organs\n\nP:\n- Medication safety considerations: Avoid NSAIDs in patients with renal impairment or gastrointestinal bleeding risk; acetaminophen dosing should not exceed 3,000 mg per day\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen (avoid in renal disease; especially severe CKD/dialysis)\n - Return precautions: Advise patient to seek care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), chest pain, difficulty breathing, or unexplained weight loss\n - Testing: Not indicated at this time given absence of red flag symptoms; consider imaging if symptoms persist beyond 6 weeks or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal lower back pain - Symptoms, diagnosis and treatment | BMJ Best Practice US",
+        "source": "bestpractice.bmj.com",
+        "url": "https://bestpractice.bmj.com/topics/en-us/778?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis: What It Is, Causes, FAQs & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/diseases/22167-costochondritis?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

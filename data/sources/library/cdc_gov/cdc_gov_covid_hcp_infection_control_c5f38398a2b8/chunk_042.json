@@ -1,0 +1,10 @@
+{
+  "title": "Infection Control Guidance: SARS-CoV-2 | Covid | CDC",
+  "url": "https://www.cdc.gov/covid/hcp/infection-control/",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "admissions per 100,000 population over the last 7 days), the ability of these levels to indicate ongoing SARS-CoV-2 transmission at nursing homes (at 1 new infection per 100 resident-weeks, or higher) was low (sensitivity < 20%), although the specificity was high. Using a lower cutoff of 10 new COVID-19 admissions per 100,000 population (7-day total) increased sensitivity to about 40% but reduces specificity. CDC continues to recommend that healthcare facilities institute facility-wide masking when masks are recommended in the community. \nMetrics Encompassing Other Respiratory Viruses The RESP-NET interactive dashboard or data from the National Emergency Department Visits for COVID-19, Influenza, and Respiratory Syncytial Virus can be used to inform when respiratory virus season is beginning or ending, as described above. For more granular information, outpatient respiratory illness visits determined by data reported to ILINet , are aggregated to provide state level estimates. Cutoffs for action are not well-defined and data are reported as 13 activity levels which correspond to the number of standard deviations below, at, or above the mean for the current week compared with the mean during non-influenza weeks. Choosing a lower level will likely increase sensitivity for true increases in ILI. \nDefinitions: \nHealthcare Personnel (HCP): Are paid and unpaid persons serving in hea",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_hcp_infection_control_c5f38398a2b8",
+  "chunk_id": "chunk_042"
+}

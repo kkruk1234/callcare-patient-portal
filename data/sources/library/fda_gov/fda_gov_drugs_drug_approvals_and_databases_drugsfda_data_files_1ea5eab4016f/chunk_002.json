@@ -1,0 +1,10 @@
+{
+  "title": "Drugs@FDA Data Files | FDA",
+  "url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
+  "publisher": "fda.gov",
+  "date": "2026-01-28",
+  "text": "In this section :\nDrug Approvals and Databases\nDrug Approvals and Databases\nResources for Information | Approved Drugs \nHome \nDrugs \nDevelopment & Approval Process | Drugs \nDrug Approvals and Databases \nDrugs@FDA Data Files \nDrug Approvals and Databases\nDrugs@FDA Data Files \nDrug Approvals and Databases\nResources for Information | Approved Drugs \nBelow you will find a compressed data file of the Drugs@FDA database. It does not include the scripts (programming) we use to produce the online version of Drugs@FDA . We are providing this technical information for users who are familiar with working with databases or spreadsheets. All fields are separated by tab delimiters. Each table's primary key, data types, field lengths and nulls appear in the list below . The data file is updated each morning, Monday through Friday.\nOnce you have downloaded the compressed file (drugsatfda.zip), you can unzip the file into 12 text tables. You can then import the tables into a database, spreadsheet or word processing program. Generally, a database program is the best program to use for these types of files.\nWe cannot offer guidance on how to construct your database design, as each user has different requirements or uses. \nDownload File Drugs@FDA Download File (ZIP - 5.80KB)\nData Last Updated: January 27th, 2026 Data Definitions and ERD for Drugs@FDA (as of January 10, 2025) Entity Relationship D",
+  "source_type": "library",
+  "source_id": "fda_gov_drugs_drug_approvals_and_databases_drugsfda_data_files_1ea5eab4016f",
+  "chunk_id": "chunk_002"
+}

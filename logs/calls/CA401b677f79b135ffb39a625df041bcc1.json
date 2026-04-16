@@ -1,0 +1,135 @@
+{
+  "call_sid": "CA401b677f79b135ffb39a625df041bcc1",
+  "session_id": "d4ae7638-bbf3-4acc-a1a1-3f93fdce9cc1",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T21:06:39.584547+00:00",
+  "ended_at": "2026-03-08T21:09:48.979705+00:00",
+  "packet_id": "d595683e-ed66-4525-9679-9b05d3cb409e",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or swollen glands?"
+    },
+    {
+      "role": "user",
+      "text": "All of the above, fever, chills, and swollen glands."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty swallowing or breathing?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cough, runny nose, or nasal congestion?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any rash or joint pain along with your sore throat and fever?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "I just tried some tea with honey and some DayQuil, but nothing else."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent exposure to anyone with strep throat or COVID-19?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. My son had a strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you most likely have strep throat, which is a bacterial infection causing your sore throat, fever, and swollen glands. Because this is a phone visit, a licensed physician will review your information and may prescribe antibiotics if appropriate. For now, you can take acetaminophen or ibuprofen to help with pain and fever if you can safely use them. If you develop trouble breathing or swallowing, or if your symptoms get much worse or you have a very high fever, please seek urgent in-person care right away. If you need an exam or testing, going to urgent care or your emergency department is the best option. A physician will review your case and decide on the next steps, including any medication."
+    }
+  ]
+}

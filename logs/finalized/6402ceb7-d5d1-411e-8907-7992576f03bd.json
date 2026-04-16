@@ -1,0 +1,50 @@
+{
+  "packet_id": "d69bc41f-a1e7-400c-8697-674a4e12a33a",
+  "created_at": "2026-01-21T18:08:48.000752+00:00",
+  "session_id": "6402ceb7-d5d1-411e-8907-7992576f03bd",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "ear_pain",
+  "answers": {
+    "duration": "5 days",
+    "fever": "yes",
+    "discharge": "yes",
+    "vertigo": "no",
+    "diabetes": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\n23-year-old adult presents with a 5-day history of ear pain. The patient reports associated fever and ear discharge. No vertigo is present. No history of diabetes or immune compromise. Allergic to penicillin.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Acute otitis media with otorrhea (possible tympanic membrane perforation or otitis externa)\n - Differential:\n  1. Acute otitis media with tympanic membrane perforation\n  2. Otitis externa\n  3. Mastoiditis (less likely without reported severe symptoms)\n  4. Foreign body or trauma-related ear infection\n - Red flags considered:\n  Fever and ear discharge raise concern for possible complicated infection; no vertigo or neurological symptoms reported.\n\nP:\n - Disposition: Urgent care or primary care follow-up recommended for physical examination and possible ear culture.\n - Plan: \n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Supportive care:\n   - Follow-up and safety:\n   Given penicillin allergy, empiric antibiotic therapy should avoid beta-lactams. Recommended regimen includes:\n   - Oral azithromycin 500 mg on day 1, then 250 mg daily on days 2-5\n   - Alternatively, oral clindamycin 300 mg every 6 hours for 7-10 days\n   Reviewing physician will confirm appropriateness and prescribe if indicated.\n   Symptomatic treatment with analgesics (e.g., acetaminophen or ibuprofen) advised.\n - Safety net:\n   Advise patient to seek immediate care if symptoms worsen, including increased pain, swelling behind the ear, high fever, dizziness, or hearing loss.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Ear Infection (Otitis Media) information",
+        "source": "https://www.cdc.gov/ear-infection/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+      },
+      {
+        "title": "MedlinePlus: Ear infections",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "source": "https://www.cdc.gov/ear-infection/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "title": "MedlinePlus: Ear infections",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

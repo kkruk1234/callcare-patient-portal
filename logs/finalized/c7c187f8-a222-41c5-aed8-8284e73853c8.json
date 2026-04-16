@@ -1,0 +1,89 @@
+{
+  "packet_id": "582ab0cc-cf21-444b-99d3-5fe08a144565",
+  "created_at": "2026-02-26T14:29:35.757710+00:00",
+  "session_id": "c7c187f8-a222-41c5-aed8-8284e73853c8",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain?",
+    "intake_a5": "no",
+    "intake_q6": "Does the pain get worse with movement, breathing, or coughing?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of kidney problems, urinary symptoms, or abdominal pain?",
+    "intake_a7": "no",
+    "intake_q8": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a8": "no",
+    "intake_q9": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a9": "I tried tylenol and it didn't help very much",
+    "intake_q10": "Any history of cancer, recent infections, or immune system problems?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, weight loss, shortness of breath, cough, chest pain, urinary symptoms, numbness, weakness, or tingling in her legs or feet. The pain does not worsen with movement, breathing, or coughing. She has tried acetaminophen (Tylenol) with minimal relief. No history of cancer, infections, or immune system problems is reported. O: Phone evaluation only; no physical exam or vitals available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage without red flag symptoms. Differential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral pathology such as pleuritis or referred pain from abdominal organs\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen\n- Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n- Medication safety considerations: Avoid NSAIDs if history of renal or liver disease; use lowest effective dose for shortest duration\n- Return precautions: Advise patient to seek immediate care if develops fever, worsening pain, neurological symptoms, chest pain, or respiratory symptoms\n- Testing: Not indicated at this time given absence of red flags; consider imaging or labs if symptoms worsen or fail to improve",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      },
+      {
+        "title": "Pleuritic Chest Pain: Sorting Through the Differential Diagnosis | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2017/0901/p306.html",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

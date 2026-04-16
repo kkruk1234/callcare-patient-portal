@@ -1,0 +1,145 @@
+{
+  "packet_id": "4ce86ac0-9014-466c-834f-1baa3fdba4eb",
+  "created_at": "2026-01-23T21:00:16.750267+00:00",
+  "session_id": "d3d01eb0-4c1c-45db-b64a-7199979bb6f3",
+  "chief_complaint": "red and swollen leg",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "cellulitis",
+  "answers": {
+    "pregnancy_possible": "no",
+    "renal_disease": "no",
+    "leg_sort_discriminator": "insect bite",
+    "limb_infection_signs": "all",
+    "portal_of_entry": "insect bite",
+    "systemic_symptoms": "no",
+    "purulence": "yes",
+    "face_or_eye_area": "no",
+    "immunocompromised": "no",
+    "rapidly_spreading": "yes",
+    "pain_out_of_proportion": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Trimethoprim-sulfamethoxazole (TMP-SMX)",
+      "dosing": "160/800 mg (1 DS tab) PO BID x 5–7 days",
+      "sig": "160/800 mg (1 DS tab) PO BID x 5–7 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Preferred when purulence/abscess features or MRSA risk is present. Not ideal monotherapy for classic nonpurulent cellulitis (strep coverage may be needed).",
+      "exclusions": "Sulfa allergy; avoid 1st trimester if possible and near term; consider drug interactions; adjust/avoid in significant renal impairment per clinician judgment.",
+      "tier": "Tier 1",
+      "pathway_id": "cellulitis",
+      "source_file": "data/protocols/meds/cellulitis.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Clindamycin",
+      "dosing": "300–450 mg PO TID x 5–7 days",
+      "sig": "300–450 mg PO TID x 5–7 days",
+      "route": "PO",
+      "frequency": "TID",
+      "duration": "",
+      "notes": "Alternative if beta-lactam allergy or when MRSA coverage is needed (local resistance patterns apply).",
+      "exclusions": "History of C. difficile/high CDI risk; lincosamide allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "cellulitis",
+      "source_file": "data/protocols/meds/cellulitis.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Cephalexin",
+      "dosing": "500 mg PO QID x 5–7 days",
+      "sig": "500 mg PO QID x 5–7 days",
+      "route": "PO",
+      "frequency": "QID",
+      "duration": "",
+      "notes": "First-line for uncomplicated NONPURULENT cellulitis when MRSA risk is low.",
+      "exclusions": "Immediate-type severe beta-lactam allergy; adjust in renal impairment per clinician judgment.",
+      "tier": "Tier 1",
+      "pathway_id": "cellulitis",
+      "source_file": "data/protocols/meds/cellulitis.yaml"
+    },
+    {
+      "rank": 4,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO BID x 5–7 days",
+      "sig": "875/125 mg PO BID x 5–7 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Option when bite/wound flora or polymicrobial concern (clinician judgment).",
+      "exclusions": "Immediate-type beta-lactam allergy; adjust in renal impairment.",
+      "tier": "Tier 1",
+      "pathway_id": "cellulitis",
+      "source_file": "data/protocols/meds/cellulitis.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:  \n54-year-old adult presents with a red and swollen leg following an insect bite. The affected area shows all signs of limb infection including purulence. The infection is rapidly spreading but there are no systemic symptoms reported. The patient is not immunocompromised and has no known medication allergies. Patient is not pregnant.\n\nO:  \nHistory obtained by phone only. Patient reports skin break or infection at the site of an insect bite with purulent drainage. No facial or eye involvement. No calf pain or tenderness. No signs of systemic illness such as fever or malaise.\n\nA:  \n- Working diagnosis (most likely):  \n  Cellulitis with purulent infection secondary to insect bite, rapidly spreading.  \n\n- Differential:  \n  1. Purulent cellulitis (likely due to bacterial infection at insect bite site)  \n  2. Abscess formation  \n  3. Erysipelas (less likely given purulence and insect bite portal)  \n  4. Necrotizing soft tissue infection (less likely given no pain out of proportion or systemic symptoms)  \n\n- Red flags considered:  \n  Rapidly spreading infection, purulence, no systemic symptoms, no immunocompromise.\n\nP:  \n- Disposition:  \n  Urgent evaluation recommended due to rapidly spreading purulent cellulitis. Patient should be seen in person promptly for possible incision and drainage and further assessment.  \n\n- Plan: Trimethoprim-sulfamethoxazole (TMP-SMX) — 160/800 mg (1 DS tab) PO BID x 5–7 days. Alternative: Clindamycin (300–450 mg PO TID x 5–7 days).\n  Medication protocol (from data/protocols/meds):\n  - Medication recommendations (Tier 1):\n  - Reviewing physician will confirm appropriateness and prescribe if indicated.\n  - Trimethoprim-sulfamethoxazole (TMP-SMX) — 160/800 mg (1 DS tab) PO BID x 5–7 days\n    - Notes: Preferred when purulence/abscess features or MRSA risk is present. Not ideal monotherapy for classic nonpurulent cellulitis (strep coverage may be needed).\n    - Exclusions: Sulfa allergy; avoid 1st trimester if possible and near term; consider drug interactions; adjust/avoid in significant renal impairment per clinician judgment.\n  - Clindamycin — 300–450 mg PO TID x 5–7 days\n    - Notes: Alternative if beta-lactam allergy or when MRSA coverage is needed (local resistance patterns apply).\n    - Exclusions: History of C. difficile/high CDI risk; lincosamide allergy.\n  - Cephalexin — 500 mg PO QID x 5–7 days\n    - Notes: First-line for uncomplicated NONPURULENT cellulitis when MRSA risk is low.\n    - Exclusions: Immediate-type severe beta-lactam allergy; adjust in renal impairment per clinician judgment.\n  - Amoxicillin-clavulanate — 875/125 mg PO BID x 5–7 days\n    - Notes: Option when bite/wound flora or polymicrobial concern (clinician judgment).\n    - Exclusions: Immediate-type beta-lactam allergy; adjust in renal impairment.\n  - Supportive care:\n  - Local care: Elevation of affected area, gentle cleansing, avoid picking; mark border if feasible to track spread.\n  - Pain/fever: Acetaminophen if safe; avoid NSAIDs in late pregnancy, renal disease, ulcer/GI bleed risk.\n  - Follow-up and safety:\n  - Expected course: Some redness may persist early; should not rapidly expand after 24–48h of therapy.\n  - Re-evaluation: In-person evaluation if worsening after 24–48h, rapidly spreading erythema, severe pain, systemic symptoms, or inability to take PO.\n  - Urgent/ED now: Fever with toxicity, rapidly progressive infection, severe pain out of proportion, immunocompromise, facial involvement/eye symptoms, necrosis, or concern for sepsis.\n  Examples:  \n  - Trimethoprim-sulfamethoxazole (TMP-SMX) 1-2 double strength tablets orally twice daily for 7-10 days  \n  - Doxycycline 100 mg orally twice daily for 7-10 days  \n  - Clindamycin 300-450 mg orally three times daily for 7-10 days (alternative)  \n\n  Patient should be advised to keep the area clean, elevate the limb, and monitor for worsening symptoms.  \n\n- Safety net:  \n  Advise patient to seek immediate care if symptoms worsen rapidly, if fever or systemic symptoms develop, if pain becomes severe or out of proportion, or if there is spreading redness beyond current area. If unable to access care promptly, emergency department evaluation is warranted.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "This appears to be a skin infection (cellulitis). Some redness and swelling can persist early, but symptoms should start to stabilize or improve within 24–48 hours once treatment begins.",
+      "Go to urgent care the same day if redness is rapidly spreading, pain is worsening, you develop fever or chills, or the area becomes more swollen or tender.",
+      "Go to the emergency department immediately if you feel very ill, develop confusion, have severe pain out of proportion, rapidly progressing redness, or signs of sepsis."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC — Clinical Guidance for Group A Streptococcal Cellulitis",
+        "source": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/cellulitis.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/cellulitis.html"
+      },
+      {
+        "title": "IDSA — Practice Guideline: Skin and Soft Tissue Infections (2014 Update)",
+        "source": "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/"
+      },
+      {
+        "title": "NICE NG141 — Cellulitis and erysipelas: antimicrobial prescribing (2019, updated)",
+        "source": "https://www.nice.org.uk/guidance/ng141",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng141"
+      },
+      {
+        "title": "NICE NG141 — PDF (Cellulitis and erysipelas: antimicrobial prescribing)",
+        "source": "https://www.nice.org.uk/guidance/ng141/resources/cellulitis-and-erysipelas-antimicrobial-prescribing-pdf-66141774778309",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng141/resources/cellulitis-and-erysipelas-antimicrobial-prescribing-pdf-66141774778309"
+      },
+      {
+        "title": "NCBI Bookshelf — Cellulitis (StatPearls)",
+        "source": "https://www.ncbi.nlm.nih.gov/books/NBK549770/",
+        "snippet": "Listed in pathway manifest https://www.ncbi.nlm.nih.gov/books/NBK549770/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC — Clinical Guidance for Group A Streptococcal Cellulitis",
+      "source": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/cellulitis.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/cellulitis.html"
+    },
+    {
+      "title": "IDSA — Practice Guideline: Skin and Soft Tissue Infections (2014 Update)",
+      "source": "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/",
+      "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/"
+    },
+    {
+      "title": "NICE NG141 — Cellulitis and erysipelas: antimicrobial prescribing (2019, updated)",
+      "source": "https://www.nice.org.uk/guidance/ng141",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng141"
+    },
+    {
+      "title": "NICE NG141 — PDF (Cellulitis and erysipelas: antimicrobial prescribing)",
+      "source": "https://www.nice.org.uk/guidance/ng141/resources/cellulitis-and-erysipelas-antimicrobial-prescribing-pdf-66141774778309",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng141/resources/cellulitis-and-erysipelas-antimicrobial-prescribing-pdf-66141774778309"
+    },
+    {
+      "title": "NCBI Bookshelf — Cellulitis (StatPearls)",
+      "source": "https://www.ncbi.nlm.nih.gov/books/NBK549770/",
+      "snippet": "Listed in pathway manifest https://www.ncbi.nlm.nih.gov/books/NBK549770/"
+    }
+  ]
+}

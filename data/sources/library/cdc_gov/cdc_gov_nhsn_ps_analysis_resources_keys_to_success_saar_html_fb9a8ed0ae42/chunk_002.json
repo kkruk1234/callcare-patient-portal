@@ -1,0 +1,10 @@
+{
+  "title": "Keys to Success with the SAAR | Analysis Resources | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/ps-analysis-resources/keys-to-success-saar.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "timicrobial use was less than predicted. \nA SAAR = 1.0 indicates antimicrobial use was equivalent to predicted use. \nA SAAR > 1.0 indicates antimicrobial use was greater than predicted. \nA SAAR is not a definitive measure of appropriateness or judiciousness of antimicrobial use and any SAAR value may warrant additional investigation.\nRemember: You can only calculate a SAAR when the number of predicted antimicrobial days are greater than one and the antimicrobial days do not exceed the days present.\nTop of Page SAAR p-value The SAAR p-value is a statistical measure that indicates if reported antimicrobial use is statistically significantly different from predicted antimicrobial use.\nIf the p-value &le; 0. 05 , then the reported antimicrobial days are statistically significantly different from predicted antimicrobial days. \nIf the p-value > 0. 05 , then the reported antimicrobial days are not statistically significantly different than the predicted antimicrobial days. \nDue to the large number of days present reported each month, most SAAR p-values are less than 0.05 and users should interpret them with caution, as statistical significance does not necessarily translate to clinical significance.\n95% Confidence Interval (CI) The 95% CI is the range of values in which we have a high degree of confidence that the true SAAR value lies. However, the SAAR is the most likely value.\nIf th",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_ps_analysis_resources_keys_to_success_saar_html_fb9a8ed0ae42",
+  "chunk_id": "chunk_002"
+}

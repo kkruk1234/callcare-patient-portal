@@ -1,0 +1,213 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Tuple
+
+
+# ----------------------------
+# Time helpers (used by finalize.py)
+# ----------------------------
+def now_iso() -> str:
+    """UTC timestamp in ISO-8601 format (seconds)."""
+    import datetime as _dt
+    return _dt.datetime.now(_dt.timezone.utc).replace(microsecond=0).isoformat()
+
+from app.core.models import CallState, EvidenceRef, NoteDraft
+
+# Existing note writer (LLM)
+import importlib
+
+# RAG retrieval
+from app.rag.retrieve import retrieve as rag_retrieve
+
+# Adapter: dict chunks -> EvidenceRef
+from app.clinical.evidence_adapter import as_evidence_refs
+
+
+# ----------------------------
+# Evidence selection
+# ----------------------------
+
+def _is_rag_active(state: CallState) -> bool:
+    sx = getattr(state, "symptoms", None) or {}
+    if not isinstance(sx, dict):
+        return False
+    rag = sx.get("_rag") or {}
+    return isinstance(rag, dict) and bool(rag.get("mode") == "rag" or rag.get("plan") or rag.get("evidence"))
+
+def _get_chief(state: CallState) -> str:
+    return (getattr(state, "chief_complaint", "") or "").strip()
+
+def _get_demographics_text(state: CallState) -> str:
+    sx = getattr(state, "symptoms", None) or {}
+    if not isinstance(sx, dict):
+        sx = {}
+    age = sx.get("age_years") or getattr(state, "age_years", None)
+    preg = sx.get("pregnancy_possible") or getattr(state, "pregnancy_possible", None)
+    sex = sx.get("sex_at_birth") or sx.get("sex") or getattr(state, "sex_at_birth", None)
+    parts = []
+    if age is not None:
+        parts.append(f"age_years={age}")
+    if sex:
+        parts.append(f"sex_at_birth={sex}")
+    if preg:
+        parts.append(f"pregnancy_possible={preg}")
+    return " ".join(parts).strip()
+
+def _retrieve_evidence_for_state(state: CallState, top_n: int = 8) -> List[Dict[str, Any]]:
+    """
+    Retrieve evidence chunks (dicts) from the global index.
+    retrieve() currently returns dicts with: score, source, title, url, text.
+    """
+    q = _get_chief(state)
+    demo = _get_demographics_text(state)
+    query = q if not demo else f"{q}\n\n{demo}"
+    chunks = rag_retrieve(query) or []
+    # Ensure list[dict]
+    out: List[Dict[str, Any]] = []
+    for c in chunks:
+        if isinstance(c, dict):
+            out.append(c)
+    return out[: max(1, int(top_n))]
+
+def _evidence_from_state_rag_cache(state: CallState) -> List[Dict[str, Any]]:
+    """
+    If state.symptoms['_rag']['evidence'] exists (your orchestrator stores it),
+    use it preferentially.
+    """
+    sx = getattr(state, "symptoms", None) or {}
+    if not isinstance(sx, dict):
+        return []
+    rag = sx.get("_rag") or {}
+    if not isinstance(rag, dict):
+        return []
+    ev = rag.get("evidence") or []
+    if not isinstance(ev, list):
+        return []
+    out: List[Dict[str, Any]] = []
+    for e in ev:
+        if isinstance(e, dict):
+            out.append(e)
+    return out
+
+def _best_snippets(state: CallState, max_snips: int = 6) -> List[EvidenceRef]:
+    """
+    Unified evidence selection:
+    - If RAG intake is active and cached evidence exists, use it.
+    - Else retrieve from global index using chief + demographics.
+    - Convert to EvidenceRef using adapter.
+    """
+    # 1) Use cached orchestrator evidence if present
+    cached = _evidence_from_state_rag_cache(state)
+    if cached:
+        # Add deterministic EVID keys
+        for i, d in enumerate(cached, start=1):
+            d.setdefault("key", f"EVID_{i}")
+        return [e for e in as_evidence_refs(cached) if e]
+
+    # 2) Otherwise, retrieve fresh from index if RAG is active
+    if _is_rag_active(state):
+        chunks = _retrieve_evidence_for_state(state, top_n=max_snips)
+        for i, d in enumerate(chunks, start=1):
+            d.setdefault("key", f"EVID_{i}")
+        return [e for e in as_evidence_refs(chunks) if e]
+
+    # 3) Fallback: no RAG evidence (keep empty)
+    return []
+
+
+# ----------------------------
+# Prompt builder
+# ----------------------------
+
+def _build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    """
+    If your llm_note_writer has build_prompt(state,evidence), use it.
+    Otherwise, build a basic prompt here.
+    """
+    try:
+        llm = importlib.import_module("app.clinical.llm_note_writer")
+        build_prompt = getattr(llm, "build_prompt", None)
+        if callable(build_prompt):
+            return build_prompt(state=state, evidence=evidence)
+    except Exception:
+        pass
+
+    # Minimal fallback prompt if build_prompt missing
+    chief = _get_chief(state)
+    sx = getattr(state, "symptoms", None) or {}
+    ans = (sx.get("_answers") if isinstance(sx, dict) else {}) or {}
+    if not isinstance(ans, dict):
+        ans = {}
+
+    lines = []
+    lines.append("You are writing a clinician-grade SOAP note for a phone-only encounter.")
+    lines.append("Use ONLY the structured answers provided. Do NOT invent symptoms or negatives.")
+    lines.append("")
+    lines.append(f"CHIEF_COMPLAINT: {chief}")
+    lines.append("")
+    lines.append("STRUCTURED_ANSWERS:")
+    for k in sorted(ans.keys()):
+        lines.append(f"- {k}: {ans.get(k)}")
+    lines.append("")
+    lines.append("EVIDENCE:")
+    if evidence:
+        for i, e in enumerate(evidence, 1):
+            key = getattr(e, "key", f"EVID_{i}")
+            title = getattr(e, "title", "")
+            url = getattr(e, "url", "")
+            txt = getattr(e, "text", "")
+            lines.append(f"{key}: {title}")
+            if url:
+                lines.append(url)
+            if txt:
+                t = (txt or "").strip().replace("\r", " ")
+                if len(t) > 1200:
+                    t = t[:1200] + "…"
+                lines.append(t)
+            lines.append("---")
+    else:
+        lines.append("(No evidence snippets retrieved.)")
+
+    lines.append("")
+    lines.append("Output format: S:, O:, A:, P: with a numbered differential in A when appropriate.")
+    return "\n".join(lines).strip() + "\n"
+
+
+# ----------------------------
+# Note generation entrypoint
+# ----------------------------
+
+def build_note(state: CallState) -> Tuple[Optional[NoteDraft], str]:
+    """
+    Returns (NoteDraft or None, error_reason).
+    """
+    evidence = _best_snippets(state, max_snips=8)
+    prompt = _build_prompt(state, evidence)
+
+    try:
+        llm = importlib.import_module("app.clinical.llm_note_writer")
+        generate_note_text = getattr(llm, "generate_note_text", None)
+        if not callable(generate_note_text):
+            return None, "llm_note_writer.generate_note_text not callable"
+
+        txt = generate_note_text(prompt) or ""
+        txt = str(txt)
+
+        # Patient instructions type: keep as list[str] per your NoteDraft schema
+        patient_instructions: List[str] = []
+        # Keep it simple here; your finalize/note pipeline can format later
+        # If you have a better extractor elsewhere, keep it there.
+        if "PATIENT INSTRUCTIONS" in txt:
+            # optional parsing if you embed sections
+            pass
+
+        return NoteDraft(
+            soap=txt.strip() + ("\n" if txt and not txt.endswith("\n") else ""),
+            patient_instructions=patient_instructions,
+            clinician_questions=[],
+            risk_flags=[],
+            evidence=evidence,
+        ), ""
+    except Exception as e:
+        return None, str(e)

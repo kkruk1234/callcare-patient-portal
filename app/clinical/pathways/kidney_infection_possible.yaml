@@ -1,0 +1,26 @@
+id: kidney_infection_possible
+version: 0.1
+match:
+  any_keywords: ["back pain and fever", "flank pain and chills", "fever with urinary symptoms", "kidney infection", "uti with back pain"]
+questions:
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: flank
+    prompt: "Any back/flank pain near the kidneys? (yes/no)"
+    store_as: flank_pain
+    type: yesno
+
+  - id: confusion
+    prompt: "Any confusion, severe weakness, or you feel dangerously ill? (yes/no)"
+    store_as: dangerously_ill
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["fever", "flank", "confusion"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

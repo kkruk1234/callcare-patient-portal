@@ -1,0 +1,65 @@
+{
+  "packet_id": "c2539953-fb7f-4aed-9a8b-44dcb4a94c0f",
+  "created_at": "2026-03-13T13:37:26.440691+00:00",
+  "session_id": "0e881061-45f3-44ef-8401-5f5316174931",
+  "pathway_id": "",
+  "base_queries": [
+    "lower abdominal pain with fever and vaginal bleeding management guidelines",
+    "treatment for pelvic inflammatory disease in adults penicillin allergy",
+    "red flags for lower abdominal pain with fever and vaginal bleeding",
+    "diagnostic tests for acute lower abdominal pain and fever in women"
+  ],
+  "queries": [
+    "AAFP lower abdominal pain with fever and vaginal bleeding management guidelines",
+    "AAFP treatment for pelvic inflammatory disease in adults penicillin allergy",
+    "MedlinePlus lower abdominal pain with fever and vaginal bleeding management guidelines",
+    "MedlinePlus treatment for pelvic inflammatory disease in adults penicillin allergy",
+    "CDC lower abdominal pain with fever and vaginal bleeding management guidelines",
+    "CDC treatment for pelvic inflammatory disease in adults penicillin allergy",
+    "NIH lower abdominal pain with fever and vaginal bleeding management guidelines",
+    "NIH treatment for pelvic inflammatory disease in adults penicillin allergy",
+    "NICE lower abdominal pain with fever and vaginal bleeding management guidelines",
+    "NICE treatment for pelvic inflammatory disease in adults penicillin allergy",
+    "WHO lower abdominal pain with fever and vaginal bleeding management guidelines",
+    "WHO treatment for pelvic inflammatory disease in adults penicillin allergy"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Evaluation of Acute Pelvic Pain in Women | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0800/acute-pelvic-pain.html",
+      "accessed": "2026-03-13",
+      "snippet": "Urinalysis of a midstream urine specimen should be considered to assess for urinary tract infection. Urine culture is often beneficial to confirm suspected urinary tract infection, identify specific organisms, and guide antibiotic use. If testing for gonorrhea and chlamydia, first-void urine collected without cleaning of the urethra (“dirty” catch) has historically been recommended, often requiring two urine samples for full evaluation. 26 Logistically this can be challenging. One study found that a midstream sample for chlamydia testing is still 96% accurate, and another study found a sensitivity of 86.2% for chlamydia and 94.4% for gonorrhea. This shows noninferiority to a dirty catch; therefore, one urine sample may be sufficient. 26 , 27"
+    },
+    {
+      "title": "Pelvic Inflammatory Disease (PID) - Gynecology and Obstetrics - Merck Manual Professional Edition",
+      "source": "merckmanuals.com",
+      "url": "https://www.merckmanuals.com/professional/gynecology-and-obstetrics/vaginitis-cervicitis-and-pelvic-inflammatory-disease/pelvic-inflammatory-disease-pid",
+      "accessed": "2026-03-13",
+      "snippet": "Ceftriaxone 500 mg IM in a single dose‡ Ceftriaxone 500 mg IM in a single dose‡ PLUS Doxycycline 100 mg orally twice a day for 14 days Doxycycline 100 mg orally twice a day for 14 days WITH Metronidazole 500 mg orally twice a day for 14 days Metronidazole 500 mg orally twice a day for 14 days Regimen B:"
+    },
+    {
+      "title": "Endometritis: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/001484.htm",
+      "accessed": "2026-03-13",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Pelvic Inflammatory Disease: Diagnosis, Management, and Prevention | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2019/0915/p357.html",
+      "accessed": "2026-03-13",
+      "snippet": "Because of emerging resistance, routine quinolone use is no longer recommended as PID treatment in providing empiric coverage for gonorrhea. 8 The use of a quinolone can be considered if the community prevalence and individual risk for gonorrhea is low, the patient is likely to follow up after treatment, and a culture for gonorrhea can be obtained before starting treatment. If these criteria are met, an alternative regimen for outpatient treatment of PID includes levofloxacin (Levaquin), 500 mg orally every 24 hours; moxifloxacin (Avelox), 400 mg orally every 24 hours; or ofloxacin, 400 mg orally every 12 hours, with metronidazole, 500 mg orally every 12 hours for 14 days. 8"
+    },
+    {
+      "title": "Pelvic inflammatory disease (PID): MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000888.htm",
+      "accessed": "2026-03-13",
+      "snippet": "You may need to stay in the hospital. You may be given antibiotics through a vein (IV). Later, you may be given antibiotic pills to take by mouth. There are many different antibiotics that can treat PID. Some are safe for pregnant women. Which type you take depends on the cause of the infection. You may receive a different treatment if you have gonorrhea or chlamydia ."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 4-day history of sharp, stabbing lower abdominal pain that does not radiate. She reports associated fever, chills, nausea, and heavier than normal vaginal bleeding. She denies urinary symptoms, changes in bowel movements, or pregnancy. She also notes tenderness on palpation of the lower abdomen. There is no history of similar episodes in the past.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute pelvic inflammatory process, possibly pelvic inflammatory disease (PID), given the combination of lower abdominal pain, fever, and abnormal vaginal bleeding in a nonpregnant woman.\nDifferential:\n1. Pelvic inflammatory disease (PID)\n2. Endometritis or other uterine infection\n3. Ovarian pathology such as torsion or cyst rupture\n4. Gastrointestinal causes such as diverticulitis or appendicitis\n\nP: - First-line medication: Doxycycline 100 mg orally twice daily for 14 days plus Metronidazole 500 mg orally twice daily for 14 days (Physician must verify medication/dosing)\n- Alternatives: Azithromycin 1 g orally once, then 500 mg orally daily for 2 days plus Metronidazole 500 mg orally twice daily for 14 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; monitor for gastrointestinal side effects and adherence to full antibiotic course\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, fever persists or worsens, heavy vaginal bleeding continues, or new symptoms develop; seek emergency care if severe abdominal pain or signs of sepsis occur\n- Testing: Recommend pelvic examination, pelvic ultrasound, complete blood count, and sexually transmitted infection screening when feasible in person"
+}

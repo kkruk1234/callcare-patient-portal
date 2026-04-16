@@ -1,0 +1,12 @@
+{
+  "pathway_id": "opioid_withdrawal_mild",
+  "sources": [
+    {
+      "id": "opioid_withdrawal_mild_ref",
+      "source_id": "opioid_withdrawal_mild_ref",
+      "title": "Opioid withdrawal info (starter)",
+      "url": "https://www.samhsa.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

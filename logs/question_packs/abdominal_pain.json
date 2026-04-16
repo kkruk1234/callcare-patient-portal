@@ -1,0 +1,11 @@
+{
+  "id": "abdominal_pain",
+  "version": "0.1",
+  "questions": {
+    "onset": "When did your abdominal pain begin, and is it getting worse?",
+    "location": "Can you tell me where the pain is\u2014upper, lower, right, left, or all over?",
+    "fever": "Are you running a fever?",
+    "vomiting": "Have you been vomiting repeatedly or unable to keep fluids down? (yes/no)",
+    "blood": "Have you noticed any blood when vomiting or in your stool, or black tarry stools?"
+  }
+}

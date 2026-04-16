@@ -1,0 +1,11 @@
+{
+  "id": "low_back_pain",
+  "version": "0.1",
+  "questions": {
+    "neuro_deficit": "Have you noticed any new leg weakness, numbness, or difficulty walking?",
+    "bowel_bladder": "Are you having any new problems peeing or controlling your bowel or bladder?",
+    "fever": "Do you have a fever or chills?",
+    "trauma_cancer": "Have you had any major injuries, cancer, or used IV drugs?",
+    "duration": "How long have you had the back pain? Days, weeks, or months?"
+  }
+}

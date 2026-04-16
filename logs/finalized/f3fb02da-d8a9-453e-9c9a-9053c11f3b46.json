@@ -1,0 +1,49 @@
+{
+  "packet_id": "74dfc61b-d5f1-4927-ab96-b369776d43b8",
+  "created_at": "2026-01-18T02:44:00.291331+00:00",
+  "session_id": "f3fb02da-d8a9-453e-9c9a-9053c11f3b46",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nPatient is a 13-17 year-old with a recent tick bite in Georgia, presenting with fever and chills. Tick may have been attached for 24-72 hours. No rash reported. Patient is not pregnant.\n\nO:  \nNo physical exam findings available due to phone-only encounter. No rash observed per patient report.\n\nA:  \n- Working diagnosis (most likely): Early tick-borne illness (possible early Lyme disease or other tick-borne infection) given tick exposure and fever.  \n- Differential:  \n  1. Early Lyme disease (though no rash reported yet)  \n  2. Ehrlichiosis or Anaplasmosis (common in Georgia, present with fever and chills)  \n  3. Viral illness unrelated to tick bite  \n  4. Other bacterial infections from tick bite  \n- Red flags considered: Persistent high fever, worsening symptoms, neurological signs, rash development, inability to tolerate fluids.\n\nP:  \n- Disposition: Urgent in-person evaluation recommended due to fever and tick exposure to allow physical exam, possible labs, and early treatment.  \n- Plan: Advise patient/guardian to seek urgent care for evaluation including physical exam, blood tests (CBC, blood smear, serologies), and possible empiric antibiotic treatment. Educate on signs of worsening illness.  \n- Safety net: Return immediately or call emergency services if patient develops severe headache, neck stiffness, confusion, rash, difficulty breathing, or persistent high fever.\n\nEvidence (snippets used):  \nNo direct evidence snippets retrieved; recommendations based on standard clinical practice for tick-borne illness evaluation in endemic areas.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": ""
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": ""
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": ""
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": ""
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": []
+}

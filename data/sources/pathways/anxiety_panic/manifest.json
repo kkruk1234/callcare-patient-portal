@@ -1,0 +1,11 @@
+{
+  "pathway_id": "anxiety_panic",
+  "sources": [
+    {
+      "source_id": "nimh_anxiety",
+      "type": "url",
+      "title": "NIMH: Anxiety Disorders",
+      "url": "https://www.nimh.nih.gov/health/topics/anxiety-disorders"
+    }
+  ]
+}

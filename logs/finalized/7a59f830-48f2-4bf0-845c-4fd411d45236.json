@@ -1,0 +1,40 @@
+{
+  "packet_id": "015fd3c6-82fb-4cea-882b-df358c35578d",
+  "created_at": "2026-01-22T20:12:50.536355+00:00",
+  "session_id": "7a59f830-48f2-4bf0-845c-4fd411d45236",
+  "chief_complaint": "sinus pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "bacterial_sinusitis_possible",
+  "answers": {
+    "duration": "5 days",
+    "severe": "yes",
+    "worse_after_better": "yes",
+    "eye_swelling": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with sinus pain lasting 5 days. The pain is severe and has worsened after an initial period of improvement. There is no eye swelling reported.\n\nO:\nNo physical exam or vital signs available due to phone-only evaluation.\n\nA:\n - Working diagnosis (most likely): Bacterial sinusitis\n - Differential:\n  1. Viral sinusitis\n  2. Allergic rhinosinusitis\n  3. Dental infection\n  4. Migraine or other headache disorder\n - Red flags considered:\n  No orbital signs or neurological symptoms reported, reducing concern for orbital cellulitis or intracranial complications.\n\nP:\n - Disposition: Manage as outpatient with close follow-up if symptoms worsen or fail to improve.\n - Plan:\n   Recommend antibiotic therapy appropriate for bacterial sinusitis given severe symptoms and double worsening after initial improvement. Suggested regimen: Amoxicillin-clavulanate 875 mg/125 mg orally twice daily for 7 days. Alternatives include doxycycline 100 mg orally twice daily or a respiratory fluoroquinolone if penicillin allergy is present. Reviewing physician will confirm appropriateness and prescribe if indicated.\n   Supportive care with analgesics and nasal saline irrigation can be advised.\n - Safety net:\n   Advise patient to seek urgent care if they develop worsening facial swelling, eye pain or swelling, visual changes, severe headache, neck stiffness, or altered mental status. If symptoms do not improve within 48-72 hours of antibiotic initiation, reassessment is recommended.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Sinus infection guidance (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Sinus infection guidance (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "session_id": "a1b24584-a5b3-4216-a933-fd85fe443b4b",
+  "timestamp_iso": "2026-01-14T15:26:04.802876+00:00",
+  "note": {
+    "soap": "S:\nPatient reports the worst headache of their life, with sudden onset. They also report a stiff neck. No neurological symptoms such as weakness, numbness, or altered consciousness are reported. No vision changes or eye pain. Pregnancy is not possible.\n\nO:\nNo physical exam findings available due to phone-only encounter.\n\nA:\n  - Working diagnosis (most likely): Possible subarachnoid hemorrhage or other serious secondary headache given sudden onset of worst headache ever and stiff neck.\n  - Differential:\n    1. Subarachnoid hemorrhage\n    2. Meningitis or meningeal irritation\n    3. Migraine or primary headache disorder (less likely given red flags)\n    4. Other intracranial hemorrhage or mass lesion\n  - Red flags considered: Sudden onset \"worst headache of life,\" stiff neck (possible meningeal signs), absence of neurological deficits does not rule out serious pathology.\n\nP:\n  - Disposition: Urgent in-person evaluation in emergency department immediately.\n  - Plan: Advise patient to go to ED for urgent neuroimaging (CT head) and lumbar puncture if indicated to rule out subarachnoid hemorrhage or meningitis. No delay due to risk of serious morbidity or mortality.\n  - Safety net: Instruct patient to call emergency services or return to ED immediately if symptoms worsen, develop neurological deficits, fever, vomiting, or altered mental status.\n\nEvidence (snippets used):\n- AAFP guidance emphasizes that sudden onset worst headache of life with stiff neck is a red flag requiring urgent evaluation for secondary causes such as subarachnoid hemorrhage [1].\n- American Headache Society SNOOP4 red flags include sudden onset, worst headache ever, and neck stiffness as indicators for urgent workup [2].\n- NICE guidelines recommend urgent assessment for headaches with sudden onset and meningeal signs [3].",
+    "patient_instructions": [
+      "If symptoms worsen or you develop new severe symptoms, seek urgent care or call 911.",
+      "Follow the disposition and safety net plan in this note."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "source": "AAFP: Acute Headache in Adults — Diagnostic Approach (https://www.aafp.org/pubs/afp/issues/2022/0900/acute-headache-adults.html)",
+        "title": "AAFP: Acute Headache in Adults — Diagnostic Approach",
+        "url": null,
+        "snippet": "Acute Headache in Adults: A Diagnostic Approach | AAFP --> --> --> --> Advertisement Search search close We upgraded AAFP.org security on Dec. 7. Account holders must create a new password. Previous passwords will no longer work. PREV Sep 2022 NEXT ANTHONY J. VIERA, MD, MPH, AND BRIAN ANTONO, MD, MPH Am Fam Physician. 2022;106(3):260-268 Author disclosure: No relevant financial relationships. Article Sections A detailed history and physical examination can distinguish between key features of a benign primary headache and concerning symptoms that warrant further evaluation for a secondary headache. Most headaches that are diagnosed in the primary care setting are benign. Among primary headache disorders, tension-type headache is the most common, although a migraine headache is more debilita"
+      },
+      {
+        "source": "American Headache Society: Red Flags in Headache (SNOOP4) (https://americanheadachesociety.org/research/library/red-flags-in-headache-what-if-it-isnt-migraine)",
+        "title": "American Headache Society: Red Flags in Headache (SNOOP4)",
+        "url": null,
+        "snippet": "Red Flags in Headache—What if it isn’t… | American Headache Society Headache Journal Become a Member Member Login About Us Awards Board &amp; Committees Special Interest Groups In Memoriam Sponsorship Get Involved Research Headache: The Journal of Head and Face Pain Research Grants Research Library Educational Programs Education On Demand Emerging Leaders Program First Contact: Headache in Primary Care International Headache Academy Leadership Academy Leadership in Advocacy Development Mastering Migraine Therapies REACH Resident Education Program Events Opportunities Fellowships Jobs Medical School Rotations Resources Clinicians Residents &amp; Fellows Primary Care News Contact Headache Journal Become a Member Member Login Contact Research Research Library Red Flags in Headache—What if it"
+      },
+      {
+        "source": "NICE CG150: Headaches in over 12s — Recommendations (https://www.nice.org.uk/guidance/cg150/chapter/recommendations)",
+        "title": "NICE CG150: Headaches in over 12s — Recommendations",
+        "url": null,
+        "snippet": "Recommendations | Headaches in over 12s: diagnosis and management | Guidance | NICE You are here: Home NICE Guidance Conditions and diseases Neurological conditions Headaches Headaches in over 12s: diagnosis and management Clinical guideline Reference number: CG150 Published:&nbsp; 19 September 2012 Last updated:&nbsp; 03 June 2025 Register as a stakeholder Guidance Tools and resources Information for the public Evidence History Download guidance (PDF) Overview Recommendations Context Recommendations for research Finding more information and committee details Update information On this page 1.1 Assessment 1.2 Diagnosis 1.3 Management Terms used in this guideline Recommendations People have the right to be involved in discussions and make informed decisions about their care, as described in"
+      }
+    ]
+  },
+  "recommended_disposition": "PHYSICIAN_REVIEW_REQUIRED",
+  "status": "PENDING",
+  "reviewer_id": null,
+  "reviewer_comments": null
+}

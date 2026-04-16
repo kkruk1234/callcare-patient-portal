@@ -1,0 +1,19 @@
+# Clinician-facing medication/dosing protocol for: contact_lens_red_eye
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: ""
+    dosing: ""
+    exclusions: ""
+    notes: "No empiric antibiotic prescribing by phone for contact lens red eye unless clinician determines low-risk conjunctivitis; keratitis risk requires urgent in-person evaluation."
+
+supportive_care:
+  - item: "Stop contact lens use"
+    details: "Remove lenses immediately; do not wear again until evaluated and fully resolved; discard/replace lenses and case."
+  - item: "Comfort"
+    details: "Artificial tears; avoid eye rubbing."
+
+followup_and_safety:
+  - item: "Urgent in-person eye evaluation"
+    details: "Contact lens red eye with pain, photophobia, discharge, or reduced vision needs same-day evaluation to rule out keratitis."
+  - item: "ED now"
+    details: "Severe pain, marked photophobia, vision loss, or rapidly worsening symptoms."

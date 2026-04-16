@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Activity Levels | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/activity-levels.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ding to their separate thresholds. \nFor each state within a region, the reference periods were used to calculate the values that created the levels (categories) for the 2025-2026 surveillance year.\nFirst, we calculated the weekly percentage of ED visits attributed to each pathogen and ARI overall within the identified lowest activity periods. \nNext, we calculated the mean, M, and standard deviation, S, attributed to each pathogen and ARI overall within the identified lowest activity periods. The mean was considered the baseline value for each state and was used as the top value for the Very Low category. \nThen, we computed the maximum number of standard deviations above the mean for any observed week over all weeks in the three previous seasons (N = maximum number of standard deviations = ( - M) / S). \nThe maximum number of standard deviations (N) was divided by 4 and multiplied by the standard deviation (S = standard deviation). This value was denoted as D, so D = (N / 4) * S.\nUsing X = percent of ED visits in a week for each pathogen and ARI overall, we classified activity levels as follows: \nVery Low: X <= M, activity at or below baseline \nLow: M < X <= M + D \nModerate: M + D < X <= M + 2D \nHigh: M + 2D < X <= + 3D \nVery High: M + 3D < X \nMissouri: Due to data quality issues, Missouri's historical data before MMWR Week 10 of 2025 (March 2-8, 2025) could not be used for compu",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_activity_levels_html_f3cd8bd52f62",
+  "chunk_id": "chunk_006"
+}

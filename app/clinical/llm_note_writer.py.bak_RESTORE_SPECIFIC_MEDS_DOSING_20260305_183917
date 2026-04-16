@@ -1,0 +1,314 @@
+from __future__ import annotations
+
+import json
+import os
+from typing import Any, Dict, List, Tuple
+
+from openai import OpenAI
+from app.core.models import CallState
+
+
+CALLCARE_NOTE_SYSTEM_VOICE = """You are a practicing physician authoring a clinician-grade medical SOAP note.
+
+WRITE AS THE TREATING CLINICIAN.
+Do NOT write as an AI, triage agent, assistant, or decision-support tool.
+
+STYLE:
+- Use SOAP headers exactly: S:, O:, A:, P:
+- Subjective MUST be narrative prose (no bullet points).
+- Objective: phone-only limitations; do not invent vitals or exam.
+- Assessment: working diagnosis + numbered differential.
+- Plan: must match required headers and order exactly.
+
+TRUTHFULNESS:
+- Use ONLY structured answers and stored symptom fields provided in the prompt.
+- Do NOT invent negatives, PMH, meds list, vitals, exam, tests.
+- If something was not asked, omit it (or write "Not assessed" only if necessary).
+""".strip()
+
+
+def _client_and_model() -> Tuple[OpenAI, str]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+    client = OpenAI(api_key=api_key)
+
+    model = os.getenv("CALLCARE_LLM_MODEL", "").strip()
+    if not model:
+        model = "gpt-4.1-mini"
+    return client, model
+
+
+def _generate_from_prompt(prompt: str, system_voice: str, max_output_tokens: int) -> str:
+    client, model = _client_and_model()
+    resp = client.responses.create(
+        model=model,
+        input=[
+            {"role": "system", "content": system_voice},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+        max_output_tokens=max_output_tokens,
+    )
+
+    text = getattr(resp, "output_text", None)
+    if text:
+        return str(text)
+
+    try:
+        parts = []
+        for o in resp.output:
+            for c in getattr(o, "content", []) or []:
+                if getattr(c, "type", "") == "output_text":
+                    parts.append(getattr(c, "text", ""))
+        return "\n".join([p for p in parts if p])
+    except Exception:
+        return ""
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        return sx if isinstance(sx, dict) else {}
+    except Exception:
+        return {}
+
+
+def _answers_dict(state: CallState) -> Dict[str, Any]:
+    sx = _symptoms_dict(state)
+    a = sx.get("_answers", {})
+    return a if isinstance(a, dict) else {}
+
+
+def _chief_complaint(state: CallState) -> str:
+    try:
+        return str(getattr(state, "chief_complaint", "") or getattr(state, "chief", "") or "").strip()
+    except Exception:
+        return ""
+
+
+def _pathway_id(state: CallState) -> str:
+    try:
+        return str(getattr(state, "pathway_id", "") or "").strip()
+    except Exception:
+        return ""
+
+
+def _age_years(state: CallState):
+    try:
+        v = getattr(state, "age_years", None)
+        if v is None:
+            v = getattr(state, "age", None)
+        return v
+    except Exception:
+        return None
+
+
+def _flag_text(state: CallState, key: str) -> str:
+    sx = _symptoms_dict(state)
+    ans = _answers_dict(state)
+    for d in (ans, sx):
+        if isinstance(d, dict) and key in d:
+            return str(d.get(key)).strip()
+    try:
+        if hasattr(state, key):
+            return str(getattr(state, key)).strip()
+    except Exception:
+        pass
+    return ""
+
+
+def _evidence_text(evidence: List[Any]) -> str:
+    lines: List[str] = []
+    if not isinstance(evidence, list):
+        return "(none)"
+
+    for i, e in enumerate(evidence[:10], start=1):
+        if isinstance(e, dict):
+            title = str(e.get("title", "") or "").strip()
+            url = str(e.get("url", "") or "").strip()
+            source = str(e.get("source", "") or "").strip()
+            accessed = str(e.get("accessed", "") or "").strip()
+            snippet = str(e.get("snippet", "") or "").strip()
+        else:
+            title = str(getattr(e, "title", "") or "").strip()
+            url = str(getattr(e, "url", "") or "").strip()
+            source = str(getattr(e, "source", "") or getattr(e, "publisher", "") or "").strip()
+            accessed = str(getattr(e, "accessed", "") or getattr(e, "date", "") or "").strip()
+            snippet = str(getattr(e, "snippet", "") or getattr(e, "text", "") or "").strip()
+
+        hdr = f"SOURCE_{i}: {title}".strip(": ").strip()
+        if source:
+            hdr += f" [{source}]"
+        if accessed:
+            hdr += f" (accessed {accessed})"
+        lines.append(hdr)
+        if url:
+            lines.append(url)
+        if snippet:
+            t = snippet.replace("\r", " ").strip()
+            if len(t) > 1800:
+                t = t[:1800] + "…"
+            lines.append(t)
+        lines.append("---")
+
+    return "\n".join(lines).strip() if lines else "(none)"
+
+
+def _extract_tried_block(ans: Dict[str, Any]) -> str:
+    if not isinstance(ans, dict):
+        return ""
+    hits: List[str] = []
+    for k, v in ans.items():
+        ks = str(k).lower()
+        if any(t in ks for t in ("tried", "already", "medication", "medicine", "treatment", "help")):
+            vs = str(v).strip()
+            if vs:
+                hits.append(f"- {k}: {vs}")
+    return "\n".join(hits[:12])
+
+
+def build_prompt(state: CallState, evidence: List[Any]) -> str:
+    pid = _pathway_id(state)
+    cc = _chief_complaint(state)
+    age = _age_years(state)
+
+    ans = _answers_dict(state)
+    sx = _symptoms_dict(state)
+
+    preg = _flag_text(state, "pregnancy_possible")
+    renal = _flag_text(state, "renal_disease")
+    liver = _flag_text(state, "liver_disease")
+
+    allergies = ""
+    if isinstance(ans.get("allergies"), str):
+        allergies = ans.get("allergies", "").strip()
+
+    tried_block = _extract_tried_block(ans)
+    ans_json = json.dumps(ans, ensure_ascii=False, indent=2)
+
+    case_lines: List[str] = []
+    if age is not None:
+        case_lines.append(f"AGE_YEARS: {age}")
+    case_lines.append(f"CHIEF_COMPLAINT: {cc or '(not captured)'}")
+    case_lines.append(f"PATHWAY_ID: {pid or '(none)'}")
+    case_lines.append(f"ALLERGIES: {allergies or 'not captured'}")
+    case_lines.append(f"PREGNANCY_POSSIBLE: {preg or '(missing)'}")
+    case_lines.append(f"RENAL_DISEASE: {renal or '(missing)'}")
+    case_lines.append(f"LIVER_DISEASE: {liver or '(missing)'}")
+
+    sx_public = {}
+    try:
+        if isinstance(sx, dict):
+            sx_public = {k: v for k, v in sx.items() if not str(k).startswith("_")}
+    except Exception:
+        sx_public = {}
+
+    hard_rules = r"""
+HARD RULES (ASSESSMENT FORMAT — MUST MATCH EXACTLY):
+In A::
+- First write 1–2 prose sentences stating the working diagnosis.
+- Then start a NEW line that says exactly: "Differential:"
+- Then write a numbered list on separate lines exactly:
+  1. ...
+  2. ...
+  3. ...
+  4. ...
+- Do NOT write the differential inside a paragraph.
+
+HARD RULES (PLAN FORMAT — MUST MATCH EXACTLY):
+In P:, output EXACTLY five bullet lines, each starting with "- " exactly, in this order:
+- First-line medication: ...
+- Alternatives: ...
+- Medication safety considerations: ...
+- Follow-up recommendations: ...
+- Testing: ...
+
+PLAN RULES (NON-NEGOTIABLE):
+EVIDENCE HIERARCHY (STRICT):
+- Evidence snippets are authoritative. Do NOT contradict them.
+- If evidence uses hierarchy language (e.g., first-line/primary/preferred/recommended/should be offered), your plan MUST reflect that ordering.
+
+ROUTE/FORMULATION TRUTHFULNESS (STRICT):
+- Do NOT add route/formulation words (e.g., oral, topical, inhaled, intranasal, patch/gel/cream) unless that route/formulation is explicitly stated in the evidence snippet text.
+- If evidence does not specify route/formulation, omit route/formulation entirely.
+
+FIRST-LINE RULE (EVIDENCE-FIRST + OPTIONAL EXAMPLES):
+- If evidence names a specific medication as first-line, list that medication as first-line.
+- Exception: if the evidence explicitly recommends only a class/modality as first-line treatment and does not name a specific agent:
+  - You may list the class/modality as first-line and add "(per evidence)".
+  - You MAY include 1–2 example agents in parentheses introduced with "e.g.," ONLY as examples (not as evidence-mandated first-line).
+  - Do NOT include route/formulation or dosing unless explicitly supported by the evidence snippets.
+
+ALTERNATIVES RULE:
+- Alternatives must not contradict the evidence hierarchy.
+- Prefer specific medications only when evidence supports them.
+- If evidence supports only a class/modality, you may list that class/modality (and optionally examples as above).
+
+DOSING RULE:
+- If you state dosing that is NOT clearly supported by the evidence snippets, append:
+  "(Physician must verify medication/dosing)"
+- If dosing IS supported by evidence snippets, do NOT include citations, evidence IDs, or source references.
+
+MEDICATION SAFETY CONSIDERATIONS (STRICT + TELEPHONE-REALISTIC):
+- Only state what is explicitly known from structured answers:
+  allergies, pregnancy_possible, renal_disease, liver_disease.
+- Do NOT claim "no contraindications" or "no risk factors" unless explicitly stated in structured answers.
+- Do NOT say "avoid X if Y develops" as a substitute for actual intake data.
+- If you need to mention uncertainty, use brief language like "Other contraindications not assessed in this telephone encounter."
+
+ALREADY-TRIED MEDICATION RULE (NON-NEGOTIABLE):
+- If structured answers indicate a medication was tried and ineffective or not tolerated:
+  - Do NOT recommend it as first-line.
+  - Do NOT recommend it under Alternatives.
+  - You MAY mention it only as history.
+
+FOLLOW-UP WORDING RULE (NON-NEGOTIABLE):
+- Use calm, practical language appropriate for a telephone visit.
+- Under "Follow-up recommendations:", use wording like:
+  "Seek in-person medical care urgently if …" and/or "Seek emergency care if …"
+- Do NOT use the phrase "Return precautions" or "Return if …"
+
+FORBIDDEN PHRASES IN P::
+- "consider" (as a hedge)
+- "may help"
+- "if appropriate"
+- "per label"
+- "as directed"
+
+OUTPUT FORMAT:
+Return ONLY valid JSON:
+{
+  "soap_text": "S:...\\n\\nO:...\\n\\nA:...\\n\\nP:...\\n",
+  "evidence_search_queries": ["...", "..."]
+}
+""".strip()
+
+    ev_text = _evidence_text(evidence)
+
+    return f"""
+{hard_rules}
+
+CASE DATA:
+{chr(10).join(case_lines)}
+
+STRUCTURED_ANSWERS (verbatim JSON):
+{ans_json}
+
+ALREADY_TRIED_TREATMENTS (extracted from structured answers; do not contradict):
+{tried_block or '(none found)'}
+
+STORED_SYMPTOM_FIELDS (verbatim):
+{json.dumps(sx_public, ensure_ascii=False, indent=2)}
+
+EVIDENCE SNIPPETS:
+{ev_text}
+""".strip()
+
+
+def generate_note_text(prompt: str) -> str:
+    return _generate_from_prompt(prompt, system_voice=CALLCARE_NOTE_SYSTEM_VOICE, max_output_tokens=1200)
+
+
+def generate_note(state: CallState, evidence: List[Any]) -> str:
+    return generate_note_text(build_prompt(state, evidence))

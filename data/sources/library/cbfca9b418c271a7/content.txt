@@ -1,0 +1,4052 @@
+Emergency department pain management in special populations - PMC
+ 
+
+ Skip to main content
+ 
+
+ An official website of the United States government
+ 
+
+Here's how you know
+
+Here's how you know
+
+Official websites use .gov
+
+ A
+ 
+.gov
+ website belongs to an official
+ government organization in the United States.
+ 
+
+Secure .gov websites use HTTPS
+
+ A 
+lock
+ (
+ 
+
+Lock
+
+ Locked padlock icon
+ 
+
+) or 
+https://
+ means you've safely
+ connected to the .gov website. Share sensitive
+ information only on official, secure websites.
+ 
+
+ Search
+ 
+
+ 
+ 
+ 
+ 
+
+Log in
+
+ 
+
+ 
+ Dashboard
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Publications
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Account settings
+ 
+
+ 
+ 
+
+ 
+ 
+
+ Log out
+
+ 
+ 
+ 
+ 
+
+ Search…
+ 
+
+ Search NCBI
+ 
+
+ Primary site navigation
+ 
+
+ Search
+ 
+
+ Logged in as:
+ 
+
+ 
+
+ 
+ Dashboard
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Publications
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Account settings
+ 
+
+ 
+ 
+
+ 
+ 
+
+ Log in
+
+ 
+ 
+ 
+ 
+
+Search PMC Full-Text Archive
+
+Search in PMC
+
+ Journal List
+ 
+
+ User Guide
+ 
+
+PERMALINK
+
+Copy
+
+ As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+ the contents by NLM or the National Institutes of Health.
+
+ Learn more:
+ 
+PMC Disclaimer
+
+ |
+ 
+
+ PMC Copyright Notice
+ 
+
+Turk J Emerg Med
+. 2025 Jul 1;25(3):159–177. doi: 
+10.4103/tjem.tjem_141_25
+
+Search in PMC
+
+Search in PubMed
+
+View in NLM Catalog
+
+Add to search
+
+Emergency department pain management in special populations
+
+Katherine Vlasica
+
+Katherine Vlasica
+
+1
+
+Department of Emergency Medicine, St. Joseph’s Health, Paterson, NJ, USA
+
+Find articles by 
+Katherine Vlasica
+
+1
+, 
+Amanda Hall
+
+Amanda Hall
+
+1
+
+Department of Emergency Medicine, St. Joseph’s Health, Paterson, NJ, USA
+
+Find articles by 
+Amanda Hall
+
+1
+, 
+Mohammad Anzal Rehman
+
+Mohammad Anzal Rehman
+
+2
+
+Department of Emergency Medicine, Mediclinic City Hospital, Dubai, UAE
+
+Find articles by 
+Mohammad Anzal Rehman
+
+2
+, 
+George Notas
+
+George Notas
+
+3
+
+Department of Emergency Medicine, University Hospital of Heraklion, Crete, Greece
+
+Find articles by 
+George Notas
+
+3
+, 
+Christina Shenvi
+
+Christina Shenvi
+
+4
+
+Department of Emergency Medicine, University North Carolina Hospitals, Chapel Hill, NC, USA
+
+Find articles by 
+Christina Shenvi
+
+4
+, 
+Sergey Motov
+
+Sergey Motov
+
+5
+
+Department of Emergency Medicine, Maimonides Medical Center, Brooklyn, NY, USA
+
+Find articles by 
+Sergey Motov
+
+5,
+*,
+✉
+
+Author information
+
+Article notes
+
+Copyright and License information
+
+1
+
+Department of Emergency Medicine, St. Joseph’s Health, Paterson, NJ, USA
+
+2
+
+Department of Emergency Medicine, Mediclinic City Hospital, Dubai, UAE
+
+3
+
+Department of Emergency Medicine, University Hospital of Heraklion, Crete, Greece
+
+4
+
+Department of Emergency Medicine, University North Carolina Hospitals, Chapel Hill, NC, USA
+
+5
+
+Department of Emergency Medicine, Maimonides Medical Center, Brooklyn, NY, USA
+
+✉
+Address for correspondence:
+ Prof. Sergey Motov, Department of Emergency Medicine, Maimonides Medical Center, NY, USA. E-mail: 
+smotov@gmail.com
+
+*
+
+Corresponding author
+
+Author contribution statement
+
+KV: Writing original subchapter (lead); review and editing of the entire paper (equal). AH: Writing original subchapter (lead); review and editing of the entire paper (equal). AR: Writing original subchapter (lead); review and editing of the entire paper (equal). GN: Writing original subchapter (lead); review and editing of the entire paper (equal). CS: Writing original subchapter (lead); review and editing of the entire paper (equal). SM: Conceptualizing the entire paper (lead), review and editing of the entire paper (equal); preparing and editing the final draft (lead).
+
+All authors made substantial contributions to the concept of the work, to manuscript preparation and revisions. All authors have approved the submitted version. All authors have agreed both to be personally accountable for the author’s own contributions and to ensure that questions related to the accuracy or integrity of any part of the work, even ones in which the author was not personally involved, are appropriately investigated, resolved, and the resolution documented in the literature.
+
+Received 2025 Apr 21; Revised 2025 May 6; Accepted 2025 May 8; Collection date 2025 Jul-Sep.
+
+Copyright: © 2025 Turkish Journal of Emergency Medicine
+
+This is an open access journal, and articles are distributed under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License, which allows others to remix, tweak, and build upon the work non-commercially, as long as appropriate credit is given and the new creations are licensed under the identical terms.
+
+PMC Copyright notice
+
+PMCID: PMC12309824  PMID: 
+40746577
+
+Abstract
+
+Pain is a leading cause of emergency department (ED) visits globally, yet certain patient populations experience persistent disparities in their pain management due to physiological complexities, comorbidities, and gaps in evidence-based guidelines. This clinical review focuses on individualized, evidence-based approaches to ED pain management in four vulnerable groups: pregnant and breastfeeding patients, patients with sickle cell disease, geriatric populations, and patients with cancer pain and requiring palliative care. The practical recommendations presented in this review for optimal ED pain management in these special populations call for timely, effective, and multimodal analgesia; prioritization of nonpharmacologic and pain syndrome-targeted techniques; awareness of drug-disease and drug-drug interactions; interdisciplinary coordination; and education to mitigate ED clinicians’ biases. This review emphasizes the importance of tailoring pain strategies to population-specific needs to improve outcomes, reduce harm, and advance equity in emergency care delivery.
+
+Keywords:
+ Analgesia, emergency department, pain management
+Introduction
+
+Pain is a common presenting complaint in emergency departments (EDs) worldwide, with up to 78% of ED visits involving pain as a primary or secondary symptom.[
+1
+,
+2
+] Despite advances in ED pain management, certain patient populations present unique challenges requiring individualized, pain syndrome-specific approach to achieve optimal analgesia while minimizing adverse outcomes. Pregnant women, people with sickle cell disease (SCD), geriatric patients, and patients with cancer pain or palliative care represent vulnerable populations whose pain management needs often diverge significantly from standard protocols, necessitating evidence-based, population-specific interventions.[
+3
+,
+4
+,
+5
+,
+6
+]
+
+The management of pain in these special populations is complicated due to altered pharmacokinetics, comorbidities, physiological vulnerabilities, refractoriness to conventional therapeutic approaches, and concerns about medication safety that frequently translate into inadequate pain control in the ED. This focused clinical review aims to provide emergency physicians with evidence-based approaches to pain management in these challenging populations.
+Pain Management of Pregnant and Breastfeeding Patients in the Emergency Department
+
+Acute pain is common in pregnancy, with analgesics being the third-most-prescribed medication class after antiemetics and antibiotics.[
+7
+] Managing pain in pregnancy and breastfeeding requires a tailored and multifaceted approach that balances pharmacologic and nonpharmacologic options with fetal safety risks. However, evidence-based guidelines remain limited due to the historical exclusion of pregnant women from clinical trials, leaving clinicians to navigate treatment with incomplete data. Physiological changes in pregnancy (altered drug metabolism, hepatic and renal clearance, volume distribution changes, and placental transfer) further complicate drug pharmacokinetics and fetal exposure risks.[
+8
+]
+
+ED clinicians must assess the risks of untreated illness and potential adverse effects of pharmacotherapy on pregnancy and breastfeeding and unfavorable perinatal and infant outcomes such as miscarriage, major congenital disabilities, preterm birth, stillbirth, neonatal adaptation signs, and behavioral and developmental effects.[
+7
+,
+9
+] 
+Table 1
+ lists commonly used analgesics (dosing and routes) in pregnant and breastfeeding patients.
+
+Table 1.
+
+Commonly used analgesics in pregnancy and lactation
+
+Medication
+
+Route
+
+Dose
+
+Maternal risk
+
+Fetal risk
+
+Safety/nursing/RID
+
+Comments
+
+Acetaminophen (Paracetamol)
+
+PO 
+PR
+IV
+
+325–1000 mg Q4–6 h
+
+None
+
+None
+
+Safe for nursing
+RID: 1.1–1.8%
+
+NSAIDs
+  Ibuprofen
+  Naproxen
+  Ketorolac
+  Diclofenac
+  Ketoprofen
+  Dexketoprofen
+
+PO
+IV
+
+Ibuprofen
+400 mg Q4 h
+Naproxen
+220 mg Q12 h
+Ketorolac
+10 mg Q6 h
+Diclofenac 50 mg Q6 h
+Ketoprofen
+60 mg Q6
+Dexketoprofen
+12.5 mg Q6 h
+
+Use in 1
+st
+ and 2
+nd
+ trimester
+Prolonged gestation/labor, anemia, blood loss in labor
+
+Bleeding, premature closure ductus arteriosus (third trimester) pulmonary hypertension
+Naproxen- cardiovascular defects
+
+Safe for nursing: Ibuprofen <1%
+Naproxen 2.8%
+Ketorolac 0.18%
+Ketoprofen 0.31%
+
+Cautious use in the first and second trimesters
+Contraindicated in the third trimester
+
+NSAID
+  Diclofenac
+
+Topical
+
+2–4 g Q6
+
+Absorption is minimal, generally safe in the first trimester
+
+One case of premature closure of ductus arteriosus
+
+Safe for nursing
+
+Opioids
+  Oxycodone (IR)
+  Morphine (IR)
+  Fentanyl
+  Hydromorphone
+  Hydrocodone/acetaminophen
+  Codeine
+
+PO, IV, IM, IN, SQ
+
+Varies
+
+Constipation, increased maternal sensitivity
+Nausea
+Vomiting
+Pruritus
+CNS depression
+Respiratory depression
+Medication dependence
+Overdose/OUD
+
+NOWS
+IUGR
+No known significant malformations
+
+Safe for short-term only (2–3 days)
+
+Codeine to be avoided due to potential for ultrarapid metabolism (CYP2D6) and the risk of fatal respiratory depression in infants (b)
+
+Buprenorphine (first line opioid)
+
+Transdermal
+SL
+PO
+IM
+IV
+
+Varies
+
+Constipation
+
+NOWS
+
+Use with caution as first-line opioid
+
+Partial agonist – lower maternal and fetal risk
+
+Methadone
+
+IM, PO
+
+Varies
+
+Constipation, Respiratory/CNS depression
+
+NOWS
+
+Safe
+
+Second-line opioid if buprenorphine is contraindicated
+
+Tramadol
+
+PO
+
+25–100 mg Q6
+
+Increased risk for cardiac septal defect and pes equinovarus (49)
+
+Not safe
+
+To be avoided due to the potential for ultrarapid metabolism (CYP2D6) and the risk of fatal respiratory depression in infants (b)
+
+Steroids
+
+PO, IV, topical
+
+Varies
+
+Adrenal insufficiency
+Hyperglycemia
+
+Oral cleft palate formation- small studies
+Multiple courses IUGR/low birth weight
+neonatal sepsis
+
+Safe for nursing
+
+Prednisone/prednisolone does not cross the placenta
+
+Magnesium
+
+PO, IV
+
+Diarrhea, muscle weakness
+
+None known
+
+Safe for nursing
+
+Nitrous oxide
+Inhaled 50%–70%
+
+INH
+
+Varies
+
+Increased nausea, vomiting
+Avoid due to risk of air entrapment (bowel obstruction, pneumothorax, pneumomediastinum)
+
+Avoid in the first trimester
+
+Limited data in the second trimester, use in the third trimester
+
+Topicals
+Lidocaine 5%
+Capsaicin
+Steroids
+
+Topical
+
+Varies
+
+Skin irritation
+
+None
+
+Safe for nursing
+
+Gabapentin
+
+PO
+
+100–300 mg single dose followed by titration
+
+Minimal
+
+Possible cardiac defects, preterm birth, SGA
+
+Safe for nursing
+
+Open in a new tab
+
+RID: Relative infant dose, NSAIDs: Nonsteroidal anti-inflammatory drugs, PO: Oral, PR: Rectal, IV: Intravenous, IN: Intranasal, IM: Intramuscular, SQ: Subcutaneous, NOWS: Neonatal opioid withdrawal syndrome, IUGR: Intrauterine growth retardation, CNS: Central nervous system, OUD: Opioid use disorder, SL: Sublingual, SGA: Small for gestational age, INH: Inhalation
+Commonly used analgesics in pregnancy and breastfeeding
+
+Acetaminophen (Paracetamol, APAP)
+
+Acetaminophen is used in 40%–70% of pregnancies and is the only pain medication considered safe during pregnancy and compatible with breastfeeding.[
+7
+,
+10
+] Its use has no clear evidence linking it to fetal developmental issues.[
+7
+,
+10
+,
+11
+] Oral, intravenous (IV), and rectal formulations are available with a maximum of 4000 mg per day with IV single infusion of 1000 mg not exceeding 15 min. A large population-based study of 185,909 children found no significant link to autism, ADHD, or intellectual disabilities.[
+12
+] A systematic review and meta-analysis also found no association with preterm birth or low birth weight, though data on dosage and frequency were limited.[
+13
+,
+14
+]
+Nonsteroidal anti-inflammatory drugs
+
+NSAIDs, including their parenteral, oral, and topical forms, are generally considered safe in pregnant and lactating women and are commonly used for musculoskeletal (MSK) pain, headaches, and renal colic.[
+7
+,
+15
+] However, their use during pregnancy requires caution due to potential embryo-fetal risks based on specific NSAID, gestational timing, and duration of use.[
+7
+,
+15
+] NSAIDs are contraindicated in the third trimester due to risks of premature ductus arteriosus closure and uteroplacental vasoconstriction.[
+16
+]
+
+Beyond 20 weeks, NSAID use has been linked to fetal nephrotoxicity and oligohydramnios, prompting FDA recommendations to minimize use after 20 weeks and avoid it entirely after 30 weeks.[
+17
+] NSAIDs can be used cautiously in the first and second trimesters with the lowest effective dose and shortest course when benefits outweigh the risks, as courses longer than 10 days may adversely affect fetal health.[
+18
+]
+Opioids
+
+Opioids are widely used for pain management during pregnancy via IV, oral (PO), sublingual (SL), and intranasal (IN) routes. Frequent titration and the use of the lowest effective dose for the shortest duration are recommended to minimize complications.[
+19
+,
+20
+] Opioids increase the risk of Neonatal Opioid Withdrawal Syndrome (NOWS) with stronger opioid agonists (e.g., oxycodone, methadone, hydromorphone, and morphine) posing a higher NOWS risk.[
+20
+,
+21
+]
+
+Pregnant women with opioid use disorder (OUD) face higher risks of inadequate prenatal care, fetal growth restriction, preterm labor, and NOWS.[
+20
+,
+21
+] Methadone or buprenorphine should be initiated promptly, as both improve maternal and fetal outcomes. Buprenorphine has been associated with reduced neonatal withdrawal and increased birth weight, making it the preferred option for OUD treatment during pregnancy.[
+20
+]
+
+Despite the relative infant dose of opioids in breast milk being in the range of 1%–5% of the mother’s therapeutic dose, there are significant risks associated with continued breastfeeding while on opioids.[
+21
+] The around-the-clock use of opioids by the mother during breastfeeding should be limited to 2–3 days,[
+22
+] Tramadol and codeine should be avoided due to the risk of life-threatening respiratory depression in infants of mothers with the ultra-rapid CYP2D6 metabolizer phenotype.[
+23
+]
+Steroids
+
+Corticosteroids administered as a short course orally, topically, or intravenously are generally considered safe for treating radicular back pain, joint pain, and inflammatory pain during pregnancy.[
+19
+] Prolonged or chronic use has been linked to cataracts, fetal growth restriction, both maternal and fetal immunosuppression, and adrenal insufficiency.[
+24
+] Rheumatological guidelines recommend the use of nonfluorinated glucocorticoids, such as prednisone and prednisolone, as they do not cross the placenta.[
+8
+,
+25
+] Maternal exposure to topical corticosteroids without exceeding the recommended dose revealed no causal association with fetal orofacial clefts, preterm delivery, or low Apgar score.[
+26
+]
+Magnesium
+
+Magnesium is commonly used in obstetrics and has been well tolerated by both the mother and baby in the treatment of acute and chronic painful syndromes.[
+16
+,
+27
+,
+28
+] Several randomized controlled trials (RCTs) have shown that magnesium supplementation can help relieve muscle cramps, improve general comfort, and promote better sleep during pregnancy.[
+29
+] For migraine headaches, magnesium is often used in combination with other medications.[
+30
+]
+Anticonvulsants (gabapentin and pregabalin)
+
+Gabapentin and pregabalin are commonly used for postherpetic neuralgia, diabetic neuropathy, and radicular back pain in pregnant patients and are generally safe in breastfeeding. A large population-based study of 4642 pregnancies with early gabapentin exposure did not demonstrate an association with major congenital malformations. However, maternal gabapentin use in late pregnancy was associated with a 20%–30% increased risk of preterm birth, a 30%–40% increased risk of small-for-gestational-age infants, and a 35% increased likelihood of neonatal intensive care unit admission.[
+31
+] Research related to pregabalin in pregnancy is even more sparse, suggesting no teratogenicity, but its unpredictable absorption may cause maternal sedation.[
+32
+]
+Local anesthetics and targeted analgesia
+
+Targeted analgesic techniques such as topical, local, and regional anesthesia offer rapid pain relief with minimal systemic effects to pregnant and lactating patients.[
+16
+,
+17
+,
+19
+] In addition, existing research of large observational studies demonstrates no evidence of teratogenicity of local anesthetic administered topically, locally, or regionally.[
+33
+,
+34
+,
+35
+] Very small amounts of local anesthetics are secreted into the breast milk of lactating mothers, with ropivacaine having the lowest transmission rate compared to lidocaine and bupivacaine.[
+15
+]
+Antidopaminergics
+
+Antidopaminergics (metoclopramide, prochlorperazine, droperidol, and haloperidol) are frequently used for the management of intractable nausea/vomiting, primary headache, and intractable abdominal pain in the ED. While generally safe in pregnancy and breastfeeding, the use of metoclopramide might be associated with maternal extrapyramidal symptoms. The use of phenothiazines rarely leads to the development of cleft palate, skeletal, limb, and cardiac abnormalities, as well as neonatal respiratory depression during pregnancy. The administration of droperidol or haloperidol is often avoided due to concerns about maternal prolonged QTc.[
+36
+]
+Muscle relaxants
+
+The use of central muscle relaxants such as baclofen, methocarbamol, chlorzoxazone, cyclobenzaprine, tizanidine, and thiocolchicoside should be generally avoided in pregnant patients as numerous animal studies demonstrated teratogenicity of such medications and human data is severely limited.[
+37
+,
+38
+]
+Nitrous oxide
+
+The use of nitrous oxide during pregnancy, particularly for short-term procedures and labor pain management, appears to be safe with no significant adverse effects on the fetus. However, long-term exposure to high concentrations of nitrous oxide, such as in occupational or recreational settings, may negatively impact fertility and fetal outcomes. Additionally, there are concerns regarding its use in the first trimester, where the inactivation of Vitamin B12 disrupts the folate metabolism.[
+39
+] Further research is needed to fully understand the implications of nitrous oxide use, especially in preterm pregnancies.[
+39
+,
+40
+,
+41
+,
+42
+,
+43
+]
+Ketamine
+
+Ketamine is frequently used in the ED for procedural sedation and analgesia, intubation, and pain management. Ketamine readily crosses the placenta and preferentially distributes in neuronal tissue, raising concerns about its neurotoxic effects in the developing brain.[
+44
+,
+45
+,
+46
+] Additionally, animal models of prenatal exposure to ketamine demonstrated long-term behavioral and cognitive deficits, including hyperactivity, disinhibition, social withdrawal, anxiety, depression, and aggression in adulthood.[
+47
+,
+48
+] While direct human evidence is lacking, these data raise significant concerns about potential neurotoxic effects of ketamine on a developing fetus and its use should be generally avoided in pregnancy.[
+49
+]
+Complementary and alternative therapies
+
+Exercise and physical therapy have been associated with reduced pain intensity, decreased disability, and improved quality of life in pregnancy-related MSK and back pain.[
+20
+,
+50
+,
+51
+] Osteopathic manipulative treatment was shown to decrease low back pain intensity and improve functional status in pregnancy.[
+50
+,
+51
+] Transcutaneous electrical nerve stimulation has been found to be safe in all trimesters, demonstrating efficacy in lumbar pain and a small but measurable benefit for labor pain.[
+20
+,
+50
+,
+51
+,
+52
+,
+53
+] Additionally, pelvic belts have been shown to be quite effective in the treatment of symphyseal and pelvic girdle pain, outperforming exercise therapy alone.[
+20
+] Acupuncture has been investigated for pregnancy-related back pain and labor analgesia, with some studies demonstrating significant pain relief, though methodological limitations remain.[
+54
+,
+55
+]
+Breastfeeding
+
+Breastfeeding-all drugs under 1000 kDa transfer into breast milk. A quantitative estimate of how much medication is transferred to the nursing infant is expressed as a relative infant dose (RID). For most drugs, a RID of 10% or less is considered relatively safe; caution is required for drugs excreted in dosages of 10%–25% of the maternal dosage; and those few drugs excreted in dosages over 25% of the maternal dosage are considered unacceptable.[
+56
+]
+Take-home pearls
+
+Prescribe at the lowest effective dose, quantity, and duration of treatment to minimize in utero exposure to medications
+
+Prioritize topicals and nonpharmacological therapies over systemic treatments
+
+Use targeted analgesia whenever possible
+
+Collaborate with patients to establish treatment goals.
+
+Management of Pain in Patients with Sickle Cell Disease in the Emergency Department
+
+SCD is an autosomal recessive disorder characterized by disrupted morphology (sickling) that affects close to 8 million people globally and results in painful crises, hemolytic anemia, splenic sequestration, infections, and stroke.[
+57
+] The most common presenting symptom for patients in the ED is pain associated with vaso-occlusive crisis (VOC) due to organ ischemia and neurogenic inflammation.[
+58
+] National estimates in the United States (U. S.) found that nearly 75% of all SCD patients presenting to the ED had a primary complaint of pain,[
+59
+] with a significant increase in utilization of opioid-based analgesia.[
+60
+]
+
+The best practice guidelines by the American Society of Hematology (ASH) and the American College of Emergency Physicians recommend assessing all patients presenting with acute VOC to the ED as high-risk, administering appropriate analgesia within 1 h of arrival with pain reassessment every 30–60 min, and individualizing the plans of care for each patient based on their history of analgesic use and effective dosage and route for pain relief in the past. The goal of analgesia in VOC is to provide appropriate relief for patient discomfort in a safe and effective manner while evaluating patients for underlying complications of SCD.[
+61
+] 
+Table 2
+ lists common therapeutic modalities with their dosing and routes for pain control in patients with SCD.
+
+Table 2.
+
+Summary of analgesic options in the treatment of acute pain in vaso-occlusive crisis in sickle-cell disease patients
+
+Medication class
+
+Commonly used drugs
+
+Common routes of administration
+
+Suggested initial dosage
+
+Notes
+
+APAP
+
+Acetaminophen
+Paracetamol
+
+IV, PO, PR
+
+Pediatric: 10–15 mg/kg (maximum 1000 mg)
+Adults: 500–1000 mg
+
+Risk of hepatotoxicity in supra-analgesic dosages, avoid use in hepatic impairment
+
+NSAID
+
+Ketorolac
+Diclofenac
+Ketoprofen
+Dexketoprofen
+
+IV, IM, IN
+IV, IM, PR, PO
+IV, IM, PO
+IV, IM, PO
+
+Pediatric: 0.5 mg/kg IV (maximum 10 mg), 1 mg/kg IM (maximum 30 mg)
+Adults: 10 mg IV, 30 mg IM, 31.5 mg IN
+Pediatric: 0.3 mg/kg IV, 0.5 mg/kg PR, 1 mg/kg PO
+Adults: 50 mg PO, 75 mg IV/IM
+Adults: 25–50 mg PO, 50 mg IM/IV
+Adults: 25 mg PO, 50 mg IV/IM
+
+Use with caution in pediatric patients. Avoid use in renal impairment, or in patients with full-dose anticoagulation
+
+Opioids
+
+Morphine
+Fentanyl
+Hydromorphone
+
+IV, SQ, IM, oral
+IV, IN, SL, buccal
+IV/IM, IN, PO
+
+0.1 mg/kg: IV/IM/SQ (maximum single dose 10 mg), 15–30 mg immediate-release (MSIR) tablet PO
+Pediatric: 1–1.5 µg/kg IV and 1.5 µg/kg IN (maximum 100 µg)
+Adults: 50–100 µg IV/IN, 100 µg SL/buccal
+Pediatric: 0.015 mg/kg IV, 0.03–0.06 mg/kg IN
+Adults: 0.75–1.5 mg IV, 4–8 mg IN, 4–8 mg PO
+
+Avoid Codeine and Tramadol due to unreliable CYP2D6 metabolism. Use morphine with caution in renal impairment. Increased risk of acute chest syndrome with morphine use
+
+NMDA antagonist
+
+Ketamine
+Lidocaine
+
+IV, IM, IN, SQ, Inhalation
+IV
+
+0.15–0.3 mg/kg IV, 0.5 mg/kg: IN/SQ, 0.75 mg/kg Nebulization
+1–1.5 mg/kg IV
+
+Consider slow infusion of ketamine over 15 min to avoid emergence
+Consider slow infusions of 15–30 min and watch for neurologic signs (perioral numbness, dizziness) or hemodynamic instability (local anesthetic systemic toxicity)
+
+Open in a new tab
+
+IV: Intravenous, PO: Oral, PR: Rectal, IN: Intranasal, IM: Intramuscular, SL: Sublingual, SQ: Subcutaneous, NEB: Nebulized, NMDA: N-methyl-D-aspartate, NSAIDs: Nonsteroidal anti-inflammatory drugs, APAP: Acetaminophen, Paracetamol (N-acetyl-p-aminophenol), MSIR: Morphine sulfate immediate release
+Therapeutic modalities
+
+Paracetamol (acetaminophen, APAP)
+
+Paracetamol’s mechanism of action for pain reduction seems to primarily involve its central inhibition of cyclooxygenase (COX), without a significant anti-inflammatory effect. The use of IV acetaminophen (with its debatable analgesic superiority over oral form[
+62
+] in combination with opioids for VOC has been associated with pain reduction and opioid sparing in one trial,[
+63
+] and an absence of such effects in another.[
+64
+] As a single analgesic, IV acetaminophen was found to be superior to IV diclofenac for skeletal VOC in pediatric patients.[
+65
+]
+
+To date, no published RCTs have examined IV APAP’s clinical efficacy, either as a single agent or as an adjunct to opioids for VOC treatment in adults. Recommended dosing is 10–15 mg/kg per dose in children (500–1000 mg per dose in adults), with a maximum dose of 75 mg/kg/day in children (4 g in adults). Adverse effects include nausea and vomiting, with hepatic insufficiency being one of the major contraindications and lack of titratability as a major limitation.
+Nonsteroidal antiinflammatory drugs
+
+Nonsteroidal antiinflammatory drugs (NSAIDs) act by reducing both pain and inflammation through the inhibition of COX enzymes, thereby decreasing prostaglandin production. As a part of multimodal analgesia, ibuprofen, ketorolac, diclofenac, ketoprofen, and dexketoprofen were found to be beneficial in reducing pain and overall opioid consumption.[
+66
+] Despite demonstrated equianalgesia to morphine in some studies,[
+67
+,
+68
+] the Cochrane database systematic review found the evidence of insufficient quantity and quality to reliably confirm significant efficacy of NSAIDs for acute pain in sickle-cell patients.[
+69
+] NSAIDs should be administered in the safest doses, not exceeding accepted analgesic ceilings, and for the shortest period to avoid complications, such as renal dysfunction and peptic ulcer disease.[
+70
+]
+Opioids
+
+Opioids remain the cornerstone of management of pain in VOC. Commonly used mu-receptor agonists (morphine, hydromorphone, and fentanyl) decrease afferent nociceptive signals, thereby reducing pain sensation. Parenteral formulations must be titrated to optimal analgesic effect, and only immediate-release and short-acting opioids should be used in the ED for VOC treatment. Opioid administration should target achievement of a “therapeutic window,’ where optimal analgesia is achieved with the least amount of side effects, which could include nausea/vomiting, itching, dizziness, somnolence, and even respiratory depression. The factors affecting this “therapeutic window” in patients with VOC include renal and hepatic function, drug metabolism, prior pain events, and amount and duration of opioid use in the past.[
+71
+,
+72
+]
+
+Numerous clinical trials support the use of IN administration of hydromorphone and fentanyl for sickle cell patients in the ED, demonstrating similar analgesic efficacy to their parenteral counterparts. Similarly, SL administration of fentanyl, sufentanil, and buprenorphine resulted in significant pain relief of acute pain of VOC.[
+73
+] The subcutaneous route is a suboptimal choice for such patients due to the delay in the onset of analgesia, and the intramuscular route should be avoided due to severe pain on injection, unpredictable absorption, and the development of myofibrosis.[
+73
+,
+74
+]
+
+Once optimal analgesia is achieved, those patients admitted for subsequent pain management could benefit from patient-controlled analgesia (PCA) infusions or intermittent boluses. The use of PCA in the ED may also have a positive impact on patient satisfaction and reduced need for additional analgesics, provided adequate training and experience with this modality is maintained amongst ED providers.[
+75
+]
+
+Opioid tolerance, which is associated with a reduction in analgesic effect following repeated or prolonged opioid use, and opioid-induced hyperalgesia (OIH)-a paradoxical nociceptive sensitization leading to a hyper response to acute noxious stimuli in the setting of opioid therapy-are frequently present in sickle cell patients.[
+76
+] Given the considerable variability in dosage and response for patients receiving opioids, the approach to optimal analgesia, including choice of drug, dose, and route, should be individualized based on each patient’s severity of pain and level of reduction following opioid administration.[
+72
+]
+
+Finally, the metabolism of tramadol and codeine is dependent on the hepatic CYP2D6 enzyme, which affects the amount of available active metabolite due to gene polymorphism in sickle-cell patients, thus warranting avoidance of these opioids in these patients.[
+77
+]
+Adjunctive therapies
+
+Ketamine is a noncompetitive antagonist of N-methyl-D-aspartate and plays a role in the reduction of pain through central sensitization. Two RCTs demonstrated similar analgesic efficacy of sub-dissociative dose ketamine to opioid-based therapy and opioid-sparing effect, illustrating its potential as an adjunct in pain management for VOC.[
+78
+,
+79
+] Continuous infusions of ketamine in sub-dissociative doses coupled with opioids are recommended for sickle cell patients in order to reduce dysphoria, nausea, and vomiting.[
+66
+,
+80
+]
+
+Systemic IV administration of lidocaine, an amide local anesthetic, has been found to reduce pain and provide opioid-sparing in patients with VOC. However, the data is based on retrospective case series and reports showing a variability in outcome measures and dosing. In general, both ketamine and lidocaine, while limited by current evidence, still hold potential benefits as adjuncts to opioid medication, potentially reducing the amount of opioids used to effectively manage acute pain in SCD patients.[
+81
+,
+82
+,
+83
+] Ultrasound-guided regional analgesia targeting specific regions of acute pain in SCD patients with the potential to reduce pain warrants a future investigation for use in VOC in the ED.[
+84
+]
+Nonpharmacologic options
+
+A review of nonpharmacologic options for pain relief in sickle cell patients, including distraction therapy, cognitive–behavioral therapy, hypnosis, biofeedback, and massage, demonstrated significant reduction in pain and anxiety and improvements in patients’ satisfaction.[
+85
+] While underutilized in the ED, their inclusion as part of a multimodal analgesia regimen warrants further investigation. In addition, the involvement of a multidisciplinary team will enable optimal management of social, neuropsychiatric, surgical, and pain-related outcomes.[
+86
+]
+Pitfalls in emergency department pain management
+
+Frequent use of high dosages of opioids in patients with SCD is frequently met with negative provider attitude and bias as well as fear of dependence and/or addiction, leading to delayed and ineffective pain management.[
+87
+] Contrary to popular belief, the prevalence of opioid dependence and addiction in sickle-cell disease patients is approximately 0.5%–8%.[
+88
+] Improved education about disease pathology and guideline-based management may reduce negative provider attitudes and stigmas and improve strategies to enhance patient safety, timely administration of appropriate pain relief, and optimization of subsequent care for SCD patients.[
+89
+,
+90
+]
+Take-home pearls
+
+ED clinicians should attempt to create and utilize patient-specific pain management pathways that improve pain management and throughput in the ED
+
+ED clinicians should use opioids in a safe and effective manner by frequent titration and balancing pain relief and adverse effects
+
+ED clinicians should utilize nonopioid analgesics and adjuncts in a judicious and effective manner for the control of acute pain
+
+ED clinicians should collaborate with an interdisciplinary team to ensure effective pain management in the ED and continuation of care upon discharge from the ED.
+
+Pain Management in Cancer/Palliative Care Patients in the Emergency Department
+
+ED’s visits of cancer patients for breakthrough pain, inadequate baseline analgesia, or serious complications are challenging due to limited initial clinical information.[
+91
+,
+92
+] Pain management varies based on cancer type, stage, treatment phase, and overall health status. Cancer and treatment-related organ dysfunction alter drugs’ pharmacokinetics, complicating the analgesic response. The absence of standardized protocols and concerns about opioid overprescription can make emergency clinicians hesitant to provide optimum analgesia.[
+93
+,
+94
+,
+95
+] When evaluating patients with cancer pain in the ED, emergency clinicians should focus on the following elements [summarized in 
+Table 3
+]: Presenting symptoms (cancer or treatment related),[
+91
+,
+96
+,
+97
+] risk stratifications (age, comorbidities),[
+98
+,
+99
+] presence of breakthrough pain,[
+98
+,
+99
+] OIH,[
+100
+] neuropathic pain as a distinct modality either from the cancer itself or as a result of chemotherapy, radiation, or surgery,[
+96
+,
+97
+,
+101
+] as well as anxiety, depression, fear, and distress.[
+98
+,
+101
+] 
+Table 4
+ summarizes therapeutic approaches (dosing and routes) for the management of cancer pain.
+
+Table 3.
+
+General approach to cancer pain in the emergency department
+
+Pain-related reason for ED visits
+
+Approach in the ED
+
+Acute complications from underlying cancer or cancer-related therapy (infection or adverse effects)
+
+Use a personalized, patient-specific approach based on history (current/recent therapies and complications if available) and clinical findings
+Avoid availability and anchoring biases
+
+Acute painful conditions unrelated to underlying cancer (preventing “cancer pain bias” and ensuring effective treatment of other painful syndromes)
+
+Assess and evaluate existing comorbidities
+
+Breakthrough pain (disease progression or increasing tolerance to opioids)
+
+Evaluate breakthrough pain in a timely and effective manner, although it can be challenging at times
+
+OIH
+
+Understand the challenges of identifying and treating (OIH) in the ED
+Consider optimization of pain relief with nonopioid analgesia, opioid reduction, opioid rotation
+
+Neuropathic pain
+
+May responds to opioids
+Anticonvulsants and antidepressants may help reduce opioid use, but their long-term effectiveness cannot be evaluated in the ED
+
+Anxiety, depression, stress, and distress
+
+Exercise empathy
+Adequate anxiolytics should be included in the plan
+
+Open in a new tab
+
+OIH: Opioid-induced hyperalgesia, ED: Emergency department
+Table 4.
+
+Commonly used analgesics with routes and dosing regimens in the emergency department
+
+Medication
+
+Route
+
+Initial dose (opioid-naïve)
+
+Dosing interval
+
+Notes
+
+Morphine
+
+PO
+
+5–15 mg (immediate release)
+
+Every 4 h
+
+Common first-line agent
+
+15–30 mg (controlled release)
+
+Every 12 h
+
+For stable pain
+
+IV
+
+2–8 mg
+
+Every 4 h or as needed
+
+3:1 oral to IV conversion
+
+0.8–10 mg/h (continuous)
+
+Continuous
+
+For severe pain
+
+SC
+
+2–8 mg
+
+Every 4 h
+
+Similar potency to IV
+
+0.8–10 mg/h (continuous)
+
+Continuous
+
+Common in-home care
+
+PR
+
+10–20 mg
+
+Every 4 h
+
+Alternative when oral unavailable
+
+Hydromorphone
+
+PO
+
+2–4 mg (immediate-release)
+
+Every 4–6 h
+
+5x more potent than oral morphine
+
+8–12 mg (controlled-release)
+
+Every 12–24 h
+
+For stable pain
+
+IV
+
+0.5–1 mg
+
+Every 3–4 h
+
+High potency option, severely euphorigenic
+
+0.2–1.0 mg/h (continuous)
+
+Continuous
+
+For severe pain
+
+SC
+
+0.5–1 mg
+
+Every 4 h
+
+Similar potency to IV
+
+0.2–1.0 mg/h (continuous)
+
+Continuous
+
+Good for home care
+
+Fentanyl
+
+TD
+
+12–25 µg/h patch with a gradual increase up to 400 µg/h
+
+Every 72 h
+
+Ideal for outpatient use
+
+IV
+
+25–50 µg
+
+Every 1–2 h prn
+
+Very rapid onset (1–2 min)
+
+25–100 µg/h (continuous)
+
+Continuous
+
+High potency
+
+IN
+
+50–100 µg
+
+Every 1–4 h prn
+
+Rapid onset for breakthrough pain
+
+SL/Buccal
+
+100–200 µg
+
+Every 2–4 h prn
+
+Rapid absorption
+
+INH
+
+100–400 µg
+
+Every 1–4 h prn
+
+Limited usage in cancer pain
+
+Oxycodone
+
+PO
+
+5–10 mg (immediate-release)
+
+Every 4–6 h
+
+1.5 × more potent than oral morphine
+
+PO
+
+10–20 mg (controlled-release)
+
+Every 12 h
+
+Good option when morphine is poorly tolerated
+
+PR
+
+5–10 mg
+
+Every 4–6 h
+
+Alternative when oral unavailable
+
+Methadone
+
+PO
+
+2.5–5 mg
+
+Every 8–12 h
+
+Complex pharmacokinetics. Requires expertise; long half-life
+
+IV
+
+2.5–5 mg
+
+Every 8–12 h
+
+Limited use in acute settings
+
+SC
+
+2.5–5 mg
+
+Every 8–12 h
+
+Limited data on SC administration
+
+Buprenorphine
+
+TD
+
+5–10 µg/h patch
+
+Every 7 days
+
+Partial agonist with ceiling effect
+
+SL
+
+0.2–0.4 mg
+
+Every 6–8 h
+
+Limited use in cancer pain
+
+Tramadol
+
+PO-IR
+
+50–100 mg
+
+Every 4–6 h (maximum 4 times daily)
+
+Unstable analgesic effect due to genetic differences in CYP2D6. Adjust in renal/hepatic impairment
+
+PO-ER
+
+100–200 mg
+
+Every 24 h
+
+Maximum 300 mg/day. Once-daily dosing
+
+IV
+
+50–100 mg
+
+Every 6 h
+
+Slow IV push. Limited cancer pain use
+
+SC
+
+50–100 mg
+
+Every 6 h
+
+Less common route. Limited clinical data
+
+IM
+
+50–100 mg
+
+Every 6 h
+
+Rarely used. Painful injection site
+
+Ketamine
+
+IV
+
+0.1–0.5 mg/kg
+
+Intermittent doses
+
+Refractory pain. Adjuvant for opioid-resistant pain
+
+IV
+
+Low-dose: 0.05–0.5 µg/kg/h
+
+Continuous
+
+Chronic pain. Potential opioid-sparing effect
+
+SC
+
+0.1–0.5 mg/kg
+
+Every 4–6 h
+
+Breakthrough pain. Less studied than the IV route
+
+PO
+
+0.2–0.5 mg/kg/dose
+
+Every 6–8 h
+
+Limited use. Poor bioavailability
+
+IN
+
+50–100 mg
+
+As needed
+
+Breakthrough pain. Rapid onset, alternative route. Rapid onset, alternative route
+
+Lidocaine
+
+IV
+
+1–2 mg/kg/h
+
+Continuous infusion
+
+Neuropathic pain. Requires cardiac monitoring
+
+IV
+
+Low dose: 20–50 mg/h
+
+Continuous
+
+Chronic pain. Potential anti-inflammatory effect
+
+SC
+
+1% solution
+
+Continuous or intermittent
+
+Localized pain. Limited systemic absorption
+
+Topical
+
+5% patch
+
+Applied for 12 h/day
+
+Localized neuropathic pain. Targeted nerve pain relief
+
+TM
+
+2%–4% viscous solution
+
+As needed
+
+Oral/pharyngeal pain. Local anesthetic effect
+
+Ibuprofen
+
+PO
+
+400–800 mg
+
+Every 6–8 h
+
+Maximum daily dose: 2400 mg. Take with food to reduce GI side effects
+
+Diclofenac
+
+PO, IM, PR, topical
+
+50 mg (oral)
+
+Every 8–12 h
+
+Maximum daily dose: 150 mg. Higher risk of cardiovascular events compared to some other NSAIDs. Available as enteric-coated tablets
+
+Naproxen
+
+PO
+
+250–500 mg
+
+Every 12 h
+
+Longer half-life than ibuprofen. Maximum daily dose: 1500 mg. Lower cardiovascular risk compared to some other NSAIDs
+
+Ketoprofen
+
+PO, IM, topical
+
+50–100 mg
+
+Every 6–8 h
+
+Maximum daily dose: 300 mg. Available as extended-release formulation
+
+Etoricoxib
+
+PO
+
+60–120 mg
+
+Once daily
+
+COX-2 selective inhibitor. Contraindicated cardiovascular disease, cerebrovascular disease, and peripheral arterial disease
+
+Nimesulide
+
+PO
+
+100 mg
+
+Every 12 h
+
+Maximum daily dose: 200 mg. Restricted/banned in some countries due to hepatotoxicity concerns. Limited duration of use recommended (max 15 days)
+
+Meloxicam
+
+PO
+
+7.5–15 mg
+
+Once daily
+
+Preferential COX-2 inhibitor. Longer half-life requiring once-daily dosing
+
+Indomethacin
+
+IV, PO, PR
+
+25–50 mg
+
+Every 8–12 h
+
+Maximum daily dose: 200 mg. Higher incidence of adverse effects, especially CNS (headache, dizziness)
+
+Piroxicam
+
+PO
+
+20 mg
+
+Once daily
+
+Long half-life. Higher risk of GI side effects. Not recommended as first-line therapy, especially in elderly
+
+Paracetamol (acetaminophen)
+
+IV, PO, PR
+
+500–1000 mg
+
+Every 4–6 h
+
+Not an NSAID. Maximum daily dose: 4000 mg (lower in hepatic impairment/elderly). No anti-inflammatory effects. Less GI toxicity but risk of hepatotoxicity at high doses
+
+Open in a new tab
+
+All initial doses should be titrated based on patient response and tolerability. The doses listed are general starting points for opioid-naïve adults. For breakthrough Pain: Prescribe 10%–15% of the 24-h opioid dose as needed. Reduce doses and extend intervals for patients with renal/hepatic impairment. Start with lower doses (approximately 25%–50% of the standard dose) in elderly patients. Consider concurrent use of adjuvant analgesics (NSAIDs, anticonvulsants, antidepressants) to improve pain control. When using opioids, consider implementing a bowel regimen to prevent constipation. IV: Intravenous, SL: Sublingual, IN: Intranasal, IM: Intramuscular, INH: Inhalation, PO: Oral, PR: Rectal, SQ: Subcutaneous, SL: Sublingual, TD: Transdermal, TM: Transmucosal, IR: Immediate release, ER: Extended release, CNS: Central nervous system, NSAID: Nonsteroidal anti-inflammatory drug, GI: Gastrointestinal
+Therapeutic approaches
+
+Nonpharmacologic measures
+
+Communication and shared decision-making with patients and their families regarding pain management goals, expectations, and adverse effects are essential for timely and effective pain, stress, and anxiety control in the ED.[
+102
+] Heat and cold packs might be considered for the initial management of myalgias, arthralgias, and neuropathic pain in patients with active cancer.[
+103
+,
+104
+] Similarly, positioning and immobilization for acute pathologic fractures reduce pain exacerbation, and “position of comfort” can significantly reduce pain in patients with pleural metastases.[
+103
+,
+104
+] The efficacy of music therapy and virtual reality for breakthrough cancer pain in the ED remains largely unstudied.[
+103
+] Guided imagery, breathing exercises, and cognitive behavioral techniques might reduce pain and anxiety and should be a part of a multidisciplinary approach in the ED.[
+103
+,
+104
+]
+Pharmacologic approaches [
+Table 4
+]
+
+Opioid analgesics
+
+Opioids are the most studied analgesics for cancer pain. Most cancer patients with breakthrough pain develop tolerance, requiring higher doses for satisfactory analgesia.[
+100
+,
+101
+,
+105
+] Morphine and fentanyl are available in parenteral, oral, IN, and rectal (morphine) forms and remain the first-line option for severe cancer pain in the ED, with morphine having a longer-lasting effect and fentanyl having fewer complications in patients with renal impairment.[
+101
+,
+105
+]
+
+Hydromorphone administered in parenteral, oral, and rectal forms is equally effective for managing chronic cancer pain, but its metabolites may accumulate in patients with renal or hepatic impairment.[
+101
+,
+105
+] Although less effective than the above-mentioned opioids, tramadol is frequently used for cancer pain.[
+106
+,
+107
+]
+
+Tramadol’s opioid activity is dependent on CYP2D6 metabolism, leading to significant variability in humans and a less favorable safety profile.[
+105
+,
+106
+,
+107
+] For patients with acute pathologic fractures, hyperalgesia, and opioid tolerance, methadone can be beneficial when other opioids are ineffective or intolerable.[
+108
+,
+109
+]
+
+A Cochrane review demonstrated equal or even superior efficacy of transdermal buprenorphine in comparison to other opioids in cancer patients.[
+110
+,
+111
+] EPs should calculate the current daily and equivalent dosages and provide a bolus dose of an opioid equivalent to 10%–20% of the patient’s current daily dose[
+101
+,
+105
+] [
+Table 5
+]. If discharged, patients should be provided with “breakthrough doses” of opioids, preferably in a nonparenteral formulation (e.g., buccal or SL drops, tablets, or films).[
+101
+,
+105
+]
+
+Table 5.
+
+Oral and parenteral equivalent doses of opioids and conversion ratios
+
+Opioid
+
+Equianalgesic oral dose
+
+Equivalent IV dose
+
+Conversion ratio
+
+Morphine
+
+Reference dose (30 mg)
+
+10 mg
+
+3:1 (IV: Oral)
+
+Fentanyl
+
+Not recommended for direct oral conversion
+
+100 µg
+
+Hydromorphone
+
+7.5 mg
+
+1.5 mg
+
+5:1 (IV: Oral)
+
+Hydrocodone
+
+30 mg
+
+30 mg
+
+1:1 oral morphine equivalent
+
+Tramadol
+
+300 mg
+
+100 mg
+
+3:1 (IV: Oral)
+
+Codeine
+
+200 mg
+
+Oxycodone
+
+20 mg
+
+Methadone
+
+10 mg
+
+Fentanyl patch strength (µg/h)
+
+Approximate daily oral morphine equivalent (mg)
+
+12
+
+25
+
+25
+
+50
+
+50
+
+100
+
+75
+
+150
+
+Open in a new tab
+
+Conversions should consider potential complex interactions with other medications and potential patient variability. It is recommended to titrate slowly and monitor for side effects, IV: Intravenous
+Nonopioid analgesics
+
+Paracetamol (acetaminophen) is not considered a first-line therapy for cancer pain.[
+112
+,
+113
+] The Cochrane systematic review found insufficient evidence to support or refute its use either alone or in combination with codeine or dihydrocodeine in neuropathic pain.[
+112
+,
+113
+,
+114
+] Furthermore, there is evidence for paracetamol’s ineffectiveness in reducing the need for opioids and reducing pain in cancer patients receiving potent opioids.[
+113
+,
+114
+]
+
+NSAIDs are found to be effective in managing cancer pain in the ED when administered alone or in combination with opioids, enhancing analgesic efficacy and reducing the need for opioids.[
+102
+,
+115
+] However, high-quality evidence is lacking regarding the analgesic efficacy of NSAIDs in cancer pain.[
+116
+] It is important to consider the potential side effects and contraindications associated with NSAID use, such as gastrointestinal and renal toxicity, and to provide appropriate gastrointestinal prophylaxis when necessary.[
+116
+,
+117
+]
+
+Sub-dissociative doses of ketamine can be helpful in the treatment of opioid-tolerant and refractory cancer pain.[
+118
+,
+119
+,
+120
+] Both intermittent and continuous IV infusions were found to reduce opioid requirements in cancer patients.[
+118
+] IN ketamine demonstrated a significant reduction in breakthrough cancer pain not controlled by opioids, with higher doses providing more significant pain relief without major side effects.[
+119
+] Oral ketamine can also be an effective adjuvant to morphine for managing refractory neuropathic cancer pain.[
+103
+,
+115
+] Several systematic reviews and guidelines showed that ketamine significantly reduces pain intensity in cancer patients and recommend considering it for refractory cancer pain.[
+108
+,
+120
+]
+
+A single-phase II study supported the efficacy and safety of IV lidocaine in refractory cancer pain.[
+121
+] Although a retrospective case series reported that cardiac monitoring is not required, it should be applied in patients with cardiac disease. If the initial bolus (1–1.5 mg/kg) is effective and well tolerated, it is followed by an infusion for prolonged symptom relief.[
+115
+,
+122
+]
+Adjunctive agents
+
+Although benzodiazepines do not have a direct analgesic effect, small boluses of midazolam (1–2 mg IV) are effective in reducing anxiety and muscle spasms.[
+103
+,
+115
+,
+122
+] Benzodiazepine use should be cautious when opioids are used concurrently due to the risk of respiratory depression.
+
+Corticosteroids, despite limited efficacy, are commonly used as adjuvant analgesics in cancer pain management, particularly for neuropathic pain, bone metastasis, and pain associated with inflammation or edema.[
+123
+,
+124
+,
+125
+] Dexamethasone is preferred for most oncologic emergencies. Significant hyperglycemic effects should be anticipated in diabetic patients.
+
+Anticonvulsants such as gabapentin and pregabalin can be helpful adjuncts for neuropathic types of cancer pain. The initiation of gabapentin or pregabalin in the ED for compression or chemotherapy-induced neuropathies may be considered, although these therapeutics are not expected to provide immediate relief[
+126
+,
+127
+,
+128
+] and may worsen opioid-induced respiratory depression.[
+128
+]
+
+There is strong evidence from several RCT that antiemetics should be considered early for co-administration with opioids to prevent nausea/vomiting.[
+129
+,
+130
+] Ondansetron (4–8 mg IV) is regarded as the first-line treatment, with metoclopramide (10 mg IV) as an alternative.[
+115
+,
+129
+,
+130
+]
+Nerve blocks
+
+Ultrasound-guided nerve blocks are an excellent therapeutic modality for cancer patients who present to the ED with properly localized acute pain.[
+115
+,
+131
+,
+132
+] Numerous RCTs support their efficacy and safety in such patients, with intercostal blocks for rib metastases and femoral nerve blocks for pathologic hip fractures being commonly used in the ED.[
+131
+,
+132
+] While cryo-neurolysis has been more commonly applied to conditions like rib fractures and postsurgical pain, its principles and efficacy in neuropathic pain management also make it a suitable option for cancer-related pain in the emergency department.[
+133
+,
+134
+,
+135
+]
+Common pitfalls in cancer pain management in the emergency department
+
+Although the list of potential pitfalls in cancer pain management is vast, they can be categorized into assessment issues, treatment-related issues, opioid-related pitfalls, system gaps, and psychosocial and patient-related factors [
+Table 6
+]. EPs commonly encounter one or more of these pitfalls when treating such patients.
+
+Table 6.
+
+Common pitfalls in cancer pain management in the emergency department
+
+Pain assessment
+
+    Inadequate pain assessment (failing to systematically assess pain using validated scales)
+
+    Underestimation of pain
+
+    Poor communication with patients (failure to understand patient expectations and develop a shared plan)
+
+    Poor communication with patients (failure to understand patient expectations and develop a shared plan)
+
+Treatment approach issues
+
+    Delayed initiation of analgesics
+
+    Oligoanalgesia
+
+    Failure to use a multimodal approach (no use of adjuvant medications or nonpharmacological interventions)
+
+    Addressing breakthrough pain without providing a viable plan for home
+
+Opioid-related pitfalls
+
+    Opiophobia
+
+    Overemphasis on addiction risk
+
+    Not anticipating and managing side effects
+
+    Abrupt discontinuation
+
+System and knowledge gaps
+
+    Insufficient provider education
+
+    Regulatory barriers
+
+    Poor continuity of care
+
+    Limited access to pain specialists
+
+Psychosocial factors
+
+    Ignoring psychological components (not addressing anxiety, depression, and catastrophizing that amplify pain)
+
+    Cultural insensitivity (not considering cultural differences in pain expression and treatment preferences)
+
+    Social support neglect (failing to involve caregivers in pain management plans)
+
+Patient-related factors
+
+    Self-medicating
+
+    Unrealistic expectations
+
+Open in a new tab
+Take-home pearls
+
+Consider acute cancer/treatment complications and comorbidities as potential causes of pain and avoid “cancer pain bias”
+
+Communicate goals and expectations with patients and their families and utilize a multimodal approach of nonpharmacologic and pharmacologic treatment modalities
+
+Calculate opioid requirements based on home regimens and use careful titration in renal/hepatic dysfunction. Use short-acting opioids for breakthrough pain. If the patient is discharged, provide a discharge analgesic rescue plan
+
+Use NSAIDs (with caution), ketamine (for opioid-tolerant patients), and adjuncts (anticonvulsants for neuropathic pain, antiemetics) for pain control
+
+Consider ultrasound-guided nerve blocks
+
+Acknowledge anxiety, depression, stress, and distress. Exercise empathy and consider anxiolytics if appropriate
+
+When in doubt, consult: Do not hesitate to seek guidance from palliative care specialists and/or pain management experts.
+
+Emergency Department Pain Management of Older Adults
+
+Managing acute pain in elderly patients (>64 years) in the ED requires a nuanced approach. Older patients are often more sensitive to medication effects and side effects. They tend to have more comorbid conditions, higher rates of polypharmacy, and reduced physiological reserves. The primary focus of pain management in geriatric patients is to minimize potential harm while providing effective, multi-modal analgesia.
+
+Challenges in geriatric pain management in the emergency department
+
+Older adults often present to the ED with acute pain, yet they consistently receive less adequate pain management compared to younger patients.[
+136
+,
+137
+,
+138
+] These challenges in safely assessing and managing pain in this population [
+Table 7
+] necessitate a carefully crafted approach to pain management that considers the unique characteristics and needs of each patient.
+
+Table 7.
+
+Challenges to safely managing pain in older adult patients
+
+Challenge
+
+Causes and factors
+
+Assessing pain can be more challenging
+
+Dementia, acute delirium, changes in pain sensation, and presentation of painful conditions. Overall complexity in presentations and more co-morbidities
+
+Risks of side effects or adverse drug events
+
+Greater risk for respiratory depression or over-sedation. Lower physiologic reserve. Higher rates of polypharmacy and risk of drug–drug interactions. Higher rates of renal and hepatic dysfunction lead to changes in rates of drug excretion or metabolism
+
+Risks of under-treating pain
+
+Worsens or prolongs suffering. Contributes to delirium and other adverse outcomes[
+3
+]
+
+Open in a new tab
+Approach to assessing pain in the emergency department
+
+In patients able to communicate, pain can be assessed via different tools and pain scales, such as a numeric scale or Visual Analog Scale.[
+139
+,
+140
+] However, these scales are highly subjective, fail to capture personal and cultural differences, and do not convey the patient’s wishes or needs regarding medication administration. A simple, useful approach can be to ask the patient if they need medication for pain. If they answer affirmatively, a follow-up question can be to inquire what has worked well for their pain in the past. For patients with moderate to severe dementia, unable to give a verbal account of their pain, the Pain Assessment in Advanced Dementia Scale (PAINAD) and Abbey Pain Scale, relying on nonverbal cues to pain, such as body positioning, moaning, or facial expressions, are found to be valuable.[
+141
+,
+142
+]
+Approach to pain management in older adults
+
+A useful framework for managing pain in older adults is to use a patient-centered, holistic, and diverse therapeutic approach that considers potential drug-patient, drug-disease, and drug-drug factors and interactions.
+Patient-centered
+
+Putting patients’ desires and interests at the center of conversation by asking what matters the most to them will align clinicians’ care with the patient’s goals. Incorporating what matters to the patient is a cornerstone of the Age-Friendly Health Systems’ “5 Ms” framework that includes: mentation, mobility, medications, multi-complexity, and what matters most.[
+143
+]
+Holistic
+
+Pain and the experience of suffering are multifactorial and personal, and can be exacerbated by emotional distress and other unmet needs. Identifying whether pain is acute or chronic, neuropathic or nociceptive, visceral or somatic can help guide treatment selection. In addition, it is important to address the patient’s other needs, such as food, hydration, and physical comfort.[
+136
+,
+143
+]
+Drug-patient effects
+
+When selecting a medication and dose, consider potential interactions between the drug and the patient, such as the patient’s baseline level of frailty or physiologic reserves, their underlying fall risk, and whether they have physiologic tolerance or are naïve to a given class of medications.[
+136
+,
+137
+]
+Drug-disease effects
+
+Renal, hepatic, or cardiac dysfunction; peptic ulcer disease; orthostatic hypotension; and delirium may necessitate medication adjustments. For example, NSAIDs can cause acute renal failure, particularly in the setting of chronic kidney disease (CKD). NSAIDs can also worsen gastritis and peptic ulcer disease. They can also interact with ACE inhibitors, diuretics, steroids, and warfarin, potentially increasing INR for patients on warfarin.
+
+Renally-cleared opioids such as oxycodone, hydrocodone, and morphine should be used cautiously in patients with chronic kidney disease or end-stage kidney disease, as the medication or its metabolites can have prolonged or more severe adverse effects or sedation.[
+144
+]
+Drug–drug effects
+
+When prescribing medications for use over time, as well as a single dose in the ED, it is important to review the patient’s home medication list to look for potential medication interactions. For pain management, high-risk combinations to avoid to prevent oversedation, respiratory depression, or other side effects include opioids with gabapentinoids, muscle relaxants, or benzodiazepines.[
+136
+,
+143
+]
+A tiered treatment approach
+
+After assessing the patient’s source, severity, and chronicity of pain, aligning with patient goals, and reviewing the underlying drug-patient, drug-drug, and drug-disease factors, emergency clinicians should employ a tiered approach to safely managing their pain. Commonly used analgesics with their starting doses and routes of administration are summarized in 
+Table 8
+.
+
+Table 8.
+
+Common analgesics with routes of administration and starting doses
+
+Medication class, examples, and initial dosing
+
+Considerations
+
+Topical approaches
+
+    NSAIDs
+        Diclofenac 1%–1.6% gel
+        2–4 g applied Q8 h
+
+It can be highly effective for sprain, strain as well as joint and osteoarthritis pain and has fewer complications compared with oral NSAIDs
+
+    Local anesthetics
+        Lidocaine 5% ointment
+        Apply 3–4 times per day
+        Lidocaine 4%–5% patch
+        Apply up to 3 patches for 12 h/day
+
+Can be used topically for postherpetic neuralgia and for localized pain. Patches are frequently used for musculoskeletal back pain and chest wall injuries or rib fractures
+
+Systemic nonopioids
+
+    Acetaminophen
+        500–1000 mg PO or IV Q6 h
+
+Max daily dose of 4 g, or 2 g for those with hepatic dysfunction or alcohol abuse. A safe, first-line option
+
+    NSAIDs
+        Ibuprofen
+        200–400 mg PO Q6 h
+        Naproxen 220 mg PO BID
+        Ketorolac 10 mg IV once
+
+Avoid or use with caution in patients with renal disease and gastritis or peptic ulcers. Chronic use can lead to acute kidney injuries and hyperkalemia, as well as GI bleeding
+
+    Ketamine, sub-dissociative dosing
+        0.15–0.3 mg/kg over 30 min IV
+
+It may be effective in patients who have refractory pain despite opioids but has higher rates of psycho-behavioral side effects and early discontinuation
+
+    Gabapentin
+        100–300 mg PO QHS with up-titration over 1 week
+
+It is effective for neuropathic pain such as postherpetic neuralgia but can cause sedation or dizziness. May require renal dose adjustment
+
+    Pregabalin
+        50 mg PO BID-TID
+
+It can be used for neuropathic pain and diabetic neuropathy. May cause dizziness and sedation. May require renal dose adjustment
+
+Systemic opioids
+
+    Hydrocodone: Acetaminophen
+        2.5–5 mg hydrocodone PO Q4 h
+
+Caution to avoid exceeding 4g of acetaminophen daily
+
+    Morphine IR
+        7.5–10 mg PO Q6–8 h
+
+Can be an option for discharge medication, with lower abuse potential than oxycodone
+
+    Oxycodone
+        2.5–5 mg PO Q4–6 h
+
+Can cause constipation, nausea, headaches, dizziness, sedation, and respiratory depression. Higher abuse potential
+
+    Fentanyl
+        0.25–0.5 µg/kg IV Q10–15 min
+
+Very effective for acute pain, but short-acting, requiring frequent re-assessment and re-dosing
+
+    Morphine
+        2–4 mg IV Q 15–20 min
+        2.5–10 mg PO Q4–6 h
+
+Can cause constipation, nausea, vomiting, sedation, and respiratory depression. Renally cleared, so can have prolonged or more severe side effects for patients with renal impairment
+
+    Hydromorphone
+        0.2–0.4 mg IV Q15–20 min
+        1–2 mg PO Q3–4 h
+
+Maybe safer than morphine for patients with renal insufficiency
+
+Open in a new tab
+
+IV: Intravenous, PO: Oral, BID: Twice a day, TID: Three times per day, QHS: Once at night, Q-every, NSAIDs: Nonsteroidal anti-inflammatory drugs, GI: Gastrointestinal, IR: Immediate release
+Nonpharmacologic approaches
+
+Addressing unmet physical or emotional needs can help reduce the experience of suffering. Simple interventions such as adjusting the bed or chair for physical comfort, providing warm blankets, and addressing hunger, thirst, or toileting needs. Heating pads, distraction, or reassurance can be useful as well.[
+143
+]
+Pharmacologic approaches
+
+Targeted approaches
+
+Certain types of pain are particularly amenable to targeted approaches. For example, femoral or fascia iliaca nerve blocks offer effective analgesia for hip fractures, reducing opioidconsumption.[
+145
+] Nerve blocks may also be appropriate for other fractures (upper extremities, ribs) or prior to procedures, repairs, or reductions.
+Topical approaches
+
+Topical agents, such as diclofenac, can be used alone or as adjuvants for many painful MSK disorders, such as sprains and strains. Topical diclofenac is effective, well-absorbed locally, has little systemic absorption, and reduced side effects.[
+146
+] Topical lidocaine patches are effective for postherpetic neuralgia and other neuropathic pain disorders. Lidocaine patches are also useful in chest wall trauma and rib fractures and lead to a decrease in opioid use.[
+147
+,
+148
+]
+Systemic nonopioid medications
+
+Acetaminophen is a common first-line medication for mild or moderate pain in older adults, as there are few side effects and medication interactions, and it can be used in patients with renal disease. It can be given orally or intravenously and can be used in conjunction with other pain medications for a multi-modal approach.[
+149
+]
+
+NSAIDs administered orally or parenterally are effective for pain control in the elderly in the ED, with caution in patients with gastric ulcers or renal impairment. NSAIDs are particularly effective for renal colic and other nociceptive (rather than neuropathic) pain.[
+150
+] Drug-disease and drug-patient factors should be closely considered before longer-term prescribing, as NSAIDs are involved in close to 25% of adverse drug reactions leading to hospitalization.[
+151
+]
+
+Ketamine, when used for acute pain in the ED, provides analgesia comparable to morphine but caries a higher risk of psycho-perceptual side effects such as dizziness, light sedation, or feelings of unreality,[
+152
+] with one-third of older patients requiring discontinuation of the ketamine due to the effects.[
+153
+]
+
+Gabapentin or pregabalin can be effective for neuropathic pain, but their dosing requires titration. Combinations with benzodiazepines or opioids should be avoided or used with extreme caution.[
+154
+]
+Systemic opioid medications
+
+Opioids can be used alone or in conjunction with other treatment modalities for acute moderate or severe pain. Opioid medications carry the risk of sedation, urinary retention, and respiratory depression acutely, as well as tolerance and addiction with chronic use. It is generally wise to begin with a lower initial dose, monitoring, and frequent titration as needed to avoid respiratory depression or sedation.[
+155
+]
+
+Opioids should also be used for the shortest duration necessary to avoid the risk of addiction or dependence. Tramadol is a weak mu-opioid agonist that is commonly prescribed in the outpatient setting. However, it has significant potential side effects for older adults, including hypoglycemia, hyponatremia, lower seizure threshold, and higher mortality, so it should generally be avoided in favor of safer alternatives.[
+156
+,
+157
+] Certain opioids, such as oxycodone and hydromorphone, tend to create more euphoria compared with hydrocodone and morphine, which could lead to higher abuse potential.[
+158
+]
+
+When prescribing opioids on discharge, it is important to also prescribe a bowel regimen. A combination of stimulant laxatives, such as senna, and/or an osmotic laxative such as polyethylene glycol, is effective.[
+159
+] For patients who require longer-term opioid use or who fail stimulant laxatives, peripherally acting mu-opioid receptor antagonists like methylnaltrexone, naldemedine, or naloxegol may be indicated.[
+160
+]
+Conclusion
+
+Effective pain management for older adult patients in the ED requires a comprehensive approach that balances efficacy with safety. By understanding and addressing the unique challenges faced by this population, clinicians can improve patient safety and enhance the quality of care for elderly patients experiencing acute pain. Clinicians should take a patient-centered, holistic approach and consider drug-patient, drug-disease, and drug-drug interactions to help ensure they are selecting the best medication, dose, and duration for each patient.
+
+Take-home pearls
+
+Thorough assessment: Use a holistic approach to assessing a patient’s pain, their desires, and what matters most to them. Both verbal and non-verbal indicators are important, especially in patients with cognitive impairment
+
+Individualized treatment plans: Develop treatment plans that consider the patient’s overall health, current medications, and personal preferences. Incorporate both pharmacologic and nonpharmacologic approaches
+
+Dosing strategy: Start with the lowest effective dose, particularly with opioids and sedatives. Reassess or monitor patients frequently and avoid long-term prescriptions when possible
+
+Education and communication: Ensure that patients and caregivers understand the treatment plan, potential adverse effects, and the importance of follow-up. On discharge, communicate potential adverse effects and dosing adjustments with the patient and caregiver, such as the risk of dizziness or falls
+
+Discharge management: For patients who are prescribed an opioid, it is important to also prescribe a stimulant bowel regimen.
+
+Therapeutic strategies at discharge
+
+While each of the unique and challenging populations requires an individualized treatment plan at discharge from the ED, several important concepts are uniformly applicable to all of them. At discharge, ED clinicians should engage patients in shared decision-making about the nature of their painful syndromes and their expectations with respect to pain relief and functional improvement; commonly used analgesic modalities and their alternatives, as well as short- and long-term adverse effects; and the importance of outpatient follow-up with the specialists (obstetricians and gynecologists, hematologists and sickle-cell specialists, oncologists and palliative care specialists, geriatricians, and pain management specialists with expertise in pain management of these vulnerable groups). In addition, ED clinicians should emphasize the need to return to the ED for re-evaluation in the absence of acceptable pain relief and/or development of severe adverse effects related to prescribed analgesics.
+Summary
+
+Effective pain management in special populations requires emergency physicians to adopt tailored approaches that acknowledge the unique physiological, pharmacological, and psychosocial factors affecting these vulnerable groups. For pregnant patients, SCD patients, geriatric individuals, and those requiring cancer or palliative care, standard pain management protocols often prove insufficient or potentially harmful. Implementation of population-specific pain management strategies, early multimodal analgesia, appropriate utilization of non-pharmacological interventions, and interdisciplinary collaboration are essential components of optimal care.
+
+As emergency medicine continues to evolve, further research focusing on these special populations will be critical to developing more refined, evidence-based pain management strategies that would improve patient outcomes, minimize adverse effects, and address the persistent disparities in pain management that these populations frequently encounter.
+Conflicts of interest
+
+None Declared.
+Funding Statement
+
+None.
+
+References
+
+1.
+Chang HY, Daubresse M, Kruszewski SP, Alexander GC. Prevalence and treatment of pain in EDs in the United States, 2000 to 2010. Am J Emerg Med. 2014;32:421–31. doi: 10.1016/j.ajem.2014.01.015.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+2.
+Cordell WH, Keene KK, Giles BK, Jones JB, Jones JH, Brizendine EJ. The high prevalence of pain in emergency medical care. Am J Emerg Med. 2002;20:165–9. doi: 10.1053/ajem.2002.32643.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+3.
+Matthews L, Lim G. Analgesia in pregnancy. Obstet Gynecol Clin North Am. 2023;50:151–61. doi: 10.1016/j.ogc.2022.10.016.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+4.
+Tanabe P, Silva S, Bosworth HB, Crawford R, Paice JA, Richardson LD, et al. A randomized controlled trial comparing two vaso-occlusive episode (VOE) protocols in sickle cell disease (SCD) Am J Hematol. 2018;93:159–68. doi: 10.1002/ajh.24948.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+5.
+By the 2023 American Geriatrics Society Beers Criteria® Update Expert Panel American Geriatrics Society 2023 updated AGS beers criteria® for potentially inappropriate medication use in older adults. J Am Geriatr Soc. 2023;71:2052–81. doi: 10.1111/jgs.18372.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+6.
+Scarborough BM, Smith CB. Optimal pain management for patients with cancer in the modern era. CA Cancer J Clin. 2018;68:182–96. doi: 10.3322/caac.21453.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+7.
+Eiland LS, Harris JB, Holmes AP. Considerations for treating nonobstetric diseases in pregnant patients in the emergency department setting. Ann Pharmacother. 2023;57:1415–24. doi: 10.1177/10600280231167775.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+8.
+Zerfas I, McGinn R, Smith MA. Pharmacologic management of cancer-related pain in pregnant patients. Drugs. 2023;83:1067–76. doi: 10.1007/s40265-023-01906-4.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+9.
+U.S. Food and Drug Administration Pregnancy and Lactation Labeling Resources. Available from: 
+https://www.fda.gov/drugs/labeling-information-drug-products/pregnancy-and-lactation-labeling-resources
+ . [Last accessed on 2025 May 05]
+
+10.
+American College of Obstetricians and Gynecologists Response to Consensus Statement on Paracetamol Use during Pregnancy. Available from: 
+https://www.acog.org/news/news-articles/2021/09/response-to-consensus-statement-on-paracetamol-use-during-pregnancy
+ . [Last accessed on 2025 May 05]
+
+11.
+Society for Maternal-Fetal Medicine (SMFM) Publications Committee Electronic address: pubs@smfm.org. Prenatal acetaminophen use and outcomes in children. Am J Obstet Gynecol. 2017;216:B14–5. [doi: 10.1016/j.ajog.2017.01.021]
+ [
+Google Scholar
+]
+
+12.
+Ahlqvist VH, Sjöqvist H, Dalman C, Karlsson H, Stephansson O, Johansson S, et al. Acetaminophen use during pregnancy and children’s risk of autism, ADHD, and intellectual disability. JAMA. 2024;331:1205–14. doi: 10.1001/jama.2024.3172.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+13.
+Patel R, Sushko K, van den Anker J, Samiee-Zafarghandy S. Long-term safety of prenatal and neonatal exposure to paracetamol: A systematic review. Int J Environ Res Public Health. 2022;19:2128. doi: 10.3390/ijerph19042128.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+14.
+Castro CT, Gama RS, Pereira M, Oliveira MG, Dal-Pizzol TS, Barreto ML, et al. Effect of acetaminophen use during pregnancy on adverse pregnancy outcomes: A systematic review and meta-analysis. Expert Opin Drug Saf. 2022;21:241–51. doi: 10.1080/14740338.2022.2020246.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+15.
+Kim J, Hébert MF. Pharmacological treatment of musculoskeletal conditions during pregnancy and lactation. In: Fitzgerald C, Segal N, editors. Musculoskeletal Health in Pregnancy and Postpartum- An Evidence-Based Guide for Clinicians. Switzerland: Springer International Publishing; 2015. pp. 227–43.
+ [
+Google Scholar
+]
+
+16.
+Shah S, Banh ET, Koury K, Bhatia G, Nandi R, Gulur P. Pain management in pregnancy: Multimodal approaches. Pain Res Treat. 2015;2015:987483. doi: 10.1155/2015/987483.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+17.
+U.S. Food and Drug Administration Nonsteroidal Anti-Inflammatory Drugs (NSAIDs) Drug Safety Communication: Avoid use of NSAIDs in Pregnancy at 20 Weeks or Later. Available from: 
+https://www.fda.gov/safety/medical-product-safety-information/nonsteroidal-anti-inflammatory-drugs-nsaids-drug-safety-communication-avoid-use-nsaids-pregnancy-20
+ . [Last accessed on 2025 May 05]
+
+18.
+Choi EY, Jeong HE, Noh Y, Choi A, Yon DK, Han JY, et al. Neonatal and maternal adverse outcomes and exposure to nonsteroidal anti-inflammatory drugs during early pregnancy in South Korea: A nationwide cohort study. PLoS Med. 2023;20:e1004183. doi: 10.1371/journal.pmed.1004183.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+19.
+Fiat F, Merghes PE, Scurtu AD, Almajan Guta B, Dehelean CA, Varan N, et al. The main changes in pregnancy-therapeutic approach to musculoskeletal pain. Medicina (Kaunas) 2022;58:1115. doi: 10.3390/medicina58081115.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+20.
+Brown HL. Opioid management in pregnancy and postpartum. Obstet Gynecol Clin North Am. 2020;47:421–7. doi: 10.1016/j.ogc.2020.04.005.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+21.
+Esposito DB, Huybrechts KF, Werler MM, Straub L, Hernández-Díaz S, Mogun H, et al. Characteristics of prescription opioid analgesics in pregnancy and risk of neonatal opioid withdrawal syndrome in newborns. JAMA Netw Open. 2022;5:e2228588. doi: 10.1001/jamanetworkopen.2022.28588.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+22.
+Ito S. Opioids in breast milk: Pharmacokinetic principles and clinical implications. J Clin Pharmacol. 2018;58(Suppl 10):S151–63. doi: 10.1002/jcph.1113.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+23.
+Dean L, Kane M. Tramadol therapy and CYP2D6 genotype. In: Pratt VM, Scott SA, Pirmohamed M, Esquivel B, Kattman BL, Malheiro AJ, editors. Medical Genetics Summaries. Bethesda (MD): National Center for Biotechnology Information (US); 2015. 
+ [
+PubMed
+] [
+Google Scholar
+]
+
+24.
+National Guideline Alliance (UK) London: National Institute for Health and Care Excellence (NICE); 2019. Evidence Review for Long-Term Systemic Steroids: Intrapartum Care for Women with Existing Medical Conditions or Obstetric Complications and Their Babies: Evidence Review E. (NICE Guideline, No. 121.) Available from: 
+https://www.ncbi.nlm.nih.gov/books/NBK576742/
+ . [Last accessed on 2025 May 05]
+ [
+PubMed
+] [
+Google Scholar
+]
+
+25.
+Filippini C, Saran S, Chari B. Musculoskeletal steroid injections in pregnancy: A review. Skeletal Radiol. 2023;52:1465–73. doi: 10.1007/s00256-023-04320-9.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+26.
+Chi CC, Wang SH, Wojnarowska F, Kirtschig G, Davies E, Bennett C. Safety of topical corticosteroids in pregnancy. Cochrane Database Syst Rev. 2015;2015:CD007346. doi: 10.1002/14651858.CD007346.pub3.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+27.
+Hamilton KT, Robbins MS. Migraine treatment in pregnant women presenting to acute care: A retrospective observational study. Headache. 2019;59:173–9. doi: 10.1111/head.13434.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+28.
+Urits I, Jung JW, Amgalan A, Fortier L, Anya A, Wesp B, et al. Utilization of Magnesium for the Treatment of Chronic Pain. Anesth Pain Med. 2021;11:e112348. doi: 10.5812/aapm.112348.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+29.
+Liu J, Song G, Zhao G, Meng T. Effect of oral magnesium supplementation for relieving leg cramps during pregnancy: A meta-analysis of randomized controlled trials. Taiwan J Obstet Gynecol. 2021;60:609–14. doi: 10.1016/j.tjog.2021.05.006.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+30.
+Corbo J, Esses D, Bijur PE, Iannaccone R, Gallagher EJ. Randomized clinical trial of intravenous magnesium sulfate as an adjunctive medication for emergency department treatment of migraine headache. Ann Emerg Med. 2001;38:621–7. doi: 10.1067/mem.2001.119424.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+31.
+Patorno E, Hernandez-Diaz S, Huybrechts KF, Desai RJ, Cohen JM, Mogun H, et al. Gabapentin in pregnancy and the risk of adverse neonatal and maternal outcomes: A population-based cohort study nested in the US Medicaid Analytic eXtract dataset. PLoS Med. 2020;17:e1003322. doi: 10.1371/journal.pmed.1003322.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+32.
+Bockbrader HN, Wesche D, Miller R, Chapel S, Janiczek N, Burger P. A comparison of the pharmacokinetics and pharmacodynamics of pregabalin and gabapentin. Clin Pharmacokinet. 2010;49:661–9. doi: 10.2165/11536200-000000000-00000.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+33.
+Turner MD, Singh F, Glickman RS. Dental management of the gravid patient. N Y State Dent J. 2006;72:22–7.
+ [
+PubMed
+] [
+Google Scholar
+]
+
+34.
+Hagai A, Diav-Citrin O, Shechtman S, Ornoy A. Pregnancy outcome after in utero exposure to local anesthetics as part of dental treatment: A prospective comparative cohort study. J Am Dent Assoc. 2015;146:572–80. doi: 10.1016/j.adaj.2015.04.002.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+35.
+Michalowicz BS, DiAngelis AJ, Novak MJ, Buchanan W, Papapanou PN, Mitchell DA, et al. Examining the safety of dental treatment in pregnant women. J Am Dent Assoc. 2008;139:685–95. doi: 10.14219/jada.archive.2008.0250.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+36.
+Ebrahimi N, Maltepe C, Einarson A. Optimal management of nausea and vomiting of pregnancy. Int J Womens Health. 2010;2:241–8. doi: 10.2147/ijwh.s6794.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+37.
+Moini J, Logalbo A, Schellmann JG. Skeletal muscle relaxants. In: Moini J, Logalbo A, Schellmann JG, editors. Neuropsychopharmacology. London, United Kingdom: Academic Press. Elsevier; 2023. pp. 215–26.
+ [
+Google Scholar
+]
+
+38.
+Sibrack J, Patel P, Hammer R. StatPearls. Treasure Island (FL): StatPearls Publishing; 2025. Methocarbamol. Available from: 
+https://www.ncbi.nlm.nih.gov/books/NBK565868/
+ . [Last accessed on 2025 May 05, Last updated on 2024 Sep 10]
+ [
+PubMed
+] [
+Google Scholar
+]
+
+39.
+Menon JM, van Luijk JA, Swinkels J, Lukas E, Ritskes-Hoitinga M, Roeleveld N, et al. A health-based recommended occupational exposure limit for nitrous oxide using experimental animal data based on a systematic review and dose-response analysis. Environ Res. 2021;201:111575. doi: 10.1016/j.envres.2021.111575.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+40.
+Aldridge LM, Tunstall ME. Nitrous oxide and the fetus. A review and the results of a retrospective study of 175 cases of anaesthesia for insertion of Shirodkar suture. Br J Anaesth. 1986;58:1348–56. doi: 10.1093/bja/58.12.1348.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+41.
+Crawford JS, Lewis M. Nitrous oxide in early human pregnancy. Anaesthesia. 1986;41:900–5. doi: 10.1111/j.1365-2044.1986.tb12912.x.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+42.
+European Society of Anaesthesiology Task Force on Use of Nitrous Oxide in Clinical Anaesthetic Practice The current place of nitrous oxide in clinical practice: An expert opinion-based task force consensus statement of the European Society of Anaesthesiology. Eur J Anaesthesiol. 2015;32:517–20. doi: 10.1097/EJA.0000000000000264.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+43.
+Vallejo MC, Zakowski MI. Pro-con debate: Nitrous oxide for labor analgesia. Biomed Res Int. 2019;2019:4618798. doi: 10.1155/2019/4618798.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+44.
+Pacilio RM, Lopez JF, Parikh SV, Patel PD, Geller JA. Safe ketamine use and pregnancy: A nationwide survey and retrospective review of informed consent, counseling, and testing practices. J Clin Psychiatry. 2024;85:24m15293. doi: 10.4088/JCP.24m15293.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+45.
+Cheung HM, Yew DT. Effects of perinatal exposure to ketamine on the developing brain. Front Neurosci. 2019;13:138. doi: 10.3389/fnins.2019.00138.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+46.
+Paule MG, Li M, Allen RR, Liu F, Zou X, Hotchkiss C, et al. Ketamine anesthesia during the first week of life can cause long-lasting cognitive deficits in rhesus monkeys. Neurotoxicol Teratol. 2011;33:220–30. doi: 10.1016/j.ntt.2011.01.001.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+47.
+Coronel-Oliveros CM, Pacheco-Calderón R. Prenatal exposure to ketamine in rats: Implications on animal models of schizophrenia. Dev Psychobiol. 2018;60:30–42. doi: 10.1002/dev.21586.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+48.
+Lodge D, Mercier MS. Ketamine and phencyclidine: The good, the bad and the unexpected. Br J Pharmacol. 2015;172:4254–76. doi: 10.1111/bph.13222.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+49.
+Neuman G, Koren G. Safety of procedural sedation in pregnancy. J Obstet Gynaecol Can. 2013;35:168–73. doi: 10.1016/S1701-2163(15)31023-9.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+50.
+Koukoulithras I, Sr., Stamouli A, Kolokotsios S, Plexousakis M, Sr., Mavrogiannopoulou C. The effectiveness of non-pharmaceutical interventions upon pregnancy-related low back pain: A systematic review and meta-analysis. Cureus. 2021;13:e13011. doi: 10.7759/cureus.13011.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+51.
+Liddle SD, Pennick V. Interventions for preventing and treating low-back and pelvic pain during pregnancy. Cochrane Database Syst Rev. 2015;2015:CD001139. doi: 10.1002/14651858.CD001139.pub4.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+52.
+Nanji JA, Carvalho B. Pain management during labor and vaginal birth. Best Pract Res Clin Obstet Gynaecol. 2020;67:100–12. doi: 10.1016/j.bpobgyn.2020.03.002.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+53.
+Thuvarakan K, Zimmermann H, Mikkelsen MK, Gazerani P. Transcutaneous electrical nerve stimulation as a pain-relieving approach in labor pain: A systematic review and meta-analysis of randomized controlled trials. Neuromodulation. 2020;23:732–46. doi: 10.1111/ner.13221.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+54.
+Ternov NK, Grennert L, Aberg A, Algotsson L, Akeson J. Acupuncture for lower back and pelvic pain in late pregnancy: A retrospective report on 167 consecutive cases. Pain Med. 2001;2:204–7. doi: 10.1046/j.1526-4637.2001.01031.x.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+55.
+Smith CA, Collins CT, Levett KM, Armour M, Dahlen HG, Tan AL, et al. Acupuncture or acupressure for pain management during labour. Cochrane Database Syst Rev. 2020;2:CD009232. doi: 10.1002/14651858.CD009232.pub2.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+56.
+Drugs and Lactation Database (LactMed) – Record Format. Bethesda (MD): National Institute of Child Health and Human Development; 2006. Drugs and Lactation Database (LactMed®) Available from: 
+https://www.ncbi.nlm.nih.gov/books/NBK547442/
+ . [Last accessed on 2025 May 05]
+ [
+Google Scholar
+]
+
+57.
+GBD 2021 Sickle Cell Disease Collaborators Global, regional, and national prevalence and mortality burden of sickle cell disease, 2000–2021: A systematic analysis from the Global Burden of Disease Study 2021. Lancet Haematol. 2023;10:e585–99. doi: 10.1016/S2352-3026(23)00118-7.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+58.
+Takaoka K, Cyril AC, Jinesh S, Radhakrishnan R. Mechanisms of pain in sickle cell disease. Br J Pain. 2021;15:213–20. doi: 10.1177/2049463720920682.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+59.
+Attell BK, Barrett PM, Pace BS, McLemore ML, McGee BT, Oshe R, et al. Characteristics of emergency department visits made by individuals with sickle cell disease in the U.S., 1999–2020. AJPM Focus. 2024;3:100158. doi: 10.1016/j.focus.2023.100158.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+60.
+Ballas SK, Dampier C. Risk factors associated with increased emergency department utilization in patients with sickle cell disease: A systematic literature review. Ann Hematol. 2020;99:2483–95. doi: 10.1007/s00277-020-04205-0.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+61.
+Brandow AM, Carroll CP, Creary S, Edwards-Elliott R, Glassberg J, Hurley RW, et al. American Society of Hematology 2020 guidelines for sickle cell disease: Management of acute and chronic pain. Blood Adv. 2020;4:2656–701. doi: 10.1182/bloodadvances.2020001851.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+62.
+Ulrich M, Chamberland M, Bertoldi C, Garcia-Bournissen F, Kleiber N. Newly approved IV acetaminophen in Canada: Switching from oral to IV acetaminophen. Is IV worth the price difference? A systematic review. Paediatr Child Health. 2021;26:337–43. doi: 10.1093/pch/pxaa137.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+63.
+Baichoo P, Asuncion A, El-Chaar G. Intravenous acetaminophen for the management of pain during vaso-occlusive crises in pediatric patients. P T. 2019;44:5–8.
+ [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+64.
+Dhebaria T, Sivitz A, Tejani C. Does intravenous acetaminophen reduce opioid requirement in pediatric emergency department patients with acute sickle cell crises? Acad Emerg Med. 2021;28:639–46. doi: 10.1111/acem.14149.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+65.
+Panda PC, Mishra NR, Patra CS, Nayak BK, Panda SK. Intravenous acetaminophen versus intravenous diclofenac sodium in management of skeletal vaso-occlusive crisis among children with homozygous sickle cell disease: A randomized controlled trial. Indian Pediatr. 2021;58:229–32.
+ [
+PubMed
+] [
+Google Scholar
+]
+
+66.
+Kenney MO, Smith WR. Moving toward a multimodal analgesic regimen for acute sickle cell pain with non-opioid analgesic adjuncts: A narrative review. J Pain Res. 2022;15:879–94. doi: 10.2147/JPR.S343069.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+67.
+Reddy SP, Jondhale SN, Rathia SK, Yusuf S, Shah S, Goel AK. Ketorolac versus morphine for severe vaso-occlusive crisis in sickle cell disease: An open-label randomized controlled trial (KISS study) Indian Pediatr. 2025;62:15–9. doi: 10.1007/s13312-025-3351-0.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+68.
+Doluee MT, Kakhki BR, Mir HH, Fateminayyeri M, Madanitorbati F, Hosseini S. Pain relief in the sickle-cell crisis: Intravenous morphine versus ketorolac; a double-blind, randomized clinical trial. Iran Red Crescent Med J. 2019;21:e83614.
+ [
+Google Scholar
+]
+
+69.
+Cooper TE, Hambleton IR, Ballas SK, Johnston BA, Wiffen PJ. Pharmacological interventions for painful sickle cell vaso-occlusive crises in adults. Cochrane Database Syst Rev. 2019;2019:CD012187. doi: 10.1002/14651858.CD012187.pub2.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+70.
+Han J, Saraf SL, Lash JP, Gordeuk VR. Use of anti-inflammatory analgesics in sickle-cell disease. J Clin Pharm Ther. 2017;42:656–60. doi: 10.1111/jcpt.12592.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+71.
+Brandow AM, DeBaun MR. Key components of pain management for children and adults with sickle cell disease. Hematol Oncol Clin North Am. 2018;32:535–50. doi: 10.1016/j.hoc.2018.01.014.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+72.
+Arzoun H, Srinivasan M, Sahib I, Fondeur J, Escudero Mendez L, Hamouda RK, et al. Opioid use in patients with sickle cell disease during a vaso-occlusive crisis: A systematic review. Cureus. 2022;14:e21473. doi: 10.7759/cureus.21473.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+73.
+Ojo AS, Odipe OG, Owoseni O. Improving the emergency department management of sickle cell vaso-occlusive pain crisis: The role and options of sublingual and intranasally administered analgesia. J Clin Med Res. 2023;15:10–22. doi: 10.14740/jocmr4841.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+74.
+De Franceschi L, Mura P, Schweiger V, Vencato E, Quaglia FM, Delmonte L, et al. Fentanyl buccal tablet: A new breakthrough pain medication in early management of severe vaso-occlusive crisis in sickle cell disease. Pain Pract. 2016;16:680–7. doi: 10.1111/papr.12313.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+75.
+Oon MB, Nik Ab Rahman NH, Mohd Noor N, Yazid MB. Patient-controlled analgesia morphine for the management of acute pain in the emergency department: a systematic review and meta-analysis. Int J Emerg Med. 2024;17:54. doi: 10.1186/s12245-024-00625-1.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+76.
+Sampaio-Cunha TJ, Martins I. Knowing the enemy is halfway towards victory: A scoping review on opioid-induced hyperalgesia. J Clin Med. 2022;11:6161. doi: 10.3390/jcm11206161.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+77.
+Bakshi N, Gillespie S, McClish D, McCracken C, Smith WR, Krishnamurti L. Intraindividual pain variability and phenotypes of pain in sickle cell disease: A secondary analysis from the pain in sickle cell epidemiology study. Pain. 2022;163:1102–13. doi: 10.1097/j.pain.0000000000002479.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+78.
+Alshahrani MS, AlSulaibikh AH, ElTahan MR, AlFaraj SZ, Asonto LP, AlMulhim AA, et al. Ketamine administration for acute painful sickle cell crisis: A randomized controlled trial. Acad Emerg Med. 2022;29:150–8. doi: 10.1111/acem.14382.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+79.
+Alshahrani MS, Alghamdi MA. Ketamine for sickle cell vaso-occlusive crises: A systematic review. Saudi J Med Med Sci. 2021;9:3–9. doi: 10.4103/sjmms.sjmms_218_20.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+80.
+Bawany MH, Motov SM. Subdissociative-dose ketamine for sickle cell vaso-occlusive crisis: A narrative review for the emergency physician. Clin Exp Emerg Med. 2022;9:169–75. doi: 10.15441/ceem.22.326.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+81.
+Puri L, Morgan KJ, Anghelescu DL. Ketamine and lidocaine infusions decrease opioid consumption during vaso-occlusive crisis in adolescents with sickle cell disease. Curr Opin Support Palliat Care. 2019;13:402–7. doi: 10.1097/SPC.0000000000000437.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+82.
+Nguyen NL, Kome AM, Lowe DK, Coyne P, Hawks KG. Intravenous lidocaine as an adjuvant for pain associated with sickle cell disease. J Pain Palliat Care Pharmacother. 2015;29:359–64. doi: 10.3109/15360288.2015.1082009.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+83.
+Zavala NA, Knoebel RW, Anitescu M. Lidocaine and ketamine infusions as adjunctive pain management therapy: A retrospective analysis of clinical outcomes in hospitalized patients admitted for pain related to sickle cell disease. Front Pain Res (Lausanne) 2022;3:878985. doi: 10.3389/fpain.2022.878985.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+84.
+Howie BA, Rajput K, Chow R. Regional anesthesia and analgesia in sickle cell pain episodes: A scoping review. Interv Pain Med. 2022;1:100108. doi: 10.1016/j.inpm.2022.100108.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+85.
+Williams H, Tanabe P. Sickle cell disease: A review of nonpharmacological approaches for pain. J Pain Symptom Manage. 2016;51:163–77. doi: 10.1016/j.jpainsymman.2015.10.017.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+86.
+National Academies of Sciences, Engineering, and Medicine; Health and Medicine Division; Board on Population Health and Public Health Practice; Committee on Addressing Sickle Cell Disease: A Strategic Plan and Blueprint for Action; , Martinez RM, Osei-Anto HAMcCormick M, , editors, editors. Washington (DC): National Academies Press (US); 2020. Addressing Sickle Cell Disease: A Strategic Plan and Blueprint for Action.
+ [
+PubMed
+] [
+Google Scholar
+]
+
+87.
+Martin OY, Thompson SM, Carroll AE, Jacob SA. Emergency department provider survey regarding acute sickle cell pain management. J Pediatr Hematol Oncol. 2020;42:375–80. doi: 10.1097/MPH.0000000000001843.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+88.
+Zempsky WT. Evaluation and treatment of sickle cell pain in the emergency department: Paths to a better future. Clin Pediatr Emerg Med. 2010;11:265–73. doi: 10.1016/j.cpem.2010.09.002.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+89.
+Glassberg JA. Improving emergency department-based care of sickle cell pain. Hematology Am Soc Hematol Educ Program. 2017;2017:412–7. doi: 10.1182/asheducation-2017.1.412.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+90.
+Hutcherson TC, Rowlee PB, Abeles J, Cieri-Hutcherson NE. Systematic review of emergency department management of vaso-occlusive episodes in adults with sickle cell disease. J Sickle Cell Dis. 2025. p. 2. Available from: 
+https://academic.oup.com/jscd/article/2/1/yoaf001/7943499?login=true
+. [Last accessed on 2025 Jun 12]
+
+91.
+Caterino JM, Adler D, Durham DD, Yeung SJ, Hudson MF, Bastani A, et al. Analysis of diagnoses, symptoms, medications, and admissions among patients with cancer presenting to emergency departments. JAMA Netw Open. 2019;2:e190979. doi: 10.1001/jamanetworkopen.2019.0979.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+92.
+Mayer DK, Travers D, Wyss A, Leak A, Waller A. Why do patients with cancer visit emergency departments? Results of a 2008 population study in North Carolina. J Clin Oncol. 2011;29:2683–8. doi: 10.1200/JCO.2010.34.2816.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+93.
+Patel PM, Goodman LF, Knepel SA, Miller CC, Azimi A, Phillips G, et al. Evaluation of emergency department management of opioid-tolerant cancer patients with acute pain. J Pain Symptom Manage. 2017;54:501–7. doi: 10.1016/j.jpainsymman.2017.07.013.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+94.
+Turgeman I, Campisi-Pinto S, Habiballah M, Bar-Sela G. Approach to cancer pain management in emergency departments: Comparison of general and oncology based settings. Pharmaceuticals (Basel) 2022;15:805. doi: 10.3390/ph15070805.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+95.
+Rupp T, Delaney KA. Inadequate analgesia in emergency medicine. Ann Emerg Med. 2004;43:494–503. doi: 10.1016/j.annemergmed.2003.11.019.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+96.
+Shah M, Rajha E, DiNardo C, Muckey E, Wierda WG, Yeung SJ. Adverse events of novel therapies for hematologic malignancies: What emergency physicians should know. Ann Emerg Med. 2020;75:264–86. doi: 10.1016/j.annemergmed.2019.07.015.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+97.
+Gould Rothberg BE, Quest TE, Yeung SJ, Pelosof LC, Gerber DE, Seltzer JA, et al. Oncologic emergencies and urgencies: A comprehensive review. CA Cancer J Clin. 2022;72:570–93. doi: 10.3322/caac.21727.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+98.
+Azizoddin DR, Beck M, Flowers KM, Wilson JM, Chai P, Johnsky L, et al. Psychological evaluation of patients with cancer presenting to the emergency department with pain: Independent predictors of worse pain severity, interference, and higher hourly opioid administration. JCO Oncol Pract. 2022;18:e1648–60. doi: 10.1200/OP.22.00142.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+99.
+Azizoddin DR, Schreiber K, Beck MR, Enzinger AC, Hruschak V, Darnall BD, et al. Chronic pain severity, impact, and opioid use among patients with cancer: An analysis of biopsychosocial factors using the CHOIR learning health care system. Cancer. 2021;127:3254–63. doi: 10.1002/cncr.33645.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+100.
+Paice JA, Bohlke K, Barton D, Craig DS, El-Jawahri A, Hershman DL, et al. Use of opioids for adults with pain from cancer or cancer treatment: ASCO guideline. J Clin Oncol. 2023;41:914–30. doi: 10.1200/JCO.22.02198.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+101.
+Paice JA, Portenoy R, Lacchetti C, Campbell T, Cheville A, Citron M, et al. Management of chronic pain in survivors of adult cancers: American Society of Clinical Oncology Clinical Practice Guideline. J Clin Oncol. 2016;34:3325–45. doi: 10.1200/JCO.2016.68.5206.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+102.
+Gilligan T, Coyle N, Frankel RM, Berry DL, Bohlke K, Epstein RM, et al. Patient-clinician communication: American Society of Clinical Oncology consensus guideline. J Clin Oncol. 2017;35:3618–32. doi: 10.1200/JCO.2017.75.2311.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+103.
+Swarm RA, Paice JA, Anghelescu DL, Are M, Bruce JY, Buga S, et al. Adult cancer pain, version 3.2019, NCCN clinical practice guidelines in oncology. J Natl Compr Canc Netw. 2019;17:977–1007. doi: 10.6004/jnccn.2019.0038.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+104.
+Denlinger CS, Ligibel JA, Are M, Baker KS, Demark-Wahnefried W, Friedman DL, et al. Survivorship: Pain version 1.2014. J Natl Compr Canc Netw. 2014;12:488–500. doi: 10.6004/jnccn.2014.0054.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+105.
+Bechakra M, Moerdijk F, van Rosmalen J, Koch BC, van der Rijt CC, Sillevis Smitt PA, et al. Opioid responsiveness of nociceptive versus mixed pain in clinical cancer patients. Eur J Cancer. 2018;105:79–87. doi: 10.1016/j.ejca.2018.09.036.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+106.
+Leppert W, Łuczak J. The role of tramadol in cancer pain treatment – A review. Support Care Cancer. 2005;13:5–17. doi: 10.1007/s00520-004-0720-4.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+107.
+Wiffen PJ, Derry S, Moore RA. Tramadol with or without paracetamol (acetaminophen) for cancer pain. Cochrane Database Syst Rev. 2017;5:CD012508. doi: 10.1002/14651858.CD012508.pub2.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+108.
+Aman MM, Mahmoud A, Deer T, Sayed D, Hagedorn JM, Brogan SE, et al. The American Society of Pain and Neuroscience (ASPN) best practices and guidelines for the interventional management of cancer-associated pain. J Pain Res. 2021;14:2139–64. doi: 10.2147/JPR.S315585.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+109.
+Sulistio M, Wojnar R, Key S, Kwok J, Al-Rubaie Z, Michael N. The role of methadone in cancer-induced bone pain: A retrospective cohort study. Support Care Cancer. 2021;29:1327–35. doi: 10.1007/s00520-020-05606-7.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+110.
+Schmidt-Hansen M, Bromham N, Taubert M, Arnold S, Hilgart JS. Buprenorphine for treating cancer pain. Cochrane Database Syst Rev. 2015;2015:CD009596. doi: 10.1002/14651858.CD009596.pub4.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+111.
+Poulain P, Denier W, Douma J, Hoerauf K, Samija M, Sopata M, et al. Efficacy and safety of transdermal buprenorphine: A randomized, placebo-controlled trial in 289 patients with severe cancer pain. J Pain Symptom Manage. 2008;36:117–25. doi: 10.1016/j.jpainsymman.2007.09.011.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+112.
+Wiffen PJ, Knaggs R, Derry S, Cole P, Phillips T, Moore RA. Paracetamol (acetaminophen) with or without codeine or dihydrocodeine for neuropathic pain in adults. Cochrane Database Syst Rev. 2016;12:CD012227. doi: 10.1002/14651858.CD012227.pub2.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+113.
+Leiva-Vásquez O, Letelier LM, Rojas L, Viviani P, Gonzalez A, Castellano J, et al. Is Acetaminophen Beneficial in Patients With Cancer Pain Who are on Strong Opioids? A Randomized Controlled Trial. J Pain Symptom Manage. 2023;66:183–192.e1. doi: 10.1016/j.jpainsymman.2023.05.002.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+114.
+Israel FJ, Parker G, Charles M, Reymond L. Lack of benefit from paracetamol (acetaminophen) for palliative cancer patients requiring high-dose strong opioids: A randomized, double-blind, placebo-controlled, crossover trial. J Pain Symptom Manage. 2010;39:548–54. doi: 10.1016/j.jpainsymman.2009.07.008.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+115.
+Vardy J, Agar M. Nonopioid drugs in the treatment of cancer pain. J Clin Oncol. 2014;32:1677–90. doi: 10.1200/JCO.2013.52.8356.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+116.
+Magee DJ, Jhanji S, Poulogiannis G, Farquhar-Smith P, Brown MR. Nonsteroidal anti-inflammatory drugs and pain in cancer patients: A systematic review and reappraisal of the evidence. Br J Anaesth. 2019;123:e412–23. doi: 10.1016/j.bja.2019.02.028.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+117.
+Simoff MJ, Lally B, Slade MG, Goldberg WG, Lee P, Michaud GC, et al. Symptom management in patients with lung cancer: Diagnosis and management of lung cancer, 3rd ed: American College of Chest Physicians evidence-based clinical practice guidelines. Chest. 2013;143:S455–97. doi: 10.1378/chest.12-2366.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+118.
+Salas S, Frasca M, Planchet-Barraud B, Burucoa B, Pascal M, Lapiana JM, et al. Ketamine analgesic effect by continuous intravenous infusion in refractory cancer pain: Considerations about the clinical research in palliative care. J Palliat Med. 2012;15:287–93. doi: 10.1089/jpm.2011.0353.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+119.
+Singh V, Gillespie TW, Lane O, Spektor B, Zarrabi AJ, Egan K, et al. A dose-escalation clinical trial of intranasal ketamine for uncontrolled cancer-related pain. Pharmacotherapy. 2022;42:298–310. doi: 10.1002/phar.2669.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+120.
+Jiao J, Fan J, Zhang Y, Chen L. Efficacy and safety of ketamine to treat cancer pain in adult patients: A systematic review. J Pain Symptom Manage. 2024;67:e185–210. doi: 10.1016/j.jpainsymman.2023.11.004.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+121.
+Peixoto RD, Hawley P. Intravenous lidocaine for cancer pain without electrocardiographic monitoring: A retrospective review. J Palliat Med. 2015;18:373–7. doi: 10.1089/jpm.2014.0279.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+122.
+Hui D, Bohlke K, Bao T, Campbell TC, Coyne PJ, Currow DC, et al. Management of dyspnea in advanced cancer: ASCO guideline. J Clin Oncol. 2021;39:1389–411. doi: 10.1200/JCO.20.03465.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+123.
+Leppert W, Buss T. The role of corticosteroids in the treatment of pain in cancer patients. Curr Pain Headache Rep. 2012;16:307–13. doi: 10.1007/s11916-012-0273-z.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+124.
+Haywood A, Good P, Khan S, Leupp A, Jenkins-Marsh S, Rickett K, et al. Corticosteroids for the management of cancer-related pain in adults. Cochrane Database Syst Rev. 2015;2015:CD010756. doi: 10.1002/14651858.CD010756.pub2.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+125.
+Loprinzi CL, Lacchetti C, Bleeker J, Cavaletti G, Chauhan C, Hertz DL, et al. Prevention and management of chemotherapy-induced peripheral neuropathy in survivors of adult cancers: ASCO guideline update. J Clin Oncol. 2020;38:3325–48. doi: 10.1200/JCO.20.01399.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+126.
+Jiang J, Li Y, Shen Q, Rong X, Huang X, Li H, et al. Effect of pregabalin on radiotherapy-related neuropathic pain in patients with head and neck cancer: A randomized controlled trial. J Clin Oncol. 2019;37:135–43. doi: 10.1200/JCO.18.00896.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+127.
+Bennett MI, Laird B, van Litsenburg C, Nimour M. Pregabalin for the management of neuropathic pain in adults with cancer: A systematic review of the literature. Pain Med. 2013;14:1681–8. doi: 10.1111/pme.12212.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+128.
+Tambon M, Montarnal B, Lepetit M, Lapeyre-Mestre M. Non-opioid antinociceptive drugs: Risk of respiratory depression and death related to concomitant use of gabapentinoids in addition to opioids. Expert Opin Drug Saf. 2023;22:183–94. doi: 10.1080/14740338.2023.2193397.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+129.
+Chung F, Lane R, Spraggs C, McQuade B, Jacka M, Luttropp HH, et al. Ondansetron is more effective than metoclopramide for the treatment of opioid-induced emesis in post-surgical adult patients. Ondansetron OIE post-surgical study group. Eur J Anaesthesiol. 1999;16:669–77. doi: 10.1046/j.1365-2346.1999.00547.x.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+130.
+Hardy J, Daly S, McQuade B, Albertsson M, Chimontsi-Kypriou V, Stathopoulos P, et al. A double-blind, randomised, parallel group, multinational, multicentre study comparing a single dose of ondansetron 24 mg p.o. With placebo and metoclopramide 10 mg t.d.s. p.o. In the treatment of opioid-induced nausea and emesis in cancer patients. Support Care Cancer. 2002;10:231–6. doi: 10.1007/s00520-001-0332-1.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+131.
+Merz-Herrala J, Leu N, Anderson E, Lambeck A, Jefferson J, Sobrero M, et al. Safety and pain reduction in emergency practitioner ultrasound-guided nerve blocks: A one-year retrospective study. Ann Emerg Med. 2024;83:14–21. doi: 10.1016/j.annemergmed.2023.08.482.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+132.
+Goldsmith A, Driver L, Duggan NM, Riscinti M, Martin D, Heffler M, et al. Complication rates after ultrasonography-guided nerve blocks performed in the emergency department. JAMA Netw Open. 2024;7:e2444742. doi: 10.1001/jamanetworkopen.2024.44742.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+133.
+Hashemi M, Mahmood SM, Fernandez J, Oswald J. Cryoneurolysis of intercostal nerve for rib trauma and intercostal neuralgia in the emergency department: A multidisciplinary approach. J Emerg Med. 2022;63:376–81. doi: 10.1016/j.jemermed.2022.06.009.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+134.
+Gabriel RA, Seng EC, Curran BP, Winston P, Trescot AM, Filipovski I. A narrative review of ultrasound-guided and landmark-based percutaneous cryoneurolysis for the management of acute and chronic pain. Curr Pain Headache Rep. 2024;28:1097–104. doi: 10.1007/s11916-024-01281-z.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+135.
+Finneran Iv JJ, Ilfeld BM. Percutaneous cryoneurolysis for acute pain management: Current status and future prospects. Expert Rev Med Devices. 2021;18:533–43. doi: 10.1080/17434440.2021.1927705.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+136.
+Hwang U, Richardson LD, Harris B, Morrison RS. The quality of emergency department pain care for older adult patients. J Am Geriatr Soc. 2010;58:2122–8. doi: 10.1111/j.1532-5415.2010.03152.x.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+137.
+Platts-Mills TF, Esserman DA, Brown DL, Bortsov AV, Sloane PD, McLean SA. Older US emergency department patients are less likely to receive pain medication than younger patients: Results from a national survey. Ann Emerg Med. 2012;60:199–206. doi: 10.1016/j.annemergmed.2011.09.014.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+138.
+Patel KV, Guralnik JM, Dansie EJ, Turk DC. Prevalence and impact of pain among older adults in the United States: Findings from the 2011 national health and aging trends study. Pain. 2013;154:2649–57. doi: 10.1016/j.pain.2013.07.029.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+139.
+Schofield P. The assessment of pain in older people: UK national guidelines. Age Ageing. 2018;47:i1–22. doi: 10.1093/ageing/afx192.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+140.
+Hadjistavropoulos T, Herr K, Turk DC, Fine PG, Dworkin RH, Helme R, et al. An interdisciplinary expert consensus statement on assessment of pain in older persons. Clin J Pain. 2007;23:S1–43. doi: 10.1097/AJP.0b013e31802be869.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+141.
+Malara A, De Biase GA, Bettarini F, Ceravolo F, Di Cello S, Garo M, et al. Pain assessment in elderly with behavioral and psychological symptoms of dementia. J Alzheimers Dis. 2016;50:1217–25. doi: 10.3233/JAD-150808.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+142.
+Warden V, Hurley AC, Volicer L. Development and psychometric evaluation of the pain assessment in advanced dementia (PAINAD) scale. J Am Med Dir Assoc. 2003;4:9–15. doi: 10.1097/01.JAM.0000043422.31640.F7.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+143.
+Molnar F, Frank CC. Optimizing geriatric care with the GERIATRIC 5Ms. Can Fam Physician. 2019;65:39.
+ [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+144.
+Owsiany MT, Hawley CE, Triantafylidis LK, Paik JM. Opioid management in older adults with chronic kidney disease: A review. Am J Med. 2019;132:1386–93. doi: 10.1016/j.amjmed.2019.06.014.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+145.
+Wan HY, Li SY, Ji W, Yu B, Jiang N. Fascia Iliaca Compartment Block for Perioperative Pain Management of Geriatric Patients with Hip Fractures: A Systematic Review of Randomized Controlled Trials. Pain Res Manag. 2020;2020:8503963. doi: 10.1155/2020/8503963.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+146.
+Zacher J, Altman R, Bellamy N, Brühlmann P, Da Silva J, Huskisson E, et al. Topical diclofenac and its role in pain and inflammation: An evidence-based review. Curr Med Res Opin. 2008;24:925–50. doi: 10.1185/030079908x273066.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+147.
+Argoff CE. Topical analgesics in the management of acute and chronic pain. Mayo Clin Proc. 2013;88:195–205. doi: 10.1016/j.mayocp.2012.11.015.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+148.
+Johnson M, Strait L, Ata A, Bartscherer A, Miller C, Chang A, et al. Do lidocaine patches reduce opioid use in acute rib fractures? Am Surg. 2020;86:1153–8. doi: 10.1177/0003134820945224.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+149.
+Borsheski R, Johnson QL. Pain management in the geriatric population. Mo Med. 2014;111:508–11.
+ [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+150.
+Merrick M, Grange R, Rudd S, Shipway D. Evaluation and treatment of acute trauma pain in older adults. Drugs Aging. 2023;40:869–80. doi: 10.1007/s40266-023-01052-2.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+151.
+Franceschi M, Scarcelli C, Niro V, Seripa D, Pazienza AM, Pepe G, et al. Prevalence, clinical features and avoidability of adverse drug reactions as cause of admission to a geriatric unit: A prospective study of 1756 patients. Drug Saf. 2008;31:545–56. doi: 10.2165/00002018-200831060-00009.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+152.
+Motov S, Mann S, Drapkin J, Butt M, Likourezos A, Yetter E, et al. Intravenous subdissociative-dose ketamine versus morphine for acute geriatric pain in the emergency department: A randomized controlled trial. Am J Emerg Med. 2019;37:220–7. doi: 10.1016/j.ajem.2018.05.030.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+153.
+Ginsburg AD, Heaton HA, Beaudrie-Nunn A, E Silva LO, Canterbury E, Brown CS, et al. High- versus low-dose ketamine for analgesia in older adults in the emergency department. Am J Emerg Med. 2024;86:120–4. doi: 10.1016/j.ajem.2024.10.015.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+154.
+Haslam C, Nurmikko T. Pharmacological treatment of neuropathic pain in older persons. Clin Interv Aging. 2008;3:111–20. doi: 10.2147/cia.s1681.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+155.
+Cepeda MS, Farrar JT, Baumgarten M, Boston R, Carr DB, Strom BL. Side effects of opioids during short-term administration: Effect of age, gender, and race. Clin Pharmacol Ther. 2003;74:102–12. doi: 10.1016/S0009-9236(03)00152-8.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+156.
+Zeng C, Dubreuil M, LaRochelle MR, Lu N, Wei J, Choi HK, et al. Association of tramadol with all-cause mortality among patients with osteoarthritis. JAMA. 2019;321:969–82. doi: 10.1001/jama.2019.1347.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+157.
+Bush DM. The CBHSQ Report. Rockville (MD): Substance Abuse and Mental Health Services Administration (US); 2015. Emergency department visits for adverse reactions involving the pain medication tramadol; pp. 1–7.
+ [
+PubMed
+] [
+Google Scholar
+]
+
+158.
+Wightman R, Perrone J, Portelli I, Nelson L. Likeability and abuse liability of commonly prescribed opioids. J Med Toxicol. 2012;8:335–40. doi: 10.1007/s13181-012-0263-x.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+159.
+Saha S, Nathani P, Gupta A. Preventing opioid-induced constipation: A teachable moment. JAMA Intern Med. 2020;180:1371–2. doi: 10.1001/jamainternmed.2020.3285.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+160.
+Pergolizzi JV, Jr., Christo PJ, LeQuang JA, Magnusson P. The use of peripheral μ-opioid receptor antagonists (PAMORA) in the management of opioid-induced constipation: An update on their efficacy and safety. Drug Des Devel Ther. 2020;14:1009–25. doi: 10.2147/DDDT.S221278.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+Articles from Turkish Journal of Emergency Medicine are provided here courtesy of 
+Wolters Kluwer -- Medknow Publications
+
+ACTIONS
+
+View on publisher site
+
+PDF (1.4 MB)
+
+Cite
+
+Collections
+
+Permalink
+
+PERMALINK
+
+Copy
+
+RESOURCES
+
+ Similar articles
+ 
+
+ Cited by other articles
+ 
+
+ Links to NCBI Databases
+ 
+
+Cite
+
+Copy
+
+Download .nbib
+
+.nbib
+
+Format:
+
+ AMA
+ 
+
+ APA
+ 
+
+ MLA
+ 
+
+ NLM
+ 
+
+Add to Collections
+
+Create a new collection
+
+Add to an existing collection
+
+ Name your collection
+ 
+*
+
+ Choose a collection
+ 
+
+ Unable to load your collection due to an error
+
+Please try again
+
+ Add
+ 
+
+ Cancel
+ 
+
+ Follow NCBI
+ 
+
+NCBI on X (formerly known as Twitter)
+
+NCBI on Facebook
+
+NCBI on LinkedIn
+
+NCBI on GitHub
+
+NCBI RSS feed
+
+ Connect with NLM
+ 
+
+NLM on X (formerly known as Twitter)
+
+NLM on Facebook
+
+NLM on YouTube
+
+National Library of Medicine
+ 
+ 8600 Rockville Pike
+ Bethesda, MD 20894
+
+ 
+
+ 
+ Web Policies
+ 
+
+ 
+ 
+
+ 
+
+ 
+ FOIA
+ 
+
+ 
+ 
+
+ 
+
+ 
+ HHS Vulnerability Disclosure
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Help
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Accessibility
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Careers
+ 
+
+ 
+ 
+
+ 
+
+ 
+ NLM
+ 
+
+ 
+ 
+
+ 
+
+ 
+ NIH
+ 
+
+ 
+ 
+
+ 
+
+ 
+ HHS
+ 
+
+ 
+ 
+
+ 
+
+ 
+ USA.gov
+ 
+
+ 
+ 
+
+Back to Top

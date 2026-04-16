@@ -1,0 +1,43 @@
+{
+  "packet_id": "02a4a9fb-2012-4479-8964-e9d4fc45f0b5",
+  "created_at": "2026-03-13T18:53:14.554387+00:00",
+  "session_id": "be19fc20-4213-4edd-b837-83c87f2d8d6b",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for sudden onset unilateral arm weakness and headache",
+    "adult dosing and treatment for acute ischemic stroke symptoms",
+    "red flags and urgent testing for new onset unilateral weakness and headache"
+  ],
+  "queries": [
+    "AAFP management guidelines for sudden onset unilateral arm weakness and headache",
+    "AAFP adult dosing and treatment for acute ischemic stroke symptoms",
+    "MedlinePlus management guidelines for sudden onset unilateral arm weakness and headache",
+    "MedlinePlus adult dosing and treatment for acute ischemic stroke symptoms",
+    "CDC management guidelines for sudden onset unilateral arm weakness and headache",
+    "CDC adult dosing and treatment for acute ischemic stroke symptoms",
+    "NIH management guidelines for sudden onset unilateral arm weakness and headache",
+    "NIH adult dosing and treatment for acute ischemic stroke symptoms",
+    "NICE management guidelines for sudden onset unilateral arm weakness and headache",
+    "NICE adult dosing and treatment for acute ischemic stroke symptoms",
+    "WHO management guidelines for sudden onset unilateral arm weakness and headache",
+    "WHO adult dosing and treatment for acute ischemic stroke symptoms"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Acute Stroke Diagnosis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0600/p616.html",
+      "accessed": "2026-03-13",
+      "snippet": "Recommended with likely benefit for patients presenting within three hours of last known well Age ≥ 18 years Concurrent acute ischemic stroke and acute myocardial infarction Extra-axial intracranial neoplasm Extracranial cervical dissections History of ≤ 10 cerebral microbleeds on magnetic resonance imaging History of myocardial infarction in past three months (if not an ST-segment elevation myocardial infarction, right, inferior, or left anterior myocardium) History of warfarin (Coumadin) use and an international normalized ratio ≤ 1.7 or a prothrombin time Initial glucose levels of 50 to 400 mg per dL (2.77 to 22.20 mmol per L; can be treated if still indicated after correction) Known unruptured and unsecured intracranial aneurysm Mild but disabling stroke symptoms Noncontrast computed tomography findings of mild to moderate early ischemic changes Normal activated partial thromboplasti"
+    },
+    {
+      "title": "Acute Headache in Adults: A Diagnostic Approach | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0900/acute-headache-adults.html",
+      "accessed": "2026-03-13",
+      "snippet": "Conjunctival erythema or lacrimation Rhinorrhea Forehead or facial diaphoresis Upper eyelid ptosis or constricted pupil Other symptoms With or without pericranial tenderness With or without aura Restlessness or agitation Duration 30 minutes to 7 days 4 to 72 hours 15 minutes to Frequency At least 10 attacks in a lifetime At least 5 attacks in a lifetime At least 5 attacks in a lifetime Each cluster attack occurs from every other day to 8 per day Cluster attacks cycle between remission periods of a few months Chronic type diagnosis requirement Symptoms ≥ 15 days per month for > 3 months Symptoms ≥ 15 days per month for > 3 months Remission interval TENSION-TYPE HEADACHE Tension-type headache (TTH) is the most common primary headache disorder but may not be addressed in the clinical setting because it is not typically disabling unless chronic."
+    }
+  ],
+  "note_text": "S: The patient is a 54-year-old adult who reports experiencing headaches daily for the past 2 days. Along with the headaches, the patient has sudden onset of right-sided arm weakness and tingling. There are no associated symptoms of fever, trauma, vision changes, speech difficulty, or facial droop.\n\nO: Phone encounter only; no physical examination or vital signs available.\n\nA: The working diagnosis is a possible acute neurological event such as a transient ischemic attack or stroke given the sudden onset of unilateral arm weakness and sensory changes accompanied by headache.\nDifferential:\n1. Acute ischemic stroke or transient ischemic attack\n2. Migraine with aura or neurological symptoms\n3. Peripheral nerve injury or neuropathy\n4. Other central nervous system pathology such as demyelinating disease or mass lesion\n\nP: - First-line medication: Not applicable until urgent evaluation and imaging are performed (Physician must verify medication/dosing)\n- Alternatives: Not applicable at this stage\n- Medication safety considerations: Not applicable; no medications started yet\n- Follow-up recommendations: Seek in-person medical care urgently for immediate evaluation including neurological examination and brain imaging to rule out stroke or other acute pathology\n- Testing: Urgent brain imaging (CT or MRI) and neurological assessment"
+}

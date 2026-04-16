@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Application",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-application/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "Connect is available as a Web application or Web service . Below are the technical details for implementing the Web application, which responds to requests based on: diagnosis (problem) code requests, drug code requests, lab test code requests, and medical procedure code requests.\nIf you decide to use MedlinePlus Connect, sign up for the email list to keep up with developments and exchange ideas with your colleagues. Please tell us if you implement MedlinePlus Connect by\ncontacting us . You are welcome to link to and display the data provided by MedlinePlus Connect. For more information on how to link to MedlinePlus content outside of this service, please see our guidelines and instructions on linking.\nWeb Application Overview \nThe API for the Web application conforms to the HL7 Context-Aware Knowledge Retrieval (Infobutton) Knowledge Request URL-Based Implementation specification . The structure of the request indicates what type of code you are sending. In all cases, the base URL for the Web application is:\nhttps://connect.medlineplus.gov/application\nMedlinePlus Connect uses HTTPS connections. HTTP requests will not be accepted and existing implementations using HTTP should update to HTTPS.\nDiagnosis (Problem) Code Requests \nMedlinePlus Connect matches ICD-10-CM, ICD-9-CM or SNOMED CT codes to related MedlinePlus health topic pages , genetics pages , or pages from other NIH",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_application_68e0bb345646",
+  "chunk_id": "chunk_002"
+}

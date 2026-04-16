@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA53172a34675286cb1e06ae7bcd176810",
+  "session_id": "34b2b84b-98d5-41f9-8ac4-2502e15ef282",
+  "from_number": "+16318072183",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-11T22:12:25.410265+00:00",
+  "ended_at": "2026-03-11T22:17:24.274371+00:00",
+  "packet_id": "91509289-83be-4eb5-b877-71ec9f849749",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "Last night."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe where exactly in your abdomen the pain is located?"
+    },
+    {
+      "role": "user",
+      "text": "Right right above the groin area."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or nausea since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any changes in your bowel movements or difficulty urinating?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of trauma or injury to that area recently?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of kidney stones or urinary tract infections?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or swelling in the groin or testicular area?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any vomiting or blood in your urine or stool?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent sexual activity or possibility of pregnancy?"
+    },
+    {
+      "role": "user",
+      "text": "No. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the nature of the pain? For example, is it sharp, dull, cramping, or something else?"
+    },
+    {
+      "role": "user",
+      "text": "Cramping."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "55."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No. No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing cramping pain in your lower right abdomen, which is most likely related to muscle strain or a mild gastrointestinal issue. Because this is a phone visit, I can’t examine you or run tests, so a licensed physician will review your information and may recommend acetaminophen or ibuprofen for pain relief if appropriate. If your pain gets worse, you develop a fever, vomiting, swelling, or any new symptoms, please seek in-person care the same day. And if you experience severe pain or signs of a serious problem like difficulty breathing or sudden worsening, go to the emergency room right away. For now, rest and use acetaminophen or ibuprofen if you can take them safely, and watch your symptoms closely."
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA511c592f1685cc5188d413de6a4c5335",
+  "session_id": "f6513fa3-03c5-43ac-b07d-470cca32c879",
+  "from_number": "+16318072183",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T18:19:46.511185+00:00",
+  "ended_at": "2026-03-08T18:23:40.154897+00:00",
+  "packet_id": "0b662643-2080-43fe-9ed8-f5370d7e85c7",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a severe pain in my lower back."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the lower back pain start?"
+    },
+    {
+      "role": "user",
+      "text": "Yesterday."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain and if it radiates anywhere?"
+    },
+    {
+      "role": "user",
+      "text": "It's a searing pain near my, um, spine."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, weakness, or tingling in your legs or feet?"
+    },
+    {
+      "role": "user",
+      "text": "Tingling in my hand."
+    },
+    {
+      "role": "assistant",
+      "text": "Any weakness, numbness, or tingling in your legs or feet, or any bladder or bowel changes?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent trauma or injury to your back or neck?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or recent infections?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have any history of back problems, surgeries, or chronic conditions like arthritis?"
+    },
+    {
+      "role": "user",
+      "text": "Arthritis."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your back pain so far?"
+    },
+    {
+      "role": "user",
+      "text": "Tony Aliv."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the tingling in your hand—when it started, which hand, and if it is constant or intermittent?"
+    },
+    {
+      "role": "user",
+      "text": "The"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you finish describing the tingling in your hand, including when it started, which hand, and if it is constant or intermittent?"
+    },
+    {
+      "role": "user",
+      "text": "The tingling is like a numbness in my left hand. It started yesterday, but it's constant."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "73."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing severe lower back pain with some numbness in your left hand, which may be related to arthritis or nerve irritation. Because I can’t examine you or run tests over the phone, a licensed physician will review your information and may recommend medication like acetaminophen for pain relief, keeping in mind your kidney condition. Avoid ibuprofen or similar pain relievers due to your kidney issues. If you notice any new weakness, loss of bladder or bowel control, worsening pain, fever, or other concerning symptoms, please seek urgent in-person care right away. Otherwise, try to manage pain with acetaminophen if safe for you, and rest as needed. A doctor will review your case and decide if further treatment or testing is needed. If symptoms worsen or don’t improve, please go to urgent care or the emergency room for evaluation."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "packet_id": "640a0520-50c5-4668-9448-e32cd642a44e",
+  "created_at": "2026-03-29T14:20:08.541015+00:00",
+  "session_id": "db51e2b8-30fe-4368-a3b6-07895044d319",
+  "pathway_id": "",
+  "base_queries": [
+    "pediatric nausea and lower abdominal pain management guidelines",
+    "nausea treatment dosing and contraindications in children",
+    "red flags and return precautions for pediatric nausea with chills"
+  ],
+  "queries": [
+    "AAFP pediatric nausea and lower abdominal pain management guidelines",
+    "AAFP nausea treatment dosing and contraindications in children",
+    "MedlinePlus pediatric nausea and lower abdominal pain management guidelines",
+    "MedlinePlus nausea treatment dosing and contraindications in children",
+    "CDC pediatric nausea and lower abdominal pain management guidelines",
+    "CDC nausea treatment dosing and contraindications in children",
+    "NIH pediatric nausea and lower abdominal pain management guidelines",
+    "NIH nausea treatment dosing and contraindications in children",
+    "NICE pediatric nausea and lower abdominal pain management guidelines",
+    "NICE nausea treatment dosing and contraindications in children",
+    "WHO pediatric nausea and lower abdominal pain management guidelines",
+    "WHO nausea treatment dosing and contraindications in children"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Acute Abdominal Pain in Children | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2016/0515/p830.html/1000",
+      "accessed": "2026-03-29",
+      "snippet": "Condition Clinical findings Age Comments Abdominal migraine Anorexia, nausea, vomiting, headache, photophobia 3 to 10 years Boys and girls equally affected 8 Colic Persistent crying without apparent cause Younger than 3 months Nonacute abdominal examination Constipation Hard, infrequent stooling All age groups May be most common cause of abdominal pain 1 Gastroenteritis or colitis Diarrhea, with vomiting or fever All age groups Campylobacter , Cryptosporidium , Escherichia coli , Salmonella , Shigella , rotavirus Hirschsprung disease Constipation, severe diarrhea, bowel obstruction, perforation, sepsis Infant Delayed passage of meconium (more than 24 hours) in about 57% of cases 9 Inflammatory bowel disease Bloody diarrhea Primarily adolescents Childhood prevalence of Crohn disease is 43 per 100,000; of ulcerative colitis, 28 per 100,000 10 Omental infarction Lower abdominal pain, vomiti"
+    },
+    {
+      "title": "Recurrent Abdominal Pain in Children | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/0615/p785.html",
+      "accessed": "2026-03-29",
+      "snippet": "Irritable Bowel Syndrome . For diarrhea-predominant IBS, 5 g of partially hydrolyzed guar gum (a fiber from guar beans used in the food industry as a food thickener) may reduce abdominal pain and other symptoms. 31 Antispasmodics have not been shown to be beneficial in low-quality studies. 50 A small study showed that one or two peppermint oil capsules taken three times per day for two weeks can reduce diarrhea by 75%. 1 , 54 Loperamide (Imodium), an opiate analogue, may reduce diarrhea but not abdominal pain and has not been studied in children as comprehensively as in adults. 55 The use of antibiotics for treatment of IBS is controversial. 55 In a small study of children with IBS, treatment with 600 mg of rifaximin (Xifaxan) improved abdominal pain, constipation, diarrhea, bloating, and flatulence. 56 Treatment of constipation-predominant IBS is similar to that of constipation in child"
+    }
+  ],
+  "note_text": "S: The patient reports feeling nauseous since overnight. They experienced a dull ache in the lower abdomen last night along with chills but no fever. The nausea has persisted since then without vomiting. No urinary symptoms were clearly reported.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute nausea possibly related to a mild lower abdominal process, such as a viral gastroenteritis or early urinary tract infection.\nDifferential:\n1. Viral gastroenteritis\n2. Early urinary tract infection\n3. Gastrointestinal irritation or mild gastritis\n4. Other causes of nausea such as medication side effects or metabolic disturbance\n\nP: - First-line medication: Ondansetron 4 mg orally every 8 hours as needed for nausea (Physician must verify medication/dosing)\n- Alternatives: Dimenhydrinate 50 mg orally every 6 hours as needed for nausea (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; no renal or liver disease reported; monitor for sedation with dimenhydrinate\n- Follow-up recommendations: Seek in-person medical care urgently if vomiting develops, abdominal pain worsens, fever appears, or if unable to keep fluids down\n- Testing: Not indicated at this time based on telephone assessment; consider urinalysis or abdominal imaging if symptoms worsen or persist"
+}

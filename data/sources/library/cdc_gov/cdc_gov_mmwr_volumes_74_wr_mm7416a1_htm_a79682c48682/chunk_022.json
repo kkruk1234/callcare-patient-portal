@@ -1,0 +1,10 @@
+{
+  "title": "Interim Evaluation of Respiratory Syncytial Virus Hospitalization Rates Among Infants and Young Children After Introduction of Respiratory Syncytial Virus Prevention Products â U",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7416a1.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "er 2020 and later.\n&dagger;&dagger;&dagger;&dagger; For the NVSN 2018&ndash;20 rate analysis, county-specific population denominator data were obtained from the 2020 U.S. bridged-race population estimates. The 2024&ndash;25 rate analysis used 2022 interim population estimates because these were the most recent available data. Children with inconclusive RSV testing results were excluded. Children with RSV detection from a rapid test but no detection from a molecular test were excluded because of poor rapid test specificity. Population-based numerators were calculated by adjusting the observed number of hospitalizations to account for weeks with <7 days of surveillance, the percentage of eligible children not enrolled, sensitivity of RSV RT-PCR testing (87.6%, using serology as the standard relative to RT-PCR), and the market share of each enrollment hospital site. Rates were estimated per 1,000 children aged <5 years, and 95% CIs were determined by bootstrap percentiles based on 1,000 bootstrap samples for each rate.\n&sect;&sect;&sect;&sect; RSV-NET only captures children hospitalized with RSV if they were tested for RSV and if tests accurately detect RSV. To correct for RSV hospitalization underascertainment, each RSV-NET site identified all children aged <5 years hospitalized during 2018&ndash;2023 with ARI in select hospitals, as identified by International Classification of",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7416a1_htm_a79682c48682",
+  "chunk_id": "chunk_022"
+}

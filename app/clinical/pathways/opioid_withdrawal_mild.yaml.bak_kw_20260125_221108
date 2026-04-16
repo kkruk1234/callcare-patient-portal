@@ -1,0 +1,22 @@
+id: opioid_withdrawal_mild
+version: 0.1
+match:
+  any_keywords: ["opioid withdrawal", "stopping opioids", "stopping pain pills", "withdrawal from fentanyl", "withdrawal from oxycodone"]
+questions:
+  - id: severe
+    prompt: "Any severe chest pain, fainting, confusion, or unable to keep fluids down? (yes/no)"
+    store_as: severe
+    type: yesno
+  - id: dehydration
+    prompt: "Are you vomiting a lot or having significant diarrhea? (yes/no)"
+    store_as: dehydration_risk
+    type: yesno
+  - id: timing
+    prompt: "Did symptoms start after stopping or reducing opioids in the last few days? (yes/no)"
+    store_as: timing_consistent
+    type: yesno
+stop_rules:
+  - if_all_answered: ["severe", "dehydration", "timing"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

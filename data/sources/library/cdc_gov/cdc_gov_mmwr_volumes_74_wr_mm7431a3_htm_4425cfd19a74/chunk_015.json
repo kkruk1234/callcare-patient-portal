@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Syncytial Virus Immunization Coverage Among Infants Through Receipt of Nirsevimab Monoclonal Antibody or Maternal Vaccination â United States, October 2023âMarch 20",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7431a3.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "cine (Abrysvo) were assumed to be pregnant, IIS data do not include pregnancy status. Therefore, inclusion of vaccinated women who were not pregnant would have resulted in an overestimation of coverage. Second, because maternal and infant records could not be linked through the deidentified IIS data reported to CDC, determining whether some infants received immunization coverage both through nirsevimab and maternal vaccination was not possible. The proportion of infants receiving immunization coverage was estimated by summing the total number of adult women who received RSV vaccine and the number of infants who received nirsevimab then dividing the total by the total number of live births. This might have led to overestimation of the numerator for infant coverage if a mother and infant collectively were immunized through both methods; however, this is only recommended in rare instances and has not been reported frequently in other studies ( 5 , 7 , 9 ). Third, IIS data do not identify multiple pregnancies (which account for approximately 3% of live births &para;&para;&para; ) or stillbirths (approximately 0.6% of births****). Thus, IIS dose data might not fully align with the denominator of live births by state. Fourth, although infants born to mothers aged <18 and >49 years were not included in the denominator for calculations of infant coverage, nirsevimab doses received by t",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7431a3_htm_4425cfd19a74",
+  "chunk_id": "chunk_015"
+}

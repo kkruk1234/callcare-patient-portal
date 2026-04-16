@@ -1,0 +1,38 @@
+{
+  "packet_id": "e8c76049-af5e-4567-82d1-41c9be575ed9",
+  "created_at": "2026-01-25T20:02:57.193007+00:00",
+  "session_id": "3c91439e-b253-44bf-a29a-ae9f652969b1",
+  "chief_complaint": "I can't sleep at all and I'm exhausted",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "work_stress_burnout_noncrisis",
+  "answers": {
+    "safety": "no",
+    "sleep": "yes",
+    "functioning": "yes"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with complaints of inability to sleep at all and feeling exhausted. Sleep is impacted, and functioning is also affected. The patient reports no safety concerns or self-harm thoughts. There are no known medication allergies.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Work-related stress and burnout causing insomnia and fatigue.\n - Differential:\n  1. Primary insomnia related to stress\n  2. Anxiety or mood disorder contributing to sleep disturbance\n  3. Sleep disorder such as sleep apnea (less likely without further symptoms)\n  4. Medical causes of fatigue and insomnia (e.g., thyroid dysfunction) – requires further evaluation if symptoms persist\n - Red flags considered: No safety concerns or self-harm ideation reported.\n\nP:\n - Disposition: Outpatient management with close follow-up.\n - Plan:\n   1. Provide education on sleep hygiene and stress management techniques.\n   2. Recommend establishing a regular sleep schedule and relaxation exercises before bedtime.\n   3. Encourage addressing work-related stressors and consider counseling or behavioral therapy if symptoms persist.\n   4. Advise follow-up if symptoms worsen or do not improve within 2-4 weeks.\n - Safety net: Instruct patient to seek urgent care if experiencing worsening mental health symptoms, new safety concerns, or inability to function.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Mental health: workplace stress overview (starter)",
+        "source": "https://www.nimh.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nimh.nih.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Mental health: workplace stress overview (starter)",
+      "source": "https://www.nimh.nih.gov/",
+      "snippet": "Listed in pathway manifest https://www.nimh.nih.gov/"
+    }
+  ]
+}

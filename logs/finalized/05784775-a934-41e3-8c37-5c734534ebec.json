@@ -1,0 +1,138 @@
+{
+  "packet_id": "16ece3d2-af17-442a-9e55-08f333d1e10c",
+  "created_at": "2026-02-13T01:22:15.825083+00:00",
+  "session_id": "05784775-a934-41e3-8c37-5c734534ebec",
+  "chief_complaint": "shoulder pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your shoulder pain start?",
+    "intake_a1": "2 weeks ago",
+    "intake_q2": "Can you describe where exactly in your shoulder the pain is located?",
+    "intake_a2": "the side of the shoulder",
+    "intake_q3": "Any recent injury or trauma to your shoulder?",
+    "intake_a3": "I think I injured it playing basketball",
+    "intake_q4": "Can you tell me if you have any weakness or difficulty moving your shoulder?",
+    "intake_a4": "no - it just hurts when I lift it",
+    "intake_q5": "Any fever, chills, or redness around the shoulder?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for your shoulder pain, and did they help?",
+    "intake_a6": "icing but only the first day and it helped, but not much",
+    "intake_q7": "Any numbness, tingling, or pain radiating down your arm?",
+    "intake_a7": "no",
+    "intake_q8": "Any prior history of shoulder problems or arthritis?",
+    "intake_a8": "no",
+    "intake_q9": "Any difficulty or pain when you try to raise your arm above your head or behind your back?",
+    "intake_a9": "raising my arm above my head hurts a lot, but behin my back is fine",
+    "intake_q10": "Any swelling or bruising around your shoulder?",
+    "intake_a10": "no",
+    "age_years": 34,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "yes"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "liver disease status is yes/unknown (avoid hepatotoxic meds / adjust dosing)"
+      ],
+      "evidence_urls": [
+        "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+        "https://www.nhs.uk/conditions/shoulder-impingement-syndrome/",
+        "https://medlineplus.gov/druginfo/meds/a607001.html",
+        "https://orthoinfo.aaos.org/en/diseases--conditions/shoulder-pain/",
+        "https://www.nhs.uk/conditions/frozen-shoulder/",
+        "https://medlineplus.gov/shoulderinjuriesanddisorders.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 34-year-old female presenting with a 2-week history of pain localized to the side of her shoulder. The pain began after a suspected injury while playing basketball. She reports no weakness or difficulty moving the shoulder except pain when lifting the arm above the head. There is no associated fever, chills, redness, swelling, bruising, numbness, tingling, or radiation of pain down the arm. She has no prior history of shoulder problems or arthritis. Initial treatment with icing provided minimal relief after the first day. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is shoulder impingement syndrome likely related to recent trauma and activity. This is supported by localized lateral shoulder pain exacerbated by arm elevation without systemic symptoms or neurological deficits.\n\nDifferential: \n1. Shoulder impingement syndrome \n2. Rotator cuff strain or tear \n3. Frozen shoulder (adhesive capsulitis) \n4. Shoulder contusion or minor soft tissue injury \n\nP: \n- First-line medication: Acetaminophen for pain relief, dosing per label instructions, duration as needed, no contraindications noted (EVID_4). \n- Alternatives: \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen, if no liver disease contraindications, dosing per label, duration as needed. \n - Physical therapy referral for guided shoulder exercises if pain persists or functional limitation develops. \n- Medication safety considerations: Avoid NSAIDs due to underlying liver disease; acetaminophen should be used cautiously and not exceed recommended doses. No pregnancy or renal disease concerns. \n- Return precautions: Seek in-person evaluation if pain worsens, weakness develops, fever or redness occurs, or if there is no improvement within 48–72 hours. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Shoulder impingement - NHS",
+        "source": "https://www.nhs.uk/conditions/shoulder-impingement-syndrome/",
+        "snippet": "﻿ Shoulder impingement - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Shoulder impingement Shoulder impingement is where a tendon inside your shoulder swells and rubs against tissue or bone, c…"
+      },
+      {
+        "title": "Dislocated shoulder - NHS",
+        "source": "https://www.nhs.uk/conditions/dislocated-shoulder/",
+        "snippet": "earest A&E Information: Do not drive to A&E. Ask someone to drive you or call 999 and ask for an ambulance. Bring any medicines you take with you. What to do while you’re waiting for treatment If you think you’ve dislocated your shoulder, there are some things you can do while you’re waiting for treatment. Do gently hold an ice pack (or a bag of frozen peas…"
+      },
+      {
+        "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+        "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+        "snippet": "tonitis tend to lie very still, whereas those with renal colic seem unable to stay still. Fever suggests infection; however, its absence does not rule it out, especially in patients who are older or immunocompromised. Tachycardia and orthostatic hypotension suggest hypovolemia. The location of pain guides the remainder of the physical examination. Physicians…"
+      },
+      {
+        "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+        "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+      },
+      {
+        "title": "Shoulder pain (starter evidence summary)",
+        "source": "https://orthoinfo.aaos.org/en/diseases--conditions/shoulder-pain/",
+        "snippet": "Most shoulder pain is overuse/tendon-related. Trauma, inability to move the arm, or cardiac symptoms require urgent evaluation."
+      },
+      {
+        "title": "Frozen shoulder - NHS",
+        "source": "https://www.nhs.uk/conditions/frozen-shoulder/",
+        "snippet": "et a frozen shoulder. Frozen shoulder happens when the tissue around your shoulder joint becomes inflamed. The tissue then gets tighter and shrinks, which causes pain. Frozen shoulder can happen because: you had an injury or surgery that stops you from moving your arm normally you have diabetes – it's unclear why this is, but it's important to have your regu…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+      "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "snippet": "tonitis tend to lie very still, whereas those with renal colic seem unable to stay still. Fever suggests infection; however, its absence does not rule it out, especially in patients who are older or immunocompromised. Tachycardia and orthostatic hypotension suggest hypovolemia. The location of pain guides the remainder of the physical examination. Physicians…"
+    },
+    {
+      "title": "Shoulder impingement - NHS",
+      "source": "https://www.nhs.uk/conditions/shoulder-impingement-syndrome/",
+      "snippet": "﻿ Shoulder impingement - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Shoulder impingement Shoulder impingement is where a tendon inside your shoulder swells and rubs against tissue or bone, c…"
+    },
+    {
+      "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+      "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+    },
+    {
+      "title": "Shoulder pain (starter evidence summary)",
+      "source": "https://orthoinfo.aaos.org/en/diseases--conditions/shoulder-pain/",
+      "snippet": "Most shoulder pain is overuse/tendon-related. Trauma, inability to move the arm, or cardiac symptoms require urgent evaluation."
+    },
+    {
+      "title": "Frozen shoulder - NHS",
+      "source": "https://www.nhs.uk/conditions/frozen-shoulder/",
+      "snippet": "et a frozen shoulder. Frozen shoulder happens when the tissue around your shoulder joint becomes inflamed. The tissue then gets tighter and shrinks, which causes pain. Frozen shoulder can happen because: you had an injury or surgery that stops you from moving your arm normally you have diabetes – it's unclear why this is, but it's important to have your regu…"
+    },
+    {
+      "title": "Shoulder Injuries | Shoulder Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/shoulderinjuriesanddisorders.html",
+      "snippet": "sical exam, and imaging tests. Often, the first treatment for shoulder problems is RICE. This stands for Rest, Ice, Compression, and Elevation. Other treatments include exercise and medicines to reduce pain and swelling. If those don't work, you may need surgery. NIH: National Institute of Arthritis and Musculoskeletal and Skin Diseases Start Here Shoulder P…"
+    }
+  ],
+  "state": null
+}

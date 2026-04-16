@@ -1,0 +1,10 @@
+{
+  "title": "COVID-19 Vaccination Coverage, Pregnant Women, United States | COVIDVaxView | CDC",
+  "url": "https://www.cdc.gov/covidvaxview/weekly-dashboard/pregnant-women-vaccination.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "pregnant women ages 18&ndash;49 years are based on electronic health record (EHR) data from the Vaccine Safety Datalink (VSD) , a collaboration between CDC's Immunization Safety Office and multiple integrated health care organizations.*&#8239;Additional data on COVID-19&#8239;vaccination coverage for pregnant women are available .\nThe denominator includes women with a pregnancy during the respective season &dagger; beginning before or during the specified week. The numerator includes those who received a COVID-19 vaccine after the vaccine was available for the respective season &Dagger; before or during pregnancy as of the specified week ending date. Pregnant women are not removed from the numerator or denominator when the pregnancy ends. Cumulative vaccination coverage for one week may be lower than cumulative coverage for a previous week due to the addition of pregnant women in the denominator. &sect; Additionally, no requirements for length of enrollment in a VSD site are applied, and vaccinations given outside of a VSD site might not be included. &plusmn; \nWeekly comparisons to previous season should take into account differences between seasons in vaccine availability dates. &Dagger; \nFigure 2A. &#8239;Percent of Pregnant Women Ages 18&ndash;49 Years Who Have Received a COVID-19 Vaccine Overall, by Race and Ethnicity, and Season. Data Source: Vaccine Safety Datalink. \nFigu",
+  "source_type": "library",
+  "source_id": "cdc_gov_covidvaxview_weekly_dashboard_pregnant_women_vaccination_html_f652b8db8088",
+  "chunk_id": "chunk_002"
+}

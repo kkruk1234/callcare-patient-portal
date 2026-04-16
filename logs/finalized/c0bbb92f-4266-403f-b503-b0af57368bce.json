@@ -1,0 +1,68 @@
+{
+  "packet_id": "b750151f-24d1-45a5-b7d3-fcc8130b2281",
+  "created_at": "2026-01-26T19:31:32.815518+00:00",
+  "session_id": "c0bbb92f-4266-403f-b503-b0af57368bce",
+  "chief_complaint": "I think I have pneumonia",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "pneumonia_possible",
+  "answers": {
+    "breathing_trouble": "no",
+    "chest_pain": "no",
+    "high_risk": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult who reports concern for possible pneumonia. They do not have breathing trouble or chest pain. There are no high-risk conditions reported. The patient has a documented allergy to penicillin.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Suspected pneumonia, clinical presentation unclear but patient concerned.\n - Differential:\n  1. Community-acquired pneumonia\n  2. Acute bronchitis\n  3. Viral upper respiratory infection\n  4. Other lower respiratory tract infection\n - Red flags considered: No breathing difficulty, no chest pain, no high-risk conditions reported.\n\nP:\n - Disposition: Patient advised to seek in-person evaluation if symptoms worsen or new symptoms develop.\n - Plan: Given the lack of breathing difficulty or chest pain and no high-risk features, initial conservative management is reasonable. If symptoms progress or clinical suspicion increases, further evaluation including chest imaging and labs may be needed.\n - Safety net: Instruct patient to seek urgent care if they develop breathing difficulty, chest pain, high fever, confusion, or worsening symptoms. Follow up with primary care or urgent care for reassessment if symptoms persist beyond several days or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "pneumonia_possible references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "pneumonia_possible references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "pneumonia_possible references (starter)",
+        "source": "https://www.aao.org/",
+        "snippet": "Listed in pathway manifest https://www.aao.org/"
+      },
+      {
+        "title": "pneumonia_possible references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "pneumonia_possible references (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    },
+    {
+      "title": "pneumonia_possible references (starter)",
+      "source": "https://www.aafp.org/",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/"
+    },
+    {
+      "title": "pneumonia_possible references (starter)",
+      "source": "https://www.aao.org/",
+      "snippet": "Listed in pathway manifest https://www.aao.org/"
+    },
+    {
+      "title": "pneumonia_possible references (starter)",
+      "source": "https://www.nih.gov/",
+      "snippet": "Listed in pathway manifest https://www.nih.gov/"
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Sequence, Tuple
+from urllib.parse import urlparse
+import hashlib
+import json
+import re
+
+# NOTE: Keep this module standalone and dependable.
+# Auto-acquire and other modules need an ingest function here.
+
+LIB_ROOT = Path("data/sources/library")
+
+
+@dataclass
+class PackSource:
+    url: str
+    source_type: str = "unknown"
+    notes: str = ""
+
+
+def _now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def stable_id_for_url(url: str) -> str:
+    u = (url or "").strip()
+    return hashlib.sha256(u.encode("utf-8", errors="ignore")).hexdigest()[:16]
+
+
+def safe_domain(url: str) -> str:
+    try:
+        host = urlparse(url).netloc or ""
+        host = host.lower().strip()
+        host = host.replace("www.", "")
+        return host
+    except Exception:
+        return ""
+
+
+def _read_json(p: Path) -> Any:
+    try:
+        return json.loads(p.read_text(encoding="utf-8", errors="replace"))
+    except Exception:
+        return None
+
+
+def _write_json(p: Path, obj: Any) -> None:
+    p.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def fetch_url(url: str, timeout: int = 25) -> Tuple[Optional[bytes], Optional[str]]:
+    """
+    Fetch URL with headers that reduce 403/blocked responses.
+    Returns (content_bytes, content_type_header).
+    """
+    u = (url or "").strip()
+    if not u:
+        return None, None
+
+    try:
+        import requests  # type: ignore
+    except Exception as e:
+        raise RuntimeError("requests is required for fetch_url()") from e
+
+    headers = {
+        # Browser-ish UA avoids a *lot* of 403s.
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Connection": "close",
+    }
+
+    r = requests.get(u, headers=headers, timeout=timeout, allow_redirects=True)
+    ctype = (r.headers.get("Content-Type") or "").strip()
+    if not r.ok:
+        # Raise with status to show 403/429 clearly.
+        raise RuntimeError(f"HTTP {r.status_code} for {u}")
+    return (r.content, ctype)
+
+
+def extract_text(content: bytes, content_type: str, url: str) -> Tuple[str, str]:
+    """
+    Extract readable text from bytes.
+    IMPORTANT: returns (text, used_type) in that order.
+
+    - HTML: BeautifulSoup if available, else naive tag strip.
+    - PDF: pdfminer.six if available, else returns "" (no crash).
+    - Other: decode as utf-8 with replacement.
+    """
+    ct = (content_type or "").lower()
+    u = (url or "").lower().strip()
+
+    # Detect PDF reliably
+    is_pdf = ("application/pdf" in ct) or u.endswith(".pdf") or (content[:5] == b"%PDF-")
+
+    if is_pdf:
+        used = "application/pdf"
+        # Try pdfminer.six (best available pure-python option)
+        try:
+            from io import BytesIO
+            from pdfminer.high_level import extract_text as _pdf_extract_text  # type: ignore
+            text = _pdf_extract_text(BytesIO(content)) or ""
+            text = re.sub(r"\s+\n", "\n", text)
+            text = re.sub(r"[ \t]+", " ", text)
+            text = re.sub(r"\n{3,}", "\n\n", text).strip()
+            return text, used
+        except Exception:
+            # If pdfminer isn't installed or extraction fails, don't crash ingestion.
+            return "", used
+
+    # HTML/text
+    used = ct or "text/plain"
+    raw = ""
+    try:
+        raw = content.decode("utf-8", errors="replace")
+    except Exception:
+        try:
+            raw = content.decode("latin-1", errors="replace")
+        except Exception:
+            raw = ""
+
+    # If it looks like HTML, parse it
+    if ("text/html" in used) or ("<html" in raw.lower()) or ("</" in raw and "<" in raw):
+        try:
+            from bs4 import BeautifulSoup  # type: ignore
+            soup = BeautifulSoup(raw, "html.parser")
+            # Remove scripts/styles/nav-like blocks
+            for tag in soup(["script", "style", "noscript"]):
+                tag.decompose()
+            text = soup.get_text("\n")
+        except Exception:
+            # fallback: strip tags
+            text = re.sub(r"(?is)<script.*?>.*?</script>", " ", raw)
+            text = re.sub(r"(?is)<style.*?>.*?</style>", " ", text)
+            text = re.sub(r"(?is)<[^>]+>", "\n", text)
+
+        text = re.sub(r"[ \t]+", " ", text)
+        text = re.sub(r"\n{3,}", "\n\n", text).strip()
+        return text, used
+
+    # Plain-ish text
+    text = raw
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    return text, used
+
+
+def write_source(out_dir: Path, meta: Dict[str, Any], text: str) -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    src_path = out_dir / "source.json"
+    txt_path = out_dir / "content.txt"
+
+    # Never overwrite existing sources (idempotent)
+    if src_path.exists() and txt_path.exists():
+        return
+
+    if not src_path.exists():
+        _write_json(src_path, meta)
+
+    if not txt_path.exists():
+        txt_path.write_text(text or "", encoding="utf-8", errors="replace")
+
+
+def load_pack(pack_path: Path) -> Tuple[str, str, List[PackSource]]:
+    """
+    Returns (query, created_at, sources)
+    Accepts pack format written by auto-acquire: {query, created_at, sources:[{url,...}]}
+    """
+    data = _read_json(pack_path)
+    if not isinstance(data, dict):
+        return "", "", []
+
+    query = str(data.get("query") or "")
+    created_at = str(data.get("created_at") or "")
+
+    sources_raw = data.get("sources") or []
+    out: List[PackSource] = []
+    if isinstance(sources_raw, list):
+        for s in sources_raw:
+            if not isinstance(s, dict):
+                continue
+            url = str(s.get("url") or "").strip()
+            if not url:
+                continue
+            out.append(PackSource(url=url, source_type=str(s.get("source_type") or "unknown"), notes=str(s.get("notes") or "")))
+    return query, created_at, out
+
+
+# ----------------------------
+# Ingest entrypoints (what auto_acquire_fast expects)
+# ----------------------------
+
+def ingest_urls(urls: Sequence[str], *, source_type: str = "auto_acquire", notes: str = "") -> List[Dict[str, Any]]:
+    ingested: List[Dict[str, Any]] = []
+    LIB_ROOT.mkdir(parents=True, exist_ok=True)
+
+    for u in urls:
+        url = (u or "").strip()
+        if not url:
+            continue
+
+        sid = stable_id_for_url(url)
+        out_dir = LIB_ROOT / sid
+        src_path = out_dir / "source.json"
+        txt_path = out_dir / "content.txt"
+
+        # Skip if already present
+        if src_path.exists() and txt_path.exists():
+            ingested.append({"id": sid, "url": url, "title": _read_json(src_path).get("title") if isinstance(_read_json(src_path), dict) else "", "skipped": True})
+            continue
+
+        # FAILSOFT: do not abort pack on one bad URL
+        try:
+            content, ctype = fetch_url(url, timeout=25)
+        except Exception as e:
+            try:
+                Path('logs').mkdir(exist_ok=True)
+                with open('logs/ingest_failures.jsonl','a',encoding='utf-8') as f:
+                    import json, time
+                    f.write(json.dumps({'ts': time.time(), 'url': url, 'error': str(e)}) + '\n')
+            except Exception:
+                pass
+            continue
+        if not content:
+            continue
+
+        text, used = extract_text(content, ctype or "", url)
+        text = (text or "").strip()
+        if not text:
+            # Still write minimal source.json so we know it was attempted,
+            # but do NOT create empty content.txt (keeps library clean).
+            meta = {
+                "id": sid,
+                "url": url,
+                "title": "",
+                "retrieved_at": _now_iso(),
+                "source_type": source_type,
+                "domain": safe_domain(url),
+                "content_type": used,
+                "notes": (notes or ""),
+                "extract_error": "empty_text_after_extract",
+            }
+            out_dir.mkdir(parents=True, exist_ok=True)
+            if not src_path.exists():
+                _write_json(src_path, meta)
+            continue
+
+        # Title heuristic
+        title = ""
+        # Try HTML title tags if html
+        if "text/html" in (used or "").lower():
+            m = re.search(r"(?is)<title[^>]*>(.*?)</title>", (content or b"").decode("utf-8", errors="replace"))
+            if m:
+                title = re.sub(r"\s+", " ", m.group(1)).strip()
+
+        if not title:
+            # Use first non-empty line of extracted text as a fallback
+            for line in text.splitlines():
+                t = line.strip()
+                if 6 <= len(t) <= 120:
+                    title = t
+                    break
+
+        meta = {
+            "id": sid,
+            "url": url,
+            "title": title,
+            "retrieved_at": _now_iso(),
+            "source_type": source_type,
+            "domain": safe_domain(url),
+            "content_type": used,
+            "notes": (notes or ""),
+        }
+
+        write_source(out_dir, meta, text)
+        ingested.append({"id": sid, "url": url, "title": title, "skipped": False})
+
+    return ingested
+
+
+def ingest_pack(pack: Dict[str, Any], *, source_type: str = "auto_acquire") -> List[Dict[str, Any]]:
+    if not isinstance(pack, dict):
+        return []
+    srcs = pack.get("sources") or []
+    urls = []
+    if isinstance(srcs, list):
+        for s in srcs:
+            if isinstance(s, dict) and s.get("url"):
+                urls.append(str(s.get("url")).strip())
+    notes = str(pack.get("query") or "")
+    return ingest_urls(urls, source_type=source_type, notes=notes)
+
+
+def ingest_pack_file(pack_path: str, *, source_type: str = "auto_acquire") -> List[Dict[str, Any]]:
+    p = Path(pack_path)
+    data = _read_json(p)
+    if not isinstance(data, dict):
+        return []
+    return ingest_pack(data, source_type=source_type)
+
+
+# Compatibility aliases (other modules may look for these names)
+def ingest_url_pack(pack_path: str, **kw) -> List[Dict[str, Any]]:
+    return ingest_pack_file(pack_path, **kw)
+
+def ingest_from_pack(pack_path: str, **kw) -> List[Dict[str, Any]]:
+    return ingest_pack_file(pack_path, **kw)
+
+def ingest_urls_from_pack(pack_path: str, **kw) -> List[Dict[str, Any]]:
+    return ingest_pack_file(pack_path, **kw)
+
+def ingest(pack_path: str, **kw) -> List[Dict[str, Any]]:
+    return ingest_pack_file(pack_path, **kw)
+
+
+def main() -> int:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("pack_path", help="Path to pack json (data/packs/auto_*.json)")
+    args = ap.parse_args()
+
+    ing = ingest_pack_file(args.pack_path)
+    print("INGESTED_N=", len([x for x in ing if not x.get("skipped")]))
+    for x in ing[:20]:
+        print(x)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

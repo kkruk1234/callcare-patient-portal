@@ -1,0 +1,34 @@
+id: hives_urticaria
+version: 0.1
+match:
+  any_keywords: ["hives", "urticaria", "welts", "itchy welts"]
+questions:
+  - id: breathing
+    prompt: "Any trouble breathing or swelling of lips/tongue/face? (yes/no)"
+    store_as: breathing
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_anaphylaxis"]
+
+  - id: faint
+    prompt: "Any dizziness, fainting, or feeling like you might pass out? (yes/no)"
+    store_as: faint
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_anaphylaxis"]
+
+  - id: fever
+    prompt: "Do you have fever or severe joint pain along with the rash? (yes/no)"
+    store_as: fever
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["systemic_symptoms_with_hives"]
+
+stop_rules:
+  - if_all_answered: ["breathing","faint","fever"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

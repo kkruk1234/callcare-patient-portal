@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Activity Levels | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/activity-levels.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "SA in any week. The percentage of ED visits for COVID-19, influenza, or RSV may still be displayed even if the level (category) is not displayed. \nWastewater Map \nThe map shows the Wastewater Viral Activity Level for states and territories in the United States. This metric indicates whether the amount of virus in the wastewater for specific respiratory illnesses is very low, low, moderate, high, or very high. Wastewater monitoring can detect viruses spreading from one person to another within a community earlier than clinical testing, and before people who are sick go to their doctor or hospital. It can also detect infections without symptoms. If you see increased Wastewater Viral Activity Levels of COVID-19, influenza virus, or RSV, it might indicate that there is a higher risk of infection. For more information, see&#8239; Data Methods . \nData representing less than 5% of the population have a hatching pattern on the map, which is a note of caution that the wastewater viral activity level shown may not be representative of the state or territory. States or territories without sufficient data are indicated as \"No data\". This can be due to no data reported from the state or territory, or all sites not having the minimum weeks of data available to calculate the wastewater viral activity level. \nData Limitations for Influenza A :\nWastewater data cannot determine the source of inf",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_activity_levels_html_f3cd8bd52f62",
+  "chunk_id": "chunk_009"
+}

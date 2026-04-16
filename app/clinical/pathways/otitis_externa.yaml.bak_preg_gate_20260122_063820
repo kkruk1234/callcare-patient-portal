@@ -1,0 +1,25 @@
+id: otitis_externa
+version: 0.1
+match:
+  any_keywords: ["swimmer's ear", "ear pain after swimming", "ear canal pain", "ear hurts when i pull it", "itchy ear canal", "ear canal swollen"]
+questions:
+  - id: severe_pain
+    prompt: "Is the pain severe, or is hearing much worse? (yes/no)"
+    store_as: severe_pain_or_hearing
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: diabetes_immuno
+    prompt: "Do you have diabetes or a weakened immune system? (yes/no/unknown)"
+    store_as: diabetes_immuno
+
+stop_rules:
+  - if_all_answered: ["severe_pain", "fever", "diabetes_immuno"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

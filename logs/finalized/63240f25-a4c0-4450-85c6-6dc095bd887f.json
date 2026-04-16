@@ -1,0 +1,43 @@
+{
+  "packet_id": "63240f25-a4c0-4450-85c6-6dc095bd887f",
+  "created_at": "2026-03-20T17:10:04.662122+00:00",
+  "session_id": "cb6884e9-6d5c-42be-b8ef-1bd811476441",
+  "pathway_id": "",
+  "base_queries": [
+    "depression management guidelines adults",
+    "adult depression treatment dosing duration contraindications",
+    "depression red flags suicidal ideation testing"
+  ],
+  "queries": [
+    "AAFP depression management guidelines adults",
+    "AAFP adult depression treatment dosing duration contraindications",
+    "MedlinePlus depression management guidelines adults",
+    "MedlinePlus adult depression treatment dosing duration contraindications",
+    "CDC depression management guidelines adults",
+    "CDC adult depression treatment dosing duration contraindications",
+    "NIH depression management guidelines adults",
+    "NIH adult depression treatment dosing duration contraindications",
+    "NICE depression management guidelines adults",
+    "NICE adult depression treatment dosing duration contraindications",
+    "WHO depression management guidelines adults",
+    "WHO adult depression treatment dosing duration contraindications"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0300/practice-guidelines-depression.pdf",
+      "accessed": "2026-03-20",
+      "snippet": ""
+    },
+    {
+      "title": "Depression: Screening and Diagnosis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/1015/p508.html",
+      "accessed": "2026-03-20",
+      "snippet": "Depression affects an estimated 8% of persons in the United States and accounts for more than $210 billion in health care costs annually. The U.S. Preventive Services Task Force (USPSTF) and American Academy of Family Physicians recommend screening for depression in the general adult population. Additionally, the USPSTF recommends screening children and adolescents 12 to 18 years of age for major depressive disorder. All screening should be implemented with adequate systems in place to ensure accurate diagnosis, effective treatment, and appropriate follow-up. The two-item and nine-item Patient Health Questionnaires (PHQs) are commonly used validated screening tools. The PHQ-2 has sensitivity comparable with the PHQ-9 in most populations; however, the specificity of the PHQ-9 ranges from 91% to 94%, compared with 78% to 92% for the PHQ-2. If the PHQ-2 is positive for depression, the PHQ-9"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male who reports feeling depressed for approximately 3 weeks to 3 months. He describes persistent low mood throughout the day without variation, significant loss of appetite, poor sleep, decreased energy, and loss of interest in activities he previously enjoyed. He denies any suicidal ideation. He recently started a new job but does not attribute his symptoms to major life stressors. There is a family history of mental health issues including anxiety and depression. He has no prior diagnosis or treatment for depression.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is major depressive disorder based on the duration and constellation of symptoms including depressed mood, anhedonia, sleep disturbance, appetite loss, and low energy without suicidal ideation.\nDifferential:\n1. Major depressive disorder\n2. Adjustment disorder with depressed mood\n3. Bipolar disorder, depressive episode\n4. Medical causes of depression (e.g., hypothyroidism) - not assessed in this encounter\n\nP: - First-line medication: Sertraline 50 mg orally once daily (Physician must verify medication/dosing)\n- Alternatives: Bupropion 150 mg orally once daily (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no renal or liver disease, no pregnancy risk; monitor for side effects and worsening mood\n- Follow-up recommendations: Seek in-person medical care urgently if suicidal thoughts develop or symptoms worsen significantly; routine follow-up in 2-4 weeks to assess response and tolerability\n- Testing: Consider baseline labs including thyroid function tests and CBC to rule out medical causes of depression"
+}

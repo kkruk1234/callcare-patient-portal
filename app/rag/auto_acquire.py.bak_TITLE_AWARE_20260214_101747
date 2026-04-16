@@ -1,0 +1,281 @@
+import hashlib
+import json
+import os
+import subprocess
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Iterable, List, Optional
+from urllib.parse import urlparse
+
+from openai import OpenAI
+
+
+# Project root (.../callcare)
+BASE_DIR = Path(__file__).resolve().parents[2]
+PACK_DIR = BASE_DIR / "data" / "packs"
+LOG_DIR = BASE_DIR / "logs"
+PACK_DIR.mkdir(parents=True, exist_ok=True)
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+MAX_URLS = int(os.environ.get("CALLCARE_ACQUIRE_MAX_URLS", "4"))
+SLEEP_SECS = float(os.environ.get("CALLCARE_ACQUIRE_SLEEP_SECS", "0.2"))
+
+DEFAULT_ALLOWED_DOMAINS = [
+    "dailymed.nlm.nih.gov",
+    "aafp.org",
+    "nice.org.uk",
+    "nhs.uk",
+    "fda.gov",
+    "cdc.gov",
+    "nih.gov",
+    "medlineplus.gov",
+    "mayoclinic.org",
+]
+
+
+@dataclass
+class AcquireResult:
+    urls: List[str]
+    pack_path: Optional[str]
+    ingested: bool
+    reason: str
+
+
+def _normalize_domain(netloc: str) -> str:
+    netloc = (netloc or "").strip().lower()
+    if netloc.startswith("www."):
+        netloc = netloc[4:]
+    return netloc
+
+
+def _is_allowed(url: str, allowed_domains: Iterable[str]) -> bool:
+    try:
+        d = _normalize_domain(urlparse(url).netloc)
+        if not d:
+            return False
+        for ad in allowed_domains:
+            ad = _normalize_domain(ad)
+            if d == ad or d.endswith("." + ad):
+                return True
+        return False
+    except Exception:
+        return False
+
+
+def _dedupe_keep_order(urls: List[str]) -> List[str]:
+    seen = set()
+    out: List[str] = []
+    for u in urls:
+        u2 = (u or "").strip()
+        if not u2 or u2 in seen:
+            continue
+        seen.add(u2)
+        out.append(u2)
+    return out
+
+
+def _make_pack_id(query: str) -> str:
+    h = hashlib.sha256((query or "").encode("utf-8")).hexdigest()[:12]
+    return f"auto_{h}"
+
+
+def _write_pack(pack_id: str, description: str, urls: List[str]) -> Path:
+    pack = {"pack_id": pack_id, "description": description, "sources": [{"url": u} for u in urls]}
+    path = PACK_DIR / f"{pack_id}.json"
+    path.write_text(json.dumps(pack, indent=2), encoding="utf-8")
+    return path
+
+
+def _attempts_path() -> Path:
+    return LOG_DIR / "auto_acquire_attempts.json"
+
+
+def _already_attempted(pack_id: str) -> bool:
+    fp = _attempts_path()
+    if not fp.exists():
+        return False
+    try:
+        data = json.loads(fp.read_text(encoding="utf-8")) or {}
+        return bool(data.get(pack_id))
+    except Exception:
+        return False
+
+
+def _mark_attempted(pack_id: str, info: dict) -> None:
+    fp = _attempts_path()
+    data = {}
+    if fp.exists():
+        try:
+            data = json.loads(fp.read_text(encoding="utf-8")) or {}
+        except Exception:
+            data = {}
+    data[pack_id] = info
+    fp.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+def _run(cmd: List[str]) -> (bool, str):
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        out = ((r.stdout or "") + "\n" + (r.stderr or "")).strip()
+        return (r.returncode == 0), out
+    except Exception as e:
+        return False, f"subprocess error: {e}"
+
+
+def _openai_web_search_urls(query: str, *, max_urls: int, allowed_domains: List[str]) -> List[str]:
+    """
+    Uses OpenAI Responses API web_search_preview tool.
+
+    Robust URL extraction:
+      - regex scrape from output_text
+      - recursive scan of resp.model_dump() for any fields named 'url'
+    """
+    client = OpenAI()
+
+    prompt = f"""
+Return ONLY a plain list of URLs (one per line) from authoritative clinical sources that are likely to contain
+outpatient medication dosing (adult dosing, max daily dose, renal/hepatic considerations) relevant to:
+
+{query}
+
+Prefer these domains:
+- dailymed.nlm.nih.gov
+- aafp.org
+- nice.org.uk
+- nhs.uk
+- fda.gov
+- cdc.gov
+- nih.gov / medlineplus.gov
+
+Do not include any commentary. Only URLs.
+""".strip()
+
+    resp = client.responses.create(
+        model=os.environ.get("CALLCARE_ACQUIRE_MODEL", "gpt-4.1-mini"),
+        input=prompt,
+        tools=[{"type": "web_search_preview"}],
+        temperature=0.0,
+        max_output_tokens=300,
+    )
+
+    raw_urls: List[str] = []
+
+    # 1) regex from output_text
+    try:
+        out_text = (getattr(resp, "output_text", None) or "") or ""
+        if out_text.strip():
+            import re as _re
+            raw_urls.extend(_re.findall(r"https?://[^\s\)\]\}<>\"']+", out_text))
+    except Exception:
+        pass
+
+    # 2) recursive scan of model_dump for any 'url' fields
+    def _walk(x):
+        if isinstance(x, dict):
+            for k, v in x.items():
+                if k == "url" and isinstance(v, str) and v.startswith("http"):
+                    raw_urls.append(v)
+                _walk(v)
+        elif isinstance(x, list):
+            for it in x:
+                _walk(it)
+
+    try:
+        md = resp.model_dump() if hasattr(resp, "model_dump") else None
+        if isinstance(md, dict):
+            _walk(md)
+    except Exception:
+        pass
+
+    raw_urls = _dedupe_keep_order([u.strip() for u in raw_urls if isinstance(u, str)])
+
+    allowed = [u for u in raw_urls if _is_allowed(u, allowed_domains)]
+    allowed = _dedupe_keep_order(allowed)[: int(max_urls)]
+
+    if os.environ.get("CALLCARE_ACQUIRE_DEBUG", "").strip() in ("1", "true", "TRUE", "yes", "YES"):
+        print("\n=== CALLCARE_ACQUIRE_DEBUG ===")
+        print("query:", repr(query))
+        print("raw_urls_found:", len(raw_urls))
+        print("allowed_urls_found:", len(allowed))
+        print("raw_sample:", raw_urls[:8])
+        print("allowed_sample:", allowed[:8])
+        print("=== END DEBUG ===\n")
+
+    return allowed
+
+
+def acquire_ingest_reindex(
+    *,
+    query: str,
+    allowed_domains: Optional[List[str]] = None,
+    max_urls: int = MAX_URLS,
+    force: bool = False,
+) -> AcquireResult:
+    q = (query or "").strip()
+    if not q:
+        return AcquireResult(urls=[], pack_path=None, ingested=False, reason="empty query")
+
+    allowed = allowed_domains or list(DEFAULT_ALLOWED_DOMAINS)
+    pack_id = _make_pack_id(q)
+
+    if (not force) and _already_attempted(pack_id):
+        return AcquireResult(urls=[], pack_path=None, ingested=False, reason=f"already attempted: {pack_id}")
+
+    try:
+        urls = _openai_web_search_urls(q, max_urls=max_urls, allowed_domains=allowed)
+    except Exception as e:
+        _mark_attempted(pack_id, {"query": q, "ok": False, "reason": f"openai web search failed: {e}", "ts": time.time()})
+        return AcquireResult(urls=[], pack_path=None, ingested=False, reason=f"openai web search failed: {e}")
+
+    if not urls:
+        _mark_attempted(pack_id, {"query": q, "ok": False, "reason": "no allowed urls found (openai web search)", "ts": time.time()})
+        return AcquireResult(urls=[], pack_path=None, ingested=False, reason="no allowed urls found")
+
+    time.sleep(SLEEP_SECS)
+
+    pack_path = _write_pack(pack_id, f"Auto-acquired (OpenAI web search) evidence for: {q}", urls)
+
+    ok1, out1 = _run(["python3", "-m", "app.rag.ingest_urls", "--pack", str(pack_path)])
+
+    # ingest_urls can partially fail (e.g., one site blocks). That's still useful.
+    # Proceed if it added at least 2 sources.
+    added = 0
+    skipped = 0
+    failed = 0
+    try:
+        for line in (out1 or "").splitlines():
+            if line.strip().startswith("DONE.") and "added=" in line and "failed=" in line:
+                # Example: DONE. added=3 skipped=0 failed=1
+                parts = line.replace("DONE.", "").strip().split()
+                for part in parts:
+                    if part.startswith("added="):
+                        added = int(part.split("=",1)[1])
+                    if part.startswith("skipped="):
+                        skipped = int(part.split("=",1)[1])
+                    if part.startswith("failed="):
+                        failed = int(part.split("=",1)[1])
+    except Exception:
+        added = 0
+        skipped = 0
+        failed = 0
+
+    if (not ok1) and (added + skipped) < 2:
+        _mark_attempted(pack_id, {"query": q, "ok": False, "reason": "ingest failed (insufficient adds)", "ts": time.time(), "pack": str(pack_path), "urls": urls, "out": out1[-2000:]})
+        return AcquireResult(urls=urls, pack_path=str(pack_path), ingested=False, reason=f"ingest failed: {out1[-300:]}")
+
+
+    ok2, out2 = _run(["python3", "-m", "app.rag.build_index"])
+    if not ok2:
+        _mark_attempted(pack_id, {"query": q, "ok": False, "reason": "index failed", "ts": time.time(), "pack": str(pack_path), "urls": urls, "out": out2[-2000:]})
+        return AcquireResult(urls=urls, pack_path=str(pack_path), ingested=True, reason=f"index failed: {out2[-300:]}")
+
+    # Reset retrieve cache (if helper exists)
+    try:
+        from app.rag.retrieve import reset_index_cache  # type: ignore
+        reset_index_cache()
+    except Exception:
+        pass
+
+    _mark_attempted(pack_id, {"query": q, "ok": True, "reason": "ok", "ts": time.time(), "pack": str(pack_path), "urls": urls})
+    return AcquireResult(urls=urls, pack_path=str(pack_path), ingested=True, reason="ok")

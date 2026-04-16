@@ -1,0 +1,67 @@
+{
+  "packet_id": "64cdd57e-7225-41aa-b22f-629aabc6411d",
+  "created_at": "2026-02-21T18:20:07.793536+00:00",
+  "session_id": "9da7d6f1-a804-4850-b323-627f4b170d8b",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain radiating to your abdomen, chest, or down your leg?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney stones, urinary symptoms, or abdominal issues?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of cancer, recent unexplained weight loss, or immunosuppression?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a8": "I tried tylenol but it didn't really help much",
+    "intake_q9": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a9": "no",
+    "intake_q10": "Any tenderness or pain when pressing on the area of your back pain?",
+    "intake_a10": "tenderness",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She denies any recent injury, trauma, or heavy lifting prior to the onset of pain. There are no associated symptoms such as fever, chills, night sweats, pain radiating to the abdomen, chest, or legs, urinary symptoms, or history of cancer or weight loss. She reports tenderness on palpation of the affected area. She has tried acetaminophen (Tylenol) without significant relief. There are no respiratory symptoms such as cough or chest pain. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage area, likely due to soft tissue strain or inflammation given the tenderness and absence of systemic symptoms. \n\nDifferential: \n1. Musculoskeletal strain or soft tissue injury \n2. Costochondritis or rib inflammation \n3. Intercostal muscle strain \n4. Early presentation of a visceral cause such as pleuritis or referred pain from abdominal pathology (less likely given lack of systemic symptoms)\n\nP: \n- Medication safety considerations: Avoid NSAIDs if there is a history of renal disease, liver disease, or gastrointestinal bleeding; use acetaminophen cautiously to avoid hepatotoxicity.\n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation relief. (avoid in renal disease; especially severe CKD/dialysis)\n- Return precautions: Return promptly if the patient develops fever, worsening pain, new neurological symptoms, chest pain, shortness of breath, or any signs of systemic illness. \n- Testing: Not indicated at this time unless symptoms worsen or new concerning features develop.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

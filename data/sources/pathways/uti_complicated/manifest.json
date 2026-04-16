@@ -1,0 +1,33 @@
+{
+  "pathway_id": "uti_complicated",
+  "sources": [
+    {
+      "id": "uti_complicated_src_1",
+      "source_id": "uti_complicated_src_1",
+      "title": "uti_complicated references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "uti_complicated_src_2",
+      "source_id": "uti_complicated_src_2",
+      "title": "uti_complicated references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "uti_complicated_src_3",
+      "source_id": "uti_complicated_src_3",
+      "title": "uti_complicated references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "uti_complicated_src_4",
+      "source_id": "uti_complicated_src_4",
+      "title": "uti_complicated references (starter)",
+      "url": "https://www.idsociety.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

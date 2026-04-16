@@ -1,0 +1,26 @@
+id: acute_back_pain_redflags
+version: 0.1
+match:
+  any_keywords: ["back pain and can't pee", "back pain numb groin", "back pain with leg weakness", "saddle anesthesia", "bowel bladder problems"]
+questions:
+  - id: bladder
+    prompt: "Are you unable to pee, or having new loss of bladder control? (yes/no)"
+    store_as: bladder_issue
+    type: yesno
+
+  - id: saddle
+    prompt: "Any numbness in the groin/saddle area? (yes/no)"
+    store_as: saddle_numb
+    type: yesno
+
+  - id: weakness
+    prompt: "Any new weakness in the legs or trouble walking? (yes/no)"
+    store_as: leg_weakness
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["bladder", "saddle", "weakness"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

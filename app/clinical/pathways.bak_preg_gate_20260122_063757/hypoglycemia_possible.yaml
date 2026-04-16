@@ -1,0 +1,22 @@
+id: hypoglycemia_possible
+version: 0.1
+match:
+  any_keywords: ["low blood sugar", "shaky sweaty", "confused and sweaty", "diabetic and shaky", "hypoglycemia"]
+questions:
+  - id: severe
+    prompt: "Are you confused, fainting, having a seizure, or unable to safely swallow? (yes/no)"
+    store_as: severe
+    type: yesno
+  - id: diabetes_meds
+    prompt: "Do you take insulin or diabetes pills that can lower sugar? (yes/no)"
+    store_as: diabetes_meds
+    type: yesno
+  - id: improved
+    prompt: "Did symptoms improve after eating or drinking something sugary? (yes/no)"
+    store_as: improved_with_sugar
+    type: yesno
+stop_rules:
+  - if_all_answered: ["severe", "diabetes_meds", "improved"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

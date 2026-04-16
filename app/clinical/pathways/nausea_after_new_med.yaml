@@ -1,0 +1,22 @@
+id: nausea_after_new_med
+version: 0.1
+match:
+  any_keywords: ["started a new medication", "new pill", "new medicine", "after starting medicine", "medication side effect", "medicine makes me nauseated"]
+questions:
+  - id: severe
+    prompt: "Any trouble breathing, lip/tongue swelling, or widespread hives? (yes/no)"
+    store_as: anaphylaxis_signs
+    type: yesno
+  - id: vomiting
+    prompt: "Are you vomiting repeatedly or unable to keep fluids down? (yes/no)"
+    store_as: cannot_keep_fluids
+    type: yesno
+  - id: rash
+    prompt: "Any new rash with blistering, peeling skin, or mouth sores? (yes/no)"
+    store_as: severe_rash
+    type: yesno
+stop_rules:
+  - if_all_answered: ["severe", "vomiting", "rash"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

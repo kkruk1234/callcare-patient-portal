@@ -1,0 +1,119 @@
+{
+  "call_sid": "CA5f04e3010c97b55b8c66967bf840d6b9",
+  "session_id": "a1acb1a5-7361-41ec-863e-7533728edd93",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-12T18:23:48.227811+00:00",
+  "ended_at": "2026-03-12T18:27:41.253118+00:00",
+  "packet_id": "2a1673a7-aaed-44a7-8896-d016e2b71981",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have lower abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your lower abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "3 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain you are feeling in your lower abdomen?"
+    },
+    {
+      "role": "user",
+      "text": "It's shrug and stabbing."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or nausea with your lower abdominal pain?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have noticed any vaginal bleeding, discharge, or urinary symptoms like burning or increased frequency?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you are currently sexually active and if there is any chance you could be pregnant?"
+    },
+    {
+      "role": "user",
+      "text": "I am, but there is no chance that I'm pregnant."
+    },
+    {
+      "role": "assistant",
+      "text": "The following questions may be repetitive but are important for medication and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Edison."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Email."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing lower abdominal pain with fever and chills, which could be due to an infection or inflammation such as pelvic inflammatory disease or another cause. Because I can’t examine you or run tests over the phone, a licensed physician will review your information and may decide that medication treatment is appropriate. In the meantime, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you can safely do so for pain and fever. If your pain worsens, your fever stays high or gets worse, or if you develop new symptoms like vaginal bleeding, vomiting, or signs of severe illness, please seek in-person care urgently at an urgent care center or emergency room. A physician will also likely recommend further testing like an ultrasound or lab work to better understand your condition."
+    }
+  ]
+}

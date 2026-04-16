@@ -1,0 +1,136 @@
+{
+  "packet_id": "7728888e-62d5-4d53-8506-75f632389a6f",
+  "created_at": "2026-02-14T16:10:45.034839+00:00",
+  "session_id": "f78932cf-436a-4053-b4f2-f465c6d282dc",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the elbow pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly on your elbow the pain is located?",
+    "intake_a2": "outside",
+    "intake_q3": "Any recent injury or trauma to the elbow?",
+    "intake_a3": "no, but the pain started when I was playing tennis",
+    "intake_q4": "Any swelling, redness, or warmth around the elbow?",
+    "intake_a4": "no",
+    "intake_q5": "Any numbness, tingling, or weakness in your arm or hand?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for the elbow pain, and did they help?",
+    "intake_a6": "icing the first day and it helped a little with the pain",
+    "intake_q7": "Any pain when you move your wrist or grip objects?",
+    "intake_a7": "no",
+    "intake_q8": "Any pain when you extend or straighten your elbow or when you lift your arm?",
+    "intake_a8": "no",
+    "intake_q9": "Any pain when you bend your elbow or twist your forearm?",
+    "intake_a9": "no",
+    "intake_q10": "Any difficulty or pain when you try to lift or carry objects with your arm?",
+    "intake_a10": "pain with lifting objects",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://www.nhs.uk/conditions/orf/",
+        "https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/",
+        "https://www.nhs.uk/conditions/tennis-elbow/",
+        "https://www.nhs.uk/conditions/reactive-arthritis/",
+        "https://medlineplus.gov/druginfo/meds/a611052.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a 3-week history of pain located on the outside of her elbow. The pain began while playing tennis, without any recent injury or trauma. She reports no swelling, redness, or warmth around the elbow, and no numbness, tingling, or weakness in the arm or hand. She experiences pain when lifting objects but denies pain with wrist movement, elbow extension, bending, or twisting of the forearm. Initial treatment with icing provided some mild relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe presentation is consistent with lateral epicondylitis (tennis elbow), characterized by lateral elbow pain associated with repetitive wrist extension activities such as tennis. The absence of swelling, neurological symptoms, or trauma supports this diagnosis.\n\nDifferential: \n1. Lateral epicondylitis (tennis elbow) \n2. Radial tunnel syndrome \n3. Osteoarthritis of the elbow \n4. Referred pain from cervical radiculopathy \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain relief. \n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; ensure patient has no contraindications. \n- Return precautions: Advise patient to seek care if pain worsens, if there is new onset of numbness, tingling, weakness, swelling, redness, or if symptoms do not improve with conservative management over the next 2-4 weeks. \n- Testing: Not indicated at this time; consider imaging or specialist referral if symptoms persist or worsen despite treatment.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "rvices without needing a referral from a GP. Get NHS help for back or joint problems Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treat…"
+      },
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+      },
+      {
+        "title": "Orf - NHS",
+        "source": "https://www.nhs.uk/conditions/orf/",
+        "snippet": "um%3d1%26flip%3d0%26pl%3d Credit: BIOPHOTO ASSOCIATES / SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/479030/view Other symptoms Other symptoms of orf include: a high temperature general tiredness (fatigue) swollen glands on the inside of your elbow or under your arm Non-urgent advice: See a GP if: you have a mark or blister on your finger, hand,…"
+      },
+      {
+        "title": "Repetitive strain injury (RSI) - NHS",
+        "source": "https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/",
+        "snippet": "﻿ Repetitive strain injury (RSI) - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Repetitive strain injury (RSI) Repetitive strain injury (RSI) is a term sometimes used for pain caused by repeat…"
+      },
+      {
+        "title": "Reactive arthritis - NHS",
+        "source": "https://www.nhs.uk/conditions/reactive-arthritis/",
+        "snippet": "﻿ Reactive arthritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Reactive arthritis Reactive arthritis is where your joints become sore and swollen after you&#x27;ve had an infection. It us…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+    },
+    {
+      "title": "Orf - NHS",
+      "source": "https://www.nhs.uk/conditions/orf/",
+      "snippet": "um%3d1%26flip%3d0%26pl%3d Credit: BIOPHOTO ASSOCIATES / SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/479030/view Other symptoms Other symptoms of orf include: a high temperature general tiredness (fatigue) swollen glands on the inside of your elbow or under your arm Non-urgent advice: See a GP if: you have a mark or blister on your finger, hand,…"
+    },
+    {
+      "title": "Repetitive strain injury (RSI) - NHS",
+      "source": "https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/",
+      "snippet": "﻿ Repetitive strain injury (RSI) - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Repetitive strain injury (RSI) Repetitive strain injury (RSI) is a term sometimes used for pain caused by repeat…"
+    },
+    {
+      "title": "Tennis elbow - NHS",
+      "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+      "snippet": "﻿ Tennis elbow - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Tennis elbow Tennis elbow is a condition that causes pain around the outside of the elbow. It usually goes away with rest but can…"
+    },
+    {
+      "title": "Reactive arthritis - NHS",
+      "source": "https://www.nhs.uk/conditions/reactive-arthritis/",
+      "snippet": "﻿ Reactive arthritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Reactive arthritis Reactive arthritis is where your joints become sore and swollen after you&#x27;ve had an infection. It us…"
+    },
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    }
+  ],
+  "state": null
+}

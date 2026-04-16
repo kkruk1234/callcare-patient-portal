@@ -1,0 +1,43 @@
+{
+  "packet_id": "6319f706-1544-4c5d-a7d7-c4145e0783fd",
+  "created_at": "2026-04-03T12:58:39.751686+00:00",
+  "session_id": "61061f05-5e6c-4a1a-8591-d7429ff1f9a1",
+  "pathway_id": "",
+  "base_queries": [
+    "leg cramps management guidelines adults",
+    "leg cramp treatment dosing adult mg duration",
+    "leg cramps red flags and when to seek care"
+  ],
+  "queries": [
+    "AAFP leg cramps management guidelines adults",
+    "AAFP leg cramp treatment dosing adult mg duration",
+    "MedlinePlus leg cramps management guidelines adults",
+    "MedlinePlus leg cramp treatment dosing adult mg duration",
+    "CDC leg cramps management guidelines adults",
+    "CDC leg cramp treatment dosing adult mg duration",
+    "NIH leg cramps management guidelines adults",
+    "NIH leg cramp treatment dosing adult mg duration",
+    "NICE leg cramps management guidelines adults",
+    "NICE leg cramp treatment dosing adult mg duration",
+    "WHO leg cramps management guidelines adults",
+    "WHO leg cramp treatment dosing adult mg duration"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Nocturnal Leg Cramps | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2012/0815/p350-s1.html",
+      "accessed": "2026-04-03",
+      "snippet": "Please note:  This information was current at the time of publication but now may be out of date. This handout provides a general overview and may not apply to everyone."
+    },
+    {
+      "title": "Treatments for Nocturnal Leg Cramps | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2017/1001/od3.html",
+      "accessed": "2026-04-03",
+      "snippet": "Three systematic reviews found that oral quinine (most common dosage: 300 mg at bedtime) significantly reduced the frequency, intensity, and number of cramps, and number of days with cramps. 1 , 2 , 4 The most common minor adverse effects included tinnitus, headache, and gastrointestinal effects. Major adverse effects included thrombocytopenia, acute hypersensitivity reactions, and QT prolongation, which may lead to hemodialysis or death. 4 Because of this, the U.S. Food and Drug Administration has not approved quinine for treatment or prevention of leg cramps. 5 If treatment with quinine is considered, physicians should inform patients of the potential adverse effects, discuss the warning signs of thrombocytopenia, and encourage patients to read the package insert."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with new onset leg cramps localized to the calf muscles, starting about 2 days ago. The cramps occur mainly in the morning when toes are pointed downward or during stretching, and are relieved by flexing the toes upward. She reports a longstanding history of swelling, redness, and warmth in the left calf, previously evaluated for DVT with no new changes. There is no recent trauma, prolonged immobility, or travel. She denies numbness but describes a jerking sensation that improves with movement. She has no history of peripheral artery disease, diabetes, or nerve problems. She notes inadequate hydration, drinking about 33 ounces of water daily, along with coffee and one soda. She denies fever, chills, or systemic illness and has not tried any treatments for the cramps.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is idiopathic nocturnal leg cramps likely related to mild dehydration and muscle fatigue.\nDifferential:\n1. Electrolyte imbalance causing muscle cramps\n2. Peripheral vascular disease or chronic venous insufficiency exacerbation\n3. Early neuropathy or nerve irritation\n4. Medication side effect or metabolic cause\n\nP: - First-line medication: Magnesium oxide 400 mg orally once daily for 4 weeks (Physician must verify medication/dosing)\n- Alternatives: Calcium channel blocker such as verapamil 80 mg orally once daily for 4 weeks (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, no renal or liver disease; monitor for side effects of magnesium or verapamil\n- Follow-up recommendations: Seek in-person medical care urgently if leg swelling, redness, or pain worsens or if new symptoms such as numbness, weakness, or systemic illness develop; seek emergency care if sudden severe leg pain or signs of DVT occur\n- Testing: Consider serum electrolytes and renal function tests if symptoms persist or worsen; vascular studies if vascular symptoms develop"
+}

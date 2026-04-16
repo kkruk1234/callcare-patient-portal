@@ -1,0 +1,33 @@
+{
+  "pathway_id": "gout_flare",
+  "sources": [
+    {
+      "id": "gout_flare_src_1",
+      "source_id": "gout_flare_src_1",
+      "title": "gout_flare references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "gout_flare_src_2",
+      "source_id": "gout_flare_src_2",
+      "title": "gout_flare references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "gout_flare_src_3",
+      "source_id": "gout_flare_src_3",
+      "title": "gout_flare references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "gout_flare_src_4",
+      "source_id": "gout_flare_src_4",
+      "title": "gout_flare references (starter)",
+      "url": "https://www.acep.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

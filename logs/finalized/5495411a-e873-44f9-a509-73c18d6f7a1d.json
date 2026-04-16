@@ -1,0 +1,58 @@
+{
+  "packet_id": "5495411a-e873-44f9-a509-73c18d6f7a1d",
+  "created_at": "2026-03-15T20:58:34.448301+00:00",
+  "session_id": "db34e281-04b7-40a2-a432-b76056d5767e",
+  "pathway_id": "",
+  "base_queries": [
+    "ankle sprain diagnosis and management guidelines",
+    "adult ankle sprain treatment dosing and duration mg",
+    "ankle injury red flags and return precautions",
+    "imaging indications for ankle trauma"
+  ],
+  "queries": [
+    "AAFP ankle sprain diagnosis and management guidelines",
+    "AAFP adult ankle sprain treatment dosing and duration mg",
+    "MedlinePlus ankle sprain diagnosis and management guidelines",
+    "MedlinePlus adult ankle sprain treatment dosing and duration mg",
+    "CDC ankle sprain diagnosis and management guidelines",
+    "CDC adult ankle sprain treatment dosing and duration mg",
+    "NIH ankle sprain diagnosis and management guidelines",
+    "NIH adult ankle sprain treatment dosing and duration mg",
+    "NICE ankle sprain diagnosis and management guidelines",
+    "NICE adult ankle sprain treatment dosing and duration mg",
+    "WHO ankle sprain diagnosis and management guidelines",
+    "WHO adult ankle sprain treatment dosing and duration mg"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Ankle Sprains | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2001/0101/p93.html/1000",
+      "accessed": "2026-03-15",
+      "snippet": "Crushed ice in a plastic bag may be applied to the medial and lateral ankle over a thin layer of cloth. Alternatively, the foot and ankle may be cooled by immersion in water at a temperature of approximately 12.7°C (55°F). The foot and ankle should be cooled for approximately 20 minutes every two to three hours for the first 48 hours, or until edema and inflammation have stabilized. Benefits of cryotherapy include a decrease in metabolism that limits secondary hypoxic injury. 17"
+    },
+    {
+      "title": "Sprains: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000041.htm",
+      "accessed": "2026-03-15",
+      "snippet": "Apply ice right away to reduce swelling. Wrap the ice in cloth. Do not place ice directly on the skin. Wrap a bandage around the affected area to limit movement. Wrap firmly, but not tightly. Use a splint if needed. Keep the swollen joint raised above your heart, even while sleeping. Rest the affected joint for several days. Avoid putting stress on the joint because it can make the injury worse. A sling for the arm, or crutches or a brace for the leg can protect the injury. Aspirin, ibuprofen, or other pain relievers can help. Do not give aspirin to children."
+    },
+    {
+      "title": "Pharmacologic Therapy for Acute Pain | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/0700/p63.html",
+      "accessed": "2026-03-15",
+      "snippet": "5 mg orally every 4 to 6 hours as needed Persistent severe pain Short course for severe acute pain Pain refractory to other medications Nausea, emesis Constipation Sedation Respiratory depression Opioid use disorder Limit prescription to 3-day course Continue other medication classes as tolerated Higher doses may be required for patients taking chronic opioid therapy or naltrexone (Revia) $10 ($60) Morphine:"
+    },
+    {
+      "title": "Ankle sprain - aftercare: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000574.htm",
+      "accessed": "2026-03-15",
+      "snippet": "Resting and not putting weight on your foot Elevating your foot on a pillow at or above the level of your heart Apply ice every hour while you are awake, 20 minutes at a time and covered by a towel or bag, for the first 24 hours after the injury. After the first 24 hours, apply ice 20 minutes 3 to 4 times per day. Do not apply ice directly to your skin. You should wait at least 30 minutes in between ice applications."
+    }
+  ],
+  "note_text": "S: The patient reports twisting their ankle about 6 hours ago after tripping on a dog’s chew toy and rolling the ankle upward. The pain is localized on the outside underneath the bone, near the heel, and is significant enough to cause difficulty walking without limping. There is no swelling or bruising noted around the ankle, and the patient denies any numbness, tingling, or weakness in the foot or toes. The patient did not hear or feel a pop at the time of injury.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is a lateral ankle sprain likely involving the ligaments on the outside of the ankle. \nDifferential:\n1. Lateral ankle sprain\n2. Ankle fracture (less likely without swelling, bruising, or severe pain)\n3. Peroneal tendon injury\n4. High ankle sprain (syndesmotic injury)\n\nP: \n- First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain and inflammation for up to 7 days (Physician must verify medication/dosing)\n- Alternatives: Acetaminophen 500 mg orally every 6 hours as needed for pain for up to 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid NSAIDs if there is a history of allergy or contraindications; patient allergic to penicillin with no other allergies reported; no renal or liver disease noted\n- Follow-up recommendations: Seek in-person medical care urgently if there is increasing pain, swelling, inability to bear weight, or any signs of numbness or color changes in the foot\n- Testing: Recommend ankle X-rays if unable to bear weight or if pain is localized over bony prominences to rule out fracture"
+}

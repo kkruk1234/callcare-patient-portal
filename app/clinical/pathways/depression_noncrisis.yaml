@@ -1,0 +1,22 @@
+id: depression_noncrisis
+version: 0.1
+match:
+  any_keywords: ["depressed", "depression", "hopeless", "low mood", "can't enjoy anything", "sad all the time"]
+questions:
+  - id: self_harm
+    prompt: "Are you having thoughts of harming yourself right now? (yes/no)"
+    store_as: self_harm_now
+    type: yesno
+  - id: psychosis
+    prompt: "Are you hearing/seeing things others don't, or feeling out of touch with reality? (yes/no)"
+    store_as: psychosis
+    type: yesno
+  - id: function
+    prompt: "Are you able to eat, drink, and do basic daily tasks today? (yes/no)"
+    store_as: basic_function
+    type: yesno
+stop_rules:
+  - if_all_answered: ["self_harm", "psychosis", "function"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

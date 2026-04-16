@@ -1,0 +1,88 @@
+{
+  "packet_id": "b7f2fe82-01a0-4c0a-93c0-fb05bd40d6cc",
+  "created_at": "2026-02-06T13:51:01.118642+00:00",
+  "session_id": "c58ff949-a57f-490e-8c5c-8f1cf0bfc792",
+  "chief_complaint": "chest",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest symptom you are experiencing, such as pain, pressure, tightness, or something else?",
+    "intake_a1": "chest pain",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Can you describe the quality and location of the chest pain, and whether it radiates anywhere?",
+    "intake_a3": "sharp and it doesn't radiate",
+    "intake_q4": "Can you tell me if the chest pain changes with breathing, coughing, or movement?",
+    "intake_a4": "it gets slightly worse",
+    "intake_q5": "Any fever, chills, or recent respiratory symptoms like cough or shortness of breath?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of heart problems, blood clots, recent travel, or trauma?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any swelling, redness, or pain in your legs recently?",
+    "intake_a7": "no",
+    "intake_q8": "Have you experienced any recent episodes of dizziness, fainting, or palpitations?",
+    "intake_a8": "no",
+    "intake_q9": "Have you tried any treatments or medications for the chest pain, and did they help?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent upper respiratory infections, or have you had any recent vaccinations or illnesses?",
+    "intake_a10": "no - this all started after lifting heavy boxes helping my friend move",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 45-year-old female presenting with a one-week history of sharp chest pain that does not radiate. The pain worsens slightly with breathing, coughing, or movement. There are no associated symptoms such as fever, chills, cough, shortness of breath, dizziness, fainting, or palpitations. The pain began after lifting heavy boxes while helping a friend move. She has no history of heart problems, blood clots, recent travel, trauma, or leg swelling/redness. She has not tried any treatments or medications for the chest pain.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal chest pain likely related to strain from lifting heavy objects. \n\nDifferential: \n1. Musculoskeletal chest pain (e.g., muscle strain or costochondritis) \n2. Pleuritic chest pain (less likely without respiratory symptoms) \n3. Cardiac causes (less likely given no radiation, risk factors, or associated symptoms) \n4. Gastroesophageal causes (not suggested by history)\n\nP: \n - First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 5 to 7 days; avoid if history of allergy or gastrointestinal bleeding. Dosing details were not found in retrieved evidence; prescriber should verify. \n - Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, for 5 to 7 days; avoid if liver disease or allergy. \n - Naproxen 250 mg orally twice daily as needed for pain, for 5 to 7 days; avoid if allergy or gastrointestinal bleeding. \n - Medication safety considerations: No known medication allergies. No renal or liver disease reported. Use NSAIDs cautiously if gastrointestinal risk factors develop. \n - Return precautions: Return promptly if chest pain worsens, becomes constant, radiates, or is associated with shortness of breath, dizziness, palpitations, swelling/redness of legs, or other new symptoms. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+        "source": "library/medlineplus_gov/medlineplus_gov_chestinjuriesanddisorders_html_e079a2f75113/chunk_002.json",
+        "snippet": "ummary \nWhat is the chest? \nThe chest is the part of your body between your neck and your abdomen (belly). The medical term for your chest is thorax.\nYour chest holds many important structures for breathing, digestion, blood circulation, and other important body functions. These structures include your:\nRibs and breastbone \nEsophagus, the tube between your mouth and stomach \nTrachea, your windpipe \nBronchi, the tubes that carry air from your windpipe to your lungs \nLungs \nPleura, a thin layer of tissue that covers the lungs and lines the inside wall of the chest space \nHeart and large blood vessels \nThymus, a gland that's part of your immune system \nNerves \nWhat are chest injuries and disorders? \nChest injuries and disorders are problems that affect any of the organs or structures located in your chest.\nThere are many types of chest injuries and disorders, for example:\nBroken ribs \nEsoph"
+      },
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "library/medlineplus_gov/medlineplus_gov_chestpain_html_c2921ade5df1/chunk_001.json",
+        "snippet": "Chest Pain | MedlinePlus \nSkip navigation \nAn official website of the United States government\nHereâs how you know\nHereâs how you know \nOfficial websites use .gov \nA\n.gov website belongs to an official government\norganization in the United States.\nSecure .gov websites use HTTPS \nA\nlock (\nLock \nLocked padlock icon \n) or https:// means youâve safely connected to\nthe .gov website. Share sensitive information only on official,\nsecure websites.\nNational Library of Medicine \nMenu \nHealth Topics \nDrugs & Supplements \nGenetics \nMedical Tests \nMedical Encyclopedia \nAbout MedlinePlus \nSearch \nSearch MedlinePlus \nGO \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nHealth Topics Drugs & Supplements Genetics Medical Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nO"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+      "source": "library/medlineplus_gov/medlineplus_gov_chestinjuriesanddisorders_html_e079a2f75113/chunk_002.json",
+      "snippet": "ummary \nWhat is the chest? \nThe chest is the part of your body between your neck and your abdomen (belly). The medical term for your chest is thorax.\nYour chest holds many important structures for breathing, digestion, blood circulation, and other important body functions. These structures include your:\nRibs and breastbone \nEsophagus, the tube between your mouth and stomach \nTrachea, your windpipe \nBronchi, the tubes that carry air from your windpipe to your lungs \nLungs \nPleura, a thin layer of tissue that covers the lungs and lines the inside wall of the chest space \nHeart and large blood vessels \nThymus, a gland that's part of your immune system \nNerves \nWhat are chest injuries and disorders? \nChest injuries and disorders are problems that affect any of the organs or structures located in your chest.\nThere are many types of chest injuries and disorders, for example:\nBroken ribs \nEsoph"
+    },
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "library/medlineplus_gov/medlineplus_gov_chestpain_html_c2921ade5df1/chunk_001.json",
+      "snippet": "Chest Pain | MedlinePlus \nSkip navigation \nAn official website of the United States government\nHereâs how you know\nHereâs how you know \nOfficial websites use .gov \nA\n.gov website belongs to an official government\norganization in the United States.\nSecure .gov websites use HTTPS \nA\nlock (\nLock \nLocked padlock icon \n) or https:// means youâve safely connected to\nthe .gov website. Share sensitive information only on official,\nsecure websites.\nNational Library of Medicine \nMenu \nHealth Topics \nDrugs & Supplements \nGenetics \nMedical Tests \nMedical Encyclopedia \nAbout MedlinePlus \nSearch \nSearch MedlinePlus \nGO \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nHealth Topics Drugs & Supplements Genetics Medical Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nO"
+    }
+  ]
+}

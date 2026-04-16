@@ -1,0 +1,10 @@
+{
+  "title": "Notes from the Field: Expanding Birthing Hospital Enrollment in the Vaccines for Children Program to Increase Infant Immunization Against Respiratory Syncytial Virus â United Sta",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7437a2.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "osure of potential conflicts of interest. No potential conflicts of interest were disclosed.\nTop \n* Before 2023, hepatitis B vaccine, a low-cost immunization, was the only immunization recommended at birth; thus, birthing hospitals had less financial incentive to enroll in VFC. Whereas hepatitis B vaccine costs approximately $15 per dose, nirsevimab costs approximately $415 per dose in the VFC program ( CDC Vaccine Price List as of April 1, 2025 ). Clesrovimab, a new RSV monoclonal antibody product, was recommended by ACIP in June 2025; VFC pricing information is not yet available.\n&dagger; American Hospital Association , Association of Immunization Managers , America&rsquo;s Health Insurance Plans , American College of Obstetricians and Gynecologists , American Academy of Pediatrics , American College of Nurse-Midwives , Centers for Medicare & Medicaid Services , and Perinatal Quality Collaboratives .\n&sect; String matching (i.e., searching for a smaller text string within a larger string) using Python (version 3.12; Python Software Foundation) connected birthing hospitals to enrolled VFC providers using hospital names, contact information, and locations. VFC providers were matched to the same list of birthing hospitals at both time points; the total number of birthing hospitals did not change meaningfully from the beginning of the 2023&ndash;24 RSV season to the end of the 20",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7437a2_htm_c83a6f42ad25",
+  "chunk_id": "chunk_008"
+}

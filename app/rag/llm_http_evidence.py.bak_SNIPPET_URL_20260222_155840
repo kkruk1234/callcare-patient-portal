@@ -1,0 +1,400 @@
+"""
+CallCare — HTTP Evidence via OpenAI web_search (Python 3.9 safe)
+
+Design goals:
+- Force web_search tool usage (do NOT rely on the model choosing tools)
+- Return EvidenceRef from app.core.models (single canonical schema)
+- snippet is ALWAYS a string (""), source is ALWAYS populated
+- Speed caps: few searches + few title fetches + short timeouts
+"""
+
+from __future__ import annotations
+
+from datetime import date
+from html import unescape
+import re
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
+from urllib.request import Request, urlopen
+
+from app.core.models import EvidenceRef
+
+try:
+    from openai import OpenAI  # type: ignore
+except Exception:  # pragma: no cover
+    OpenAI = None  # type: ignore
+
+
+# Keep/adjust these to taste
+PREFERRED_HOST_SUBSTRINGS = (
+    "nice.org.uk",
+    "medlineplus.gov",
+    "nhs.uk",
+    "cdc.gov",
+    "who.int",
+    "aafp.org",
+    "mayoclinic.org",
+    "clevelandclinic.org",
+    "merckmanuals.com",
+)
+
+SOURCE_BY_HOST = (
+    ("nice.org.uk", "NICE"),
+    ("medlineplus.gov", "MedlinePlus (NIH)"),
+    ("nhs.uk", "NHS"),
+    ("cdc.gov", "CDC"),
+    ("who.int", "WHO"),
+    ("aafp.org", "AAFP"),
+    ("mayoclinic.org", "Mayo Clinic"),
+    ("clevelandclinic.org", "Cleveland Clinic"),
+    ("merckmanuals.com", "Merck Manual"),
+)
+
+# Optional blocks (only keep if you really want to exclude them)
+BLOCK_HOST_SUBSTRINGS = (
+    "researchgate.net",
+)
+
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    diagnosis_hint: Optional[str] = None,
+    context: Optional[str] = None,
+    assessment_text: Optional[str] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    max_per_source: int = 2,
+    debug: bool = False,
+    # speed controls
+    max_queries: int = 3,
+    title_fetch_n: int = 8,
+    title_timeout_s: int = 4,
+    trace_fn: Optional[callable] = None,
+    model: str = "gpt-4o-mini",
+    **_ignored: Any,
+) -> List[EvidenceRef]:
+    """
+    Returns list[EvidenceRef] (app.core.models.EvidenceRef).
+    """
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+
+    cc = (chief_complaint or "").strip()
+    if not cc:
+        raise ValueError("chief_complaint is required")
+
+    anchor = (assessment_text or "").strip() or (diagnosis_hint or "").strip() or (context or "").strip() or cc
+    anchor = _shorten(anchor, 200)
+
+    keywords = _extract_keywords(anchor)
+    min_matches = 2
+
+    client = OpenAI(timeout=60)
+    today = date.today().isoformat()
+
+    def _trace(event: str, **data: Any) -> None:
+        if trace_fn is None:
+            return
+        try:
+            trace_fn(event, **data)
+        except Exception:
+            pass
+
+    _trace("llm_http_evidence_start", cc=cc, dx=(diagnosis_hint or ""), anchor=anchor, max_queries=max_queries)
+
+    candidate_urls: List[str] = []
+    seen = set()
+
+    queries = _build_queries(anchor=anchor)
+    queries = queries[: max(1, int(max_queries))]
+
+    for q in queries:
+        urls = _openai_web_search_urls(
+            client=client,
+            query=q,
+            model=model,
+            debug=debug,
+            trace_fn=trace_fn,
+        )
+        for u in urls:
+            nu = _normalize_url(u)
+            if not nu:
+                continue
+            if _is_blocked(nu):
+                continue
+            if nu in seen:
+                continue
+            seen.add(nu)
+            candidate_urls.append(nu)
+
+    ranked = _rank_urls(candidate_urls)
+
+    # Build EvidenceRef candidates (cap HTTP title fetches)
+    candidates: List[EvidenceRef] = []
+    for idx, url in enumerate(ranked):
+        if idx < max(0, int(title_fetch_n)):
+            title = _fetch_title(url, timeout_s=title_timeout_s) or _fallback_title_from_url(url)
+        else:
+            title = _fallback_title_from_url(url)
+
+        source = _source_from_url(url)
+
+        candidates.append(
+            EvidenceRef(
+                title=_clean(title),
+                source=_clean(source),
+                url=url,
+                snippet="",
+                accessed=today,
+            )
+        )
+        if len(candidates) >= 20:
+            break
+
+    # Relevance filter
+    filtered: List[EvidenceRef] = []
+    for r in candidates:
+        if _keyword_relevant(keywords, r.title, r.url, min_matches=min_matches):
+            filtered.append(r)
+
+    # Diversity cap by "source"
+    final: List[EvidenceRef] = []
+    counts: Dict[str, int] = {}
+    for r in filtered:
+        src = (r.source or "Source").strip()
+        counts[src] = counts.get(src, 0)
+        if counts[src] >= max_per_source:
+            continue
+        counts[src] += 1
+        final.append(r)
+        if len(final) >= max_urls:
+            break
+
+    # If still short, relax diversity but keep relevance
+    if len(final) < min_urls:
+        for r in filtered:
+            if r in final:
+                continue
+            final.append(r)
+            if len(final) >= max_urls:
+                break
+
+    _trace("llm_http_evidence_done", refs=len(final), candidates=len(candidates), filtered=len(filtered))
+    return final
+
+
+def format_evidence_lines(evs: Sequence[EvidenceRef]) -> List[str]:
+    lines: List[str] = []
+    for e in evs:
+        lines.append(f"{_clean(e.title)}. {_clean(e.source)}. {e.url}. Accessed {e.accessed}.")
+    return lines
+
+
+def _openai_web_search_urls(*, client: Any, query: str, model: str, debug: bool, trace_fn: Optional[callable]) -> List[str]:
+    # Force tool usage; include ONLY supported key (action.sources). :contentReference[oaicite:3]{index=3}
+    resp = client.responses.create(
+        model=model,
+        input=query,
+        tools=[{"type": "web_search"}],
+        tool_choice={"type": "web_search"},
+        max_tool_calls=1,
+        include=["web_search_call.action.sources"],
+    )
+
+    out = getattr(resp, "output", None) or []
+    urls: List[str] = []
+    sources_len = 0
+    saw_ws = False
+
+    def _get(obj: Any, key: str, default: Any = None) -> Any:
+        if obj is None:
+            return default
+        if isinstance(obj, dict):
+            return obj.get(key, default)
+        return getattr(obj, key, default)
+
+    for item in out:
+        itype = _get(item, "type")
+        if itype != "web_search_call":
+            continue
+        saw_ws = True
+        action = _get(item, "action", {}) or {}
+        sources = _get(action, "sources", []) or []
+        try:
+            sources_len += len(sources)
+        except Exception:
+            pass
+        for s in sources:
+            u = _get(s, "url", None)
+            if u:
+                urls.append(str(u))
+
+    if debug:
+        print(f"[DEBUG web_search] saw_ws={saw_ws} sources_len={sources_len} urls_extracted={len(urls)} query={query!r}")
+
+    if trace_fn is not None:
+        try:
+            trace_fn("web_search_done", q=query, saw_ws=saw_ws, sources=sources_len, urls=len(urls))
+        except Exception:
+            pass
+
+    return _dedupe_keep_order(urls)
+
+
+def _dedupe_keep_order(items: Iterable[str]) -> List[str]:
+    out: List[str] = []
+    seen = set()
+    for x in items:
+        if x in seen:
+            continue
+        seen.add(x)
+        out.append(x)
+    return out
+
+
+def _build_queries(*, anchor: str) -> List[str]:
+    a = anchor.strip()
+    return [
+        f"{a} outpatient management",
+        f"{a} red flags when to seek care",
+        f"{a} acetaminophen ibuprofen adult dosing",
+    ]
+
+
+def _shorten(s: str, max_chars: int) -> str:
+    s = re.sub(r"\s+", " ", (s or "").strip())
+    return s[:max_chars]
+
+
+_STOPWORDS = {
+    "a","an","the","and","or","but","if","then","to","of","in","on","at","for","with","without",
+    "is","are","was","were","be","been","being","it","this","that","these","those","as","by","from",
+    "i","me","my","we","our","you","your","they","their","he","she","his","her",
+    "left","right","today","yesterday","week","weeks","day","days",
+    "pain","hurts","hurt","ache","aches","area","localized","likely","due","minor","without","trauma",
+}
+
+def _extract_keywords(text: str) -> List[str]:
+    t = (text or "").lower()
+    parts = re.split(r"[^a-z0-9]+", t)
+    toks: List[str] = []
+    for p in parts:
+        p = p.strip()
+        if not p or p in _STOPWORDS or len(p) < 3:
+            continue
+        toks.append(p)
+    out: List[str] = []
+    seen = set()
+    for x in toks:
+        if x in seen:
+            continue
+        seen.add(x)
+        out.append(x)
+        if len(out) >= 12:
+            break
+    return out
+
+
+def _keyword_relevant(keywords: List[str], title: str, url: str, min_matches: int) -> bool:
+    if not keywords:
+        return True
+    hay = f"{title} {url}".lower()
+    hits = 0
+    for kw in keywords:
+        if kw and kw in hay:
+            hits += 1
+            if hits >= min_matches:
+                return True
+    return False
+
+
+def _normalize_url(url: str) -> Optional[str]:
+    url = (url or "").strip().strip("()[]{}<>'\" \t\r\n")
+    if not url:
+        return None
+    try:
+        p = urlparse(url)
+    except Exception:
+        return None
+    if p.scheme not in ("http", "https") or not p.netloc:
+        return None
+    q = [(k, v) for (k, v) in parse_qsl(p.query, keep_blank_values=True) if not k.lower().startswith("utm_")]
+    p = p._replace(query=urlencode(q, doseq=True), fragment="")
+    return urlunparse(p)
+
+
+def _is_blocked(url: str) -> bool:
+    host = (urlparse(url).netloc or "").lower()
+    for bad in BLOCK_HOST_SUBSTRINGS:
+        if bad in host:
+            return True
+    return False
+
+
+def _rank_urls(urls: List[str]) -> List[str]:
+    def score(u: str) -> Tuple[int, int]:
+        host = (urlparse(u).netloc or "").lower()
+        pref = 0
+        for good in PREFERRED_HOST_SUBSTRINGS:
+            if good in host:
+                pref = 1
+                break
+        return (pref, -len(u))
+    return sorted(urls, key=score, reverse=True)
+
+
+def _source_from_url(url: str) -> str:
+    host = (urlparse(url).netloc or "").lower()
+    for key, label in SOURCE_BY_HOST:
+        if key in host:
+            return label
+    return host or "Source"
+
+
+_TITLE_RE = re.compile(r"<\s*title[^>]*>(.*?)<\s*/\s*title\s*>", re.IGNORECASE | re.DOTALL)
+
+def _fetch_title(url: str, timeout_s: int) -> str:
+    headers = {"User-Agent": "CallCareEvidenceBot/1.0", "Accept": "text/html,application/xhtml+xml"}
+    try:
+        req = Request(url, headers=headers)
+        with urlopen(req, timeout=timeout_s) as resp:
+            ctype = (resp.headers.get("Content-Type") or "").lower()
+            raw = resp.read(60_000)
+    except Exception:
+        return _fallback_title_from_url(url)
+
+    if "html" not in ctype and b"<html" not in raw[:5000].lower():
+        return _fallback_title_from_url(url)
+
+    try:
+        text = raw.decode("utf-8", errors="ignore")
+    except Exception:
+        return _fallback_title_from_url(url)
+
+    m = _TITLE_RE.search(text)
+    if not m:
+        return _fallback_title_from_url(url)
+
+    title = unescape(m.group(1) or "")
+    title = re.sub(r"\s+", " ", title).strip().strip(" -|•\u2013\u2014")
+    return title or _fallback_title_from_url(url)
+
+
+def _fallback_title_from_url(url: str) -> str:
+    try:
+        p = urlparse(url)
+        path = (p.path or "").strip("/")
+        if not path:
+            return p.netloc or "Source"
+        last = path.split("/")[-1]
+        last = re.sub(r"\.(html|htm|php|aspx)$", "", last, flags=re.IGNORECASE)
+        last = last.replace("-", " ").replace("_", " ").strip()
+        return last or (p.netloc or "Source")
+    except Exception:
+        return "Source"
+
+
+def _clean(s: str) -> str:
+    s = (s or "").strip()
+    return re.sub(r"\s+", " ", s)

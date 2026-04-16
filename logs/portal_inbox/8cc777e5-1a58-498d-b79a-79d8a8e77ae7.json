@@ -1,0 +1,43 @@
+{
+  "packet_id": "8cc777e5-1a58-498d-b79a-79d8a8e77ae7",
+  "created_at": "2026-04-04T14:03:59.708030+00:00",
+  "session_id": "83851b61-3e5a-4906-8550-80a22cc5e1d1",
+  "pathway_id": "",
+  "base_queries": [
+    "anxiety management guidelines adults",
+    "Zep Bound dosing and contraindications adults",
+    "anxiety red flags and when to seek emergency care"
+  ],
+  "queries": [
+    "AAFP anxiety management guidelines adults",
+    "AAFP Zep Bound dosing and contraindications adults",
+    "MedlinePlus anxiety management guidelines adults",
+    "MedlinePlus Zep Bound dosing and contraindications adults",
+    "CDC anxiety management guidelines adults",
+    "CDC Zep Bound dosing and contraindications adults",
+    "NIH anxiety management guidelines adults",
+    "NIH Zep Bound dosing and contraindications adults",
+    "NICE anxiety management guidelines adults",
+    "NICE Zep Bound dosing and contraindications adults",
+    "WHO anxiety management guidelines adults",
+    "WHO Zep Bound dosing and contraindications adults"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Management of Anxiety Disorders in Primary Care - Therapeutics Letter - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK598504/",
+      "accessed": "2026-04-04",
+      "snippet": "What is the initial approach to a patient who presents with anxiety? Establish diagnosis (rule out medical disorders, e.g. hyperthyroidism, substance abuse). Establish the timing and nature of symptoms, the extent of disability, and the presence of co-morbid conditions. Develop a plan of therapy. What non-drug therapies are strongly recommended in managing most patients? Decrease or discontinue caffeine and other CNS stimulants. Minimize use of alcohol and other sedatives or hypnotics. Regular aerobic exercise lasting >20 min. (This recommendation is based on a comprehensive meta-analysis of 104 studies with a total of 3048 subjects 2 ). Anxiety management strategies- e.g. relaxation training and supportive psychotherapy. If appropriate involve a local Mental Health Program or other available support group. How does one manage the common uncomplicated cases? •. Situational or Stress-rela"
+    },
+    {
+      "title": "Anxiety: MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/anxiety.html",
+      "accessed": "2026-04-04",
+      "snippet": "Cognitive behavioral therapy (CBT), which teaches you different ways of thinking and behaving. It can help you change how you react to the things that cause you to feel fear and anxiety. It may include exposure therapy. This therapy focuses on having you confront your fears so that you will be able to do the things that you had been avoiding."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old adult male reporting a history of anxiety that has been intermittent for years but has worsened over the past month, reaching a peak in the last few days. He describes symptoms including a general feeling of forgetfulness or missing something, interrupted sleep with multiple awakenings at night, and some feelings of hopelessness. He denies chest pain, shortness of breath, dizziness, fainting, or suicidal ideation. He has not tried any recent treatments for anxiety but previously attempted medication and mindfulness exercises 1-2 years ago without benefit. He is currently on weekly Zep Bound 7.5 mg for weight loss for about 4-5 months.\n\nO: Telephone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is generalized anxiety disorder with worsening symptoms over the past month, characterized by sleep disturbance and feelings of hopelessness without suicidal ideation.\nDifferential:\n1. Generalized anxiety disorder\n2. Major depressive disorder with anxious features\n3. Medication side effect or interaction (e.g., weight loss medication)\n4. Other anxiety disorders (e.g., panic disorder, adjustment disorder)\n\nP: - First-line medication: Sertraline 25 mg orally once daily, titrate as tolerated (Physician must verify medication/dosing)\n- Alternatives: Buspirone 10 mg orally twice daily (Physician must verify medication/dosing)\n- Medication safety considerations: Monitor for side effects and interactions with current weight loss medication; no known allergies or liver/renal disease; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if suicidal thoughts develop, symptoms worsen significantly, or new concerning symptoms arise.\n- Testing: Not indicated at this time based on telephone assessment."
+}

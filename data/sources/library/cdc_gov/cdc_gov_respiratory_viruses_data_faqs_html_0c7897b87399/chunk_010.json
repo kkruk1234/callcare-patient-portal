@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "systems and put this information together into messages for the public. Findings include those shared in the Community Snapshot, data from the data visualizations below, and other information that are available elsewhere on the CDC website or are not yet publicly available. \nWhy are there two data sources for hospitalization rates? \nWe use two primary data sources for respiratory hospitalization rates: RESP-NET and the National Healthcare Safety Network (NHSN). By using both RESP-NET and NHSN, we aim to provide the most comprehensive view of hospitalization trends related to respiratory illnesses. \nAs of November 1, 2024, the Centers for Medicare and Medicaid Services (CMS) is requiring hospitals to report information regarding COVID-19, influenza, and RSV hospitalizations, bed capacity, and occupancy to NHSN. NHSN has been added to the Illness Severity page because it has data from almost every hospital in each U.S. state. However, because these data are only required as of November 1, 2024, we also include data from RESP-NET to show longer-term trends from select hospitals across 14 states. \nRESP-NET will continue to be used on the People Most Impacted page because it provides detailed demographic breakdowns. \nOur goal is to present the most complete data regarding respiratory illness hospitalizations. By using these two sources, we ensure that users have access to both histo",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_010"
+}

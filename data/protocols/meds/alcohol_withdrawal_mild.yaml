@@ -1,0 +1,23 @@
+rx_options:
+- med: No benzodiazepines initiated by protocol
+  dosing: In-person evaluation recommended
+  exclusions: —
+  notes: Alcohol withdrawal can become dangerous quickly; phone-only management is
+    limited.
+- med: Thiamine
+  dosing: 100 mg PO daily (reviewer to confirm)
+  exclusions: Allergy; clinician judgment.
+  notes: Often recommended in heavy alcohol use to reduce deficiency risk.
+supportive_care:
+- item: Do not abruptly stop heavy drinking alone
+  details: If you drink heavily daily, sudden stopping can cause seizures/DTs. Seek
+    medical supervision.
+- item: Hydration/nutrition
+  details: Fluids, electrolytes, small meals if tolerated.
+followup_and_safety:
+- item: Urgent evaluation
+  details: Same-day in-person evaluation is recommended if withdrawal symptoms are
+    present.
+- item: Urgent/ED now
+  details: Seizure, hallucinations, confusion, severe tremor, fever, chest pain, uncontrolled
+    vomiting, or inability to stay hydrated.

@@ -1,0 +1,142 @@
+score	pathway_id	flags	source_count	manifest_path	summary
+21	acute_kidney_injury_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/acute_kidney_injury_possible/manifest.json	Acute kidney injury overview (starter)
+21	alcohol_withdrawal_mild	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/alcohol_withdrawal_mild/manifest.json	Alcohol withdrawal overview (starter)
+21	allergic_reaction_non_anaphylaxis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/allergic_reaction_non_anaphylaxis/manifest.json	Allergic reaction guidance (starter)
+21	anxiety_panic_noncrisis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/anxiety_panic_noncrisis/manifest.json	Anxiety/panic reference (starter)
+21	atrial_fibrillation_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/atrial_fibrillation_possible/manifest.json	Atrial fibrillation overview (starter)
+21	bacterial_sinusitis_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/bacterial_sinusitis_possible/manifest.json	Sinus infection guidance (starter)
+21	carbon_monoxide_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/carbon_monoxide_possible/manifest.json	Carbon monoxide poisoning basics (starter)
+21	caregiver_stress_noncrisis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/caregiver_stress_noncrisis/manifest.json	Caregiver stress: resources overview (starter)
+21	contact_lens_red_eye	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/contact_lens_red_eye/manifest.json	Contact lens complications overview (starter)
+21	depression_noncrisis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/depression_noncrisis/manifest.json	Depression reference (starter)
+21	diverticulitis_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/diverticulitis_possible/manifest.json	Diverticular disease overview (starter)
+21	dog_bite_wound	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/dog_bite_wound/manifest.json	Animal bites: general guidance (starter)
+21	epistaxis_nosebleed	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/epistaxis_nosebleed/manifest.json	Nosebleed first aid reference (starter)
+21	gi_bleed_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/gi_bleed_possible/manifest.json	GI bleed red flags reference (starter)
+21	grief_adjustment_noncrisis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/grief_adjustment_noncrisis/manifest.json	Grief and adjustment info (starter)
+21	heart_failure_exacerbation	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/heart_failure_exacerbation/manifest.json	Heart failure symptom guidance (starter)
+21	heat_illness	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/heat_illness/manifest.json	Heat illness basics (starter)
+21	hordeolum_stye	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/hordeolum_stye/manifest.json	Stye/hordeolum reference (starter)
+21	hyperkalemia_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/hyperkalemia_possible/manifest.json	Kidney/potassium safety (starter)
+21	hypertensive_urgency	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/hypertensive_urgency/manifest.json	High blood pressure basics (starter)
+21	hypoglycemia_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/hypoglycemia_possible/manifest.json	Low blood sugar overview (starter)
+21	insomnia	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/insomnia/manifest.json	Sleep/insomnia reference (starter)
+21	mastitis_breastfeeding	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/mastitis_breastfeeding/manifest.json	Mastitis overview (starter)
+21	migraine_headache	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/migraine_headache/manifest.json	Headache red flags reference (starter)
+21	nausea_after_new_med	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/nausea_after_new_med/manifest.json	Medication adverse effects overview (starter)
+21	opioid_withdrawal_mild	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/opioid_withdrawal_mild/manifest.json	Opioid withdrawal info (starter)
+21	pancreatitis_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/pancreatitis_possible/manifest.json	Pancreatitis overview (starter)
+21	peptic_ulcer_gastritis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/peptic_ulcer_gastritis/manifest.json	Ulcer/gastritis basics (starter)
+21	pneumonia_adult_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/pneumonia_adult_possible/manifest.json	Pneumonia/respiratory guidance (starter)
+21	pruritus_generalized_no_rash	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/pruritus_generalized_no_rash/manifest.json	Itching/pruritus overview (starter)
+21	ptsd_symptoms_noncrisis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/ptsd_symptoms_noncrisis/manifest.json	PTSD information (starter)
+21	pulmonary_embolism_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/pulmonary_embolism_possible/manifest.json	Blood clot/PE overview (starter)
+21	relationship_distress_noncrisis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/relationship_distress_noncrisis/manifest.json	Mental health: coping and safety planning (starter)
+21	rib_pain_after_fall	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/rib_pain_after_fall/manifest.json	Chest injuries overview (starter)
+21	sciatica	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/sciatica/manifest.json	Sciatica/back pain guidance (starter)
+21	seizure_new_onset	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/seizure_new_onset/manifest.json	Seizure first aid and safety (starter)
+21	skin_splinter_foreign_body	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/skin_splinter_foreign_body/manifest.json	Wound foreign body overview (starter)
+21	substance_use_concern_noncrisis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/substance_use_concern_noncrisis/manifest.json	Substance use help info (starter)
+21	syncope_fainting	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/syncope_fainting/manifest.json	Fainting/syncope overview (starter)
+21	urinary_frequency_no_pain	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/urinary_frequency_no_pain/manifest.json	Frequent urination: causes overview (starter)
+21	urinary_incontinence_new	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/urinary_incontinence_new/manifest.json	Urinary symptoms overview (starter)
+21	urinary_retention	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/urinary_retention/manifest.json	Urinary retention reference (starter)
+21	uti_pregnancy_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/uti_pregnancy_possible/manifest.json	UTI in pregnancy overview (starter)
+21	work_stress_burnout_noncrisis	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/work_stress_burnout_noncrisis/manifest.json	Mental health: workplace stress overview (starter)
+21	wrist_fracture_possible	LT3_SOURCES,PLACEHOLDER_MARKERS	1	data/sources/pathways/wrist_fracture_possible/manifest.json	Wrist injuries: when to seek care (starter)
+18	conjunctivitis_bacterial	LT3_SOURCES,PLACEHOLDER_MARKERS	2	data/sources/pathways/conjunctivitis_bacterial/manifest.json	Conjunctivitis references (starter)
+16	allergic_conjunctivitis	LT3_SOURCES	1	data/sources/pathways/allergic_conjunctivitis/manifest.json	AAO: Allergic Conjunctivitis
+16	anxiety_panic	LT3_SOURCES	1	data/sources/pathways/anxiety_panic/manifest.json	NIMH: Anxiety Disorders
+16	bronchitis_uncomplicated	LT3_SOURCES	1	data/sources/pathways/bronchitis_uncomplicated/manifest.json	CDC: Acute Bronchitis
+16	cauda_equina_possible	LT3_SOURCES	1	data/sources/pathways/cauda_equina_possible/manifest.json	NICE NG59: Low back pain and sciatica in over 16s
+16	constipation	LT3_SOURCES	1	data/sources/pathways/constipation/manifest.json	NIDDK: Constipation
+16	constipation_child	LT3_SOURCES	1	data/sources/pathways/constipation_child/manifest.json	HealthyChildren.org: Constipation
+16	dehydration_mild	LT3_SOURCES	1	data/sources/pathways/dehydration_mild/manifest.json	MedlinePlus: Dehydration
+16	dental_pain	LT3_SOURCES	1	data/sources/pathways/dental_pain/manifest.json	American Dental Association: Toothache
+16	ear_pain_child	LT3_SOURCES	1	data/sources/pathways/ear_pain_child/manifest.json	CDC: Ear Infection
+16	eye_pain_vision_change	LT3_SOURCES	1	data/sources/pathways/eye_pain_vision_change/manifest.json	AAO Preferred Practice Pattern: Primary Angle-Closure Disease
+16	fever_child	LT3_SOURCES	1	data/sources/pathways/fever_child/manifest.json	HealthyChildren.org: Fever
+16	heartburn_gerd	LT3_SOURCES	1	data/sources/pathways/heartburn_gerd/manifest.json	NIDDK: Gastroesophageal Reflux (GER & GERD)
+16	insect_bite_sting	LT3_SOURCES	1	data/sources/pathways/insect_bite_sting/manifest.json	CDC: Tickborne Diseases
+16	minor_burn	LT3_SOURCES	1	data/sources/pathways/minor_burn/manifest.json	MedlinePlus: Burns
+16	minor_wound_care	LT3_SOURCES	1	data/sources/pathways/minor_wound_care/manifest.json	CDC: Wound Care
+16	neck_pain_nontraumatic	LT3_SOURCES	1	data/sources/pathways/neck_pain_nontraumatic/manifest.json	MedlinePlus: Neck Pain
+16	shoulder_pain_overuse	LT3_SOURCES	1	data/sources/pathways/shoulder_pain_overuse/manifest.json	AAOS: Shoulder Pain
+16	sinusitis	LT3_SOURCES	1	data/sources/pathways/sinusitis/manifest.json	CDC: Sinus Infection (Sinusitis) Basics
+16	sprain_strain	LT3_SOURCES	1	data/sources/pathways/sprain_strain/manifest.json	AAOS: Sprains, Strains and Other Soft-Tissue Injuries
+16	viral_uri_adult	LT3_SOURCES	1	data/sources/pathways/viral_uri_adult/manifest.json	CDC: Common Cold
+16	vomiting_child	LT3_SOURCES	1	data/sources/pathways/vomiting_child/manifest.json	MedlinePlus: Nausea and Vomiting
+13	bell_palsy_possible	LT3_SOURCES	2	data/sources/pathways/bell_palsy_possible/manifest.json	CDC: Stroke Signs and Symptoms
+13	diarrhea	LT3_SOURCES	2	data/sources/pathways/diarrhea/manifest.json	CDC Yellow Book: Travelers' Diarrhea
+13	dyspnea_shortness_of_breath_noncardiac	LT3_SOURCES	2	data/sources/pathways/dyspnea_shortness_of_breath_noncardiac/manifest.json	NHLBI: Asthma (overview and warning sign concepts)
+13	ear_pain	LT3_SOURCES	2	data/sources/pathways/ear_pain/manifest.json	CDC: Ear Infection (Otitis Media) information
+13	hyperemesis_gravidarum_possible	LT3_SOURCES	2	data/sources/pathways/hyperemesis_gravidarum_possible/manifest.json	ACOG FAQ: Morning Sickness (Nausea and Vomiting of Pregnancy)
+13	low_back_pain	LT3_SOURCES	2	data/sources/pathways/low_back_pain/manifest.json	ACP Clinical Practice Guideline: Noninvasive Treatments for Acute, Subacute, and
+13	nausea_vomiting	LT3_SOURCES	2	data/sources/pathways/nausea_vomiting/manifest.json	CDC: Norovirus (common cause of vomiting/diarrhea)
+13	otitis_media_child	LT3_SOURCES	2	data/sources/pathways/otitis_media_child/manifest.json	CDC: Ear Infection (Otitis Media) in Children
+13	postpartum_redflags	LT3_SOURCES	2	data/sources/pathways/postpartum_redflags/manifest.json	ACOG FAQ: Postpartum Care
+13	red_eye	LT3_SOURCES	2	data/sources/pathways/red_eye/manifest.json	CDC: Conjunctivitis (Pink Eye)
+13	sore_throat_child	LT3_SOURCES	2	data/sources/pathways/sore_throat_child/manifest.json	CDC: Group A Strep (strep throat) information
+5	acute_abd_pain_redflags	PLACEHOLDER_MARKERS	3	data/sources/pathways/acute_abd_pain_redflags/manifest.json	acute_abd_pain_redflags references (starter)
+5	acute_allergic_reaction_nonanaphylaxis	PLACEHOLDER_MARKERS	4	data/sources/pathways/acute_allergic_reaction_nonanaphylaxis/manifest.json	acute_allergic_reaction_nonanaphylaxis references (starter)
+5	acute_back_pain_redflags	PLACEHOLDER_MARKERS	3	data/sources/pathways/acute_back_pain_redflags/manifest.json	acute_back_pain_redflags references (starter)
+5	acute_diarrhea	PLACEHOLDER_MARKERS	4	data/sources/pathways/acute_diarrhea/manifest.json	acute_diarrhea references (starter)
+5	allergic_rhinitis	PLACEHOLDER_MARKERS	4	data/sources/pathways/allergic_rhinitis/manifest.json	allergic_rhinitis references (starter)
+5	anaphylaxis_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/anaphylaxis_possible/manifest.json	anaphylaxis_possible references (starter)
+5	angioedema_lip_tongue	PLACEHOLDER_MARKERS	3	data/sources/pathways/angioedema_lip_tongue/manifest.json	angioedema_lip_tongue references (starter)
+5	appendicitis_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/appendicitis_possible/manifest.json	appendicitis_possible references (starter)
+5	asthma_child_wheeze	PLACEHOLDER_MARKERS	3	data/sources/pathways/asthma_child_wheeze/manifest.json	asthma_child_wheeze references (starter)
+5	asthma_wheeze	PLACEHOLDER_MARKERS	4	data/sources/pathways/asthma_wheeze/manifest.json	asthma_wheeze guideline references (starter)
+5	bronchiolitis_infant	PLACEHOLDER_MARKERS	3	data/sources/pathways/bronchiolitis_infant/manifest.json	bronchiolitis_infant references (starter)
+5	chest_pain	PLACEHOLDER_MARKERS	4	data/sources/pathways/chest_pain/manifest.json	chest_pain guideline references (starter)
+5	cold_sore_hsv	PLACEHOLDER_MARKERS	4	data/sources/pathways/cold_sore_hsv/manifest.json	cold_sore_hsv guideline references (starter)
+5	conjunctivitis_allergic	PLACEHOLDER_MARKERS	4	data/sources/pathways/conjunctivitis_allergic/manifest.json	conjunctivitis_allergic references (starter)
+5	contact_dermatitis	PLACEHOLDER_MARKERS	3	data/sources/pathways/contact_dermatitis/manifest.json	contact_dermatitis references (starter)
+5	copd_exacerbation	PLACEHOLDER_MARKERS	4	data/sources/pathways/copd_exacerbation/manifest.json	copd_exacerbation references (starter)
+5	dehydration	PLACEHOLDER_MARKERS	4	data/sources/pathways/dehydration/manifest.json	dehydration references (starter)
+5	dehydration_child	PLACEHOLDER_MARKERS	3	data/sources/pathways/dehydration_child/manifest.json	dehydration_child references (starter)
+5	depression_crisis	PLACEHOLDER_MARKERS	3	data/sources/pathways/depression_crisis/manifest.json	depression_crisis references (starter)
+5	eczema_flare	PLACEHOLDER_MARKERS	3	data/sources/pathways/eczema_flare/manifest.json	eczema_flare references (starter)
+5	eye_floaters_flashes	PLACEHOLDER_MARKERS	4	data/sources/pathways/eye_floaters_flashes/manifest.json	eye_floaters_flashes references (starter)
+5	eye_foreign_body	PLACEHOLDER_MARKERS	4	data/sources/pathways/eye_foreign_body/manifest.json	eye_foreign_body references (starter)
+5	eye_stye_hordeolum	PLACEHOLDER_MARKERS	4	data/sources/pathways/eye_stye_hordeolum/manifest.json	eye_stye_hordeolum references (starter)
+5	flu_like_illness	PLACEHOLDER_MARKERS	4	data/sources/pathways/flu_like_illness/manifest.json	flu_like_illness guideline references (starter)
+5	food_poisoning	PLACEHOLDER_MARKERS	4	data/sources/pathways/food_poisoning/manifest.json	food_poisoning references (starter)
+5	gerd_nausea	PLACEHOLDER_MARKERS	4	data/sources/pathways/gerd_nausea/manifest.json	gerd_nausea guideline references (starter)
+5	gout_flare	PLACEHOLDER_MARKERS	4	data/sources/pathways/gout_flare/manifest.json	gout_flare references (starter)
+5	hand_foot_mouth_child	PLACEHOLDER_MARKERS	4	data/sources/pathways/hand_foot_mouth_child/manifest.json	hand_foot_mouth_child references (starter)
+5	headache_redflags	PLACEHOLDER_MARKERS	3	data/sources/pathways/headache_redflags/manifest.json	headache_redflags references (starter)
+5	hemorrhoids_rectal_pain	PLACEHOLDER_MARKERS	4	data/sources/pathways/hemorrhoids_rectal_pain/manifest.json	hemorrhoids_rectal_pain guideline references (starter)
+5	kidney_infection_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/kidney_infection_possible/manifest.json	kidney_infection_possible references (starter)
+5	kidney_stone	PLACEHOLDER_MARKERS	4	data/sources/pathways/kidney_stone/manifest.json	kidney_stone references (starter)
+5	med_adverse_reaction	PLACEHOLDER_MARKERS	3	data/sources/pathways/med_adverse_reaction/manifest.json	med_adverse_reaction references (starter)
+5	med_side_effect	PLACEHOLDER_MARKERS	4	data/sources/pathways/med_side_effect/manifest.json	med_side_effect references (starter)
+5	meningitis_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/meningitis_possible/manifest.json	meningitis_possible references (starter)
+5	migraine	PLACEHOLDER_MARKERS	4	data/sources/pathways/migraine/manifest.json	migraine references (starter)
+5	minor_head_injury	PLACEHOLDER_MARKERS	4	data/sources/pathways/minor_head_injury/manifest.json	minor_head_injury references (starter)
+5	minor_laceration_cut	PLACEHOLDER_MARKERS	4	data/sources/pathways/minor_laceration_cut/manifest.json	minor_laceration_cut references (starter)
+5	new_onset_diabetes_hyperglycemia	PLACEHOLDER_MARKERS	3	data/sources/pathways/new_onset_diabetes_hyperglycemia/manifest.json	new_onset_diabetes_hyperglycemia references (starter)
+5	nosebleed_epistaxis	PLACEHOLDER_MARKERS	4	data/sources/pathways/nosebleed_epistaxis/manifest.json	nosebleed_epistaxis references (starter)
+5	otitis_externa	PLACEHOLDER_MARKERS	4	data/sources/pathways/otitis_externa/manifest.json	otitis_externa references (starter)
+5	otitis_media	PLACEHOLDER_MARKERS	4	data/sources/pathways/otitis_media/manifest.json	otitis_media references (starter)
+5	pelvic_pain	PLACEHOLDER_MARKERS	4	data/sources/pathways/pelvic_pain/manifest.json	pelvic_pain guideline references (starter)
+5	pink_eye_bacterial	PLACEHOLDER_MARKERS	4	data/sources/pathways/pink_eye_bacterial/manifest.json	pink_eye_bacterial references (starter)
+5	pneumonia_child_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/pneumonia_child_possible/manifest.json	pneumonia_child_possible references (starter)
+5	pneumonia_possible	PLACEHOLDER_MARKERS	4	data/sources/pathways/pneumonia_possible/manifest.json	pneumonia_possible references (starter)
+5	pregnancy_bleeding_early	PLACEHOLDER_MARKERS	3	data/sources/pathways/pregnancy_bleeding_early/manifest.json	pregnancy_bleeding_early references (starter)
+5	pyelonephritis_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/pyelonephritis_possible/manifest.json	pyelonephritis_possible references (starter)
+5	sciatica_radiculopathy	PLACEHOLDER_MARKERS	4	data/sources/pathways/sciatica_radiculopathy/manifest.json	sciatica_radiculopathy references (starter)
+5	sepsis_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/sepsis_possible/manifest.json	sepsis_possible references (starter)
+5	shingles	PLACEHOLDER_MARKERS	4	data/sources/pathways/shingles/manifest.json	shingles guideline references (starter)
+5	skin_abscess	PLACEHOLDER_MARKERS	4	data/sources/pathways/skin_abscess/manifest.json	skin_abscess references (starter)
+5	stroke_neuro	PLACEHOLDER_MARKERS	4	data/sources/pathways/stroke_neuro/manifest.json	stroke_neuro guideline references (starter)
+5	testicular_pain_torsion_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/testicular_pain_torsion_possible/manifest.json	testicular_pain_torsion_possible references (starter)
+5	uri_sinus_overlap	PLACEHOLDER_MARKERS	4	data/sources/pathways/uri_sinus_overlap/manifest.json	uri_sinus_overlap references (starter)
+5	urticaria_hives	PLACEHOLDER_MARKERS	4	data/sources/pathways/urticaria_hives/manifest.json	urticaria_hives references (starter)
+5	uti_complicated	PLACEHOLDER_MARKERS	4	data/sources/pathways/uti_complicated/manifest.json	uti_complicated references (starter)
+5	uti_male	PLACEHOLDER_MARKERS	4	data/sources/pathways/uti_male/manifest.json	uti_male references (starter)
+5	uti_uncomplicated	PLACEHOLDER_MARKERS	4	data/sources/pathways/uti_uncomplicated/manifest.json	uti_uncomplicated references (starter)
+5	vaginal_discharge	PLACEHOLDER_MARKERS	4	data/sources/pathways/vaginal_discharge/manifest.json	vaginal_discharge guideline references (starter)
+5	vaginal_yeast	PLACEHOLDER_MARKERS	4	data/sources/pathways/vaginal_yeast/manifest.json	vaginal_yeast references (starter)
+5	vertigo_bppv	PLACEHOLDER_MARKERS	4	data/sources/pathways/vertigo_bppv/manifest.json	vertigo_bppv references (starter)
+5	wound_infection_possible	PLACEHOLDER_MARKERS	3	data/sources/pathways/wound_infection_possible/manifest.json	wound_infection_possible references (starter)

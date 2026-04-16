@@ -1,0 +1,29 @@
+id: vaginal_discharge
+version: 0.1
+match:
+  any_keywords: ["vaginal discharge", "fishy smell", "bv", "yeast", "itching vagina", "burning vagina", "std exposure", "trich"]
+questions:
+  - id: pregnancy
+    prompt: "Is pregnancy possible? (yes/no/unknown)"
+    store_as: pregnancy_possible
+
+  - id: pain_fever
+    prompt: "Do you have fever or significant pelvic/lower abdominal pain? (yes/no)"
+    store_as: fever_or_pelvic_pain
+    type: yesno
+
+  - id: urinary
+    prompt: "Any burning with urination or needing to pee frequently? (yes/no)"
+    store_as: urinary_symptoms
+    type: yesno
+
+  - id: exposure
+    prompt: "Any new sexual partner or concern for sexually transmitted infection? (yes/no/unknown)"
+    store_as: sti_risk
+
+stop_rules:
+  - if_all_answered: ["pregnancy", "pain_fever", "urinary", "exposure"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

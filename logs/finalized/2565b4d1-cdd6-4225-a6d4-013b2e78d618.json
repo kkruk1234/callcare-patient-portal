@@ -1,0 +1,51 @@
+{
+  "packet_id": "2565b4d1-cdd6-4225-a6d4-013b2e78d618",
+  "created_at": "2026-03-06T16:07:18.453482+00:00",
+  "session_id": "aeee4d26-c881-424d-8078-9886850775cc",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat diagnosis and management guidelines adults",
+    "adult strep throat antibiotic treatment dosing duration contraindications",
+    "red flags sore throat when to seek emergency care",
+    "testing recommendations for suspected streptococcal pharyngitis adults"
+  ],
+  "queries": [
+    "AAFP sore throat diagnosis and management guidelines adults",
+    "AAFP adult strep throat antibiotic treatment dosing duration contraindications",
+    "MedlinePlus sore throat diagnosis and management guidelines adults",
+    "MedlinePlus adult strep throat antibiotic treatment dosing duration contraindications",
+    "CDC sore throat diagnosis and management guidelines adults",
+    "CDC adult strep throat antibiotic treatment dosing duration contraindications",
+    "NIH sore throat diagnosis and management guidelines adults",
+    "NIH adult strep throat antibiotic treatment dosing duration contraindications",
+    "NICE sore throat diagnosis and management guidelines adults",
+    "NICE adult strep throat antibiotic treatment dosing duration contraindications",
+    "WHO sore throat diagnosis and management guidelines adults",
+    "WHO adult strep throat antibiotic treatment dosing duration contraindications"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Management of Sore Throat: Time to Update | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/editorial-sore-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": "3 There is good evidence that routinely testing every patient with a sore throat for GABHS, regardless of their risk, and prescribing antibiotics to anyone with a positive test result medicalizes sore throat and builds a mentality in our patients that they need to be tested and prescribed antibiotics every time they have a sore throat. 1 There is also good evidence that prescribing antibiotics shortens visit length by 1 minute and that patient satisfaction is driven not by receipt of antibiotics but by the perception that their clinician listened, cared about them, and offered reassurance and advice. 17 , 18 Therefore, our discussions with patients should focus on that most sore throats are viral and uncomplicated, that antibiotics can also be harmful, that complications are exceedingly rare in the United States, and that we have tools to provide symptomatic relief while patients heal."
+    },
+    {
+      "title": "Strep A Test: MedlinePlus Medical Test",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/lab-tests/strep-a-test/",
+      "accessed": "2026-03-06",
+      "snippet": "If you or your child is diagnosed with strep throat, you will need to take antibiotics. Most often you will need to take them for 10 days. After a day or two of taking the medicine, you or your child should start to feel better."
+    },
+    {
+      "title": "Throat swab culture: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/003746.htm",
+      "accessed": "2026-03-06",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a sore throat that started 2 days ago. She reports associated fever and chills, pain on swallowing without difficulty breathing, and swollen glands in the neck. She denies cough, runny nose, nasal congestion, rash, or joint pain. She notes white patches or pus in her throat and recent exposure to her son who had strep throat last week. She has not taken any medications or treatments for this sore throat.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the sore throat with fever, tonsillar exudate, cervical lymphadenopathy, and known exposure to a confirmed case.\nDifferential:\n1. Acute streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Peritonsillar abscess (early)\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, no renal or liver disease; monitor for allergic reactions\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, worsening throat pain, inability to swallow saliva, or high fever develops; seek emergency care if severe respiratory distress occurs\n- Testing: Arrange for rapid antigen detection test or throat culture to confirm streptococcal infection if possible"
+}

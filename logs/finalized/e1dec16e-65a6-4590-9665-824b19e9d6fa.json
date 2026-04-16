@@ -1,0 +1,121 @@
+{
+  "packet_id": "fbc12d89-7dcb-469d-a438-211fc9764310",
+  "created_at": "2026-02-20T20:56:12.684653+00:00",
+  "session_id": "e1dec16e-65a6-4590-9665-824b19e9d6fa",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain with breathing, coughing, or movement?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney stones or urinary symptoms like pain or blood in urine?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol and it really didn't help much",
+    "intake_q8": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent travel, sick contacts, or exposure to tuberculosis or other infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://www.nhs.uk/conditions/back-pain/",
+        "https://www.nhs.uk/conditions/sciatica/",
+        "https://www.nhs.uk/conditions/medically-unexplained-symptoms/",
+        "https://www.nhs.uk/conditions/cystitis/",
+        "https://www.nhs.uk/conditions/costochondritis/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately three weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, pain with breathing, coughing, or movement. There are no urinary symptoms, numbness, weakness, or tingling in the legs or feet. She has no history of cancer, osteoporosis, or recent steroid use, and no recent travel or exposure to infections. She has tried acetaminophen (Tylenol) without significant relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is mechanical back pain localized to the left lower rib cage area, likely musculoskeletal in origin given the absence of red flag symptoms such as fever, neurological deficits, or systemic signs. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Costovertebral joint dysfunction \n3. Intercostal muscle strain \n4. Early presentation of rib fracture or contusion (less likely without trauma) \n\nP:\nTreatment:\nFirst-line treatment for mechanical back pain includes NSAIDs such as Ibuprofen 400-600 mg orally every 6-8 hours as needed for pain, not to exceed 2400 mg per day. Alternatives include Acetaminophen 500-1000 mg orally every 4-6 hours as needed, not to exceed 3000 mg per day, or topical analgesics like Diclofenac gel applied to the affected area up to 4 times daily.\n\nTesting:\nNo imaging is indicated at this time given the absence of red flag symptoms. If symptoms persist or worsen, consider follow-up imaging to rule out other conditions.\n\nReturn precautions:\nThe patient should return if they experience any new red flag symptoms such as fever, significant neurological deficits, or if the pain worsens despite treatment.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "AAFP: Mechanical Low Back Pain",
+        "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "snippet": "This source provides guidelines on the evaluation and management of mechanical low back pain, which is relevant to the patient's diagnosis."
+      },
+      {
+        "title": "AAFP: VA/DoD Low Back Pain Guideline Summary",
+        "source": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+        "snippet": "This guideline summary discusses the management of low back pain and includes information on red flags, which is pertinent given the patient's presentation."
+      },
+      {
+        "title": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)",
+        "source": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+        "snippet": "This source addresses the appropriate use of imaging in low back pain cases, helping to identify when further evaluation is necessary."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "Back pain - NHS",
+      "source": "https://www.nhs.uk/conditions/back-pain/",
+      "snippet": "n your lower back You can call 111 or get help from 111 online . Immediate action required: Call 999 or go to A&E if: You have back pain and: pain, tingling, weakness or numbness in both legs numbness or tingling around your genitals or buttocks difficulty peeing loss of bladder or bowel control (peeing or pooing yourself) chest pain it started after a serio…"
+    },
+    {
+      "title": "Sciatica - NHS",
+      "source": "https://www.nhs.uk/conditions/sciatica/",
+      "snippet": "﻿ Sciatica - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Sciatica Sciatica happens when the sciatic nerve, which runs from your lower back to your feet, is irritated or compressed. It usually…"
+    },
+    {
+      "title": "Medically unexplained symptoms - NHS",
+      "source": "https://www.nhs.uk/conditions/medically-unexplained-symptoms/",
+      "snippet": "﻿ Medically unexplained symptoms - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Medically unexplained symptoms Many people have persistent physical symptoms, such as dizziness or pain, that do…"
+    },
+    {
+      "title": "Cystitis - NHS",
+      "source": "https://www.nhs.uk/conditions/cystitis/",
+      "snippet": "stitis and your symptoms have not gone away within 3 days your symptoms have not gone away after treatment with antibiotics you have severe cystitis symptoms, such as severe pain in your lower tummy you get cystitis symptoms frequently you have symptoms of cystitis and you're pregnant or you're a man your child has symptoms of cystitis Urgent advice: Ask for…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    }
+  ],
+  "state": null
+}

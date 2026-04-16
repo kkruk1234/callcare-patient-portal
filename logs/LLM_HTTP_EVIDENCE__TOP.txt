@@ -1,0 +1,221 @@
+80: def llm_http_evidence(
+81:     *,
+82:     chief_complaint: str,
+83:     diagnosis_hint: Optional[str] = None,
+84:     context: Optional[str] = None,
+85:     assessment_text: Optional[str] = None,
+86:     min_urls: int = 4,
+87:     max_urls: int = 6,
+88:     timeout_s: int = 12,
+89:     max_queries: int = 2,
+90:     title_fetch_n: int = 10,
+91:     debug: bool = False,
+92:     max_per_publisher: int = 2,
+93:     trace_fn: Optional[callable] = None,
+94:     **_ignored,
+95: ) -> List[EvidenceRef]:
+96:     if OpenAI is None:
+97:         raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+98: 
+99:     cc = (chief_complaint or "").strip()
+100:     if not cc:
+101:         raise ValueError("chief_complaint is required")
+102: 
+103:     # Clinical anchor priority (generic): assessment_text > diagnosis_hint/context > complaint.
+104:     anchor = (assessment_text or "").strip() or (diagnosis_hint or "").strip() or (context or "").strip() or cc
+105:     anchor = _shorten(anchor, 200)
+106: 
+107:     keywords = _extract_keywords(anchor)
+108: 
+109:     # If we have a richer anchor (assessment/differential), require more matches to reduce drift.
+110:     min_matches = 3 if (assessment_text and len(keywords) >= 6) else 2
+111: 
+112:     client = OpenAI(timeout=60)
+113: 
+114:     candidate_urls: List[str] = []
+115:     seen = set()
+116: 
+117:     for q in _build_queries(anchor=anchor):
+118:         _cc_q_used = 0  # speed cap (queries)
+119: 
+120:         urls = _openai_web_search_urls(client=client, query=q, debug=debug)
+121:         for u in urls:
+122:             nu = _normalize_url(u)
+123:             if not nu:
+124:                 continue
+125:             if _is_blocked(nu):
+126:                 continue
+127:             if not _is_allowed(nu):
+128:                 continue
+129:             if nu in seen:
+130:                 continue
+131:             seen.add(nu)
+132:             candidate_urls.append(nu)
+133:         _cc_q_used += 1
+134:         if _cc_q_used >= max_queries:
+135:             break
+136: 
+137:         if len(candidate_urls) >= 60:
+138:             break
+139: 
+140:     if len(candidate_urls) < min_urls:
+141:         for q in _build_fallback_queries(anchor=anchor):
+142:             urls = _openai_web_search_urls(client=client, query=q, debug=debug)
+143:             for u in urls:
+144:                 nu = _normalize_url(u)
+145:                 if not nu or _is_blocked(nu) or (not _is_allowed(nu)) or nu in seen:
+146:                     continue
+147:                 seen.add(nu)
+148:                 candidate_urls.append(nu)
+149:             if len(candidate_urls) >= 60:
+150:                 break
+151: 
+152:     ranked_urls = _rank_urls(candidate_urls, keywords=keywords)
+153: 
+154:     today = date.today().isoformat()
+155: 
+156:     candidates: List[dict] = []
+157:     for i_url, url in enumerate(ranked_urls):
+158:         if i_url < int(title_fetch_n):
+159:             title = _fetch_title(url, timeout_s=timeout_s) or _fallback_title_from_url(url)
+160:         else:
+161:             title = _fallback_title_from_url(url)
+162:         pub = _publisher_from_url(url)
+163:         candidates.append({"title": title, "source": pub, "url": url, "accessed": today, "snippet": ""})
+164:         if len(candidates) >= 30:
+165:             break
+166: 
+167:     filtered: List[dict] = []
+168:     for r in candidates:
+169:         if _keyword_relevant(keywords=keywords, title=str(r.get("title") or ""), url=str(r.get("url") or r.get("source") or ""), min_matches=min_matches):
+170:             filtered.append(r)
+171: 
+172:     
+173:     # Diversity-first selection:
+174:     # 1) Take at most 1 per publisher until we reach min_urls.
+175:     # 2) If still short, relax diversity (up to max_per_publisher) to reach max_urls.
+176:     final: List[dict] = []
+177:     counts: Dict[str, int] = {}
+178: 
+179:     # Pass 1: strict diversity (1 per publisher)
+180:     for r in filtered:
+181:         pub = str(r.get("source") or "").strip() or "Source"
+182:         key = pub
+183:         if counts.get(key, 0) >= 1:
+184:             continue
+185:         counts[key] = counts.get(key, 0) + 1
+186:         final.append(r)
+187:         if len(final) >= min_urls or len(final) >= max_urls:
+188:             break
+189: 
+190:     # Pass 2: relax diversity if needed (up to max_per_publisher)
+191:     if len(final) < min_urls:
+192:         for r in filtered:
+193:             if r in final:
+194:                 continue
+195:             pub = str(r.get("source") or "").strip() or "Source"
+196:             key = pub
+197:             if counts.get(key, 0) >= max_per_publisher:
+198:                 continue
+199:             counts[key] = counts.get(key, 0) + 1
+200:             final.append(r)
+201:             if len(final) >= min_urls or len(final) >= max_urls:
+202:                 break
+203: 
+204:     # HARD FLOOR: if still below min_urls, backfill from candidates (still allowlisted)
+205:     if len(final) < min_urls:
+206:         seen_urls = set(str(x.get("url") or "").strip() for x in final if isinstance(x, dict))
+207:         for r in candidates:
+208:             if len(final) >= min_urls:
+209:                 break
+210:             u = str(r.get("url") or "").strip()
+211:             if not u or u in seen_urls:
+212:                 continue
+213:             seen_urls.add(u)
+214:             final.append(r)
+215: 
+216:     return final
+217: 
+218: 
+219: def format_evidence_lines(evs: Sequence[EvidenceRef]) -> List[str]:
+220:     lines: List[str] = []
+221:     for e in evs:
+222:         title = _clean_sentence(e.get('title') if isinstance(e, dict) else e.title)
+223:         publisher = _clean_sentence((e.get('publisher') if isinstance(e, dict) else getattr(e, 'publisher', '')) or (e.get('source') if isinstance(e, dict) else getattr(e, 'source', '')))
+224:         url = ((e.get('url') if isinstance(e, dict) else getattr(e, 'url', None)) or (e.get('source') if isinstance(e, dict) else getattr(e, 'source', '')) or '').strip()
+225:         accessed = ((e.get('accessed') if isinstance(e, dict) else getattr(e, 'accessed', '')) or '').strip()
+226:         lines.append(f"{title}. {publisher}. {url}. Accessed {accessed}.")
+227:     return lines
+228: 
+229: 
+230: def _openai_web_search_urls(*, client: Any, query: str, debug: bool) -> List[str]:
+231:     resp = client.responses.create(
+232:         model="gpt-4o-mini",
+233:         input=query,
+234:         tools=[{"type": "web_search_preview"}],
+235:         tool_choice={"type": "web_search_preview"},
+236:         include=["web_search_call.action.sources"],
+237:     )
+238: 
+239:     output = getattr(resp, "output", None) or []
+240:     urls: List[str] = []
+241: 
+242:     for item in output:
+243:         itype = getattr(item, "type", None) or (item.get("type") if isinstance(item, dict) else None)
+244:         if itype != "web_search_call":
+245:             continue
+246: 
+247:         action = _get(item, "action", default={})
+248:         sources = _get(action, "sources", default=[]) or []
+249: 
+250:         for s in sources:
+251:             u = _get(s, "url", default=None)
+252:             if u:
+253:                 urls.append(str(u))
+254: 
+255:         if debug:
+256:             try:
+257:                 slen = len(sources)
+258:             except Exception:
+259:                 slen = -1
+260:             print(f"[DEBUG web_search] query={query!r} action.sources_len={slen} urls_extracted={len(urls)}")
+261: 
+262:     return _dedupe_keep_order(urls)
+263: 
+264: 
+265: def _get(obj: Any, key: str, default: Any = None) -> Any:
+266:     if obj is None:
+267:         return default
+268:     if isinstance(obj, dict):
+269:         return obj.get(key, default)
+270:     return getattr(obj, key, default)
+271: 
+272: 
+273: def _dedupe_keep_order(items: Iterable[str]) -> List[str]:
+274:     out: List[str] = []
+275:     seen = set()
+276:     for x in items:
+277:         if x in seen:
+278:             continue
+279:         seen.add(x)
+280:         out.append(x)
+281:     return out
+282: 
+283: 
+284: def _build_queries(*, anchor: str) -> List[str]:
+285:     """
+286:     Generic query templates ONLY.
+287:     No condition/anatomy hardcoding.
+288:     """
+289:     a = anchor.strip()
+290:     return [
+291:         f"{a} treatment",
+292:         f"{a} red flags",
+293:         f"{a} pain relief dosing",
+294:         f"{a} analgesics dosing acetaminophen ibuprofen",
+295:         f"{a} patient information",
+296:         f"{a} guideline",
+297:         f"{a} NHS",
+298:         f"{a} MedlinePlus",
+299:         f"{a} Merck Manual",
+300:         f"{a} NICE",

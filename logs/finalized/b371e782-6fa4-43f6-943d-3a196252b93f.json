@@ -1,0 +1,136 @@
+{
+  "packet_id": "2206a7de-96eb-40fc-9de1-a006fc764b22",
+  "created_at": "2026-02-20T18:34:12.579038+00:00",
+  "session_id": "b371e782-6fa4-43f6-943d-3a196252b93f",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what were the effects?",
+    "intake_a7": "I tried tylenol and it didn't help much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the quality of the pain and whether it changes with movement or breathing?",
+    "intake_a10": "dull ache and is improved with arching my back for better posture",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "https://www.nhs.uk/conditions/back-pain/",
+        "https://medlineplus.gov/druginfo/meds/a607001.html",
+        "https://www.nhs.uk/conditions/cystitis/",
+        "https://www.nhs.uk/conditions/costochondritis/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She describes the pain as a dull ache that improves with arching her back to improve posture. There is no history of recent trauma, fever, chills, weight loss, respiratory symptoms, numbness, tingling, weakness, urinary symptoms, or abdominal pain. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of cancer, osteoporosis, or recent steroid use. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is mechanical back pain localized to the left lower rib cage area, likely musculoskeletal in origin given the absence of red flag symptoms and improvement with postural changes. \n\nDifferential: \n1. Mechanical musculoskeletal back pain \n2. Costovertebral joint dysfunction or rib strain \n3. Early intercostal muscle strain \n4. Less likely visceral causes such as referred pain from abdominal organs (no supporting symptoms)\n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain relief and inflammation reduction. \n- Alternatives: Acetaminophen may be continued if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with renal or liver disease (not present here). Avoid NSAIDs if gastrointestinal bleeding risk is high. Monitor for side effects such as gastrointestinal upset. \n- Return precautions: Advise patient to seek immediate care if she develops new symptoms such as fever, unexplained weight loss, worsening pain unrelieved by medication, neurological symptoms (numbness, weakness), or urinary symptoms. \n- Testing: No imaging or laboratory testing indicated at this time given absence of red flag symptoms. Reassess if symptoms persist beyond 6 weeks or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "﻿ Back pain - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Back pain Back pain, particularly lower back pain, is very common. It usually improves within a few weeks but can sometimes last longer or…"
+      },
+      {
+        "title": "AAFP: Mechanical Low Back Pain",
+        "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "snippet": "pain and use of health care. Educating patients on prognosis and incorporating psychosocial components of care such as identifying comorbid psychological problems and barriers to treatment are essential components of long-term management. Mechanical low back pain refers to back pain that arises intrinsically from the spine, intervertebral disks, or surroundi…"
+      },
+      {
+        "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+        "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      },
+      {
+        "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+        "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+      },
+      {
+        "title": "Cystitis - NHS",
+        "source": "https://www.nhs.uk/conditions/cystitis/",
+        "snippet": "stitis and your symptoms have not gone away within 3 days your symptoms have not gone away after treatment with antibiotics you have severe cystitis symptoms, such as severe pain in your lower tummy you get cystitis symptoms frequently you have symptoms of cystitis and you're pregnant or you're a man your child has symptoms of cystitis Urgent advice: Ask for…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    },
+    {
+      "title": "Back pain - NHS",
+      "source": "https://www.nhs.uk/conditions/back-pain/",
+      "snippet": "n your lower back You can call 111 or get help from 111 online . Immediate action required: Call 999 or go to A&E if: You have back pain and: pain, tingling, weakness or numbness in both legs numbness or tingling around your genitals or buttocks difficulty peeing loss of bladder or bowel control (peeing or pooing yourself) chest pain it started after a serio…"
+    },
+    {
+      "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+      "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+    },
+    {
+      "title": "Cystitis - NHS",
+      "source": "https://www.nhs.uk/conditions/cystitis/",
+      "snippet": "stitis and your symptoms have not gone away within 3 days your symptoms have not gone away after treatment with antibiotics you have severe cystitis symptoms, such as severe pain in your lower tummy you get cystitis symptoms frequently you have symptoms of cystitis and you're pregnant or you're a man your child has symptoms of cystitis Urgent advice: Ask for…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    }
+  ],
+  "state": null
+}

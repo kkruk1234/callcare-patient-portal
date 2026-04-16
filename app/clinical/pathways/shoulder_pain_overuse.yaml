@@ -1,0 +1,34 @@
+id: shoulder_pain_overuse
+version: 0.1
+match:
+  any_keywords: ["shoulder pain", "rotator cuff", "shoulder strain", "impingement"]
+questions:
+  - id: trauma
+    prompt: "Did this start after a fall or direct injury? (yes/no)"
+    store_as: trauma
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_fracture_or_dislocation"]
+
+  - id: weakness
+    prompt: "Is the arm very weak or can you not lift it at all? (yes/no)"
+    store_as: weakness
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["severe_function_loss"]
+
+  - id: chest
+    prompt: "Any chest pain, shortness of breath, or sweating with this pain? (yes/no)"
+    store_as: chest
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_cardiac_referred_pain"]
+
+stop_rules:
+  - if_all_answered: ["trauma","weakness","chest"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

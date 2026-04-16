@@ -1,0 +1,64 @@
+{
+  "packet_id": "680fc01a-999e-4279-9613-b6379553aeb3",
+  "created_at": "2026-01-23T18:44:48.445836+00:00",
+  "session_id": "8a227738-dde5-4017-8d32-7e10f2b0f47f",
+  "chief_complaint": "red and swollen leg",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "dvt_possible",
+  "answers": {
+    "pregnancy_possible": "no",
+    "renal_disease": "no",
+    "leg_sort_discriminator": "calf pain",
+    "unilateral_swelling": "yes",
+    "dvt_symptom_cluster": "all",
+    "clot_risk_factors_1": "long travel with little movement",
+    "clot_risk_factors_2": "none",
+    "pe_symptoms_now": "neither",
+    "pain_out_of_proportion": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 43-year-old adult presenting with a red and swollen leg, specifically with unilateral calf pain and tenderness. The patient reports all symptoms consistent with deep vein thrombosis (DVT) and has a risk factor of recent long travel with little movement. There are no symptoms suggestive of pulmonary embolism at this time. The patient has no known medication allergies and no history of renal disease. Patient is not pregnant.\n\nO:\nNo physical exam or vital signs available due to phone-only history. The patient reports unilateral swelling, calf pain, and tenderness without skin break or infection. No pain out of proportion noted.\n\nA:\n - Working diagnosis (most likely):\n   Deep vein thrombosis (DVT) of the left or right calf.\n - Differential:\n  1. Deep vein thrombosis (DVT)\n  2. Cellulitis (less likely given no skin break or infection)\n  3. Muscle strain or injury\n  4. Venous insufficiency or thrombophlebitis\n - Red flags considered:\n   Signs of pulmonary embolism (none reported), severe pain out of proportion (none), signs of infection (none).\n\nP:\n - Disposition:\n   Urgent evaluation recommended for physical examination and diagnostic testing (e.g., Doppler ultrasound) to confirm or exclude DVT.\n - Plan:\n   Advise patient to seek urgent in-person evaluation for imaging and management. If DVT is confirmed, anticoagulation therapy will be initiated by the treating physician.\n - Safety net:\n   Instruct patient to seek emergency care immediately if they develop chest pain, sudden shortness of breath, hemoptysis, or worsening leg pain/swelling.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "NICE guideline NG158: Venous thromboembolic diseases: diagnosis, management and thrombophilia testing (covers Wells score, D-dimer, ultrasound for suspected DVT/PE)",
+        "source": "https://www.nice.org.uk/guidance/ng158",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng158"
+      },
+      {
+        "title": "NICE NG158 Context (summary of diagnostic approach incl. Wells score, D-dimer, imaging for suspected DVT/PE)",
+        "source": "https://www.nice.org.uk/guidance/ng158/chapter/Context",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng158/chapter/Context"
+      },
+      {
+        "title": "AAFP: Diagnosis of Deep Venous Thrombosis and Pulmonary Embolism (clinical review; use of clinical prediction + D-dimer + ultrasound)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2007/0301/p709.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2007/0301/p709.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "NICE guideline NG158: Venous thromboembolic diseases: diagnosis, management and thrombophilia testing (covers Wells score, D-dimer, ultrasound for suspected DVT/PE)",
+      "source": "https://www.nice.org.uk/guidance/ng158",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng158"
+    },
+    {
+      "title": "NICE NG158 Context (summary of diagnostic approach incl. Wells score, D-dimer, imaging for suspected DVT/PE)",
+      "source": "https://www.nice.org.uk/guidance/ng158/chapter/Context",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng158/chapter/Context"
+    },
+    {
+      "title": "AAFP: Diagnosis of Deep Venous Thrombosis and Pulmonary Embolism (clinical review; use of clinical prediction + D-dimer + ultrasound)",
+      "source": "https://www.aafp.org/pubs/afp/issues/2007/0301/p709.html",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2007/0301/p709.html"
+    }
+  ]
+}

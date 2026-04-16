@@ -1,0 +1,118 @@
+{
+  "packet_id": "8a148586-7c4b-42ca-a799-225180a172de",
+  "created_at": "2026-02-01T18:08:38.100438+00:00",
+  "session_id": "446f5614-372e-4162-82c1-9c4c184ca2b3",
+  "chief_complaint": "pain when peeing",
+  "age_band": "",
+  "pregnancy_possible": "not_applicable",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the pain with urination start?",
+    "intake_a1": "2 days ago",
+    "intake_q2": "Any fever, chills, or back pain?",
+    "intake_a2": "yes",
+    "intake_q3": "Can you describe the fever and chills—how high is the fever and are you experiencing shaking chills or sweats?",
+    "intake_a3": "mild chills and l01 fever",
+    "intake_q4": "Any nausea, vomiting, or abdominal pain?",
+    "intake_a4": "no",
+    "intake_q5": "Any history of kidney problems, urinary tract infections, or recent urinary procedures?",
+    "intake_a5": "no",
+    "intake_q6": "Are you experiencing any pain or tenderness in your lower back or sides?",
+    "intake_a6": "no",
+    "intake_q7": "Any blood in your urine or unusual discharge?",
+    "intake_a7": "no",
+    "intake_q8": "Any difficulty urinating, such as weak stream or inability to urinate?",
+    "intake_a8": "no",
+    "intake_q9": "Any vaginal or penile itching, burning, or unusual discharge?",
+    "intake_a9": "a little itching and burning",
+    "intake_q10": "Any sexual activity or new sexual partners recently?",
+    "intake_a10": "no",
+    "age_years": 14,
+    "weight_raw": "100 lbs",
+    "weight_units": "lb",
+    "weight_kg": 45.4,
+    "allergies": "none",
+    "sex_at_birth": "male",
+    "pregnancy_possible": "not_applicable",
+    "pregnancy": "not_applicable",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "pregnancy status is yes/unknown (avoid teratogenic options unless explicitly appropriate)"
+      ],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/urinary-tract-infections-utis/",
+        "https://www.nhs.uk/conditions/hydronephrosis/",
+        "https://www.nhs.uk/conditions/kidney-infection/",
+        "https://www.nhs.uk/conditions/autosomal-recessive-polycystic-kidney-disease-arpkd/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S:  \nThe patient is a 14-year-old male presenting with a 2-day history of pain during urination. He reports mild fever of 101°F accompanied by chills but denies nausea, vomiting, abdominal pain, back or flank pain, hematuria, or urinary retention. He notes some itching and burning but no unusual discharge or recent sexual activity. There is no history of kidney problems, urinary tract infections, or recent urinary procedures.\n\nO:  \nPhone evaluation only; no physical exam or vital signs beyond reported mild fever of 101°F and chills.\n\nA:  \nThe working diagnosis is an acute lower urinary tract infection (cystitis) given dysuria, mild fever, and chills without flank pain or systemic toxicity.  \nDifferential:  \n1. Acute cystitis (urinary tract infection)  \n2. Urethritis (non-sexually transmitted)  \n3. Early pyelonephritis (less likely without flank pain)  \n4. Irritative voiding symptoms from local irritation or minor trauma  \n\nP:  \n - First-line medication: Nitrofurantoin 50 mg orally every 6 hours for 5 days; avoid if severe renal impairment (eGFR <30) as renal/hepatic dosing adjustments not specified in evidence (EVID_1).  \n - Alternatives:  \n   - Trimethoprim-sulfamethoxazole (TMP-SMX) 160/800 mg orally twice daily for 3 days; avoid if sulfa allergy or severe renal impairment.  \n   - Cephalexin 500 mg orally twice daily for 5–7 days; verify dosing in renal impairment.  \n - Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease reported. Confirm renal function if concerns arise before prescribing nitrofurantoin or alternatives.  \n - Return precautions: Advise to seek urgent care if fever worsens, develops flank pain, inability to urinate, severe abdominal pain, vomiting, or if symptoms do not improve within 48–72 hours.  \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Urinary tract infections (UTIs) - NHS",
+        "source": "https://www.nhs.uk/conditions/urinary-tract-infections-utis/",
+        "snippet": "ight (nocturia) needing to pee suddenly or more urgently than usual pee that looks cloudy blood in your pee lower tummy pain or pain in your back, just under the ribs a high temperature, or feeling hot or cold, and shivery a very low temperature below 36C feeling tired or weak Your pee may also be dark or smell. If this is your only symptom, it might be because you've not been drinking enough water.\nSymptoms in children Children with UTIs may also:\nhave a high temperature – your child is feeling hotter than usual if you touch their neck, back or tummy appear generally unwell – babies and young children may be irritable and not feed, eat or dr"
+      },
+      {
+        "title": "Hydronephrosis - NHS",
+        "source": "https://www.nhs.uk/conditions/hydronephrosis/",
+        "snippet": "﻿ \nHydronephrosis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nHydronephrosis \nHydronephrosis is where one or both of your kidneys become swollen up from a build-up of pee. It needs treatment as soon as possible to avoid any long-term problems.\nSymptoms of hydronephrosis \nThe symptoms of hydronephrosis may include:\npain in the lower back, side or tummy (abdomen) needing to pee more often than usual difficulty peeing pee that looks cloudy blood in your pee a high temperature, or feeling hot, cold or shivery Hydronephrosis is also common in unborn babies, which is known as antenatal hydronephrosis.\nAntenatal hydronephrosis does not usually cause any symptoms in the mother or baby during pregnancy.\nUrgent advice: Ask fo"
+      },
+      {
+        "title": "Kidney infection - NHS",
+        "source": "https://www.nhs.uk/conditions/kidney-infection/",
+        "snippet": "﻿ \nKidney infection\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nKidney infection \nA kidney infection is a painful type of urinary tract infection that can affect one or both kidneys. It can be serious if it&#x27;s not treated.\nSymptoms of a kidney infection \nSymptoms of a kidney infection can include:\na high temperature feeling or being sick pain in your lower back or side diarrhoea aching muscles and flu-like symptoms pain, burning or stinging when you pee needing to pee more often and urgently than usual pee that's dark or cloudy Symptoms in young children may also include:\nwetting the bed or themselves being drowsy A child under 2 years may only have a high temperature.\nThe symptoms may be similar to symptoms of"
+      },
+      {
+        "title": "Autosomal recessive polycystic kidney disease - NHS",
+        "source": "https://www.nhs.uk/conditions/autosomal-recessive-polycystic-kidney-disease-arpkd/",
+        "snippet": "oblems, including:\nunderdeveloped lungs, which can cause severe breathing difficulties soon after birth high blood pressure (hypertension) excessive peeing and thirst problems with blood flow through the liver, which can lead to serious internal bleeding a progressive loss of kidney function, known as chronic kidney disease (CKD) When these problems develop and how severe they are can vary considerably, even between family members with the condition.\nRead more about the symptoms of ARPKD  and diagnosing ARPKD .\nEven though ARPKD is rare, it's one of the most common kidney problems to affect young children.\nIt's estimated around 1 in 20,000 ba"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Urinary tract infections (UTIs) - NHS",
+      "source": "https://www.nhs.uk/conditions/urinary-tract-infections-utis/",
+      "snippet": "ight (nocturia) needing to pee suddenly or more urgently than usual pee that looks cloudy blood in your pee lower tummy pain or pain in your back, just under the ribs a high temperature, or feeling hot or cold, and shivery a very low temperature below 36C feeling tired or weak Your pee may also be dark or smell. If this is your only symptom, it might be because you've not been drinking enough water.\nSymptoms in children Children with UTIs may also:\nhave a high temperature – your child is feeling hotter than usual if you touch their neck, back or tummy appear generally unwell – babies and young children may be irritable and not feed, eat or dr"
+    },
+    {
+      "title": "Hydronephrosis - NHS",
+      "source": "https://www.nhs.uk/conditions/hydronephrosis/",
+      "snippet": "﻿ \nHydronephrosis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nHydronephrosis \nHydronephrosis is where one or both of your kidneys become swollen up from a build-up of pee. It needs treatment as soon as possible to avoid any long-term problems.\nSymptoms of hydronephrosis \nThe symptoms of hydronephrosis may include:\npain in the lower back, side or tummy (abdomen) needing to pee more often than usual difficulty peeing pee that looks cloudy blood in your pee a high temperature, or feeling hot, cold or shivery Hydronephrosis is also common in unborn babies, which is known as antenatal hydronephrosis.\nAntenatal hydronephrosis does not usually cause any symptoms in the mother or baby during pregnancy.\nUrgent advice: Ask fo"
+    },
+    {
+      "title": "Kidney infection - NHS",
+      "source": "https://www.nhs.uk/conditions/kidney-infection/",
+      "snippet": "﻿ \nKidney infection\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nKidney infection \nA kidney infection is a painful type of urinary tract infection that can affect one or both kidneys. It can be serious if it&#x27;s not treated.\nSymptoms of a kidney infection \nSymptoms of a kidney infection can include:\na high temperature feeling or being sick pain in your lower back or side diarrhoea aching muscles and flu-like symptoms pain, burning or stinging when you pee needing to pee more often and urgently than usual pee that's dark or cloudy Symptoms in young children may also include:\nwetting the bed or themselves being drowsy A child under 2 years may only have a high temperature.\nThe symptoms may be similar to symptoms of"
+    },
+    {
+      "title": "Autosomal recessive polycystic kidney disease - NHS",
+      "source": "https://www.nhs.uk/conditions/autosomal-recessive-polycystic-kidney-disease-arpkd/",
+      "snippet": "oblems, including:\nunderdeveloped lungs, which can cause severe breathing difficulties soon after birth high blood pressure (hypertension) excessive peeing and thirst problems with blood flow through the liver, which can lead to serious internal bleeding a progressive loss of kidney function, known as chronic kidney disease (CKD) When these problems develop and how severe they are can vary considerably, even between family members with the condition.\nRead more about the symptoms of ARPKD  and diagnosing ARPKD .\nEven though ARPKD is rare, it's one of the most common kidney problems to affect young children.\nIt's estimated around 1 in 20,000 ba"
+    }
+  ]
+}

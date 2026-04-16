@@ -1,0 +1,10 @@
+{
+  "title": "SAMS User FAQs | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/sams/sams-user-faq.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "es from vendor software or csv procedure denominator files)? \nNo, NHSN&rsquo;s migration to SAMS will not affect your facility&rsquo;s ability to import data, whether you import CDA files from vendor software or you import your procedure denominator data using the csv file import option, as SAMS is only a gateway to access the NHSN application.\nTop of Page \nWill this migration affect how I navigate within the NHSN application? \nNo, it will not affect your ability to navigate within NHSN as SAMS is only a gateway to access NHSN.\nTop of Page \nWill my grid card be mailed to me at my facility? \nYour SAMS grid card will be delivered to your home address via US Mail.\nTop of Page \nI&rsquo;m an NHSN facility administrator who already accesses NHSN via SAMS and I&rsquo;m about to hire a new IP. When I add her as a new user in in my NHSN facility, do I have to ask CDC to invite her to SAMS? \nNo. After the SAMS pilot phase is completed and general migration of NHSN users to SAMS begins, any person who is added as a new user in NHSN will automatically be invited to SAMS instead of being instructed to apply for a digital certificate.\nTop of Page \nWhen will the migration of all NHSN users to SAMS will be completed? \nNHSN expects to begin our general migration of all NHSN users to SAMS in late 2013. We are planning a gradual migration since we will be limited by the number of SAMS application",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_sams_sams_user_faq_html_f0a62040f019",
+  "chunk_id": "chunk_010"
+}

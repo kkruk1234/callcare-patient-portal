@@ -1,0 +1,105 @@
+{
+  "packet_id": "23bc082c-de12-43d6-ae59-02aadb349ce9",
+  "created_at": "2026-01-25T21:59:19.375795+00:00",
+  "session_id": "21c4207f-44c7-45e1-ad64-c73c6b865fc1",
+  "chief_complaint": "my period cramps are so bad I feel faint",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "menstrual_pain_severe",
+  "answers": {
+    "timing_cycle": "during my period",
+    "pregnancy_possibility": "no",
+    "med_exclusions": "none of these",
+    "bleeding_or_faint": "soaking tampons very quickly, passing large clots and feeling faint",
+    "ectopic_redflags": "none of these",
+    "fever_discharge": "none of these",
+    "functional_impact": "severe"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Ibuprofen",
+      "dosing": "400–600 mg PO q6–8h PRN with food (max per labeling; short course)",
+      "sig": "400–600 mg PO q6–8h PRN with food (max per labeling; short course)",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "NSAIDs are first-line for dysmenorrhea if no contraindications.",
+      "exclusions": "Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "menstrual_pain_severe",
+      "source_file": "data/protocols/meds/menstrual_pain_severe.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Naproxen",
+      "dosing": "500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)",
+      "sig": "500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "Alternative NSAID option.",
+      "exclusions": "Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "menstrual_pain_severe",
+      "source_file": "data/protocols/meds/menstrual_pain_severe.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Acetaminophen",
+      "dosing": "650–1000 mg PO q6–8h PRN (max per labeling)",
+      "sig": "650–1000 mg PO q6–8h PRN (max per labeling)",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "Use when NSAIDs contraindicated; may be less effective alone.",
+      "exclusions": "Severe liver disease; heavy alcohol use; allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "menstrual_pain_severe",
+      "source_file": "data/protocols/meds/menstrual_pain_severe.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 23-year-old woman presenting with severe menstrual cramps occurring during her period. She reports soaking tampons very quickly, passing large clots, and feeling faint. There are no reported fever, abnormal discharge, or ectopic pregnancy red flags. The symptoms are causing severe functional impact. She has no medication allergies and no exclusions for treatment. Patient is not pregnant.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Severe primary dysmenorrhea with heavy menstrual bleeding (menorrhagia)\n - Differential:\n  1. Secondary dysmenorrhea due to underlying pathology (e.g., fibroids, adenomyosis)\n  2. Coagulopathy contributing to heavy bleeding\n  3. Endometrial pathology (e.g., polyps)\n  4. Less likely but consider early pregnancy complications despite reported no pregnancy possibility\n - Red flags considered: None reported (no ectopic pregnancy signs, no fever, no abnormal discharge)\n\nP:\n - Disposition: Urgent care management via phone; recommend follow-up with primary care or gynecology for further evaluation including physical exam and possible imaging if symptoms persist or worsen.\n - Plan: Ibuprofen — 400–600 mg PO q6–8h PRN with food (max per labeling; short course). Alternative: Naproxen (500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Ibuprofen — 400–600 mg PO q6–8h PRN with food (max per labeling; short course)\n     - Notes: NSAIDs are first-line for dysmenorrhea if no contraindications.\n     - Exclusions: Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy.\n   - Naproxen — 500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)\n     - Notes: Alternative NSAID option.\n     - Exclusions: Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk; anticoagulation; NSAID allergy.\n   - Acetaminophen — 650–1000 mg PO q6–8h PRN (max per labeling)\n     - Notes: Use when NSAIDs contraindicated; may be less effective alone.\n     - Exclusions: Severe liver disease; heavy alcohol use; allergy.\n   - Supportive care:\n   - Non-pharmacologic: Heat pack to lower abdomen; gentle activity/stretching; hydration.\n   - Assess pregnancy possibility: If pregnancy is possible or period is abnormal for patient, consider pregnancy evaluation rather than assuming dysmenorrhea.\n   - Follow-up and safety:\n   - Re-evaluation: If severe pain is new, progressively worsening, associated with heavy bleeding, syncope, fever, pelvic pain between cycles, or concern for secondary dysmenorrhea—needs evaluation.\n   - Urgent/ED now: Fainting, severe one-sided pelvic pain, suspected pregnancy/ectopic, soaking >1 pad/hour, severe weakness, or signs of shock.\n   1. Initiate NSAIDs for pain control, such as ibuprofen 400-600 mg every 6-8 hours as needed, unless contraindicated.\n   2. Consider tranexamic acid for heavy bleeding if no contraindications.\n   3. Advise monitoring bleeding amount and symptoms closely.\n   4. If symptoms worsen, fainting episodes increase, or new symptoms develop, seek urgent in-person evaluation.\n - Safety net: Instruct patient to seek emergency care if she experiences severe dizziness, syncope, chest pain, shortness of breath, or heavy bleeding with passage of tissue or clots causing hemodynamic instability.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "ACOG Committee Opinion: Dysmenorrhea and Endometriosis in the Adolescent (2018)",
+        "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/12/dysmenorrhea-and-endometriosis-in-the-adolescent",
+        "snippet": "Listed in pathway manifest https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/12/dysmenorrhea-and-endometriosis-in-the-adolescent"
+      },
+      {
+        "title": "AAFP: Dysmenorrhea (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/0800/p164.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/0800/p164.html"
+      },
+      {
+        "title": "PubMed: ACOG Committee Opinion No. 760 (citation record)",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/30461694/",
+        "snippet": "Listed in pathway manifest https://pubmed.ncbi.nlm.nih.gov/30461694/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "ACOG Committee Opinion: Dysmenorrhea and Endometriosis in the Adolescent (2018)",
+      "source": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/12/dysmenorrhea-and-endometriosis-in-the-adolescent",
+      "snippet": "Listed in pathway manifest https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/12/dysmenorrhea-and-endometriosis-in-the-adolescent"
+    },
+    {
+      "title": "AAFP: Dysmenorrhea (2021)",
+      "source": "https://www.aafp.org/pubs/afp/issues/2021/0800/p164.html",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/0800/p164.html"
+    },
+    {
+      "title": "PubMed: ACOG Committee Opinion No. 760 (citation record)",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/30461694/",
+      "snippet": "Listed in pathway manifest https://pubmed.ncbi.nlm.nih.gov/30461694/"
+    }
+  ]
+}

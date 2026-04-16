@@ -1,0 +1,30 @@
+id: otitis_media
+version: 0.1
+match:
+  any_keywords: ["ear infection", "otitis media", "ear pain with fever", "ear pain child", "pulling at ear", "earache fever"]
+questions:
+  - id: severe
+    prompt: "Is there severe pain, swelling behind the ear, or the ear sticking out more than usual? (yes/no)"
+    store_as: mastoiditis_concern
+    type: yesno
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: drainage
+    prompt: "Any drainage from the ear? (yes/no)"
+    store_as: otorrhea
+    type: yesno
+
+  - id: age_note
+    prompt: "Is this for a child under 2 years old? (yes/no/unknown)"
+    store_as: under2
+
+stop_rules:
+  - if_all_answered: ["severe","fever","drainage","age_note"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,31 @@
+id: stroke_neuro
+version: 0.1
+match:
+  any_keywords: ["stroke", "face droop", "slurred speech", "weakness", "numbness", "one-sided", "confusion", "can't speak", "vision loss", "worst headache"]
+questions:
+  - id: face
+    prompt: "Is there new face droop or an uneven smile? (yes/no)"
+    store_as: face_droop
+    type: yesno
+
+  - id: arm
+    prompt: "Is there new arm or leg weakness or numbness on one side? (yes/no)"
+    store_as: one_sided_weakness
+    type: yesno
+
+  - id: speech
+    prompt: "Is there new slurred speech, trouble speaking, or confusion? (yes/no)"
+    store_as: speech_change
+    type: yesno
+
+  - id: onset
+    prompt: "Did these symptoms start suddenly within the last 24 hours? (yes/no)"
+    store_as: sudden_recent_onset
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["face", "arm", "speech", "onset"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,22 @@
+id: carbon_monoxide_possible
+version: 0.1
+match:
+  any_keywords: ["carbon monoxide", "co exposure", "gas leak", "furnace leak", "headache in house", "everyone feels sick at home"]
+questions:
+  - id: multiple
+    prompt: "Are multiple people in the home feeling sick (headache, nausea, dizziness)? (yes/no)"
+    store_as: multiple_people
+    type: yesno
+  - id: severe
+    prompt: "Any confusion, fainting, chest pressure, or severe shortness of breath? (yes/no)"
+    store_as: severe
+    type: yesno
+  - id: source
+    prompt: "Is there a possible source like a heater, generator, or gas appliance? (yes/no)"
+    store_as: possible_source
+    type: yesno
+stop_rules:
+  - if_all_answered: ["multiple", "severe", "source"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,39 @@
+{
+  "packet_id": "8945f0b7-0f80-408b-af11-2417c0367a40",
+  "created_at": "2026-01-19T02:03:14.539054+00:00",
+  "session_id": "a1cb83d8-257d-4926-ac6d-e58b9db1872f",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old adult female presents with a one-week history of burning urination without fever, flank pain, or vaginal discharge. She denies any systemic symptoms such as chills or malaise. Patient is not pregnant. There are no reported allergies.\n\nO: No physical exam available due to phone-only encounter. No vital signs or laboratory data are available at this time. No signs of systemic infection or complicated urinary tract infection can be assessed remotely.\n\nA:  \n  - Working diagnosis (most likely): Uncomplicated lower urinary tract infection (cystitis)  \n  - Differential: Urethritis, vaginitis, interstitial cystitis, early pyelonephritis (less likely given absence of fever and flank pain)  \n  - Red flags considered: No fever, no flank pain, no vaginal discharge, no systemic symptoms, no pregnancy\n\nP:  \n  - Disposition: Manage as uncomplicated UTI in urgent care setting with close follow-up if symptoms worsen or systemic signs develop.  \n  - Plan: Empiric antibiotic therapy with nitrofurantoin 100 mg twice daily for 5 days, assuming no contraindications; alternatively, trimethoprim-sulfamethoxazole if local resistance patterns allow and no sulfa allergy. Recommend increased fluid intake and symptomatic treatment with phenazopyridine if needed for dysuria. Advise patient to seek in-person evaluation if fever, flank pain, worsening symptoms, or new vaginal discharge develop.  \n  - Safety net: Return or call urgent care/primary care immediately if fever, chills, flank pain, vomiting, or inability to tolerate oral intake occur, or if symptoms persist beyond 48 hours after starting antibiotics.\n\nEvidence (snippets used): None available; clinical decision based on structured answers and standard guidelines.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "IDSA Guideline: Uncomplicated Cystitis and Pyelonephritis",
+        "source": "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/"
+      },
+      {
+        "title": "CDC: Urinary Tract Infection Basics",
+        "source": "https://www.cdc.gov/uti/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/uti/about/index.html"
+      },
+      {
+        "title": "NICE NG109: Urinary Tract Infection (Lower)",
+        "source": "https://www.nice.org.uk/guidance/ng109",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng109"
+      }
+    ]
+  },
+  "evidence": []
+}

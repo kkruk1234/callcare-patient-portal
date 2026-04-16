@@ -1,0 +1,25 @@
+id: angioedema_lip_tongue
+version: 0.1
+match:
+  any_keywords: ["lip swelling", "tongue swelling", "face swelling", "swollen lips", "angioedema"]
+questions:
+  - id: breathing
+    prompt: "Any trouble breathing, throat tightness, or voice changes? (yes/no)"
+    store_as: airway
+    type: yesno
+
+  - id: hives
+    prompt: "Do you also have hives or itching? (yes/no)"
+    store_as: hives
+    type: yesno
+
+  - id: acei
+    prompt: "Are you on a blood pressure medicine like lisinopril? (yes/no/unknown)"
+    store_as: acei_like
+
+stop_rules:
+  - if_all_answered: ["breathing", "hives", "acei"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

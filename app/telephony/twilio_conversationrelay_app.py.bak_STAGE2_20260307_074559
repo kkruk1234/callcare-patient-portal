@@ -1,0 +1,235 @@
+from __future__ import annotations
+
+import json
+import logging
+import os
+from typing import Any, Dict, Optional
+from xml.sax.saxutils import escape as xml_escape
+
+from fastapi import FastAPI, Request, Response, WebSocket, WebSocketDisconnect
+from fastapi.responses import PlainTextResponse
+
+from app.telephony.callcare_bridge import CallCareBridge
+
+log = logging.getLogger("callcare.twilio")
+logging.basicConfig(level=logging.INFO)
+
+app = FastAPI(title="CallCare Twilio ConversationRelay")
+bridge = CallCareBridge()
+
+
+def _env(name: str, default: str = "") -> str:
+    return os.getenv(name, default).strip()
+
+
+def _bool_env(name: str, default: bool = False) -> bool:
+    val = _env(name, "")
+    if not val:
+        return default
+    return val.lower() in {"1", "true", "yes", "on"}
+
+
+def _public_wss_url() -> str:
+    url = _env("CALLCARE_TWILIO_WSS_URL")
+    if not url:
+        raise RuntimeError("CALLCARE_TWILIO_WSS_URL is not set")
+    if not url.startswith("wss://"):
+        raise RuntimeError("CALLCARE_TWILIO_WSS_URL must start with wss://")
+    return url
+
+
+def _conversationrelay_language() -> str:
+    return _env("CALLCARE_TWILIO_LANGUAGE", "en-US")
+
+
+def _conversationrelay_voice() -> str:
+    return _env("CALLCARE_TWILIO_VOICE", "en-US-Wavenet-D")
+
+
+def _conversationrelay_tts_provider() -> str:
+    return _env("CALLCARE_TWILIO_TTS_PROVIDER", "Google")
+
+
+def _build_twiml() -> str:
+    url = xml_escape(_public_wss_url(), {'"': "&quot;"})
+    language = xml_escape(_conversationrelay_language(), {'"': "&quot;"})
+    tts_provider = xml_escape(_conversationrelay_tts_provider(), {'"': "&quot;"})
+    voice = xml_escape(_conversationrelay_voice(), {'"': "&quot;"})
+
+    # Minimal, explicit TwiML.
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        "<Response>"
+        "<Connect>"
+        f'<ConversationRelay url="{url}" language="{language}" ttsProvider="{tts_provider}" voice="{voice}">'
+        '<Parameter name="app" value="callcare" />'
+        '<Parameter name="channel" value="voice" />'
+        "</ConversationRelay>"
+        "</Connect>"
+        "</Response>"
+    )
+
+
+def _validate_ws_signature_if_enabled(websocket: WebSocket) -> bool:
+    """
+    Twilio recommends validating X-Twilio-Signature on the initial WebSocket handshake.
+    For local/dev, this is optional unless TWILIO_VALIDATE_SIGNATURE=1.
+    """
+    if not _bool_env("TWILIO_VALIDATE_SIGNATURE", False):
+        return True
+
+    auth_token = _env("TWILIO_AUTH_TOKEN")
+    if not auth_token:
+        log.warning("TWILIO_VALIDATE_SIGNATURE=1 but TWILIO_AUTH_TOKEN is empty")
+        return False
+
+    try:
+        from twilio.request_validator import RequestValidator
+    except Exception:
+        log.warning("twilio package not installed; cannot validate X-Twilio-Signature")
+        return False
+
+    sig = websocket.headers.get("x-twilio-signature", "")
+    if not sig:
+        log.warning("Missing X-Twilio-Signature header on WebSocket handshake")
+        return False
+
+    url = str(websocket.url)
+    try:
+        validator = RequestValidator(auth_token)
+        ok = validator.validate(url, {}, sig)
+        if not ok:
+            log.warning("Twilio WebSocket signature validation failed for %s", url)
+        return ok
+    except Exception as e:
+        log.exception("Twilio WebSocket signature validation error: %s", e)
+        return False
+
+
+async def _send_text(ws: WebSocket, text: str, *, interruptible: bool = True, preemptible: bool = True) -> None:
+    payload = {
+        "type": "text",
+        "token": text,
+        "last": True,
+        "interruptible": interruptible,
+        "preemptible": preemptible,
+    }
+    await ws.send_text(json.dumps(payload))
+
+
+async def _send_end(ws: WebSocket, reason_code: str = "callcare-complete", reason: str = "CallCare call complete") -> None:
+    payload = {
+        "type": "end",
+        "handoffData": json.dumps(
+            {
+                "reasonCode": reason_code,
+                "reason": reason,
+            }
+        ),
+    }
+    await ws.send_text(json.dumps(payload))
+
+
+@app.get("/healthz")
+async def healthz() -> PlainTextResponse:
+    return PlainTextResponse("ok")
+
+
+@app.post("/twilio/voice")
+async def twilio_voice(_: Request) -> Response:
+    xml = _build_twiml()
+    return Response(content=xml, media_type="application/xml")
+
+
+@app.websocket("/twilio/conversationrelay")
+async def conversationrelay_ws(websocket: WebSocket) -> None:
+    if not _validate_ws_signature_if_enabled(websocket):
+        await websocket.close(code=1008)
+        return
+
+    await websocket.accept()
+
+    active_call_sid: Optional[str] = None
+
+    try:
+        while True:
+            raw = await websocket.receive_text()
+            msg: Dict[str, Any] = json.loads(raw)
+            msg_type = str(msg.get("type") or "").strip().lower()
+
+            if msg_type == "setup":
+                call_sid = str(msg.get("callSid") or "").strip()
+                active_call_sid = call_sid
+                from_number = str(msg.get("from") or "").strip()
+                to_number = str(msg.get("to") or "").strip()
+
+                _, opening = bridge.start_session(
+                    call_sid=call_sid,
+                    from_number=from_number,
+                    to_number=to_number,
+                )
+                await _send_text(websocket, opening)
+                continue
+
+            if msg_type == "prompt":
+                if not active_call_sid:
+                    await _send_text(
+                        websocket,
+                        "We couldn't initialize your call session. Please hang up and try again.",
+                    )
+                    await _send_end(websocket, reason_code="missing-session", reason="No active call session")
+                    continue
+
+                voice_prompt = str(msg.get("voicePrompt") or "").strip()
+                is_last = bool(msg.get("last", True))
+
+                if voice_prompt:
+                    bridge.append_partial_prompt(active_call_sid, voice_prompt)
+
+                if not is_last:
+                    continue
+
+                full_prompt = bridge.consume_partial_prompt(active_call_sid)
+                result = bridge.handle_prompt_text(active_call_sid, full_prompt)
+
+                await _send_text(websocket, result.say)
+
+                if result.done:
+                    await _send_end(websocket, reason_code="callcare-complete", reason="CallCare intake complete")
+                    bridge.end_session(active_call_sid)
+                    active_call_sid = None
+
+                continue
+
+            if msg_type == "dtmf":
+                digit = str(msg.get("digit") or "").strip()
+                if active_call_sid and digit:
+                    result = bridge.handle_prompt_text(active_call_sid, digit)
+                    await _send_text(websocket, result.say)
+                    if result.done:
+                        await _send_end(websocket, reason_code="callcare-complete", reason="CallCare intake complete")
+                        bridge.end_session(active_call_sid)
+                        active_call_sid = None
+                continue
+
+            if msg_type == "interrupt":
+                # For the first pass, do nothing. ConversationRelay handles barge-in on Twilio's side.
+                continue
+
+            if msg_type == "error":
+                log.warning("ConversationRelay error message: %s", msg)
+                continue
+
+            log.info("Ignoring unsupported ConversationRelay message type: %s", msg_type)
+
+    except WebSocketDisconnect:
+        if active_call_sid:
+            bridge.end_session(active_call_sid)
+    except Exception:
+        log.exception("ConversationRelay WebSocket handler failed")
+        try:
+            await websocket.close(code=1011)
+        except Exception:
+            pass
+        if active_call_sid:
+            bridge.end_session(active_call_sid)

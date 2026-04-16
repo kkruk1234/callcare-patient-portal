@@ -1,0 +1,50 @@
+{
+  "packet_id": "bedd4ebe-266a-4919-ad3a-1bcdc5222360",
+  "created_at": "2026-03-27T20:54:02.684737+00:00",
+  "session_id": "520434bb-4534-43e7-b612-da6ebc99f799",
+  "pathway_id": "",
+  "base_queries": [
+    "anxiety disorder diagnosis and management guidelines adults",
+    "adult anxiety treatment medication dosing contraindications",
+    "anxiety red flags and when to seek emergency care"
+  ],
+  "queries": [
+    "AAFP anxiety disorder diagnosis and management guidelines adults",
+    "AAFP adult anxiety treatment medication dosing contraindications",
+    "MedlinePlus anxiety disorder diagnosis and management guidelines adults",
+    "MedlinePlus adult anxiety treatment medication dosing contraindications",
+    "CDC anxiety disorder diagnosis and management guidelines adults",
+    "CDC adult anxiety treatment medication dosing contraindications",
+    "NIH anxiety disorder diagnosis and management guidelines adults",
+    "NIH adult anxiety treatment medication dosing contraindications",
+    "NICE anxiety disorder diagnosis and management guidelines adults",
+    "NICE adult anxiety treatment medication dosing contraindications",
+    "WHO anxiety disorder diagnosis and management guidelines adults",
+    "WHO adult anxiety treatment medication dosing contraindications"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Diagnosis and Management of Generalized Anxiety Disorder and Panic Disorder in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/afp/2015/0501/p617.html",
+      "accessed": "2026-03-27",
+      "snippet": "Psychotherapy includes many different approaches, such as cognitive behavior therapy (CBT) and applied relaxation ( Table 5 ) . 33 , 34 CBT may use applied relaxation, exposure therapy, breathing, cognitive restructuring, or education. Psychotherapy is as effective as medication for GAD and PD. 11 Although existing evidence is insufficient to draw conclusions about many psychotherapeutic interventions, structured CBT interventions have consistently proven effective for the treatment of anxiety in the primary care setting. 34 – 36 Psychotherapy may be used alone or combined with medication as first-line treatment for PD 37 and GAD, 11 based on patient preference. Psychotherapy should be performed weekly for at least eight weeks to assess its effect."
+    },
+    {
+      "title": "Anxiety disorders - Diagnosis and treatment - Mayo Clinic",
+      "source": "mayoclinic.org",
+      "url": "https://www.mayoclinic.org/diseases-conditions/anxiety/diagnosis-treatment/drc-20350967",
+      "accessed": "2026-03-27",
+      "snippet": ""
+    },
+    {
+      "title": "Generalized Anxiety Disorder and Panic Disorder in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0800/generalized-anxiety-disorder-panic-disorder.html",
+      "accessed": "2026-03-27",
+      "snippet": "Generalized anxiety disorder (GAD) and panic disorder (PD) are common mental health conditions in adults that are often seen in primary care. Although there is insufficient evidence to support universal screening for PD and GAD, evaluation should be considered in patients who express recurrent, pervasive worry or present with somatic symptoms not attributed to underlying medical conditions. The GAD-7 and Patient Health Questionnaire for PD are validated screening tools that can aid in diagnosis and assessment. Anxiety disorders often present with substance use disorders, which should be treated concurrently. Effective therapies for PD and GAD include cognitive behavior therapy and anti-depressants, including selective serotonin reuptake inhibitors and serotonin-norepinephrine reuptake inhibitors. Benzodiazepines are not recommended for first-line therapy or long-term use because of adver"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old man presenting with ongoing anxiety symptoms that have been intermittent. He describes classic anxiety manifestations including a racing heart, sweating, a pervasive feeling of doom, muscle twitchiness, and occasional hyperventilation-related shortness of breath. He reports recent life stressors including dissatisfaction with his job and changes in his spouse's employment. He has experienced panic attacks with sudden intense symptom peaks. Appetite fluctuates, and he feels occasional hopelessness but denies suicidal ideation. He has tried deep breathing and counting backwards as coping strategies but no pharmacologic treatments recently. No history of heart problems or other medical conditions is reported.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is generalized anxiety disorder with panic attacks, likely exacerbated by recent psychosocial stressors.\nDifferential:\n1. Panic disorder\n2. Major depressive disorder with anxious features\n3. Thyroid dysfunction\n4. Substance-induced anxiety\n\nP: \n- First-line medication: Sertraline 50 mg orally once daily (Physician must verify medication/dosing)\n- Alternatives: Buspirone 10 mg orally twice daily (Physician must verify medication/dosing)\n- Medication safety considerations: Patient allergic to penicillin; no renal or liver disease; no pregnancy risk; monitor for side effects and efficacy\n- Follow-up recommendations: Seek in-person medical care urgently if suicidal thoughts develop, symptoms worsen significantly, or new concerning symptoms arise\n- Testing: Consider thyroid function tests and basic metabolic panel to rule out medical causes of anxiety"
+}

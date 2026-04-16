@@ -1,0 +1,31 @@
+id: nausea_vomiting
+label: Nausea and vomiting
+
+match:
+  any_keywords: ["nausea", "vomiting", "throwing up", "emesis"]
+
+questions:
+  - id: duration
+    prompt: "How long have you had nausea or vomiting? (hours, 1 day, 2–3 days, >3 days)"
+    type: text
+    store_as: duration
+
+  - id: dehydration
+    prompt: "Are you unable to keep down fluids or urinating much less than usual? (yes/no)"
+    type: yesno
+    store_as: dehydration
+
+  - id: blood
+    prompt: "Any blood in vomit or black stools? (yes/no)"
+    type: yesno
+    store_as: gi_bleed
+
+  - id: abdominal
+    prompt: "Do you have severe or worsening belly pain? (yes/no)"
+    type: yesno
+    store_as: abdominal_pain
+
+  - id: pregnancy
+    prompt: "Is pregnancy possible right now? (yes/no/unknown)"
+    type: text
+    store_as: pregnancy_possible

@@ -1,0 +1,18 @@
+# Clinician-facing medication/dosing protocol for: constipation_child
+# Tier 1: reviewer must approve/modify.
+# Put guideline-backed meds + dosing here as text.
+# Include exclusions (pregnancy, allergies, renal risk, red flags), and alternatives.
+
+rx_options:
+  - med: ""
+    dosing: ""
+    exclusions: ""
+    notes: ""
+
+supportive_care:
+  - item: ""
+    details: ""
+
+followup_and_safety:
+  - item: ""
+    details: ""

@@ -1,0 +1,44 @@
+{
+  "packet_id": "c7e46eef-9820-427e-8de8-1b41ba7a1f76",
+  "created_at": "2026-01-19T15:36:30.754517+00:00",
+  "session_id": "440a7b30-fe8b-432b-8cb3-90408df508cb",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old male presents with burning urination. He reports no fever, no flank pain, and no testicular pain. No systemic symptoms reported. There are no known medication allergies. Pregnancy status is not captured.\n\nO: No physical exam available due to phone-only encounter. Vital signs and physical findings are not available. No laboratory results are available at this time.\n\nA:  \n  - Working diagnosis (most likely): UTI in male (complicated by definition)  \n  - Differential: male dysuria—UTI vs urethritis (GC/CT) vs prostatitis  \n  - Red flags considered: fever, flank pain, testicular pain—all denied\n\nP:  \n  - Disposition: Patient is appropriate for urgent care or primary care evaluation with laboratory testing.  \n  - Plan: Recommend urine analysis and urine culture to confirm UTI and guide antibiotic therapy. Also recommend STI testing (GC/CT) given differential including urethritis. Empiric antibiotic therapy can be considered after testing, with agents appropriate for male UTI and local resistance patterns. If prostatitis is suspected clinically later, treatment duration and antibiotic choice may differ. Advise hydration and symptomatic management.  \n  - Safety net: Instruct patient to seek urgent care if fever, worsening pain, flank pain, testicular pain, or systemic symptoms develop. If symptoms worsen or fail to improve within 48–72 hours after starting treatment, return for reassessment.\n\nEvidence (snippets used):  \n- sex_at_birth: male  \n- fever: no  \n- flank: no  \n- testicular: no  \n- age_years: 35  \n- med_allergies: none",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aao.org/",
+        "snippet": "Listed in pathway manifest https://www.aao.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": []
+}

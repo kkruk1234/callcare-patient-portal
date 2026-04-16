@@ -1,0 +1,118 @@
+{
+  "packet_id": "eb2a4425-54db-441c-98d4-892574ee5b6e",
+  "created_at": "2026-02-21T16:16:02.553730+00:00",
+  "session_id": "c307dbea-4802-462a-9fb3-02a9f1d270f9",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "back pain",
+    "intake_q2": "When did your back pain start?",
+    "intake_a2": "3 weeks ago",
+    "intake_q3": "Can you describe where exactly your back pain is located?",
+    "intake_a3": "left side lower rib cage",
+    "intake_q4": "Any pain radiating to your abdomen, groin, or legs?",
+    "intake_a4": "no",
+    "intake_q5": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a5": "no",
+    "intake_q6": "What makes your back pain better or worse?",
+    "intake_a6": "good posture makes it better and leaning against the area sitting makes it worse",
+    "intake_q7": "Have you had any recent injuries, falls, or heavy lifting before the pain started?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of kidney stones, urinary tract infections, or other kidney problems?",
+    "intake_a8": "no",
+    "intake_q9": "Any numbness, weakness, or changes in bowel or bladder function?",
+    "intake_a9": "no",
+    "intake_summary": "A patient presents with 3 weeks of left lower rib cage back pain without radiation, systemic symptoms, or neurological deficits. Pain improves with good posture and worsens with leaning against the area. No history of trauma or kidney issues.",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with a 3-week history of left-sided lower rib cage back pain. The pain does not radiate to the abdomen, groin, or legs and is not associated with fever, chills, or unexplained weight loss. The pain improves with maintaining good posture and worsens when leaning against the affected area while sitting. There is no history of recent injury, falls, or heavy lifting. The patient denies any numbness, weakness, or changes in bowel or bladder function. There is no history of kidney stones, urinary tract infections, or other kidney problems. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical examination, vital signs, or diagnostic testing available at this time.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely related to posture or mechanical strain. There are no signs of systemic illness or neurological involvement.\n\nDifferential: \n1. Musculoskeletal strain or myofascial pain \n2. Costovertebral joint dysfunction \n3. Intercostal muscle strain or inflammation \n4. Early presentation of rib fracture or contusion (less likely without trauma)\n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. \n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; ensure appropriate dosing and duration. Acetaminophen should be used within recommended daily limits to avoid hepatotoxicity. \n- Return precautions: Advise the patient to seek immediate care if she develops new symptoms such as fever, chills, worsening or spreading pain, numbness, weakness, bowel or bladder dysfunction, or if pain becomes severe and unresponsive to medication. \n- Testing: No immediate testing indicated; consider imaging if symptoms persist beyond 6 weeks, worsen, or if red flags develop.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://nhs.uk/conditions/back-pain",
+        "snippet": "Find out how to relieve back pain, what can cause it, and when to get medical advice."
+      },
+      {
+        "title": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE",
+        "source": "https://nice.org.uk/guidance/ng59",
+        "snippet": "Authoritative clinical reference (see source)."
+      },
+      {
+        "title": "Alteration of microRNA Expression Associated with Chronic Back Pain in Patients with Intervertebral Disc Degeneration: A Scoping Review - PubMed",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/41683594",
+        "snippet": "Chronic back pain (CBP) associated with intervertebral disc degeneration (IVDD) is a leading cause of medical consultations, decreased quality of life, and temporary and permanent disability. The mechanisms of CBP development and persistence in patients with IVDD have been studied for many years, bu …"
+      },
+      {
+        "title": "Immunometabolism: A Novel Therapeutic Target and Its Pharmacological Modulation for Intervertebral Disc Degeneration - PubMed",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/41683563",
+        "snippet": "Intervertebral disc degeneration (IDD) is a leading cause of low back pain (LBP) and imposes a substantial social and economic burden. Current treatments mainly relieve symptoms but rarely halt or reverse disc degeneration, and key gaps remain in our understanding of its pathophysiology. Accordingly …"
+      },
+      {
+        "title": "Effectiveness of epidural steroid injections for low back pain in older adults: a systematic review - PubMed",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/41653389",
+        "snippet": "Not Applicable."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back pain - NHS",
+      "source": "https://nhs.uk/conditions/back-pain",
+      "snippet": "Find out how to relieve back pain, what can cause it, and when to get medical advice."
+    },
+    {
+      "title": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE",
+      "source": "https://nice.org.uk/guidance/ng59",
+      "snippet": "Authoritative clinical reference (see source)."
+    },
+    {
+      "title": "Alteration of microRNA Expression Associated with Chronic Back Pain in Patients with Intervertebral Disc Degeneration: A Scoping Review - PubMed",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41683594",
+      "snippet": "Chronic back pain (CBP) associated with intervertebral disc degeneration (IVDD) is a leading cause of medical consultations, decreased quality of life, and temporary and permanent disability. The mechanisms of CBP development and persistence in patients with IVDD have been studied for many years, bu …"
+    },
+    {
+      "title": "Immunometabolism: A Novel Therapeutic Target and Its Pharmacological Modulation for Intervertebral Disc Degeneration - PubMed",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41683563",
+      "snippet": "Intervertebral disc degeneration (IDD) is a leading cause of low back pain (LBP) and imposes a substantial social and economic burden. Current treatments mainly relieve symptoms but rarely halt or reverse disc degeneration, and key gaps remain in our understanding of its pathophysiology. Accordingly …"
+    },
+    {
+      "title": "Effectiveness of epidural steroid injections for low back pain in older adults: a systematic review - PubMed",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41653389",
+      "snippet": "Not Applicable."
+    }
+  ],
+  "state": null
+}

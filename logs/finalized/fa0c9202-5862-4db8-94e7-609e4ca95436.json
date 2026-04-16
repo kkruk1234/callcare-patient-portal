@@ -1,0 +1,43 @@
+{
+  "packet_id": "fa0c9202-5862-4db8-94e7-609e4ca95436",
+  "created_at": "2026-03-08T14:02:34.291932+00:00",
+  "session_id": "78ffd0c7-47f0-4047-855c-98bfc2b43baa",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for unknown chief complaint in adult patients",
+    "adult medication dosing and contraindications for undiagnosed symptoms",
+    "red flags and return precautions for undiagnosed symptoms in adults"
+  ],
+  "queries": [
+    "AAFP management guidelines for unknown chief complaint in adult patients",
+    "AAFP adult medication dosing and contraindications for undiagnosed symptoms",
+    "MedlinePlus management guidelines for unknown chief complaint in adult patients",
+    "MedlinePlus adult medication dosing and contraindications for undiagnosed symptoms",
+    "CDC management guidelines for unknown chief complaint in adult patients",
+    "CDC adult medication dosing and contraindications for undiagnosed symptoms",
+    "NIH management guidelines for unknown chief complaint in adult patients",
+    "NIH adult medication dosing and contraindications for undiagnosed symptoms",
+    "NICE management guidelines for unknown chief complaint in adult patients",
+    "NICE adult medication dosing and contraindications for undiagnosed symptoms",
+    "WHO management guidelines for unknown chief complaint in adult patients",
+    "WHO adult medication dosing and contraindications for undiagnosed symptoms"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Taming the Problem List | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/fpm/issues/2023/0500/problem-list.html",
+      "accessed": "2026-03-08",
+      "snippet": "When a condition is no longer active but affects the future management of a patient, a PCP can keep it on the list but give it a “History of” designation. For example, a patient diagnosed with deep vein thrombosis (DVT) gets “DVT” on their problem list. When DVT is no longer present but the patient is continuing on anticoagulants, the diagnosis changes to “History of DVT” and stays on the problem list because of the importance of anticoagulation management. The same is true for gastrointestinal (GI) bleeding. Once resolved, the problem becomes “History of GI bleed” and remains on the problem list because of its implications for medication selection. If a patient is on a medication for a specific condition, that condition should remain on the problem list as well, but giving it a “History of” designation helps quickly differentiate it from active problems. This is different than “resolvin"
+    },
+    {
+      "title": "Don’t initiate medications to treat symptoms, adverse events, or side effects without determining if an existing therapy or lack of adherence is the cause, and whether a dosage reduction, discontinuation of a medication, or another medication is warranted. | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/collections/choosing-wisely/337.html",
+      "accessed": "2026-03-08",
+      "snippet": "Rationale and Comments New medications should not be initiated without taking into consideration patient compliance with their preexisting medication and whether their current dose is effective at controlling/treating symptoms. Medications are often prescribed to treat symptoms that are really side effects of other medications without determining if the preexisting medication is truly needed or could be discontinued."
+    }
+  ],
+  "note_text": "S: The patient engaged in a telephone encounter but did not provide any specific symptoms or complaints during the call. No subjective information regarding current health status or concerns was obtained.\n\nO: Not assessed due to phone-only interaction and lack of reported symptoms.\n\nA: No working diagnosis can be established in the absence of reported symptoms or clinical findings.\nDifferential:\n  1. Not applicable\n  2. Not applicable\n  3. Not applicable\n  4. Not applicable\n\nP: - First-line medication: Not applicable\n- Alternatives: Not applicable\n- Medication safety considerations: Not applicable\n- Follow-up recommendations: Advise patient to seek in-person medical care urgently if any new or worsening symptoms develop or if there is any concern for acute illness.\n- Testing: Not applicable"
+}

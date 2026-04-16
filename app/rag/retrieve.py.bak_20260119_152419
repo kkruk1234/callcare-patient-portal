@@ -1,0 +1,27 @@
+import json
+import os
+import numpy as np
+import faiss
+from app.clinical.embeddings import get_embedder  # EMBED_HARDEN_PATCH_V1
+
+OUT_DIR = "data/index"
+MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+
+_model = get_embedder()  # EMBED_HARDEN_PATCH_V1
+
+_index = faiss.read_index(os.path.join(OUT_DIR, "faiss.index"))
+
+with open(os.path.join(OUT_DIR, "docs.json"), "r", encoding="utf-8") as f:
+    _DOCS = json.load(f)
+
+
+def retrieve(query: str, k: int = 5):
+    q = _model.encode([query]).astype("float32")
+    faiss.normalize_L2(q)
+    scores, ids = _index.search(q, k)
+
+    results = []
+    for score, idx in zip(scores[0], ids[0]):
+        d = _DOCS[int(idx)]
+        results.append({"score": float(score), "source": d["source"], "text": d["text"]})
+    return results

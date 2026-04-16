@@ -1,0 +1,16 @@
+{
+  "id": "auto_1771695152777",
+  "query": "Musculoskeletal strain or sprain ibuprofen dosing naproxen dosing adult maximum daily dose",
+  "sources": [
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK65949.1/table/CDR0000062738__373/?report=objectonly",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK560692/",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

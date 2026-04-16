@@ -1,0 +1,64 @@
+{
+  "packet_id": "92605c1b-08c0-45b1-893d-97b5d005332b",
+  "created_at": "2026-03-27T13:45:47.769122+00:00",
+  "session_id": "0000db2e-6d59-4333-b3f1-3a2c44647395",
+  "pathway_id": "",
+  "base_queries": [
+    "wrist pain and tingling diagnosis and management guidelines",
+    "adult wrist pain treatment dosing and contraindications",
+    "red flags and return precautions for wrist pain with tingling"
+  ],
+  "queries": [
+    "AAFP wrist pain and tingling diagnosis and management guidelines",
+    "AAFP adult wrist pain treatment dosing and contraindications",
+    "MedlinePlus wrist pain and tingling diagnosis and management guidelines",
+    "MedlinePlus adult wrist pain treatment dosing and contraindications",
+    "CDC wrist pain and tingling diagnosis and management guidelines",
+    "CDC adult wrist pain treatment dosing and contraindications",
+    "NIH wrist pain and tingling diagnosis and management guidelines",
+    "NIH adult wrist pain treatment dosing and contraindications",
+    "NICE wrist pain and tingling diagnosis and management guidelines",
+    "NICE adult wrist pain treatment dosing and contraindications",
+    "WHO wrist pain and tingling diagnosis and management guidelines",
+    "WHO adult wrist pain treatment dosing and contraindications"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Management of Carpal Tunnel Syndrome | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2003/0715/p265.html",
+      "accessed": "2026-03-27",
+      "snippet": "A randomized, double-blind trial 23 compared oral corticosteroid therapy and local corticosteroid injection in 60 patients with electrophysiologically confirmed carpal tunnel syndrome. In this study, 30 patients were treated with local injection of 15 mg of methylprednisolone plus oral placebo; the other 30 patients received 25 mg of orally administered prednisolone for 10 days plus a saline injection. Mean global symptom scores for the two groups did not differ significantly at two weeks. At eight and 12 weeks, however, significant improvement was evident only in the methylprednisolone injection group."
+    },
+    {
+      "title": "Diagnosis and treatment - Mayo Clinic",
+      "source": "mayoclinic.org",
+      "url": "https://www.mayoclinic.org/diseases-conditions/carpal-tunnel-syndrome/diagnosis-treatment/drc-20355608",
+      "accessed": "2026-03-27",
+      "snippet": "Skip to content Care at Mayo Clinic Patient-Centered Care About Mayo Clinic Request Appointment Find a Doctor Locations Clinical Trials Connect to Support Groups Patient & Visitor Guide Billing & Insurance Departments & Centers International Services Contact Us Patient & Visitor Guide Health Library Diseases & Conditions Symptoms Tests & Procedures Drugs & Supplements Healthy Lifestyle Mayo Clinic Health Letter & Books Mayo Clinic Health Letter & Books For Medical Professionals Medical Professional Resources Refer a Patient Continuing Medical Education Mayo Clinic Laboratories Video Center Journals & Publications Mayo Clinic Alumni Association Continuing Medical Education Research & Education at Mayo Clinic Research Research at Mayo Clinic Research Faculty Laboratories Core Facilities Centers & Programs Departments & Divisions Clinical Trials Institutional Review Board Postdoctoral Fello"
+    },
+    {
+      "title": "Carpal Tunnel Syndrome - Rheumatology and Orthopedics - Merck Manual Professional Edition",
+      "source": "merckmanuals.com",
+      "url": "https://www.merckmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/hand-disorders/carpal-tunnel-syndrome",
+      "accessed": "2026-03-27",
+      "snippet": "If these measures do not control symptoms, treatment options are management with surgical decompression or injection of a glucocorticoid. Symptom recovery is significantly better with initial surgical treatment regardless of symptom severity, and nearly half of patients treated with injection therapy went on to have surgery in a large trial ( 1 ). However, some patients may prefer an initial injection approach. Surgery involves decompression of the median nerve at the carpal tunnel using an open or endoscopic technique. For steroid injection, a mixture of an anesthetic and a glucocorticoid (eg, 1.5 mL of a 4-mg/mL dexamethasone solution mixed with 1.5 mL of 1% lidocaine ) is injected into the carpal tunnel at a site just ulnar to the palmaris longus tendon and proximal to the distal crease at the wrist. This is more often effective for milder or pregnancy-related carpal tunnel syndrome."
+    },
+    {
+      "title": "Carpal Tunnel Syndrome - StatPearls - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK448179/",
+      "accessed": "2026-03-27",
+      "snippet": "When initial conservative therapy proves ineffective, additional options may involve a combination of splinting with a glucocorticoid injection. Patients who prefer to avoid injections may find relief from a brief course of oral prednisone, typically administered at a dosage of 20 mg daily for 10 to 14 days. Extended use of oral glucocorticoids is discouraged due to potential adverse effects."
+    },
+    {
+      "title": "Carpal Tunnel Syndrome | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2011/0415/p952.html",
+      "accessed": "2026-03-27",
+      "snippet": "Management of carpal tunnel syndrome should be based on severity. Patients with mild to moderate carpal tunnel syndrome have normal to mildly abnormal nerve conduction study and electromyography findings. Severe disease is suggested by worsening clinical symptoms and clearly abnormal electrodiagnostic studies ( Table 4 ) . Six weeks to three months of conservative treatment is reasonable in patients with mild disease. 14 Cock-up and neutral wrist splints and oral corticosteroids are considered first-line therapies, with local corticosteroid injections used for refractory symptoms. Patients with moderate to severe disease, or those with persistent symptoms despite conservative treatment, may be referred for surgical evaluation. 15"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old man who reports sharp wrist pain that occurs specifically when writing. He denies any swelling, bruising, or visible deformity. There is no history of recent trauma, but he has been playing a lot of pickleball recently. He also describes tingling in his index finger, middle finger, and possibly the thumb, which only occurs during writing. He notes some difficulty gripping heavy objects with those fingers but no generalized weakness.\n\nO: Phone encounter only; no physical examination or vital signs available.\n\nA: The working diagnosis is likely a repetitive strain injury or nerve compression syndrome affecting the wrist and hand, possibly related to overuse from pickleball and writing.\nDifferential:\n1. Median nerve compression (carpal tunnel syndrome)\n2. Tendinitis or tenosynovitis of wrist extensors or flexors\n3. Cervical radiculopathy\n4. Early osteoarthritis or joint inflammation of the wrist\n\nP: - First-line medication: Naproxen 500 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Ibuprofen 400 mg orally every 6-8 hours as needed for pain for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient has no known renal or liver disease; allergy to \"Ten is Ellen\" unclear—verify allergy details before prescribing NSAIDs\n- Follow-up recommendations: Seek in-person medical care urgently if worsening pain, numbness, weakness, or loss of hand function occurs; seek emergency care if severe swelling or deformity develops\n- Testing: Consider referral for physical examination and possible nerve conduction studies or wrist imaging if symptoms persist or worsen"
+}

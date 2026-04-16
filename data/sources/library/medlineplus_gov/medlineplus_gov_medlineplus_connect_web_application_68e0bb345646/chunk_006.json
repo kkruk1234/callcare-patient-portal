@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Application",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-application/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "t string that you send to display the best drug information match. For requests for Spanish medication information, MedlinePlus Connect responds only to NDCs or RXCUIs; it does not use text strings. It is possible to have a response in English but no response in Spanish.\nThere may be multiple responses to one medication request. There may not always be a match for each request. If MedlinePlus Connect finds a null response for a drug request, the program displays a search box for the MedlinePlus site. A user can type in a drug name and may get a good response.\nFor requests for drug information, the base URL is:\nhttps://connect.medlineplus.gov/application\nRequests for English and Spanish medication information have different requirements. To send a request, include these pieces of information:\nIdentify the type of medication code you are sending. (Required for English and Spanish)\nFor RXCUI use: \nmainSearchCriteria.v.cs=2.16.840.1.113883.6.88 \nFor NDC use: \nmainSearchCriteria.v.cs=2.16.840.1.113883.6.69 \nIdentify the actual code you are trying to look up. (Preferred for English, Required for Spanish) \nmainSearchCriteria.v.c=637188 \nIdentify the name of the drug with a text string. (Optional for English, Not used for Spanish) \nmainSearchCriteria.v.dn=Chantix 0.5 MG Oral Tablet \nFor English requests, you should identify at a minimum the code system and the code, or the code system",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_application_68e0bb345646",
+  "chunk_id": "chunk_006"
+}

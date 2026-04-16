@@ -1,0 +1,137 @@
+{
+  "packet_id": "e320b004-dac0-419f-bb76-9bb0156f9e13",
+  "created_at": "2026-02-09T03:16:06.493716+00:00",
+  "session_id": "24bac08a-c8cf-422c-a2de-e89bda982685",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 weeks ago",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "next to sternum and it doesn't radiate",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or dizziness with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Have you noticed any swelling, redness, or tenderness in your chest or nearby areas?",
+    "intake_a5": "tenderness",
+    "intake_q6": "Have you tried any treatments or medications for the chest pain, and did they help?",
+    "intake_a6": "no",
+    "intake_q7": "Any recent trauma, heavy lifting, or strenuous activity before the chest pain started?",
+    "intake_a7": "heavy lifting",
+    "intake_q8": "Any history of heart disease, blood clots, or lung problems?",
+    "intake_a8": "no",
+    "intake_q9": "Any fever, chills, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the exact location of the tenderness and whether it worsens with movement or palpation?",
+    "intake_a10": "next to my sternum and is worse with palpation",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "yes",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "renal disease status is yes/unknown (dose adjustment / avoid certain meds)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartattack.html",
+        "https://medlineplus.gov/lab-tests/troponin-test/",
+        "https://www.nhs.uk/conditions/pericarditis/",
+        "https://www.nhs.uk/conditions/pulmonary-hypertension/",
+        "https://www.nhs.uk/conditions/heart-attack/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain located next to the sternum that started one week ago. The pain does not radiate and is associated with tenderness that worsens with palpation and movement. There are no accompanying symptoms such as shortness of breath, sweating, nausea, dizziness, fever, chills, or recent infections. The pain began after heavy lifting. The patient has no history of heart disease, blood clots, or lung problems. She has not tried any treatments or medications for the pain. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe clinical presentation is consistent with costochondritis, an inflammation of the costal cartilage causing localized chest wall tenderness and pain exacerbated by palpation and movement, often triggered by physical strain such as heavy lifting. \n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal chest pain (e.g., muscle strain) \n3. Tietze syndrome (costochondritis with swelling) \n4. Cardiac causes (less likely given absence of radiation, systemic symptoms, or risk factors) \n\nP: \n- First-line medication: \n - Acetaminophen 500–1000 mg orally every 6 hours as needed for pain for 7–10 days; safer in renal disease but less anti-inflammatory effect.\n\n- Alternatives: \n - Ibuprofen 400 mg orally every 6–8 hours as needed for pain and inflammation for 7–10 days. Avoid if severe renal impairment; confirm dosing with renal function. (avoid in renal disease; especially severe CKD/dialysis)\n - Naproxen 250–500 mg orally twice daily for 7–10 days; avoid if severe renal impairment. \n - Topical NSAIDs (e.g., diclofenac gel) applied to the affected area 3–4 times daily for 7–10 days; minimal systemic absorption, safer in renal disease. \n\n- Medication safety considerations: \n The patient has renal disease; NSAIDs should be used cautiously and avoided or dose-adjusted if severe renal impairment is present. No known medication allergies or pregnancy risk. Liver disease is not present. \n\n- Return precautions: \n Advise the patient to seek immediate care if chest pain worsens, becomes constant, radiates, or is accompanied by shortness of breath, sweating, nausea, dizziness, or other concerning symptoms. \n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "www.nhs.uk Costochondritis - NHS authoritative_patient_clinician NHS: practical outpatient management language msk_chest_wall_pain 2026-02-08T14:37:23.207462+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "musculoskeletal pain, an injection of a 2-mL mixture of 1 mL of 40 mg/mL of methylprednisolone acetate or equivalent and 1 mL of local anesthetic can work quite well helping to resolve pain if symptoms persist for more than a few months.18 Gaps in the Evidence-Based Knowledge The mechanism of costochondritis is unclear and is often a diagnosis of exclusion.…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "istory and physical examination of the chest that document reproducible pain by palpation over the costal cartilages are usually all that is needed to make the diagnosis in children, adolescents, and young adults. Patients older than 35 years, those with a history or risk of coronary artery disease, and any patient with cardiopulmonary symptoms should have a…"
+      },
+      {
+        "title": "Pericarditis - NHS",
+        "source": "https://www.nhs.uk/conditions/pericarditis/",
+        "snippet": "er when you lean forward You may also have: a high temperature, or feel hot, cold or shivery a cough painful joints If you get pericarditis, it often follows a viral infection like a cold or flu. Urgent advice: Ask for an urgent GP appointment or get help from NHS 111 if: You have chest pain and it: is sharp or stabbing gets worse when you take a deep breath…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/0ab356777c93e3b9/content.txt",
+        "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+      },
+      {
+        "title": "Methotrexate Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a682018.html",
+        "snippet": "e method of birth control during your treatment and for 3 months after your last dose. If you or your partner become pregnant, call your doctor immediately. Methotrexate may cause harm or death to the fetus. Tell your doctor if you have or have ever had excess fluid in your stomach area or in the space around your lungs and if you have or have ever had kidne…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    },
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "er when you lean forward You may also have: a high temperature, or feel hot, cold or shivery a cough painful joints If you get pericarditis, it often follows a viral infection like a cold or flu. Urgent advice: Ask for an urgent GP appointment or get help from NHS 111 if: You have chest pain and it: is sharp or stabbing gets worse when you take a deep breath…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/0ab356777c93e3b9/content.txt",
+      "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+    },
+    {
+      "title": "Pulmonary hypertension - NHS",
+      "source": "https://www.nhs.uk/conditions/pulmonary-hypertension/",
+      "snippet": "tummy (abdomen) The symptoms often get worse during exercise, which can limit your ability to take part in physical activities. If you have a type of pulmonary hypertension known as pulmonary arterial hypertension (PAH), you may not have any symptoms until the condition is quite advanced. When to get medical help See a GP if you have any symptoms of pulmonar…"
+    },
+    {
+      "title": "Heart attack - NHS",
+      "source": "https://www.nhs.uk/conditions/heart-attack/",
+      "snippet": "ack Symptoms of a heart attack can include: chest pain – a feeling of pressure, heaviness, tightness or squeezing across your chest pain in other parts of the body – it can feel as if the pain is spreading from your chest to your arms (usually the left arm, but it can affect both arms), jaw, neck, back and tummy feeling lightheaded or dizzy sweating shortnes…"
+    }
+  ],
+  "state": null
+}

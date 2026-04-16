@@ -1,0 +1,135 @@
+{
+  "packet_id": "b194375b-87a7-4b80-a1d2-cb5b427b1340",
+  "created_at": "2026-02-20T02:58:06.287663+00:00",
+  "session_id": "c6f7f383-9435-41cc-b673-3e52c88a7cb8",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a4": "no",
+    "intake_q5": "Have you had any recent trauma or injury to your back or ribs?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for the pain, and did they help?",
+    "intake_a6": "I tried tylenol and it didn't help much",
+    "intake_q7": "Any recent cough, shortness of breath, or chest pain?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of cancer, recent unexplained weight loss, or immunosuppression?",
+    "intake_a9": "no",
+    "intake_q10": "Have you noticed any swelling, redness, or tenderness over the painful area?",
+    "intake_a10": "tenderness",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://medlineplus.gov/lab-tests/strep-b-test/",
+        "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She reports tenderness over the painful area but denies any fever, chills, night sweats, numbness, weakness, tingling in the legs or feet, recent trauma, cough, shortness of breath, chest pain, urinary symptoms, or history of cancer. She has tried acetaminophen (Tylenol) with minimal relief. There are no signs of systemic illness or neurological deficits. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely mechanical or soft tissue in origin given the absence of systemic symptoms or neurological findings. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Costochondritis or rib inflammation \n3. Intercostal muscle strain \n4. Early herpes zoster (pre-eruption phase) \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n- Alternatives: Acetaminophen may be continued if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation relief. (avoid in renal disease; especially severe CKD/dialysis)\n- Medication safety considerations: Avoid NSAIDs if there is a history of renal disease, liver disease, or gastrointestinal bleeding; use the lowest effective dose for the shortest duration. \n- Return precautions: Advise the patient to seek care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, unexplained weight loss, or if the pain does not improve within 4 weeks. \n- Testing: No imaging or laboratory testing indicated at this time given the absence of red flag symptoms.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "any medicines you take with you. Other ways to get help You may be able to refer yourself for help and treatment, such as physiotherapy, from NHS community musculoskeletal (MSK) services without needing a referral from a GP. Get NHS help for back or joint problems Treatments for back pain If your back pain is severe or not getting better, a GP may prescribe…"
+      },
+      {
+        "title": "Polymyalgia rheumatica - NHS",
+        "source": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/",
+        "snippet": "﻿ Polymyalgia rheumatica - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Polymyalgia rheumatica Contents Overview Symptoms Diagnosis Treatment Polymyalgia rheumatica (PMR) is a condi…"
+      },
+      {
+        "title": "Spondylolisthesis - NHS",
+        "source": "https://www.nhs.uk/conditions/spondylolisthesis/",
+        "snippet": "﻿ Spondylolisthesis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Spondylolisthesis Spondylolisthesis is where one of the bones in your spine, called a vertebra, slips forward. It can be painful,…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      },
+      {
+        "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+        "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "e, clavicle, shoulders, and thoracic and lumbar spine must be included. Movement of the rib cage can be assessed with deep breathing exercises. The effect of upper extremity movement on pain should also be noted, because moving the arm on the affected side will usually cause pain.2,11 Examination should also include auscultation of the heart and lungs, and e…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "e, clavicle, shoulders, and thoracic and lumbar spine must be included. Movement of the rib cage can be assessed with deep breathing exercises. The effect of upper extremity movement on pain should also be noted, because moving the arm on the affected side will usually cause pain.2,11 Examination should also include auscultation of the heart and lungs, and e…"
+    },
+    {
+      "title": "Strep B Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/strep-b-test/",
+      "snippet": "ng Lack of energy (hard to wake up) Irritability Blue-ish skin color Unstable blood pressure (a pattern where the blood pressure suddenly spikes and then falls back to normal) Kidney problems If you are pregnant, you usually do not feel sick or have any symptoms of GBS. Symptoms of bacteremia include: Fever Chills Low alertness Symptoms of pneumonia include:…"
+    },
+    {
+      "title": "AAFP: Mechanical Low Back Pain",
+      "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+      "snippet": "further evaluation or treatment. The presence of red flags that suggest systemic disease or urgent problems warrants additional evaluation before empiric treatment ( Table 1 3 , 5 – 7 ) . A systematic review showed a higher likelihood of fracture with the presence of one or more red flags for trauma (older age, prolonged corticosteroid use, significant traum…"
+    },
+    {
+      "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+      "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "snippet": "tonitis tend to lie very still, whereas those with renal colic seem unable to stay still. Fever suggests infection; however, its absence does not rule it out, especially in patients who are older or immunocompromised. Tachycardia and orthostatic hypotension suggest hypovolemia. The location of pain guides the remainder of the physical examination. Physicians…"
+    }
+  ],
+  "state": null
+}

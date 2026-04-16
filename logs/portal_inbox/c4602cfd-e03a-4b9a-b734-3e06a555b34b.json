@@ -1,0 +1,64 @@
+{
+  "packet_id": "c4602cfd-e03a-4b9a-b734-3e06a555b34b",
+  "created_at": "2026-04-04T14:40:22.806953+00:00",
+  "session_id": "a3b3b006-22d3-4b41-b209-5344c2ba390f",
+  "pathway_id": "",
+  "base_queries": [
+    "acne management guidelines in adolescents",
+    "oral acne treatment dosing and contraindications in teenagers",
+    "red flags and when to refer acne patients to dermatology"
+  ],
+  "queries": [
+    "AAFP acne management guidelines in adolescents",
+    "AAFP oral acne treatment dosing and contraindications in teenagers",
+    "MedlinePlus acne management guidelines in adolescents",
+    "MedlinePlus oral acne treatment dosing and contraindications in teenagers",
+    "CDC acne management guidelines in adolescents",
+    "CDC oral acne treatment dosing and contraindications in teenagers",
+    "NIH acne management guidelines in adolescents",
+    "NIH oral acne treatment dosing and contraindications in teenagers",
+    "NICE acne management guidelines in adolescents",
+    "NICE oral acne treatment dosing and contraindications in teenagers",
+    "WHO acne management guidelines in adolescents",
+    "WHO oral acne treatment dosing and contraindications in teenagers"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Acne Management: Guidelines From the American Academy of Dermatology | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2025/1100/practice-guidelines-acne-management.html",
+      "accessed": "2026-04-04",
+      "snippet": "For moderate to severe acne, oral doxycycline is recommended. Systemic antibiotics should not be used as monotherapy and should be combined with topical benzoyl peroxide and other topical drugs."
+    },
+    {
+      "title": "Overview | Acne vulgaris: management | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng198",
+      "accessed": "2026-04-04",
+      "snippet": "This guideline covers management of acne vulgaris in primary and specialist care. It includes advice on topical and oral treatments (including antibiotics and retinoids), treatment using physical modalities, and the impact of acne vulgaris on mental health and wellbeing."
+    },
+    {
+      "title": "New NICE guidance on acne vulgaris: implications for first-line management in primary care - PMC",
+      "source": "pmc.ncbi.nlm.nih.gov",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8686441/",
+      "accessed": "2026-04-04",
+      "snippet": "Uses and Effects ) 4 Not for use in pregnancy, during breastfeeding or under the age of 12 (see recommendation 1.5.8) Topical adapalene and topical benzoyl peroxide can cause skin irritation (see recommendation 1.5.7), photosensitivity, and bleaching of hair and fabrics Oral antibiotics may cause systemic side effects and antimicrobial resistance Oral tetracyclines can cause photosensitivity Moderate to severe Topical azelaic acid applied twice daily, plus either oral lymecycline or oral doxycycline taken once daily Oral component may be effective in treating affected areas that are difficult to reach with topical treatment (such as the back) Treatment with adequate courses of standard therapy with systemic antibiotics and topical therapy is an MHRA requirement for subsequent oral isotretinoin (see recommendation 1.5.8 and the MHRA alert on Isotretinoin for Severe Acne:"
+    },
+    {
+      "title": "Diagnosis and Treatment of Acne | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2004/0501/p2123.html",
+      "accessed": "2026-04-04",
+      "snippet": "Medication Dosage Cost* (quantity) Side effects Erythromycin stearate (Erythrocin) 250 mg twice daily $4 (30 tablets) Nausea, vomiting, diarrhea, anorexia, abdominal pain and cramps, pruritus, rash, stomatitis, melena, elevated liver transaminase levels, jaundice, eosinophilia 500 mg twice daily Erythromycin base (generic) 250 mg $9 (30 tablets) 500 mg $8 (30 tablets) Doxycycline hyclate (Doryx) 50 mg twice daily $70 (30 capsules) Dyspepsia, nausea, vomiting, anorexia, diarrhea, photosensitivity, stomatitis, discolored teeth (if patient is younger than eight years), esophagitis, lightheadedness, dizziness, vertigo, ataxia, headache, tinnitus, drowsiness, reported pseudotumor cerebri 75 mg twice daily $75 (30 capsules) 100 mg twice daily $76 (30 capsules) Doxycycline (Vibramycin) 50 mg once or twice daily $75 (30 capsules) 100 mg once or twice daily $135 (30 capsules) Doxycycline (generic"
+    },
+    {
+      "title": "Recommendations | Acne vulgaris: management | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng198/chapter/Recommendations",
+      "accessed": "2026-04-04",
+      "snippet": "Can cause skin irritation (see recommendation 1.5.7), photosensitivity, and bleaching of hair and fabrics Moderate to severe Fixed combination of topical adapalene with topical benzoyl peroxide, applied once daily in the evening, plus either oral lymecycline or oral doxycycline taken once daily Oral component may be effective in treating affected areas that are difficult to reach with topical treatment (such as the back) Treatment with adequate courses of standard therapy with systemic antibiotics and topical therapy is a Medicines and Healthcare products Regulatory Agency (MHRA) requirement for subsequent oral isotretinoin, which is only recommended for severe acne (see recommendation 1.5.10 and the MHRA guidance on new safety measures for isotretinoin ) Not for use in pregnancy, during breastfeeding (see recommendation 1.5.8), or under the age of 12 Topical adapalene and topical benzoy"
+    }
+  ],
+  "note_text": "S: The patient is a 14-year-old female who reports having acne that has worsened over the past year. She has tried topical clindamycin prescribed by a dermatologist without side effects but no mention of significant improvement. She denies painful, large, or cystic lesions and has no scarring. She uses Cover Up and Cetaphil foaming face wash regularly. She reports feeling very self-conscious about her acne.\n\nO: Phone encounter only; no physical examination or vital signs available.\n\nA: The working diagnosis is moderate acne vulgaris worsening over the past year without cystic lesions or scarring.\nDifferential:\n1. Acne vulgaris\n2. Hormonal acne\n3. Folliculitis\n4. Rosacea (less likely given age and presentation)\n\nP: - First-line medication: Topical retinoid, e.g., adapalene 0.1% gel, apply once daily at night (Physician must verify medication/dosing)\n- Alternatives: Oral doxycycline 100 mg by mouth twice daily for 6 weeks (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies reported; pregnancy not possible; no renal or liver disease; monitor for photosensitivity with doxycycline\n- Follow-up recommendations: Seek in-person medical care urgently if acne worsens rapidly, develops painful cysts, or signs of infection; otherwise, follow up in 6-8 weeks to assess treatment response\n- Testing: Not indicated at this time based on history and presentation"
+}

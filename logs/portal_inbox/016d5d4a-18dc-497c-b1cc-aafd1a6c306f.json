@@ -1,0 +1,57 @@
+{
+  "packet_id": "016d5d4a-18dc-497c-b1cc-aafd1a6c306f",
+  "created_at": "2026-03-07T13:16:26.016383+00:00",
+  "session_id": "a0aab392-ad6c-4b0e-b538-78f6692aad2d",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat management guidelines adults",
+    "adult sore throat treatment dosing duration contraindications",
+    "red flags sore throat difficulty breathing stridor testing"
+  ],
+  "queries": [
+    "AAFP sore throat management guidelines adults",
+    "AAFP adult sore throat treatment dosing duration contraindications",
+    "MedlinePlus sore throat management guidelines adults",
+    "MedlinePlus adult sore throat treatment dosing duration contraindications",
+    "CDC sore throat management guidelines adults",
+    "CDC adult sore throat treatment dosing duration contraindications",
+    "NIH sore throat management guidelines adults",
+    "NIH adult sore throat treatment dosing duration contraindications",
+    "NICE sore throat management guidelines adults",
+    "NICE adult sore throat treatment dosing duration contraindications",
+    "WHO sore throat management guidelines adults",
+    "WHO adult sore throat treatment dosing duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-07",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/0615/p821.pdf",
+      "accessed": "2026-03-07",
+      "snippet": ""
+    },
+    {
+      "title": "Recommendations | Sore throat (acute): antimicrobial prescribing | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng84/chapter/Recommendations",
+      "accessed": "2026-03-07",
+      "snippet": "250 mg to 500 mg four times a day or 500 mg to 1,000 mg twice a day for 5 days Erythromycin is preferred if a macrolide is needed in pregnancy, for example, if there is true penicillin allergy and the benefits of antibiotic treatment outweigh the harms."
+    },
+    {
+      "title": "Pharyngitis - sore throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000655.htm",
+      "accessed": "2026-03-07",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient reports a sore throat that started 2 days ago, accompanied by fever and chills. They have significant pain with swallowing but no difficulty breathing or swallowing, no cough, runny nose, or rash. They do note swollen glands in the neck and hoarseness. They have tried NyQuil without relief.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute pharyngitis, likely infectious given the fever, chills, sore throat, swollen glands, and hoarseness.\nDifferential:\n1. Viral pharyngitis\n2. Bacterial pharyngitis (including streptococcal infection)\n3. Infectious mononucleosis\n4. Early upper respiratory tract infection\n\nP: - First-line medication: Amoxicillin 500 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Azithromycin 500 mg orally on day 1, then 250 mg daily on days 2-5 (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, renal, or liver disease; monitor for adverse reactions\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, worsening throat pain, inability to swallow, or high fever develops\n- Testing: Throat culture or rapid antigen detection test for Group A Streptococcus if symptoms persist or worsen"
+}

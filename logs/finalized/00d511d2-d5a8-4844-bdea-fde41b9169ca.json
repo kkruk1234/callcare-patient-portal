@@ -1,0 +1,57 @@
+{
+  "packet_id": "00d511d2-d5a8-4844-bdea-fde41b9169ca",
+  "created_at": "2026-03-05T23:43:17.836701+00:00",
+  "session_id": "f50bf00c-1431-4d15-b175-5b6b8195d194",
+  "pathway_id": "",
+  "base_queries": [
+    "back pain management guidelines adult",
+    "adult back pain treatment dosing acetaminophen alternatives",
+    "red flags in adult back pain evaluation"
+  ],
+  "queries": [
+    "AAFP back pain management guidelines adult",
+    "AAFP adult back pain treatment dosing acetaminophen alternatives",
+    "MedlinePlus back pain management guidelines adult",
+    "MedlinePlus adult back pain treatment dosing acetaminophen alternatives",
+    "CDC back pain management guidelines adult",
+    "CDC adult back pain treatment dosing acetaminophen alternatives",
+    "NIH back pain management guidelines adult",
+    "NIH adult back pain treatment dosing acetaminophen alternatives",
+    "NICE back pain management guidelines adult",
+    "NICE adult back pain treatment dosing acetaminophen alternatives",
+    "WHO back pain management guidelines adult",
+    "WHO adult back pain treatment dosing acetaminophen alternatives"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Nonpharmacologic and Pharmacologic Management of Acute Pain From Non-Low Back, Musculoskeletal Injuries in Adults: A Clinical Guideline From the American College of Physicians and American Academy of Family Physicians - PubMed",
+      "source": "pubmed.ncbi.nlm.nih.gov",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32805126/",
+      "accessed": "2026-03-05",
+      "snippet": "ACP and AAFP recommend that clinicians treat patients with acute pain from non-low back, musculoskeletal injuries with topical nonsteroidal anti-inflammatory drugs (NSAIDs) with or without menthol gel as first-line therapy to reduce or relieve symptoms, including pain; improve physical function; and improve the patient's treatment satisfaction (Grade: strong recommendation; moderate-certainty evidence)."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.pdf",
+      "accessed": "2026-03-05",
+      "snippet": "Downloaded from the American Family Physician website at www.aafp.org/afp. Copyright © 2019 American Academy of Family Physicians. For the private, noncommercial use of one individual user of the website. All other rights reserved. Contact copyrights@aafp.org for copyright questions and/or permission requests."
+    },
+    {
+      "title": "Pharmacologic Therapy for Acute Pain",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/0700/p63.pdf",
+      "accessed": "2026-03-05",
+      "snippet": "Downloaded from the American Family Physician website at www.aafp.org/afp. Copyright © 2021 American Academy of Family Physicians. For the private, noncommercial use of one individual user of the website. All other rights reserved. Contact copyrights@aafp.org for copyright questions and/or permission requests."
+    },
+    {
+      "title": "Low back pain: Learn More – Medication for the treatment of chronic back pain - InformedHealth.org - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK284957/",
+      "accessed": "2026-03-05",
+      "snippet": "When it comes to back pain, painkillers are only recommended in addition to active treatments such as exercises and movement – for example, to relieve severe pain or to help you start moving more again. Because of the associated risks, though, they shouldn't be used over a long period of time."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately 3 weeks ago. She denies any recent trauma, fever, chills, weight loss, respiratory symptoms, or neurological symptoms such as numbness or weakness. She reports tenderness on palpation of the painful area. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, osteoporosis, cancer, or recent infections.\n\nO: Phone-only encounter; no physical exam or vitals available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage area, likely due to muscle strain or soft tissue inflammation given the tenderness and absence of systemic or neurological symptoms.\nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Herpes zoster (early stage without rash yet)\n4. Referred pain from visceral sources such as renal or gastrointestinal pathology (less likely given no urinary or abdominal symptoms)\n\nP: - First-line medication: Ibuprofen 400 mg orally every 6-8 hours with food for 7 days (Physician must verify medication/dosing)\n- Alternatives: Naproxen 250 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, not pregnant, no renal or liver disease; monitor for gastrointestinal side effects with NSAIDs\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, new neurological symptoms develop, fever occurs, or if new systemic symptoms arise\n- Testing: Not indicated at this time given absence of red flags; consider imaging or labs if symptoms persist or worsen"
+}

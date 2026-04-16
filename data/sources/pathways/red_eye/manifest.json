@@ -1,0 +1,15 @@
+{
+  "pathway_id": "red_eye",
+  "sources": [
+    {
+      "source_id": "cdc_conjunctivitis",
+      "title": "CDC: Conjunctivitis (Pink Eye)",
+      "url": "https://www.cdc.gov/conjunctivitis/index.html"
+    },
+    {
+      "source_id": "nih_medlineplus_pinkeye",
+      "title": "MedlinePlus: Pinkeye",
+      "url": "https://medlineplus.gov/pinkeye.html"
+    }
+  ]
+}

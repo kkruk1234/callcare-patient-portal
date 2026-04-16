@@ -1,0 +1,36 @@
+{
+  "session_id": "3aeef4d2-05b1-4d51-b492-7582ac39a65c",
+  "timestamp_iso": "2026-01-14T00:53:29.268782+00:00",
+  "note": {
+    "soap": "SOAP Note Draft:\n\nS: The patient is an adult aged 18-64 presenting with a chief complaint of severe sore throat lasting 3 days. Associated symptoms include cough and runny nose. The patient denies trouble swallowing or breathing and reports no fever.\n\nO: Evidence insufficient for physical exam findings or diagnostic test results.\n\nA: Evidence insufficient for diagnosis. Differential considerations include viral pharyngitis given the presence of cough and runny nose without fever or breathing difficulty.\n\nP: Recommend symptomatic treatment and close monitoring. Advise patient to seek immediate care if symptoms worsen, including development of difficulty swallowing, breathing problems, or fever.\n\nPatient Instructions:\n- Use throat lozenges or warm salt water gargles to soothe sore throat.\n- Stay well hydrated and rest as much as possible.\n- Monitor symptoms closely, especially for any new difficulty swallowing, breathing issues, or onset of fever.\n- If symptoms worsen or new concerning symptoms develop, seek medical attention promptly.\n\nEvidence used:\n- pubmed_telephone_care.txt",
+    "patient_instructions": [],
+    "clinician_questions": [
+      "Physician: review, edit if needed, and approve/sign this encounter."
+    ],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "with COVID-19 pneumonia classified as low-risk by \nthe model and discharged home.\nMETHODS: Secondary analysis of the COVID-19\\_URG-HCSC registry at Hospital \nClínico San Carlos (Madrid). Phase 1 (Feb-Apr 2020): derivation of a model in \npatients aged ≥18 years with probable or confirmed COVID-19 who were classified \nas high-risk at triage (age ≥55 "
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "arris C(4), Harris DR(7), Heard \nK(4), Jenneson S(7), Kohli Y(4), Leroux M(4), Mayor-Nunez D(4), Medvedev G(8), \nMehdiratta M(9), Morrison LJ(3), Ospel JM(2), Pennington S(5), Perez Y(9), \nSelchen D(10), Stebner A(2), Tallon J(7), Tkach A(11), Verbeek PR(3), Tymianski \nM(4).\n\nAuthor information:\n(1)University of British Columbia, Vancouver, BC, Can"
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "ergencias Isabel Zendal, Madrid, Spain.\n(2)Universidad Complutense de Madrid, Madrid, Spain.\n(3)Instituto de Investigación Sanitaria del Hospital San Carlos, Madrid, Spain.\n(4)Hospital Clínico San Carlos, Madrid, Spain.\n(5)Cardiovascular Research Institute Basel (CRIB), Department of Cardiology, \nUniversity Hospital Basel, University of Basel, Base"
+      }
+    ]
+  },
+  "recommended_disposition": "PHYSICIAN_REVIEW_REQUIRED",
+  "status": "PENDING",
+  "reviewer_id": null,
+  "reviewer_comments": null
+}

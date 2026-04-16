@@ -1,0 +1,82 @@
+from __future__ import annotations
+from typing import Any, Dict, List, Optional
+import json
+import re
+
+from app.clinical.llm_adapter import llm_chat
+
+def _safe_json_extract(s: str) -> Optional[dict]:
+    if not s:
+        return None
+    s = s.strip()
+    try:
+        obj = json.loads(s)
+        if isinstance(obj, dict):
+            return obj
+    except Exception:
+        pass
+    m = re.search(r"(\{.*\})", s, flags=re.S)
+    if not m:
+        return None
+    try:
+        obj = json.loads(m.group(1))
+        if isinstance(obj, dict):
+            return obj
+    except Exception:
+        return None
+    return None
+
+def write_plan_llm(
+    *,
+    diagnosis: str,
+    differential: str,
+    chief_complaint: str,
+    age_years: Optional[int],
+    pregnancy_possible: str,
+    renal_disease: str,
+    liver_disease: str,
+    evidence_selected: List[Dict[str, str]],
+) -> Optional[str]:
+    """
+    Returns the Plan (P:) content as a string (bulleted), or None if LLM unavailable.
+    """
+    system = (
+        "You are drafting the PLAN (P:) section of a physician note for a telephone-only telemedicine visit.\n"
+        "Use ONLY the provided evidence titles/URLs as your basis.\n"
+        "If you include medication dosing, it must be typical outpatient dosing and must reflect pregnancy/renal/liver constraints.\n"
+        "If dosing cannot be supported by the given evidence, include a brief statement that dosing should be confirmed, "
+        "but still provide reasonable first-line and alternatives.\n"
+        "Output JSON only with key plan_text.\n"
+        "Plan must include these headings in order:\n"
+        "- Treatment:\n"
+        "- Testing:\n"
+        "- Return precautions:\n"
+        "Treatment must include first-line + alternatives, and include meds + dosing when appropriate.\n"
+    )
+
+    payload = {
+        "diagnosis": diagnosis,
+        "differential": differential,
+        "chief_complaint": chief_complaint,
+        "patient_context": {
+            "age_years": age_years,
+            "pregnancy_possible": pregnancy_possible,
+            "renal_disease": renal_disease,
+            "liver_disease": liver_disease,
+        },
+        "evidence_selected": evidence_selected,
+        "output_schema": {"plan_text": "string"}
+    }
+
+    raw = llm_chat(system, json.dumps(payload, ensure_ascii=False), temperature=0.2, max_tokens=900)
+    if not raw:
+        return None
+
+    obj = _safe_json_extract(raw)
+    if not obj:
+        return None
+
+    txt = obj.get("plan_text")
+    if isinstance(txt, str) and txt.strip():
+        return txt.strip()
+    return None

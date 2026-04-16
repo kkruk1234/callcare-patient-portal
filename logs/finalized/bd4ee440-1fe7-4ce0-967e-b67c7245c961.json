@@ -1,0 +1,81 @@
+{
+  "packet_id": "f4a13c87-4fe0-409d-936f-3f86f86348f9",
+  "created_at": "2026-01-29T17:27:04+00:00",
+  "session_id": "bd4ee440-1fe7-4ce0-967e-b67c7245c961",
+  "chief_complaint": "I think I have genital warts",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "age_years": 34,
+    "allergies": "penicillin",
+    "renal_disease": "yes",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "onset": "3 weeks ago",
+    "severity": "mild",
+    "associated": "none"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old female who presents with a concern of genital warts that started approximately three weeks ago. She describes the severity as mild and reports no associated symptoms. She has a history of renal disease and is allergic to penicillin. She is not pregnant.\n\nO:  \nPhone evaluation only; no physical examination or vital signs available.\n\nA:  \n- Working diagnosis (most likely): Genital warts (condyloma acuminata)  \n- Differential:  \n  1. Genital herpes simplex virus infection  \n  2. Molluscum contagiosum  \n  3. Seborrheic keratosis or benign skin lesions  \n  4. Syphilitic chancre or other sexually transmitted infections  \n- Red flags considered: No signs of systemic illness, severe pain, or rapid progression reported.\n\nP:  \n- Disposition: Patient is stable for outpatient management with follow-up as needed.  \n- Plan: Educate patient on the nature of genital warts as a manifestation of HPV infection. Recommend evaluation by a healthcare provider for physical examination and confirmation of diagnosis. Treatment options include topical agents (e.g., imiquimod, podophyllotoxin) or procedural removal. Given penicillin allergy and renal disease, avoid penicillin-based treatments if STI testing indicates need. Counsel on safe sexual practices and partner notification.  \n- Safety net: Advise patient to seek urgent care if lesions rapidly enlarge, become painful, develop ulceration, or if systemic symptoms such as fever or malaise develop. Follow-up for further evaluation and treatment as needed.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+        "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps th…"
+      },
+      {
+        "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+        "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_002.json",
+        "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. The…"
+      },
+      {
+        "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+        "source": "library/medlineplus_gov/medlineplus_gov_genitalwarts_html_7b4ec61d7aad/chunk_001.json",
+        "snippet": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus Skip navigation An official website of the United States government Hereâs how you know Hereâs how you know Official websites use .gov A .gov website belongs to an official government organization in the United States.…"
+      },
+      {
+        "title": "Warts and verrucas - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_warts_and_verrucas_808273793e1a/chunk_005.json",
+        "snippet": "enital warts Genital warts can be treated at a sexual health or GUM clinic. Find your nearest sexual health service Treatments for warts and verrucas A GP may be able to freeze a wart or verruca so it falls off a few weeks later. Sometimes it takes a few sessions. Check with the…"
+      },
+      {
+        "title": "Warts | Plantar Warts | Verruca | MedlinePlus",
+        "source": "library/medlineplus_gov/medlineplus_gov_warts_html_65003cb28a9b/chunk_002.json",
+        "snippet": "warts include : Common warts, which often appear on your fingers Plantar warts, which show up on the soles of your feet Genital warts , which are a sexually transmitted infection (STI) Flat warts, which appear in places you shave frequently In children, warts often go away on th…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+      "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps th…"
+    },
+    {
+      "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+      "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_002.json",
+      "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. The…"
+    },
+    {
+      "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+      "source": "library/medlineplus_gov/medlineplus_gov_genitalwarts_html_7b4ec61d7aad/chunk_001.json",
+      "snippet": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus Skip navigation An official website of the United States government Hereâs how you know Hereâs how you know Official websites use .gov A .gov website belongs to an official government organization in the United States.…"
+    },
+    {
+      "title": "Warts and verrucas - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_warts_and_verrucas_808273793e1a/chunk_005.json",
+      "snippet": "enital warts Genital warts can be treated at a sexual health or GUM clinic. Find your nearest sexual health service Treatments for warts and verrucas A GP may be able to freeze a wart or verruca so it falls off a few weeks later. Sometimes it takes a few sessions. Check with the…"
+    },
+    {
+      "title": "Warts | Plantar Warts | Verruca | MedlinePlus",
+      "source": "library/medlineplus_gov/medlineplus_gov_warts_html_65003cb28a9b/chunk_002.json",
+      "snippet": "warts include : Common warts, which often appear on your fingers Plantar warts, which show up on the soles of your feet Genital warts , which are a sexually transmitted infection (STI) Flat warts, which appear in places you shave frequently In children, warts often go away on th…"
+    }
+  ]
+}

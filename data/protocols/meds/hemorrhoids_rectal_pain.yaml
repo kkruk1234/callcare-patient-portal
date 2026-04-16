@@ -1,0 +1,21 @@
+# Clinician-facing medication/dosing protocol for: hemorrhoids_rectal_pain
+# Tier 1 reviewer approval required.
+
+rx_options:
+  - med: "Topical hemorrhoid therapy"
+    dosing: "Per OTC labeling or clinician preference; avoid dosing spoken to patient."
+    exclusions: "Severe pain, fever, abscess concern; heavy bleeding/melena."
+    notes: "Consider fissure vs hemorrhoids; evaluate red flags."
+
+  - med: "Stool softener / osmotic laxative"
+    dosing: "Per guideline/OTC labeling; clinician to specify."
+    exclusions: "Bowel obstruction concern."
+    notes: "Address constipation/straining."
+
+supportive_care:
+  - item: "Sitz baths"
+    details: "Warm water soaks; hydration; fiber."
+
+followup_and_safety:
+  - item: "Escalate"
+    details: "Black/tarry stool, heavy bleeding, fainting → ED now. Fever/worsening swelling → urgent today."

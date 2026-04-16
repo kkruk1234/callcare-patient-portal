@@ -1,0 +1,55 @@
+{
+  "call_sid": "CA6376948aa54694d7280e8f8202562c96",
+  "session_id": "baadb42b-ba1c-4e09-9412-575adabccf1c",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-23T15:01:45.582939+00:00",
+  "ended_at": "2026-03-23T15:02:54.586449+00:00",
+  "packet_id": "",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a rash on both of my arms."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first notice the rash on your arms?"
+    },
+    {
+      "role": "user",
+      "text": "I know. Maybe a days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what the rash looks like and if it is itchy, painful, or has any other symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "The rash goes from my wrist to my 4 forearm to my elbow, actually, on both arms."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or feeling unwell since the rash appeared?"
+    },
+    {
+      "role": "user",
+      "text": "And it's red and bumpy and it's also I was still talking. I was still talking."
+    },
+    {
+      "role": "assistant",
+      "text": "Is the rash itchy or painful?"
+    }
+  ]
+}

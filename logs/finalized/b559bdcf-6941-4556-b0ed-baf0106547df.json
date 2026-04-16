@@ -1,0 +1,87 @@
+{
+  "packet_id": "fabcba64-7281-4527-b86a-52bd9800e141",
+  "created_at": "2026-02-06T00:17:41.280198+00:00",
+  "session_id": "b559bdcf-6941-4556-b0ed-baf0106547df",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago after helping a friend move",
+    "intake_q3": "Where exactly is the chest pain located?",
+    "intake_a3": "right of my sternum",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, injury, or heavy lifting besides helping your friend move?",
+    "intake_a5": "heavy lifting with the move",
+    "intake_q6": "Any swelling, bruising, or tenderness when you press on the area of your chest pain?",
+    "intake_a6": "tendness when I press on the area",
+    "intake_q7": "Any fever, chills, or recent respiratory infections?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a8": "no",
+    "intake_summary": "Patient has a one-week history of sharp, right parasternal chest pain that began after heavy lifting. The pain is reproducible with palpation and there are no associated symptoms such as shortness of breath, sweating, nausea, or radiation. No history of cardiac or pulmonary disease and no systemic symptoms.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/chestpain.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 45-year-old female presenting with a one-week history of sharp chest pain located to the right of the sternum. The pain began after heavy lifting while helping a friend move. The pain is reproducible with palpation over the affected area. She denies any shortness of breath, sweating, nausea, radiation of pain to the arm or jaw, fever, chills, or recent respiratory infections. She has no history of heart disease, lung problems, or blood clots.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal chest pain, likely costochondritis or chest wall strain related to heavy lifting. \nDifferential: \n1. Costochondritis or chest wall strain \n2. Rib contusion or minor injury \n3. Muscular strain or intercostal muscle injury \n4. Less likely cardiac or pulmonary causes given lack of systemic or associated symptoms. Patient is not pregnant.\n\nP: \n - First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 7 to 10 days. Avoid if history of allergy or gastrointestinal intolerance. Dosing details were not found in retrieved evidence; prescriber should verify. \n - Alternatives: \n - Naproxen 250-500 mg orally twice daily for 7 to 10 days; avoid if allergy or gastrointestinal intolerance. \n - Acetaminophen 500-1000 mg orally every 6 hours as needed for pain; avoid if liver disease or allergy. \n - Medication safety considerations: No known medication allergies, not pregnant, no renal or liver disease. Use NSAIDs cautiously if gastrointestinal risk factors develop. \n - Return precautions: Seek urgent care if chest pain worsens, becomes constant, is associated with shortness of breath, sweating, nausea, radiation to arm or jaw, or if new systemic symptoms develop. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+      },
+      {
+        "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+        "source": "library/medlineplus_gov/medlineplus_gov_chestinjuriesanddisorders_html_e079a2f75113/chunk_005.json",
+        "snippet": "so in Spanish \nTopic Image \nMEDICAL ENCYCLOPEDIA \nChest CT \nChest MRI \nChest tube insertion \nChest tube insertion - series \nChest x-ray \nCostochondritis \nMediastinal tumor \nMediastinitis \nMediastinoscopy with biopsy \nPectus carinatum \nPectus excavatum \nPectus excavatum - discharge \nPectus excavatum repair \nPectus excavatum repair - series \nPneumomediastinum \nRib fracture - aftercare \nRibcage pain \nSlipping rib syndrome \nShow More \nShow Less \nRelated Health Topics \nChest Pain \nCollapsed Lung \nPleural Disorders \nDisclaimers \nMedlinePlus links to health information from the National Institutes of Health and other federal government agencies. Med"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+    },
+    {
+      "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+      "source": "library/medlineplus_gov/medlineplus_gov_chestinjuriesanddisorders_html_e079a2f75113/chunk_005.json",
+      "snippet": "so in Spanish \nTopic Image \nMEDICAL ENCYCLOPEDIA \nChest CT \nChest MRI \nChest tube insertion \nChest tube insertion - series \nChest x-ray \nCostochondritis \nMediastinal tumor \nMediastinitis \nMediastinoscopy with biopsy \nPectus carinatum \nPectus excavatum \nPectus excavatum - discharge \nPectus excavatum repair \nPectus excavatum repair - series \nPneumomediastinum \nRib fracture - aftercare \nRibcage pain \nSlipping rib syndrome \nShow More \nShow Less \nRelated Health Topics \nChest Pain \nCollapsed Lung \nPleural Disorders \nDisclaimers \nMedlinePlus links to health information from the National Institutes of Health and other federal government agencies. Med"
+    }
+  ]
+}

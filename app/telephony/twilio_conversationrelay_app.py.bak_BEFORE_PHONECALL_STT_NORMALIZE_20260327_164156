@@ -1,0 +1,653 @@
+from __future__ import annotations
+
+import asyncio
+import audioop
+import base64
+import io
+import json
+import math
+import os
+import time
+import wave
+from contextlib import suppress
+from dataclasses import dataclass, field
+from typing import Dict, Optional
+
+import httpx
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from fastapi.responses import PlainTextResponse
+
+from app.telephony.callcare_bridge import bridge
+
+
+app = FastAPI()
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY", "").strip()
+
+CALLCARE_PUBLIC_BASE_URL = os.getenv("CALLCARE_PUBLIC_BASE_URL", "").rstrip("/")
+
+CALLCARE_SILENCE_SECONDS = float(os.getenv("CALLCARE_SILENCE_SECONDS", "1.0"))
+CALLCARE_MIN_UTTERANCE_MS = int(os.getenv("CALLCARE_MIN_UTTERANCE_MS", "120"))
+CALLCARE_RMS_THRESHOLD = int(os.getenv("CALLCARE_RMS_THRESHOLD", "450"))
+CALLCARE_BARGE_IN_MIN_MS = int(os.getenv("CALLCARE_BARGE_IN_MIN_MS", "350"))
+CALLCARE_BARGE_IN_ENABLE_MS = int(os.getenv("CALLCARE_BARGE_IN_ENABLE_MS", "250"))
+CALLCARE_POST_PROMPT_IGNORE_MS = int(os.getenv("CALLCARE_POST_PROMPT_IGNORE_MS", "500"))
+CALLCARE_COMPLETE_TIMEOUT_SECONDS = int(os.getenv("CALLCARE_COMPLETE_TIMEOUT_SECONDS", "120"))
+
+CALLCARE_TTS_MODEL = os.getenv("CALLCARE_TTS_MODEL", "gpt-4o-mini-tts").strip()
+CALLCARE_TTS_VOICE = os.getenv("CALLCARE_TTS_VOICE", "marin").strip()
+CALLCARE_TTS_SPEED = float(os.getenv("CALLCARE_TTS_SPEED", "1.0"))
+
+CALLCARE_STT_PROVIDER = os.getenv("CALLCARE_STT_PROVIDER", "deepgram").strip().lower()
+CALLCARE_DEEPGRAM_MODEL = os.getenv("CALLCARE_DEEPGRAM_MODEL", "nova-3-medical").strip()
+CALLCARE_DEEPGRAM_ENCODING = os.getenv("CALLCARE_DEEPGRAM_ENCODING", "mulaw").strip()
+CALLCARE_DEEPGRAM_SAMPLE_RATE = int(os.getenv("CALLCARE_DEEPGRAM_SAMPLE_RATE", "8000"))
+CALLCARE_STT_LANGUAGE = os.getenv("CALLCARE_STT_LANGUAGE", "en").strip()
+
+CALLCARE_HOLD_AUDIO_WAV = os.getenv("CALLCARE_HOLD_AUDIO_WAV", "static/hold_music.wav").strip()
+
+OPENING_HELLO = "Hello."
+PROCESSING_LINE = "Thank you for your responses. This may take up to a minute to process. Please stay on the line."
+POST_HOLD_LINE = "Thank you for holding."
+GOODBYE_LINE = "Thank you, goodbye."
+FALLBACK_SUMMARY = (
+    "Thank you. Your telephone intake is complete. A physician will review your chart. "
+    "If your symptoms worsen or you develop urgent warning signs, please seek urgent in-person care."
+)
+
+OPENAI_SPEECH_URL = "https://api.openai.com/v1/audio/speech"
+DEEPGRAM_LISTEN_URL = "https://api.deepgram.com/v1/listen"
+
+
+def _log(msg: str) -> None:
+    print(f"[media-streams] {msg}", flush=True)
+
+
+def _xml_escape(text: str) -> str:
+    return (
+        str(text)
+        .replace("&", "&amp;")
+        .replace('"', "&quot;")
+        .replace("'", "&apos;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
+
+
+def _stream_wss_url() -> str:
+    if not CALLCARE_PUBLIC_BASE_URL:
+        raise RuntimeError("CALLCARE_PUBLIC_BASE_URL is not set.")
+    if CALLCARE_PUBLIC_BASE_URL.startswith("https://"):
+        return "wss://" + CALLCARE_PUBLIC_BASE_URL[len("https://"):] + "/twilio/media-stream"
+    if CALLCARE_PUBLIC_BASE_URL.startswith("http://"):
+        return "ws://" + CALLCARE_PUBLIC_BASE_URL[len("http://"):] + "/twilio/media-stream"
+    raise RuntimeError("CALLCARE_PUBLIC_BASE_URL must start with http:// or https://")
+
+
+def _mulaw_to_pcm16(mulaw_bytes: bytes) -> bytes:
+    return audioop.ulaw2lin(mulaw_bytes, 2)
+
+
+def _pcm16_to_mulaw(pcm16_bytes: bytes) -> bytes:
+    return audioop.lin2ulaw(pcm16_bytes, 2)
+
+
+def _rms_mulaw(mulaw_bytes: bytes) -> int:
+    if not mulaw_bytes:
+        return 0
+    return audioop.rms(_mulaw_to_pcm16(mulaw_bytes), 2)
+
+
+def _wav_or_pcm_to_mulaw_8k(audio_bytes: bytes) -> bytes:
+    try:
+        with wave.open(io.BytesIO(audio_bytes), "rb") as wf:
+            channels = wf.getnchannels()
+            sampwidth = wf.getsampwidth()
+            framerate = wf.getframerate()
+            frames = wf.readframes(wf.getnframes())
+    except wave.Error:
+        return _pcm16_to_mulaw(audio_bytes)
+
+    pcm = frames
+    if channels != 1:
+        pcm = audioop.tomono(pcm, sampwidth, 0.5, 0.5)
+    if sampwidth != 2:
+        pcm = audioop.lin2lin(pcm, sampwidth, 2)
+    if framerate != 8000:
+        pcm, _ = audioop.ratecv(pcm, 2, 1, framerate, 8000, None)
+    return _pcm16_to_mulaw(pcm)
+
+
+def _load_hold_mulaw() -> bytes:
+    if os.path.exists(CALLCARE_HOLD_AUDIO_WAV):
+        with open(CALLCARE_HOLD_AUDIO_WAV, "rb") as f:
+            return _wav_or_pcm_to_mulaw_8k(f.read())
+
+    sample_rate = 8000
+    seconds = 85
+    total = sample_rate * seconds
+    pcm = bytearray()
+    notes = [440.0, 554.37, 659.25, 554.37]
+    seg = int(sample_rate * 1.25)
+    for i in range(total):
+        freq = notes[(i // seg) % len(notes)]
+        val = int(3200 * math.sin(2.0 * math.pi * freq * (i / sample_rate)))
+        pcm.extend(int(val).to_bytes(2, byteorder="little", signed=True))
+    return _pcm16_to_mulaw(bytes(pcm))
+
+
+HOLD_MULAW = _load_hold_mulaw()
+
+
+def _clean(text: str) -> str:
+    return " ".join(str(text or "").split()).strip()
+
+
+def _summary_looks_bad(text: str, expected_prompt: str) -> bool:
+    s = _clean(text)
+    e = _clean(expected_prompt)
+    if not s:
+        return True
+    if e and s == e:
+        return True
+    if s.endswith("?"):
+        return True
+    low = s.lower()
+    return low.startswith("have you ever been told") or low.startswith("what sex were you assigned")
+
+
+@dataclass
+class MediaSession:
+    call_sid: str
+    stream_sid: str
+    from_number: str = ""
+    to_number: str = ""
+    ws: Optional[WebSocket] = None
+
+    inbound_mulaw: bytearray = field(default_factory=bytearray)
+    utterance_started_at: float = 0.0
+    last_voice_at: float = 0.0
+
+    pending_barge_mulaw: bytearray = field(default_factory=bytearray)
+    pending_barge_started_at: float = 0.0
+
+    bot_speaking: bool = False
+    hold_playing: bool = False
+    finishing: bool = False
+    processing_user_turn: bool = False
+    ended: bool = False
+
+    allow_barge_in: bool = False
+    barge_in_enabled_at: float = 0.0
+    ignore_audio_until: float = 0.0
+
+    expected_prompt: str = ""
+    current_phase: str = "question"
+
+    silence_task: Optional[asyncio.Task] = None
+    hold_task: Optional[asyncio.Task] = None
+    mark_waiters: Dict[str, asyncio.Event] = field(default_factory=dict)
+
+    speak_lock: asyncio.Lock = field(default_factory=asyncio.Lock)
+
+
+SESSIONS: Dict[str, MediaSession] = {}
+
+
+async def _send_json(session: MediaSession, payload: dict) -> None:
+    if session.ws is None:
+        return
+    try:
+        await session.ws.send_text(json.dumps(payload))
+    except Exception:
+        session.ended = True
+        raise
+
+
+async def _send_media_chunk(session: MediaSession, chunk: bytes) -> None:
+    await _send_json(
+        session,
+        {
+            "event": "media",
+            "streamSid": session.stream_sid,
+            "media": {"payload": base64.b64encode(chunk).decode("ascii")},
+        },
+    )
+
+
+async def _play_mulaw_realtime(session: MediaSession, mulaw_bytes: bytes) -> None:
+    if not mulaw_bytes or session.ended:
+        return
+    chunk_size = 160
+    for i in range(0, len(mulaw_bytes), chunk_size):
+        if session.ended:
+            break
+        await _send_media_chunk(session, mulaw_bytes[i:i + chunk_size])
+        await asyncio.sleep(0.02)
+
+
+async def _send_clear(session: MediaSession) -> None:
+    with suppress(Exception):
+        await _send_json(session, {"event": "clear", "streamSid": session.stream_sid})
+    for evt in list(session.mark_waiters.values()):
+        with suppress(Exception):
+            evt.set()
+    session.mark_waiters.clear()
+    session.bot_speaking = False
+    session.allow_barge_in = False
+    session.pending_barge_mulaw.clear()
+    session.pending_barge_started_at = 0.0
+
+
+async def _send_mulaw(session: MediaSession, mulaw_bytes: bytes, wait_for_playback: bool) -> None:
+    if not mulaw_bytes:
+        return
+
+    mark_name = f"m{int(time.time() * 1000)}"
+    evt = asyncio.Event()
+    session.mark_waiters[mark_name] = evt
+
+    chunk_size = 160 * 5
+    for i in range(0, len(mulaw_bytes), chunk_size):
+        chunk = mulaw_bytes[i:i + chunk_size]
+        await _send_json(
+            session,
+            {
+                "event": "media",
+                "streamSid": session.stream_sid,
+                "media": {"payload": base64.b64encode(chunk).decode("ascii")},
+            },
+        )
+
+    await _send_json(
+        session,
+        {
+            "event": "mark",
+            "streamSid": session.stream_sid,
+            "mark": {"name": mark_name},
+        },
+    )
+
+    if wait_for_playback:
+        try:
+            await asyncio.wait_for(evt.wait(), timeout=20)
+        except asyncio.TimeoutError:
+            pass
+        finally:
+            session.mark_waiters.pop(mark_name, None)
+
+
+async def _openai_tts_mulaw(text: str) -> bytes:
+    if not OPENAI_API_KEY:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+
+    headers = {
+        "Authorization": f"Bearer {OPENAI_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    body = {
+        "model": CALLCARE_TTS_MODEL,
+        "voice": CALLCARE_TTS_VOICE,
+        "input": text,
+        "response_format": "wav",
+        "speed": CALLCARE_TTS_SPEED,
+    }
+    timeout = httpx.Timeout(120.0, connect=20.0)
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        resp = await client.post(OPENAI_SPEECH_URL, headers=headers, json=body)
+        resp.raise_for_status()
+        return _wav_or_pcm_to_mulaw_8k(resp.content)
+
+
+async def _deepgram_transcribe_mulaw(mulaw_bytes: bytes) -> str:
+    if not DEEPGRAM_API_KEY:
+        raise RuntimeError("DEEPGRAM_API_KEY is not set.")
+
+    params = [
+        ("model", CALLCARE_DEEPGRAM_MODEL),
+        ("encoding", CALLCARE_DEEPGRAM_ENCODING),
+        ("sample_rate", str(CALLCARE_DEEPGRAM_SAMPLE_RATE)),
+        ("smart_format", "true"),
+        ("punctuate", "true"),
+        ("language", CALLCARE_STT_LANGUAGE),
+        ("numerals", "true"),
+    ]
+
+    headers = {
+        "Authorization": f"Token {DEEPGRAM_API_KEY}",
+        "Content-Type": "audio/mulaw",
+    }
+
+    timeout = httpx.Timeout(120.0, connect=20.0)
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        resp = await client.post(DEEPGRAM_LISTEN_URL, params=params, headers=headers, content=mulaw_bytes)
+        resp.raise_for_status()
+        payload = resp.json()
+
+    text = ""
+    try:
+        channels = payload.get("results", {}).get("channels", [])
+        if channels:
+            alts = channels[0].get("alternatives", [])
+            if alts:
+                text = alts[0].get("transcript", "") or ""
+    except Exception:
+        text = ""
+
+    return _clean(text)
+
+
+async def _transcribe_mulaw(mulaw_bytes: bytes) -> str:
+    if CALLCARE_STT_PROVIDER != "deepgram":
+        raise RuntimeError("This build expects CALLCARE_STT_PROVIDER=deepgram")
+    return await _deepgram_transcribe_mulaw(mulaw_bytes)
+
+
+async def _speak_text(session: MediaSession, text: str, phase: str, allow_barge_in: bool) -> None:
+    text = _clean(text)
+    if not text or session.ended:
+        return
+
+    async with session.speak_lock:
+        if session.ended:
+            return
+
+        session.current_phase = phase
+        session.bot_speaking = True
+        session.allow_barge_in = allow_barge_in and phase == "question"
+        session.barge_in_enabled_at = time.time() + (CALLCARE_BARGE_IN_ENABLE_MS / 1000.0 if session.allow_barge_in else 999999.0)
+        session.pending_barge_mulaw.clear()
+        session.pending_barge_started_at = 0.0
+
+        try:
+            audio = await _openai_tts_mulaw(text)
+            await _send_mulaw(session, audio, wait_for_playback=True)
+        finally:
+            session.bot_speaking = False
+            session.allow_barge_in = False
+            session.pending_barge_mulaw.clear()
+            session.pending_barge_started_at = 0.0
+            session.ignore_audio_until = time.time() + (CALLCARE_POST_PROMPT_IGNORE_MS / 1000.0)
+
+
+async def _play_hold_loop(session: MediaSession, stop_evt: asyncio.Event) -> None:
+    session.hold_playing = True
+    session.current_phase = "hold"
+    chunk_size = 160
+    try:
+        while not stop_evt.is_set() and not session.ended:
+            for i in range(0, len(HOLD_MULAW), chunk_size):
+                if stop_evt.is_set() or session.ended:
+                    break
+                await _send_media_chunk(session, HOLD_MULAW[i:i + chunk_size])
+                await asyncio.sleep(0.02)
+    finally:
+        session.hold_playing = False
+        await _send_clear(session)
+
+
+async def _run_completion(session: MediaSession) -> None:
+    session.finishing = True
+    session.current_phase = "processing"
+
+    await _speak_text(session, PROCESSING_LINE, phase="processing", allow_barge_in=False)
+
+    stop_evt = asyncio.Event()
+    session.hold_task = asyncio.create_task(_play_hold_loop(session, stop_evt))
+
+    summary = ""
+    timed_out = False
+    try:
+        summary = await asyncio.wait_for(
+            asyncio.to_thread(bridge.complete_session, session.call_sid),
+            timeout=CALLCARE_COMPLETE_TIMEOUT_SECONDS,
+        )
+    except asyncio.TimeoutError:
+        timed_out = True
+        _log(f"{session.call_sid} completion timed out after {CALLCARE_COMPLETE_TIMEOUT_SECONDS}s")
+    except Exception as e:
+        _log(f"{session.call_sid} completion exception: {e}")
+
+    summary = _clean(summary)
+    if timed_out or _summary_looks_bad(summary, session.expected_prompt):
+        summary = FALLBACK_SUMMARY
+
+    combined_summary = _clean(f"{POST_HOLD_LINE} {summary}")
+
+    summary_audio_task = asyncio.create_task(_openai_tts_mulaw(combined_summary))
+    goodbye_audio_task = asyncio.create_task(_openai_tts_mulaw(GOODBYE_LINE))
+
+    summary_audio = await summary_audio_task
+    goodbye_audio = await goodbye_audio_task
+
+    stop_evt.set()
+    if session.hold_task:
+        with suppress(Exception):
+            await session.hold_task
+        session.hold_task = None
+
+    await _play_mulaw_realtime(session, summary_audio)
+    await asyncio.sleep(0.2)
+    await _play_mulaw_realtime(session, goodbye_audio)
+    await asyncio.sleep(1.0)
+
+    session.ended = True
+    with suppress(Exception):
+        bridge.end_session(session.call_sid)
+    if session.ws is not None:
+        with suppress(Exception):
+            await session.ws.close()
+
+
+async def _process_transcript(session: MediaSession, transcript: str) -> None:
+    transcript = _clean(transcript)
+    if not transcript or session.ended:
+        return
+
+    _log(f"{session.call_sid} USER: {transcript}")
+    result = await asyncio.to_thread(bridge.handle_prompt_text, session.call_sid, transcript)
+
+    say = _clean(getattr(result, "say", ""))
+    done = bool(getattr(result, "done", False))
+
+    if done:
+        await _run_completion(session)
+        return
+
+    if say:
+        session.expected_prompt = say
+        _log(f"{session.call_sid} BOT: {say}")
+        await _speak_text(session, say, phase="question", allow_barge_in=True)
+
+
+async def _silence_loop(session: MediaSession) -> None:
+    while not session.ended:
+        await asyncio.sleep(0.05)
+
+        if session.processing_user_turn:
+            continue
+        if session.bot_speaking or session.hold_playing or session.finishing:
+            continue
+        if not session.inbound_mulaw:
+            continue
+
+        silence = time.time() - session.last_voice_at if session.last_voice_at else 0.0
+        duration_ms = int((time.time() - session.utterance_started_at) * 1000) if session.utterance_started_at else 0
+
+        if silence >= CALLCARE_SILENCE_SECONDS and duration_ms >= CALLCARE_MIN_UTTERANCE_MS:
+            raw = bytes(session.inbound_mulaw)
+            session.inbound_mulaw.clear()
+            session.utterance_started_at = 0.0
+            session.last_voice_at = 0.0
+            session.processing_user_turn = True
+
+            try:
+                transcript = await _transcribe_mulaw(raw)
+                if transcript:
+                    await _process_transcript(session, transcript)
+            except Exception as e:
+                _log(f"transcription/turn failed: {e}")
+            finally:
+                session.processing_user_turn = False
+
+
+@app.get("/health")
+async def health() -> dict:
+    return {"ok": True}
+
+
+@app.api_route("/twilio/voice", methods=["GET", "POST"])
+async def twilio_voice(request: Request) -> PlainTextResponse:
+    if request.method == "POST":
+        form = await request.form()
+        from_number = str(form.get("From", "") or "")
+        to_number = str(form.get("To", "") or "")
+    else:
+        from_number = str(request.query_params.get("From", "") or "")
+        to_number = str(request.query_params.get("To", "") or "")
+
+    stream_url = _stream_wss_url()
+
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        "<Response>"
+        "<Connect>"
+        f'<Stream url="{_xml_escape(stream_url)}">'
+        f'<Parameter name="from_number" value="{_xml_escape(from_number)}" />'
+        f'<Parameter name="to_number" value="{_xml_escape(to_number)}" />'
+        "</Stream>"
+        "</Connect>"
+        "</Response>"
+    )
+    return PlainTextResponse(content=xml, media_type="application/xml")
+
+
+@app.websocket("/twilio/media-stream")
+async def twilio_media_stream(ws: WebSocket) -> None:
+    await ws.accept()
+    session: Optional[MediaSession] = None
+
+    try:
+        while True:
+            msg = await ws.receive_text()
+            payload = json.loads(msg)
+            event = payload.get("event")
+
+            if event == "connected":
+                _log("websocket connected")
+                continue
+
+            if event == "start":
+                start = payload.get("start", {}) or {}
+                custom = start.get("customParameters", {}) or {}
+
+                call_sid = str(start.get("callSid") or "")
+                stream_sid = str(start.get("streamSid") or payload.get("streamSid") or "")
+                from_number = str(custom.get("from_number") or "")
+                to_number = str(custom.get("to_number") or "")
+
+                session = MediaSession(
+                    call_sid=call_sid,
+                    stream_sid=stream_sid,
+                    from_number=from_number,
+                    to_number=to_number,
+                    ws=ws,
+                )
+                SESSIONS[call_sid] = session
+                session.silence_task = asyncio.create_task(_silence_loop(session))
+
+                _, opening = bridge.start_session(call_sid, from_number=from_number, to_number=to_number)
+                opening = _clean(f"{OPENING_HELLO} {opening}")
+                session.expected_prompt = opening.replace(f"{OPENING_HELLO} ", "", 1) if opening.startswith(f"{OPENING_HELLO} ") else opening
+                _log(f"{call_sid} BOT OPENING: {opening}")
+
+                session.ignore_audio_until = time.time() + 1.2
+                asyncio.create_task(_speak_text(session, opening, phase="question", allow_barge_in=False))
+                continue
+
+            if session is None:
+                continue
+
+            if event == "media":
+                if session.ended or session.processing_user_turn:
+                    continue
+
+                now = time.time()
+                if now < session.ignore_audio_until:
+                    continue
+
+                media = payload.get("media", {}) or {}
+                b64 = media.get("payload")
+                if not b64:
+                    continue
+
+                chunk = base64.b64decode(b64)
+                rms = _rms_mulaw(chunk)
+
+                if session.hold_playing or session.finishing or session.current_phase in {"processing", "summary", "goodbye", "hold"}:
+                    continue
+
+                if session.bot_speaking:
+                    if not session.allow_barge_in:
+                        continue
+                    if now < session.barge_in_enabled_at:
+                        continue
+                    if rms < CALLCARE_RMS_THRESHOLD:
+                        continue
+
+                    if not session.pending_barge_mulaw:
+                        session.pending_barge_started_at = now
+
+                    session.pending_barge_mulaw.extend(chunk)
+
+                    voiced_ms = int((now - session.pending_barge_started_at) * 1000) if session.pending_barge_started_at else 0
+                    if voiced_ms >= CALLCARE_BARGE_IN_MIN_MS:
+                        _log(f"{session.call_sid} barge-in detected")
+                        await _send_clear(session)
+
+                        session.inbound_mulaw = bytearray(session.pending_barge_mulaw)
+                        session.utterance_started_at = session.pending_barge_started_at or now
+                        session.last_voice_at = now
+                        session.pending_barge_mulaw.clear()
+                        session.pending_barge_started_at = 0.0
+                    continue
+
+                if rms >= CALLCARE_RMS_THRESHOLD:
+                    if not session.inbound_mulaw:
+                        session.utterance_started_at = now
+                    session.inbound_mulaw.extend(chunk)
+                    session.last_voice_at = now
+                continue
+
+            if event == "mark":
+                mark = payload.get("mark", {}) or {}
+                name = str(mark.get("name") or "")
+                evt = session.mark_waiters.get(name)
+                if evt:
+                    evt.set()
+                continue
+
+            if event == "stop":
+                _log(f"{session.call_sid} stop received")
+                session.ended = True
+                break
+
+    except WebSocketDisconnect:
+        _log("websocket disconnected")
+    except Exception as e:
+        msg = str(e)
+        if "WebSocket is not connected" in msg or "Unexpected ASGI message" in msg:
+            _log("websocket disconnected")
+        else:
+            _log(f"websocket error: {e}")
+    finally:
+        if session is not None:
+            session.ended = True
+            if session.silence_task:
+                session.silence_task.cancel()
+                with suppress(asyncio.CancelledError, Exception):
+                    await session.silence_task
+            SESSIONS.pop(session.call_sid, None)
+            with suppress(Exception):
+                bridge.end_session(session.call_sid)

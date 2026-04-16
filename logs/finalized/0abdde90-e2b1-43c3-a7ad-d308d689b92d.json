@@ -1,0 +1,96 @@
+{
+  "packet_id": "2eab73d7-6dd5-4f93-82c2-3db3b5f655c9",
+  "created_at": "2026-01-22T22:48:23.213759+00:00",
+  "session_id": "0abdde90-e2b1-43c3-a7ad-d308d689b92d",
+  "chief_complaint": "tooth pain and swelling",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "dental_abscess",
+  "answers": {
+    "fever": "yes",
+    "face_swelling": "yes",
+    "trouble_swallow": "no",
+    "immune": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO BID x 5–7 days",
+      "sig": "875/125 mg PO BID x 5–7 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Broad option for odontogenic infection; still requires urgent dental follow-up.",
+      "exclusions": "Immediate-type beta-lactam allergy; adjust in renal impairment per clinician judgment.",
+      "tier": "Tier 1",
+      "pathway_id": "dental_abscess",
+      "source_file": "data/protocols/meds/dental_abscess.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Amoxicillin",
+      "dosing": "500 mg PO TID x 5–7 days",
+      "sig": "500 mg PO TID x 5–7 days",
+      "route": "PO",
+      "frequency": "TID",
+      "duration": "",
+      "notes": "Alternative when clavulanate not needed; clinician judgment based on severity.",
+      "exclusions": "Penicillin allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "dental_abscess",
+      "source_file": "data/protocols/meds/dental_abscess.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Clindamycin",
+      "dosing": "300 mg PO QID x 5–7 days",
+      "sig": "300 mg PO QID x 5–7 days",
+      "route": "PO",
+      "frequency": "QID",
+      "duration": "",
+      "notes": "Common alternative for immediate-type beta-lactam allergy; generally acceptable in pregnancy.",
+      "exclusions": "History of C. difficile/high CDI risk; lincosamide allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "dental_abscess",
+      "source_file": "data/protocols/meds/dental_abscess.yaml"
+    },
+    {
+      "rank": 4,
+      "med": "Metronidazole",
+      "dosing": "500 mg PO TID x 5–7 days",
+      "sig": "500 mg PO TID x 5–7 days",
+      "route": "PO",
+      "frequency": "TID",
+      "duration": "",
+      "notes": "Adjunct for anaerobic coverage (often combined with penicillin/amoxicillin when needed).",
+      "exclusions": "Alcohol use (disulfiram-like reaction); significant liver disease; interactions.",
+      "tier": "Tier 1",
+      "pathway_id": "dental_abscess",
+      "source_file": "data/protocols/meds/dental_abscess.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with tooth pain and swelling. They report associated fever and facial swelling. There is no trouble swallowing and no history of immunocompromise. No medication allergies are noted.\n\nO:\nNo physical exam or vital signs available due to phone-only evaluation.\n\nA:\n - Working diagnosis (most likely): Dental abscess with facial cellulitis\n - Differential:\n  1. Periapical abscess\n  2. Periodontal abscess\n  3. Cellulitis secondary to dental infection\n  4. Other odontogenic infections\n - Red flags considered:\n   Facial swelling with fever raises concern for spreading infection; airway compromise and difficulty swallowing were specifically assessed and are absent.\n\nP:\n - Disposition: Urgent in-person dental or medical evaluation recommended for drainage and further management.\n - Plan: Amoxicillin-clavulanate — 875/125 mg PO BID x 5–7 days. Alternative: Amoxicillin (500 mg PO TID x 5–7 days).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Amoxicillin-clavulanate — 875/125 mg PO BID x 5–7 days\n     - Notes: Broad option for odontogenic infection; still requires urgent dental follow-up.\n     - Exclusions: Immediate-type beta-lactam allergy; adjust in renal impairment per clinician judgment.\n   - Amoxicillin — 500 mg PO TID x 5–7 days\n     - Notes: Alternative when clavulanate not needed; clinician judgment based on severity.\n     - Exclusions: Penicillin allergy.\n   - Clindamycin — 300 mg PO QID x 5–7 days\n     - Notes: Common alternative for immediate-type beta-lactam allergy; generally acceptable in pregnancy.\n     - Exclusions: History of C. difficile/high CDI risk; lincosamide allergy.\n   - Metronidazole — 500 mg PO TID x 5–7 days\n     - Notes: Adjunct for anaerobic coverage (often combined with penicillin/amoxicillin when needed).\n     - Exclusions: Alcohol use (disulfiram-like reaction); significant liver disease; interactions.\n   - Supportive care:\n   - Pain control: Acetaminophen if safe; avoid NSAIDs in late pregnancy, renal disease, ulcer/GI bleed risk.\n   - Oral care: Warm salt-water rinses; avoid very hot/cold triggers; soft foods.\n   - Follow-up and safety:\n   - Definitive care: Needs urgent dental evaluation for drainage/root canal/extraction; antibiotics alone may not resolve.\n   - Urgent/ED now: Facial swelling affecting eye, trismus, trouble swallowing/breathing, fever with toxicity, rapid spread, immunocompromise.\n   Advise analgesics for pain control as needed.\n - Safety net:\n   Instruct patient to seek immediate care if symptoms worsen, including increased swelling, difficulty breathing or swallowing, high fever, or spreading redness.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Dental abscess reference (starter)",
+        "source": "https://www.ada.org/",
+        "snippet": "Listed in pathway manifest https://www.ada.org/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Dental abscess reference (starter)",
+      "source": "https://www.ada.org/",
+      "snippet": "Listed in pathway manifest https://www.ada.org/"
+    }
+  ]
+}

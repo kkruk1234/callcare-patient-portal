@@ -1,0 +1,13 @@
+# Clinician-facing medication/dosing protocol for: dvt_possible
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: ""
+    dosing: ""
+    exclusions: ""
+    notes: ""
+supportive_care:
+  - item: ""
+    details: ""
+followup_and_safety:
+  - item: ""
+    details: ""

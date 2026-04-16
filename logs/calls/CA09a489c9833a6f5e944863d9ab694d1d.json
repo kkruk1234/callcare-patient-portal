@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA09a489c9833a6f5e944863d9ab694d1d",
+  "session_id": "0400da5e-d98e-401d-9dc8-ff095949e793",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T14:15:03.392859+00:00",
+  "ended_at": "2026-03-08T14:18:07.408215+00:00",
+  "packet_id": "13a198c6-f0e5-457c-b94a-df08631ac291",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or difficulty swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "I have fever and chills."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any cough, nasal congestion, or runny nose?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swollen glands or rash?"
+    },
+    {
+      "role": "user",
+      "text": "I have swollen glands."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing or voice changes?"
+    },
+    {
+      "role": "user",
+      "text": "No rash."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty swallowing or pain when swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "No. But I do have pain when swallowing."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any white patches or pus on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "I tried DayQuil."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of rheumatic fever, heart disease, or recent exposure to someone with strep throat?"
+    },
+    {
+      "role": "user",
+      "text": "My son had strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing or chest pain?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have symptoms most consistent with strep throat, which is a bacterial infection that often causes sore throat, fever, and swollen glands. Because this is a phone visit, I can’t examine you or do tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe antibiotics to help clear the infection. In the meantime, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you can safely use them to help with pain and fever. \n\nIf you develop trouble breathing, severe throat pain, difficulty swallowing, or if your symptoms worsen or you have a high fever that doesn’t improve, please seek in-person care urgently. If you experience any sudden breathing problems or severe swelling, go to the emergency room right away. \n\nA doctor will review your case soon and decide if antibiotics or further testing are needed. If you need an in-person exam or testing, please visit urgent care or your primary care clinician."
+    }
+  ]
+}

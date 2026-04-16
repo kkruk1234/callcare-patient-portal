@@ -1,0 +1,124 @@
+{
+  "packet_id": "40e02e18-1787-47dc-9906-ee0c61eb181c",
+  "created_at": "2026-02-05T19:24:25.203573+00:00",
+  "session_id": "a72d5518-11e3-4151-bf68-76da63ab685a",
+  "chief_complaint": "elbow",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe what is bothering you about your elbow? For example, pain, swelling, stiffness, or something else?",
+    "intake_a1": "pain and slight swelling",
+    "intake_q2": "When did the pain and swelling in your elbow start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Any recent injury or trauma to the elbow?",
+    "intake_a3": "Not that I'm aware of, but it did start when I was golfing",
+    "intake_q4": "Any redness, warmth, or fever since the elbow symptoms started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty moving your elbow or weakness in your arm?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for your elbow pain and swelling?",
+    "intake_a6": "icing the elbow the first day",
+    "intake_q7": "Any numbness, tingling, or changes in sensation in your arm or hand?",
+    "intake_a7": "maybe a little tingling every now and then",
+    "intake_q8": "Any prior history of elbow problems, arthritis, or repetitive strain injuries?",
+    "intake_a8": "no",
+    "intake_q9": "Can you describe the location of the pain on your elbow? For example, is it on the inside, outside, tip, or general area?",
+    "intake_a9": "outside on the bone",
+    "intake_q10": "Can you describe the type of pain you are experiencing in your elbow, such as sharp, dull, aching, or burning?",
+    "intake_a10": "sharp pain",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://medlineplus.gov/arminjuriesanddisorders.html",
+        "https://www.nhs.uk/conditions/tennis-elbow/",
+        "https://medlineplus.gov/lab-tests/ammonia-levels/",
+        "https://medlineplus.gov/lab-tests/alkaline-phosphatase/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a one-week history of sharp pain and slight swelling localized to the outside of her elbow bone. The symptoms began during golfing, with no known trauma or injury. She reports no redness, warmth, or fever, and no difficulty moving the elbow or arm weakness. She has tried icing the elbow on the first day of symptoms. Occasionally, she experiences mild tingling in the arm or hand. There is no prior history of elbow problems, arthritis, or repetitive strain injuries. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is lateral epicondylitis (tennis elbow), given the location of pain on the outside of the elbow, the sharp quality of pain, and onset related to activity involving repetitive arm use such as golfing. The slight swelling and absence of systemic symptoms support a localized tendinopathy rather than infection or inflammatory arthritis.\n\nDifferential: \n1. Lateral epicondylitis (tennis elbow) \n2. Radial tunnel syndrome (due to occasional tingling) \n3. Olecranon bursitis (less likely without redness or warmth) \n4. Referred pain from cervical radiculopathy \n\nP: \n- First-line medication: \n Ibuprofen 400 mg orally every 6–8 hours as needed for pain, for 7–10 days. Avoid if history of gastrointestinal bleeding or allergy to NSAIDs. Dosing details were not found in retrieved evidence; prescriber should verify. \n\n- Alternatives: \n - Naproxen 250–500 mg orally twice daily for 7–10 days; avoid if NSAID allergy or GI bleeding risk. \n - Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; avoid if liver disease or allergy. \n - Topical NSAIDs (e.g., diclofenac gel) applied to the elbow 3–4 times daily for up to 14 days; avoid if allergy to topical agents. \n\n- Medication safety considerations: \n The patient is not pregnant, has no known renal or liver disease, and no medication allergies. NSAIDs should be used cautiously in patients with gastrointestinal risk factors, but none were reported here. \n\n- Return precautions: \n Return promptly if there is worsening pain, increased swelling, redness, warmth, fever, new weakness, numbness, or inability to move the elbow. \n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "l Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nElbow Injuries and Disorders \nURL of this page: https://medlineplus.gov/elbowinjuriesanddisorders.html \nElbow Injuries and Disorders\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nPatient Handouts \nSummary \nYour elbow joint is made up of bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow"
+      },
+      {
+        "title": "Arm Injuries | Arm Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/arminjuriesanddisorders.html",
+        "snippet": "sts Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nArm Injuries and Disorders \nURL of this page: https://medlineplus.gov/arminjuriesanddisorders.html \nArm Injuries and Disorders\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nLearn More \nSpecifics \nGenetics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nReference Desk \nFind an Expert \nFor You \nChildren \nOlder Adults \nPatient Handouts \nSummary \nOf the 206 bones in your body, three of them are in your arm: the humerus, radius, and ulna. Your arms are also made up of muscles, joints, tendons, an"
+      },
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "m ultrasound therapy – where high-frequency sound waves are used to increase blood flow, which can reduce pain and speed up healing Surgery may be an option if you still have tennis elbow after 6 to 12 months.\nCauses of tennis elbow \nTennis elbow is where the tendons in your elbow become inflamed. Tendons are strong cords that connect muscle to bone.\nYou can get tennis elbow if you do activities that involve gripping something and repeatedly twisting your wrist and forearm.\nActivities that can cause tennis elbow include:\ncomputer work, such as typing or using a mouse manual tasks, such as sewing or using a screwdriver leisure activities, such as tennis or playing a musical instrument Anyone can get tennis elbow but it's more common in people between 35 and 54 years of age.\nPage last reviewed: 31 May 2024\nNext review due: 31 May 2027\nSupport links \nHome \nHealth A to Z \nNHS services \nLive"
+      },
+      {
+        "title": "Ammonia Levels: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/ammonia-levels/",
+        "snippet": "er.gov/publications/dictionaries/cancer-terms/def/reye-syndrome \nNational Center for Advancing Translational Sciences/Genetic and Rare Diseases Information Center [Internet]. Gaithersburg (MD): U.S. Department of Health and Human Services; Urea cycle disorders; [updated 2023 Feb; cited 2023 Apr 18]; [about 12 screens]. Available from: https://rarediseases.info.nih.gov/diseases/7837/urea-cycle-disorders \nNational Institute of Diabetes and Digestive and Kidney Diseases [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Definition & Facts for Cirrhosis; [updated 2018 Mar; cited 2023 Apr 19]; [about 4 screens]. Available from: https://www.niddk.nih.gov/health-information/liver-disease/cirrhosis/definition-facts \nNational Institute of Neurological Disorders and Stroke [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Hypotonia; [reviewed 2023 Jan 2"
+      },
+      {
+        "title": "Alkaline Phosphatase: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/alkaline-phosphatase/",
+        "snippet": "023 Aug; cited 2024 Aug 09]; [about 11 screens]. Available from: https://www.merckmanuals.com/professional/hepatic-and-biliary-disorders/testing-for-hepatic-and-biliary-disorders/laboratory-tests-of-the-liver-and-gallbladder \nNemours KidsHealth [Internet]. Jacksonville (FL): The Nemours Foundation; c1995-2024. Getting a Blood Test; [reviewed 2021 Sep; cited 2024 Aug 09]; [about 4 screens]. Available from: https://kidshealth.org/en/parents/blood-tests.html \nNational Institute of Arthritis and Musculoskeletal and Skin Diseases [Internet] Bethesda (MD): U.S. Department of Health and Human Services; Paget's Disease of Bone; [reviewed 2022 Sept; c"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "l Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nElbow Injuries and Disorders \nURL of this page: https://medlineplus.gov/elbowinjuriesanddisorders.html \nElbow Injuries and Disorders\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nPatient Handouts \nSummary \nYour elbow joint is made up of bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow"
+    },
+    {
+      "title": "Arm Injuries | Arm Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/arminjuriesanddisorders.html",
+      "snippet": "sts Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nArm Injuries and Disorders \nURL of this page: https://medlineplus.gov/arminjuriesanddisorders.html \nArm Injuries and Disorders\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nLearn More \nSpecifics \nGenetics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nReference Desk \nFind an Expert \nFor You \nChildren \nOlder Adults \nPatient Handouts \nSummary \nOf the 206 bones in your body, three of them are in your arm: the humerus, radius, and ulna. Your arms are also made up of muscles, joints, tendons, an"
+    },
+    {
+      "title": "Tennis elbow - NHS",
+      "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+      "snippet": "m ultrasound therapy – where high-frequency sound waves are used to increase blood flow, which can reduce pain and speed up healing Surgery may be an option if you still have tennis elbow after 6 to 12 months.\nCauses of tennis elbow \nTennis elbow is where the tendons in your elbow become inflamed. Tendons are strong cords that connect muscle to bone.\nYou can get tennis elbow if you do activities that involve gripping something and repeatedly twisting your wrist and forearm.\nActivities that can cause tennis elbow include:\ncomputer work, such as typing or using a mouse manual tasks, such as sewing or using a screwdriver leisure activities, such as tennis or playing a musical instrument Anyone can get tennis elbow but it's more common in people between 35 and 54 years of age.\nPage last reviewed: 31 May 2024\nNext review due: 31 May 2027\nSupport links \nHome \nHealth A to Z \nNHS services \nLive"
+    },
+    {
+      "title": "Ammonia Levels: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/ammonia-levels/",
+      "snippet": "er.gov/publications/dictionaries/cancer-terms/def/reye-syndrome \nNational Center for Advancing Translational Sciences/Genetic and Rare Diseases Information Center [Internet]. Gaithersburg (MD): U.S. Department of Health and Human Services; Urea cycle disorders; [updated 2023 Feb; cited 2023 Apr 18]; [about 12 screens]. Available from: https://rarediseases.info.nih.gov/diseases/7837/urea-cycle-disorders \nNational Institute of Diabetes and Digestive and Kidney Diseases [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Definition & Facts for Cirrhosis; [updated 2018 Mar; cited 2023 Apr 19]; [about 4 screens]. Available from: https://www.niddk.nih.gov/health-information/liver-disease/cirrhosis/definition-facts \nNational Institute of Neurological Disorders and Stroke [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Hypotonia; [reviewed 2023 Jan 2"
+    },
+    {
+      "title": "Alkaline Phosphatase: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/alkaline-phosphatase/",
+      "snippet": "023 Aug; cited 2024 Aug 09]; [about 11 screens]. Available from: https://www.merckmanuals.com/professional/hepatic-and-biliary-disorders/testing-for-hepatic-and-biliary-disorders/laboratory-tests-of-the-liver-and-gallbladder \nNemours KidsHealth [Internet]. Jacksonville (FL): The Nemours Foundation; c1995-2024. Getting a Blood Test; [reviewed 2021 Sep; cited 2024 Aug 09]; [about 4 screens]. Available from: https://kidshealth.org/en/parents/blood-tests.html \nNational Institute of Arthritis and Musculoskeletal and Skin Diseases [Internet] Bethesda (MD): U.S. Department of Health and Human Services; Paget's Disease of Bone; [reviewed 2022 Sept; c"
+    }
+  ]
+}

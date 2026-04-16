@@ -1,0 +1,112 @@
+{
+  "packet_id": "aedc6afa-a0ec-4ac4-9134-a88e38d07eaa",
+  "created_at": "2026-02-05T02:53:33.093370+00:00",
+  "session_id": "45a15ec6-d1ee-4728-832c-f9bf064b956b",
+  "chief_complaint": "nausea",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your nausea start?",
+    "intake_a1": "34",
+    "intake_q2": "Can you describe any other symptoms you are experiencing along with the nausea?",
+    "intake_a2": "no",
+    "intake_q3": "Can you tell me more about what you mean by '34' when your nausea started?",
+    "intake_a3": "female",
+    "intake_q4": "Can you clarify when exactly your nausea started, such as how many hours or days ago?",
+    "intake_a4": "no",
+    "intake_q5": "Can you tell me if you have had any vomiting or abdominal pain along with the nausea?",
+    "intake_a5": "no",
+    "intake_q6": "Can you tell me if you have had any fever, chills, or recent illness?",
+    "intake_a6": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "pregnancy status is yes/unknown (avoid teratogenic options unless explicitly appropriate)",
+        "renal disease status is yes/unknown (dose adjustment / avoid certain meds)",
+        "liver disease status is yes/unknown (avoid hepatotoxic meds / adjust dosing)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/nauseaandvomiting.html",
+        "https://medlineplus.gov/motionsickness.html",
+        "https://medlineplus.gov/lab-tests/helicobacter-pylori-h-pylori-tests/",
+        "https://www.nhs.uk/conditions/gastroparesis/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S:  \nPatient is unsure about pregnancy status.\nThe patient reports nausea without any associated vomiting, abdominal pain, fever, chills, or recent illness. The onset timing of the nausea is unclear, and no other symptoms accompany it. The patient is female, with no known medication allergies. Pregnancy status, renal disease, and liver disease are not documented.\n\nO:  \nPhone evaluation only; no vital signs or physical examination available.\n\nA:  \nWorking diagnosis: Nausea of unclear etiology without alarming features.  \nDifferential:  \n1. Functional or idiopathic nausea  \n2. Early pregnancy-related nausea (morning sickness)  \n3. Gastrointestinal irritation or mild gastritis  \n4. Motion sickness or vestibular causes  \n\nP:  \n - First-line medication: Ondansetron 4 mg orally every 8 hours as needed for nausea, for up to 48 hours. Avoid if known hypersensitivity to ondansetron. Dosing details were not found in retrieved evidence; prescriber should verify.  \n - Alternatives:  \n   - Dimenhydrinate 50 mg orally every 6 hours as needed, avoid in patients with glaucoma or urinary retention.  \n   - Meclizine 25 mg orally once daily as needed, avoid in pregnancy unless benefits outweigh risks.  \n   - Promethazine 12.5–25 mg orally every 4–6 hours as needed, avoid in children under 2 years and in patients with respiratory depression.  \n - Medication safety considerations: No known medication allergies. Pregnancy status unknown; avoid medications contraindicated in pregnancy until pregnancy status is confirmed. Renal and liver disease status unknown; use caution and adjust dosing if these conditions are present.  \n - Return precautions: Advise patient to seek in-person evaluation if nausea worsens, vomiting develops, abdominal pain arises, fever or chills occur, or if symptoms persist beyond 48–72 hours despite treatment.  \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Nausea | Vomiting | MedlinePlus",
+        "source": "https://medlineplus.gov/nauseaandvomiting.html",
+        "snippet": "ummary \nWhat are nausea and vomiting? \nNausea is when you feel sick to your stomach, as if you are going to throw up. Vomiting is when you throw up.\nWhat causes nausea and vomiting? \nNausea and vomiting can be symptoms of many different conditions, including:\nMorning sickness during pregnancy \nGastroenteritis (infection of your intestines) and other infections \nMigraines \nMotion sickness \nFood poisoning \nMedicines, including those for cancer chemotherapy \nGERD (reflux) and ulcers \nIntestinal obstruction \nWhen do I need to see a health care provider for nausea and vomiting? \nNausea and vomiting are common. They are usually not serious. However, you should contact your health care provider immediately if you have:\nA reason to think that your vomiting is from poisoning \nVomited for longer than 24 hours \nBlood in the vomit \nSevere abdominal pain \nSevere headache and stiff neck \nSigns of dehy"
+      },
+      {
+        "title": "ACOG FAQ: Morning Sickness (Nausea and Vomiting of Pregnancy)",
+        "source": "pathways/hyperemesis_gravidarum_possible/acog_nvp_faq.json",
+        "snippet": "iting of pregnancy? You should talk with your obstetrician-gynecologist (ob-gyn) or other obstetric care provider if nausea and vomiting of pregnancy affects your life and causes you concern. Is there a term for severe nausea and vomiting of pregnancy? Hyperemesis gravidarum is the term for the most severe form of nausea and vomiting of pregnancy. Hyperemesis gravidarum occurs in up to 3 percent of pregnancies. When is hyperemesis gravidarum diagnosed? This condition may be diagnosed when a woman has lost 5 percent of her prepregnancy weight and has other problems related to dehydration , or loss of body fluids (see below). Women with hyperemesis gravidarum need treatment, sometimes in a hospital, to stop the vomiting and restore body fluids. What are the signs of dehydration? Nausea and vomiting can cause you to lose fluids. If fluids are not replaced, it can lead to dehydration. You sh"
+      },
+      {
+        "title": "Motion Sickness: MedlinePlus",
+        "source": "https://medlineplus.gov/motionsickness.html",
+        "snippet": "cyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nMotion Sickness \nURL of this page: https://medlineplus.gov/motionsickness.html \nMotion Sickness\nAlso called: Airsickness, Carsickness, Seasickness \nSummary \nMotion sickness is a common problem in people traveling by car, train, airplanes, and \nespecially boats. Anyone can get it, but it is more common in children, pregnant women, and people taking certain medicines. Motion sickness can start suddenly, with a queasy feeling and cold sweats. It can then lead to dizziness and nausea and vomiting .\nYour brain senses movement by getting signals from your inner ears, eyes, musc"
+      },
+      {
+        "title": "Helicobacter Pylori (H. Pylori) Tests: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/helicobacter-pylori-h-pylori-tests/",
+        "snippet": "Bloating (a feeling of fullness or swelling in your belly) \nFeeling full too soon while eating a meal \nNausea and vomiting \nBurping or belching \nLoss of appetite \nWeight loss \nGastritis can lead to an ulcer, which is a more serious condition. The symptoms of an ulcer can become severe if you develop complications. Get medical help right away if you have:\nSigns of stomach bleeding which include:\nBlack or tarry stool \nRed blood in vomit or vomit that looks like coffee grounds \nSudden, sharp or severe belly pain that doesn't go away \nDizziness or fainting \nA rapid pulse (heartbeat) or other symptoms of shock \nA chance or worsening in your sympto"
+      },
+      {
+        "title": "Gastroparesis - NHS",
+        "source": "https://www.nhs.uk/conditions/gastroparesis/",
+        "snippet": ":\nyou often feel full quickly when eating you often feel sick or vomit after eating you have tummy pain that will not go away or keeps coming back you have heartburn most days for 3 weeks or more you've been feeling bloated for 3 weeks or more you feel bloated regularly (more than 12 times a month) you have a swelling or lump in your tummy These may be symptoms of gastroparesis or another condition with similar symptoms, so it's important to get it checked.\nImmediate action required: Call 999 or go to A&E if:\nyou have sudden and severe tummy pain your sick has blood in it your sick is dark brown or black and looks like coffee grounds or soil"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Nausea | Vomiting | MedlinePlus",
+      "source": "https://medlineplus.gov/nauseaandvomiting.html",
+      "snippet": "ummary \nWhat are nausea and vomiting? \nNausea is when you feel sick to your stomach, as if you are going to throw up. Vomiting is when you throw up.\nWhat causes nausea and vomiting? \nNausea and vomiting can be symptoms of many different conditions, including:\nMorning sickness during pregnancy \nGastroenteritis (infection of your intestines) and other infections \nMigraines \nMotion sickness \nFood poisoning \nMedicines, including those for cancer chemotherapy \nGERD (reflux) and ulcers \nIntestinal obstruction \nWhen do I need to see a health care provider for nausea and vomiting? \nNausea and vomiting are common. They are usually not serious. However, you should contact your health care provider immediately if you have:\nA reason to think that your vomiting is from poisoning \nVomited for longer than 24 hours \nBlood in the vomit \nSevere abdominal pain \nSevere headache and stiff neck \nSigns of dehy"
+    },
+    {
+      "title": "ACOG FAQ: Morning Sickness (Nausea and Vomiting of Pregnancy)",
+      "source": "pathways/hyperemesis_gravidarum_possible/acog_nvp_faq.json",
+      "snippet": "iting of pregnancy? You should talk with your obstetrician-gynecologist (ob-gyn) or other obstetric care provider if nausea and vomiting of pregnancy affects your life and causes you concern. Is there a term for severe nausea and vomiting of pregnancy? Hyperemesis gravidarum is the term for the most severe form of nausea and vomiting of pregnancy. Hyperemesis gravidarum occurs in up to 3 percent of pregnancies. When is hyperemesis gravidarum diagnosed? This condition may be diagnosed when a woman has lost 5 percent of her prepregnancy weight and has other problems related to dehydration , or loss of body fluids (see below). Women with hyperemesis gravidarum need treatment, sometimes in a hospital, to stop the vomiting and restore body fluids. What are the signs of dehydration? Nausea and vomiting can cause you to lose fluids. If fluids are not replaced, it can lead to dehydration. You sh"
+    },
+    {
+      "title": "Motion Sickness: MedlinePlus",
+      "source": "https://medlineplus.gov/motionsickness.html",
+      "snippet": "cyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nMotion Sickness \nURL of this page: https://medlineplus.gov/motionsickness.html \nMotion Sickness\nAlso called: Airsickness, Carsickness, Seasickness \nSummary \nMotion sickness is a common problem in people traveling by car, train, airplanes, and \nespecially boats. Anyone can get it, but it is more common in children, pregnant women, and people taking certain medicines. Motion sickness can start suddenly, with a queasy feeling and cold sweats. It can then lead to dizziness and nausea and vomiting .\nYour brain senses movement by getting signals from your inner ears, eyes, musc"
+    },
+    {
+      "title": "Helicobacter Pylori (H. Pylori) Tests: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/helicobacter-pylori-h-pylori-tests/",
+      "snippet": "Bloating (a feeling of fullness or swelling in your belly) \nFeeling full too soon while eating a meal \nNausea and vomiting \nBurping or belching \nLoss of appetite \nWeight loss \nGastritis can lead to an ulcer, which is a more serious condition. The symptoms of an ulcer can become severe if you develop complications. Get medical help right away if you have:\nSigns of stomach bleeding which include:\nBlack or tarry stool \nRed blood in vomit or vomit that looks like coffee grounds \nSudden, sharp or severe belly pain that doesn't go away \nDizziness or fainting \nA rapid pulse (heartbeat) or other symptoms of shock \nA chance or worsening in your sympto"
+    },
+    {
+      "title": "Gastroparesis - NHS",
+      "source": "https://www.nhs.uk/conditions/gastroparesis/",
+      "snippet": ":\nyou often feel full quickly when eating you often feel sick or vomit after eating you have tummy pain that will not go away or keeps coming back you have heartburn most days for 3 weeks or more you've been feeling bloated for 3 weeks or more you feel bloated regularly (more than 12 times a month) you have a swelling or lump in your tummy These may be symptoms of gastroparesis or another condition with similar symptoms, so it's important to get it checked.\nImmediate action required: Call 999 or go to A&E if:\nyou have sudden and severe tummy pain your sick has blood in it your sick is dark brown or black and looks like coffee grounds or soil"
+    }
+  ]
+}

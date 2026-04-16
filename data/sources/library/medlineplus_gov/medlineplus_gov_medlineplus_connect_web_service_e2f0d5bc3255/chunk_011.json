@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Service",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-service/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "ase URL of the service is:\nhttps://connect.medlineplus.gov/service \nThese are two required parameters for any lab test query to this service:\nCode System \nIdentify that you are using the LOINC code system. Use: \nmainSearchCriteria.v.cs=2.16.840.1.113883.6.1 \nMedlinePlus Connect will also accept: \nmainSearchCriteria.v.cs=2.16.840.1.113883.11.79 \nCode \nidentify the actual code you are trying to look up:\nmainSearchCriteria.v.c=3187-2 \nOptional Parameters \nCode Title \nYou may also identify the name of the lab test. However, this information does not impact the response.\nmainSearchCriteria.v.dn=Factor IX assay \nSee the above section on Output Parameters for details on language and output formats.\nDescription of Selected Atom Elements (or JSON objects) in Response to Lab Test Requests \nElement \nDescription \ntitle \nTitle of matched MedlinePlus lab test page \nlink \nURL for matched MedlinePlus lab test page \nsummary \nSnippet from the page content \nauthor \nSource attribution for the lab test content \nExamples of Requests for Lab Tests \nTo request information for an English speaker, your request may look like one of the following:\nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.cs=2.16.840.1.113883.6.1&mainSearchCriteria.v.c=3187-2&mainSearchCriteria.v.dn=Factor%20IX%20assay&informationRecipient.languageCode.c=en \nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.c",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_service_e2f0d5bc3255",
+  "chunk_id": "chunk_011"
+}

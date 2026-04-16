@@ -1,0 +1,483 @@
+from __future__ import annotations
+
+import re
+from pathlib import Path
+from typing import Any, Dict, Optional, Tuple, List
+
+from app.core.models import CallState
+
+PATHWAYS_DIR = Path("app/clinical/pathways")
+
+RESP_PATHWAYS = ['asthma_wheeze', 'copd_exacerbation', 'cough_uri', 'flu_like_illness', 'sinusitis', 'uri_sinus_overlap']
+
+
+# ----------------------------
+# Helpers
+# ----------------------------
+
+def _norm(s: str) -> str:
+    return (s or "").strip().lower()
+
+
+def _yesno(s: str) -> Optional[bool]:
+    s = _norm(s)
+    if s in ["y", "yes", "yeah", "yep", "sure", "ok", "okay"]:
+        return True
+    if s in ["n", "no", "nope"]:
+        return False
+    return None
+
+
+def _parse_age_years(text: str) -> Optional[float]:
+    t = _norm(text)
+    if not t:
+        return None
+
+    m = re.search(r"(\d+(\.\d+)?)\s*(month|months|mo)\b", t)
+    if m:
+        return float(m.group(1)) / 12.0
+
+    w = re.search(r"(\d+(\.\d+)?)\s*(week|weeks|wk|wks)\b", t)
+    if w:
+        return float(w.group(1)) / 52.0
+
+    y = re.search(r"(\d+(\.\d+)?)\s*(year|years|yr|yrs)\b", t)
+    if y:
+        return float(y.group(1))
+
+    m2 = re.search(r"(\d+(\.\d+)?)", t)
+    if m2:
+        return float(m2.group(1))
+
+    return None
+
+
+def _age_band(age_years: Optional[float]) -> str:
+    if age_years is None:
+        return "unknown"
+    if age_years < 3:
+        return "0-2"
+    if age_years < 13:
+        return "3-12"
+    if age_years < 18:
+        return "13-17"
+    if age_years < 65:
+        return "18-64"
+    return "65+"
+
+
+def _parse_weight(text: str) -> Tuple[Optional[float], Optional[str]]:
+    t = _norm(text)
+    if not t:
+        return None, None
+
+    mkg = re.search(r"(\d+(\.\d+)?)\s*(kg|kilogram|kilograms)\b", t)
+    if mkg:
+        return float(mkg.group(1)), "kg"
+
+    mlb = re.search(r"(\d+(\.\d+)?)\s*(lb|lbs|pound|pounds)\b", t)
+    if mlb:
+        lbs = float(mlb.group(1))
+        return lbs * 0.45359237, "lb"
+
+    return None, None
+
+
+def _load_questions_for(pathway_id: str) -> List[dict]:
+    fp = PATHWAYS_DIR / f"{pathway_id}.yaml"
+    if not fp.exists():
+        return []
+
+    txt = fp.read_text(encoding="utf-8", errors="ignore").splitlines()
+
+    questions: List[dict] = []
+    in_questions = False
+    current: Optional[dict] = None
+
+    for line in txt:
+        if line.strip().startswith("questions:"):
+            in_questions = True
+            continue
+        if not in_questions:
+            continue
+
+        if line.strip().startswith("- id:"):
+            if current:
+                questions.append(current)
+            current = {"id": line.split(":", 1)[1].strip(), "prompt": "", "store_as": "", "type": "text"}
+            continue
+
+        if current is None:
+            continue
+
+        s = line.strip()
+        if s.startswith("prompt:"):
+            val = s.split(":", 1)[1].strip().strip('"').strip("'")
+            current["prompt"] = val
+        elif s.startswith("store_as:"):
+            current["store_as"] = s.split(":", 1)[1].strip()
+        elif s.startswith("type:"):
+            current["type"] = s.split(":", 1)[1].strip()
+
+    if current:
+        questions.append(current)
+
+    return questions
+
+
+def _leg_sort_target(answer_text: str) -> str:
+    t = _norm(answer_text)
+    inf_kw = [
+        "skin break", "break in the skin", "cut", "wound", "scrape", "abrasion",
+        "ulcer", "open", "puncture",
+        "bite", "insect bite", "bug bite", "spider bite", "tick bite",
+        "infection", "infected", "pus", "drainage"
+    ]
+    if any(k in t for k in inf_kw):
+        return "cellulitis"
+    return "dvt_possible"
+
+
+def _extract_leg_sort_flags(answer_text: str) -> Dict[str, Any]:
+    """
+    Converts the discriminator free-text into reusable structured flags
+    so we don't ask calf-pain again downstream.
+    """
+    t = _norm(answer_text)
+
+    # Calf pain/tenderness flag
+    calf = False
+    if ("calf" in t) or ("tender" in t) or ("tenderness" in t) or ("calf pain" in t):
+        calf = True
+
+    # Skin break/infection flag
+    inf = False
+    inf_kw = ["skin break", "cut", "wound", "scrape", "abrasion", "bite", "insect bite", "bug bite", "spider", "tick", "infection", "infected", "pus", "drainage"]
+    if any(k in t for k in inf_kw):
+        inf = True
+
+    # If they explicitly say "none", treat both as False
+    if re.search(r"\bnone\b", t):
+        calf = False
+        inf = False
+
+    return {
+        "calf_pain_tenderness": bool(calf),
+        "skin_break_or_infection": bool(inf),
+    }
+
+
+# ----------------------------
+# Routing
+# ----------------------------
+
+def _pick_pathway(chief: str, state: Optional[CallState] = None) -> Dict[str, Any]:
+    chief_l = _norm(chief)
+
+    # LEG RED/SWOLLEN SORTER (before cellulitis guards)
+    leg_words = ["leg", "calf", "thigh", "ankle", "foot"]
+    if any(w in chief_l for w in leg_words) and (("red" in chief_l) or ("redness" in chief_l)) and (("swollen" in chief_l) or ("swelling" in chief_l)):
+        return {"id": "red_swollen_leg_sort", "score": 999}
+    if "one leg" in chief_l and (("swollen" in chief_l) or ("swelling" in chief_l)):
+        return {"id": "red_swollen_leg_sort", "score": 999}
+    if "unilateral" in chief_l and "leg" in chief_l and (("swollen" in chief_l) or ("swelling" in chief_l)):
+        return {"id": "red_swollen_leg_sort", "score": 999}
+
+    # If user explicitly says cellulitis/infection, go cellulitis
+    if any(k in chief_l for k in ["cellulitis", "skin infection", "infected", "spreading redness", "infected wound", "infected bite"]):
+        return {"id": "cellulitis", "score": 999}
+
+    # DVT suspicion direct phrasing
+    if any(k in chief_l for k in ["one leg", "calf", "leg"]) and any(k in chief_l for k in ["swollen", "swelling", "warm", "tender"]):
+        return {"id": "dvt_possible", "score": 999}
+
+    # CAT/DOG BITE direct phrasing (ensure these never fall through to YAML scorer)
+    if any(k in chief_l for k in ["cat bite", "cat bit", "bit by a cat", "bitten by a cat", "cat bit me", "bitten by cat"]):
+        return {"id": "cat_bite_wound", "score": 999}
+    if any(k in chief_l for k in ["dog bite", "dog bit", "bit by a dog", "bitten by a dog", "dog bit me", "bitten by dog"]):
+        return {"id": "dog_bite_wound", "score": 999}
+
+    # CAT/DOG BITE compact-text guard (handles inputs like 'catbitemyhand')
+    chief_compact2 = re.sub(r'[^a-z0-9]+', '', chief_l)
+    if 'catbite' in chief_compact2 or 'catbit' in chief_compact2:
+        return {"id": "cat_bite_wound", "score": 999}
+    if 'dogbite' in chief_compact2 or 'dogbit' in chief_compact2:
+        return {"id": "dog_bite_wound", "score": 999}
+
+
+
+    # Fallback keyword scoring from YAML
+    # NOTE: chief text may be normalized without spaces/punctuation elsewhere.
+    # We match keywords against BOTH a spaced-normalized and compact-normalized version,
+    # so phrases like "cat bite" match "cat bite my hand" AND "catbitemyhand".
+    chief_raw = (chief or "")
+    chief_l_raw = chief_raw.lower()
+
+    def _norm_spaces(s: str) -> str:
+        s = (s or "").lower()
+        # keep word boundaries by converting non-alphanum to spaces
+        s = re.sub(r"[^a-z0-9]+", " ", s)
+        s = re.sub(r"\s+", " ", s).strip()
+        return s
+
+    chief_spaced = _norm_spaces(chief_raw)
+    chief_compact = chief_spaced.replace(" ", "")
+
+    best = ("cough_uri", 0)
+    for fp in PATHWAYS_DIR.glob("*.yaml"):
+        try:
+            s = fp.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
+
+        pid = ""
+        kws = []
+        # super-light parse: id: and any_keywords: [...] must exist somewhere in file
+        for line in s.splitlines():
+            line_stripped = line.strip()
+            if line_stripped.startswith("id:"):
+                pid = line_stripped.split(":", 1)[1].strip()
+            if "any_keywords:" in line_stripped and "[" in line_stripped and "]" in line_stripped:
+                rhs = line_stripped.split("any_keywords:", 1)[1].strip()
+                # rhs is YAML-ish list; it's also valid Python list in this project (double quotes)
+                try:
+                    kws = eval(rhs, {"__builtins__": {}})
+                except Exception:
+                    kws = []
+                break
+
+        if not pid or not isinstance(kws, list):
+            continue
+
+        score = 0
+        for k in kws:
+            if not k:
+                continue
+            k_raw = str(k)
+            k_low = k_raw.lower()
+            k_spaced = _norm_spaces(k_raw)
+            k_compact = k_spaced.replace(" ", "")
+
+            # Match against raw lower too (helps simple cases)
+            if k_low and (k_low in chief_l_raw):
+                score += 1
+                continue
+
+            # Match against normalized variants
+            if k_spaced and (k_spaced in chief_spaced):
+                score += 1
+                continue
+            if k_compact and (k_compact in chief_compact):
+                score += 1
+                continue
+
+        if score > best[1]:
+            best = (pid, score)
+
+    return {"id": best[0], "score": best[1]}
+
+
+
+# ----------------------------
+# Public API
+# ----------------------------
+
+def next_prompt(state: CallState) -> str:
+    state.symptoms.setdefault("_answers", {})
+    state.symptoms.setdefault("_pathway", {})
+    state.symptoms.setdefault("_q_idx", 0)
+
+    if state.stage == "PATHWAY_Q" and state.symptoms.get("_reprompt"):
+        return state.symptoms["_reprompt"]
+
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What's your main concern?"
+
+    if state.stage == "AGE_BAND":
+        return "How old are you? Please say your age in years (for example: 37)."
+
+    if state.stage == "CONDITIONS":
+        return (
+            "Do you have any chronic lung condition like asthma or COPD/emphysema/chronic bronchitis? "
+            "Please say: asthma, COPD, neither, or unknown."
+        )
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "WEIGHT":
+        return (
+            "For dosing safety, what is the child's weight? "
+            "You can say pounds or kilograms (for example: 28 pounds)."
+        )
+
+    if state.stage == "PATHWAY_Q":
+        pathway_id = (state.symptoms.get("_pathway") or {}).get("id") or "cough_uri"
+        questions = _load_questions_for(pathway_id)
+        idx = int(state.symptoms.get("_q_idx", 0))
+
+        if idx >= len(questions):
+            state.stage = "DECIDE"
+            return ""
+
+        while idx < len(questions):
+            q = questions[idx] or {}
+            prompt = (q.get("prompt") or "").strip()
+            if prompt:
+                state.symptoms["_q_idx"] = idx
+                return prompt
+            idx += 1
+
+        state.stage = "DECIDE"
+        return ""
+
+    if state.stage == "DECIDE":
+        return ""
+
+    return "I'm sorry — I got lost. Let's start over. What's your main concern?"
+
+
+def process_answer(state: CallState, text: str) -> None:
+    state.symptoms.setdefault("_answers", {})
+    state.symptoms.setdefault("_pathway", {})
+    state.symptoms.setdefault("_q_idx", 0)
+
+    t = _norm(text)
+
+    if state.stage == "CONSENT":
+        yn = _yesno(t)
+        if yn is True:
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    if state.stage == "CHIEF":
+        state.chief_complaint = (text or "").strip()
+        state.symptoms["_pathway"] = _pick_pathway(state.chief_complaint, state)
+        state.symptoms["_q_idx"] = 0
+        state.stage = "AGE_BAND"
+        return
+
+    if state.stage == "AGE_BAND":
+        age = _parse_age_years(text)
+        if age is None:
+            state.symptoms["_reprompt_age"] = True
+            return
+        state.symptoms.pop("_reprompt_age", None)
+
+        state.symptoms["age_years"] = age
+        state.age_band = _age_band(age)
+        state.symptoms["age_band"] = state.age_band
+        state.symptoms["is_child"] = bool(age < 18.0)
+
+        pid = (state.symptoms.get("_pathway") or {}).get("id") or ""
+        if pid in set(RESP_PATHWAYS):
+            state.stage = "CONDITIONS"
+        else:
+            state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "CONDITIONS":
+        val = "unknown"
+        if "asthma" in t:
+            val = "asthma"
+        elif any(k in t for k in ["copd", "emphysema", "chronic bronchitis"]):
+            val = "copd"
+        elif any(k in t for k in ["neither", "none", "no"]):
+            val = "none"
+        elif any(k in t for k in ["unknown", "not sure", "unsure"]):
+            val = "unknown"
+        state.symptoms["chronic_lung"] = val
+        state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "ALLERGIES":
+        if t in ["no", "none", "nope", "n"]:
+            state.symptoms["med_allergies"] = "none"
+        else:
+            state.symptoms["med_allergies"] = (text or "").strip() or "unknown"
+
+        if bool(state.symptoms.get("is_child")):
+            state.stage = "WEIGHT"
+        else:
+            state.stage = "PATHWAY_Q"
+        return
+
+    if state.stage == "WEIGHT":
+        wkg, unit = _parse_weight(text)
+        if wkg is None:
+            state.symptoms["_reprompt_weight"] = True
+            return
+        state.symptoms.pop("_reprompt_weight", None)
+        state.symptoms["weight_kg"] = wkg
+        state.symptoms["weight_unit"] = unit or "unknown"
+        state.stage = "PATHWAY_Q"
+        return
+
+    if state.stage == "PATHWAY_Q":
+        pathway_id = (state.symptoms.get("_pathway") or {}).get("id") or "cough_uri"
+        questions = _load_questions_for(pathway_id)
+        idx = int(state.symptoms.get("_q_idx", 0))
+
+        if idx >= len(questions):
+            state.stage = "DECIDE"
+            return
+
+        q = questions[idx]
+        qid = q.get("id") or f"q{idx}"
+        store_as = q.get("store_as") or qid
+        qtype = q.get("type") or "text"
+
+        if qtype == "yesno":
+            yn = _yesno(t)
+            if yn is None:
+                state.symptoms["_reprompt"] = f"Please answer yes or no. {q.get('prompt','')}"
+                return
+            state.symptoms["_answers"][qid] = "yes" if yn else "no"
+            state.symptoms[store_as] = bool(yn)
+        else:
+            state.symptoms["_answers"][qid] = (text or "").strip()
+            state.symptoms[store_as] = (text or "").strip()
+
+            # RED_SWOLLEN_LEG_SORT_REROUTE_V2 (adds structured flags)
+            if pathway_id == "red_swollen_leg_sort" and (store_as or "") == "leg_sort_discriminator":
+                flags = _extract_leg_sort_flags(text or "")
+                state.symptoms.update(flags)
+
+                target = _leg_sort_target(text or "")
+                state.symptoms["_pathway"] = {"id": target, "score": 999}
+                state.symptoms["_q_idx"] = 0
+                state.stage = "PATHWAY_Q"
+                state.symptoms.pop("_reprompt", None)
+                return
+
+            # SEX_AT_BIRTH_UTI_REROUTE_V1
+            if (store_as or "") == "sex_at_birth":
+                raw = (text or "").strip().lower()
+                val = "unknown"
+                if raw in ("male", "m", "man"):
+                    val = "male"
+                elif raw in ("female", "f", "woman"):
+                    val = "female"
+                state.symptoms["sex_at_birth"] = val
+                state.symptoms["male"] = bool(val == "male")
+
+                if val == "male":
+                    state.symptoms["_pathway"] = {"id": "uti_male", "score": 999}
+                    state.symptoms["_q_idx"] = 0
+                    state.stage = "PATHWAY_Q"
+                    return
+
+        state.symptoms["_q_idx"] = idx + 1
+        state.symptoms.pop("_reprompt", None)
+        return
+
+    state.stage = "CONSENT"

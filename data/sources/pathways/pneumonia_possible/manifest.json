@@ -1,0 +1,26 @@
+{
+  "pathway_id": "pneumonia_possible",
+  "updated_at": "2026-01-26",
+  "sources": [
+    {
+      "title": "ATS/IDSA (2019) Community-Acquired Pneumonia guideline (full guideline)",
+      "source": "American Thoracic Society / Infectious Diseases Society of America",
+      "url": "https://www.atsjournals.org/doi/10.1164/rccm.201908-1581ST"
+    },
+    {
+      "title": "IDSA \u2014 Community-acquired pneumonia in adults (guideline landing page)",
+      "source": "Infectious Diseases Society of America",
+      "url": "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/"
+    },
+    {
+      "title": "AAFP (2022) Community-Acquired Pneumonia in Adults (PDF)",
+      "source": "American Family Physician",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0600/p625.pdf"
+    },
+    {
+      "title": "NICE NG250 (2025) Pneumonia: diagnosis and management",
+      "source": "National Institute for Health and Care Excellence",
+      "url": "https://www.nice.org.uk/guidance/ng250"
+    }
+  ]
+}

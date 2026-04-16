@@ -1,0 +1,133 @@
+{
+  "packet_id": "81d8330e-61da-4d2d-8db9-30242bdf62f4",
+  "created_at": "2026-02-09T01:59:03.593414+00:00",
+  "session_id": "c39809f2-22ba-4d2b-98de-4ba6064c97c9",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "next to sternum and it doesn't radiate",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or palpitations with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Have you noticed any swelling, redness, or tenderness in your chest or nearby areas?",
+    "intake_a5": "tenderness",
+    "intake_q6": "Have you had any recent injuries, heavy lifting, or unusual physical activity that might explain the chest tenderness?",
+    "intake_a6": "heavy lifting",
+    "intake_q7": "Any fever, chills, or recent infections?",
+    "intake_a7": "no",
+    "intake_q8": "Have you experienced any cough or difficulty breathing at rest or with exertion?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a9": "no",
+    "intake_q10": "Does the chest pain change with breathing, coughing, or movement?",
+    "intake_a10": "yes",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/lab-tests/troponin-test/",
+        "https://medlineplus.gov/heartattack.html",
+        "https://www.nhs.uk/conditions/pericarditis/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain located next to the sternum that started one week ago. The pain does not radiate and is associated with tenderness in the chest area. The pain changes with movement and breathing. She reports no shortness of breath, sweating, nausea, palpitations, fever, chills, recent infections, cough, or difficulty breathing. She notes recent heavy lifting prior to symptom onset. There is no history of heart disease, lung problems, or blood clots. Patient is not pregnant., and there are no known medication allergies. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vitals or physical exam available.\n\nA: \nThe working diagnosis is costochondritis, an inflammation of the costal cartilage causing localized chest pain that worsens with movement and palpation, often triggered by physical strain such as heavy lifting. \n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal chest wall strain or injury \n3. Gastroesophageal reflux disease (GERD) \n4. Cardiac ischemia (less likely given absence of radiation, exertional symptoms, or autonomic features) \n\nP: \n- First-line medication: \n NSAIDs such as ibuprofen 400-600 mg orally every 6-8 hours as needed for pain and inflammation, for 1-2 weeks. Avoid if contraindications such as allergy or gastrointestinal issues. Dosing details were not found in retrieved evidence; prescriber should verify. \n\n- Alternatives: \n - Acetaminophen 500-1000 mg orally every 6 hours as needed for pain, for 1-2 weeks; avoid in severe liver disease. \n - Topical NSAIDs or analgesic creams applied to the affected area, if oral NSAIDs are contraindicated. \n - Physical therapy or gentle stretching exercises after acute pain improves. \n\n- Medication safety considerations: \n No known medication allergies. Not pregnant. No renal or liver disease reported. NSAIDs should be used cautiously if any gastrointestinal or cardiovascular risk factors develop. \n\n- Return precautions: \n Seek urgent care if chest pain worsens, becomes constant, radiates to jaw or arm, is associated with shortness of breath, sweating, nausea, palpitations, or syncope. \n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "www.nhs.uk Costochondritis - NHS authoritative_patient_clinician NHS: practical outpatient management language msk_chest_wall_pain 2026-02-08T14:37:23.207462+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "musculoskeletal pain, an injection of a 2-mL mixture of 1 mL of 40 mg/mL of methylprednisolone acetate or equivalent and 1 mL of local anesthetic can work quite well helping to resolve pain if symptoms persist for more than a few months.18 Gaps in the Evidence-Based Knowledge The mechanism of costochondritis is unclear and is often a diagnosis of exclusion.…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "istory and physical examination of the chest that document reproducible pain by palpation over the costal cartilages are usually all that is needed to make the diagnosis in children, adolescents, and young adults. Patients older than 35 years, those with a history or risk of coronary artery disease, and any patient with cardiopulmonary symptoms should have a…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/900fa94e5b4c0ed8/content.txt",
+        "snippet": "all pain without associated symptoms such as shortness of breath, dizziness, nausea, and headache. Pain may be reproducible on a physical exam without vital sign abnormalities or visible chest lesions, such as swelling or rash. Diagnostic testing must be guided by the presence of risk factors for life-threatening conditions. Labs, ECG, and chest x-ray should…"
+      },
+      {
+        "title": "Pericarditis - NHS",
+        "source": "https://www.nhs.uk/conditions/pericarditis/",
+        "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/0c2fb6011197aadb/content.txt",
+        "snippet": "rict activities? - What new signs or symptoms should I watch for? - When can I expect my symptoms to resolve? - I have other health conditions. How can I best manage them together? Don't hesitate to ask other questions. What to expect from your doctor Your healthcare team is likely to ask you a number of questions, including: - Have your symptoms worsened ov…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/3ca85874a0800355/content.txt",
+      "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/900fa94e5b4c0ed8/content.txt",
+      "snippet": "illness, past medical history, social history, family history, and a review of systems are very important to understand the risk for more common but serious chest pain presentations. The timing, onset, severity, location, radiation, and associated symptoms that can point to an alternative diagnosis should be noted. Costochondritis can mimic acute coronary sy…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/0c2fb6011197aadb/content.txt",
+      "snippet": "rict activities? - What new signs or symptoms should I watch for? - When can I expect my symptoms to resolve? - I have other health conditions. How can I best manage them together? Don't hesitate to ask other questions. What to expect from your doctor Your healthcare team is likely to ask you a number of questions, including: - Have your symptoms worsened ov…"
+    }
+  ],
+  "state": null
+}

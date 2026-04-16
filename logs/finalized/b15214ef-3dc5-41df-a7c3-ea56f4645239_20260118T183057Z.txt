@@ -1,0 +1,28 @@
+S:
+Patient reports tick bite. Reports a tick bite with a bullseye rash present. No systemic symptoms reported. Exposure occurred in Georgia.
+O: No physical exam findings available due to phone-only encounter. Patient describes characteristic erythema migrans (bullseye rash).
+
+A:  
+  - Working diagnosis (most likely): Early localized Lyme disease, given the presence of a bullseye rash and tick exposure in an endemic area.  
+  - Differential:  
+    1. Early Lyme disease  
+    2. Southern tick-associated rash illness (STARI)  
+    3. Cellulitis or local skin infection  
+    4. Other tick-borne illnesses (less likely without systemic symptoms)  
+  - Red flags considered: No fever, no neurological symptoms, no joint pain, no signs of systemic illness.
+
+P:  
+  - Disposition: Urgent in-person evaluation recommended for clinical assessment and initiation of treatment.  
+  - Plan: Advise patient to seek prompt medical evaluation for confirmation and initiation of antibiotic therapy as per CDC guidelines for Lyme disease with erythema migrans. Educate on signs of progression or systemic involvement.  
+  - Safety net: Instruct patient to seek emergency care if fever, worsening rash, joint swelling, neurological symptoms, or other systemic signs develop.
+
+Evidence Used:
+- CDC: What to Do After a Tick Bite — https://www.cdc.gov/ticks/after-a-tick-bite/index.html
+- CDC: Tick Bite—What to Do (PDF) — https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf
+- CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF) — https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf
+- IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease — https://www.idsociety.org/practice-guideline/lyme-disease/
+- AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021) — https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html
+
+Evidence (snippets used):  
+- CDC guidance recommends treatment of early Lyme disease with erythema migrans rash to prevent progression.  
+- Presence of bullseye rash is diagnostic for early Lyme disease even without systemic symptoms.

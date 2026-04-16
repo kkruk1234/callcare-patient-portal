@@ -1,0 +1,198 @@
+{
+  "packet_id": "e309e56b-f470-471b-869f-9b9c4d9d7520",
+  "created_at": "2026-03-04T12:25:19.867579+00:00",
+  "session_id": "8be32e30-60fc-4ded-b71a-4963ecf52f9e",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately three weeks ago. She denies any fever, chills, night sweats, recent trauma, or injury. There is no pain with breathing or coughing, and no numbness, weakness, or tingling in the legs or feet. She has tried acetaminophen (Tylenol) without significant relief. There is no history of recent infections, kidney problems, urinary symptoms, cancer, unexplained weight loss, or recent travel.\nO: Phone evaluation only; no physical examination or vital signs available.\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage, likely involving the intercostal nerves or costochondral structures given the location and absence of systemic symptoms. \nDifferential:\n1. Intercostal nerve irritation or syndrome\n2. Costochondritis\n3. Muscular strain or myofascial pain\n4. Early rib stress injury or minor occult trauma\n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction.\n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated.\n- Medication safety considerations: Use NSAIDs with caution if gastrointestinal issues arise; avoid in patients with renal impairment or liver disease (not present in this patient).\n- Return precautions: Advise patient to seek urgent care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, or any new systemic symptoms.\n- Testing: No immediate testing indicated given the absence of red flags; consider imaging if symptoms persist beyond 6 weeks or worsen.\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Diagnosis and Treatment of Acute Low Back Pain | AAFP",
+        "source": "aafp.org",
+        "snippet": "Diagnosis and Treatment of Acute Low Back Pain | AAFP | aafp.org | https://www.aafp.org/pubs/afp/issues/2012/0215/p343.html"
+      },
+      {
+        "title": "[Intercostal nerve syndrome] - PubMed",
+        "source": "pubmed.ncbi.nlm.nih.gov",
+        "snippet": "[Intercostal nerve syndrome] - PubMed | pubmed.ncbi.nlm.nih.gov | https://pubmed.ncbi.nlm.nih.gov/11332269/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Diagnosis and Treatment of Acute Low Back Pain | AAFP. Accessed 2026-03-04. https://www.aafp.org/pubs/afp/issues/2012/0215/p343.html",
+      "source": "aafp.org",
+      "snippet": "URL: https://www.aafp.org/pubs/afp/issues/2012/0215/p343.html\nAccessed: 2026-03-04"
+    },
+    {
+      "title": "[Intercostal nerve syndrome] - PubMed. Accessed 2026-03-04. https://pubmed.ncbi.nlm.nih.gov/11332269/",
+      "source": "pubmed.ncbi.nlm.nih.gov",
+      "snippet": "URL: https://pubmed.ncbi.nlm.nih.gov/11332269/\nAccessed: 2026-03-04"
+    }
+  ],
+  "state": {
+    "session_id": "8be32e30-60fc-4ded-b71a-4963ecf52f9e",
+    "transcript": [],
+    "chief_complaint": "back pain",
+    "age_band": "adult",
+    "age_years": null,
+    "pregnancy_possible": "no",
+    "symptoms": {
+      "_answers": {
+        "intake_q1": "When did your back pain start?",
+        "intake_a1": "3 weeks ago",
+        "intake_q2": "Can you describe where exactly your back pain is located?",
+        "intake_a2": "left side lower rib cage",
+        "intake_q3": "Any fever, chills, or night sweats?",
+        "intake_a3": "no",
+        "intake_q4": "Any recent injury or trauma to your back or ribs?",
+        "intake_a4": "no",
+        "intake_q5": "Any pain with breathing or coughing?",
+        "intake_a5": "no",
+        "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+        "intake_a6": "no",
+        "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+        "intake_a7": "I tried tylenol but it didn't help very much",
+        "intake_q8": "Any history of recent infections, such as urinary tract infections or pneumonia?",
+        "intake_a8": "no",
+        "intake_q9": "Any history of kidney problems or urinary symptoms like pain or blood in urine?",
+        "intake_a9": "no",
+        "intake_q10": "Any history of cancer, unexplained weight loss, or recent travel?",
+        "intake_a10": "no",
+        "age_years": 47,
+        "allergies": "none",
+        "sex_at_birth": "female",
+        "pregnancy_possible": "no",
+        "pregnancy": "no",
+        "renal_disease": "no",
+        "liver_disease": "no",
+        "evidence_search_queries": [
+          "intercostal nerve syndrome treatment",
+          "costochondritis symptoms and management",
+          "NSAIDs for rib cage musculoskeletal pain",
+          "musculoskeletal back pain left lower rib cage treatment"
+        ],
+        "evidence_used": [
+          {
+            "title": "Diagnosis and Treatment of Acute Low Back Pain | AAFP",
+            "source": "aafp.org",
+            "url": "https://www.aafp.org/pubs/afp/issues/2012/0215/p343.html",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "[Intercostal nerve syndrome] - PubMed",
+            "source": "pubmed.ncbi.nlm.nih.gov",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/11332269/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          }
+        ],
+        "evidence": [
+          {
+            "title": "Diagnosis and Treatment of Acute Low Back Pain | AAFP",
+            "source": "aafp.org",
+            "url": "https://www.aafp.org/pubs/afp/issues/2012/0215/p343.html",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "[Intercostal nerve syndrome] - PubMed",
+            "source": "pubmed.ncbi.nlm.nih.gov",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/11332269/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          }
+        ]
+      },
+      "_llm_intake_turns": [
+        {
+          "q": "When did your back pain start?",
+          "a": "3 weeks ago"
+        },
+        {
+          "q": "Can you describe where exactly your back pain is located?",
+          "a": "left side lower rib cage"
+        },
+        {
+          "q": "Any fever, chills, or night sweats?",
+          "a": "no"
+        },
+        {
+          "q": "Any recent injury or trauma to your back or ribs?",
+          "a": "no"
+        },
+        {
+          "q": "Any pain with breathing or coughing?",
+          "a": "no"
+        },
+        {
+          "q": "Any numbness, weakness, or tingling in your legs or feet?",
+          "a": "no"
+        },
+        {
+          "q": "Have you tried any treatments or medications for your back pain, and did they help?",
+          "a": "I tried tylenol but it didn't help very much"
+        },
+        {
+          "q": "Any history of recent infections, such as urinary tract infections or pneumonia?",
+          "a": "no"
+        },
+        {
+          "q": "Any history of kidney problems or urinary symptoms like pain or blood in urine?",
+          "a": "no"
+        },
+        {
+          "q": "Any history of cancer, unexplained weight loss, or recent travel?",
+          "a": "no"
+        }
+      ],
+      "_llm_intake_extract": {
+        "onset": "3 weeks ago",
+        "key_symptoms": "back pain",
+        "location": "left side lower rib cage",
+        "red_flags": "no fever, chills, night sweats; no numbness, weakness, or tingling",
+        "relevant_history": "no recent infections, no kidney problems or urinary symptoms, no recent injury or trauma",
+        "respiratory_symptoms": "no pain with breathing or coughing",
+        "treatments_tried": "Tylenol without much help"
+      },
+      "_llm_intake_summary": "",
+      "_llm_last_q": "Any history of cancer, unexplained weight loss, or recent travel?",
+      "_llm_intake_error": "",
+      "age_years": 47,
+      "age_band": "adult",
+      "pregnancy_possible": "no",
+      "renal_disease": "no",
+      "liver_disease": "no",
+      "evidence_used": [
+        {
+          "title": "Diagnosis and Treatment of Acute Low Back Pain | AAFP",
+          "source": "aafp.org",
+          "url": "https://www.aafp.org/pubs/afp/issues/2012/0215/p343.html",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        },
+        {
+          "title": "[Intercostal nerve syndrome] - PubMed",
+          "source": "pubmed.ncbi.nlm.nih.gov",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11332269/",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        }
+      ]
+    },
+    "red_flags": [],
+    "decision": null,
+    "stage": "DECIDE",
+    "note_draft": null
+  }
+}

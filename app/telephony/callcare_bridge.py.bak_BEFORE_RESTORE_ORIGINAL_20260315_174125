@@ -1,0 +1,597 @@
+from __future__ import annotations
+
+import importlib
+import json
+import logging
+import shutil
+import time
+import uuid
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from pathlib import Path
+from types import SimpleNamespace
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
+log = logging.getLogger(__name__)
+
+CALL_LOG_DIR = Path("logs") / "calls"
+CALL_LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+PORTAL_INBOX_DIR = Path("logs") / "portal_inbox"
+PORTAL_INBOX_DIR.mkdir(parents=True, exist_ok=True)
+
+DEBUG_LOG = Path("logs") / "telephony_bridge_debug.jsonl"
+
+
+def _now_iso() -> str:
+    try:
+        return datetime.now(timezone.utc).isoformat()
+    except Exception:
+        return datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _debug_write(obj: Dict[str, Any]) -> None:
+    try:
+        with DEBUG_LOG.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
+def _is_done_state(state: Any) -> bool:
+    try:
+        stage = _safe_str(getattr(state, "stage", "")).upper()
+        return stage in {"DONE", "COMPLETE", "END", "FINISHED"}
+    except Exception:
+        return False
+
+
+def _set_attr_if_possible(obj: Any, name: str, value: Any) -> None:
+    try:
+        setattr(obj, name, value)
+    except Exception:
+        pass
+
+
+def _get_or_make_symptoms_dict(state: Any) -> Dict[str, Any]:
+    try:
+        sx = getattr(state, "symptoms", None)
+        if isinstance(sx, dict):
+            return sx
+    except Exception:
+        pass
+
+    sx = {"_answers": {}}
+    try:
+        setattr(state, "symptoms", sx)
+    except Exception:
+        pass
+    return sx
+
+
+def _get_or_make_answers_dict(state: Any) -> Dict[str, Any]:
+    sx = _get_or_make_symptoms_dict(state)
+    ans = sx.get("_answers")
+    if not isinstance(ans, dict):
+        ans = {}
+        sx["_answers"] = ans
+    return ans
+
+
+def _create_state(session_id: str, call_sid: str, from_number: str, to_number: str) -> Any:
+    try:
+        models = importlib.import_module("app.core.models")
+        CallState = getattr(models, "CallState", None)
+    except Exception:
+        CallState = None
+
+    state = None
+
+    if CallState is not None:
+        for kwargs in ({"session_id": session_id}, {}):
+            try:
+                state = CallState(**kwargs)
+                break
+            except Exception:
+                continue
+
+    if state is None:
+        state = SimpleNamespace()
+
+    _set_attr_if_possible(state, "session_id", session_id)
+    _set_attr_if_possible(state, "call_sid", call_sid)
+    _set_attr_if_possible(state, "from_number", from_number)
+    _set_attr_if_possible(state, "to_number", to_number)
+
+    sx = _get_or_make_symptoms_dict(state)
+    ans = _get_or_make_answers_dict(state)
+
+    ans.setdefault("channel", "phone")
+    ans.setdefault("telephony_provider", "twilio")
+    ans.setdefault("call_sid", call_sid)
+    ans.setdefault("from_number", from_number)
+    ans.setdefault("to_number", to_number)
+
+    sx["_answers"] = ans
+    return state
+
+
+def _resolve_optional_sync_hook() -> Optional[Callable[..., Any]]:
+    candidates = [
+        ("app.tests.simulate_text_call", "_sync_numeric_age"),
+        ("app.tests.simulate_text_call", "sync_numeric_age"),
+    ]
+    for mod_name, fn_name in candidates:
+        try:
+            mod = importlib.import_module(mod_name)
+            fn = getattr(mod, fn_name, None)
+            if callable(fn):
+                return fn
+        except Exception:
+            continue
+    return None
+
+
+def _resolve_handlers() -> Tuple[Callable[..., Any], Callable[..., Any]]:
+    candidates = [
+        "app.tests.simulate_text_call",
+        "app.clinical.state_machine",
+    ]
+
+    found_process = None
+    found_prompt = None
+
+    for mod_name in candidates:
+        try:
+            mod = importlib.import_module(mod_name)
+        except Exception:
+            continue
+
+        if found_process is None:
+            for fn_name in ("process_answer", "handle_answer"):
+                fn = getattr(mod, fn_name, None)
+                if callable(fn):
+                    found_process = fn
+                    break
+
+        if found_prompt is None:
+            for fn_name in ("next_prompt", "get_next_prompt", "prompt_for_state"):
+                fn = getattr(mod, fn_name, None)
+                if callable(fn):
+                    found_prompt = fn
+                    break
+
+        if callable(found_process) and callable(found_prompt):
+            return found_process, found_prompt
+
+    raise RuntimeError(
+        "Could not resolve CallCare handler functions. Expected process_answer + next_prompt "
+        "in app.tests.simulate_text_call or app.clinical.state_machine."
+    )
+
+
+def _call_process_answer(process_answer: Callable[..., Any], state: Any, user_text: str) -> None:
+    last_err = None
+    for args in ((state, user_text),):
+        try:
+            process_answer(*args)
+            return
+        except Exception as e:
+            last_err = e
+            continue
+    raise last_err if last_err else RuntimeError("process_answer failed")
+
+
+def _call_next_prompt(next_prompt: Callable[..., Any], state: Any) -> str:
+    last_err = None
+    for args in ((state,),):
+        try:
+            res = next_prompt(*args)
+            return _safe_str(res)
+        except Exception as e:
+            last_err = e
+            continue
+    raise last_err if last_err else RuntimeError("next_prompt failed")
+
+
+def _build_note_and_finalize(state: Any) -> Tuple[Any, Any]:
+    nb = importlib.import_module("app.clinical.note_builder")
+    build_note = getattr(nb, "build_note", None)
+    if not callable(build_note):
+        raise RuntimeError("app.clinical.note_builder.build_note not found")
+
+    fin_mod = importlib.import_module("app.clinical.finalize")
+    finalize = getattr(fin_mod, "finalize", None)
+    if not callable(finalize):
+        raise RuntimeError("app.clinical.finalize.finalize not found")
+
+    note = build_note(state)
+    packet = finalize(getattr(state, "session_id", None), note, state)
+    return note, packet
+
+
+def _extract_note_obj(packet: Any, note_fallback: Any) -> Any:
+    if packet is None:
+        return note_fallback
+    try:
+        note = getattr(packet, "note", None)
+        if note is not None:
+            return note
+    except Exception:
+        pass
+    if isinstance(packet, dict):
+        note = packet.get("note")
+        if note is not None:
+            return note
+    return note_fallback
+
+
+def _build_patient_summary(state: Any, note: Any) -> str:
+    candidates = [
+        ("app.clinical.llm_patient_summary", "build_patient_summary"),
+        ("app.clinical.llm_patient_summary", "generate_patient_summary"),
+        ("app.clinical.llm_patient_summary", "build_summary"),
+        ("app.clinical.llm_patient_summary", "generate_summary"),
+    ]
+
+    for mod_name, fn_name in candidates:
+        try:
+            mod = importlib.import_module(mod_name)
+            fn = getattr(mod, fn_name, None)
+            if not callable(fn):
+                continue
+            for args in (
+                (state, note),
+                (note, state),
+                (note,),
+                (state,),
+            ):
+                try:
+                    out = fn(*args)
+                    txt = _safe_str(out)
+                    if txt:
+                        return txt
+                except Exception:
+                    continue
+        except Exception:
+            continue
+
+    return (
+        "Your telephone intake is complete. A licensed physician will review your chart. "
+        "If your symptoms worsen or you develop urgent warning signs, please seek in-person care right away."
+    )
+
+
+def _packet_id(packet: Any) -> str:
+    try:
+        v = getattr(packet, "packet_id", None)
+        if v:
+            return _safe_str(v)
+    except Exception:
+        pass
+    if isinstance(packet, dict):
+        return _safe_str(packet.get("packet_id"))
+    return ""
+
+
+def _write_transcript(session: "CallSession") -> None:
+    out = {
+        "call_sid": session.call_sid,
+        "session_id": session.session_id,
+        "from_number": session.from_number,
+        "to_number": session.to_number,
+        "created_at": session.created_at,
+        "ended_at": _now_iso(),
+        "packet_id": _packet_id(session.finalized_packet),
+        "transcript": session.transcript,
+    }
+    path = CALL_LOG_DIR / f"{session.call_sid}.json"
+    path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _route_packet_to_portal_inbox(session: "CallSession") -> None:
+    pid = _packet_id(session.finalized_packet)
+    if not pid:
+        return
+
+    src = Path("logs") / "finalized" / f"{pid}.json"
+    if not src.exists():
+        return
+
+    dst = PORTAL_INBOX_DIR / src.name
+    shutil.copy2(src, dst)
+
+    meta = {
+        "packet_id": pid,
+        "call_sid": session.call_sid,
+        "session_id": session.session_id,
+        "from_number": session.from_number,
+        "to_number": session.to_number,
+        "created_at": session.created_at,
+        "routed_at": _now_iso(),
+        "status": "active",
+        "prescription_status": "under review",
+        "note_sent": "to be mailed",
+    }
+    meta_path = PORTAL_INBOX_DIR / f"{pid}.meta.json"
+    meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+@dataclass
+class TurnResult:
+    say: str
+    done: bool = False
+
+
+@dataclass
+class CallSession:
+    call_sid: str
+    session_id: str
+    from_number: str = ""
+    to_number: str = ""
+    state: Any = None
+    created_at: str = field(default_factory=_now_iso)
+    transcript: List[Dict[str, str]] = field(default_factory=list)
+    partial_user_buffer: List[str] = field(default_factory=list)
+    finalized_packet: Any = None
+    last_prompt_text: str = ""
+    safety_disclaimer_spoken: bool = False
+    last_prompt_at: float = 0.0
+    last_user_at: float = 0.0
+    awaiting_reanswer: bool = False
+
+
+class CallCareBridge:
+    def __init__(self) -> None:
+        self._process_answer, self._next_prompt = _resolve_handlers()
+        self._sync_hook = _resolve_optional_sync_hook()
+        self._sessions: Dict[str, CallSession] = {}
+
+    def start_session(self, call_sid: str, from_number: str = "", to_number: str = "") -> Tuple[CallSession, str]:
+        session_id = str(uuid.uuid4())
+        state = _create_state(session_id=session_id, call_sid=call_sid, from_number=from_number, to_number=to_number)
+
+        session = CallSession(
+            call_sid=call_sid,
+            session_id=session_id,
+            from_number=from_number,
+            to_number=to_number,
+            state=state,
+        )
+        self._sessions[call_sid] = session
+
+        opening = _call_next_prompt(self._next_prompt, state)
+        if not opening:
+            opening = "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? Please say yes or no."
+
+        session.last_prompt_text = opening
+        session.last_prompt_at = time.monotonic()
+        session.transcript.append({"role": "assistant", "text": opening})
+        return session, opening
+
+    def get_session(self, call_sid: str) -> Optional[CallSession]:
+        return self._sessions.get(call_sid)
+
+    def end_session(self, call_sid: str) -> None:
+        session = self._sessions.get(call_sid)
+        if session is not None:
+            try:
+                _write_transcript(session)
+            except Exception:
+                log.exception("Failed writing call transcript for %s", call_sid)
+        self._sessions.pop(call_sid, None)
+
+    def _user_turn_count(self, session: CallSession) -> int:
+        return sum(1 for t in session.transcript if _safe_str(t.get("role")).lower() == "user")
+
+    def handle_prompt_text(self, call_sid: str, user_text: str) -> TurnResult:
+        session = self.get_session(call_sid)
+        if session is None:
+            return TurnResult(
+                say="We couldn't find your active call session. Please hang up and call back.",
+                done=True,
+            )
+
+        text = _safe_str(user_text)
+        if not text:
+            reprompt = session.last_prompt_text or "I didn't catch that. Please say that again."
+            _debug_write({
+                "ts": _now_iso(),
+                "call_sid": call_sid,
+                "event": "empty_user_text",
+                "last_prompt_text": session.last_prompt_text,
+            })
+            return TurnResult(say=reprompt, done=False)
+
+        now_ts = time.monotonic()
+        low_text = text.lower().strip()
+
+        continuation_markers = (
+            "oh wait",
+            "actually",
+            "i mean",
+            "sorry",
+            "hold on",
+            "wait",
+            "let me add",
+            "one more thing",
+            "to correct that",
+            "correction",
+        )
+
+        # One-shot bypass: if we already re-asked the current question, the very next answer
+        # should always be treated as the answer to that question, with no timing heuristics.
+        if session.awaiting_reanswer:
+            session.awaiting_reanswer = False
+            session.last_user_at = now_ts
+            session.transcript.append({"role": "user", "text": text})
+        else:
+            secs_since_prompt = now_ts - session.last_prompt_at if session.last_prompt_at else 999.0
+            secs_between_user_and_prompt = (
+                session.last_prompt_at - session.last_user_at
+                if session.last_prompt_at and session.last_user_at
+                else 999.0
+            )
+            long_fragment = len(text.split()) >= 4
+
+            if (
+                session.last_prompt_text
+                and session.last_prompt_at
+                and session.last_user_at
+                and secs_since_prompt < 0.9
+                and secs_between_user_and_prompt < 0.8
+                and (
+                    any(low_text.startswith(m) for m in continuation_markers)
+                    or long_fragment
+                )
+            ):
+                reprompt = session.last_prompt_text
+                session.last_prompt_at = time.monotonic()
+                session.awaiting_reanswer = True
+                session.transcript.append({"role": "assistant", "text": reprompt})
+                _debug_write({
+                    "ts": _now_iso(),
+                    "call_sid": call_sid,
+                    "event": "late_answer_fragment_reprompt",
+                    "user_text": text,
+                    "reprompt": reprompt,
+                    "seconds_since_prompt": round(secs_since_prompt, 3),
+                    "seconds_between_user_and_prompt": round(secs_between_user_and_prompt, 3),
+                })
+                return TurnResult(say=reprompt, done=False)
+
+            session.last_user_at = now_ts
+            session.transcript.append({"role": "user", "text": text})
+
+        _call_process_answer(self._process_answer, session.state, text)
+
+        if callable(self._sync_hook):
+            try:
+                self._sync_hook(session.state)
+            except Exception:
+                pass
+
+        stage = _safe_str(getattr(session.state, "stage", ""))
+        done_state = _is_done_state(session.state)
+
+        if done_state:
+            _debug_write({
+                "ts": _now_iso(),
+                "call_sid": call_sid,
+                "event": "done_state_true",
+                "user_text": text,
+                "stage": stage,
+            })
+            return TurnResult(say="", done=True)
+
+        nxt = _call_next_prompt(self._next_prompt, session.state)
+
+        try:
+            low = _safe_str(nxt).lower()
+            if (
+                not session.safety_disclaimer_spoken
+                and ("how old are you" in low or "what is your age" in low)
+            ):
+                disclaimer = (
+                    "The next few questions may feel repetitive, but they are important "
+                    "for medication safety and treatment decisions. "
+                )
+                nxt = disclaimer + nxt
+                session.safety_disclaimer_spoken = True
+        except Exception:
+            pass
+
+        if not nxt:
+            if self._user_turn_count(session) < 5:
+                reprompt = session.last_prompt_text or "Please answer the question again."
+                session.last_prompt_at = time.monotonic()
+                session.transcript.append({"role": "assistant", "text": reprompt})
+                _debug_write({
+                    "ts": _now_iso(),
+                    "call_sid": call_sid,
+                    "event": "blank_next_prompt_reprompt",
+                    "user_text": text,
+                    "stage": stage,
+                    "user_turn_count": self._user_turn_count(session),
+                    "reprompt": reprompt,
+                })
+                return TurnResult(say=reprompt, done=False)
+
+            _debug_write({
+                "ts": _now_iso(),
+                "call_sid": call_sid,
+                "event": "blank_next_prompt_done",
+                "user_text": text,
+                "stage": stage,
+                "user_turn_count": self._user_turn_count(session),
+            })
+            return TurnResult(say="", done=True)
+
+        session.last_prompt_text = nxt
+        session.last_prompt_at = time.monotonic()
+        session.awaiting_reanswer = False
+        session.transcript.append({"role": "assistant", "text": nxt})
+        _debug_write({
+            "ts": _now_iso(),
+            "call_sid": call_sid,
+            "event": "next_prompt",
+            "user_text": text,
+            "stage": stage,
+            "next_prompt": nxt,
+            "done": False,
+        })
+        return TurnResult(say=nxt, done=False)
+
+    def complete_session(self, call_sid: str) -> str:
+        session = self.get_session(call_sid)
+        if session is None:
+            return "Your call session could not be completed. Please call back if you still need help."
+
+        _debug_write({
+            "ts": _now_iso(),
+            "call_sid": call_sid,
+            "event": "complete_session_start",
+        })
+
+        note, packet = _build_note_and_finalize(session.state)
+        note_obj = _extract_note_obj(packet, note)
+        summary = _build_patient_summary(session.state, note_obj)
+        session.finalized_packet = packet
+        session.transcript.append({"role": "assistant", "text": summary})
+
+        try:
+            _route_packet_to_portal_inbox(session)
+        except Exception:
+            log.exception("Failed routing packet to portal inbox for %s", call_sid)
+
+        _debug_write({
+            "ts": _now_iso(),
+            "call_sid": call_sid,
+            "event": "complete_session_end",
+            "summary_len": len(_safe_str(summary)),
+        })
+
+        return summary
+
+    def append_partial_prompt(self, call_sid: str, partial_text: str) -> None:
+        session = self.get_session(call_sid)
+        if session is None:
+            return
+        txt = _safe_str(partial_text)
+        if txt:
+            session.partial_user_buffer.append(txt)
+
+    def consume_partial_prompt(self, call_sid: str) -> str:
+        session = self.get_session(call_sid)
+        if session is None:
+            return ""
+        text = " ".join([t for t in session.partial_user_buffer if _safe_str(t)]).strip()
+        session.partial_user_buffer = []
+        return text

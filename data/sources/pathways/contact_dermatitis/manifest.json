@@ -1,0 +1,26 @@
+{
+  "pathway_id": "contact_dermatitis",
+  "sources": [
+    {
+      "id": "contact_dermatitis_src_1",
+      "source_id": "contact_dermatitis_src_1",
+      "title": "contact_dermatitis references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "contact_dermatitis_src_2",
+      "source_id": "contact_dermatitis_src_2",
+      "title": "contact_dermatitis references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "contact_dermatitis_src_3",
+      "source_id": "contact_dermatitis_src_3",
+      "title": "contact_dermatitis references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

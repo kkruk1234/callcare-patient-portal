@@ -1,0 +1,10 @@
+{
+  "title": "Current Epidemic Trends (Based on Rt) for States | CFA: Modeling and Forecasting | CDC",
+  "url": "https://www.cdc.gov/cfa-modeling-and-forecasting/rt-estimates/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ed through the National Syndromic Surveillance Program . This R t : Behind the Model article provides a more in-depth overview of the modeling approach used to estimate R t , and the strategies CDC uses to validate the accuracy of estimates.\nTo estimate R t , we fit Bayesian models to the data using the R packages EpiNow2 , epinowcast , or using Stan models developed by the CDC Center for Forecasting and Outbreak Analytics. Following best practices , these models adjust for lags from infection to observation, incomplete observation of recent infection events, and day-of-week reporting effects, in addition to uncertainty from all these adjustments.\nGlossary of terms \nGeneration interval: the interval between the infection times of an infector-infectee pair; i.e. the difference in the time when an individual (Person j) is infected by an infector (Person i) and the time when this infector (Person i) was infected. \nLeading indicator: a variable that provides an early indication of future trends in an outbreak, e.g., R t , as this metric estimates the number of infections caused by one infected person in near real-time. \nLagging indicator: a variable that provides a lagged indication of future trends in an outbreak, e.g., COVID-19 deaths, as this outcome happens after cases have occurred. \nOn This Page \nEpidemic trends \nEpidemic trend summary \nCOVID-19 \nInfluenza \nRSV \nInterpreting",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_modeling_and_forecasting_rt_estimates_index_html_011e1577cf58",
+  "chunk_id": "chunk_007"
+}

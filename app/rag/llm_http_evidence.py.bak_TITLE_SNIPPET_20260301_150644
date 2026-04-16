@@ -1,0 +1,285 @@
+from __future__ import annotations
+
+import re
+from typing import Any, Dict, List, Optional
+from urllib.parse import urlparse, urlunparse, ParseResult
+
+try:
+    from openai import OpenAI
+except Exception:
+    OpenAI = None  # type: ignore
+
+try:
+    from app.core.models import EvidenceRef
+except Exception:
+    EvidenceRef = None  # type: ignore
+
+
+# -----------------------------
+# Domain Filtering
+# -----------------------------
+
+def _allow_hosts() -> List[str]:
+    # Keep this tight + authoritative. Add more later if needed.
+    return [
+        "cdc.gov",
+        "nih.gov",
+        "nlm.nih.gov",
+        "medlineplus.gov",
+        "pubmed.ncbi.nlm.nih.gov",
+        "pmc.ncbi.nlm.nih.gov",
+        "ncbi.nlm.nih.gov",
+        "aafp.org",
+        "nice.org.uk",
+        "nhs.uk",
+        "who.int",
+        "mayoclinic.org",
+        "clevelandclinic.org",
+        "merckmanuals.com",
+        "bmj.com",
+        "bestpractice.bmj.com",
+        "idsociety.org",
+        "acog.org",
+    ]
+
+
+def _is_allowed(url: str) -> bool:
+    u = str(url or "").lower()
+    if not (u.startswith("http://") or u.startswith("https://")):
+        return False
+    # Hard block obvious junk/LLM content farms
+    if any(x in u for x in [
+        "droracle.ai",
+        "reddit.com",
+        "quora.com",
+        "facebook.com",
+        "tiktok.com",
+        "pinterest.",
+        "medium.com",
+    ]):
+        return False
+    return any(h in u for h in _allow_hosts())
+
+
+def _strip_tracking(url: str) -> str:
+    # Remove query params/fragments to improve de-dupe
+    try:
+        p = urlparse(url)
+        clean = ParseResult(
+            scheme=p.scheme,
+            netloc=p.netloc,
+            path=p.path,
+            params="",
+            query="",
+            fragment="",
+        )
+        return urlunparse(clean)
+    except Exception:
+        return str(url or "").strip()
+
+
+def _publisher(url: str) -> str:
+    try:
+        h = urlparse(url).netloc.lower().replace("www.", "")
+        parts = h.split(".")
+        if len(parts) >= 2:
+            return parts[-2].upper()
+        return h
+    except Exception:
+        return "Source"
+
+
+# -----------------------------
+# URL Extraction
+# -----------------------------
+
+def _urls_from_annotations(resp: Dict[str, Any]) -> List[str]:
+    urls: List[str] = []
+    outs = resp.get("output") or []
+    for item in outs:
+        if not isinstance(item, dict):
+            continue
+        if item.get("type") != "message":
+            continue
+        content = item.get("content") or []
+        for c in content:
+            if not isinstance(c, dict):
+                continue
+            anns = c.get("annotations") or []
+            for a in anns:
+                if isinstance(a, dict) and a.get("type") == "url_citation":
+                    u = a.get("url")
+                    if u:
+                        urls.append(str(u))
+    return urls
+
+
+def _urls_from_any_text(resp: Dict[str, Any]) -> List[str]:
+    urls: List[str] = []
+
+    def walk(x: Any):
+        if isinstance(x, str):
+            for m in re.findall(r"https?://[^\s\)\]\}<>\"']+", x):
+                urls.append(m)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v)
+        elif isinstance(x, dict):
+            for v in x.values():
+                walk(v)
+
+    walk(resp)
+    return urls
+
+
+def _dedupe(urls: List[str]) -> List[str]:
+    seen = set()
+    out: List[str] = []
+    for u in urls:
+        u2 = _strip_tracking(str(u).strip())
+        if not u2 or u2 in seen:
+            continue
+        seen.add(u2)
+        out.append(u2)
+    return out
+
+
+# -----------------------------
+# Query building (scalable)
+# -----------------------------
+
+def _make_base_queries(anchor: str) -> List[str]:
+    a = str(anchor or "").strip()
+    if not a:
+        return []
+    return [
+        f"{a} outpatient management guideline",
+        f"{a} treatment medication dosing contraindications",
+        f"{a} red flags when to refer urgent care emergency",
+    ]
+
+
+def _make_site_sweep_queries(anchor: str) -> List[str]:
+    a = str(anchor or "").strip()
+    if not a:
+        return []
+    # Only a few high-yield targets; still scalable (not diagnosis-specific)
+    sweep_hosts = ["nhs.uk", "nice.org.uk", "aafp.org", "merckmanuals.com", "mayoclinic.org", "medlineplus.gov"]
+    out: List[str] = []
+    for h in sweep_hosts:
+        out.append(f"site:{h} {a} treatment")
+    # Add one PubMed-style sweep for breadth
+    out.append(f"site:ncbi.nlm.nih.gov {a} review treatment")
+    return out
+
+
+# -----------------------------
+# Web search call
+# -----------------------------
+
+def _run_search(client: Any, query: str, timeout_s: int) -> Dict[str, Any]:
+    # Use web_search_preview explicitly
+    resp = client.responses.create(
+        model="gpt-4.1-mini",
+        input=[{"role": "user", "content": [{"type": "input_text", "text": query}]}],
+        tools=[{"type": "web_search_preview"}],
+        tool_choice={"type": "web_search_preview"},
+        temperature=0.0,
+        timeout=timeout_s,
+    )
+    return resp.model_dump()
+
+
+# -----------------------------
+# Public API
+# -----------------------------
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    queries: Optional[List[str]] = None,
+    diagnosis_hint: Optional[str] = None,
+    context: Optional[str] = None,
+    assessment_text: Optional[str] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    timeout_s: int = 12,
+    max_queries: int = 4,
+    debug: bool = False,
+    **_ignored,
+) -> List[EvidenceRef]:
+
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available")
+
+    cc = str(chief_complaint or "").strip()
+    if not cc:
+        raise ValueError("chief_complaint is required")
+
+    anchor = (assessment_text or "").strip() or (diagnosis_hint or "").strip() or (context or "").strip() or cc
+    anchor = " ".join(anchor.split())
+    if len(anchor) > 200:
+        anchor = anchor[:200]
+
+    client = OpenAI()
+
+    # Pass 1: use provided queries or generic base queries
+    qlist: List[str] = []
+    if isinstance(queries, list) and queries:
+        qlist = [str(x).strip() for x in queries if str(x).strip()]
+    if not qlist:
+        qlist = _make_base_queries(anchor)
+
+    # Cap initial pass to keep latency bounded
+    qlist = qlist[:max(1, min(2, max_queries))]
+
+    all_urls: List[str] = []
+
+    # Run pass 1
+    for q in qlist:
+        try:
+            d = _run_search(client, q, timeout_s=timeout_s)
+        except Exception:
+            continue
+
+        urls = _urls_from_annotations(d)
+        if not urls:
+            urls = _urls_from_any_text(d)
+        all_urls.extend(urls)
+
+    all_urls = _dedupe(all_urls)
+    allowed = [u for u in all_urls if _is_allowed(u)]
+
+    # Pass 2: site sweep only if still thin
+    if len(allowed) < int(min_urls):
+        sweep = _make_site_sweep_queries(anchor)
+        # Remaining budget (bounded)
+        remaining = max(0, max_queries - len(qlist))
+        sweep = sweep[:max(1, min(remaining, 4))]
+        for q in sweep:
+            try:
+                d = _run_search(client, q, timeout_s=timeout_s)
+            except Exception:
+                continue
+            urls = _urls_from_annotations(d)
+            if not urls:
+                urls = _urls_from_any_text(d)
+            all_urls.extend(urls)
+
+        all_urls = _dedupe(all_urls)
+        allowed = [u for u in all_urls if _is_allowed(u)]
+
+    allowed = allowed[:max_urls]
+
+    if debug:
+        print("EVID_URLS:", allowed)
+
+    out: List[EvidenceRef] = []
+    for u in allowed:
+        title = u  # title-fetch is intentionally omitted for latency
+        if EvidenceRef is not None:
+            out.append(EvidenceRef(title=title, source=_publisher(u), snippet=""))
+        else:
+            out.append({"title": title, "source": _publisher(u), "snippet": ""})  # fallback
+
+    return out

@@ -1,0 +1,29 @@
+id: med_side_effect
+version: 0.1
+match:
+  any_keywords: ["med side effect", "reaction to medication", "new medication symptoms", "started a new medicine", "drug reaction", "medication reaction"]
+questions:
+  - id: severe_allergy
+    prompt: "Any trouble breathing, throat tightness, tongue/lip swelling, or fainting? (yes/no)"
+    store_as: anaphylaxis_signs
+    type: yesno
+
+  - id: rash
+    prompt: "Is there a widespread rash, blistering rash, or rash with fever? (yes/no)"
+    store_as: severe_rash
+    type: yesno
+
+  - id: timing
+    prompt: "Did symptoms start within 48 hours of a new medication or dose change? (yes/no/unknown)"
+    store_as: temporal_relation
+
+  - id: medname
+    prompt: "What medication is involved (name if known)?"
+    store_as: med_name
+
+stop_rules:
+  - if_all_answered: ["severe_allergy","rash","timing","medname"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

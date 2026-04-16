@@ -1,0 +1,370 @@
+import json
+import os
+import re
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import faiss
+import numpy as np
+
+from app.clinical.embeddings import get_embedder  # EMBED_HARDEN_PATCH_V1
+
+CALLCARE_DISABLE_FAISS = os.environ.get('CALLCARE_DISABLE_FAISS','').strip().lower() in ('1','true','yes')
+
+
+# Resolve project root reliably (…/callcare/)
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+# Your actual index location
+INDEX_DIR = BASE_DIR / "data" / "index"
+FAISS_PATH = INDEX_DIR / "faiss.index"
+DOCS_PATH = INDEX_DIR / "docs.json"
+
+_model = None
+_index = None
+_DOCS = None
+
+
+def reset_index_cache():
+    """Force reload of FAISS index + docs.json on next retrieve()."""
+    global _model, _index, _DOCS
+    _model = None
+    _index = None
+    _DOCS = None
+
+
+def _ensure_loaded():
+    global _model, _index, _DOCS
+    if _model is None:
+        _model = get_embedder()
+    if _index is None:
+        if not FAISS_PATH.exists():
+            raise FileNotFoundError(f"FAISS index not found: {FAISS_PATH}")
+        _index = faiss.read_index(str(FAISS_PATH))
+    if _DOCS is None:
+        if not DOCS_PATH.exists():
+            raise FileNotFoundError(f"Docs file not found: {DOCS_PATH}")
+        with open(DOCS_PATH, "r", encoding="utf-8") as f:
+            _DOCS = json.load(f)
+
+
+def _debug_enabled() -> bool:
+    return os.environ.get("RAG_DEBUG", "").strip() in ("1", "true", "TRUE", "yes", "YES")
+
+
+_WORD_RE = re.compile(r"[a-z0-9]+", re.I)
+
+# Scalable “generic” tokens that cause drift. Not per-diagnosis, not anatomy lists.
+_GENERIC_TOKENS = {
+    "pain", "treatment", "management", "guideline", "outpatient", "primary", "care",
+    "adult", "pediatric", "paediatric", "children", "child", "kids",
+    "acute", "chronic", "weeks", "week", "days", "day", "onset",
+    "location", "left", "right", "side", "lower", "upper", "mid",
+    "red", "flags", "fever", "chills", "weight", "loss", "numbness", "weakness",
+    "symptoms", "history", "cancer",
+    "pregnancy", "pregnant", "renal", "kidney", "liver", "hepatic",
+    "disease", "yes", "no", "unknown", "years", "year", "age",
+    "evaluation", "diagnosis",
+    "dose", "dosing", "mg", "ml", "prn", "tablet", "capsule", "suspension",
+}
+
+# URLs that are clearly “drug monograph” style (high-risk for off-topic drift)
+_DRUG_MONOGRAPH_PATTERNS = (
+    "medlineplus.gov/druginfo/meds/",
+    "accessdata.fda.gov",
+)
+
+# STRICT medication intent:
+# - Must have dosing markers OR medication tokens.
+# - Pregnancy/renal/liver words ALONE do NOT imply a dosing query.
+def _query_intent_is_medication(query: str) -> bool:
+    q = (query or "").lower()
+
+    dosing_markers = [
+        "dose", "dosing", "mg", "ml", "maximum daily", "max daily", "per kg",
+        "q6", "q8", "q12", "every 6", "every 8", "every 12",
+        "twice daily", "three times", "four times",
+        "contraindication", "contraindications",
+        "renal adjustment", "hepatic adjustment",
+    ]
+    if any(m in q for m in dosing_markers):
+        return True
+
+    # Small universal list of common outpatient meds/classes (intent detection only, not protocols)
+    med_tokens = [
+        "acetaminophen", "paracetamol", "ibuprofen", "naproxen", "diclofenac",
+        "nsaid", "nonsteroidal", "analgesic",
+        "antibiotic", "amoxicillin", "azithromycin", "doxycycline", "cephalexin",
+        "antiviral", "oseltamivir",
+        "inhaler", "albuterol",
+        "topical", "cream", "ointment",
+    ]
+    if any(t in q for t in med_tokens):
+        return True
+
+    return False
+
+
+def _tokenize(text: str) -> List[str]:
+    text = (text or "").lower()
+    return _WORD_RE.findall(text)
+
+
+def _focus_terms(query_tokens: List[str], limit: int = 10) -> List[str]:
+    """
+    Extract query-derived “focus” terms:
+    - remove generic drift tokens
+    - keep length>=4
+    - prefer longer, more specific terms
+    """
+    cand = []
+    for t in query_tokens:
+        if len(t) < 4:
+            continue
+        if t in _GENERIC_TOKENS:
+            continue
+        cand.append(t)
+    cand = sorted(set(cand), key=lambda x: (-len(x), x))
+    return cand[:limit]
+
+
+def _dedupe_key(d: Dict) -> Tuple[str, str, str]:
+    url = (d.get("url") or "").strip()
+    src = (d.get("source") or "").strip()
+    txt = (d.get("text") or "").strip()[:200]
+    return (url, src, txt)
+
+
+def _is_drug_monograph(doc: Dict) -> bool:
+    url = (doc.get("url") or doc.get("source") or "").lower()
+    title = (doc.get("title") or "").lower()
+    blob = f"{title} {url}"
+    return any(p in blob for p in _DRUG_MONOGRAPH_PATTERNS)
+
+
+def _monograph_matches_query(doc: Dict, focus: List[str], query_tokens: List[str]) -> bool:
+    """
+    Safety rule:
+    Even if med_intent=True, a drug-monograph page is only allowed if the query
+    includes a drug token that matches the monograph title/url.
+    This blocks random chemo injections appearing in pain queries.
+    """
+    title = (doc.get("title") or "").lower()
+    url = (doc.get("url") or doc.get("source") or "").lower()
+    blob = f"{title} {url}"
+
+    # Use focus terms first (more specific), fallback to non-generic query tokens.
+    candidates = []
+    for t in (focus or []):
+        if len(t) >= 4:
+            candidates.append(t)
+    if not candidates:
+        for t in (query_tokens or []):
+            if len(t) >= 5 and t not in _GENERIC_TOKENS:
+                candidates.append(t)
+
+    # If none, we cannot justify a monograph.
+    if not candidates:
+        return False
+
+    # Require at least one candidate to appear in title/url
+    for t in candidates[:12]:
+        if t in blob:
+            return True
+    return False
+
+
+def _relevance_score(query_tokens: List[str], focus: List[str], doc: Dict, diagnosis_hint: Optional[str]) -> float:
+    title = (doc.get("title") or "").lower()
+    text = (doc.get("text") or "").lower()
+    src = (doc.get("source") or "").lower()
+    url = (doc.get("url") or "").lower()
+    hay = " ".join([title, src, url, text[:2500]])
+
+    # Focus overlap
+    focus_overlap = 0.0
+    if focus:
+        hits = 0
+        for t in focus:
+            if t in hay:
+                hits += 1
+        focus_overlap = hits / max(1, len(focus))
+
+    # Weak overlap fallback (excluding generic tokens)
+    token_overlap = 0.0
+    if query_tokens:
+        hits2 = 0
+        denom = 0
+        for t in query_tokens:
+            if len(t) < 4:
+                continue
+            if t in _GENERIC_TOKENS:
+                continue
+            denom += 1
+            if t in hay:
+                hits2 += 1
+        if denom:
+            token_overlap = hits2 / denom
+
+    hint_bonus = 0.0
+    if diagnosis_hint:
+        h = diagnosis_hint.lower().strip()
+        if h and (h in src or h in title or h in url or h in text[:3000]):
+            hint_bonus = 0.35
+
+    return min(1.5, (0.80 * focus_overlap) + (0.20 * token_overlap) + hint_bonus)
+
+
+def _retrieve_impl(query: str, k: int = 5, *, diagnosis_hint: Optional[str] = None, fetch_k: int = 80):
+    _ensure_loaded()
+
+    if query is None:
+        query = ""
+    query = str(query).strip()
+    if not query:
+        return []
+
+    med_intent = _query_intent_is_medication(query)
+
+    # Encode + search
+    qv = _model.encode([query]).astype("float32")
+    faiss.normalize_L2(qv)
+
+    fetch_k = max(int(fetch_k), int(k), 25)
+    scores, ids = _index.search(qv, int(fetch_k))
+
+    candidates: List[Dict] = []
+    for score, idx in zip(scores[0], ids[0]):
+        try:
+            d = _DOCS[int(idx)]
+        except Exception:
+            continue
+        candidates.append(
+            {
+                "score": float(score),
+                "source": d.get("source", "") or "",
+                "title": d.get("title", "") or "Guideline excerpt",
+                "url": d.get("url", "") or "",
+                "text": d.get("text", "") or "",
+            }
+        )
+
+    # Dedupe
+    seen = set()
+    deduped: List[Dict] = []
+    for d in candidates:
+        key = _dedupe_key(d)
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(d)
+
+    q_tokens = _tokenize(query)
+    focus = _focus_terms(q_tokens, limit=10)
+
+    # Hard filter: drug monographs only allowed in true medication queries AND must match query drug token
+    dropped_monographs = 0
+    after_mono: List[Dict] = []
+    for d in deduped:
+        if _is_drug_monograph(d):
+            if (not med_intent) or (not _monograph_matches_query(d, focus, q_tokens)):
+                dropped_monographs += 1
+                continue
+        after_mono.append(d)
+
+    # Score + rerank
+    scored: List[Tuple[float, Dict, float]] = []
+    for d in after_mono:
+        rel = _relevance_score(q_tokens, focus, d, diagnosis_hint)
+        combined = d["score"] + (1.00 * rel)
+        scored.append((combined, d, rel))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+
+    # Adaptive floor: if focus exists, require some relevance
+    min_rel = 0.18 if focus else 0.12
+
+    filtered: List[Dict] = []
+    for combined, d, rel in scored:
+        if rel >= min_rel:
+            filtered.append(d)
+        if len(filtered) >= int(k):
+            break
+
+    if len(filtered) < int(min(k, 3)):
+        filtered = [d for _, d, _ in scored[: int(k)]]
+
+    if _debug_enabled():
+        print("\n=== RAG_DEBUG retrieve() ===")
+        print(f"query: {query!r}")
+        print(f"diagnosis_hint: {diagnosis_hint!r}")
+        print(f"med_intent: {med_intent}  dropped_monographs: {dropped_monographs}")
+        print(f"focus_terms: {focus}")
+        print(f"requested k: {k}  fetch_k: {fetch_k}")
+        print(f"candidates: {len(candidates)}  deduped: {len(deduped)}  after_mono: {len(after_mono)}  returned: {len(filtered)}")
+        for i, d in enumerate(filtered[: min(len(filtered), 10)], start=1):
+            snippet = (d.get("text") or "").replace("\n", " ").strip()[:180]
+            print(f"{i:02d}. score={d['score']:.4f}  title={d.get('title','')[:80]!r}")
+            print(f"    url={d.get('url','')[:120]!r}")
+            print(f"    snippet={snippet!r}")
+        print("=== END RAG_DEBUG ===\n")
+
+    return filtered
+
+
+# === CALLCARE_RETRIEVE_LOG_V1 ===
+def retrieve(query, *args, **kwargs):
+    """Log wrapper around _retrieve_impl.
+
+    If CALLCARE_DISABLE_FAISS=1, returns [] and logs that FAISS is disabled.
+    """
+    import json, time, os
+
+    os.makedirs("logs", exist_ok=True)
+
+    if CALLCARE_DISABLE_FAISS:
+        try:
+            with open("logs/retrieve.jsonl","a",encoding="utf-8") as f:
+                f.write(json.dumps({
+                    "ts": time.time(),
+                    "ok": True,
+                    "faiss_disabled": True,
+                    "query": str(query),
+                    "top": []
+                }, default=str) + "\n")
+        except Exception:
+            pass
+        return []
+
+    hits = []
+    try:
+        hits = _retrieve_impl(query, *args, **kwargs)
+    except Exception as e:
+        # still log the failure
+        try:
+            with open("logs/retrieve.jsonl","a",encoding="utf-8") as f:
+                f.write(json.dumps({"ts": time.time(), "ok": False, "query": str(query), "error": str(e)}, default=str) + "\n")
+        except Exception:
+            pass
+        raise
+
+    # Log success with top URLs/titles
+    try:
+        top = []
+        if isinstance(hits, list):
+            for h in hits[:10]:
+                if isinstance(h, dict):
+                    top.append({
+                        "title": (h.get("title") or "")[:120],
+                        "url": (h.get("url") or h.get("source") or "")[:240],
+                    })
+                else:
+                    top.append({"repr": str(h)[:240]})
+
+        with open("logs/retrieve.jsonl","a",encoding="utf-8") as f:
+            f.write(json.dumps({"ts": time.time(), "ok": True, "query": str(query), "top": top}, default=str) + "\n")
+    except Exception:
+        pass
+
+    return hits
+

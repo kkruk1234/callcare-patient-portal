@@ -1,0 +1,64 @@
+{
+  "packet_id": "02c9d468-5e9c-443a-8849-504d8b92c9e0",
+  "created_at": "2026-03-09T00:38:49.177465+00:00",
+  "session_id": "07b089cf-4b84-4b02-a0d7-cf3c33c28c98",
+  "pathway_id": "",
+  "base_queries": [
+    "guidelines for diagnosis and management of chronic head pain with numbness",
+    "adult dosing and contraindications for neuropathic pain medications",
+    "red flags and urgent testing for progressive numbness and gait difficulty"
+  ],
+  "queries": [
+    "AAFP guidelines for diagnosis and management of chronic head pain with numbness",
+    "AAFP adult dosing and contraindications for neuropathic pain medications",
+    "MedlinePlus guidelines for diagnosis and management of chronic head pain with numbness",
+    "MedlinePlus adult dosing and contraindications for neuropathic pain medications",
+    "CDC guidelines for diagnosis and management of chronic head pain with numbness",
+    "CDC adult dosing and contraindications for neuropathic pain medications",
+    "NIH guidelines for diagnosis and management of chronic head pain with numbness",
+    "NIH adult dosing and contraindications for neuropathic pain medications",
+    "NICE guidelines for diagnosis and management of chronic head pain with numbness",
+    "NICE adult dosing and contraindications for neuropathic pain medications",
+    "WHO guidelines for diagnosis and management of chronic head pain with numbness",
+    "WHO adult dosing and contraindications for neuropathic pain medications"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Frequent Headaches:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/0401/p419.pdf",
+      "accessed": "2026-03-08",
+      "snippet": ""
+    },
+    {
+      "title": "Executive summary of the Clinical Guidelines of Pharmacotherapy for Neuropathic Pain: second edition by the Japanese Society of Pain Clinicians - PMC",
+      "source": "pmc.ncbi.nlm.nih.gov",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5973958/",
+      "accessed": "2026-03-08",
+      "snippet": "Increase by 100–300 mg every 1–7 days In addition to 3–8 weeks of dose-escalation period, 2 more weeks at the maximum dose Refractory epilepsy Sleepiness, dizziness, peripheral edema, increased body weight A small dose should be used in patients with renal dysfunction Pregabalin Oral drug Calcium channel α 2 δligand Initial dose 25–150 mg/day, maximum 600 mg/day;"
+    },
+    {
+      "title": "Chiari Malformation | CMs | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/chiarimalformation.html",
+      "accessed": "2026-03-08",
+      "snippet": "Chiari malformations (CMs) are structural defects in the cerebellum. The cerebellum is the part of the brain that controls balance. With CM, brain tissue extends into the spinal canal. It can happen when part of the skull is too small, which pushes the brain tissue down. There are several types of CM. One type often happens in children who have neural tube defects . Some types cause no symptoms and don't need treatment. If you have symptoms, they may include:"
+    },
+    {
+      "title": "Chronic Daily Headache:",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/dam/brand/aafp/pubs/afp/issues/2014/0415/p642.pdf.",
+      "accessed": "2026-03-08",
+      "snippet": ""
+    },
+    {
+      "title": "Chronic subdural hematoma: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000781.htm",
+      "accessed": "2026-03-08",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient is a 29-year-old male presenting with a 3-week history of head pain localized to the back of the head, radiating towards the front. He reports associated numbness in his fingers and toes, which sometimes impairs his ability to walk. He denies fever, vision changes, weakness, difficulty speaking or swallowing, but notes constipation. There is no history of recent infections, injuries, or new medications. He is unsure about any prior neurological or autoimmune conditions. He has a known allergy to acetaminophen and is uncertain about renal or liver disease but has a family history of renal disease.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is a neurological disorder causing peripheral neuropathy and headache, possibly a demyelinating or inflammatory process.\nDifferential:\n1. Multiple sclerosis or other demyelinating disease\n2. Peripheral neuropathy due to metabolic or autoimmune causes\n3. Cervicogenic headache with radiculopathy\n4. Early presentation of a systemic neurological disorder such as vasculitis or connective tissue disease\n\nP: - First-line medication: Gabapentin 300 mg orally at bedtime, titrate as tolerated for neuropathic pain (Physician must verify medication/dosing)\n- Alternatives: Pregabalin 75 mg orally twice daily (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid acetaminophen due to allergy; assess renal function before initiating gabapentin or pregabalin; other contraindications not assessed in this telephone encounter\n- Follow-up recommendations: Seek in-person medical care urgently if symptoms worsen, including increased weakness, difficulty walking, new vision changes, or speech difficulties; seek emergency care if sudden neurological deficits develop\n- Testing: Recommend urgent neurological evaluation with MRI brain and cervical spine, nerve conduction studies, and laboratory workup including autoimmune and metabolic panels to clarify diagnosis"
+}

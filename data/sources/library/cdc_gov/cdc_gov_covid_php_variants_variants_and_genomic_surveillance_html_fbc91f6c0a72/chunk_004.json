@@ -1,0 +1,10 @@
+{
+  "title": "Variants and Genomic Surveillance | COVID-19 | CDC",
+  "url": "https://www.cdc.gov/covid/php/variants/variants-and-genomic-surveillance.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "e authorized or approved for use in the United States will work against emerging variants. \nKeep Reading \nCDC's Role in Tracking Variants \nTypes of variant proportion data \nEmpiric Estimates \nEmpiric estimates are variant proportions that are based on observed genomic data. These estimates are not available for the most recent periods because of the time it takes to generate the sequencing data, including sample collection, specimen treatment, shipping, analysis, and uploading into public databases. \nLineages with estimates that are less than 1% of circulating variants are combined with their parent lineage. When the observed proportion estimate of a lineage with substitutions in the spike protein that could affect vaccine efficacy, transmission or severity, crosses the 1% threshold, it may be separated from its parent lineage and displayed on its own in the variant proportions data. \nNowcast Estimates \nNowcast estimates are model-based projections of variant proportions. They are provided for the most recent period when the \"Nowcast on\" option is selected below. CDC uses Nowcast to forecast variant proportions before the weighted empiric estimates are available for a given period. \nProjections for an emerging lineage with a high growth rate may have a higher degree of uncertainty (wider prediction interval) when it is just beginning to spread and still has low weighted estimat",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_php_variants_variants_and_genomic_surveillance_html_fbc91f6c0a72",
+  "chunk_id": "chunk_004"
+}

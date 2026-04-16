@@ -1,0 +1,136 @@
+{
+  "packet_id": "0dfe1858-4f70-479c-abcb-7e32caf0f19c",
+  "created_at": "2026-02-20T16:27:27.564945+00:00",
+  "session_id": "aa555f97-ab61-4165-a9b8-77e1c23fd335",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Where exactly is your back pain located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain with breathing or coughing?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of recent infections, such as a cold or flu, or any other medical conditions?",
+    "intake_a8": "no",
+    "intake_q9": "Any chest pain, shortness of breath, or abdominal symptoms like nausea or vomiting?",
+    "intake_a9": "no",
+    "intake_q10": "Any swelling, bruising, or visible deformity in the area of your back pain?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/druginfo/meds/a611046.html",
+        "https://www.aafp.org/pubs/afp/issues/2009/0915/p617.html",
+        "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+        "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, pain with breathing or coughing, numbness, tingling, weakness in the legs or feet, chest pain, shortness of breath, abdominal symptoms, swelling, bruising, or visible deformity. She has tried acetaminophen (Tylenol) without significant relief. There is no history of recent infections or other medical conditions. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical examination or vital signs available.\n\nA: \nThe working diagnosis is mechanical back pain localized to the left lower rib cage area, likely musculoskeletal in origin given the absence of red flag symptoms and no history of trauma. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Intercostal muscle strain or irritation \n3. Costovertebral joint dysfunction \n4. Early presentation of a visceral cause (e.g., renal or gastrointestinal), less likely without associated symptoms \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen can be continued if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen, if no contraindications. (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs if there is a history of renal disease, liver disease, or gastrointestinal bleeding; use the lowest effective dose for the shortest duration. \n - Return precautions: Return for evaluation if symptoms worsen, develop neurological symptoms such as numbness or weakness, new onset of fever, unexplained weight loss, chest pain, shortness of breath, or if pain becomes severe and unrelenting. \n - Testing: No imaging or laboratory testing indicated at this time given the absence of red flag symptoms.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "﻿ Back pain - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Back pain Back pain, particularly lower back pain, is very common. It usually improves within a few weeks but can sometimes last longer or…"
+      },
+      {
+        "title": "AAFP: Mechanical Low Back Pain",
+        "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "snippet": "pain and use of health care. Educating patients on prognosis and incorporating psychosocial components of care such as identifying comorbid psychological problems and barriers to treatment are essential components of long-term management. Mechanical low back pain refers to back pain that arises intrinsically from the spine, intervertebral disks, or surroundi…"
+      },
+      {
+        "title": "Back Injuries | MedlinePlus",
+        "source": "https://medlineplus.gov/backinjuries.html",
+        "snippet": "extending from your neck to your pelvis. Back injuries can result from sports injuries, work around the house or in the garden, or a sudden jolt such as a car accident. The lower back is the most common site of back injuries and back pain . Common back injuries include : Sprains and strains Herniated disks Fractured (broken) vertebrae These injuries can caus…"
+      },
+      {
+        "title": "Back Pain",
+        "source": "https://medlineplus.gov/backpain.html",
+        "snippet": "l You Are Here: Home &rarr; Health Topics &rarr; Back Pain URL of this page: https://medlineplus.gov/backpain.html Back Pain Also called: Backache, Lumbago On this page Basics Summary Start Here Diagnosis and Tests Prevention and Risk Factors Treatments and Therapies Learn More Living With Related Issues See, Play and Learn Videos and Tutorials Test Your Kno…"
+      },
+      {
+        "title": "Polymyalgia rheumatica - NHS",
+        "source": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/",
+        "snippet": "﻿ Polymyalgia rheumatica - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Polymyalgia rheumatica Contents Overview Symptoms Diagnosis Treatment Polymyalgia rheumatica (PMR) is a condi…"
+      },
+      {
+        "title": "Abiraterone: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611046.html",
+        "snippet": "se symptoms are severe or do not go away: joint swelling or pain groin pain hot flashes (a sudden wave of mild or intense body heat) diarrhea constipation heartburn cough sore throat stuffy or runny nose difficulty falling asleep or staying asleep Some side effects can be serious. If you experience any of these symptoms, call your doctor immediately: dizzine…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Abiraterone: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611046.html",
+      "snippet": "se symptoms are severe or do not go away: joint swelling or pain groin pain hot flashes (a sudden wave of mild or intense body heat) diarrhea constipation heartburn cough sore throat stuffy or runny nose difficulty falling asleep or staying asleep Some side effects can be serious. If you experience any of these symptoms, call your doctor immediately: dizzine…"
+    },
+    {
+      "title": "Costochondritis: Diagnosis and Treatment - AAFP",
+      "source": "https://www.aafp.org/pubs/afp/issues/2009/0915/p617.html",
+      "snippet": "e, clavicle, shoulders, and thoracic and lumbar spine must be included. Movement of the rib cage can be assessed with deep breathing exercises. The effect of upper extremity movement on pain should also be noted, because moving the arm on the affected side will usually cause pain.2,11 Examination should also include auscultation of the heart and lungs, and e…"
+    },
+    {
+      "title": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)",
+      "source": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+      "snippet": "Information Low back pain is one of the most common reasons for an outpatient visit. The evaluation for low back pain should include a complete, focused medical history looking for red flags, which include, but are not limited to: severe or progressive neurologic deficits (e.g., bowel or bladder function), fever, sudden back pain with spinal tenderness, trau…"
+    },
+    {
+      "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+      "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "snippet": "tonitis tend to lie very still, whereas those with renal colic seem unable to stay still. Fever suggests infection; however, its absence does not rule it out, especially in patients who are older or immunocompromised. Tachycardia and orthostatic hypotension suggest hypovolemia. The location of pain guides the remainder of the physical examination. Physicians…"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "Non-alcoholic fatty liver disease (NAFLD) - NHS",
+      "source": "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/",
+      "snippet": "It's usually found when you have tests for another reason. Some people have symptoms including: feeling very tired feeling generally unwell liver pain or discomfort, which is felt in your tummy (abdomen) under the right side of your ribs Who is more likely to get non-alcoholic fatty liver disease Non-alcoholic fatty liver disease is very common. You're more…"
+    }
+  ],
+  "state": null
+}

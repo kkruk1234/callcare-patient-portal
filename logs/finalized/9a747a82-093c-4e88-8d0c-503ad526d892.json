@@ -1,0 +1,105 @@
+{
+  "packet_id": "759cef15-ccff-4e5c-9f13-8f81cc17727e",
+  "created_at": "2026-03-04T03:49:38.623115+00:00",
+  "session_id": "9a747a82-093c-4e88-8d0c-503ad526d892",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of lung disease, recent travel, or exposure to tuberculosis?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "musculoskeletal back pain left lower rib cage",
+      "costochondritis symptoms and treatment",
+      "intercostal nerve pain management",
+      "NSAIDs for musculoskeletal back pain"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, difficulty breathing, coughing, chest pain, numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, abdominal pain, lung disease, recent travel, tuberculosis exposure, osteoporosis, cancer, or recent steroid use.\nO: Phone evaluation only; no physical exam or vitals available.\nA: The working diagnosis is musculoskeletal pain likely related to strain or minor soft tissue injury given the localized nature and absence of systemic symptoms or neurological deficits.\nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral causes such as renal or pulmonary pathology (less likely given no associated symptoms)\n\nP:\n - First-line medication: NSAIDs such as ibuprofen for pain and inflammation\n - Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n - Medication safety considerations: Avoid NSAIDs if history of renal disease or gastrointestinal bleeding; use lowest effective dose for shortest duration\n - Return precautions: Return if pain worsens, new neurological symptoms develop, fever, unexplained weight loss, or respiratory symptoms occur\n - Testing: Not indicated at this time unless symptoms evolve or fail to improve with conservative management\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "mayoclinic.org",
+        "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "ACP, AAFP Release New Guideline for Treatment of Non-low Back Pain From Musculoskeletal Injuries in Adults | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/news/media-center/releases/acp--aafp-release-new-guideline-for-treatment-of-non-low-back-pa.html",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "Gabapentin for Chronic Neuropathic Pain | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2015/1201/od1.html",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "Benefits and Harms of Systemic Corticosteroids for Radicular and Nonradicular Low Back Pain | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2023/0600/cochrane-corticosteroids-low-back-pain.html",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+      "source": "mayoclinic.org",
+      "snippet": ""
+    },
+    {
+      "title": "ACP, AAFP Release New Guideline for Treatment of Non-low Back Pain From Musculoskeletal Injuries in Adults | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Gabapentin for Chronic Neuropathic Pain | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Benefits and Harms of Systemic Corticosteroids for Radicular and Nonradicular Low Back Pain | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

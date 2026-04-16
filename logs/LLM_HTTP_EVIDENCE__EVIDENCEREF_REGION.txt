@@ -1,0 +1,121 @@
+102:         raise ValueError("chief_complaint is required")
+103: 
+104:     # Clinical anchor priority (generic): assessment_text > diagnosis_hint/context > complaint.
+105:     anchor = (assessment_text or "").strip() or (diagnosis_hint or "").strip() or (context or "").strip() or cc
+106:     anchor = _shorten(anchor, 200)
+107: 
+108:     keywords = _extract_keywords(anchor)
+109: 
+110:     # If we have a richer anchor (assessment/differential), require more matches to reduce drift.
+111:     min_matches = 3 if (assessment_text and len(keywords) >= 6) else 2
+112: 
+113:     client = OpenAI(timeout=60)
+114: 
+115:     candidate_urls: List[str] = []
+116:     seen = set()
+117: 
+118:     for q in _build_queries(anchor=anchor):
+119:         _cc_q_used = 0  # speed cap
+120: 
+121:         urls = _openai_web_search_urls(client=client, query=q, debug=debug)
+122:         for u in urls:
+123:             nu = _normalize_url(u)
+124:             if not nu:
+125:                 continue
+126:             if _is_blocked(nu):
+127:                 continue
+128:             if nu in seen:
+129:                 continue
+130:             seen.add(nu)
+131:             candidate_urls.append(nu)
+132:         _cc_q_used += 1
+133:         if _cc_q_used >= max_queries:
+134:             break
+135: 
+136:         if len(candidate_urls) >= 60:
+137:             break
+138: 
+139:     if len(candidate_urls) < min_urls:
+140:         for q in _build_fallback_queries(anchor=anchor):
+141:             urls = _openai_web_search_urls(client=client, query=q, debug=debug)
+142:             for u in urls:
+143:                 nu = _normalize_url(u)
+144:                 if not nu or _is_blocked(nu) or nu in seen:
+145:                     continue
+146:                 seen.add(nu)
+147:                 candidate_urls.append(nu)
+148:             if len(candidate_urls) >= 60:
+149:                 break
+150: 
+151:     ranked_urls = _rank_urls(candidate_urls)
+152: 
+153:     today = date.today().isoformat()
+154: 
+155:     candidates: List[EvidenceRef] = []
+156:     for i_url, url in enumerate(ranked_urls):
+157:         if i_url < int(title_fetch_n):
+158:             title = _fetch_title(url, timeout_s=timeout_s) or _fallback_title_from_url(url)
+159:         else:
+160:             title = _fallback_title_from_url(url)
+161:         pub = _publisher_from_url(url)
+162:         candidates.append(EvidenceRef(title=title, source=pub, url=url, accessed=today, snippet=""))
+163:         if len(candidates) >= 30:
+164:             break
+165: 
+166:     filtered: List[EvidenceRef] = []
+167:     for r in candidates:
+168:         if _keyword_relevant(keywords=keywords, title=r.title, url=(getattr(r, "url", None) or getattr(r, "source", "") or ""), min_matches=min_matches):
+169:             filtered.append(r)
+170: 
+171:     # Diversity cap
+172:     final: List[EvidenceRef] = []
+173:     counts: Dict[str, int] = {}
+174:     for r in filtered:
+175:         pub = (getattr(r, "publisher", None) or getattr(r, "source", None) or "").strip()
+176:         if not pub:
+177:             u_tmp = (getattr(r, "url", None) or getattr(r, "source", None) or "").strip()
+178:             pub = _publisher_from_url(u_tmp) if u_tmp else "Source"
+179:         key = str(pub).strip() or "Source"
+180:         counts[key] = counts.get(key, 0)
+181:         if counts[key] >= max_per_publisher:
+182:             continue
+183:         counts[key] += 1
+184:         final.append(r)
+185:         # Ensure EvidenceRef.url is populated (some builders only set source/publisher)
+186:         try:
+187:             if getattr(r, 'url', None) in (None, ''):
+188:                 u = (getattr(r, 'source', None) or '').strip()
+189:                 if u.startswith('http://') or u.startswith('https://'):
+190:                     setattr(r, 'url', u)
+191:         except Exception:
+192:             pass
+193:         if len(final) >= max_urls:
+194:             break
+195: 
+196:     # If still short, relax diversity but keep relevance
+197:     if len(final) < min_urls:
+198:         for r in filtered:
+199:             if r in final:
+200:                 continue
+201:             final.append(r)
+202:             if len(final) >= max_urls:
+203:                 break
+204: 
+205:     return final
+206: 
+207: 
+208: def format_evidence_lines(evs: Sequence[EvidenceRef]) -> List[str]:
+209:     lines: List[str] = []
+210:     for e in evs:
+211:         title = _clean_sentence(e.title)
+212:         publisher = _clean_sentence(getattr(e, 'publisher', '') or getattr(e, 'source', ''))
+213:         url = (getattr(e, "url", None) or getattr(e, "source", "") or "").strip()
+214:         accessed = (e.accessed or "").strip()
+215:         lines.append(f"{title}. {publisher}. {url}. Accessed {accessed}.")
+216:     return lines
+217: 
+218: 
+219: def _openai_web_search_urls(*, client: Any, query: str, debug: bool) -> List[str]:
+220:     resp = client.responses.create(
+221:         model="gpt-4o-mini",
+222:         input=query,

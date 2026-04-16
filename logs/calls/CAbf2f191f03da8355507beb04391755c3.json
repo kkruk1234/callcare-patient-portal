@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAbf2f191f03da8355507beb04391755c3",
+  "session_id": "5c3ae93c-51c2-4f61-842b-378f1d1bcda6",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-27T16:58:37.454724+00:00",
+  "ended_at": "2026-03-27T17:07:21.548021+00:00",
+  "packet_id": "a10163c4-d824-46ea-8c82-ed6a64faedf7",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have right hip pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your right hip pain start?"
+    },
+    {
+      "role": "user",
+      "text": "Probably about a week ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain and if it gets worse with any specific movements or activities?"
+    },
+    {
+      "role": "user",
+      "text": "Well, the hip pain is on the outside of the hip right on where the bone protrudes naturally, and it is sharp and dabbing. Sometimes, just like maybe once or twice, it has radiated doing, like, my groin area. But mostly, like, 90% of the time, it's on the outer of the hip. And it worse sometimes with walking. It's actually right when I wake up in the morning or if I get up and sitting for a while."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or recent infections?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of trauma or injury to the right hip recently?"
+    },
+    {
+      "role": "user",
+      "text": "No. But I I I wouldn't call it trauma, but I was helping my daughter move into her college dorm. And it was kind of a day or 2 after that. I don't know if it was all the lifting or walking back and forth in the car to the dorm or what. But after that, it started hurting."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swelling, redness, or warmth around the right hip area?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have none. But I said no twice already."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty walking, limping, or weakness in the right leg?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have no w limping with what I'm doing right now."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of arthritis, previous hip problems, or other joint issues?"
+    },
+    {
+      "role": "user",
+      "text": "No. I don't have any arthritis or joint issues. I have a family history of joint issues and arthritis, but I don't have any. Yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your hip pain, and if so, what and did they help?"
+    },
+    {
+      "role": "user",
+      "text": "I tried icing it the first few days, but mostly I've tried heat. And the heat helped a little bit, but none none of the pain relief lasted any extended period of time. I also tried Tylenol, but that didn't really do very much."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or weakness in the right leg or foot?"
+    },
+    {
+      "role": "user",
+      "text": "No. Nothing like that."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or tenderness when pressing on the outer part of your hip?"
+    },
+    {
+      "role": "user",
+      "text": "I don't understand why you can't hear me. I said no twice now."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or tenderness when pressing on the outer part of your hip?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have no fucking pain or tenderness with pressing on the outer part of my hip."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Hannah Dillon."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like your hip pain is most likely related to inflammation around the outer part of your hip, something called trochanteric bursitis or greater trochanteric pain syndrome. Because this is a phone visit, I can’t examine you or do any tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe anti-inflammatory medication like naproxen or ibuprofen to help with your pain. \n\nFor now, you can try acetaminophen or ibuprofen if you can take them safely. If your pain gets worse, or if you develop fever, swelling, redness, or have trouble walking, please seek in-person care the same day. If you need an exam or testing, going to urgent care or your primary care clinician is the best next step. A physician will review your case and decide if further treatment or imaging is needed."
+    }
+  ]
+}

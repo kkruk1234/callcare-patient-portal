@@ -1,0 +1,21 @@
+{
+  "id": "auto_1772027675438",
+  "query": "back pain outpatient pain treatment ibuprofen dosing naproxen dosing acetaminophen dosing adult maximum daily dose",
+  "sources": [
+    {
+      "url": "https://www.aafp.org/pubs/afp/issues/2000/0201/p755/jcr%3Acontent/root/aafp-article-primary-content-container/aafp_article_main_par/aafp_tables_content0.print.html",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK554611/table/article-25145.table0/",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK65949.1/table/CDR0000062738__373/?report=objectonly",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "packet_id": "8a666671-7659-43c7-a23a-d006d14eb75e",
+  "created_at": "2026-02-14T16:00:25.251419+00:00",
+  "session_id": "1593b1ea-27a1-49f0-af18-13162c7d2663",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the elbow pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly on the elbow the pain is located?",
+    "intake_a2": "outside",
+    "intake_q3": "Any recent injury or trauma to the elbow?",
+    "intake_a3": "no, but the pain started while I was playing tennis",
+    "intake_q4": "Any swelling, redness, or warmth around the elbow?",
+    "intake_a4": "no",
+    "intake_q5": "Any numbness, tingling, or weakness in your arm or hand?",
+    "intake_a5": "no",
+    "intake_q6": "Any difficulty moving your elbow or pain when you try to bend or straighten it?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for the elbow pain, and did they help?",
+    "intake_a7": "icing the first day and it helped with the pain",
+    "intake_q8": "Any fever, chills, or other systemic symptoms since the pain started?",
+    "intake_a8": "no",
+    "intake_summary": "A patient presents with 3 weeks of lateral elbow pain that started during tennis without trauma, swelling, redness, numbness, weakness, or systemic symptoms. There is no limitation in movement and initial icing helped. This is consistent with lateral epicondylitis.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/tennis-elbow/",
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://www.nhs.uk/conditions/arthritis/",
+        "https://medlineplus.gov/tendinitis.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a 3-week history of pain localized to the outside of her elbow. The pain began while playing tennis without any specific injury or trauma. She denies swelling, redness, warmth, numbness, tingling, weakness, or systemic symptoms such as fever or chills. There is no difficulty moving the elbow or pain with bending or straightening. Initial treatment with icing on the first day provided some pain relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe clinical presentation is consistent with lateral epicondylitis (tennis elbow), characterized by lateral elbow pain triggered by repetitive wrist extension activities such as tennis. There is no evidence of infection, nerve involvement, or joint limitation.\n\nDifferential: \n1. Lateral epicondylitis (tennis elbow) \n2. Radial tunnel syndrome \n3. Osteoarthritis of the elbow \n4. Referred pain from cervical radiculopathy \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain relief and inflammation reduction. \n- Alternatives: Topical NSAIDs or acetaminophen if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; patient currently has no known renal or liver disease. Avoid exceeding recommended doses. \n- Return precautions: Advise the patient to seek care if symptoms worsen, if there is new onset of numbness, weakness, swelling, redness, or fever, or if pain limits elbow movement. \n- Testing: Not indicated at this time given the typical presentation and absence of red flags. Consider imaging or referral if symptoms persist beyond 6-12 weeks or if diagnosis is uncertain.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "rvices without needing a referral from a GP. Get NHS help for back or joint problems Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treat…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/5ecc4db411135621/content.txt",
+        "snippet": "Check if you have tennis elbow The main symptom of tennis elbow is pain on the outside of your elbow. The pain may range from mild discomfort when you move your arm to constant pain that can affect your sleep. It may be worse when: - lifting or bending your arm - gripping objects - moving your wrist Other symptoms of tennis elbow include: - tenderness or swe…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/6c79f98b5f50aa7e/content.txt",
+        "snippet": "Check if you have tennis elbow The main symptom of tennis elbow is pain on the outside of your elbow. The pain may range from mild discomfort when you move your arm to constant pain that can affect your sleep. It may be worse when: - lifting or bending your arm - gripping objects - moving your wrist Other symptoms of tennis elbow include: - tenderness or swe…"
+      },
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "and Research) Osteochondritis Dissecans (American Academy of Family Physicians) Tennis Elbow (Mayo Foundation for Medical Education and Research) Tennis Elbow (Lateral Epicondylitis) (American Academy of Orthopaedic Surgeons) Ulnar Nerve Entrapment at the Elbow (Cubital Tunnel Syndrome) (American Academy of Orthopaedic Surgeons) Also in Spanish Clinical Tria…"
+      },
+      {
+        "title": "Arthritis - NHS",
+        "source": "https://www.nhs.uk/conditions/arthritis/",
+        "snippet": "wards polymyalgia rheumatica  – a condition that almost always affects people over 50 years of age, where the immune system causes muscle pain and stiffness, usually across the shoulders and tops of the legs. It can also cause joint inflammation Symptoms of arthritis There are lots of different types of arthritis. The symptoms you experience will vary depend…"
+      },
+      {
+        "title": "Tendinitis: MedlinePlus",
+        "source": "https://medlineplus.gov/tendinitis.html",
+        "snippet": "onnect muscles to bones. They help your muscles move your bones. Tendinitis is the severe swelling of a tendon. Tendinitis usually happens after repeated injury to an area such as the wrist or ankle. It causes pain and soreness around a joint. Some common forms of tendinitis are named after the sports that increase their risk. They include tennis elbow, golf…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Tennis elbow - NHS",
+      "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+      "snippet": "﻿ Tennis elbow - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Tennis elbow Tennis elbow is a condition that causes pain around the outside of the elbow. It usually goes away with rest but can…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/5ecc4db411135621/content.txt",
+      "snippet": "Check if you have tennis elbow The main symptom of tennis elbow is pain on the outside of your elbow. The pain may range from mild discomfort when you move your arm to constant pain that can affect your sleep. It may be worse when: - lifting or bending your arm - gripping objects - moving your wrist Other symptoms of tennis elbow include: - tenderness or swe…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/6c79f98b5f50aa7e/content.txt",
+      "snippet": "Check if you have tennis elbow The main symptom of tennis elbow is pain on the outside of your elbow. The pain may range from mild discomfort when you move your arm to constant pain that can affect your sleep. It may be worse when: - lifting or bending your arm - gripping objects - moving your wrist Other symptoms of tennis elbow include: - tenderness or swe…"
+    },
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "and Research) Osteochondritis Dissecans (American Academy of Family Physicians) Tennis Elbow (Mayo Foundation for Medical Education and Research) Tennis Elbow (Lateral Epicondylitis) (American Academy of Orthopaedic Surgeons) Ulnar Nerve Entrapment at the Elbow (Cubital Tunnel Syndrome) (American Academy of Orthopaedic Surgeons) Also in Spanish Clinical Tria…"
+    },
+    {
+      "title": "Arthritis - NHS",
+      "source": "https://www.nhs.uk/conditions/arthritis/",
+      "snippet": "wards polymyalgia rheumatica  – a condition that almost always affects people over 50 years of age, where the immune system causes muscle pain and stiffness, usually across the shoulders and tops of the legs. It can also cause joint inflammation Symptoms of arthritis There are lots of different types of arthritis. The symptoms you experience will vary depend…"
+    },
+    {
+      "title": "Tendinitis: MedlinePlus",
+      "source": "https://medlineplus.gov/tendinitis.html",
+      "snippet": "onnect muscles to bones. They help your muscles move your bones. Tendinitis is the severe swelling of a tendon. Tendinitis usually happens after repeated injury to an area such as the wrist or ankle. It causes pain and soreness around a joint. Some common forms of tendinitis are named after the sports that increase their risk. They include tennis elbow, golf…"
+    }
+  ],
+  "state": null
+}

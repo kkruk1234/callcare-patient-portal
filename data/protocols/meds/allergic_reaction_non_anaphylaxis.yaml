@@ -1,0 +1,28 @@
+rx_options:
+- med: Cetirizine
+  dosing: 10 mg PO daily PRN itching/hives
+  exclusions: Severe allergy to antihistamines; significant sedation risk with other
+    CNS depressants (clinician judgment).
+  notes: Non-sedating option preferred.
+- med: Diphenhydramine
+  dosing: 25–50 mg PO q6h PRN itching (use caution)
+  exclusions: Avoid in older adults/anticholinergic sensitivity; glaucoma/urinary
+    retention risk; sedation.
+  notes: More sedating; avoid driving/operating machinery.
+- med: Famotidine
+  dosing: 20 mg PO BID PRN (adjunct)
+  exclusions: Adjust in renal impairment per clinician judgment.
+  notes: Adjunct for hives in some cases; not a substitute for antihistamine.
+supportive_care:
+- item: Avoid triggers
+  details: Stop any new suspected trigger (food/supplement/med) if safe to do so;
+    avoid hot showers which can worsen itching.
+- item: Skin care
+  details: Cool compresses; fragrance-free moisturizer; avoid scratching.
+followup_and_safety:
+- item: Re-evaluation
+  details: If symptoms persist >24–48h, recur, or you need frequent medication dosing—seek
+    in-person evaluation.
+- item: Urgent/ED now
+  details: Any trouble breathing, throat tightness, swelling of lips/tongue/face,
+    fainting, severe dizziness, or widespread blistering rash—call 911/go to ED.

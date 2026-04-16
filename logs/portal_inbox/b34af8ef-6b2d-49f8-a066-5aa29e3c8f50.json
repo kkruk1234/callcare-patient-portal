@@ -1,0 +1,43 @@
+{
+  "packet_id": "b34af8ef-6b2d-49f8-a066-5aa29e3c8f50",
+  "created_at": "2026-03-23T16:52:01.746587+00:00",
+  "session_id": "0b1d8177-fefe-44d9-9c4b-aa1e16715580",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for itchy blistering rash on forearms",
+    "adult treatment dosing for itchy blistering rash topical steroids mg duration",
+    "red flags and when to seek care for blistering itchy rash"
+  ],
+  "queries": [
+    "AAFP management guidelines for itchy blistering rash on forearms",
+    "AAFP adult treatment dosing for itchy blistering rash topical steroids mg duration",
+    "MedlinePlus management guidelines for itchy blistering rash on forearms",
+    "MedlinePlus adult treatment dosing for itchy blistering rash topical steroids mg duration",
+    "CDC management guidelines for itchy blistering rash on forearms",
+    "CDC adult treatment dosing for itchy blistering rash topical steroids mg duration",
+    "NIH management guidelines for itchy blistering rash on forearms",
+    "NIH adult treatment dosing for itchy blistering rash topical steroids mg duration",
+    "NICE management guidelines for itchy blistering rash on forearms",
+    "NICE adult treatment dosing for itchy blistering rash topical steroids mg duration",
+    "WHO management guidelines for itchy blistering rash on forearms",
+    "WHO adult treatment dosing for itchy blistering rash topical steroids mg duration"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Eczema | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2012/0701/p35-s1.html",
+      "accessed": "2026-03-23",
+      "snippet": "See your doctor if you have these symptoms. Eczema usually is treated with ointments and creams, most commonly steroids. Steroids are an inexpensive and effective treatment. Side effects may include thinning of the skin. This can happen especially on areas of the body where the skin is naturally thinner. However, this usually does not happen unless strong steroids are used for a long time. Other medicines used to treat eczema are called calcineurin inhibitors. They do not cause skin thinning, but they are more expensive than steroids. If your eczema is severe, your doctor will help you find other treatment options."
+    },
+    {
+      "title": "Rapid-Onset Skin Rash | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2012/0815/p361.html",
+      "accessed": "2026-03-23",
+      "snippet": "The treatment for guttate psoriasis includes treating the streptococcal infection with penicillin, and treating the skin lesions with topical triamcinolone 0.1% cream twice daily and ultraviolet B therapy. 1"
+    }
+  ],
+  "note_text": "S: The patient reports a rash on both forearms from the wrists to the elbows that started about 2 days ago. The rash is described as red and rough with tiny blisters and is extremely itchy. There is no fever or systemic symptoms reported. The patient has not tried any treatments yet and denies any known allergies to plants, chemicals, or medications aside from penicillin. No swelling, oozing, or spreading beyond the forearms has been clearly reported.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is allergic contact dermatitis given the bilateral forearm distribution, redness, rough texture, blistering, and intense itching.\nDifferential:\n1. Allergic contact dermatitis\n2. Irritant contact dermatitis\n3. Dyshidrotic eczema\n4. Viral exanthem\n\nP: - First-line medication: Topical corticosteroid, e.g., triamcinolone acetonide 0.1% cream applied to affected areas twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Oral antihistamine, e.g., cetirizine 10 mg orally once daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; no pregnancy or renal/liver disease concerns reported; monitor for skin irritation or worsening rash\n- Follow-up recommendations: Seek in-person medical care urgently if rash spreads rapidly, develops significant swelling, oozing, or signs of infection, or if systemic symptoms develop\n- Testing: Not indicated at this time based on current information"
+}

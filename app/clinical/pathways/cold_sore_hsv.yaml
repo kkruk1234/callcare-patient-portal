@@ -1,0 +1,31 @@
+id: cold_sore_hsv
+version: 0.1
+match:
+  any_keywords: ["cold sore", "fever blister", "hsv", "herpes lip", "lip blister", "tingling lip"]
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+
+  - id: location
+    prompt: "Is it on or around the lip border (not inside the mouth)? (yes/no)"
+    store_as: on_lip_border
+    type: yesno
+
+  - id: clusters
+    prompt: "Are there small clustered blisters? (yes/no)"
+    store_as: clustered_blisters
+    type: yesno
+
+  - id: eye
+    prompt: "Any eye pain, redness, light sensitivity, or vision changes? (yes/no)"
+    store_as: eye_symptoms
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["location", "clusters", "eye"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

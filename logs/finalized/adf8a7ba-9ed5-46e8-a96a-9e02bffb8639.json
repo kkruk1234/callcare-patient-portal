@@ -1,0 +1,87 @@
+{
+  "packet_id": "65ec73b5-5420-40f6-b43d-ac5e2f140cf5",
+  "created_at": "2026-02-28T16:13:59.682093+00:00",
+  "session_id": "adf8a7ba-9ed5-46e8-a96a-9e02bffb8639",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a4": "no",
+    "intake_q5": "Have you had any recent injuries, heavy lifting, or trauma to your back or chest area?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for the back pain, and if so, what and did they help?",
+    "intake_a6": "I tried tylenol but it didn't help very much",
+    "intake_q7": "Any shortness of breath or chest pain along with your back pain?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any pain with deep breaths or coughing?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "guidelines for managing non-specific back pain in adults",
+      "adult dosing and duration of NSAIDs for back pain treatment",
+      "red flags and return precautions for back pain evaluation"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies fever, chills, unexplained weight loss, numbness, weakness, tingling in the legs or feet, recent injuries, heavy lifting, trauma, shortness of breath, chest pain, pain with deep breaths or coughing, kidney problems, urinary symptoms, recent infections, history of cancer, osteoporosis, or recent steroid use. She has tried acetaminophen (Tylenol) without significant relief. O: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage area, likely non-specific in nature given the absence of red flag symptoms or neurologic deficits.\nDifferential:\n1. Musculoskeletal strain or sprain\n2. Costovertebral joint dysfunction\n3. Intercostal muscle strain\n4. Early presentation of rib fracture or other bony injury (less likely without trauma)\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain and inflammation.\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated.\n - Medication safety considerations: Avoid NSAIDs if history of renal or liver disease, gastrointestinal ulcers, or bleeding disorders; use lowest effective dose for shortest duration.\n - Return precautions: Seek urgent care if new onset fever, chills, unexplained weight loss, worsening or spreading pain, development of numbness, weakness, tingling in legs or feet, urinary retention or incontinence, or chest pain.\n - Testing: Not indicated at this time given absence of red flags; consider imaging if symptoms persist beyond 6 weeks or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "non specific thoracic painmechanical thoracic pain",
+        "source": "NHS",
+        "url": "https://rightdecisions.scot.nhs.uk/ggc-msk-index/thoracic-spine/non-specific-thoracic-painmechanical-thoracic-pain?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal lower back pain - Symptoms, diagnosis and treatment | BMJ Best Practice US",
+        "source": "bestpractice.bmj.com",
+        "url": "https://bestpractice.bmj.com/topics/en-us/778?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

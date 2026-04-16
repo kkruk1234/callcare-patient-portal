@@ -1,0 +1,67 @@
+{
+  "packet_id": "6bb9bb6a-2286-4496-8b4b-8c9bd7b1e7d2",
+  "created_at": "2026-02-25T18:14:27.735932+00:00",
+  "session_id": "defee1b9-4c81-4eed-ae9e-4c2da46921b8",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain with breathing, coughing, or movement?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, weakness, or bowel/bladder changes associated with your back pain?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of liver disease, gallbladder issues, or abdominal problems?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent changes in your daily activities or new repetitive movements that might have contributed to the pain?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury, trauma, or heavy lifting prior to onset. There are no associated symptoms such as fever, chills, unexplained weight loss, pain with breathing, coughing, or movement. She also denies numbness, tingling, weakness, or bowel/bladder changes. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of kidney problems, urinary symptoms, recent infections, liver disease, gallbladder issues, or abdominal problems. No recent changes in daily activities or new repetitive movements were reported. O: Phone evaluation only; no physical exam or vitals available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage area without red flag symptoms. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costovertebral joint dysfunction\n3. Intercostal muscle strain\n4. Early presentation of visceral pathology such as renal or splenic issues (less likely given no associated symptoms)\n\nP:\n- First-line medication: Acetaminophen (Tylenol) 500 mg every 6 hours as needed for pain\n- Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen if no contraindications\n- Medication safety considerations: Avoid NSAIDs if history of renal disease or gastrointestinal bleeding; acetaminophen dosing should not exceed 3 grams per day\n- Return precautions: Return or seek care if pain worsens, develops fever, chills, unexplained weight loss, neurological symptoms (numbness, weakness), or bowel/bladder dysfunction\n- Testing: Not indicated at this time given absence of red flag symptoms; consider imaging or labs if symptoms evolve or fail to improve",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

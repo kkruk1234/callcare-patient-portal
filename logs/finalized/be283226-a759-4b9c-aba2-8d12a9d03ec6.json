@@ -1,0 +1,57 @@
+{
+  "packet_id": "be283226-a759-4b9c-aba2-8d12a9d03ec6",
+  "created_at": "2026-03-12T17:42:00.828849+00:00",
+  "session_id": "4f9061ad-5dff-4f1f-988e-529477c5e5f0",
+  "pathway_id": "",
+  "base_queries": [
+    "lower abdominal pain management guidelines female adults",
+    "treatment dosing for lower abdominal pain with fever adults",
+    "red flags and return precautions for lower abdominal pain with fever"
+  ],
+  "queries": [
+    "AAFP lower abdominal pain management guidelines female adults",
+    "AAFP treatment dosing for lower abdominal pain with fever adults",
+    "MedlinePlus lower abdominal pain management guidelines female adults",
+    "MedlinePlus treatment dosing for lower abdominal pain with fever adults",
+    "CDC lower abdominal pain management guidelines female adults",
+    "CDC treatment dosing for lower abdominal pain with fever adults",
+    "NIH lower abdominal pain management guidelines female adults",
+    "NIH treatment dosing for lower abdominal pain with fever adults",
+    "NICE lower abdominal pain management guidelines female adults",
+    "NICE treatment dosing for lower abdominal pain with fever adults",
+    "WHO lower abdominal pain management guidelines female adults",
+    "WHO treatment dosing for lower abdominal pain with fever adults"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Evaluation of Acute Pelvic Pain in Women | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0800/acute-pelvic-pain.html",
+      "accessed": "2026-03-12",
+      "snippet": "Urinalysis of a midstream urine specimen should be considered to assess for urinary tract infection. Urine culture is often beneficial to confirm suspected urinary tract infection, identify specific organisms, and guide antibiotic use. If testing for gonorrhea and chlamydia, first-void urine collected without cleaning of the urethra (“dirty” catch) has historically been recommended, often requiring two urine samples for full evaluation. 26 Logistically this can be challenging. One study found that a midstream sample for chlamydia testing is still 96% accurate, and another study found a sensitivity of 86.2% for chlamydia and 94.4% for gonorrhea. This shows noninferiority to a dirty catch; therefore, one urine sample may be sufficient. 26 , 27"
+    },
+    {
+      "title": "Period Pain | Menstrual Cramps | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/periodpain.html",
+      "accessed": "2026-03-12",
+      "snippet": "If your period pain is primary dysmenorrhea and you need medical treatment, your health care provider might suggest using hormonal birth control, such as the pill, patch, ring, or IUD. Another treatment option might be prescription pain relievers."
+    },
+    {
+      "title": "Evaluation of Acute Abdominal Pain in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "accessed": "2026-03-12",
+      "snippet": "Computed tomography (CT) with intravenous contrast media is recommended for evaluating adults with acute right lower quadrant pain; CT with oral and intravenous contrast media is recommended for patients with left lower quadrant pain. 15 , 16 Sigmoid diverticulitis is the most common cause of left lower quadrant pain in adults, and CT has a reported sensitivity of 79 to 99 percent for detecting the condition. 15 CT is better than ultrasonography for diagnosing appendicitis and can detect extracolonic causes of abdominal pain."
+    },
+    {
+      "title": "Chlamydia infections in women: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000660.htm",
+      "accessed": "2026-03-12",
+      "snippet": "Finish all of them, even if you feel better and still have some left. All of your sexual partners should be treated. Have them take the medicines even if they do not have symptoms. This will prevent you from passing the STIs back and forth. You and your partner are asked to abstain from sexual intercourse during the time of treatment."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 3-day history of sharp, stabbing lower abdominal pain that does not radiate. She reports associated fever, chills, and some nausea but denies vomiting, changes in bowel or urinary habits, vaginal bleeding, discharge, or missed periods. She has no history of similar pain episodes or known medical conditions such as kidney stones, urinary tract infections, or gynecological issues. There is no pain or burning on urination, no pain during intercourse, and no unusual vaginal symptoms. The pain worsens with palpation of the lower abdomen and with movement. She denies shoulder or chest pain and has no difficulty breathing. Pregnancy is not possible, and she has a penicillin allergy.\n\nO: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is acute lower abdominal pain likely due to an infectious or inflammatory process such as pelvic inflammatory disease or another intra-abdominal infection given the fever, chills, and localized tenderness.\nDifferential:\n1. Pelvic inflammatory disease (PID)\n2. Acute appendicitis\n3. Diverticulitis\n4. Ovarian pathology (e.g., cyst, torsion)\n\nP: - First-line medication: Doxycycline 100 mg orally twice daily for 14 days (Physician must verify medication/dosing)\n- Alternatives: Azithromycin 500 mg orally on day 1, then 250 mg orally daily for 4 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; monitor for gastrointestinal side effects; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if abdominal pain worsens, fever persists or worsens, develops vomiting, or any new symptoms such as vaginal bleeding or respiratory distress.\n- Testing: Recommend prompt pelvic examination, pelvic ultrasound, complete blood count, inflammatory markers, and sexually transmitted infection screening as soon as possible."
+}

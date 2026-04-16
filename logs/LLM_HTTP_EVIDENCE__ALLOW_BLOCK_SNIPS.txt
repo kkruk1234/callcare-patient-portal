@@ -1,0 +1,35 @@
+
+--- AROUND LINE 371 (359-391) ---
+359:     if p.scheme not in ("http", "https"):
+360:         return None
+361:     if not p.netloc:
+362:         return None
+363: 
+364:     q = [(k, v) for (k, v) in parse_qsl(p.query, keep_blank_values=True) if not k.lower().startswith("utm_")]
+365:     p = p._replace(query=urlencode(q, doseq=True))
+366:     p = p._replace(fragment="")
+367: 
+368:     return urlunparse(p)
+369: 
+370: 
+371: def _is_blocked(url: str) -> bool:
+372:     host = (urlparse(url).netloc or "").lower()
+373:     for bad in BLOCK_HOST_SUBSTRINGS:
+374:         if bad in host:
+375:             return True
+376:     return False
+377: 
+378: 
+379: def _rank_urls(urls: List[str]) -> List[str]:
+380:     def score(u: str) -> Tuple[int, int]:
+381:         host = (urlparse(u).netloc or "").lower()
+382:         pref = 0
+383:         for good in PREFERRED_HOST_SUBSTRINGS:
+384:             if good in host:
+385:                 pref = 1
+386:                 break
+387:         return (pref, -len(u))
+388:     return sorted(urls, key=score, reverse=True)
+389: 
+390: 
+391: def _publisher_from_url(url: str) -> str:

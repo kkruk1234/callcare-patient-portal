@@ -1,0 +1,47 @@
+id: constipation
+version: 0.1
+match:
+  any_keywords: ["constipation", "no bowel movement", "hard stool", "straining", "fecal", "impaction"]
+questions:
+  - id: duration
+    prompt: "How long have you been constipated? (e.g., 3 days, 2 weeks)"
+    store_as: duration
+
+  - id: severe_pain
+    prompt: "Are you having severe belly pain that is worsening? (yes/no)"
+    store_as: severe_pain
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["severe_abdominal_pain_constipation"]
+
+  - id: vomiting
+    prompt: "Have you been vomiting or unable to keep fluids down? (yes/no)"
+    store_as: vomiting
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["vomiting_possible_obstruction"]
+
+  - id: no_gas
+    prompt: "Are you unable to pass gas as well? (yes/no)"
+    store_as: no_gas
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["no_gas_possible_obstruction"]
+
+  - id: blood
+    prompt: "Have you had black/tarry stools or large amounts of blood in stool? (yes/no)"
+    store_as: blood
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["gi_bleeding_red_flag"]
+
+stop_rules:
+  - if_all_answered: ["duration", "severe_pain", "vomiting", "no_gas", "blood"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

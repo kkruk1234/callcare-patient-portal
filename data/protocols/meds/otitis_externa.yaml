@@ -1,0 +1,37 @@
+# Clinician-facing medication/dosing protocol for: otitis_externa
+# Tier 1: async physician approval
+#
+# TELEPHONE-ONLY SAFETY PRINCIPLE:
+# Tympanic membrane cannot be visualized. Default to agents safe if TM is perforated.
+
+requires_pregnancy_status: true
+
+rx_options:
+  - med: "Ofloxacin otic drops"
+    dosing: "10 drops in affected ear once daily x 7 days (or 5 drops BID x 7 days)"
+    exclusions: "Use otic formulation only."
+    notes: "FIRST-LINE for telephone care when TM status is unknown or otorrhea is present; non-ototoxic and safe with TM perforation."
+
+  - med: "Ciprofloxacin/dexamethasone otic drops"
+    dosing: "4 drops in affected ear BID x 7 days"
+    exclusions: "If severe canal edema prevents drops or severe pain out of proportion, requires in-person evaluation."
+    notes: "SECOND-LINE; consider when inflammation is prominent or if inadequate response to ofloxacin. Often preferred when TM integrity is known."
+
+  - med: "Neomycin/polymyxin B/hydrocortisone otic drops"
+    dosing: "4 drops TID–QID x 7 days"
+    exclusions: "Avoid if tympanic membrane perforation suspected or known; avoid neomycin sensitivity."
+    notes: "ONLY when TM is known intact and no neomycin allergy."
+
+supportive_care:
+  - item: "Keep ear dry"
+    details: "Avoid swimming or water exposure; no cotton swabs; ear protection for showers."
+
+  - item: "Pain control"
+    details: "Acetaminophen or ibuprofen if safe (avoid NSAIDs in late pregnancy, kidney disease, ulcer/GI bleed risk)."
+
+followup_and_safety:
+  - item: "Re-evaluation"
+    details: "If not improving within 48–72 hours or worsening pain, swelling, or drainage, seek in-person evaluation."
+
+  - item: "Urgent/ED now"
+    details: "Severe pain out of proportion, fever with diabetes/immunocompromise, facial weakness, severe dizziness/vertigo, mastoid swelling/tenderness, altered mental status."

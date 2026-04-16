@@ -1,0 +1,22 @@
+id: allergic_reaction_non_anaphylaxis
+version: 0.1
+match:
+  any_keywords: ["itchy rash", "hives", "welts", "allergic reaction", "rash after new med", "rash after food"]
+questions:
+  - id: breathing
+    prompt: "Any wheezing, trouble breathing, or throat tightness? (yes/no)"
+    store_as: airway_symptoms
+    type: yesno
+  - id: swelling
+    prompt: "Any swelling of lips, tongue, or face? (yes/no)"
+    store_as: angioedema
+    type: yesno
+  - id: dizzy
+    prompt: "Any dizziness, fainting, or severe weakness? (yes/no)"
+    store_as: systemic
+    type: yesno
+stop_rules:
+  - if_all_answered: ["breathing", "swelling", "dizzy"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

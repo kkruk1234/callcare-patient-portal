@@ -1,0 +1,53 @@
+id: tick_bite
+version: 0.4
+match:
+  any_keywords: ["tick bite", "tick", "bitten by a tick", "ticks", "deer tick"]
+
+questions:
+  - id: systemic_symptoms
+    prompt: "Do you have any of these: fever, chills, severe headache, body aches, or stiff neck? Reply with all that apply, or say none."
+    store_as: systemic_symptoms
+
+  - id: bullseye_rash
+    prompt: "Is there an expanding rash, especially a bullseye-like rash? (yes/no)"
+    store_as: bullseye_rash
+    type: yesno
+
+  - id: tick_attachment_timeframe
+    prompt: "Do you know how long the tick may have been attached? (under 24 hours / 24-72 hours / over 72 hours / unknown)"
+    store_as: tick_attachment_timeframe
+
+  - id: exposure_state
+    prompt: "What state are you in (or where was the exposure)?"
+    store_as: exposure_state
+
+  # IMPORTANT: Keep as plain text (no type/choices) because your YAML engine
+  # appears to NOT support choice enums and will loop on "Please tell me more."
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Reply: yes / no / unknown / not applicable"
+    store_as: pregnancy_possible
+
+stop_rules:
+  - if_all_answered:
+      ["systemic_symptoms", "bullseye_rash", "tick_attachment_timeframe", "exposure_state", "pregnancy_possible"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW
+
+treatment_rules:
+  - id: lyme_erythema_migrans_treat
+    when:
+      bullseye_rash: "yes"
+    recommend:
+      kind: "antibiotic_treatment"
+      note: "Erythema migrans is diagnostic for early localized Lyme; treat rather than observe."
+
+  - id: lyme_pep_possible
+    when:
+      bullseye_rash: "no"
+      tick_attached_timeframe_any: ["24-72 hours", "over 72 hours", "72+ hours", "72 hours or more"]
+      high_incidence_state: true
+    recommend:
+      kind: "post_exposure_prophylaxis"
+      note: "Consider single-dose doxycycline PEP if all CDC criteria are met (incl. within 72h of removal and no contraindications)."

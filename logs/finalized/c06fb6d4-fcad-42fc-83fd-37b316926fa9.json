@@ -1,0 +1,49 @@
+{
+  "packet_id": "e11e7132-84c0-4d88-ac1a-98cb2abb3c40",
+  "created_at": "2026-01-18T04:29:59.385506+00:00",
+  "session_id": "c06fb6d4-fcad-42fc-83fd-37b316926fa9",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: Patient reports a tick bite approximately 37 hours ago while in Georgia. No systemic symptoms such as fever, chills, or malaise reported. Patient notes presence of a bullseye rash at the bite site. Pregnancy is not possible.\n\nO: No physical exam available due to phone-only encounter. Patient describes rash consistent with erythema migrans.\n\nA:\n  - Working diagnosis (most likely): Early localized Lyme disease, given the bullseye rash and tick exposure in an endemic area.\n  - Differential:\n    1. Early Lyme disease\n    2. Tick-bite hypersensitivity reaction\n    3. Southern tick-associated rash illness (STARI)\n    4. Cellulitis or other local skin infection\n  - Red flags considered: No systemic symptoms such as fever, neurologic symptoms, or joint pain reported.\n\nP:\n- Findings are consistent with erythema migrans (early localized Lyme). Recommend antibiotic treatment rather than observation.\n- Typical adult regimen: doxycycline 100 mg by mouth twice daily for 10 days (clinician to confirm suitability, allergies, interactions).\n- Alternatives if doxycycline not appropriate: amoxicillin or cefuroxime (clinician to confirm regimen and duration).\n- If systemic illness, neurologic symptoms, carditis symptoms, or worsening despite therapy: escalate to urgent in-person evaluation.\n  - Disposition: Urgent in-person evaluation recommended.\n  - Plan: Patient should be evaluated promptly for confirmation of Lyme disease and initiation of antibiotic therapy as indicated. Consider serologic testing and clinical assessment. Educate patient on signs of progression or systemic involvement.\n  - Safety net: Advise patient to seek immediate care if fever, worsening rash, joint pain, neurologic symptoms, or other systemic signs develop.\n\n",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": ""
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": ""
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": ""
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": ""
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": []
+}

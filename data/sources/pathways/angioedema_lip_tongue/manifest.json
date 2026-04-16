@@ -1,0 +1,26 @@
+{
+  "pathway_id": "angioedema_lip_tongue",
+  "sources": [
+    {
+      "id": "angioedema_lip_tongue_src_1",
+      "source_id": "angioedema_lip_tongue_src_1",
+      "title": "angioedema_lip_tongue references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "angioedema_lip_tongue_src_2",
+      "source_id": "angioedema_lip_tongue_src_2",
+      "title": "angioedema_lip_tongue references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "angioedema_lip_tongue_src_3",
+      "source_id": "angioedema_lip_tongue_src_3",
+      "title": "angioedema_lip_tongue references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "packet_id": "b9729881-dcfc-417a-9bf8-4b99579a28a9",
+  "created_at": "2026-02-21T01:10:41.137258+00:00",
+  "session_id": "0a2fb425-fe9a-4a64-857a-2e257ea1187d",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any swelling, bruising, or skin changes over the area of your back pain?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a8": "I tried tylenol but it didn't help very much",
+    "intake_q9": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent unexplained fractures?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately three weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, numbness, tingling, weakness, swelling, bruising, or skin changes in the area. She has no history of kidney problems, urinary symptoms, abdominal pain, osteoporosis, cancer, or recent fractures. She has tried acetaminophen (Tylenol) with minimal relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical examination or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage without systemic symptoms or neurological deficits. This is likely a benign strain or minor soft tissue injury given the absence of trauma and systemic signs.\n\nDifferential: \n1. Musculoskeletal strain or soft tissue injury \n2. Costochondritis or rib inflammation \n3. Intercostal nerve irritation \n4. Early presentation of visceral pathology (e.g., renal or gastrointestinal) without overt symptoms \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen can be continued if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs if there is a history of renal disease, liver disease, or gastrointestinal bleeding; monitor for side effects such as gastrointestinal upset. \n - Return precautions: Advise the patient to seek immediate care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), chest pain, shortness of breath, or any new systemic symptoms. \n - Testing: No immediate testing indicated; consider imaging or further evaluation if symptoms persist beyond 6 weeks or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

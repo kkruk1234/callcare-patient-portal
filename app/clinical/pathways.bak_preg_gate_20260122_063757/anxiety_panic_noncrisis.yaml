@@ -1,0 +1,22 @@
+id: anxiety_panic_noncrisis
+version: 0.1
+match:
+  any_keywords: ["panic", "panic attack", "anxiety", "feeling panicky", "racing heart from anxiety"]
+questions:
+  - id: chest_redflags
+    prompt: "Do you have chest pressure, fainting, or severe shortness of breath? (yes/no)"
+    store_as: chest_redflags
+    type: yesno
+  - id: self_harm
+    prompt: "Are you having thoughts of harming yourself right now? (yes/no)"
+    store_as: self_harm_now
+    type: yesno
+  - id: substances
+    prompt: "Have you used alcohol, stimulants, or other substances today that could be contributing? (yes/no)"
+    store_as: substances_today
+    type: yesno
+stop_rules:
+  - if_all_answered: ["chest_redflags", "self_harm", "substances"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

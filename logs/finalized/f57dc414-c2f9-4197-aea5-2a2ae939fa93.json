@@ -1,0 +1,133 @@
+{
+  "packet_id": "c9485b21-4458-4f3d-835c-00d861c4a594",
+  "created_at": "2026-02-20T12:06:27.418935+00:00",
+  "session_id": "f57dc414-c2f9-4197-aea5-2a2ae939fa93",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma or injury to your back or ribs?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for the back pain, and did they help?",
+    "intake_a6": "I tried tylenol but it didn't help much",
+    "intake_q7": "Any shortness of breath or chest pain along with your back pain?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of cancer, recent infections, or unexplained weight loss?",
+    "intake_a8": "no",
+    "intake_q9": "Can you describe the quality of your back pain and whether it changes with movement or breathing?",
+    "intake_a9": "dull ache and feels back if I have better posture",
+    "intake_q10": "Any pain or discomfort when you press on the area or take a deep breath?",
+    "intake_a10": "pain with pressing on the area",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://medlineplus.gov/druginfo/meds/a607001.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. The pain worsens with pressing on the area and improves with better posture. She denies fever, chills, night sweats, numbness, weakness, tingling in the legs or feet, recent trauma, chest pain, shortness of breath, history of cancer, recent infections, or unexplained weight loss. She has tried acetaminophen (Tylenol) with minimal relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical examination or vital signs available.\n\nA: \nThe working diagnosis is mechanical musculoskeletal pain localized to the left lower rib cage, likely related to muscle strain or costochondral irritation given the tenderness to palpation and improvement with posture correction. \n\nDifferential: \n1. Musculoskeletal strain or costochondritis \n2. Intercostal muscle strain or rib dysfunction \n3. Early herpes zoster (pre-eruption phase) \n4. Referred pain from thoracic spine pathology \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation relief. \n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; ensure adequate hydration and avoid use in patients with known renal or liver disease (not present in this patient). \n- Return precautions: Advise the patient to seek urgent care if she develops new symptoms such as fever, worsening pain, neurological symptoms (numbness, weakness), chest pain, shortness of breath, or if pain does not improve or worsens over the next 1-2 weeks. \n- Testing: No immediate imaging or laboratory testing indicated given absence of red flags; consider further evaluation if symptoms persist or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Polymyalgia rheumatica - NHS",
+        "source": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/",
+        "snippet": "﻿ Polymyalgia rheumatica - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Polymyalgia rheumatica Contents Overview Symptoms Diagnosis Treatment Polymyalgia rheumatica (PMR) is a condi…"
+      },
+      {
+        "title": "Spondylolisthesis - NHS",
+        "source": "https://www.nhs.uk/conditions/spondylolisthesis/",
+        "snippet": "﻿ Spondylolisthesis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Spondylolisthesis Spondylolisthesis is where one of the bones in your spine, called a vertebra, slips forward. It can be painful,…"
+      },
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "﻿ Back pain - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Back pain Back pain, particularly lower back pain, is very common. It usually improves within a few weeks but can sometimes last longer or…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "musculoskeletal pain, an injection of a 2-mL mixture of 1 mL of 40 mg/mL of methylprednisolone acetate or equivalent and 1 mL of local anesthetic can work quite well helping to resolve pain if symptoms persist for more than a few months.18 Gaps in the Evidence-Based Knowledge The mechanism of costochondritis is unclear and is often a diagnosis of exclusion.…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      },
+      {
+        "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+        "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+      "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "e, clavicle, shoulders, and thoracic and lumbar spine must be included. Movement of the rib cage can be assessed with deep breathing exercises. The effect of upper extremity movement on pain should also be noted, because moving the arm on the affected side will usually cause pain.2,11 Examination should also include auscultation of the heart and lungs, and e…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/900fa94e5b4c0ed8/content.txt",
+      "snippet": "ng forward and worsens by laying supine. Pericarditis may be idiopathic, preceded by a recent viral illness or postcardiac surgery, or associated with an underlying connective tissue disorder like lupus. - Pneumothorax: Consider this condition in patients with chest pain, shortness of breath, and acute distress. Risk factors include antecedent trauma, prior…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/3ca85874a0800355/content.txt",
+      "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+    }
+  ],
+  "state": null
+}

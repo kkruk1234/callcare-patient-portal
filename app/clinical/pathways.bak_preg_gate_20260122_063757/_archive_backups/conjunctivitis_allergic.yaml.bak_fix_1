@@ -1,0 +1,31 @@
+id: conjunctivitis_allergic
+version: 0.1
+match:
+  any_keywords: ["itchy eyes", "watery eyes", "allergic conjunctivitis", "eye itching", "seasonal allergies eyes", "pink eye itching"]
+questions:
+  - id: vision_pain
+    prompt: "Any vision change, severe eye pain, or light sensitivity? (yes/no)"
+    store_as: eye_redflag
+    type: yesno
+
+  - id: discharge
+    prompt: "Is there thick pus-like discharge or eyelids stuck shut in the morning? (yes/no)"
+    store_as: purulent_discharge
+    type: yesno
+
+  - id: contact_lens
+    prompt: "Do you wear contact lenses? (yes/no)"
+    store_as: contact_lens
+    type: yesno
+
+  - id: itch
+    prompt: "Is itching a main symptom? (yes/no)"
+    store_as: prominent_itch
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["vision_pain","discharge","contact_lens","itch"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

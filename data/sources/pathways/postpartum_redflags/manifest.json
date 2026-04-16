@@ -1,0 +1,19 @@
+{
+  "pathway_id": "postpartum_redflags",
+  "sources": [
+    {
+      "id": "acog_postpartum_care",
+      "type": "web",
+      "url": "https://www.acog.org/womens-health/faqs/postpartum-care",
+      "title": "ACOG FAQ: Postpartum Care",
+      "license_note": "Summarize concepts; do not reproduce full text."
+    },
+    {
+      "id": "nice_cg37_postnatal_care",
+      "type": "web",
+      "url": "https://www.nice.org.uk/guidance/cg37",
+      "title": "NICE CG37: Postnatal care",
+      "license_note": "Use short excerpts only."
+    }
+  ]
+}

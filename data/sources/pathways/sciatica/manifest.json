@@ -1,0 +1,12 @@
+{
+  "pathway_id": "sciatica",
+  "sources": [
+    {
+      "id": "sciatica_cdc",
+      "source_id": "sciatica_cdc",
+      "title": "Sciatica/back pain guidance (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

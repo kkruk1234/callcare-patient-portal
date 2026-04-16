@@ -1,0 +1,75 @@
+{
+  "packet_id": "37d8a9f7-2f0d-4782-8013-5351c5b4fd76",
+  "created_at": "2026-02-26T01:09:29.414274+00:00",
+  "session_id": "4d00b4f1-22b5-4640-ab7f-88514e2935af",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back hurts and if the pain radiates anywhere?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of chronic illnesses like osteoporosis, cancer, or recent travel?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the quality of the pain? For example, is it sharp, dull, burning, or something else?",
+    "intake_a10": "dull",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of dull back pain localized to the left side of the lower rib cage. She denies any recent injury, trauma, or heavy lifting prior to onset. There are no associated symptoms such as fever, chills, unexplained weight loss, difficulty breathing, coughing, chest pain, numbness, weakness, or tingling in the legs or feet. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, chronic illnesses like osteoporosis or cancer, or recent travel. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage area, likely due to a strain or minor soft tissue injury given the absence of trauma and systemic symptoms.\nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Intercostal muscle strain or rib dysfunction\n3. Early costochondritis\n4. Less likely visceral causes such as referred pain from kidney or pleura, given no urinary or respiratory symptoms\n\nP:\n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs in patients with renal impairment or gastrointestinal risk; patient has no known renal or liver disease\n - Return precautions: Advise patient to seek care if pain worsens, develops fever, new neurological symptoms, chest pain, or urinary symptoms\n - Testing: Not indicated at this time given lack of red flags; consider imaging or labs if symptoms evolve",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "soft tissue injury advice",
+        "source": "www.nhsinform.scot",
+        "url": "https://www.nhsinform.scot/illnesses-and-conditions/muscle-bone-and-joints/soft-tissue-injury-advice/",
+        "accessed": "2026-02-25",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

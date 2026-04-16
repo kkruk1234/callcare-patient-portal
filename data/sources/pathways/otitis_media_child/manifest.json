@@ -1,0 +1,19 @@
+{
+  "pathway_id": "otitis_media_child",
+  "sources": [
+    {
+      "id": "cdc_ear_infection_children",
+      "type": "web",
+      "url": "https://www.cdc.gov/antibiotic-use/ear-infection.html",
+      "title": "CDC: Ear Infection (Otitis Media) in Children",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "nice_cks_otitis_media_acute",
+      "type": "web",
+      "url": "https://cks.nice.org.uk/topics/otitis-media-acute/",
+      "title": "NICE CKS: Otitis media - acute",
+      "license_note": "Use short excerpts only."
+    }
+  ]
+}

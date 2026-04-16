@@ -1,0 +1,371 @@
+from __future__ import annotations
+
+import re
+from datetime import date
+from typing import Any, Dict, List, Optional, Tuple
+
+try:
+    from app.core.models import CallState, NoteDraft  # type: ignore
+except Exception:
+    CallState = Any  # type: ignore
+    NoteDraft = None  # type: ignore
+
+
+# -----------------------------
+# Core extraction helpers
+# -----------------------------
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _get_answers_dict(state: Any) -> Dict[str, Any]:
+    if state is None:
+        return {}
+    try:
+        a = getattr(state, "answers", None)
+        if isinstance(a, dict):
+            return a
+    except Exception:
+        pass
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            a = sx.get("_answers")
+            if isinstance(a, dict):
+                return a
+    except Exception:
+        pass
+    return {}
+
+
+def _extract_cc_from_state(state: Any) -> str:
+    try:
+        return _safe_str(getattr(state, "chief_complaint", "") or getattr(state, "chief", "") or "")
+    except Exception:
+        return ""
+
+
+def _extract_dx_from_state(state: Any) -> str:
+    """
+    Best-effort dx cue, WITHOUT any title gating and WITHOUT hard-coded dx logic.
+    """
+    if state is None:
+        return ""
+    # common state fields
+    for k in ("working_diagnosis", "pathway_label", "pathway_id"):
+        try:
+            v = getattr(state, k, None)
+            if isinstance(v, str) and v.strip():
+                return v.strip().replace("_", " ")
+        except Exception:
+            pass
+
+    # symptoms dict hints
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            for k in ("_dx_inferred", "working_diagnosis", "diagnosis", "dx"):
+                v = sx.get(k)
+                if isinstance(v, str) and v.strip():
+                    return v.strip().replace("_", " ")
+            raw = sx.get("_llm_intake_extract")
+            if isinstance(raw, dict):
+                for k in ("working_diagnosis", "diagnosis", "impression", "assessment", "primary_diagnosis"):
+                    v = raw.get(k)
+                    if isinstance(v, str) and v.strip():
+                        return v.strip()
+    except Exception:
+        pass
+
+    return ""
+
+
+# -----------------------------
+# Pregnancy sentence placement (minimal + deterministic)
+# -----------------------------
+
+def _preg_norm_from_answers(state: Any) -> str:
+    ans = _get_answers_dict(state)
+    raw = ans.get("pregnancy_possible")
+    if raw is None or _safe_str(raw) == "":
+        try:
+            raw = getattr(state, "pregnancy_possible", None)
+        except Exception:
+            raw = None
+
+    s = _safe_str(raw).lower()
+    if not s:
+        return ""
+
+    if s in ("y", "yes", "true", "pregnant"):
+        return "yes"
+    if s in ("n", "no", "false", "not pregnant"):
+        return "no"
+    if s in ("na", "n/a", "not applicable", "not_applicable", "male"):
+        return "not_applicable"
+    return "unknown"
+
+
+def _preg_sentence(preg_norm: str) -> str:
+    v = _safe_str(preg_norm).lower()
+    if v == "not_applicable" or v in ("na", "n/a"):
+        return ""
+    if v == "yes":
+        return "Patient is pregnant."
+    if v == "no":
+        return "Patient is not pregnant."
+    if v == "unknown" or v == "":
+        return "Patient is unsure about pregnancy status."
+    return "Patient is unsure about pregnancy status."
+
+
+def _remove_preg_sentences(text: str) -> str:
+    if not text:
+        return text
+    text = re.sub(r"\bPatient is pregnant\.\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bPatient is not pregnant\.\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bPatient is unsure about pregnancy status\.\s*", "", text, flags=re.IGNORECASE)
+    return text
+
+
+def _insert_preg_last_sentence_of_subjective(soap_text: str, preg_sentence: str) -> str:
+    """
+    Enforce exactly one pregnancy sentence at end of S: section.
+    Requires S:/O:/A:/P: structure (your renderer enforces this elsewhere).
+    """
+    txt = _safe_str(soap_text)
+    txt = _remove_preg_sentences(txt).strip()
+    if not preg_sentence:
+        return txt + ("\n" if txt and not txt.endswith("\n") else "")
+
+    m = re.search(r"(?s)^\s*S:\s*(.*?)\n\s*O:\s*(.*?)\n\s*A:\s*(.*?)\n\s*P:\s*(.*)\s*$", txt)
+    if not m:
+        return txt + ("\n" if txt and not txt.endswith("\n") else "")
+
+    s, o, a, p = [x.strip() for x in m.groups()]
+    if s and not s.endswith((".", "!", "?")):
+        s += "."
+    s = (s + " " + preg_sentence).strip()
+
+    out = f"S: {s}\n\nO: {o}\n\nA: {a}\n\nP:\n{p}".strip() + "\n"
+    return out
+
+
+# -----------------------------
+# Web evidence ONLY (dict output compatible with finalize.py)
+# -----------------------------
+
+def _publisher_from_url(url: str) -> str:
+    u = _safe_str(url).lower()
+    if not u:
+        return "Source"
+    try:
+        host = re.sub(r"^https?://", "", u).split("/")[0]
+        host = host.replace("www.", "").strip()
+        if not host:
+            return "Source"
+        parts = host.split(".")
+        if len(parts) >= 2:
+            core = parts[-2]
+            return core.upper() if len(core) <= 6 else core.capitalize()
+        return host
+    except Exception:
+        return "Source"
+
+
+def _as_printable_evidence_dicts(refs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    today = ""
+    try:
+        today = date.today().isoformat()
+    except Exception:
+        today = ""
+
+    out: List[Dict[str, Any]] = []
+    seen = set()
+    for r in refs or []:
+        if not isinstance(r, dict):
+            continue
+        title = _safe_str(r.get("title") or "")
+        url = _safe_str(r.get("url") or r.get("source") or "")
+        src = _safe_str(r.get("source") or _publisher_from_url(url))
+        snip = _safe_str(r.get("snippet") or r.get("text") or "")
+        if not title and not url:
+            continue
+        key = url or title
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(
+            {
+                "title": title or (url[:160] if url else "Source"),
+                "source": src or "Source",
+                "url": url,
+                "accessed": _safe_str(r.get("accessed") or today),
+                "snippet": snip,
+            }
+        )
+    return out
+
+
+def _build_evidence_queries(state: Any, max_q: int = 4) -> List[str]:
+    """
+    Keep this simple and scalable:
+    - If state.answers has evidence_search_queries, use those.
+    - Otherwise: build 3 queries from dx+cc only (no hard-coded conditions).
+    """
+    ans = _get_answers_dict(state)
+    qs = None
+    try:
+        qs = ans.get("evidence_search_queries")
+    except Exception:
+        qs = None
+
+    if isinstance(qs, list):
+        out0 = [_safe_str(x) for x in qs if _safe_str(x)]
+        return out0[:max_q]
+
+    dx = _extract_dx_from_state(state)
+    cc = _extract_cc_from_state(state)
+    anchor = " ".join([x for x in [dx, cc] if x]).strip() or (cc or "patient complaint")
+
+    q = []
+    q.append(f"{anchor} outpatient management guideline".strip())
+    q.append(f"{anchor} treatment medication dosing duration contraindications".strip())
+    q.append(f"{anchor} red flags return precautions testing".strip())
+
+    out: List[str] = []
+    seen = set()
+    for x in q:
+        x2 = " ".join(_safe_str(x).split()).strip()
+        if not x2:
+            continue
+        k = x2.lower()
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(x2)
+    return out[:max_q]
+
+
+def _fetch_web_evidence(state: Any) -> List[Dict[str, Any]]:
+    """
+    Web retrieval only. NO manifest, NO YAML, NO local library, NO RAG.
+    """
+    cc = _extract_cc_from_state(state)
+    qs = _build_evidence_queries(state, max_q=4)
+
+    try:
+        from app.rag.llm_http_evidence import llm_http_evidence  # type: ignore
+    except Exception:
+        return []
+
+    refs = llm_http_evidence(
+        chief_complaint=cc or "chief complaint",
+        assessment_text=_extract_dx_from_state(state) or None,
+        queries=qs,
+        min_urls=5,
+        max_urls=8,
+        max_queries=min(4, len(qs)),
+        max_per_publisher=1,
+        debug=False,
+    ) or []
+
+    if not isinstance(refs, list):
+        return []
+
+    refs2 = [r for r in refs if isinstance(r, dict)]
+    ev_print = _as_printable_evidence_dicts(refs2)
+
+    # Store queries so finalize.py can reuse without recomputing
+    try:
+        ans = _get_answers_dict(state)
+        if isinstance(ans, dict):
+            ans["evidence_search_queries"] = qs
+            try:
+                if hasattr(state, "answers"):
+                    state.answers = ans
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+    return ev_print
+
+
+# -----------------------------
+# LLM note generation
+# -----------------------------
+
+def _generate_llm_soap(state: Any, evidence_print: List[Dict[str, Any]]) -> Tuple[str, str]:
+    """
+    Calls your llm_note_writer; we pass evidence as dicts (printable evidence).
+    If your writer expects EvidenceRef objects, it should be updated there—NOT by
+    reintroducing local library logic here.
+    """
+    try:
+        from app.clinical.llm_note_writer import build_prompt, generate_note_text  # type: ignore
+    except Exception as e:
+        return ("", f"llm_note_writer import error: {type(e).__name__}")
+
+    try:
+        prompt = build_prompt(state=state, evidence=evidence_print)
+        txt = generate_note_text(prompt) or ""
+        return (_safe_str(txt), "")
+    except Exception as e:
+        return ("", f"{type(e).__name__}: {_safe_str(e)[:160]}")
+
+
+# -----------------------------
+# Public API expected by finalize.py
+# -----------------------------
+
+def build_note(state: CallState) -> Any:
+    """
+    Returns a NoteDraft-like object with:
+      - soap: str
+      - evidence: List[dict] (printable evidence dicts)
+    """
+    evidence_print = _fetch_web_evidence(state)
+
+    soap_text, err = _generate_llm_soap(state, evidence_print)
+    if not soap_text:
+        soap_text = f"(Warn) Could not build note: {err}\n"
+
+    # pregnancy sentence enforcement (single placement)
+    preg_sentence = _preg_sentence(_preg_norm_from_answers(state))
+    soap_text = _insert_preg_last_sentence_of_subjective(soap_text, preg_sentence)
+
+    # Construct NoteDraft if available, else dict fallback
+    if NoteDraft is not None:
+        try:
+            return NoteDraft(
+                soap=soap_text,
+                patient_instructions=[],
+                clinician_questions=[],
+                risk_flags=[],
+                evidence=evidence_print,
+            )
+        except Exception:
+            pass
+
+    return {
+        "soap": soap_text,
+        "patient_instructions": [],
+        "clinician_questions": [],
+        "risk_flags": [],
+        "evidence": evidence_print,
+    }
+
+
+def build_note_with_reason(state: CallState, *args, **kwargs):
+    note = build_note(state)
+    return note, None
+
+
+def fallback_note_from_state(state: CallState) -> Any:
+    # Keep finalize.py fallback path working.
+    return build_note(state)

@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA4be3c34584fd5920154691cc7724ec72",
+  "session_id": "8a32deba-a2ba-4314-86a1-be425976aae1",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T21:03:15.409061+00:00",
+  "ended_at": "2026-04-03T21:08:21.696260+00:00",
+  "packet_id": "387581cf-9934-4fcc-b142-2a9aa1ce1214",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or night sweats?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any difficulty swallowing or breathing?"
+    },
+    {
+      "role": "user",
+      "text": "No. It just really hurts a lot when I swallow but I have no difficulty swallowing. It's just very painful."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any cough, nasal congestion, or runny nose?"
+    },
+    {
+      "role": "user",
+      "text": "I have a runny nose with the sore throat. Nasal congestion now and I definitely don't have a cough. It's really just the runny nose"
+    },
+    {
+      "role": "assistant",
+      "text": "Any swollen glands or lumps in your neck?"
+    },
+    {
+      "role": "user",
+      "text": "and which is kinda constant and the sore"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe any swollen glands or lumps in your neck, or any tenderness there?"
+    },
+    {
+      "role": "user",
+      "text": "no."
+    },
+    {
+      "role": "assistant",
+      "text": "Any white patches or spots visible on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "I"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you finish your answer about white patches or spots on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what you see in your throat—are the tonsils red, swollen, or do you see any spots or patches?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what you see in your throat in more detail? Are the tonsils red, swollen, or do you see any white spots or patches?"
+    },
+    {
+      "role": "user",
+      "text": "I have white spots on my"
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "C, ma'am."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have a sore throat likely caused by a bacterial infection, possibly strep throat, given the white spots on your tonsils and no cough. Because this is a phone visit, I can’t examine you or do tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe antibiotics like azithromycin, especially since you have a penicillin allergy. For now, you can use acetaminophen or ibuprofen for pain relief if you can take them safely. If you develop any trouble breathing or swallowing, or if your symptoms get worse or don’t improve in the next couple of days, please seek in-person care at an urgent care or emergency room. A doctor will review your case soon and decide on the best treatment."
+    }
+  ]
+}

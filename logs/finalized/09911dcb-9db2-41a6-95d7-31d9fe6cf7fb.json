@@ -1,0 +1,49 @@
+{
+  "packet_id": "1f06a6f6-ba45-47f8-98f7-2d491cd1e5da",
+  "created_at": "2026-01-17T22:17:19.165383+00:00",
+  "session_id": "09911dcb-9db2-41a6-95d7-31d9fe6cf7fb",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nPatient is a 13-17-year-old from Georgia presenting with a tick bite and fever with chills lasting 24-72 hours. No rash reported. Pregnancy not possible.\n\nO:\nNo physical exam findings available due to phone-only encounter.\n\nA:\n  - Working diagnosis (most likely): Early tick-borne illness, possibly early Lyme disease or another tick-borne infection given fever and tick exposure.\n  - Differential:\n    1. Early Lyme disease (though no rash reported)\n    2. Anaplasmosis or ehrlichiosis\n    3. Viral illness unrelated to tick bite\n    4. Other bacterial infections from tick bite\n  - Red flags considered: Persistent high fever, worsening symptoms, neurological signs, rash development, signs of sepsis.\n\nP:\n  - Disposition: Urgent in-person evaluation recommended due to fever and tick bite in endemic area.\n  - Plan: Advise patient to seek prompt medical evaluation for physical exam, possible laboratory testing (CBC, blood smears, Lyme serology), and initiation of empiric antibiotic therapy if indicated.\n  - Safety net: Instruct patient/guardian to seek emergency care if symptoms worsen rapidly, develop rash, severe headache, neck stiffness, confusion, difficulty breathing, or persistent high fever.\n\nEvidence (snippets used):\nNo direct evidence snippets retrieved; management based on standard clinical guidelines for tick-borne illness and fever in endemic areas.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": ""
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": ""
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": ""
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": ""
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": []
+}

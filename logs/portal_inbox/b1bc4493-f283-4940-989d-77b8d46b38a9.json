@@ -1,0 +1,43 @@
+{
+  "packet_id": "b1bc4493-f283-4940-989d-77b8d46b38a9",
+  "created_at": "2026-04-03T19:32:21.205577+00:00",
+  "session_id": "95b846c2-f317-4e03-ba04-1b582b970a7f",
+  "pathway_id": "",
+  "base_queries": [
+    "temporomandibular joint disorder diagnosis and management guidelines",
+    "adult jaw pain treatment options dosing and contraindications",
+    "red flags and return precautions for jaw pain with clicking noise"
+  ],
+  "queries": [
+    "AAFP temporomandibular joint disorder diagnosis and management guidelines",
+    "AAFP adult jaw pain treatment options dosing and contraindications",
+    "MedlinePlus temporomandibular joint disorder diagnosis and management guidelines",
+    "MedlinePlus adult jaw pain treatment options dosing and contraindications",
+    "CDC temporomandibular joint disorder diagnosis and management guidelines",
+    "CDC adult jaw pain treatment options dosing and contraindications",
+    "NIH temporomandibular joint disorder diagnosis and management guidelines",
+    "NIH adult jaw pain treatment options dosing and contraindications",
+    "NICE temporomandibular joint disorder diagnosis and management guidelines",
+    "NICE adult jaw pain treatment options dosing and contraindications",
+    "WHO temporomandibular joint disorder diagnosis and management guidelines",
+    "WHO adult jaw pain treatment options dosing and contraindications"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Temporomandibular Disorders: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0100/temporomandibular-disorders.html",
+      "accessed": "2026-04-03",
+      "snippet": "Medication/dosage Outcome Type of study Common adverse effects Naproxen, 500 mg twice daily Decreased pain and improved range of motion vs. placebo * RCT Dyspepsia, headache, nausea, rash, and dizziness Cyclobenzaprine, 10 mg at bedtime Decreased pain vs. placebo * Systematic review of two RCTs Dizziness, dry mouth, and drowsiness Amitriptyline, 25 mg at bedtime Decreased pain 34% vs. 14% for placebo * RCT Dizziness, drowsiness, dry mouth, and constipation Gabapentin, 300 to 4,200 mg per day Decreased pain 51% vs. 24% for placebo * RCT Dizziness, drowsiness, and fatigue"
+    },
+    {
+      "title": "Avoid routinely using irreversible surgical procedures such as braces, occlusal equilibration, and restorations as the first treatment of choice in the management of temporomandibular joint disorders. | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/collections/choosing-wisely/313.html",
+      "accessed": "2026-04-03",
+      "snippet": "Rationale and Comments There is a lack of evidence that temporomandibular joint disorders (defined as musculoskeletal disorders, not the lesion of traumatic occlusion) are always progressive, and evidence exists that in many instances, patients with temporomandibular joint disorder have spontaneous remissions without treatment. Therefore, management is generally conservative and includes reversible strategies such as patient education, medications, physical therapy, and/or the use of occlusal appliances that do not alter the shape or position of the teeth or the alignment of the jaws."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male presenting with jaw pain that started about a week ago. The pain worsens with chewing gum or eating a bagel and is most severe upon waking in the morning. There is no jaw swelling, redness, or difficulty opening the mouth, but the jaw makes a clicking noise when opened. The patient denies recent dental work, trauma, or arthritis. He has no fever, chills, or recent infections. He reports intermittent headaches and ear pain on the affected side in the past but currently has neither. There is no difficulty chewing, speaking, or jaw locking. The patient has a history of teeth grinding or clenching, especially at night. He denies recent weight loss, night sweats, unexplained fatigue, or vision changes.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is temporomandibular joint disorder (TMJD) likely related to bruxism given the history of teeth grinding and jaw clicking with pain worsened by chewing.\nDifferential:\n1. Temporomandibular joint disorder (TMJD) related to bruxism\n2. Myofascial pain syndrome involving masticatory muscles\n3. Early osteoarthritis of the temporomandibular joint\n4. Dental pathology such as occult tooth abscess or malocclusion\n\nP: - First-line medication: Ibuprofen 400 mg orally every 6-8 hours as needed for pain for 7 days (Physician must verify medication/dosing)\n- Alternatives: Naproxen 250 mg orally twice daily as needed for pain for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; no renal or liver disease; monitor for gastrointestinal side effects with NSAIDs\n- Follow-up recommendations: Seek in-person medical care urgently if jaw locking, inability to open mouth, severe worsening pain, fever, or new neurological symptoms develop; otherwise follow up in 1-2 weeks if symptoms persist or worsen\n- Testing: Not indicated at this time based on history and telephone evaluation"
+}

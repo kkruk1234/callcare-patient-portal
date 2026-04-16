@@ -1,0 +1,123 @@
+{
+  "packet_id": "ecbcc102-80b7-4047-9425-976fa5f77093",
+  "created_at": "2026-02-05T03:02:18.030695+00:00",
+  "session_id": "3eb59a8e-addb-402b-b287-249f91262f29",
+  "chief_complaint": "shoulder pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your shoulder pain start?",
+    "intake_a1": "5 days ago",
+    "intake_q2": "Can you describe what you were doing when the shoulder pain started?",
+    "intake_a2": "playing tennis",
+    "intake_q3": "Can you describe the type of pain and if it worsens with certain movements?",
+    "intake_a3": "sharp and shooting pain",
+    "intake_q4": "Any weakness, numbness, or tingling in your arm or hand?",
+    "intake_a4": "no",
+    "intake_q5": "Any fever, chills, or recent infections?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of prior shoulder injuries or surgeries?",
+    "intake_a6": "no",
+    "intake_q7": "Is the pain worse with any specific shoulder movements or positions, such as lifting your arm overhead or reaching behind your back?",
+    "intake_a7": "reaching behind my back",
+    "intake_q8": "Have you tried any treatments or medications for your shoulder pain so far?",
+    "intake_a8": "icing the shoulder, rest, and tylenol",
+    "intake_q9": "Any swelling, bruising, or visible deformity around the shoulder?",
+    "intake_a9": "swelling",
+    "intake_q10": "Any difficulty moving your shoulder or reduced range of motion?",
+    "intake_a10": "pain with moving so that reduces my range of motion",
+    "age_years": 34,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/shoulder-impingement-syndrome/",
+        "https://medlineplus.gov/shoulderinjuriesanddisorders.html",
+        "https://www.nhs.uk/conditions/frozen-shoulder/",
+        "https://medlineplus.gov/rotatorcuffinjuries.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nPatient is not pregnant.\nThe patient is a 34-year-old female presenting with a 5-day history of sharp, shooting right shoulder pain that began while playing tennis. The pain worsens with certain movements, particularly reaching behind her back, and is associated with swelling and reduced range of motion due to pain. She denies any weakness, numbness, tingling, fever, chills, or recent infections. She has no prior history of shoulder injuries or surgeries. She has attempted rest, icing, and acetaminophen with some relief.\n\nO: \nPhone evaluation only; no vitals or physical exam available.\n\nA: \nThe working diagnosis is a rotator cuff injury or shoulder impingement syndrome given the acute onset of sharp shoulder pain with movement limitation and swelling after physical activity. \n\nDifferential: \n1. Rotator cuff tendinopathy or tear \n2. Shoulder impingement syndrome \n3. Shoulder strain or sprain \n4. Early adhesive capsulitis (frozen shoulder) \n\nP: \n- First-line medication: \n Ibuprofen 400 mg orally every 6–8 hours as needed for pain and inflammation for 7 days. Avoid if history of gastrointestinal ulcers or renal impairment. Dosing details were not found in retrieved evidence; prescriber should verify. \n\n- Alternatives: \n - Naproxen 250–500 mg orally twice daily for 7 days; avoid in renal impairment or gastrointestinal ulcers. \n - Acetaminophen 500–1000 mg orally every 6 hours as needed for pain for 7 days; avoid exceeding 3 g/day. \n - Topical NSAIDs (e.g., diclofenac gel) applied to the shoulder 3–4 times daily for 7 days; avoid if skin allergy. \n\n- Medication safety considerations: \n No known medication allergies. Not pregnant and no renal or liver disease reported. NSAIDs should be used cautiously if gastrointestinal or renal risk factors develop. \n\n- Return precautions: \n Seek in-person evaluation if pain worsens, swelling increases, there is new weakness, numbness, or tingling, or if fever develops. \n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Shoulder impingement - NHS",
+        "source": "https://www.nhs.uk/conditions/shoulder-impingement-syndrome/",
+        "snippet": "﻿ \nShoulder impingement\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nShoulder impingement \nShoulder impingement is where a tendon inside your shoulder swells and rubs against tissue or bone, causing pain as you lift your arm. It can be caused by irritation, injury or \"wear and tear\". It usually gets better in a few weeks or months.\nCheck if you have shoulder impingement \nShoulder impingement can start suddenly or come on gradually.\nThe main symptoms are:\npain at the top and the outside of your shoulder – the pain may be worse at night while you're sleeping shoulder pain that's worse when you lift your arm, especially when you lift it above your head weakness in your arm \nInformation: \nThere are other possible ca"
+      },
+      {
+        "title": "Shoulder pain (starter evidence summary)",
+        "source": "pathways/shoulder_pain_overuse/starter_1.json",
+        "snippet": "Most shoulder pain is overuse/tendon-related. Trauma, inability to move the arm, or cardiac symptoms require urgent evaluation."
+      },
+      {
+        "title": "Shoulder Injuries | Shoulder Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/shoulderinjuriesanddisorders.html",
+        "snippet": "Shoulder Injuries | Shoulder Disorders | MedlinePlus \nSkip navigation \nAn official website of the United States government\nHereâs how you know\nHereâs how you know \nOfficial websites use .gov \nA\n.gov website belongs to an official government\norganization in the United States.\nSecure .gov websites use HTTPS \nA\nlock (\nLock \nLocked padlock icon \n) or https:// means youâve safely connected to\nthe .gov website. Share sensitive information only on official,\nsecure websites.\nNational Library of Medicine \nMenu \nHealth Topics \nDrugs & Supplements \nGenetics \nMedical Tests \nMedical Encyclopedia \nAbout MedlinePlus \nSearch \nSearch MedlinePlus \nGO \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nHealth Topics Drugs & Supplements Genetics Medical Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nShoulder Injuries and Disorders \nURL of this page: htt"
+      },
+      {
+        "title": "Frozen shoulder - NHS",
+        "source": "https://www.nhs.uk/conditions/frozen-shoulder/",
+        "snippet": "et a frozen shoulder.\nFrozen shoulder happens when the tissue around your shoulder joint becomes inflamed.\nThe tissue then gets tighter and shrinks, which causes pain.\nFrozen shoulder can happen because:\nyou had an injury or surgery that stops you from moving your arm normally you have diabetes – it's unclear why this is, but it's important to have your regular diabetes check-ups to catch any problems early \nPage last reviewed: 24 June 2024\nNext review due: 24 June 2027\nSupport links \nHome \nHealth A to Z \nNHS services \nHealthy living \nMental health \nCare and support \nPregnancy \nCOVID-19 \nNHS App \nFind my NHS number \nView your GP health record"
+      },
+      {
+        "title": "Rotator Cuff Injuries | MedlinePlus",
+        "source": "https://medlineplus.gov/rotatorcuffinjuries.html",
+        "snippet": "velop a rotator cuff injury. But certain people are more likely to have one:\nPeople over age 40. Most rotator cuff injuries are from the wear and tear of aging. By age 80, most adults have tears. \nAthletes. Playing sports with repeated shoulder movements increases the risk of a rotator cuff injury, for example, tennis, swimming, and baseball - especially pitching. \nPeople in jobs that require a lot of reaching overhead or heavy lifting. Carpenters, construction workers, and painters are examples of workers who may be more likely to have rotator cuff problems. \nWhat are the symptoms of rotator cuff injuries? \nRotator cuff injuries don't always cause pain. But when they do, the pain is often in the top part of your arm or shoulder. You may feel more pain when you:\nLie down, especially on the injured shoulder \nLift your arm or lower it to the front or side \nReach behind your back \nOther sym"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Shoulder impingement - NHS",
+      "source": "https://www.nhs.uk/conditions/shoulder-impingement-syndrome/",
+      "snippet": "﻿ \nShoulder impingement\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nShoulder impingement \nShoulder impingement is where a tendon inside your shoulder swells and rubs against tissue or bone, causing pain as you lift your arm. It can be caused by irritation, injury or \"wear and tear\". It usually gets better in a few weeks or months.\nCheck if you have shoulder impingement \nShoulder impingement can start suddenly or come on gradually.\nThe main symptoms are:\npain at the top and the outside of your shoulder – the pain may be worse at night while you're sleeping shoulder pain that's worse when you lift your arm, especially when you lift it above your head weakness in your arm \nInformation: \nThere are other possible ca"
+    },
+    {
+      "title": "Shoulder pain (starter evidence summary)",
+      "source": "pathways/shoulder_pain_overuse/starter_1.json",
+      "snippet": "Most shoulder pain is overuse/tendon-related. Trauma, inability to move the arm, or cardiac symptoms require urgent evaluation."
+    },
+    {
+      "title": "Shoulder Injuries | Shoulder Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/shoulderinjuriesanddisorders.html",
+      "snippet": "Shoulder Injuries | Shoulder Disorders | MedlinePlus \nSkip navigation \nAn official website of the United States government\nHereâs how you know\nHereâs how you know \nOfficial websites use .gov \nA\n.gov website belongs to an official government\norganization in the United States.\nSecure .gov websites use HTTPS \nA\nlock (\nLock \nLocked padlock icon \n) or https:// means youâve safely connected to\nthe .gov website. Share sensitive information only on official,\nsecure websites.\nNational Library of Medicine \nMenu \nHealth Topics \nDrugs & Supplements \nGenetics \nMedical Tests \nMedical Encyclopedia \nAbout MedlinePlus \nSearch \nSearch MedlinePlus \nGO \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nHealth Topics Drugs & Supplements Genetics Medical Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nShoulder Injuries and Disorders \nURL of this page: htt"
+    },
+    {
+      "title": "Frozen shoulder - NHS",
+      "source": "https://www.nhs.uk/conditions/frozen-shoulder/",
+      "snippet": "et a frozen shoulder.\nFrozen shoulder happens when the tissue around your shoulder joint becomes inflamed.\nThe tissue then gets tighter and shrinks, which causes pain.\nFrozen shoulder can happen because:\nyou had an injury or surgery that stops you from moving your arm normally you have diabetes – it's unclear why this is, but it's important to have your regular diabetes check-ups to catch any problems early \nPage last reviewed: 24 June 2024\nNext review due: 24 June 2027\nSupport links \nHome \nHealth A to Z \nNHS services \nHealthy living \nMental health \nCare and support \nPregnancy \nCOVID-19 \nNHS App \nFind my NHS number \nView your GP health record"
+    },
+    {
+      "title": "Rotator Cuff Injuries | MedlinePlus",
+      "source": "https://medlineplus.gov/rotatorcuffinjuries.html",
+      "snippet": "velop a rotator cuff injury. But certain people are more likely to have one:\nPeople over age 40. Most rotator cuff injuries are from the wear and tear of aging. By age 80, most adults have tears. \nAthletes. Playing sports with repeated shoulder movements increases the risk of a rotator cuff injury, for example, tennis, swimming, and baseball - especially pitching. \nPeople in jobs that require a lot of reaching overhead or heavy lifting. Carpenters, construction workers, and painters are examples of workers who may be more likely to have rotator cuff problems. \nWhat are the symptoms of rotator cuff injuries? \nRotator cuff injuries don't always cause pain. But when they do, the pain is often in the top part of your arm or shoulder. You may feel more pain when you:\nLie down, especially on the injured shoulder \nLift your arm or lower it to the front or side \nReach behind your back \nOther sym"
+    }
+  ]
+}

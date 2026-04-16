@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAd1b8a6d8fcd7f2c5939a15f5dfc6b31a",
+  "session_id": "0000db2e-6d59-4333-b3f1-3a2c44647395",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-27T13:39:20.927130+00:00",
+  "ended_at": "2026-03-27T13:46:43.001594+00:00",
+  "packet_id": "92605c1b-08c0-45b1-893d-97b5d005332b",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have retained."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what you mean by 'I have retained'? Are you having trouble urinating or holding urine?"
+    },
+    {
+      "role": "user",
+      "text": "No, I said I have writ."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you please explain what symptoms or problem you are experiencing related to 'writ'?"
+    },
+    {
+      "role": "user",
+      "text": "Wrist my wrist."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what is wrong with your wrist? For example, pain, swelling, injury, or limited movement?"
+    },
+    {
+      "role": "user",
+      "text": "It hurt when I am writing."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the wrist pain start?"
+    },
+    {
+      "role": "user",
+      "text": "About a week ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swelling, bruising, or visible deformity in your wrist?"
+    },
+    {
+      "role": "user",
+      "text": "I said no!"
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent injury or trauma to your wrist before the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No, but I have been playing pickleball a lot, so I don't know if that is something to my wrist."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain in your wrist when writing, such as sharp, dull, or burning?"
+    },
+    {
+      "role": "user",
+      "text": "It's a sharp."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or weakness in your hand or fingers?"
+    },
+    {
+      "role": "user",
+      "text": "I have a little bit of tingling in my fingers."
+    },
+    {
+      "role": "assistant",
+      "text": "Which fingers have the tingling, and does it occur at rest or only with activity?"
+    },
+    {
+      "role": "user",
+      "text": "My index finger and middle finger, maybe a little bit of my thumb, and it only occurs when I'm writing."
+    },
+    {
+      "role": "assistant",
+      "text": "Any weakness or difficulty gripping objects with your hand?"
+    },
+    {
+      "role": "user",
+      "text": "Braving heavy objects with just those fingers is a little bit more difficult than it had been before, but other than that, not really."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Ten is Ellen."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "I am a man, male, man, mailman, male."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "Absolutely not, because I am a man. I just said man 18 fucking times to you."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No!"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like your wrist pain and finger tingling are most likely due to a repetitive strain or nerve compression from overuse, possibly related to your recent pickleball and writing activities. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment like naproxen or ibuprofen may help with pain and inflammation. A licensed physician will review this note and, if appropriate, may prescribe medication. If your symptoms get worse—such as increasing numbness, weakness, severe pain, or any swelling or deformity in your wrist—you should seek in-person care the same day. If you experience sudden severe symptoms, please go to the emergency room. For now, you can try over-the-counter pain relief like acetaminophen or ibuprofen if you can take them safely. A doctor may recommend further evaluation or testing if symptoms persist."
+    }
+  ]
+}

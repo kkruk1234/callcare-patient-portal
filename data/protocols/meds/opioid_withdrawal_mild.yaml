@@ -1,0 +1,26 @@
+rx_options:
+- med: Loperamide
+  dosing: 4 mg PO once, then 2 mg after each loose stool (max per labeling)
+  exclusions: Bloody diarrhea/high fever; severe abdominal pain; underage per labeling.
+  notes: Diarrhea symptom control.
+- med: Ondansetron
+  dosing: 4–8 mg PO q8h PRN nausea (reviewer to confirm)
+  exclusions: QT prolongation risk; interactions; allergy.
+  notes: Nausea control if appropriate.
+- med: Clonidine
+  dosing: 0.1 mg PO q6–8h PRN withdrawal symptoms (reviewer only)
+  exclusions: Low BP/bradycardia; pregnancy considerations; requires monitoring.
+  notes: Reviewer-directed only; phone-only use is cautious.
+supportive_care:
+- item: Hydration
+  details: Small sips frequently; oral rehydration solutions if vomiting/diarrhea.
+- item: Avoid relapse risk
+  details: If at risk of return to use, consider urgent linkage to MAT services; do
+    not use opioids not prescribed.
+followup_and_safety:
+- item: Re-evaluation
+  details: If symptoms are worsening, you cannot keep fluids down, or you need help
+    stopping opioids—seek urgent care/MAT program.
+- item: Urgent/ED now
+  details: Severe dehydration, confusion, chest pain, fainting, suicidal thoughts,
+    or signs of overdose (call 911).

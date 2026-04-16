@@ -1,0 +1,427 @@
+#!/usr/bin/env python3
+"""
+CallCare RAG URL ingestion
+- Reads a JSON "pack" file containing URLs
+- Fetches each URL
+- Extracts main text (trafilatura if available; otherwise BeautifulSoup fallback)
+- Stores into data/sources/library/<stable_id>/{source.json, content.txt}
+- Does NOT modify any clinical logic
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import sys
+import time
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, Optional, Tuple
+from urllib.parse import urlparse
+
+import requests
+
+
+LIBRARY_DIR = Path("data/sources/library")
+DEFAULT_TIMEOUT = 25
+
+
+@dataclass
+class PackSource:
+    url: str
+    source_type: str = "unknown"
+    notes: str = ""
+
+
+def stable_id_for_url(url: str) -> str:
+    h = hashlib.sha256(url.encode("utf-8")).hexdigest()
+    return h[:16]
+
+
+def safe_domain(url: str) -> str:
+    try:
+        return urlparse(url).netloc.lower()
+    except Exception:
+        return ""
+
+
+def load_pack(pack_path: Path) -> Tuple[str, str, list[PackSource]]:
+    data = json.loads(pack_path.read_text(encoding="utf-8"))
+    pack_id = str(data.get("pack_id", pack_path.stem))
+    desc = str(data.get("description", ""))
+    sources_raw = data.get("sources", [])
+    sources: list[PackSource] = []
+    for item in sources_raw:
+        if not isinstance(item, dict) or "url" not in item:
+            continue
+        sources.append(
+            PackSource(
+                url=str(item["url"]).strip(),
+                source_type=str(item.get("source_type", "unknown")).strip(),
+                notes=str(item.get("notes", "")).strip(),
+            )
+        )
+    return pack_id, desc, sources
+
+
+def fetch_url(url: str, timeout: int = DEFAULT_TIMEOUT) -> Tuple[Optional[bytes], Optional[str]]:
+    headers = {
+        "User-Agent": "CallCareRAGIngest/1.0 (+https://example.invalid)"
+    }
+    try:
+        resp = requests.get(url, headers=headers, timeout=timeout)
+        if resp.status_code >= 400:
+            return None, f"HTTP {resp.status_code}"
+        return resp.content, resp.headers.get("content-type", "")
+    except Exception as e:
+        return None, str(e)
+
+
+def extract_text(content: bytes, content_type: str, url: str) -> Tuple[str, str]:
+    """
+    Returns: (title_guess, extracted_text)
+    """
+    # Prefer trafilatura if installed (best at main-text extraction)
+    try:
+        import trafilatura
+        downloaded = trafilatura.extract(content, url=url, include_comments=False, include_tables=True)
+        if downloaded and downloaded.strip():
+            title = ""
+            try:
+                meta = trafilatura.extract_metadata(content, url=url)
+                if meta and getattr(meta, "title", None):
+                    title = str(meta.title).strip()
+            except Exception:
+                title = ""
+            return title, downloaded.strip()
+    except Exception:
+        pass
+
+    # Fallback: BeautifulSoup text extraction
+    try:
+        from bs4 import BeautifulSoup  # type: ignore
+        soup = BeautifulSoup(content, "html.parser")
+        title = ""
+        if soup.title and soup.title.string:
+            title = soup.title.string.strip()
+        # Remove common junk tags (no regex)
+        for tag_name in ["script", "style", "noscript", "header", "footer", "nav", "aside"]:
+            for t in soup.find_all(tag_name):
+                t.decompose()
+        text = soup.get_text(separator="\n")
+        # Basic cleanup without regex: strip lines, drop empties, cap runaway whitespace
+        lines = []
+        for line in text.splitlines():
+            s = line.strip()
+            if not s:
+                continue
+            # Drop very short "menu-like" fragments
+            if len(s) < 3:
+                continue
+            lines.append(s)
+        cleaned = "\n".join(lines).strip()
+        return title, cleaned
+    except Exception:
+        # Last-resort: decode bytes
+        try:
+            decoded = content.decode("utf-8", errors="ignore")
+        except Exception:
+            decoded = ""
+        return "", decoded.strip()
+
+
+def write_source(out_dir: Path, meta: Dict[str, Any], text: str) -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "source.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+    (out_dir / "content.txt").write_text(text, encoding="utf-8")
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pack", required=True, help="Path to a pack JSON file, e.g. data/sources/packs/msk_chest_wall_pain.json")
+    ap.add_argument("--refresh", action="store_true", help="Re-fetch and overwrite existing stored content for URLs in pack")
+    ap.add_argument("--sleep", type=float, default=0.4, help="Seconds to sleep between requests (polite crawling)")
+    args = ap.parse_args()
+
+    pack_path = Path(args.pack)
+    if not pack_path.exists():
+        print(f"ERROR: pack not found: {pack_path}", file=sys.stderr)
+        return 2
+
+    pack_id, desc, sources = load_pack(pack_path)
+    if not sources:
+        print(f"ERROR: pack has no sources: {pack_path}", file=sys.stderr)
+        return 2
+
+    LIBRARY_DIR.mkdir(parents=True, exist_ok=True)
+
+    print(f"PACK: {pack_id}")
+    if desc:
+        print(f"DESC: {desc}")
+    print(f"SOURCES: {len(sources)}")
+    print("")
+
+    added = 0
+    skipped = 0
+    failed = 0
+
+    for i, src in enumerate(sources, start=1):
+        url = src.url
+        if not url.startswith("http"):
+            print(f"[{i}/{len(sources)}] SKIP (bad url): {url}")
+            skipped += 1
+            continue
+
+        sid = stable_id_for_url(url)
+        out_dir = LIBRARY_DIR / sid
+
+        if out_dir.exists() and not args.refresh:
+            # consider it already ingested
+            print(f"[{i}/{len(sources)}] SKIP (exists): {url} -> {sid}")
+            skipped += 1
+            continue
+
+        print(f"[{i}/{len(sources)}] FETCH: {url}")
+        content, ctype = fetch_url(url)
+        if content is None:
+            print(f"  FAIL: {url}")
+            failed += 1
+            time.sleep(args.sleep)
+            continue
+
+        title, text = extract_text(content, ctype or "", url)
+        if not text or len(text) < 800:
+            # Too little usable content (prevents indexing nav-only hubs)
+            print(f"  FAIL (too little extracted text: {len(text)} chars)")
+            failed += 1
+            time.sleep(args.sleep)
+            continue
+
+        now = datetime.now(timezone.utc).isoformat()
+        meta: Dict[str, Any] = {
+            "id": sid,
+            "url": url,
+            "domain": safe_domain(url),
+            "title": title,
+            "source_type": src.source_type,
+            "notes": src.notes,
+            "pack_id": pack_id,
+            "retrieved_at": now,
+            "content_type": ctype,
+            "chars": len(text),
+        }
+
+        write_source(out_dir, meta, text)
+        print(f"  OK: stored {sid} ({len(text)} chars)")
+        added += 1
+        time.sleep(args.sleep)
+
+    print("")
+    print(f"DONE. added={added} skipped={skipped} failed={failed}")
+    print(f"Library dir: {LIBRARY_DIR}")
+    print("")
+    print("Next: rebuild your index (see command below).")
+    return 0 if failed == 0 else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+# -----------------------------------------------------------------------------
+# CallCare: programmatic ingest entrypoint (used by auto-acquire)
+# -----------------------------------------------------------------------------
+def ingest_urls(pack_path: str, max_urls: int = None):
+    """
+    Programmatic ingest for a URL pack JSON.
+    Writes into: data/sources/library/<stable_id>/ (source.json + content.txt via write_source()).
+
+    Returns: list of dicts like {"id","url","title","text","out_dir"} for docs ingested.
+    """
+    from pathlib import Path
+    import json
+    from datetime import datetime, timezone
+
+    pack_p = Path(pack_path)
+    if not pack_p.exists():
+        raise FileNotFoundError(f"Pack not found: {pack_path}")
+
+    # load_pack(pack_path: Path) -> (query, created_at, list[PackSource])
+    query, created_at, sources = load_pack(pack_p)
+
+    if not isinstance(sources, list):
+        sources = []
+
+    # optional cap
+    if isinstance(max_urls, int) and max_urls > 0:
+        sources = sources[:max_urls]
+
+    lib_root = Path("data/sources/library")
+    lib_root.mkdir(parents=True, exist_ok=True)
+
+    ingested = []
+    for src in sources:
+        try:
+            url = str(getattr(src, "url", "") or "").strip()
+            if not url:
+                continue
+
+            # fetch + extract
+            content, ctype = fetch_url(url)
+            if not content or not ctype:
+                continue
+
+            text, title = extract_text(content, ctype, url)
+
+            # stable storage path
+            sid = stable_id_for_url(url)
+            out_dir = lib_root / sid
+            out_dir.mkdir(parents=True, exist_ok=True)
+
+            meta = {
+                "id": sid,
+                "url": url,
+                "title": (title or "").strip(),
+                "retrieved_at": datetime.now(timezone.utc).isoformat(),
+                "pack_path": str(pack_p),
+                "pack_query": str(query or ""),
+                "pack_created_at": str(created_at or ""),
+                "source_type": str(getattr(src, "source_type", "") or ""),
+                "notes": str(getattr(src, "notes", "") or ""),
+                "domain": safe_domain(url),
+            }
+
+            # write_source(out_dir: Path, meta: Dict[str, Any], text: str) -> None
+            write_source(out_dir, meta, text or "")
+
+            ingested.append({
+                "id": sid,
+                "url": url,
+                "title": meta["title"],
+                "text": (text or ""),
+                "out_dir": str(out_dir),
+                "source": "auto_acquire",
+            })
+
+        except Exception:
+            # ingestion must be best-effort; auto-acquire will log higher level status
+            continue
+
+    return ingested
+
+# ============================
+# CallCare ingest entrypoints
+# ============================
+# These are the functions auto_acquire_fast expects to exist.
+# We keep them thin wrappers around existing helpers in this module.
+
+from typing import List, Any
+
+def _safe_read_existing_meta(out_dir: Path) -> dict:
+    try:
+        sj = out_dir / "source.json"
+        if sj.exists():
+            import json
+            return json.loads(sj.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return {}
+
+def ingest_urls(
+    urls: List[str],
+    *,
+    source_type: str = "web",
+    query: str = "",
+    notes: str = "",
+    timeout: int = 25,
+) -> List[dict]:
+    """
+    Ingest a list of URLs into data/sources/library/<stable_id>/.
+
+    Returns a list of doc handles:
+      {"id": <stable_id>, "url": <url>, "title": <title>, "out_dir": <path>, "text_len": <int>}
+    """
+    out = []
+    if not urls:
+        return out
+
+    lib_root = Path("data/sources/library")
+    lib_root.mkdir(parents=True, exist_ok=True)
+
+    for url in urls:
+        try:
+            url = (url or "").strip()
+            if not url:
+                continue
+
+            sid = stable_id_for_url(url)
+            out_dir = lib_root / sid
+            out_dir.mkdir(parents=True, exist_ok=True)
+
+            # If already ingested, reuse existing meta and do not refetch
+            existing = _safe_read_existing_meta(out_dir)
+            if existing.get("url") == url and (out_dir / "content.txt").exists():
+                title = str(existing.get("title") or existing.get("url") or url).strip()
+                out.append({"id": sid, "url": url, "title": title, "out_dir": str(out_dir), "text_len": None, "cached": True})
+                continue
+
+            content, content_type = fetch_url(url, timeout=timeout)
+            if not content:
+                out.append({"id": sid, "url": url, "title": url, "out_dir": str(out_dir), "text_len": 0, "error": "fetch_failed"})
+                continue
+
+            text, inferred_title = extract_text(content, content_type or "", url)
+            text = (text or "").strip()
+
+            # Build meta (title may be empty; prefer inferred title; else URL)
+            title = (inferred_title or "").strip() or url
+
+            from datetime import datetime, timezone
+            meta = {
+                "id": sid,
+                "url": url,
+                "title": title,
+                "retrieved_at": datetime.now(timezone.utc).isoformat(),
+                "source_type": source_type,
+                "query": query,
+                "notes": notes,
+                "content_type": content_type,
+            }
+
+            write_source(out_dir, meta, text)
+            out.append({"id": sid, "url": url, "title": title, "out_dir": str(out_dir), "text_len": len(text), "cached": False})
+
+        except Exception as e:
+            out.append({"id": None, "url": url, "title": url, "out_dir": None, "text_len": 0, "error": repr(e)})
+
+    return out
+
+
+def ingest_pack_file(pack_path: Path, *, timeout: int = 25) -> List[dict]:
+    """
+    Ingest a URL pack created by auto_acquire into the library.
+    Expects load_pack(pack_path) -> (pack_id, query, [PackSource...])
+    """
+    pack_id, query, sources = load_pack(Path(pack_path))
+    urls = []
+    for s in (sources or []):
+        try:
+            u = getattr(s, "url", None) or (s.get("url") if isinstance(s, dict) else None)
+            u = (u or "").strip()
+            if u:
+                urls.append(u)
+        except Exception:
+            pass
+
+    # de-dupe while preserving order
+    seen = set()
+    urls2 = []
+    for u in urls:
+        if u in seen:
+            continue
+        seen.add(u)
+        urls2.append(u)
+
+    return ingest_urls(urls2, source_type="auto_acquire", query=query, notes=f"pack:{pack_id}", timeout=timeout)
+

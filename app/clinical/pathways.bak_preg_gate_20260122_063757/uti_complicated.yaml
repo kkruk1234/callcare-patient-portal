@@ -1,0 +1,39 @@
+id: uti_complicated
+version: 0.1
+match:
+  any_keywords: ["complicated uti", "uti with fever", "male uti", "pregnant uti", "immunocompromised uti", "kidney infection risk", "pyelonephritis concern"]
+questions:
+  - id: fever
+    prompt: "Do you have a fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: flank
+    prompt: "Any back/flank pain near the kidneys? (yes/no)"
+    store_as: flank_pain
+    type: yesno
+
+  - id: vomiting
+    prompt: "Any vomiting or unable to keep fluids down? (yes/no)"
+    store_as: vomiting
+    type: yesno
+
+  - id: pregnancy
+    prompt: "Is pregnancy possible? (yes/no/unknown)"
+    store_as: pregnancy_possible
+
+  - id: male
+    prompt: "Is the patient male? (yes/no)"
+    store_as: male
+    type: yesno
+
+  - id: immune
+    prompt: "Do you have a weakened immune system (chemo, transplant meds, advanced HIV)? (yes/no/unknown)"
+    store_as: immunocompromised
+
+stop_rules:
+  - if_all_answered: ["fever","flank","vomiting","pregnancy","male","immune"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

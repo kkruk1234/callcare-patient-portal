@@ -1,0 +1,12 @@
+{
+  "pathway_id": "depression_noncrisis",
+  "sources": [
+    {
+      "id": "depression_noncrisis_ref",
+      "source_id": "depression_noncrisis_ref",
+      "title": "Depression reference (starter)",
+      "url": "https://www.nimh.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

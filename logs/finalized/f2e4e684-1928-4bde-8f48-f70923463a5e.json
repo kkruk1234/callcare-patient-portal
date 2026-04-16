@@ -1,0 +1,23 @@
+{
+  "packet_id": "37d75fe8-f8a8-4236-bf55-aac47b8d9c9f",
+  "created_at": "2026-01-19T10:15:16.291052+00:00",
+  "session_id": "f2e4e684-1928-4bde-8f48-f70923463a5e",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient contacted the clinic via phone-only encounter with a chief complaint not captured and pathway not captured. Pregnancy status not captured. No systemic symptoms reported.\n\nO: No physical exam available due to phone-only encounter. Vital signs and physical findings are not available. Assessment is based solely on the history provided.\n\nA: \n  - Working diagnosis (most likely): Not captured due to lack of symptom details.\n  - Differential: Not captured due to lack of symptom details.\n  - Red flags considered: No systemic symptoms reported; no additional red flags identified.\n\nP: \n  - Disposition: Recommend urgent care or primary care in-person evaluation for physical examination and further diagnostic workup.\n  - Plan: Advise patient to monitor symptoms closely and seek immediate care if any systemic symptoms or worsening condition occur. Provide symptomatic treatment as appropriate once diagnosis is established.\n  - Safety net: Instruct patient to call or present to emergency services if they develop any new or worsening symptoms, including systemic signs or severe pain.\n\nEvidence (snippets used): None available.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": []
+}

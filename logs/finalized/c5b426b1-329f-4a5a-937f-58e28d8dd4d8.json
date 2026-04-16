@@ -1,0 +1,290 @@
+{
+  "packet_id": "b46ea078-d969-421c-8262-35bb80c00873",
+  "created_at": "2026-03-04T12:15:36.540558+00:00",
+  "session_id": "c5b426b1-329f-4a5a-937f-58e28d8dd4d8",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent trauma or injury, fever, chills, night sweats, shortness of breath, cough, chest pain, numbness, tingling, or weakness in her legs or feet. She has tried acetaminophen (Tylenol) with minimal relief. The pain worsens with pressing on the affected area but is not associated with respiratory symptoms. There is no history of cancer, unexplained weight loss, immune system problems, recent travel, or exposure to tuberculosis or infections.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely due to costochondritis or intercostal muscle strain given the localized tenderness and absence of systemic symptoms. \nDifferential:\n1. Costochondritis\n2. Intercostal muscle strain\n3. Rib fracture (occult)\n4. Less likely pleuritic or infectious causes given absence of systemic symptoms\n\nP:\n - First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation.\n - Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated.\n - Medication safety considerations: Avoid NSAIDs if history of renal or liver disease; patient currently reports no such conditions. Monitor for gastrointestinal side effects.\n - Return precautions: Advise patient to seek urgent care if she develops worsening pain, fever, shortness of breath, chest pain, neurological symptoms, or signs of systemic illness.\n - Testing: Not indicated at this time given absence of red flags; consider imaging if symptoms persist or worsen.\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Patient information factsheet",
+        "source": "uhs.nhs.uk",
+        "snippet": "Patient information factsheet | uhs.nhs.uk | https://www.uhs.nhs.uk/Media/UHS-website-2019/Patientinformation/Muscles%2Cjointsandbones/Rib-fracture-aftercare-advice-3588-PIL.pdf"
+      },
+      {
+        "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+        "source": "nhs.uk",
+        "snippet": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services | nhs.uk | https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/"
+      },
+      {
+        "title": "MSK physiotherapy | Right Decisions",
+        "source": "rightdecisions.scot.nhs.uk",
+        "snippet": "MSK physiotherapy | Right Decisions | rightdecisions.scot.nhs.uk | https://rightdecisions.scot.nhs.uk/borders-ref-help-toolkit/physiotherapy/msk-physiotherapy/msk-physiotherapy/"
+      },
+      {
+        "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate",
+        "source": "transform.england.nhs.uk",
+        "snippet": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate | transform.england.nhs.uk | https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/"
+      },
+      {
+        "title": "Costochondritis (rib pain) | CUH",
+        "source": "cuh.nhs.uk",
+        "snippet": "Costochondritis (rib pain) | CUH | cuh.nhs.uk | https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Patient information factsheet. Accessed 2026-03-04. https://www.uhs.nhs.uk/Media/UHS-website-2019/Patientinformation/Muscles%2Cjointsandbones/Rib-fracture-aftercare-advice-3588-PIL.pdf",
+      "source": "uhs.nhs.uk",
+      "snippet": "URL: https://www.uhs.nhs.uk/Media/UHS-website-2019/Patientinformation/Muscles%2Cjointsandbones/Rib-fracture-aftercare-advice-3588-PIL.pdf\nAccessed: 2026-03-04"
+    },
+    {
+      "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services. Accessed 2026-03-04. https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+      "source": "nhs.uk",
+      "snippet": "URL: https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/\nAccessed: 2026-03-04"
+    },
+    {
+      "title": "MSK physiotherapy | Right Decisions. Accessed 2026-03-04. https://rightdecisions.scot.nhs.uk/borders-ref-help-toolkit/physiotherapy/msk-physiotherapy/msk-physiotherapy/",
+      "source": "rightdecisions.scot.nhs.uk",
+      "snippet": "URL: https://rightdecisions.scot.nhs.uk/borders-ref-help-toolkit/physiotherapy/msk-physiotherapy/msk-physiotherapy/\nAccessed: 2026-03-04"
+    },
+    {
+      "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate. Accessed 2026-03-04. https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/",
+      "source": "transform.england.nhs.uk",
+      "snippet": "URL: https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/\nAccessed: 2026-03-04"
+    },
+    {
+      "title": "Costochondritis (rib pain) | CUH. Accessed 2026-03-04. https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/",
+      "source": "cuh.nhs.uk",
+      "snippet": "URL: https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/\nAccessed: 2026-03-04"
+    }
+  ],
+  "state": {
+    "session_id": "c5b426b1-329f-4a5a-937f-58e28d8dd4d8",
+    "transcript": [],
+    "chief_complaint": "back pain",
+    "age_band": "adult",
+    "age_years": null,
+    "pregnancy_possible": "no",
+    "symptoms": {
+      "_answers": {
+        "intake_q1": "When did your back pain start?",
+        "intake_a1": "3 weeks ago",
+        "intake_q2": "Can you describe where exactly your back pain is located?",
+        "intake_a2": "left side lower rib cage",
+        "intake_q3": "Any recent trauma or injury to your back or ribs?",
+        "intake_a3": "no",
+        "intake_q4": "Any fever, chills, or night sweats since the pain started?",
+        "intake_a4": "no",
+        "intake_q5": "Any shortness of breath, cough, or chest pain along with the back pain?",
+        "intake_a5": "no",
+        "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+        "intake_a6": "no",
+        "intake_q7": "Have you tried any treatments or medications for the back pain, and did they help?",
+        "intake_a7": "I tried tylenol but it didn't help very much",
+        "intake_q8": "Any history of cancer, recent unexplained weight loss, or immune system problems?",
+        "intake_a8": "no",
+        "intake_q9": "Any recent travel, sick contacts, or exposure to tuberculosis or other infections?",
+        "intake_a9": "no",
+        "intake_q10": "Any pain with deep breaths or when pressing on the area?",
+        "intake_a10": "pain with pressing on the area",
+        "age_years": 47,
+        "allergies": "none",
+        "sex_at_birth": "female",
+        "pregnancy_possible": "no",
+        "pregnancy": "no",
+        "renal_disease": "no",
+        "liver_disease": "no",
+        "evidence_search_queries": [
+          "musculoskeletal rib pain management",
+          "costochondritis diagnosis and treatment",
+          "intercostal muscle strain therapy",
+          "rib pain without trauma evaluation"
+        ],
+        "evidence_used": [
+          {
+            "title": "Patient information factsheet",
+            "source": "uhs.nhs.uk",
+            "url": "https://www.uhs.nhs.uk/Media/UHS-website-2019/Patientinformation/Muscles%2Cjointsandbones/Rib-fracture-aftercare-advice-3588-PIL.pdf",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+            "source": "nhs.uk",
+            "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "MSK physiotherapy | Right Decisions",
+            "source": "rightdecisions.scot.nhs.uk",
+            "url": "https://rightdecisions.scot.nhs.uk/borders-ref-help-toolkit/physiotherapy/msk-physiotherapy/msk-physiotherapy/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate",
+            "source": "transform.england.nhs.uk",
+            "url": "https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Costochondritis (rib pain) | CUH",
+            "source": "cuh.nhs.uk",
+            "url": "https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          }
+        ],
+        "evidence": [
+          {
+            "title": "Patient information factsheet",
+            "source": "uhs.nhs.uk",
+            "url": "https://www.uhs.nhs.uk/Media/UHS-website-2019/Patientinformation/Muscles%2Cjointsandbones/Rib-fracture-aftercare-advice-3588-PIL.pdf",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+            "source": "nhs.uk",
+            "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "MSK physiotherapy | Right Decisions",
+            "source": "rightdecisions.scot.nhs.uk",
+            "url": "https://rightdecisions.scot.nhs.uk/borders-ref-help-toolkit/physiotherapy/msk-physiotherapy/msk-physiotherapy/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate",
+            "source": "transform.england.nhs.uk",
+            "url": "https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          },
+          {
+            "title": "Costochondritis (rib pain) | CUH",
+            "source": "cuh.nhs.uk",
+            "url": "https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/",
+            "accessed": "2026-03-04",
+            "snippet": ""
+          }
+        ]
+      },
+      "_llm_intake_turns": [
+        {
+          "q": "When did your back pain start?",
+          "a": "3 weeks ago"
+        },
+        {
+          "q": "Can you describe where exactly your back pain is located?",
+          "a": "left side lower rib cage"
+        },
+        {
+          "q": "Any recent trauma or injury to your back or ribs?",
+          "a": "no"
+        },
+        {
+          "q": "Any fever, chills, or night sweats since the pain started?",
+          "a": "no"
+        },
+        {
+          "q": "Any shortness of breath, cough, or chest pain along with the back pain?",
+          "a": "no"
+        },
+        {
+          "q": "Any numbness, tingling, or weakness in your legs or feet?",
+          "a": "no"
+        },
+        {
+          "q": "Have you tried any treatments or medications for the back pain, and did they help?",
+          "a": "I tried tylenol but it didn't help very much"
+        },
+        {
+          "q": "Any history of cancer, recent unexplained weight loss, or immune system problems?",
+          "a": "no"
+        },
+        {
+          "q": "Any recent travel, sick contacts, or exposure to tuberculosis or other infections?",
+          "a": "no"
+        },
+        {
+          "q": "Any pain with deep breaths or when pressing on the area?",
+          "a": "pain with pressing on the area"
+        }
+      ],
+      "_llm_intake_extract": {
+        "onset": "3 weeks ago",
+        "key_symptoms": "back pain",
+        "location": "left side lower rib cage",
+        "red_flags": "no fever, chills, night sweats, no numbness, tingling, or weakness",
+        "relevant_history": "no trauma, no cancer history, no recent travel or infections",
+        "treatments_tried": "tylenol without much relief"
+      },
+      "_llm_intake_summary": "",
+      "_llm_last_q": "Any pain with deep breaths or when pressing on the area?",
+      "_llm_intake_error": "",
+      "age_years": 47,
+      "age_band": "adult",
+      "pregnancy_possible": "no",
+      "renal_disease": "no",
+      "liver_disease": "no",
+      "evidence_used": [
+        {
+          "title": "Patient information factsheet",
+          "source": "uhs.nhs.uk",
+          "url": "https://www.uhs.nhs.uk/Media/UHS-website-2019/Patientinformation/Muscles%2Cjointsandbones/Rib-fracture-aftercare-advice-3588-PIL.pdf",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        },
+        {
+          "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+          "source": "nhs.uk",
+          "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        },
+        {
+          "title": "MSK physiotherapy | Right Decisions",
+          "source": "rightdecisions.scot.nhs.uk",
+          "url": "https://rightdecisions.scot.nhs.uk/borders-ref-help-toolkit/physiotherapy/msk-physiotherapy/msk-physiotherapy/",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        },
+        {
+          "title": "Remote pain management programme for persistent musculoskeletal pain - Musculoskeletal (MSK) digital playbook - NHS Transformation Directorate",
+          "source": "transform.england.nhs.uk",
+          "url": "https://transform.england.nhs.uk/key-tools-and-info/digital-playbooks/musculoskeletal-digital-playbook/remote-pain-management-programme-for-persistent-musculoskeletal-pain/",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        },
+        {
+          "title": "Costochondritis (rib pain) | CUH",
+          "source": "cuh.nhs.uk",
+          "url": "https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/",
+          "accessed": "2026-03-04",
+          "snippet": ""
+        }
+      ]
+    },
+    "red_flags": [],
+    "decision": null,
+    "stage": "DECIDE",
+    "note_draft": null
+  }
+}

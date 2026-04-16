@@ -1,0 +1,89 @@
+{
+  "packet_id": "b527276c-cbb4-4ace-9bd3-cb62fa6b098f",
+  "created_at": "2026-02-26T18:10:38.411806+00:00",
+  "session_id": "96aa7509-2b55-4d92-87cd-3992a22fe88a",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, coughing, or chest pain with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any swelling, bruising, or tenderness over the area of your back pain?",
+    "intake_a7": "tenderness",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what were they and did they help?",
+    "intake_a8": "I tried tylenol but it didn't help very much",
+    "intake_q9": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a9": "no",
+    "intake_q10": "Have you noticed any changes in your bowel or bladder function, such as difficulty urinating or loss of control?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, weight loss, shortness of breath, coughing, chest pain, numbness, weakness, or tingling in her legs or feet. She reports tenderness over the affected area. She has tried acetaminophen (Tylenol) with minimal relief. There are no urinary symptoms, abdominal pain, or changes in bowel or bladder function. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage area, likely due to muscle strain or soft tissue inflammation given the tenderness and absence of systemic symptoms.\nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of rib fracture (less likely without trauma)\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation\n - Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n - Medication safety considerations: Avoid NSAIDs if history of renal or liver disease (not present), monitor for gastrointestinal side effects\n - Return precautions: Seek urgent care if fever, worsening pain, new neurological symptoms, chest pain, or respiratory symptoms develop\n - Testing: Not indicated at this time given absence of red flags; imaging if symptoms persist or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "How to Cope with an Intercostal Muscle Strain",
+        "source": "Cleveland Clinic",
+        "url": "https://health.clevelandclinic.org/how-to-cope-with-an-intercostal-muscle-strain",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      },
+      {
+        "title": "Muscle pain When to see a doctor - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/symptoms/muscle-pain/basics/when-to-see-doctor/sym-20050866",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

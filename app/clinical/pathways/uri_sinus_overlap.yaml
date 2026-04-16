@@ -1,0 +1,76 @@
+id: uri_sinus_overlap
+version: 0.4
+
+match:
+  any_keywords:
+    - sinus
+    - sinusitis
+    - sinus infection
+    - sinus pressure
+    - sinus pain
+    - facial pressure
+    - facial pain
+    - congestion
+    - nasal congestion
+
+questions:
+  - id: duration_days
+    type: text
+    prompt: "About how many days have you had sinus or nasal symptoms? (e.g., 2 days, 6 days, 2 weeks)"
+    store_as: duration_days
+
+  - id: course_double
+    type: text
+    prompt: "Overall, are you improving, staying about the same, or getting worse? If you started improving then got worse again, say: 'got better then worse.'"
+    store_as: course_double
+
+  - id: discharge_character
+    type: text
+    prompt: "Is your nasal drainage mostly thick yellow/green, or mostly clear and watery? (thick / clear / none / unknown)"
+    store_as: discharge_character
+
+  - id: facial_pressure
+    type: yesno
+    prompt: "Do you have facial pain or pressure around your cheeks, forehead, or around the eyes? (yes/no)"
+    store_as: facial_pressure
+
+  - id: fever
+    type: yesno
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+
+  - id: allergy_features
+    type: yesno
+    prompt: "Do you have sneezing or itchy/watery eyes (allergy-type symptoms)? (yes/no)"
+    store_as: allergy_features
+
+  - id: eye_vision_redflags
+    type: text
+    prompt: "Any eye or vision concerns: swelling/redness around an eye, pain with eye movement, double vision, blurred vision, or new vision loss? Tell me which, or say none."
+    store_as: eye_vision_redflags
+
+  - id: severe_neuro_redflags
+    type: text
+    prompt: "Any severe symptoms: severe headache, stiff neck, confusion, or trouble breathing at rest? Tell me which, or say none."
+    store_as: severe_neuro_redflags
+
+  - id: pregnancy_possible
+    type: text
+    prompt: "Is there any chance you could be pregnant? You can answer yes, no, unknown, or not applicable."
+    store_as: pregnancy_possible
+
+stop_rules:
+  - if_all_answered:
+      - duration_days
+      - course_double
+      - discharge_character
+      - facial_pressure
+      - fever
+      - allergy_features
+      - eye_vision_redflags
+      - severe_neuro_redflags
+      - pregnancy_possible
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

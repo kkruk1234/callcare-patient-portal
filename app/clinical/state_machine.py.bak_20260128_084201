@@ -1,0 +1,188 @@
+from typing import Optional, Dict, Any, List
+from app.core.models import CallState
+
+# ============================
+# RAG-FIRST STATE MACHINE
+# ============================
+#
+# This file intentionally:
+# - Does NOT route to YAML pathways
+# - Does NOT load pathway questions
+# - Does NOT inject medication protocols
+#
+# It ONLY:
+# - Collects structured intake
+# - Defers clinical reasoning to RAG + LLM
+# - Produces a stable CallState for note generation
+#
+# ----------------------------
+
+# Order is deterministic and explicit
+INTAKE_ORDER = [
+    "CONSENT",
+    "CHIEF",
+    "AGE",
+    "ALLERGIES",
+    "RENAL",
+    "SEX_AT_BIRTH",
+    "PREGNANCY",
+    "RAG_QUESTIONS",
+    "DECIDE",
+]
+
+# --- CALLCARE_SEED_DOMAIN_QUESTIONS_V1 ---
+def _seed_domain_questions(state: CallState) -> None:
+    """Deterministically seed complaint-specific questions into _rag_questions.
+
+    This is NOT per-condition YAML routing. It's a small set of domain modules.
+    """
+    chief = (getattr(state, "chief_complaint", "") or "").strip().lower()
+    sx = getattr(state, "symptoms", None) or {}
+    if not isinstance(sx, dict):
+        return
+
+    # Default empty
+    sx["_rag_questions"] = []
+    sx["_rag_q_idx"] = 0
+
+    # Urinary symptom domain
+    urinary_kw = ["burn", "burning", "pee", "peeing", "urinate", "urinating", "dysuria", "uti", "cystitis", "bladder"]
+    if any(k in chief for k in urinary_kw):
+        sx["_rag_domain"] = "urinary_symptoms"
+        sx["_rag_questions"] = [
+            "How long have you had urinary symptoms? (e.g., 2 days, 1 week)",
+            "Do you have a fever? (yes/no)",
+            "Any back/flank pain near the kidneys? (yes/no)",
+            "Any nausea or vomiting? (yes/no)",
+            "Any vaginal discharge or pelvic pain? (yes/no)",
+            "Are you needing to urinate more often or urgently than usual? (yes/no)",
+            "Any blood in the urine? (yes/no/not sure)",
+            "Have you had UTIs before? (yes/no)",
+            "Have you taken any antibiotics or urinary pain medicine (like AZO/phenazopyridine) for this yet? (yes/no)",
+        ]
+    else:
+        sx["_rag_domain"] = "general"
+        sx["_rag_questions"] = [
+            "When did this start?",
+            "How severe is it right now (mild/moderate/severe)?",
+            "Tell me the main symptoms you're having.",
+            "Any fever? (yes/no)",
+            "Any severe shortness of breath, chest pain/pressure, fainting, new one-sided weakness, or uncontrolled bleeding? (yes/no)",
+        ]
+
+    state.symptoms = sx
+# --- END CALLCARE_SEED_DOMAIN_QUESTIONS_V1 ---
+
+
+# ----------------------------
+# Prompt generation
+# ----------------------------
+
+def next_prompt(state: CallState) -> str:
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What is your main medical concern today?"
+
+    if state.stage == "AGE":
+        return "How old are you? Please say your age in years."
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "RENAL":
+        return "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+
+    if state.stage == "SEX_AT_BIRTH":
+        return "What sex were you assigned at birth? Please say male or female."
+
+    if state.stage == "PREGNANCY":
+        return "Is pregnancy possible? (yes/no/unknown)"
+
+    if state.stage == "RAG_QUESTIONS":
+        # Placeholder — real RAG planner will inject questions here
+        q_idx = state.symptoms.get("_rag_q_idx", 0)
+        questions = state.symptoms.get("_rag_questions", [])
+        if q_idx < len(questions):
+            return questions[q_idx]
+        return ""
+
+    return ""
+
+# ----------------------------
+# Answer processing
+# ----------------------------
+
+def process_answer(state: CallState, text: str) -> None:
+    t = (text or "").strip()
+    sx = state.symptoms
+
+    # Initialize containers
+    sx.setdefault("_answers", {})
+
+    if state.stage == "CONSENT":
+        if t.lower().startswith("y"):
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    \1    _seed_domain_questions(state)
+        state.stage = "AGE"
+        return
+
+    if state.stage == "AGE":
+        try:
+            age = int(float(t))
+            sx["age_years"] = age
+            state.age_band = "child" if age < 18 else "adult"
+            state.stage = "ALLERGIES"
+        except Exception:
+            return
+        return
+
+    if state.stage == "ALLERGIES":
+        if t.lower() in ("no", "none", "nope"):
+            sx["_answers"]["allergies"] = "none"
+        else:
+            sx["_answers"]["allergies"] = t
+        state.stage = "RENAL"
+        return
+
+    if state.stage == "RENAL":
+        sx["_answers"]["renal_disease"] = t.lower()
+        state.stage = "SEX_AT_BIRTH"
+        return
+
+    if state.stage == "SEX_AT_BIRTH":
+        sx["_answers"]["sex_at_birth"] = t.lower()
+        state.stage = "PREGNANCY"
+        return
+
+    if state.stage == "PREGNANCY":
+        sx["_answers"]["pregnancy"] = t.lower()
+        state.pregnancy_possible = t.lower()
+        state.stage = "RAG_QUESTIONS"
+        return
+
+    if state.stage == "RAG_QUESTIONS":
+        q_idx = sx.get("_rag_q_idx", 0)
+        sx.setdefault("_rag_answers", [])
+        sx["_rag_answers"].append(t)
+        sx["_rag_q_idx"] = q_idx + 1
+        return
+
+# ----------------------------
+# Entry point helpers
+# ----------------------------
+
+def start_call() -> CallState:
+    state = CallState()
+    state.stage = "CONSENT"
+    state.symptoms = {}
+    return state

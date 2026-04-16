@@ -1,0 +1,78 @@
+{
+  "packet_id": "3ed196bc-2065-4794-a7c7-c7c74a55ae02",
+  "created_at": "2026-03-06T16:19:53.443760+00:00",
+  "session_id": "cb435cf0-82ec-4373-9d2f-02dbf6c91327",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat diagnosis and management guidelines adults",
+    "strep throat treatment adult dosing duration contraindications",
+    "red flags sore throat when to seek emergency care",
+    "indications for throat culture or rapid strep test adults"
+  ],
+  "queries": [
+    "AAFP sore throat diagnosis and management guidelines adults",
+    "AAFP strep throat treatment adult dosing duration contraindications",
+    "MedlinePlus sore throat diagnosis and management guidelines adults",
+    "MedlinePlus strep throat treatment adult dosing duration contraindications",
+    "CDC sore throat diagnosis and management guidelines adults",
+    "CDC strep throat treatment adult dosing duration contraindications",
+    "NIH sore throat diagnosis and management guidelines adults",
+    "NIH strep throat treatment adult dosing duration contraindications",
+    "NICE sore throat diagnosis and management guidelines adults",
+    "NICE strep throat treatment adult dosing duration contraindications",
+    "WHO sore throat diagnosis and management guidelines adults",
+    "WHO strep throat treatment adult dosing duration contraindications"
+  ],
+  "raw_evidence_count": 7,
+  "raw_domain_counts": {
+    "medlineplus.gov": 4,
+    "aafp.org": 2,
+    "cdc.gov": 1
+  },
+  "selected_evidence_count": 5,
+  "selected_domains": [
+    "aafp.org",
+    "cdc.gov",
+    "medlineplus.gov",
+    "aafp.org",
+    "medlineplus.gov"
+  ],
+  "evidence": [
+    {
+      "title": "Management of Sore Throat: Time to Update | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/editorial-sore-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Strep A Test: MedlinePlus Medical Test",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/lab-tests/strep-a-test/",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/0615/p821.pdf",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Throat swab culture: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/003746.htm",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a sore throat that started 2 days ago. She reports associated fever and chills, painful swallowing without difficulty breathing, and swollen glands in her neck. She denies cough, nasal congestion, rash, or joint pain. She notes white patches or pus visible on her tonsils or throat. She has not taken any medications for this episode and has no history of similar sore throat episodes or tonsil issues. Her son had strep throat last week, indicating possible exposure.\n\nO: Phone-only evaluation; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the acute onset of sore throat, fever, tonsillar exudate, tender cervical lymphadenopathy, and known exposure to strep throat.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Peritonsillar abscess\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; not pregnant; no renal or liver disease; monitor for allergic reactions\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe throat pain, inability to swallow saliva, or worsening symptoms occur; seek emergency care if airway obstruction develops\n- Testing: Arrange for rapid antigen detection test (RADT) or throat culture to confirm streptococcal infection if possible"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Drugs@FDA Data Files | FDA",
+  "url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
+  "publisher": "fda.gov",
+  "date": "2026-01-28",
+  "text": "etingStatus \n[ApplNo] [char](6) NOT NULL, [ProductNo] [char](3) NOT NULL, [MarketingStatusID] [int] NOT NULL MarketingStatus_Lookup \n[MarketingStatusID] [int] IDENTITY(1,1) NOT NULL [MarketingStatusDescription] [varchar](200) NOT NULL Products \n[ApplNo] [char](6) NOT NULL [ProductNo] [char](6) NOT NULL [Form] [varchar](255) NULL [Strength] varchar](240) NULL [ReferenceDrug] [int] NULL [DrugName] [varchar](125) NULL [ActiveIngredient] [varchar](255) NULL [ReferenceStandard] [int] NULL SubmissionClass_Lookup \n[SubmissionClassCodeID] [int] IDENTITY(1,1) NOT NULL [SubmissionClassCode] [varchar](50) NOT NULL [SubmissionClassCodeDescription] [varchar](500) NULL SubmissionPropertyType \n[ApplNo] [char](6) NOT NULL [SubmissionType] [char](10) NOT NULL [SubmissionNo] [int] NOT NULL [SubmissionPropertyTypeCode] [varchar](50) NOT NULL (Orphan or NULL) SubmissionPropertyTypeID [int] NOT NULL Submissions \n[ApplNo] [char](6) NOT NULL [SubmissionClassCodeID] [int] NULL [SubmissionType] [char](10) NOT NULL [SubmissionNo] [int] NOT NULL [SubmissionStatus] [char](2) NULL [SubmissionStatusDate] [datetime] NULL [SubmissionsPublicNotes] [text] NULL [ReviewPriority] [varchar](20) (Standard, Priority, NULL) TE \n[ApplNo] [char](6) NOT NULL [ProductNo] [char](3) NOT NULL [MarketingStatusID] [int] NOT NULL [TECode] [varchar](100) NOT NULL \nContent current as of: \n01/27/2026 \nRegulated Product(s) \nBiologi",
+  "source_type": "library",
+  "source_id": "fda_gov_drugs_drug_approvals_and_databases_drugsfda_data_files_1ea5eab4016f",
+  "chunk_id": "chunk_004"
+}

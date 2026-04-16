@@ -1,0 +1,62 @@
+{
+  "packet_id": "8aeb419c-8b66-4e1b-b8a1-a72d4e240be7",
+  "created_at": "2026-01-28T03:00:05.091531+00:00",
+  "session_id": "8234d0ed-08e9-4a3b-a226-14ccc02e61ea",
+  "chief_complaint": "it burns when I pee",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "allergies": "penicillin",
+    "renal_disease": "yes",
+    "sex_at_birth": "female",
+    "pregnancy": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: 34-year-old patient. The patient is an adult female with a history of renal disease who reports experiencing dysuria described as a burning sensation when urinating. She denies pregnancy. There is no additional information about associated symptoms such as fever, flank pain, frequency, urgency, or vaginal discharge. She has a known allergy to penicillin.\n\nO: Phone encounter only; unable to perform physical examination or obtain vital signs. No laboratory or imaging data available at this time.\n\nA: The clinical presentation is consistent with acute uncomplicated cystitis. Differential diagnosis includes urethritis (possibly sexually transmitted), vaginitis, or early pyelonephritis. Given the history of renal disease, careful consideration is needed before initiating any therapy. Penicillin allergy limits some antibiotic options if treatment is required.\n\nP: Recommend urine analysis and urine culture to confirm diagnosis and guide therapy. Advise increased fluid intake and symptomatic management with acetaminophen for pain relief, avoiding NSAIDs due to renal disease. Pending culture results, consider non-penicillin antibiotic options appropriate for cystitis and renal impairment. Counsel patient to seek urgent care if she develops fever, flank pain, or worsening symptoms. Arrange follow-up to review test results and reassess treatment plan.",
+    "patient_summary": "Based on what you described, your symptoms most likely suggest a bladder infection, but because of your kidney history, we want to be careful with treatment. Right now, it’s best to drink plenty of fluids and use acetaminophen (Tylenol) for any pain, avoiding ibuprofen or other pain relievers that might affect your kidneys. A licensed physician will review your information and may recommend a suitable antibiotic if needed. If you develop fever, chills, worsening pain in your back or side, or any other new symptoms, please seek urgent care the same day. Since we can’t do tests or exams over the phone, if you need an in-person evaluation, please go to urgent care or the emergency room. A doctor will review your case soon and decide on the next steps.",
+    "patient_instructions": [
+      "If symptoms worsen or you develop new severe symptoms, seek urgent care or call 911.",
+      "Follow the disposition and safety net plan explained in the spoken summary.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely (no dosing provided); ibuprofen (Advil) if you can take it safely (no dosing provided)",
+      "Medication cautions: Avoid NSAIDs if kidney disease, stomach ulcers/bleeding history, or on blood thinners (reviewer to confirm)."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "BMJ Best Practice: Acute Cough",
+        "source": "BMJ Best Practice: Acute Cough (https://bestpractice.bmj.com/topics/en-us/3000116)",
+        "snippet": "Septic arthritis - Symptoms, diagnosis and treatment | BMJ Best Practice US --> Skip to main content Skip to search English (US) English Português Log in Personal account Access through your institution (Open Athens) Subscribe Access through your institution Log in English (US) English Português Home Search &#xE8B6; Search Home About us Overview What is BMJ Best Practice? Our history Key features Clinical tools Local guidance Earn CME/CPD points Access anywhere Our app Integration Our Evidence approach Trusted content Updating process Who we help Best Practice for... Clinicians Hospitals Medical librarians Medical schools Medical students Nurses Pharmacists Primary care Paramedics Telehealth How we help Impact and effectiveness Evidence of effectiveness Global impact Customer stories Brows"
+      },
+      {
+        "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+        "source": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance) (https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html)",
+        "snippet": "﻿ Outpatient Clinical Care for Adults | Antibiotic Prescribing and Use | CDC Skip directly to site content Skip directly to search An official website of the United States government Here's how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites. Antibiotic Prescribing and Use Explore This Topic Search Search Clear Search For Everyone Tips for Antibiotic Do's and Don'ts Antibiotic Use and Antimicrobial Resistance Patient Education Resources View all Health Care Providers Clinical Features of Penicillin Allergy Clinical Care for Adult and Pediatrics Strategies"
+      },
+      {
+        "title": "NICE NG120: Cough (acute)",
+        "source": "NICE NG120: Cough (acute) (https://www.nice.org.uk/guidance/ng120)",
+        "snippet": "Overview | Cough (acute): antimicrobial prescribing | Guidance | NICE You are here: Home NICE Guidance Conditions and diseases Infections Antimicrobial stewardship Cough (acute): antimicrobial prescribing NICE guideline Reference number: NG120 Published:&nbsp; 07 February 2019 Register as a stakeholder Guidance Tools and resources Information for the public Evidence History Download guidance (PDF) Overview Recommendations Terms used in the guideline Summary of the evidence Other considerations Finding more information and committee details Update information Overview This guideline sets out an antimicrobial prescribing strategy for acute cough associated with an upper respiratory tract infection or acute bronchitis in adults, young people and children. It aims to limit antibiotic use and r"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "BMJ Best Practice: Acute Cough",
+      "source": "BMJ Best Practice: Acute Cough (https://bestpractice.bmj.com/topics/en-us/3000116)",
+      "snippet": "Septic arthritis - Symptoms, diagnosis and treatment | BMJ Best Practice US --> Skip to main content Skip to search English (US) English Português Log in Personal account Access through your institution (Open Athens) Subscribe Access through your institution Log in English (US) English Português Home Search &#xE8B6; Search Home About us Overview What is BMJ Best Practice? Our history Key features Clinical tools Local guidance Earn CME/CPD points Access anywhere Our app Integration Our Evidence approach Trusted content Updating process Who we help Best Practice for... Clinicians Hospitals Medical librarians Medical schools Medical students Nurses Pharmacists Primary care Paramedics Telehealth How we help Impact and effectiveness Evidence of effectiveness Global impact Customer stories Brows"
+    },
+    {
+      "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+      "source": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance) (https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html)",
+      "snippet": "﻿ Outpatient Clinical Care for Adults | Antibiotic Prescribing and Use | CDC Skip directly to site content Skip directly to search An official website of the United States government Here's how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites. Antibiotic Prescribing and Use Explore This Topic Search Search Clear Search For Everyone Tips for Antibiotic Do's and Don'ts Antibiotic Use and Antimicrobial Resistance Patient Education Resources View all Health Care Providers Clinical Features of Penicillin Allergy Clinical Care for Adult and Pediatrics Strategies"
+    },
+    {
+      "title": "NICE NG120: Cough (acute)",
+      "source": "NICE NG120: Cough (acute) (https://www.nice.org.uk/guidance/ng120)",
+      "snippet": "Overview | Cough (acute): antimicrobial prescribing | Guidance | NICE You are here: Home NICE Guidance Conditions and diseases Infections Antimicrobial stewardship Cough (acute): antimicrobial prescribing NICE guideline Reference number: NG120 Published:&nbsp; 07 February 2019 Register as a stakeholder Guidance Tools and resources Information for the public Evidence History Download guidance (PDF) Overview Recommendations Terms used in the guideline Summary of the evidence Other considerations Finding more information and committee details Update information Overview This guideline sets out an antimicrobial prescribing strategy for acute cough associated with an upper respiratory tract infection or acute bronchitis in adults, young people and children. It aims to limit antibiotic use and r"
+    }
+  ]
+}

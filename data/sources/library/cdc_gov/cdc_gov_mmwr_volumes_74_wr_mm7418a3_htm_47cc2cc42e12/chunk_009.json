@@ -1,0 +1,10 @@
+{
+  "title": "Estimated Current and Future Congenital Rubella Syndrome Incidence with and Without Rubella Vaccine Introduction â 19 Countries, 2019â2055 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7418a3.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "rn to a mother who was infected during pregnancy would have CRS was 65% (95% CI = 47%&ndash;88%), consistent with published estimates ( 5 ). The model used demographic data from United Nations population sources. &dagger;&dagger;&dagger; The 95% CIs for each outcome of interest were calculated from the outcome&rsquo;s range across the 1,000 model runs.\nModeled Estimates of Future CRS Incidence \nTo estimate the impact of RCV introduction on future CRS cases, the dynamic rubella transmission model ( 5 ) was adjusted to account for rubella virus importations and correlations between vaccine doses, and run for each of the 19 countries under three scenarios: 1) no RCV introduction in any country; 2) RCV introduction in 2025, beginning with a wide age-range catch-up MR SIA (for children aged 9 months&ndash;14 years) and continuing with follow-up MR SIAs (for children aged 9 months&ndash;4 years) every 4 years, with 90% MR vaccination coverage; and 3) RCV introduction in 2025, with a wide age-range catch-up and follow-up SIAs at the same intervals as the previous scenario, but with 60% (rather than 90%) MR vaccination coverage. For all three scenarios, the model was run 200 times (consistent with previous work for the Vaccine Impact Modeling Consortium and work on measles and rubella elimination), using the mean of 2018 and 2019 prepandemic MCV1 coverage as a proxy for future routine",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7418a3_htm_47cc2cc42e12",
+  "chunk_id": "chunk_009"
+}

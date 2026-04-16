@@ -1,0 +1,26 @@
+id: hand_foot_mouth_child
+version: 0.1
+match:
+  any_keywords: ["hand foot mouth", "sores in mouth", "mouth sores", "rash on hands and feet", "blisters on hands", "child drooling can't drink"]
+questions:
+  - id: dehydration
+    prompt: "Is your child not drinking much, very dry mouth, or peeing much less? (yes/no)"
+    store_as: dehydration
+    type: yesno
+
+  - id: breathing
+    prompt: "Any trouble breathing, blue lips, or severe breathing effort? (yes/no)"
+    store_as: breathing_trouble
+    type: yesno
+
+  - id: lethargy
+    prompt: "Is your child hard to wake, very sleepy, or unusually limp? (yes/no)"
+    store_as: lethargy
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["dehydration", "breathing", "lethargy"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

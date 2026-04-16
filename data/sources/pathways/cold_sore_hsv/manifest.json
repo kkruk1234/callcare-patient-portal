@@ -1,0 +1,33 @@
+{
+  "pathway_id": "cold_sore_hsv",
+  "sources": [
+    {
+      "id": "cold_sore_hsv_src_1",
+      "source_id": "cold_sore_hsv_src_1",
+      "title": "cold_sore_hsv guideline references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "cold_sore_hsv_src_2",
+      "source_id": "cold_sore_hsv_src_2",
+      "title": "cold_sore_hsv guideline references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "cold_sore_hsv_src_3",
+      "source_id": "cold_sore_hsv_src_3",
+      "title": "cold_sore_hsv guideline references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "cold_sore_hsv_src_4",
+      "source_id": "cold_sore_hsv_src_4",
+      "title": "cold_sore_hsv guideline references (starter)",
+      "url": "https://www.acog.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

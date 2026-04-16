@@ -1,0 +1,64 @@
+{
+  "packet_id": "53fe9f02-4371-4aac-8d86-b40d93e0a3e9",
+  "created_at": "2026-01-23T15:59:26.657551+00:00",
+  "session_id": "0004f2ef-7284-4862-a9cf-65a02fcffc55",
+  "chief_complaint": "red and swollen leg",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "dvt_possible",
+  "answers": {
+    "pregnancy_possible": "no",
+    "renal_disease": "no",
+    "leg_sort_discriminator": "calf pain/tenderness",
+    "unilateral_swelling": "yes",
+    "dvt_symptoms": "calf pain, redness, warmth, pain when walking",
+    "dvt_risk_factors_recent": "long travel with little movement",
+    "dvt_risk_factors_additional": "none",
+    "pe_symptoms": "neither"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 51-year-old adult presenting with a red and swollen leg. Symptoms include unilateral calf pain, redness, warmth, and pain when walking. The patient reports recent long travel with little movement as a risk factor. There are no symptoms suggestive of pulmonary embolism. Patient is not pregnant.\n\nO:\nNo physical exam or vital signs available due to phone-only history.\n\nA:\n - Working diagnosis (most likely): Suspected deep vein thrombosis (DVT) of the left calf.\n - Differential:\n  1. Deep vein thrombosis\n  2. Cellulitis\n  3. Muscle strain or injury\n  4. Venous insufficiency\n - Red flags considered: No signs or symptoms of pulmonary embolism reported.\n\nP:\n - Disposition: Urgent in-person evaluation recommended for physical examination, diagnostic testing (e.g., Doppler ultrasound), and confirmation of diagnosis.\n - Plan: Advise the patient to seek immediate medical attention if symptoms worsen or if new symptoms such as chest pain, shortness of breath, or sudden leg swelling occur. Avoid prolonged immobility and keep the leg elevated if possible.\n - Safety net: Instruct the patient to call emergency services or present to the emergency department if they develop sudden chest pain, difficulty breathing, or severe leg swelling.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    },
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.aafp.org/",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/"
+    },
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.nih.gov/",
+      "snippet": "Listed in pathway manifest https://www.nih.gov/"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "dicaid Services (CMS) requires acute care and critical access hospitals to electronically report information via NHSN regarding COVID-19, influenza, RSV hospitalizations, and hospital bed capacity and occupancy data to CDC's National Healthcare Safety Network. For more information about reporting to NHSN, visit Hospital Respiratory Data | NHSN | CDC . \nWhy: \nThis addition aims to enhance situational awareness by providing near-real-time insights into hospitalization trends associated with respiratory illnesses for both the nation and states/territories. \n2. Updated the data notes for the Respiratory Virus Activity Level page\nWhat: \nWe added more details to the methods used for the Acute Respiratory Index baseline metric for measuring the level of respiratory illness activity. \nWhy: \nThese changes will help others understand the methods and allow them to replicate the approach. \n3. Design updates for greater usability in November & December 2024\nUpdate #1: \nWhat: We added an activity level legend to the What To Know section of the Respiratory Illnesses Data Channel . \nWhy: A legend clarifies the colors used to signify activity levels and puts the current level into context for users. \nUpdate #2: \nWhat: We changed the placement of y-axis labels on charts, so they appear at the top of the axis instead of along the left side. \nWhy: Horizontal y-axis labels are more readable and int",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_020"
+}

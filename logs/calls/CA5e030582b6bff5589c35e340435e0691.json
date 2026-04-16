@@ -1,0 +1,143 @@
+{
+  "call_sid": "CA5e030582b6bff5589c35e340435e0691",
+  "session_id": "ae676470-84b6-4bbf-aa65-03db6db92e5e",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-27T15:13:14.488017+00:00",
+  "ended_at": "2026-03-27T15:20:23.065479+00:00",
+  "packet_id": "04f45df0-52e3-47eb-9939-410f86b61a3f",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have low back pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your low back pain start?"
+    },
+    {
+      "role": "user",
+      "text": "About a week and a half ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe where exactly in your low back the pain is located and if it radiates anywhere?"
+    },
+    {
+      "role": "user",
+      "text": "Well, the low back pain is, like, right directly on my spine. And does it radiate? If I radiate, you mean, does it shoot anywhere? Yeah. Shooting down to my right buttock, right in the middle of my butt cheek. And it yeah. It's it's pretty they'll be there too."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or weakness in your legs or feet?"
+    },
+    {
+      "role": "user",
+      "text": "No. Just my my butt has that sharp stabbing, but there's nothing that goes further than my butt. My legs and my feet are totally fine."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent trauma, heavy lifting, or injury that might have triggered the low back pain?"
+    },
+    {
+      "role": "user",
+      "text": "Well, no trauma, but heavy lifting, I guess. About 2 weeks ago, I was helping my daughter move into her dorm room. So I was, helping out a lot and heavy lift lifting some pretty heavy boxes. So that might have been what triggered it, I guess."
+    },
+    {
+      "role": "assistant",
+      "text": "Any bladder or bowel problems, like difficulty urinating or loss of control?"
+    },
+    {
+      "role": "user",
+      "text": "No. My blow bladder and bowel are totally fine."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or unexplained weight loss since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have no fever, chills, or unexplained weight loss."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your low back pain so far?"
+    },
+    {
+      "role": "user",
+      "text": "I I used it the first day, but I didn't do very much. See, following, like, 2 days after that, I did some warm compresses on my back. That helped a little bit more, but still nothing significant. And I've been trying Tylenol on and off the whole time and that often nothing great."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of cancer, osteoporosis, or recent infections?"
+    },
+    {
+      "role": "user",
+      "text": "Why didn't I just answer something? No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty walking, balance problems, or falls since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No. I am totally fine walking. It's just painful."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "51."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re dealing with acute low back pain likely from a muscle strain after heavy lifting. Since this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment like naproxen or a muscle relaxant may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe the recommended medication. In the meantime, you can use acetaminophen or ibuprofen if you can take them safely, and apply heat or ice to help with pain. If you develop new symptoms like numbness, weakness, trouble controlling your bladder or bowels, or if your pain worsens significantly, please seek in-person care the same day. For severe symptoms like sudden weakness or loss of bladder control, go to the emergency room right away. A physician will review your case and guide any next steps."
+    }
+  ]
+}

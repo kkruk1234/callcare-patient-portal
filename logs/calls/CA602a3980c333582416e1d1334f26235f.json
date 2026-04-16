@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA602a3980c333582416e1d1334f26235f",
+  "session_id": "a209db3a-c55b-416f-89c4-6fa19dc7cfc0",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-12T15:09:46.976509+00:00",
+  "ended_at": "2026-03-12T15:15:20.385917+00:00",
+  "packet_id": "3c614b6c-6241-4ae9-81b3-31c4b8783468",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have lower abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the lower abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the nature of the pain and if it radiates anywhere?"
+    },
+    {
+      "role": "user",
+      "text": "It is a sharp stabbing pain, and it doesn't really"
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, nausea, vomiting, or changes in bowel or urinary habits?"
+    },
+    {
+      "role": "user",
+      "text": "I have fever and chills but no other changes."
+    },
+    {
+      "role": "assistant",
+      "text": "Any vaginal bleeding, discharge, or missed periods?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have any pain or tenderness when you urinate, or any unusual urinary symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of similar pain episodes in the past or any known medical conditions related to your abdomen or pelvis?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any possibility you could be pregnant or any recent sexual activity?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any tenderness or pain when pressing on your lower abdomen?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any vaginal or rectal pain, or pain during bowel movements?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any unusual vaginal or rectal discharge or bleeding recently?"
+    },
+    {
+      "role": "user",
+      "text": "I've had heavier than normal period."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing lower abdominal pain with fever and chills, which may suggest an infection in your pelvic area. Because I can’t examine you or run tests over the phone, a licensed physician will review your information and may decide that medication treatment is appropriate. If your pain worsens, your fever stays high or gets worse, or you develop new symptoms like vomiting or unusual vaginal bleeding, please seek urgent in-person care the same day. If you experience severe abdominal pain or signs of serious infection, go to the emergency room immediately. For now, you can take acetaminophen or ibuprofen if you can safely do so for pain and fever. A doctor will review your case and may prescribe antibiotics if needed. If you need an in-person exam or testing, please visit urgent care or your primary care provider, as this service does not include in-person visits."
+    }
+  ]
+}

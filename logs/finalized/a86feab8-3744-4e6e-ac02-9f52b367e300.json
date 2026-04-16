@@ -1,0 +1,125 @@
+{
+  "packet_id": "7a20640a-d1d3-466b-9373-4f8182448bbf",
+  "created_at": "2026-01-26T19:15:31.094075+00:00",
+  "session_id": "a86feab8-3744-4e6e-ac02-9f52b367e300",
+  "chief_complaint": "I have hives and itching",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "hives_urticaria",
+  "answers": {
+    "breathing": "no",
+    "faint": "no",
+    "fever": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Cetirizine",
+      "dosing": "10 mg PO daily PRN itching/hives",
+      "sig": "10 mg PO daily PRN itching/hives",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "Non-sedating option preferred.",
+      "exclusions": "Severe allergy to antihistamines; significant sedation risk with other CNS depressants (clinician judgment).",
+      "tier": "Tier 1",
+      "pathway_id": "hives_urticaria",
+      "source_file": "data/protocols/meds/hives_urticaria.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Loratadine",
+      "dosing": "10 mg PO daily PRN itching/hives",
+      "sig": "10 mg PO daily PRN itching/hives",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "Non-sedating option; alternative to cetirizine.",
+      "exclusions": "Severe allergy to antihistamines (rare).",
+      "tier": "Tier 1",
+      "pathway_id": "hives_urticaria",
+      "source_file": "data/protocols/meds/hives_urticaria.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Diphenhydramine",
+      "dosing": "25–50 mg PO q6h PRN itching (use caution)",
+      "sig": "25–50 mg PO q6h PRN itching (use caution)",
+      "route": "PO",
+      "frequency": "",
+      "duration": "",
+      "notes": "More sedating; avoid driving/operating machinery.",
+      "exclusions": "Avoid in older adults/anticholinergic sensitivity; glaucoma/urinary retention risk; sedation.",
+      "tier": "Tier 1",
+      "pathway_id": "hives_urticaria",
+      "source_file": "data/protocols/meds/hives_urticaria.yaml"
+    },
+    {
+      "rank": 4,
+      "med": "Famotidine (adjunct)",
+      "dosing": "20 mg PO BID PRN (adjunct); adjust in renal impairment per clinician judgment",
+      "sig": "20 mg PO BID PRN (adjunct); adjust in renal impairment per clinician judgment",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Adjunct for hives in some cases; not a substitute for antihistamine.",
+      "exclusions": "Adjust in renal impairment; allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "hives_urticaria",
+      "source_file": "data/protocols/meds/hives_urticaria.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with hives and itching. There is no associated fever, breathing difficulty, or fainting reported. No medication allergies are noted.\n\nO:\nNo physical exam or vital signs available due to phone-only history.\n\nA:\n - Working diagnosis (most likely): Acute urticaria (hives)\n - Differential:\n  1. Allergic reaction (e.g., to food, medication, or environmental exposure)\n  2. Viral exanthem\n  3. Contact dermatitis\n  4. Chronic urticaria (if symptoms persist beyond 6 weeks)\n - Red flags considered:\n  No signs of anaphylaxis (no breathing difficulty, no fainting), no fever, no systemic symptoms.\n\nP:\n - Disposition: Manage as outpatient with close follow-up if symptoms worsen or new symptoms develop.\n - Plan:\n  - Primary medication option (based on your answers): Cetirizine — 10 mg PO daily PRN itching/hives\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Cetirizine — 10 mg PO daily PRN itching/hives\n     - Notes: Non-sedating option preferred.\n     - Exclusions: Severe allergy to antihistamines; significant sedation risk with other CNS depressants (clinician judgment).\n   - Loratadine — 10 mg PO daily PRN itching/hives\n     - Notes: Non-sedating option; alternative to cetirizine.\n     - Exclusions: Severe allergy to antihistamines (rare).\n   - Diphenhydramine — 25–50 mg PO q6h PRN itching (use caution)\n     - Notes: More sedating; avoid driving/operating machinery.\n     - Exclusions: Avoid in older adults/anticholinergic sensitivity; glaucoma/urinary retention risk; sedation.\n   - Famotidine (adjunct) — 20 mg PO BID PRN (adjunct); adjust in renal impairment per clinician judgment\n     - Notes: Adjunct for hives in some cases; not a substitute for antihistamine.\n     - Exclusions: Adjust in renal impairment; allergy.\n   - Supportive care:\n   - Avoid triggers: Stop any new suspected trigger (food/supplement/med) if safe to do so; avoid hot showers which can worsen itching.\n   - Skin care: Cool compresses; fragrance-free moisturizer; avoid scratching.\n   - Follow-up and safety:\n   - Re-evaluation: If hives persist >24–48h, recur frequently, or you need frequent medication dosing—seek in-person evaluation.\n   - Urgent/ED now: Any trouble breathing, throat tightness, swelling of lips/tongue/face, fainting, severe dizziness, or widespread blistering rash—call 911/go to ED.\n   1. Recommend oral antihistamines (e.g., cetirizine 10 mg once daily or loratadine 10 mg once daily) to control itching and hives.\n   2. Avoid known triggers if identified.\n   3. Advise patient to seek urgent care if they develop difficulty breathing, swelling of face or throat, dizziness, or worsening symptoms.\n - Safety net:\n   Instruct patient to call or present urgently if they experience any signs of anaphylaxis, new onset fever, or if hives persist beyond several days or worsen despite treatment.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Urticaria: Managing urticaria (CKS)",
+        "source": "https://cks.nice.org.uk/topics/urticaria/management/managing-urticaria/",
+        "snippet": "Listed in pathway manifest https://cks.nice.org.uk/topics/urticaria/management/managing-urticaria/"
+      },
+      {
+        "title": "The diagnosis and management of acute and chronic urticaria (Practice Parameter)",
+        "source": "https://www.aaaai.org/Aaaai/media/MediaLibrary/PDF%20Documents/Practice%20and%20Parameters/Urticaria-2014.pdf",
+        "snippet": "Listed in pathway manifest https://www.aaaai.org/Aaaai/media/MediaLibrary/PDF%20Documents/Practice%20and%20Parameters/Urticaria-2014.pdf"
+      },
+      {
+        "title": "International guideline for urticaria (EAACI/GA²LEN/EuroGuiDerm/APAAACI) – 2021/2022 update",
+        "source": "https://www.guidelines.edf.one/uploads/attachments/cl263w4y200oilajn3li6nqa1-urticaria-2021-gl.pdf",
+        "snippet": "Listed in pathway manifest https://www.guidelines.edf.one/uploads/attachments/cl263w4y200oilajn3li6nqa1-urticaria-2021-gl.pdf"
+      },
+      {
+        "title": "Hives (urticaria) – overview",
+        "source": "https://medlineplus.gov/hives.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/hives.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Urticaria: Managing urticaria (CKS)",
+      "source": "https://cks.nice.org.uk/topics/urticaria/management/managing-urticaria/",
+      "snippet": "Listed in pathway manifest https://cks.nice.org.uk/topics/urticaria/management/managing-urticaria/"
+    },
+    {
+      "title": "The diagnosis and management of acute and chronic urticaria (Practice Parameter)",
+      "source": "https://www.aaaai.org/Aaaai/media/MediaLibrary/PDF%20Documents/Practice%20and%20Parameters/Urticaria-2014.pdf",
+      "snippet": "Listed in pathway manifest https://www.aaaai.org/Aaaai/media/MediaLibrary/PDF%20Documents/Practice%20and%20Parameters/Urticaria-2014.pdf"
+    },
+    {
+      "title": "International guideline for urticaria (EAACI/GA²LEN/EuroGuiDerm/APAAACI) – 2021/2022 update",
+      "source": "https://www.guidelines.edf.one/uploads/attachments/cl263w4y200oilajn3li6nqa1-urticaria-2021-gl.pdf",
+      "snippet": "Listed in pathway manifest https://www.guidelines.edf.one/uploads/attachments/cl263w4y200oilajn3li6nqa1-urticaria-2021-gl.pdf"
+    },
+    {
+      "title": "Hives (urticaria) – overview",
+      "source": "https://medlineplus.gov/hives.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/hives.html"
+    }
+  ]
+}

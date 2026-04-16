@@ -1,0 +1,46 @@
+# Clinician-facing medication/dosing protocol for: sore_throat
+# Sources (high-level): IDSA GAS pharyngitis guidance; CDC clinical guidance.
+# Conservative default: treat with antibiotics only when GAS is confirmed or highly likely per pathway logic.
+
+rx_options:
+  - med: "Penicillin V"
+    dosing: "500 mg PO twice daily x 10 days (adults) OR 250 mg PO 2–3x/day x 10 days"
+    exclusions: "Penicillin allergy."
+    notes: "First-line for confirmed/suspected GAS pharyngitis when indicated."
+
+  - med: "Amoxicillin"
+    dosing: "500 mg PO twice daily x 10 days (adults) OR weight-based pediatric dosing per clinician judgment"
+    exclusions: "Penicillin allergy."
+    notes: "First-line alternative (palatable; commonly used)."
+
+  - med: "Cephalexin"
+    dosing: "500 mg PO twice daily x 10 days (adults) OR weight-based pediatric dosing per clinician judgment"
+    exclusions: "Immediate anaphylactic beta-lactam allergy; severe cephalosporin allergy."
+    notes: "Option for non-immediate penicillin allergy."
+
+  - med: "Azithromycin"
+    dosing: "500 mg PO day 1, then 250 mg PO daily days 2–5"
+    exclusions: "QT risk/arrhythmia risk; significant interactions; macrolide resistance considerations."
+    notes: "More aggressive/alternative path for true anaphylactic beta-lactam allergy; check local macrolide resistance."
+
+  - med: "Clindamycin"
+    dosing: "300 mg PO three times daily x 10 days (adults)"
+    exclusions: "High C. difficile risk; significant GI intolerance."
+    notes: "Alternative for severe beta-lactam allergy or suspected macrolide resistance."
+
+supportive_care:
+  - item: "Analgesics/antipyretics"
+    details: "OTC options if safe (avoid dosing instructions by phone)."
+
+  - item: "Hydration and throat comfort"
+    details: "Warm fluids, honey (if age-appropriate), saltwater gargles as tolerated."
+
+followup_and_safety:
+  - item: "When to treat"
+    details: "Treat when GAS confirmed (rapid test/culture) or per pathway logic if high likelihood and testing not feasible."
+
+  - item: "Escalation"
+    details: "Urgent evaluation for drooling, muffled voice, trismus, inability to swallow fluids, respiratory distress, unilateral neck swelling, or concern for peritonsillar abscess/epiglottitis."
+
+  - item: "Return precautions"
+    details: "Seek care if symptoms worsen, no improvement in 48–72 hours after starting appropriate therapy, or new rash/joint pain/shortness of breath."

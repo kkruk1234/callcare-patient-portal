@@ -1,0 +1,50 @@
+{
+  "packet_id": "4c8b57d4-dab0-484a-8ebf-866c59def5d8",
+  "created_at": "2026-03-26T21:25:17.872105+00:00",
+  "session_id": "465a17e4-ca24-4341-91d9-3400a224bd10",
+  "pathway_id": "",
+  "base_queries": [
+    "low back pain management guidelines adults",
+    "low back pain treatment adult dosing duration contraindications",
+    "red flags low back pain when to seek emergency care"
+  ],
+  "queries": [
+    "AAFP low back pain management guidelines adults",
+    "AAFP low back pain treatment adult dosing duration contraindications",
+    "MedlinePlus low back pain management guidelines adults",
+    "MedlinePlus low back pain treatment adult dosing duration contraindications",
+    "CDC low back pain management guidelines adults",
+    "CDC low back pain treatment adult dosing duration contraindications",
+    "NIH low back pain management guidelines adults",
+    "NIH low back pain treatment adult dosing duration contraindications",
+    "NICE low back pain management guidelines adults",
+    "NICE low back pain treatment adult dosing duration contraindications",
+    "WHO low back pain management guidelines adults",
+    "WHO low back pain treatment adult dosing duration contraindications"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "accessed": "2026-03-26",
+      "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+    },
+    {
+      "title": "Low back pain and sciatica in over 16s: assessment and management - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK562933/",
+      "accessed": "2026-03-26",
+      "snippet": "1.2.23. When prescribing oral NSAIDs for low back pain, think about appropriate clinical assessment, ongoing monitoring of risk factors, and the use of gastroprotective treatment. [2016]"
+    },
+    {
+      "title": "ACP Guidelines for the Diagnosis and Treatment of Low Back Pain | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2008/0601/p1607.html",
+      "accessed": "2026-03-26",
+      "snippet": "Recommendation 6: In combination with information and self-care, the use of medications with proven benefits should be considered. Before beginning treatment, physicians should evaluate the severity of the patient's baseline pain and functional deficits and the potential benefits and risks of treatment, including the relative lack of long-term effectiveness and safety data. In most cases, acetaminophen or nonsteroidal anti-inflammatory drugs (NSAIDs) are the first-line medication options. (Strong recommendation, moderate-quality evidence)"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male presenting with low back pain. No additional details about the pain characteristics, duration, or associated symptoms were provided during this telephone encounter.\n\nO: Phone-only encounter; no physical examination or vital signs available.\n\nA: The working diagnosis is nonspecific low back pain.\nDifferential:\n1. Muscular strain or sprain\n2. Lumbar disc herniation\n3. Degenerative disc disease\n4. Spinal stenosis\n\nP: - First-line medication: Naproxen 500 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Acetaminophen 500 mg orally every 6 hours as needed for pain (Physician must verify medication/dosing)\n- Medication safety considerations: Patient reports allergy labeled as \"Forty-seven\" (unclear specifics); avoid NSAIDs if allergy is related; no renal or liver disease reported; male patient, pregnancy not applicable\n- Follow-up recommendations: Seek in-person medical care urgently if worsening pain, new weakness, numbness, bowel or bladder dysfunction, or fever develops; seek emergency care if severe neurological symptoms occur\n- Testing: Not indicated at this time based on telephone evaluation; consider imaging if symptoms persist beyond 4-6 weeks or neurological deficits develop"
+}

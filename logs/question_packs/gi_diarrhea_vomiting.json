@@ -1,0 +1,11 @@
+{
+  "id": "gi_diarrhea_vomiting",
+  "version": "0.1",
+  "questions": {
+    "duration": "How long have you had these symptoms?",
+    "blood": "Have you noticed any blood or black stools?",
+    "dehydration": "Are you having trouble keeping fluids down, feeling very dizzy, or hardly urinating?",
+    "fever": "Do you have a fever?",
+    "severe_abd_pain": "Is your belly pain severe or getting worse?"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "packet_id": "e17baeca-6115-4897-9721-4fa46ff129c7",
+  "created_at": "2026-01-29T15:06:11+00:00",
+  "session_id": "9fa3bbfc-76e1-40b6-9258-e44129efa61c",
+  "chief_complaint": "I think I have genital warts",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "age_years": 34,
+    "allergies": "penicillin",
+    "renal_disease": "yes",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "onset": "3 weeks ago",
+    "severity": "mild",
+    "associated": "none"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old female presenting with a chief complaint of suspected genital warts, which she noticed about three weeks ago. She describes the severity as mild and reports no associated symptoms. She has a history of renal disease and a penicillin allergy. She is not pregnant.\n\nO:  \nPhone evaluation only; no physical examination or vital signs available.\n\nA:  \n- Working diagnosis (most likely): Genital warts (condyloma acuminata), likely caused by human papillomavirus (HPV).  \n- Differential:  \n  1. Molluscum contagiosum  \n  2. Herpes simplex virus infection  \n  3. Seborrheic keratosis or benign skin lesions  \n  4. Syphilitic chancre or other sexually transmitted infections  \n- Red flags considered: No signs of systemic illness, severe pain, bleeding, or rapid lesion growth reported.\n\nP:  \n- Disposition: Patient is stable for outpatient management and follow-up.  \n- Plan: Educate patient on the nature of genital warts and HPV transmission. Recommend evaluation by a healthcare provider for physical examination and confirmation of diagnosis. Treatment options include topical agents (e.g., imiquimod, podophyllotoxin) or procedural removal depending on lesion extent and patient preference. Given the penicillin allergy and renal disease, avoid systemic antibiotics unless secondary infection is suspected. Counsel on safe sexual practices and consider screening for other STIs.  \n- Safety net: Advise patient to seek urgent care if lesions rapidly enlarge, become painful, bleed, or if systemic symptoms develop such as fever or malaise. Follow-up with primary care or gynecology for lesion assessment and treatment planning.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": []
+}

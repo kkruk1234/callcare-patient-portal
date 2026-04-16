@@ -1,0 +1,10 @@
+{
+  "title": "Hospital Sepsis Program Core Elements | Sepsis | CDC",
+  "url": "https://www.cdc.gov/sepsis/hcp/core-elements/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "re informing practice. Examples metrics are provided in the Table . \nChart reviews of sepsis hospitalizations . Beyond tracking sepsis epidemiology, management, and outcome metrics, chart review of sepsis hospitalizations is helpful for clinician feedback, education, root cause analyses of adverse outcomes, and process. Chart review, which is often done by the sepsis coordinator, is resource intensive. Therefore, hospitals may review a random sample of sepsis hospitalizations, or a targeted sample (e.g., over-sampling of hospitalizations with adverse outcomes). \nTable: Examples of tracking sepsis epidemiology, management, and outcomes \nExamples of tracking sepsis epidemiology, management, and outcomes \nCategory \nPriority \nConcept \nExample \nSepsis epidemiology \nPriority \nCommunity-onset sepsis \nNumerator: Hospitalizations meeting criteria for sepsis within 48 hours of arrival to hospital or emergency department\nDenominator: All hospitalizations not admitted through inter-hospital transfer \nSepsis epidemiology \nPriority \nHospital-onset sepsis \nNumerator: Hospitalizations meeting criteria for sepsis after 48 hours of arrival to hospital or emergency department\nDenominator: All hospitalizations \nSepsis epidemiology \nPriority \nSepsis (without shock) \nNumerator: Hospitalizations meeting criteria for sepsis without shock\nDenominator: All hospitalizations \nSepsis epidemiology \nPriority",
+  "source_type": "library",
+  "source_id": "cdc_gov_sepsis_hcp_core_elements_index_html_ba504aef1d0a",
+  "chunk_id": "chunk_033"
+}

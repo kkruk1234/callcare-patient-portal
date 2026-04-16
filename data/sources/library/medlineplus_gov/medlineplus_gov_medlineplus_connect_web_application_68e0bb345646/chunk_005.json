@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Application",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-application/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "will assume English as the language if it is not specified and will send the query to the English language MedlinePlus search engine by default:\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.dn=Type+2+Diabetes\nTo specify English, use the following:\ninformationRecipient.languageCode.c=en\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.dn=Type+2+Diabetes&informationRecipient.languageCode.c=en\nIf the freeform query is in Spanish, then send it to the MedlinePlus en espaÃ±ol search engine by using the following:\ninformationRecipient.languageCode.c=es\n(=sp or =spa also accepted)\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.dn=Diabetes+Tipo+2&informationRecipient.languageCode.c=es\nDrug Code Requests \nMedlinePlus Connect provides the best drug information matches when receiving an RXCUI. It also provides good results when receiving an NDC code. MedlinePlus Connect can provide responses to medication code requests in English or Spanish and will return a link to a results page with the best matches from the MedlinePlus drug information.\nFor requests for English medication information, if you do not send an NDC or RXCUI code or if we find no match based on the code, we will use the text string that you send to display the best drug information match. For requests for Spanish medication information, MedlinePlus Connect responds only",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_application_68e0bb345646",
+  "chunk_id": "chunk_005"
+}

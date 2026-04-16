@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA7b2cdf597a34c4d4c499c9eb399e71c1",
+  "session_id": "c13dfec1-21a5-4c83-a450-d96cfad727b0",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-29T17:59:13.027832+00:00",
+  "ended_at": "2026-03-29T18:05:52.406618+00:00",
+  "packet_id": "cfb71e05-71b6-401c-9064-d54bbafe0d06",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have I've been having pain when I urinate."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the pain with urination start?"
+    },
+    {
+      "role": "user",
+      "text": "Probably about 5 4 or 5 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any fever, chills, or back pain?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have none of those."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you notice any blood in your urine or any unusual discharge?"
+    },
+    {
+      "role": "user",
+      "text": "Honestly, I have my period right now, so I can't really tell if there's any blood in my urine."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you experiencing any urgency or increased frequency of urination?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I'm definitely experiencing urgent I just barely make it to the bathroom each time. And frequency wise, I'm going, like, constantly, maybe every I feel like every 15 minutes at least, I have to go. And I have a feel like I have a full bladder of urine to get out."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or burning sensation specifically during urination?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. There's pain right like a sharp sensation right when I start going to the bathroom and right and when I end going to the bathroom. And it is burning throughout."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any unusual vaginal discharge or odor?"
+    },
+    {
+      "role": "user",
+      "text": "No. But I once again, a queue of my period and I do have a little bit more odor when I have my period."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of urinary tract infections or other urinary problems in the past?"
+    },
+    {
+      "role": "user",
+      "text": "No. I've never had a urinary tract infection."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain in your lower abdomen or pelvic area?"
+    },
+    {
+      "role": "user",
+      "text": "I thought I did in the past. I but I would drink cranberry, and it would knock it."
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea, vomiting, or feeling generally unwell?"
+    },
+    {
+      "role": "user",
+      "text": "I was answering a question, and you interrupt very rude."
+    },
+    {
+      "role": "assistant",
+      "text": "Any chance you could be pregnant or are you using any form of contraception?"
+    },
+    {
+      "role": "user",
+      "text": "No. No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin and any kind of steroids."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Not sure"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Based on your symptoms, it sounds like you most likely have a simple bladder infection, also called an uncomplicated urinary tract infection. Because this is a phone visit, I can’t examine you or do tests, but a licensed physician will review your information and may prescribe antibiotics if appropriate. In the meantime, you can take acetaminophen (Tylenol) or ibuprofen (Advil) for pain relief if you can take them safely. If you develop fever, chills, worsening pain in your back or sides, nausea, vomiting, or if you have trouble urinating, please seek in-person care the same day. If you experience severe abdominal pain or cannot urinate at all, go to the emergency room immediately. A doctor will review your case soon and decide if medication is needed. If your symptoms don’t improve or get worse, you may need testing or further evaluation in person."
+    }
+  ]
+}

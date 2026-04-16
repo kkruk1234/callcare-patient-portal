@@ -1,0 +1,11 @@
+{
+  "pathway_id": "heartburn_gerd",
+  "sources": [
+    {
+      "source_id": "niddk_gerd_overview",
+      "type": "url",
+      "title": "NIDDK: Gastroesophageal Reflux (GER & GERD)",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults"
+    }
+  ]
+}

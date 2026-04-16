@@ -1,0 +1,50 @@
+{
+  "packet_id": "314417fa-a63c-4994-be19-95fa2e232059",
+  "created_at": "2026-01-21T17:25:31.755716+00:00",
+  "session_id": "912b4916-6041-4e7a-b27a-38422e35d090",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "ear_pain",
+  "answers": {
+    "duration": "5 days",
+    "fever": "no",
+    "discharge": "no",
+    "vertigo": "no",
+    "diabetes": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\n23-year-old adult presents with ear pain of 5 days duration. No fever reported. No ear discharge. No vertigo. No history of diabetes or immune compromise. Allergic to penicillin.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n- Working diagnosis (most likely): Otitis externa or mild otitis media without systemic signs.\n- Differential:\n  1. Otitis externa\n  2. Otitis media without effusion\n  3. Eustachian tube dysfunction\n  4. Referred pain from dental or temporomandibular joint issues\n- Red flags considered:\n  No fever, no vertigo, no discharge, no immune compromise, no signs of systemic illness or severe infection.\n\nP:\n- Disposition: Manage conservatively with close follow-up. Advise patient to seek in-person evaluation if symptoms worsen or new symptoms develop.\n- Plan:\n  Medication protocol (from data/protocols/meds):\n  - Medication recommendations (Tier 1):\n  - Reviewing physician will confirm appropriateness and prescribe if indicated.\n  - Supportive care:\n  - Follow-up and safety:\n  1. Recommend analgesics such as acetaminophen or ibuprofen for pain control.\n  2. Avoid water exposure to the affected ear.\n  3. No antibiotics prescribed at this time given absence of fever, discharge, or systemic signs.\n- Safety net:\n  Instruct patient to seek urgent care if fever develops, ear discharge appears, worsening pain, hearing loss, vertigo, or any neurological symptoms occur.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Ear Infection (Otitis Media) information",
+        "source": "https://www.cdc.gov/ear-infection/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+      },
+      {
+        "title": "MedlinePlus: Ear infections",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "source": "https://www.cdc.gov/ear-infection/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "title": "MedlinePlus: Ear infections",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

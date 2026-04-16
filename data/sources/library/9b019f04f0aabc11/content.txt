@@ -1,0 +1,63 @@
+Drug
+Usual starting dosage
+Maximum dosage
+Cost
+Comments
+Acetaminophen
+10 to 15 mg per kg
+3 to 4 g per day
+Low
+Potential liver toxicity, available over the counter
+Aspirin
+10 to 15 mg per kg
+3 to 4 g per day
+Low
+High dosages not recommended for elderly patients, available over the counter
+Celecoxib (Celebrex)
+100 mg twice daily
+200 mg three times daily
+Very high
+Useful in those at risk for upper gastrointestinal tract bleeding
+Fenoprofen (Nalfon)
+200 mg four times daily
+800 mg four times daily
+Low
+Flurbiprofen (Ansaid)
+50 to 100 mg twice daily
+100 mg three times daily
+Medium
+Ibuprofen
+400 mg every 6 to 8 hours
+800 mg four times daily
+Low
+Available over the counter
+Indomethacin (Indocin)
+25 mg three times daily
+50 mg four times daily
+Low
+High dosages not recommended for elderly patients
+Ketoprofen (Orudis)
+50 mg every 12 hours
+75 mg four times daily
+Medium
+Higher than average renal excretion, available over the counter
+Ketorolac (Toradol)
+10 mg every 6 hours
+10 mg every six hours
+High
+Not indicated for long-term use
+Nabumetone (Relafen)
+1 g per day
+2 g per day
+High
+Can be used once a day
+Naproxen (Anaprox)
+275 mg every 12 hours
+550 mg twice daily
+Low
+Available over the counter
+Rofecoxib (Vioxx)
+12.5 mg per day
+50 mg per day
+Very high
+Useful in patients at risk for upper gastrointestinal tract bleeding

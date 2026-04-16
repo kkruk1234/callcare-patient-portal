@@ -1,0 +1,89 @@
+{
+  "packet_id": "35170457-f76d-4198-a36d-f7ca7c92a5e7",
+  "created_at": "2026-02-21T14:28:11.640052+00:00",
+  "session_id": "c4578f5f-3d89-433a-b4a0-b8197cb6d020",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since your back pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol and it didn't help much",
+    "intake_q8": "Any history of cancer, osteoporosis, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any pain with deep breaths or when pressing on the painful area?",
+    "intake_a9": "pain with pressing on the area",
+    "intake_q10": "Any recent travel, exposure to sick contacts, or activities that might have strained your back?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that began three weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, numbness, weakness, or tingling in her legs or feet. The pain worsens with pressing on the affected area. She has tried acetaminophen (Tylenol) without significant relief. There is no history of cancer, osteoporosis, recent infections, recent travel, or exposure to sick contacts. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal pain localized to the left lower rib cage, likely due to a strain or localized inflammation given the tenderness on palpation and absence of systemic symptoms. \n\nDifferential: \n1. Musculoskeletal strain or rib contusion \n2. Costochondritis or rib inflammation \n3. Intercostal muscle strain \n4. Early herpes zoster (pre-eruption phase) \n\nP: \n - First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, not to exceed 1200 mg per day. \n - Alternatives: Naproxen 220 mg orally twice daily as needed for pain. \n - Medication safety considerations: Use NSAIDs with caution if gastrointestinal symptoms develop; avoid in patients with known renal or liver disease (not present here). Take with food to minimize gastrointestinal irritation. \n - Return precautions: Return promptly if the patient develops fever, worsening or spreading pain, numbness, weakness, tingling, chest pain, shortness of breath, or if pain does not improve within 2 weeks of treatment. \n - Testing: Not indicated at this time given absence of systemic symptoms or neurological deficits.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "Find out how to relieve back pain, what can cause it, and when to get medical advice."
+      },
+      {
+        "title": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE",
+        "source": "https://www.nice.org.uk/guidance/ng59",
+        "snippet": "Authoritative clinical reference (see source)."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back pain - NHS",
+      "source": "https://www.nhs.uk/conditions/back-pain/",
+      "snippet": "Find out how to relieve back pain, what can cause it, and when to get medical advice."
+    },
+    {
+      "title": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE",
+      "source": "https://www.nice.org.uk/guidance/ng59",
+      "snippet": "Authoritative clinical reference (see source)."
+    }
+  ],
+  "state": null
+}

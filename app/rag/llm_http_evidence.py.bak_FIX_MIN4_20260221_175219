@@ -1,0 +1,275 @@
+import os
+import re
+import time
+import json
+from typing import Optional, List, Dict, Any, Tuple
+from urllib.parse import urlparse, urlunparse, ParseResult
+from urllib.request import Request, urlopen
+
+from openai import OpenAI
+
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini")
+
+# Keep this tight. Add more later only if they reliably return non-404 pages.
+# (AAFP/AAOS/CDC have been throwing 404s in your traces; leave them out for now.)
+ALLOWLIST_DOMAINS = {
+    "nhs.uk",
+    "nice.org.uk",
+    "nih.gov",
+    "ncbi.nlm.nih.gov",
+    "medlineplus.gov",
+    "merckmanuals.com",
+    "idsociety.org",
+    "who.int",
+}
+
+# User preference: NO PubMed / PubMed Central
+BLOCKLIST_DOMAINS = {
+    "pubmed.ncbi.nlm.nih.gov",
+    "pmc.ncbi.nlm.nih.gov",
+}
+
+BAD_TITLE_SIGNALS = [
+    "page not found",
+    "not found",
+    "error",
+    "access denied",
+    "forbidden",
+    "unauthorized",
+    "oops",
+    "we can’t find",
+    "we can't find",
+]
+
+def _trace(trace_fn, event: str, **kw):
+    try:
+        if callable(trace_fn):
+            trace_fn(event, **kw)
+    except Exception:
+        pass
+
+def _strip_utm(url: str) -> str:
+    try:
+        u = (url or "").strip()
+        if not u:
+            return u
+        pr = urlparse(u)
+        # drop query entirely (kills utm_source and friends)
+        pr2 = ParseResult(
+            scheme=pr.scheme,
+            netloc=pr.netloc,
+            path=pr.path,
+            params=pr.params,
+            query="",
+            fragment="",
+        )
+        clean = urlunparse(pr2)
+        if clean.endswith("/"):
+            clean = clean[:-1]
+        return clean
+    except Exception:
+        return (url or "").strip()
+
+def _domain(url: str) -> str:
+    try:
+        host = urlparse(url).netloc.lower().split(":")[0]
+        if host.startswith("www."):
+            host = host[4:]
+        return host
+    except Exception:
+        return ""
+
+def _domain_allowed(url: str) -> bool:
+    host = _domain(url)
+    if not host:
+        return False
+    if host in BLOCKLIST_DOMAINS:
+        return False
+    for d in ALLOWLIST_DOMAINS:
+        if host == d or host.endswith("." + d):
+            return True
+    return False
+
+def _org_label_from_host(host: str) -> str:
+    # simple readable label for "Source"
+    if host.endswith("nhs.uk"):
+        return "NHS"
+    if host.endswith("nice.org.uk"):
+        return "NICE"
+    if host.endswith("medlineplus.gov"):
+        return "MedlinePlus (NIH)"
+    if host.endswith("nih.gov") or host.endswith("ncbi.nlm.nih.gov"):
+        return "NIH/NCBI"
+    if host.endswith("merckmanuals.com"):
+        return "Merck Manual"
+    if host.endswith("idsociety.org"):
+        return "IDSA"
+    if host.endswith("who.int"):
+        return "WHO"
+    return host
+
+def _fetch_html_title(url: str, timeout_s: int = 8) -> Tuple[str, str]:
+    """
+    Returns (title, snippet). Snippet is optional; short, safe.
+    No external deps; uses urllib.
+    """
+    title = ""
+    snippet = ""
+    try:
+        req = Request(
+            url,
+            headers={
+                "User-Agent": "CallCareEvidenceBot/1.0 (+https://example.invalid)",
+                "Accept": "text/html,application/xhtml+xml",
+            },
+            method="GET",
+        )
+        with urlopen(req, timeout=timeout_s) as resp:
+            ctype = (resp.headers.get("Content-Type") or "").lower()
+            raw = resp.read(250000)  # cap
+        if "text/html" not in ctype and "<html" not in raw[:2000].decode("utf-8", errors="ignore").lower():
+            # not html; just return URL as title fallback
+            return "", ""
+        html = raw.decode("utf-8", errors="ignore")
+
+        m = re.search(r"<title[^>]*>(.*?)</title>", html, flags=re.I | re.S)
+        if m:
+            t = re.sub(r"\s+", " ", re.sub(r"<.*?>", "", m.group(1))).strip()
+            title = t
+
+        # crude meta description
+        m2 = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']', html, flags=re.I | re.S)
+        if m2:
+            s = re.sub(r"\s+", " ", re.sub(r"<.*?>", "", m2.group(1))).strip()
+            snippet = s[:240]
+
+        return title, snippet
+    except Exception:
+        return "", ""
+
+def _bad_title(title: str) -> bool:
+    t = (title or "").strip().lower()
+    if not t:
+        return True
+    for sig in BAD_TITLE_SIGNALS:
+        if sig in t:
+            return True
+    return False
+
+def _web_search_sources(query: str, model: str, trace_fn=None) -> List[str]:
+    """
+    Uses OpenAI web_search tool. URLs come from web_search_call.action.sources in your account.
+    """
+    client = OpenAI()
+    t0 = time.time()
+    resp = client.responses.create(
+        model=model,
+        input=query,
+        tools=[{"type": "web_search"}],
+        tool_choice="required",
+        include=["web_search_call.action.sources", "web_search_call.results"],
+    )
+    d = resp.model_dump()
+    out = d.get("output", []) or []
+
+    urls: List[str] = []
+    for item in out:
+        if isinstance(item, dict) and item.get("type") == "web_search_call":
+            action = item.get("action") or {}
+            sources = action.get("sources") or []
+            for s in sources:
+                if isinstance(s, dict):
+                    u = s.get("url")
+                    if u:
+                        urls.append(u)
+
+            # keep a fallback attempt for accounts that populate .results
+            results = item.get("results") or []
+            for r in results:
+                if isinstance(r, dict):
+                    u = r.get("url") or r.get("link")
+                    if u:
+                        urls.append(u)
+
+    # de-dupe, keep order
+    seen = set()
+    out_urls = []
+    for u in urls:
+        u2 = _strip_utm(u)
+        if u2 and u2 not in seen:
+            seen.add(u2)
+            out_urls.append(u2)
+
+    _trace(trace_fn, "web_search_done", q=query, model=model, sources=len(out_urls), latency_s=round(time.time() - t0, 3))
+    return out_urls
+
+def llm_http_evidence(
+    context: str = "",
+    diagnosis_hint: str = "",
+    chief_complaint: str = "",
+    max_urls: int = 6,
+    min_urls: int = 4,
+    model: Optional[str] = None,
+    trace_fn=None,
+) -> List[Dict[str, str]]:
+    """
+    Returns list of EvidenceRef-ish dicts with keys:
+      - title
+      - source  (organization label)
+      - snippet (short)
+      - url     (the URL; finalize/adapter can map to EvidenceRef.source if needed)
+      - accessed_at (YYYY-MM-DD)
+    """
+    model = model or DEFAULT_MODEL
+    dx = (diagnosis_hint or "").strip() or (context or "").strip() or (chief_complaint or "").strip()
+    cc = (chief_complaint or "").strip()
+    _trace(trace_fn, "llm_http_evidence_start", dx=dx, cc=cc, model=model)
+
+    # Build SHORT, non-duplicated queries (your previous duplication was killing quality)
+    base = dx if dx else cc
+    base = base.strip() or "medical advice"
+    queries = [
+        base,
+        f"{base} self care red flags",
+        f"{base} acetaminophen ibuprofen naproxen dosing adults",
+    ]
+
+    collected: List[Dict[str, str]] = []
+    seen_urls = set()
+
+    for q in queries:
+        urls = _web_search_sources(q, model=model, trace_fn=trace_fn) or []
+        # Filter to allowlist and not pubmed/pmc
+        urls = [u for u in urls if _domain_allowed(u)]
+        for u in urls:
+            if u in seen_urls:
+                continue
+            seen_urls.add(u)
+
+            title, snippet = _fetch_html_title(u)
+            if _bad_title(title):
+                # if we can't get a real title, skip (keeps citations clean)
+                continue
+
+            host = _domain(u)
+            ref = {
+                "title": title,
+                "source": _org_label_from_host(host),
+                "snippet": snippet or "Authoritative clinical reference (see source).",
+                "url": u,
+                "accessed_at": time.strftime("%Y-%m-%d"),
+            }
+            collected.append(ref)
+            if len(collected) >= max_urls:
+                break
+        if len(collected) >= max_urls:
+            break
+        if len(collected) >= min_urls:
+            break
+
+    _trace(trace_fn, "llm_http_evidence_done", refs=len(collected), min_urls=min_urls, max_urls=max_urls)
+
+    if len(collected) < min_urls:
+        _trace(trace_fn, "llm_http_evidence_under_min", refs=len(collected), required=min_urls)
+
+    return collected

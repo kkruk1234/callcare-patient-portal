@@ -1,0 +1,11 @@
+{
+  "pathway_id": "constipation",
+  "sources": [
+    {
+      "source_id": "niddk_constipation_overview",
+      "type": "url",
+      "title": "NIDDK: Constipation",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation"
+    }
+  ]
+}

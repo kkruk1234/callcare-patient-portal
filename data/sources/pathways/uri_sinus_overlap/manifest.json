@@ -1,0 +1,33 @@
+{
+  "pathway_id": "uri_sinus_overlap",
+  "sources": [
+    {
+      "id": "uri_sinus_overlap_src_1",
+      "source_id": "uri_sinus_overlap_src_1",
+      "title": "uri_sinus_overlap references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "uri_sinus_overlap_src_2",
+      "source_id": "uri_sinus_overlap_src_2",
+      "title": "uri_sinus_overlap references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "uri_sinus_overlap_src_3",
+      "source_id": "uri_sinus_overlap_src_3",
+      "title": "uri_sinus_overlap references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "uri_sinus_overlap_src_4",
+      "source_id": "uri_sinus_overlap_src_4",
+      "title": "uri_sinus_overlap references (starter)",
+      "url": "https://www.aaai.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

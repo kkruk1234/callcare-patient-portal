@@ -1,0 +1,11 @@
+{
+  "id": "sore_throat",
+  "version": "0.1",
+  "questions": {
+    "throat_severity": "Is your sore throat mild, moderate, or severe?",
+    "associated": "Are you also having cough, runny nose, fever, swollen glands, rash, hoarse voice, or none of these?",
+    "swallow_breathe": "Are you having trouble swallowing liquids or breathing?",
+    "duration": "How long have you had your sore throat?",
+    "fever": "Do you have a fever?"
+  }
+}

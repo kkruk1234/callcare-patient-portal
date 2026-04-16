@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA34af455edafe9b261a3ae8b21ecc0d53",
+  "session_id": "7c7feae7-0495-48fc-b6ce-b482abc1fa53",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-27T14:55:29.188165+00:00",
+  "ended_at": "2026-03-27T15:01:51.708497+00:00",
+  "packet_id": "82ad9372-3f5d-4eb7-9d1b-f88945ee6714",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have low back pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your low back pain start?"
+    },
+    {
+      "role": "user",
+      "text": "About 2 weeks ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain you are experiencing in your low back?"
+    },
+    {
+      "role": "user",
+      "text": "It's really sharp and right on my spine. And then it"
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or weakness in your legs or feet?"
+    },
+    {
+      "role": "user",
+      "text": "No. But I was talking, and you interrupted me because I was telling you it was shooting down to my right buttock."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent trauma, heavy lifting, or injury that might have triggered the low back pain?"
+    },
+    {
+      "role": "user",
+      "text": "Well, I was helping my daughter move into her dorm about 2 weeks ago, and I think I was just trying to help a little too much and overdid it."
+    },
+    {
+      "role": "assistant",
+      "text": "Any bladder or bowel problems, like difficulty urinating or loss of control?"
+    },
+    {
+      "role": "user",
+      "text": "No. No issue there."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or unexplained weight loss since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No. Nothing."
+    },
+    {
+      "role": "assistant",
+      "text": "Any prior history of back problems, surgeries, or chronic conditions like arthritis?"
+    },
+    {
+      "role": "user",
+      "text": "I previously answered this and said no."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your back pain so far?"
+    },
+    {
+      "role": "user",
+      "text": "Well, I tried icing it the first day, and then that didn't seem to do much. So I tried the heat, like, maybe a week or 2 ago. And again, it it felt good at the time, but really hasn't improved anything. So I've been taking some Tylenol, but it seemed to help just a little bit, but not when I'm getting those shooting pains."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or numbness radiating down your leg beyond the buttock, such as into the thigh, calf, or foot?"
+    },
+    {
+      "role": "user",
+      "text": "I already answered it and said no."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty standing or walking due to the back pain?"
+    },
+    {
+      "role": "user",
+      "text": "No. I just have pain when I walk."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "52."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin and, steroid."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing acute low back pain with some nerve irritation, likely from muscle strain or mild sciatica. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and may prescribe medication like naproxen or a muscle relaxant if suitable. For now, you can use acetaminophen or ibuprofen if you can take them safely. Please watch for any new weakness, numbness, bladder or bowel changes, or worsening pain—if these happen, seek in-person care the same day. If severe neurological symptoms develop, go to the emergency room immediately. If your symptoms don’t improve or get worse over the next several weeks, you may need further evaluation."
+    }
+  ]
+}

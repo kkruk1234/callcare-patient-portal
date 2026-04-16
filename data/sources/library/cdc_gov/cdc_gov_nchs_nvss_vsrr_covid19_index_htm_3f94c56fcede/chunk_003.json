@@ -1,0 +1,10 @@
+{
+  "title": "Provisional COVID-19 Mortality Surveillance",
+  "url": "https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "here to download .\nCoronavirus deaths by week-ending date \nNOTE: Empty data cells represent death counts between 1-9 that have been suppressed in accordance with NCHS confidentiality standards. Number of deaths reported on this page are the total number of deaths received and coded as of the date of analysis and do not represent all deaths that occurred in that period. Data are incomplete because of the lag in time between when the death occurred and when the death certificate is completed, submitted to NCHS and processed for reporting purposes. This delay can range from 1 week to 8 weeks or more, depending on the jurisdiction and cause of death. United States death counts include the 50 states, plus the District of Columbia and New York City. New York state estimates exclude New York City.\n[1] Deaths with confirmed or presumed COVID-19, coded to ICD&ndash;10 code U07.1.\n[2] Percent of expected deaths is the number of deaths for all causes for these time-periods in 2020-2026 compared to the average number across the same time-period in 2017&ndash;2019. Previous analyses of 2015&ndash;2016 provisional data completeness have found that completeness is lower in the first few weeks following the date of death (<25%), and then increases over time such that data are generally at least 75% complete within 8 weeks of when the death occurred. Recent improvements in the timeliness of pro",
+  "source_type": "library",
+  "source_id": "cdc_gov_nchs_nvss_vsrr_covid19_index_htm_3f94c56fcede",
+  "chunk_id": "chunk_003"
+}

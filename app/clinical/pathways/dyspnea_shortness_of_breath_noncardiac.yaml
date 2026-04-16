@@ -1,0 +1,41 @@
+id: dyspnea_shortness_of_breath_noncardiac
+version: 0.2
+match:
+  any_keywords: ["shortness of breath", "short of breath", "breathless", "can't breathe", "trouble breathing", "dyspnea", "wheezing", "wheeze", "tight chest"]
+questions:
+  - id: onset
+    prompt: "When did the shortness of breath start? (e.g., suddenly today, gradual over days)"
+    store_as: onset
+  - id: sob_rest
+    prompt: "Are you short of breath at rest or unable to speak in full sentences? (yes/no)"
+    store_as: sob_rest
+    type: yesno
+  - id: chest_pain
+    prompt: "Any chest pain or pressure? (yes/no)"
+    store_as: chest_pain
+    type: yesno
+  - id: faint_blue
+    prompt: "Any fainting, bluish lips/face, or severe distress right now? (yes/no)"
+    store_as: faint_blue
+    type: yesno
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: wheeze
+    prompt: "Do you hear wheezing or feel tightness in your chest? (yes/no)"
+    store_as: wheeze
+    type: yesno
+  - id: asthma_copd
+    prompt: "Do you have asthma, COPD, or another lung condition? (yes/no)"
+    store_as: asthma_copd
+    type: yesno
+  - id: leg_swelling
+    prompt: "Any new one-sided leg swelling or calf pain? (yes/no)"
+    store_as: leg_swelling
+    type: yesno
+stop_rules:
+  - if_all_answered: ["onset", "sob_rest", "chest_pain", "faint_blue", "fever", "wheeze", "asthma_copd", "leg_swelling"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

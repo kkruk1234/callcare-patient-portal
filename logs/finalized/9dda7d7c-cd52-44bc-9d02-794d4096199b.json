@@ -1,0 +1,101 @@
+{
+  "packet_id": "98a31113-c0ee-4f62-8915-5573490a83f7",
+  "created_at": "2026-02-28T03:03:41.364460+00:00",
+  "session_id": "9dda7d7c-cd52-44bc-9d02-794d4096199b",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back hurts?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or side?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain radiating to your abdomen, chest, or down your leg?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney stones, urinary tract infections, or other kidney problems?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any changes in your bowel or bladder function since the pain started?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a8": "I tried tylenol but it didn't help very much",
+    "intake_q9": "Any shortness of breath, chest pain, or cough since the pain started?",
+    "intake_a9": "no",
+    "intake_q10": "Any abdominal pain, nausea, or vomiting associated with your back pain?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adults",
+      "adult back pain treatment dosing acetaminophen alternatives",
+      "red flags in back pain evaluation and when to seek care"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, radiating pain, changes in bowel or bladder function, shortness of breath, chest pain, cough, abdominal pain, nausea, or vomiting. She has tried acetaminophen (Tylenol) with minimal relief. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage without red flag symptoms. Differential:\n1. Musculoskeletal strain or sprain\n2. Intercostal muscle strain\n3. Costochondritis\n4. Early presentation of visceral causes such as renal or splenic pathology (less likely given no systemic symptoms)\n\nP:\n- First-line medication: NSAIDs such as ibuprofen for pain relief\n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n- Medication safety considerations: Avoid NSAIDs if history of renal or liver disease; monitor for gastrointestinal side effects\n- Return precautions: Seek urgent care if fever, worsening pain, new neurological symptoms, bowel or bladder dysfunction, or unexplained weight loss develop\n- Testing: Not indicated at this time given absence of red flags; consider imaging if symptoms persist or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal lower back pain - Symptoms, diagnosis and treatment | BMJ Best Practice US",
+        "source": "bestpractice.bmj.com",
+        "url": "https://bestpractice.bmj.com/topics/en-us/778",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "When Should I See a Doctor for Back Pain?",
+        "source": "Cleveland Clinic",
+        "url": "https://health.clevelandclinic.org/when-to-see-a-doctor-for-back-pain",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Back pain: Symptom When to see a doctor - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/symptoms/back-pain/basics/when-to-see-doctor/sym-20050878",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Muscle pain When to see a doctor - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/symptoms/muscle-pain/basics/when-to-see-doctor/sym-20050866",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

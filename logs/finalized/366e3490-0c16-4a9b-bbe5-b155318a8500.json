@@ -1,0 +1,48 @@
+{
+  "packet_id": "6f205781-fb04-487a-9d4c-5f62b4b47c63",
+  "created_at": "2026-01-17T20:16:56.538781+00:00",
+  "session_id": "366e3490-0c16-4a9b-bbe5-b155318a8500",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: \nPatient is a 13-17-year-old with a recent tick bite in Georgia, presenting with fever for 24-72 hours. No rash reported. Pregnancy status unknown.\n\nO: \nNo physical exam findings available due to phone-only encounter.\n\nA: \n  - Working diagnosis (most likely): Early tick-borne illness (e.g., early Lyme disease or other tick-borne infection)\n  - Differential: \n    1. Early Lyme disease (though rash absent)\n    2. Other tick-borne infections (e.g., ehrlichiosis, anaplasmosis)\n    3. Viral illness unrelated to tick bite\n  - Red flags considered: Persistent high fever, neurological symptoms, severe headache, altered mental status, signs of systemic infection.\n\nP: \n  - Disposition: Urgent in-person evaluation recommended due to fever after tick bite and risk of serious tick-borne illness.\n  - Plan: Advise patient/guardian to seek prompt medical evaluation for physical exam, possible laboratory testing (CBC, blood smears, serologies), and initiation of empiric treatment if indicated. Educate on symptom monitoring.\n  - Safety net: Instruct to seek emergency care immediately if worsening symptoms occur, including severe headache, neck stiffness, confusion, difficulty breathing, or rash development.\n\nEvidence (snippets used): \nNo direct evidence snippets retrieved; clinical decision based on standard guidelines for tick-borne illness management and fever evaluation.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "tick_bite references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Source from manifest: tick_bite_src_1",
+        "url": "https://www.cdc.gov/"
+      },
+      {
+        "title": "tick_bite references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Source from manifest: tick_bite_src_2",
+        "url": "https://www.nih.gov/"
+      },
+      {
+        "title": "tick_bite references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Source from manifest: tick_bite_src_3",
+        "url": "https://www.aafp.org/"
+      },
+      {
+        "title": "tick_bite references (starter)",
+        "source": "https://www.idsociety.org/",
+        "snippet": "Source from manifest: tick_bite_src_4",
+        "url": "https://www.idsociety.org/"
+      }
+    ]
+  },
+  "evidence": []
+}

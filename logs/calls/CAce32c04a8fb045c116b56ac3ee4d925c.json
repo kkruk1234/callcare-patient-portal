@@ -1,0 +1,171 @@
+{
+  "call_sid": "CAce32c04a8fb045c116b56ac3ee4d925c",
+  "session_id": "c09e8a48-e107-48e6-8816-37736bb27bb7",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T14:39:33.421589+00:00",
+  "ended_at": "2026-03-08T14:43:39.359677+00:00",
+  "packet_id": "2a364d0e-3f1d-4807-b6c8-9a4b6d103f90",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or difficulty swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "I've had fever, chills, and pain with swallowing. Not difficulty."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swollen lymph nodes or rash?"
+    },
+    {
+      "role": "user",
+      "text": "Swollen lymph nodes, but no rash."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cough, nasal congestion, or runny nose?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any white patches or pus on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I have."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "I tried DayQuil, but it didn't do anything."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing or drooling?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent exposure to someone diagnosed with strep throat or infectious mononucleosis?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. My son was sick with strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of rheumatic fever or heart valve problems?"
+    },
+    {
+      "role": "user",
+      "text": "No. Not that I'm aware of."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "user",
+      "text": "Load."
+    },
+    {
+      "role": "user",
+      "text": "It take this long period."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have symptoms most consistent with strep throat, which is a bacterial infection that often causes sore throat, fever, and swollen lymph nodes. Because I can’t examine you or run tests over the phone, a licensed physician will review this information and may decide that antibiotic treatment is appropriate for you, especially given your symptoms and exposure. For now, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you need pain or fever relief and can take them safely. If you develop any trouble breathing, drooling, worsening throat pain, difficulty swallowing, or a very high fever, please seek urgent in-person care the same day. If you experience severe breathing problems, go to the emergency room immediately. After this call, a physician will review your case and may prescribe medication if appropriate. If you need an in-person exam or testing, please visit urgent care or your primary care clinician, as this service does not include in-person visits."
+    },
+    {
+      "role": "user",
+      "text": "It's not filling."
+    },
+    {
+      "role": "user",
+      "text": "It's not over there."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you likely have strep throat, which is a bacterial infection causing your sore throat, fever, and swollen glands. Because you’re allergic to penicillin, a doctor will review your information and may prescribe a different antibiotic like azithromycin if appropriate. In the meantime, you can use acetaminophen or ibuprofen to help with pain and fever if you can take them safely. If you develop trouble breathing, severe throat pain, drooling, or can’t swallow, please seek urgent in-person care right away. If you notice any signs of airway blockage or severe illness, go to the emergency room immediately. Since this is a phone visit, no tests or exams were done today, but a clinician will review your case and decide on the best treatment. If you need an in-person exam or testing, please visit urgent care or your primary care provider."
+    }
+  ]
+}

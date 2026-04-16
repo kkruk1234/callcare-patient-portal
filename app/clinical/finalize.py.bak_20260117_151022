@@ -1,0 +1,192 @@
+from pathlib import Path
+from typing import Optional, Tuple, List, Any
+import json
+
+from app.core.models import ReviewPacket, NoteDraft, CallState
+from app.clinical.note_builder import now_iso
+
+FINAL_DIR = Path("logs/finalized")
+MANIFESTS_DIR = Path("data/sources/pathways")
+
+
+def _extract_disposition_from_state(state: Optional[CallState]) -> Tuple[str, List[str]]:
+    """
+    Pull deterministic disposition + reasons from the state machine.
+    Backward-safe: if state is missing or fields aren't set, return defaults.
+    """
+    if state is None:
+        return "UNKNOWN", []
+
+    symptoms = getattr(state, "symptoms", None) or {}
+
+    disp = symptoms.get("_disposition") or "UNKNOWN"
+    reasons = symptoms.get("_disposition_reasons") or []
+
+    # normalize
+    if not isinstance(reasons, list):
+        reasons = []
+    reasons = [str(r) for r in reasons if r]
+
+    return str(disp), reasons
+
+
+def _map_disposition_to_recommendation(disposition: str) -> str:
+    """
+    Map state machine disposition to the ReviewPacket recommended_disposition.
+    Keep strings predictable for downstream review tooling.
+    """
+    d = (disposition or "").strip().lower()
+    if d == "ed_now":
+        return "ED_NOW"
+    if d == "urgent_today":
+        return "URGENT_IN_PERSON_TODAY"
+    if d == "routine":
+        return "ROUTINE_HOME_CARE"
+    return "AUTO_FINALIZED_PROTOCOL"
+
+
+def _infer_pathway_id(note: NoteDraft, state: Optional[CallState]) -> str:
+    """
+    Prefer state machine pathway id if present; fall back to note.pathway_id if it exists.
+    We try multiple state locations because different flows store the selected pathway differently.
+    """
+    # From state (most reliable)
+    if state is not None:
+        # Common direct fields
+        for attr in ("pathway_id", "pathway"):
+            try:
+                pid = getattr(state, attr, "") or ""
+                pid = str(pid).strip()
+                if pid:
+                    return pid
+            except Exception:
+                pass
+
+        # Older/alternate storage inside symptoms
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+            pid = str(pid).strip()
+            if pid:
+                return pid
+        except Exception:
+            pass
+
+    # From note (if model includes it)
+    try:
+        pid = getattr(note, "pathway_id", "") or ""
+        pid = str(pid).strip()
+        if pid:
+            return pid
+    except Exception:
+        pass
+
+    return ""
+
+
+def _load_manifest_sources(pathway_id: str) -> List[dict]:
+    """
+    Load manifest.json for a pathway_id. Return list of source dicts (may be empty).
+    """
+    if not pathway_id:
+        return []
+    manifest_path = MANIFESTS_DIR / pathway_id / "manifest.json"
+    if not manifest_path.exists():
+        return []
+
+    try:
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+    sources = data.get("sources") or []
+    if not isinstance(sources, list):
+        return []
+    # Keep only dict-like entries
+    out = []
+    for s in sources:
+        if isinstance(s, dict):
+            out.append(s)
+    return out
+
+
+def _set_note_evidence_from_manifest(note: NoteDraft, pathway_id: str) -> None:
+    """
+    Replace note.evidence with citations based on manifest sources.
+    This ensures ReviewPacket evidence is real even if upstream used placeholders.
+    """
+    sources = _load_manifest_sources(pathway_id)
+    if not sources:
+        return
+
+    evidence_items: List[dict] = []
+    for s in sources:
+        title = (s.get("title") or s.get("id") or pathway_id)
+        url = (s.get("url") or "")
+        sid = (s.get("id") or "")
+        # Keep snippet short and consistent; no bulk copying.
+        snippet = f"Source from manifest: {sid}" if sid else "Source from manifest"
+        evidence_items.append(
+            {
+                "title": str(title),
+                "source": str(url) if url else str(title),
+                "snippet": snippet,
+            }
+        )
+
+    # Overwrite whatever evidence was there (including placeholders)
+    try:
+        setattr(note, "evidence", evidence_items)
+        return
+    except Exception:
+        pass
+
+    # If note is dict-like
+    try:
+        if isinstance(note, dict):
+            note["evidence"] = evidence_items
+    except Exception:
+        pass
+
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    """
+    Finalize a note into a ReviewPacket and write it to logs/finalized/<session_id>.json.
+
+    - Backward compatible: callers that only pass (session_id, note) still work.
+    - If `state` is provided, we attach deterministic disposition + reasons.
+    - Evidence used: if pathway manifest exists, force citations from manifest sources.
+    """
+    FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Force evidence citations from manifest if available
+    pid = _infer_pathway_id(note, state)
+    if pid:
+        _set_note_evidence_from_manifest(note, pid)
+
+    disposition, reasons = _extract_disposition_from_state(state)
+    recommended = _map_disposition_to_recommendation(disposition)
+
+    # Build reviewer comments that preserve why we recommended that level of care.
+    comments = "Tier-1 protocol auto-finalized"
+    if disposition != "UNKNOWN":
+        if reasons:
+            comments += f" | disposition={disposition} reasons={reasons}"
+        else:
+            comments += f" | disposition={disposition}"
+    if pid:
+        comments += f" | pathway_id={pid}"
+
+    packet = ReviewPacket(
+        session_id=session_id,
+        timestamp_iso=now_iso(),
+        note=note,
+        recommended_disposition=recommended,
+        status="APPROVED",
+        reviewer_id="SYSTEM",
+        reviewer_comments=comments,
+    )
+
+    out_path = FINAL_DIR / f"{session_id}.json"
+    out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+    return packet

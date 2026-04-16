@@ -1,0 +1,12 @@
+{
+  "pathway_id": "dental_abscess",
+  "sources": [
+    {
+      "id": "dental_abscess_cdc",
+      "source_id": "dental_abscess_cdc",
+      "title": "Dental abscess reference (starter)",
+      "url": "https://www.ada.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

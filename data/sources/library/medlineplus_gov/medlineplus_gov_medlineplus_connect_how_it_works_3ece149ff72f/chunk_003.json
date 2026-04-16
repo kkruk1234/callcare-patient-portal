@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: How It Works",
+  "url": "https://medlineplus.gov/medlineplus-connect/how-it-works/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "provide responses in different formats. How it looks depends on how it is implemented.\nWeb Application \nThe Web application returns a formatted response page. (Refer to image.) The page is delivered to your EHR or other health system ready to use. The patient or provider may select from the links on the MedlinePlus Connect response page or go directly to the MedlinePlus website.\nView image full size \nSample Web Application response for a problem code \nVisit the Web Application Demonstration page for more examples of Web Application response pages.\nWeb Service \nThe MedlinePlus Connect REST-based Web service provides access to the same information as the Web Application but returns XML, JSON, or JSONP. This gives users greater flexibility to tailor the display and delivery of the information. Organizations can use the Web service response to incorporate MedlinePlus information and links into any health IT interface. An organization implementing the MedlinePlus Connect Web service may select which MedlinePlus links and information to provide to the user.\nVisit the Web Service Demonstration page for more examples of Web Service response pages.\nMore Information \nHow MedlinePlus Connect Works \nMedlinePlus Connect News \nDemonstrations â Web application and Web service \nTechnical information for developers\nMedlinePlus Connect Users and Partners \nMedlinePlus Connect handout - PDF\nFreq",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_how_it_works_3ece149ff72f",
+  "chunk_id": "chunk_003"
+}

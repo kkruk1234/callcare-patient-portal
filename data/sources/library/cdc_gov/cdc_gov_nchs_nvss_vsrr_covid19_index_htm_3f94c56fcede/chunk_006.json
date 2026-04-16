@@ -1,0 +1,10 @@
+{
+  "title": "Provisional COVID-19 Mortality Surveillance",
+  "url": "https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "of data \nProvisional death counts are based on death records received and processed by NCHS as of a specified cutoff date. National provisional counts include deaths occurring within the 50 states and the District of Columbia. NCHS receives the death records from state vital registration offices through the Vital Statistics Cooperative Program. Provisional data are based on available records that meet certain data quality criteria at the time of analysis and may not include all deaths that occurred during a given time period especially for more recent periods. Estimates of completeness are provided. Therefore, they should not be considered comparable with final data and are subject to change.\nCause-of-death classification and definition of deaths \nMortality statistics are compiled in accordance with World Health Organization (WHO) regulations specifying that WHO member nations classify and code causes of death with the current revision of the International Statistical Classification of Diseases and Related Health Problems (ICD). ICD provides the basic guidance used in virtually all countries to code and classify causes of death. It provides not only disease, injury, and poisoning categories but also the rules used to select the single underlying cause of death for tabulation from the several diagnoses that may be reported on a single death certificate, as well as definitions,",
+  "source_type": "library",
+  "source_id": "cdc_gov_nchs_nvss_vsrr_covid19_index_htm_3f94c56fcede",
+  "chunk_id": "chunk_006"
+}

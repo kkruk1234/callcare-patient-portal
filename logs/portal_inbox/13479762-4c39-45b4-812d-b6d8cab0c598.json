@@ -1,0 +1,43 @@
+{
+  "packet_id": "13479762-4c39-45b4-812d-b6d8cab0c598",
+  "created_at": "2026-04-03T21:28:55.657094+00:00",
+  "session_id": "89596735-3380-40db-8a1a-951e8ad6ded6",
+  "pathway_id": "",
+  "base_queries": [
+    "sinus headache diagnosis and management guidelines",
+    "adult headache treatment dosing and contraindications",
+    "headache red flags and when to seek emergency care"
+  ],
+  "queries": [
+    "AAFP sinus headache diagnosis and management guidelines",
+    "AAFP adult headache treatment dosing and contraindications",
+    "MedlinePlus sinus headache diagnosis and management guidelines",
+    "MedlinePlus adult headache treatment dosing and contraindications",
+    "CDC sinus headache diagnosis and management guidelines",
+    "CDC adult headache treatment dosing and contraindications",
+    "NIH sinus headache diagnosis and management guidelines",
+    "NIH adult headache treatment dosing and contraindications",
+    "NICE sinus headache diagnosis and management guidelines",
+    "NICE adult headache treatment dosing and contraindications",
+    "WHO sinus headache diagnosis and management guidelines",
+    "WHO adult headache treatment dosing and contraindications"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Outpatient Primary Care Management of Headaches: Guidelines from the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/0900/p316.html",
+      "accessed": "2026-04-03",
+      "snippet": "Effectiveness of Oral Acute Migraine Treatments over Placebo \"> Medication Outcome Number needed to treat Acetaminophen, 1,000 mg Pain free at 2 hours 12 Aspirin, 1,000 mg Pain free at 2 hours 8 Headache relief at 24 hours 7 Aspirin, 1,000 mg and metoclopramide, 10 mg Pain free at 2 hours 9 Headache relief at 24 hours 6 Frovatriptan (Frova), 2.5 mg Pain free at 2 hours 8 Ibuprofen, 400 mg Pain free at 2 hours 7 Headache relief at 24 hours 4 Naproxen, 500 mg Pain free at 2 hours 11 Naproxen/sumatriptan (Treximet), 500 mg/85 mg Pain free at 2 hours 3 Headache relief at 24 hours 5 Rizatriptan (Maxalt), 10 mg Pain free at 2 hours 3 Headache relief at 24 hours 3 Sumatriptan (Imitrex), 50 mg Pain free at 2 hours 6 Headache relief at 24 hours 6 Sumatriptan, 100 mg Pain free at 2 hours 5 Headache relief at 24 hours 5 Zolmitriptan (Zomig), 1 mg Pain free at 2 hours 7 Zolmitriptan, 2.5 mg 5 Zolmit"
+    },
+    {
+      "title": "Acute Headache in Adults: A Diagnostic Approach | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0900/acute-headache-adults.html",
+      "accessed": "2026-04-03",
+      "snippet": "Conjunctival erythema or lacrimation Rhinorrhea Forehead or facial diaphoresis Upper eyelid ptosis or constricted pupil Other symptoms With or without pericranial tenderness With or without aura Restlessness or agitation Duration 30 minutes to 7 days 4 to 72 hours 15 minutes to Frequency At least 10 attacks in a lifetime At least 5 attacks in a lifetime At least 5 attacks in a lifetime Each cluster attack occurs from every other day to 8 per day Cluster attacks cycle between remission periods of a few months Chronic type diagnosis requirement Symptoms ≥ 15 days per month for > 3 months Symptoms ≥ 15 days per month for > 3 months Remission interval TENSION-TYPE HEADACHE Tension-type headache (TTH) is the most common primary headache disorder but may not be addressed in the clinical setting because it is not typically disabling unless chronic."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male who reports a new headache that started earlier today. The pain is localized to the right side of his forehead and right cheek area just below the eye. He has had a constant runny nose for the past 2 to 3 days but denies nasal congestion, fever, chills, vision changes, eye redness, eye pain, or any swelling or tenderness around the affected areas. There is no history of recent trauma or injury, no sensitivity to light or sound, and no prior history of migraines or similar headaches.\n\nO: Phone encounter only; no vital signs or physical exam available.\n\nA: The working diagnosis is acute headache likely related to viral upper respiratory infection with associated rhinorrhea.\nDifferential:\n1. Viral upper respiratory infection causing headache and rhinorrhea\n2. Sinusitis (less likely given no nasal congestion, no tenderness, no colored nasal discharge)\n3. Cluster headache or trigeminal neuralgia (less likely given no prior history and associated symptoms)\n4. Other causes of unilateral headache such as migraine or tension headache (less likely given no photophobia, phonophobia, or prior history)\n\nP: - First-line medication: Acetaminophen 500 mg orally every 6 hours as needed for headache pain (Physician must verify medication/dosing)\n- Alternatives: Ibuprofen 400 mg orally every 6 to 8 hours as needed for headache pain (Physician must verify medication/dosing)\n- Medication safety considerations: Patient allergic to penicillin; no renal or liver disease reported; monitor for any adverse effects from NSAIDs or acetaminophen\n- Follow-up recommendations: Seek in-person medical care urgently if headache worsens significantly, develops fever, vision changes, or facial swelling; seek emergency care if sudden severe headache or neurological symptoms develop\n- Testing: Not indicated at this time given lack of concerning features; consider imaging or ENT referral if symptoms persist or worsen"
+}

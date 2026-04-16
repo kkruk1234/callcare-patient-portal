@@ -1,0 +1,33 @@
+{
+  "pathway_id": "chest_pain",
+  "sources": [
+    {
+      "id": "chest_pain_src_1",
+      "source_id": "chest_pain_src_1",
+      "title": "chest_pain guideline references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "chest_pain_src_2",
+      "source_id": "chest_pain_src_2",
+      "title": "chest_pain guideline references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "chest_pain_src_3",
+      "source_id": "chest_pain_src_3",
+      "title": "chest_pain guideline references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "chest_pain_src_4",
+      "source_id": "chest_pain_src_4",
+      "title": "chest_pain guideline references (starter)",
+      "url": "https://www.acog.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

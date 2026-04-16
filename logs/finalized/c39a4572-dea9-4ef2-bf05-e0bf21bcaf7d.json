@@ -1,0 +1,133 @@
+{
+  "packet_id": "81b82210-bd2f-453a-83b2-f48496c0152d",
+  "created_at": "2026-02-12T18:49:13.939250+00:00",
+  "session_id": "c39a4572-dea9-4ef2-bf05-e0bf21bcaf7d",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a3": "no",
+    "intake_q4": "Where exactly is the chest pain located, and does it change with breathing or movement?",
+    "intake_a4": "next to the sternum and it gets a little worse with deep breaths",
+    "intake_q5": "Any recent trauma, heavy lifting, or coughing that might have triggered the chest pain?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Any fever, chills, or recent infections?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a7": "no",
+    "intake_q8": "Any swelling, redness, or tenderness in your chest or nearby areas?",
+    "intake_a8": "tenderness when I press on it",
+    "intake_q9": "Have you tried any treatments or medications for the chest pain, and did they help?",
+    "intake_a9": "no",
+    "intake_summary": "A patient presents with sharp chest pain next to the sternum for 1 week, worsened by deep breaths and tenderness on palpation, triggered by heavy lifting. No associated symptoms like shortness of breath, sweating, nausea, or radiation, and no history of heart or lung disease. No fever or infection signs.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "yes"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "liver disease status is yes/unknown (avoid hepatotoxic meds / adjust dosing)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartattack.html",
+        "https://medlineplus.gov/lab-tests/troponin-test/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain localized next to the sternum that started one week ago. The pain worsens with deep breaths and is tender to palpation. The pain began after heavy lifting. She denies shortness of breath, sweating, nausea, radiation of pain to the arm or jaw, fever, chills, or recent infections. There is no history of heart disease, lung problems, or blood clots. She has not tried any treatments or medications for the chest pain. She has known liver disease but no renal disease and no known medication allergies. Patient is not pregnant. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings beyond patient report.\n\nA: \nThe working diagnosis is costochondritis, an inflammation of the costal cartilage causing localized chest pain worsened by movement and palpation, often triggered by physical strain such as heavy lifting. This diagnosis fits the clinical presentation of sharp, localized chest pain next to the sternum with tenderness and no systemic symptoms.\n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal chest pain (e.g., muscle strain) \n3. Pleurodynia or pleuritis \n4. Cardiac causes (less likely given absence of typical symptoms)\n\nP: \n- First-line medication: \n- Acetaminophen 500-1000 mg orally every 6 hours as needed for pain, avoiding NSAIDs due to liver disease (EVID_2).\n\n- Alternatives: \n - Ibuprofen 400-600 mg orally every 6-8 hours as needed for pain and inflammation for 7-10 days, unless contraindicated by liver disease (EVID_2, EVID_3). (avoid in renal disease; especially severe CKD/dialysis)\n - Naproxen dosing and duration not specified in evidence; use with caution due to liver disease (EVID_2). \n\n- Medication safety considerations: \n Avoid NSAIDs if liver disease is severe or decompensated; acetaminophen should be used cautiously and not exceed recommended doses due to liver disease. No known medication allergies. Pregnancy not applicable.\n\n- Return precautions: \n Seek immediate care if chest pain worsens, is accompanied by shortness of breath, sweating, nausea, radiation to arm or jaw, or any new systemic symptoms.\n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "www.nhs.uk Costochondritis - NHS authoritative_patient_clinician NHS: practical outpatient management language msk_chest_wall_pain 2026-02-08T14:37:23.207462+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "musculoskeletal pain, an injection of a 2-mL mixture of 1 mL of 40 mg/mL of methylprednisolone acetate or equivalent and 1 mL of local anesthetic can work quite well helping to resolve pain if symptoms persist for more than a few months.18 Gaps in the Evidence-Based Knowledge The mechanism of costochondritis is unclear and is often a diagnosis of exclusion.…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "istory and physical examination of the chest that document reproducible pain by palpation over the costal cartilages are usually all that is needed to make the diagnosis in children, adolescents, and young adults. Patients older than 35 years, those with a history or risk of coronary artery disease, and any patient with cardiopulmonary symptoms should have a…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/900fa94e5b4c0ed8/content.txt",
+        "snippet": "all pain without associated symptoms such as shortness of breath, dizziness, nausea, and headache. Pain may be reproducible on a physical exam without vital sign abnormalities or visible chest lesions, such as swelling or rash. Diagnostic testing must be guided by the presence of risk factors for life-threatening conditions. Labs, ECG, and chest x-ray should…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/0ab356777c93e3b9/content.txt",
+        "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/b41df6255a6ccd0d/content.txt",
+        "snippet": "Am Fam Physician. 2021;104(1):73-78 Patient information: See related handout on costochondritis. Author disclosure: No relevant financial affiliations. Costochondritis is a common cause of chest pain. It most commonly occurs in adults between 40 and 50 years of age, with a slight predominance in women. Although musculoskeletal and other chest wall conditions…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/3ca85874a0800355/content.txt",
+      "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/0ab356777c93e3b9/content.txt",
+      "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "deep breathing, and exertional activities.3 History of an antecedent illness with coughing, recent strenuous exercise, or physical activities that stress the upper extremity is common. Although the second to fifth costochondral joints are most often affected, especially ribs three and four, any of the seven costochondral junctions can be involved. Pain can b…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/b41df6255a6ccd0d/content.txt",
+      "snippet": "Am Fam Physician. 2021;104(1):73-78 Patient information: See related handout on costochondritis. Author disclosure: No relevant financial affiliations. Costochondritis is a common cause of chest pain. It most commonly occurs in adults between 40 and 50 years of age, with a slight predominance in women. Although musculoskeletal and other chest wall conditions…"
+    },
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    }
+  ],
+  "state": null
+}

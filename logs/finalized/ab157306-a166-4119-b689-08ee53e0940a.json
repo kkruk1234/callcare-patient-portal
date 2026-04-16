@@ -1,0 +1,44 @@
+{
+  "packet_id": "c580b5cc-1878-4cf4-85ec-58d164e1c398",
+  "created_at": "2026-01-19T15:30:09.138079+00:00",
+  "session_id": "ab157306-a166-4119-b689-08ee53e0940a",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old male presents with burning urination without fever, flank pain, or testicular pain. No systemic symptoms reported. There are no known medication allergies. Pregnancy status is not captured. The clinical picture is consistent with male dysuria, raising concern for UTI in male (complicated by definition) versus urethritis or prostatitis.\n\nO: No physical exam available due to phone-only encounter. Vital signs and physical findings are not assessed. No laboratory results available at this time.\n\nA:  \n  - Working diagnosis (most likely): UTI in male (complicated by definition)  \n  - Differential: urethritis (gonorrhea/chlamydia), prostatitis, other causes of male dysuria  \n  - Red flags considered: fever, flank pain, testicular pain—all denied\n\nP:  \n  - Disposition: Urgent care or primary care visit recommended for urine analysis, urine culture, and STI testing to confirm diagnosis and guide therapy.  \n  - Plan: Empiric antibiotic therapy may be initiated after review by physician, considering local resistance patterns and patient allergy status. Recommend hydration and analgesics for symptom relief. Avoid sexual activity until evaluation and treatment are complete.  \n  - Safety net: Advise patient to seek immediate care if fever, worsening pain, testicular swelling, or systemic symptoms develop, or if symptoms fail to improve within 48–72 hours after starting treatment.\n\nEvidence (snippets used): None",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aao.org/",
+        "snippet": "Listed in pathway manifest https://www.aao.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": []
+}

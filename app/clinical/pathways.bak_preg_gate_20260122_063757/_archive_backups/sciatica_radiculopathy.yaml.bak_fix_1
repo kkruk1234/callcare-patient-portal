@@ -1,0 +1,26 @@
+id: sciatica_radiculopathy
+version: 0.1
+match:
+  any_keywords: ["sciatica", "shooting leg pain", "pain down the leg", "radiculopathy", "pinched nerve", "lumbar radicular pain"]
+questions:
+  - id: cauda
+    prompt: "Any new trouble controlling urine or stool, or numbness in the groin/saddle area? (yes/no)"
+    store_as: cauda_redflag
+    type: yesno
+
+  - id: weakness
+    prompt: "Any new significant leg weakness or foot drop? (yes/no)"
+    store_as: motor_weakness
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever, cancer history, IV drug use, or recent serious infection? (yes/no)"
+    store_as: systemic_redflags
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["cauda","weakness","fever"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

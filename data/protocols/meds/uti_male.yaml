@@ -1,0 +1,38 @@
+# Clinician-facing medication/dosing protocol for: uti_male
+# Sources (high-level):
+# - JAMA RCT (afebrile men): 7 days noninferior to 14 days for ciprofloxacin or TMP-SMX
+# - IDSA complicated UTI guidance (notes longer duration if prostatitis suspected)
+# - AAFP review (men generally minimum 7 days; culture important)
+# Notes:
+# - Conservative default: obtain urine culture, treat 7 days if afebrile lower UTI.
+# - Escalate duration and evaluate for prostatitis/pyelo if febrile/systemic.
+
+rx_options:
+  - med: "Trimethoprim-sulfamethoxazole (TMP-SMX) DS"
+    dosing: "160/800 mg (1 DS tab) PO twice daily x 7 days"
+    exclusions: "Sulfa allergy; significant drug interactions; consider renal dosing; avoid near-term pregnancy (not applicable here but keep consistent)."
+    notes: "Option for afebrile lower UTI in men when organism likely susceptible; culture strongly preferred."
+
+  - med: "Ciprofloxacin"
+    dosing: "500 mg PO twice daily x 7 days"
+    exclusions: "Avoid if significant QT risk/drug interactions; tendon/neuropathy/aortic risk counseling per standard; reserve when benefits outweigh risks; avoid if local resistance high or prior FQ-resistant isolate."
+    notes: "Effective oral option; consider when TMP-SMX unsuitable or resistance patterns favor FQ."
+
+  - med: "Nitrofurantoin (macrocrystals/monohydrate)"
+    dosing: "100 mg PO twice daily x 7 days"
+    exclusions: "Avoid if suspected prostatitis or pyelonephritis; renal function limits per local policy; allergy."
+    notes: "Lower-tract only; do NOT use if concern for tissue-invasive infection."
+
+supportive_care:
+  - item: "Hydration"
+    details: "Encourage oral fluids as tolerated."
+
+followup_and_safety:
+  - item: "Culture / evaluation expectation"
+    details: "Urine culture is strongly recommended in men (before antibiotics when feasible). Evaluate for anatomic/obstructive risk factors if recurrent."
+
+  - item: "Escalation: possible prostatitis or pyelonephritis"
+    details: "If fever, chills, pelvic/perineal pain, flank pain, systemic illness, nausea/vomiting, or bacteremia concern → treat longer (often 10–14 days) and consider in-person evaluation."
+
+  - item: "Return precautions"
+    details: "Urgent evaluation for fever, rigors, flank pain, vomiting, worsening symptoms, urinary retention, or concern for sepsis."

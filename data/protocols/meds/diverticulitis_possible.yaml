@@ -1,0 +1,22 @@
+rx_options:
+- med: Amoxicillin-clavulanate
+  dosing: 875/125 mg PO BID x 7 days (reviewer to confirm)
+  exclusions: Immediate-type beta-lactam allergy; adjust in renal impairment.
+  notes: One common outpatient option when antibiotics are used.
+- med: Ciprofloxacin + metronidazole
+  dosing: Cipro 500 mg PO BID + Metro 500 mg PO TID x 7 days (reviewer)
+  exclusions: Pregnancy cautions; QT/tendon risks; interactions; avoid alcohol with
+    metronidazole.
+  notes: Alternative regimen depending on guidance and patient factors.
+supportive_care:
+- item: Diet
+  details: Clear liquids for 24 hours if severe pain/nausea, then advance as tolerated.
+- item: Pain control
+  details: Avoid NSAIDs if possible; acetaminophen if safe.
+followup_and_safety:
+- item: Re-evaluation
+  details: If worsening pain, persistent fever, vomiting, or not improving within
+    24–48h—needs evaluation (imaging may be required).
+- item: Urgent/ED now
+  details: Severe abdominal pain with guarding, fainting, confusion, inability to
+    keep fluids down, or signs of sepsis.

@@ -1,0 +1,116 @@
+{
+  "packet_id": "e62d0900-147f-4c11-a6cc-96afb87ae794",
+  "created_at": "2026-03-03T22:32:13.752392+00:00",
+  "session_id": "23dfbe61-0e35-45db-b963-0797767ba006",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, coughing, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the quality of the pain and whether anything makes it better or worse?",
+    "intake_a10": "dull ache and good posture makes it better and leaning on the area when sitting makes it worse",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adult",
+      "adult back pain treatment dosing acetaminophen mg duration",
+      "red flags in adult back pain evaluation"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. She denies any recent trauma, fever, chills, weight loss, respiratory symptoms, numbness, weakness, or urinary symptoms. The pain improves with good posture and worsens when leaning on the affected area while sitting. She has tried acetaminophen (Tylenol) without significant relief. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely due to strain or minor soft tissue injury localized to the left lower rib cage area. \nDifferential:\n1. Musculoskeletal strain or intercostal muscle irritation\n2. Costochondritis or rib inflammation\n3. Occult rib fracture or contusion\n4. Referred pain from visceral causes (less likely given absence of systemic symptoms)\n\nP:\n- First-line medication: Acetaminophen 650 mg orally every 6 hours as needed for pain, not to exceed 3000 mg per day.\n- Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen 400 mg orally every 6 to 8 hours as needed, if no contraindications.\n- Medication safety considerations: Avoid NSAIDs if history of gastrointestinal bleeding or renal impairment; acetaminophen dosing should not exceed recommended maximum to prevent hepatotoxicity.\n- Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, new numbness or weakness, shortness of breath, chest pain, or unexplained weight loss.\n- Testing: Not indicated at this time given absence of red flag symptoms; imaging or labs only if symptoms worsen or fail to improve after conservative management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "WHO releases guidelines on chronic low back pain",
+        "source": "who.int",
+        "url": "https://www.who.int/news/item/07-12-2023-who-releases-guidelines-on-chronic-low-back-pain",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "Back Pain - StatPearls - NCBI Bookshelf",
+        "source": "ncbi.nlm.nih.gov",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538173/",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "Low Back Pain | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/back-pain.html",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians - PubMed",
+        "source": "pubmed.ncbi.nlm.nih.gov",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28192789/",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "WHO releases guidelines on chronic low back pain",
+      "source": "who.int",
+      "snippet": ""
+    },
+    {
+      "title": "Back Pain - StatPearls - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "snippet": ""
+    },
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Low Back Pain | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians - PubMed",
+      "source": "pubmed.ncbi.nlm.nih.gov",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

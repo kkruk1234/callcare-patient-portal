@@ -1,0 +1,26 @@
+id: contact_dermatitis
+version: 0.1
+match:
+  any_keywords: ["rash after new soap", "rash after detergent", "poison ivy", "rash after touching", "contact dermatitis", "rash from chemical"]
+questions:
+  - id: face
+    prompt: "Is the rash on the face or around the eyes? (yes/no)"
+    store_as: face_area
+    type: yesno
+
+  - id: blisters
+    prompt: "Any large blisters or rapidly spreading rash? (yes/no)"
+    store_as: large_blisters
+    type: yesno
+
+  - id: breathing
+    prompt: "Any trouble breathing or swelling of lips/tongue? (yes/no)"
+    store_as: airway
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["face", "blisters", "breathing"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

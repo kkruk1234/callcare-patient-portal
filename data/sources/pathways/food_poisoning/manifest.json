@@ -1,0 +1,33 @@
+{
+  "pathway_id": "food_poisoning",
+  "sources": [
+    {
+      "id": "food_poisoning_src_1",
+      "source_id": "food_poisoning_src_1",
+      "title": "food_poisoning references (starter)",
+      "url": "https://www.aao.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "food_poisoning_src_2",
+      "source_id": "food_poisoning_src_2",
+      "title": "food_poisoning references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "food_poisoning_src_3",
+      "source_id": "food_poisoning_src_3",
+      "title": "food_poisoning references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "food_poisoning_src_4",
+      "source_id": "food_poisoning_src_4",
+      "title": "food_poisoning references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

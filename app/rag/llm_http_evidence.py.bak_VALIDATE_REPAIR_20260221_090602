@@ -1,0 +1,220 @@
+import os
+import json
+import time
+import re
+from urllib.parse import urlparse
+
+# Keep allowlist tight and clearly "authoritative"
+ALLOWLIST_DOMAINS = {
+    "cdc.gov",
+    "nih.gov",
+    "ncbi.nlm.nih.gov",
+    "medlineplus.gov",
+    "who.int",
+    "nice.org.uk",
+    "nhs.uk",
+    "aafp.org",
+    "idsociety.org",
+    "acog.org",
+    "acep.org",
+    "aaos.org",
+    "ginasthma.org",
+    "goldcopd.org",
+    "escardio.org",
+    "heart.org",
+    "diabetes.org",
+    "uptodate.com",  # if you have access; otherwise you can remove
+    "merckmanuals.com",
+}
+
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini")
+
+def _domain_allowed(url: str) -> bool:
+    try:
+        host = urlparse(url).netloc.lower()
+        host = host.split(":")[0]
+        if host.startswith("www."):
+            host = host[4:]
+        # Allow subdomains of allowlist entries
+        for d in ALLOWLIST_DOMAINS:
+            if host == d or host.endswith("." + d):
+                return True
+        return False
+    except Exception:
+        return False
+
+def _extract_title_and_snippet(html: str) -> tuple[str, str]:
+    # Very lightweight parsing: <title> + meta description
+    title = ""
+    snippet = ""
+    try:
+        m = re.search(r"<title[^>]*>(.*?)</title>", html, flags=re.I | re.S)
+        if m:
+            title = re.sub(r"\s+", " ", re.sub(r"<.*?>", "", m.group(1))).strip()
+    except Exception:
+        title = ""
+    try:
+        m = re.search(
+            r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']',
+            html,
+            flags=re.I | re.S,
+        )
+        if m:
+            snippet = re.sub(r"\s+", " ", m.group(1)).strip()
+    except Exception:
+        snippet = ""
+    return title, snippet
+
+def _http_fetch(url: str, timeout: float = 4.0) -> tuple[str, str]:
+    # Returns (title, snippet). Never raises.
+    try:
+        import requests
+        r = requests.get(url, timeout=timeout, headers={"User-Agent": "CallCare/1.0"})
+        text = r.text or ""
+        title, snippet = _extract_title_and_snippet(text[:200000])  # cap
+        return title, snippet
+    except Exception:
+        return "", ""
+
+def _openai_chat_json(prompt: str, model: str) -> dict:
+    """
+    Calls OpenAI Chat Completions via HTTP to avoid SDK version drift.
+    Expects the assistant to return pure JSON.
+    """
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        raise RuntimeError("OPENAI_API_KEY not set")
+
+    import requests
+
+    payload = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": "Return ONLY valid JSON. No prose. No markdown."},
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": 0.2,
+    }
+    t0 = time.time()
+    resp = requests.post(
+        "https://api.openai.com/v1/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json=payload,
+        timeout=20,
+    )
+    dt = time.time() - t0
+    if resp.status_code >= 400:
+        raise RuntimeError(f"OpenAI HTTP {resp.status_code}: {resp.text[:300]}")
+    data = resp.json()
+    content = data["choices"][0]["message"]["content"]
+    try:
+        obj = json.loads(content)
+    except Exception as e:
+        raise RuntimeError(f"LLM returned non-JSON: {content[:200]}") from e
+    obj["_latency_s"] = dt
+    return obj
+
+def _make_evidence_ref(EvidenceRef, title: str, url: str, snippet: str):
+    """
+    Be resilient to EvidenceRef schema drift: try common field names.
+    """
+    candidates = [
+        {"title": title, "source": url, "snippet": snippet},
+        {"title": title, "url": url, "snippet": snippet},
+        {"title": title, "source": url},
+        {"title": title, "url": url},
+        {"source": url, "snippet": snippet},
+        {"url": url, "snippet": snippet},
+        {"source": url},
+        {"url": url},
+    ]
+    last = None
+    for d in candidates:
+        try:
+            return EvidenceRef(**d)
+        except Exception as e:
+            last = e
+            continue
+    raise last or RuntimeError("Could not construct EvidenceRef")
+
+def llm_http_evidence(
+    *,
+    diagnosis_hint: str,
+    chief_complaint: str,
+    max_urls: int = 6,
+    min_urls: int = 4,
+    trace_fn=None,
+):
+    """
+    Returns a list[EvidenceRef]-compatible objects.
+    No FAISS. No auto-acquire. No diagnosis-specific cheat lists.
+    """
+    if trace_fn:
+        trace_fn("llm_http_evidence_start", dx=diagnosis_hint, cc=chief_complaint, model=DEFAULT_MODEL)
+
+    prompt = f"""
+You are selecting authoritative medical references for an AI telephone triage note.
+Return JSON with this schema exactly:
+{{
+  "urls": ["https://...","https://..."]
+}}
+
+Rules:
+- Return {min_urls} to {max_urls} URLs.
+- ONLY choose sources from these domains (including subdomains): {sorted(ALLOWLIST_DOMAINS)}
+- Prefer clinical guidance pages that include outpatient treatment and (if relevant) medication dosing.
+- Avoid off-topic or specialty drug monographs unrelated to the condition.
+- Prefer guideline/clinical summary pages over news articles.
+- No duplicate URLs.
+Input:
+- Chief complaint: {chief_complaint}
+- Working diagnosis hint: {diagnosis_hint}
+""".strip()
+
+    obj = _openai_chat_json(prompt, DEFAULT_MODEL)
+    urls = obj.get("urls") or []
+    if not isinstance(urls, list):
+        urls = []
+
+    # sanitize + allowlist + dedupe
+    seen = set()
+    cleaned = []
+    for u in urls:
+        if not isinstance(u, str):
+            continue
+        u = u.strip()
+        if not (u.startswith("http://") or u.startswith("https://")):
+            continue
+        if not _domain_allowed(u):
+            continue
+        if u in seen:
+            continue
+        seen.add(u)
+        cleaned.append(u)
+        if len(cleaned) >= max_urls:
+            break
+
+    if trace_fn:
+        trace_fn("llm_http_evidence_urls", llm_urls=len(urls), allowed_urls=len(cleaned), latency_s=obj.get("_latency_s"))
+
+    # Build EvidenceRef objects
+    from app.core.models import EvidenceRef  # imported here to keep module light
+
+    refs = []
+    for u in cleaned:
+        title, snippet = _http_fetch(u, timeout=4.0)
+        if not title:
+            title = u
+        if not snippet:
+            snippet = "Authoritative clinical reference (see source)."
+        try:
+            ref = _make_evidence_ref(EvidenceRef, title=title, url=u, snippet=snippet)
+            refs.append(ref)
+        except Exception as e:
+            if trace_fn:
+                trace_fn("llm_http_evidence_ref_error", url=u, err_type=type(e).__name__, err=str(e))
+
+    if trace_fn:
+        trace_fn("llm_http_evidence_done", refs=len(refs))
+
+    return refs

@@ -1,0 +1,57 @@
+{
+  "packet_id": "2e6d33d8-7c98-418c-bff9-fbfc6880b47d",
+  "created_at": "2026-04-03T20:44:34.290158+00:00",
+  "session_id": "14d36987-9c9b-4cb0-a34e-573fea7595b3",
+  "pathway_id": "",
+  "base_queries": [
+    "red eye diagnosis and management guidelines adults",
+    "treatment and dosing for red eye in adults mg duration contraindications",
+    "red flags and return precautions for red eye with photophobia"
+  ],
+  "queries": [
+    "AAFP red eye diagnosis and management guidelines adults",
+    "AAFP treatment and dosing for red eye in adults mg duration contraindications",
+    "MedlinePlus red eye diagnosis and management guidelines adults",
+    "MedlinePlus treatment and dosing for red eye in adults mg duration contraindications",
+    "CDC red eye diagnosis and management guidelines adults",
+    "CDC treatment and dosing for red eye in adults mg duration contraindications",
+    "NIH red eye diagnosis and management guidelines adults",
+    "NIH treatment and dosing for red eye in adults mg duration contraindications",
+    "NICE red eye diagnosis and management guidelines adults",
+    "NICE treatment and dosing for red eye in adults mg duration contraindications",
+    "WHO red eye diagnosis and management guidelines adults",
+    "WHO treatment and dosing for red eye in adults mg duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Diagnosis and Management of Red Eye in Primary Care | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2010/0115/p137.html",
+      "accessed": "2026-04-03",
+      "snippet": "Chlamydial conjunctivitis should be suspected in sexually active patients who have typical signs and symptoms and do not respond to standard antibacterial treatment. 2 Patients with chlamydial infection also may present with chronic follicular conjunctivitis. Polymerase chain reaction testing of conjunctival scrapings is diagnostic, but is not usually needed. Treatment includes topical therapy with erythromycin ophthalmic ointment, and oral therapy with azithromycin (Zithromax; single 1-g dose) or doxycycline (100 mg twice a day for 14 days) to clear the genital infection. 4 The patient's sexual partners also must be treated."
+    },
+    {
+      "title": "Conjunctivitis | Pink Eye | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/pinkeye.html",
+      "accessed": "2026-04-03",
+      "snippet": "The information on this site should not be used as a substitute for professional medical care or advice. Contact a health care provider if you have questions about your health."
+    },
+    {
+      "title": "Diagnosis and Management of Red Eye",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2010/0115/p137.pdf",
+      "accessed": "2026-04-03",
+      "snippet": ""
+    },
+    {
+      "title": "Eye redness: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/003031.htm",
+      "accessed": "2026-04-03",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old man who reports waking up this morning with redness in his right eye. He describes mild pain and photophobia but denies discharge, vision changes, or a sensation of a foreign body. There is no history of trauma or known exposure to eye infections, although he was in a busy grocery store recently. He denies headache, nausea, vomiting, or any symptoms in the left eye. There is no history of glaucoma, corticosteroid eye drop use, or contact lens wear.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute unilateral conjunctivitis, likely viral given the photophobia and absence of discharge or trauma.\nDifferential:\n1. Viral conjunctivitis\n2. Early bacterial conjunctivitis\n3. Iritis or anterior uveitis\n4. Allergic conjunctivitis\n\nP: - First-line medication: Artificial tears eye drops, 1-2 drops in the affected eye every 4 hours as needed for comfort (Physician must verify medication/dosing)\n- Alternatives: Topical antibiotic eye drops such as erythromycin ophthalmic ointment 0.5%, apply 1 cm ribbon to the affected eye 4 times daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; no pregnancy; no renal or liver disease; no prior medication trials reported; monitor for any worsening symptoms or adverse reactions\n- Follow-up recommendations: Seek in-person medical care urgently if vision changes, worsening pain, increased redness, or discharge develop; seek emergency care if severe eye pain or sudden vision loss occurs\n- Testing: Not indicated at this time for mild symptoms; consider slit lamp exam if symptoms worsen or do not improve within 3-5 days"
+}

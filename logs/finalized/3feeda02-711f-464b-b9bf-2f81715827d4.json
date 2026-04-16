@@ -1,0 +1,136 @@
+{
+  "packet_id": "d694b198-108c-4d79-8f55-fccf09f7491f",
+  "created_at": "2026-02-09T15:06:46.128863+00:00",
+  "session_id": "3feeda02-711f-464b-b9bf-2f81715827d4",
+  "chief_complaint": "I have a rash",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the rash start?",
+    "intake_a1": "last week",
+    "intake_q2": "Where on your body is the rash located?",
+    "intake_a2": "my back",
+    "intake_q3": "Can you describe what the rash looks like and if it is itchy or painful?",
+    "intake_a3": "itchy, painful, and red",
+    "intake_q4": "Have you noticed any blisters, oozing, or crusting on the rash?",
+    "intake_a4": "crusting",
+    "intake_q5": "Any fever, chills, or feeling generally unwell since the rash started?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications on the rash so far?",
+    "intake_a6": "topical ezcema cream",
+    "intake_q7": "Any history of allergies, eczema, or other skin conditions?",
+    "intake_a7": "eczema",
+    "intake_q8": "Have you noticed any spreading of the rash or new areas affected since it started?",
+    "intake_a8": "no",
+    "intake_q9": "Any recent new soaps, detergents, or exposures to chemicals or plants?",
+    "intake_a9": "no",
+    "intake_q10": "Have you noticed any swollen lymph nodes near the rash or any increase in pain or redness recently?",
+    "intake_a10": "no",
+    "age_years": 73,
+    "allergies": "morphine",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/lab-tests/rash-evaluation/",
+        "https://www.nhs.uk/conditions/insect-bites-and-stings/",
+        "https://www.nhs.uk/conditions/scarlet-fever/",
+        "https://www.nhs.uk/conditions/pityriasis-rosea/",
+        "https://www.nhs.uk/conditions/heat-rash-prickly-heat/",
+        "https://www.nhs.uk/conditions/erythema-multiforme/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 73-year-old female presenting with a rash on her back that started about one week ago. She describes the rash as itchy, painful, and red with crusting present. She has a history of eczema and has been using a topical eczema cream without improvement. She denies fever, chills, feeling unwell, spreading of the rash, new areas affected, swollen lymph nodes, or increased pain or redness. There have been no recent exposures to new soaps, detergents, chemicals, or plants. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nThe working diagnosis is an eczematous rash with possible secondary crusting, likely due to irritation or mild superinfection given the crusting and pain. The history of eczema supports an exacerbation of her underlying skin condition.\n\nDifferential: \n1. Eczema flare with secondary bacterial infection \n2. Contact dermatitis \n3. Herpes simplex or zoster infection (less likely without vesicles or systemic symptoms) \n4. Other inflammatory dermatoses (e.g., psoriasis, but less likely given history and presentation)\n\nP: \n- First-line medication: Topical corticosteroid such as triamcinolone acetonide 0.1% cream applied twice daily for 7–14 days; avoid if skin is broken or severely infected. Dosing details were not found in retrieved evidence—prescriber should verify. \n- Alternatives: \n - Topical calcineurin inhibitors (e.g., tacrolimus ointment) for steroid-sparing effect, especially if long-term use is anticipated; dosing and duration per product guidelines. \n - Oral antihistamines for itch relief (e.g., cetirizine 10 mg daily) if itching is severe. \n - If signs of bacterial infection worsen, consider oral antibiotics after clinical evaluation. \n- Medication safety considerations: No known medication allergies except morphine; no pregnancy risk; no renal or liver disease; topical corticosteroids should be used cautiously in elderly skin to avoid atrophy. \n- Return precautions: Seek in-person evaluation if rash worsens, spreads, develops new symptoms such as fever, increased pain, swelling, or if crusting worsens or does not improve within 7 days. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Discoid eczema - NHS",
+        "source": "https://www.nhs.uk/conditions/discoid-eczema/",
+        "snippet": "ch of discoid eczema, but most people get several patches. The skin between the patches is often dry. Patches of discoid eczema can sometimes become infected. Signs of an infection can include: the patches oozing a lot of fluid a yellow crust developing over the patches the skin around the patches becoming hot, swollen and tender or painful feeling sick feel…"
+      },
+      {
+        "title": "Erythema multiforme - NHS",
+        "source": "https://www.nhs.uk/conditions/erythema-multiforme/",
+        "snippet": "h or on your lips, eyes, anus or genitals. This can be painful. Other symptoms You may also have other symptoms such as: a high temperature headache body aches and pains feeling generally unwell Non-urgent advice: See a GP if: you have symptoms of erythema multiforme erythema multiforme keeps coming back It may be possible to treat the cause of your symptoms…"
+      },
+      {
+        "title": "Rash | Dermatitis | Skin Rash | MedlinePlus",
+        "source": "https://medlineplus.gov/rashes.html",
+        "snippet": "ests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Rashes URL of this page: https://medlineplus.gov/rashes.html Rashes Also called: Dermatitis, Skin rash On this page Basics Summary Start Here Diagnosis and Tests Treatments and Therapies Learn More Related Issues Specifics See, Play and Learn Images Test Your Knowledge Research…"
+      },
+      {
+        "title": "Rash Evaluation: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/rash-evaluation/",
+        "snippet": "ducation and Research; c1998-2024. Contact dermatitis: Diagnosis and treatment; 2020 Jun 19 [cited 2024 Mar 22]; [about 6 screens]. Available from: https://www.mayoclinic.org/diseases-conditions/contact-dermatitis/diagnosis-treatment/drc-20352748 Mayo Clinic [Internet]. Mayo Foundation for Medical Education and Research; c1998-2024.Dermatitis; 2020 Jun 19 [c…"
+      },
+      {
+        "title": "Insect bites and stings - NHS",
+        "source": "https://www.nhs.uk/conditions/insect-bites-and-stings/",
+        "snippet": "a rash that's swollen, raised or itchy. These can be signs of a serious allergic reaction and may need immediate treatment in hospital. Page last reviewed: 01 June 2023 Next review due: 01 June 2026 Next : Treatment Support links Home Health A to Z NHS services Live Well Mental health Care and support Pregnancy COVID-19 NHS App Find my NHS number View your G…"
+      },
+      {
+        "title": "Scarlet fever - NHS",
+        "source": "https://www.nhs.uk/conditions/scarlet-fever/",
+        "snippet": "﻿ Scarlet fever - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Scarlet fever Scarlet fever is a contagious infection that mostly affects young children. It&#x27;s easily treated with antibiotics. S…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Rash Evaluation: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/rash-evaluation/",
+      "snippet": ". Additional symptoms can vary, depending on the cause of the rash. While most rashes are not serious, in some cases, a rash can be a sign of a serious health condition. Call your provider if you or your child has a skin rash with any of the following symptoms: Severe pain. Blisters, especially if they affect the skin around the eyes, mouth, or genitals. Yel…"
+    },
+    {
+      "title": "Insect bites and stings - NHS",
+      "source": "https://www.nhs.uk/conditions/insect-bites-and-stings/",
+      "snippet": "a rash that's swollen, raised or itchy. These can be signs of a serious allergic reaction and may need immediate treatment in hospital. Page last reviewed: 01 June 2023 Next review due: 01 June 2026 Next : Treatment Support links Home Health A to Z NHS services Live Well Mental health Care and support Pregnancy COVID-19 NHS App Find my NHS number View your G…"
+    },
+    {
+      "title": "Scarlet fever - NHS",
+      "source": "https://www.nhs.uk/conditions/scarlet-fever/",
+      "snippet": "﻿ Scarlet fever - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Scarlet fever Scarlet fever is a contagious infection that mostly affects young children. It&#x27;s easily treated with antibiotics. S…"
+    },
+    {
+      "title": "Pityriasis rosea - NHS",
+      "source": "https://www.nhs.uk/conditions/pityriasis-rosea/",
+      "snippet": "atments like emollients or antihistamines you have a rash that has not gone away after 3 months How you get pityriasis rosea The exact cause of pityriasis rosea is not known. It may be caused by a virus. Pityriasis rosea cannot spread from person to person. Page last reviewed: 07 September 2023 Next review due: 07 September 2026 Support links Home Health A t…"
+    },
+    {
+      "title": "Heat rash (prickly heat) - NHS",
+      "source": "https://www.nhs.uk/conditions/heat-rash-prickly-heat/",
+      "snippet": "﻿ Heat rash (prickly heat) - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Heat rash (prickly heat) Heat rash is uncomfortable, but usually harmless. It usually gets better on its own after a f…"
+    },
+    {
+      "title": "Erythema multiforme - NHS",
+      "source": "https://www.nhs.uk/conditions/erythema-multiforme/",
+      "snippet": "﻿ Erythema multiforme - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Erythema multiforme Erythema multiforme is a skin condition that can be caused by an infection or some medicines. It usuall…"
+    }
+  ],
+  "state": null
+}

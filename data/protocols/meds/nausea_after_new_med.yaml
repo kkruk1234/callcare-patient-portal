@@ -1,0 +1,27 @@
+# Clinician-facing medication/dosing protocol for: nausea_after_new_med
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: "Ondansetron"
+    dosing: "4–8 mg PO/ODT q8h PRN nausea/vomiting (short course)"
+    exclusions: "QT prolongation risk; concurrent QT-prolonging drugs; severe hepatic impairment (max 8 mg/day); hypersensitivity"
+    notes: "Use lowest effective dose; review interaction risk."
+  - med: "Promethazine"
+    dosing: "12.5–25 mg PO q6–8h PRN (clinician judgment)"
+    exclusions: "Sedation/fall risk; anticholinergic burden; avoid in children <2; caution in elderly"
+    notes: "Consider when ondansetron not appropriate; counsel sedation."
+  - med: "Metoclopramide"
+    dosing: "5–10 mg PO TID-QID PRN (short course)"
+    exclusions: "Parkinsonism, seizure disorder, bowel obstruction; dystonia/EPS risk"
+    notes: "Consider if gastroparesis-like symptoms; short duration."
+
+supportive_care:
+  - item: "Hold/adjust offending medication"
+    details: "Review temporal relationship; consider stopping the new med if safe and consult prescriber when needed."
+  - item: "Hydration"
+    details: "Small sips of oral rehydration; bland foods; avoid alcohol."
+
+followup_and_safety:
+  - item: "Urgent/ED now"
+    details: "Inability to keep fluids down, signs of dehydration, severe abdominal pain, blood in vomit, severe headache/neck stiffness, confusion, or fainting."
+  - item: "In-person evaluation"
+    details: "Persistent vomiting >24 hours, worsening symptoms, or concern for medication reaction beyond nausea."

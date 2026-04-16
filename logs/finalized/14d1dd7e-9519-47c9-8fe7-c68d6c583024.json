@@ -1,0 +1,136 @@
+{
+  "packet_id": "80777eb6-2106-43b3-80a0-fdac4bde595c",
+  "created_at": "2026-02-16T03:18:51.561934+00:00",
+  "session_id": "14d1dd7e-9519-47c9-8fe7-c68d6c583024",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your elbow pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe what activities or movements make your elbow pain worse or better?",
+    "intake_a2": "tennis makes it worse and rest makes it better",
+    "intake_q3": "Any numbness, tingling, or weakness in your arm or hand?",
+    "intake_a3": "no",
+    "intake_q4": "Any swelling, redness, or warmth around the elbow?",
+    "intake_a4": "no",
+    "intake_q5": "Any prior injuries or treatments for this elbow pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any fever, chills, or other systemic symptoms?",
+    "intake_a6": "no",
+    "intake_q7": "Can you point to the exact spot on your elbow where the pain is located?",
+    "intake_a7": "outside",
+    "intake_q8": "Have you tried any treatments or remedies for your elbow pain, such as ice, NSAIDs, or physical therapy?",
+    "intake_a8": "I iced it the first day of pain",
+    "intake_q9": "Have you taken any pain medications like ibuprofen or acetaminophen since the first day?",
+    "intake_a9": "no",
+    "intake_q10": "Any difficulty gripping or lifting objects with your affected arm?",
+    "intake_a10": "pain with lifting objects",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/",
+        "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+        "https://www.nhs.uk/conditions/orf/",
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://medlineplus.gov/lab-tests/ceruloplasmin-test/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 45-year-old female presenting with a 3-week history of lateral elbow pain localized to the outside of the elbow. The pain worsens with playing tennis and lifting objects, and improves with rest. She denies numbness, tingling, weakness, swelling, redness, warmth, fever, or systemic symptoms. She iced the elbow on the first day of pain but has not taken any pain medications since then. There is no prior history of injury or treatment for this elbow pain.\n\nO: Phone evaluation only; no physical exam or vital signs available.\n\nA: The clinical presentation is consistent with lateral epicondylitis (tennis elbow), characterized by lateral elbow pain exacerbated by repetitive wrist extension and gripping activities such as tennis. The absence of systemic symptoms or neurological signs makes infection or neuropathy less likely.\n\nDifferential:\n1. Lateral epicondylitis (tennis elbow)\n2. Radial tunnel syndrome\n3. Osteoarthritis of the elbow\n4. Referred pain from cervical radiculopathy. Patient is not pregnant.\n\nP: \n - First-line medication: Over-the-counter NSAIDs such as ibuprofen or naproxen at recommended doses for pain relief and inflammation. \n - Alternatives: Topical NSAID gels applied over the lateral elbow to reduce systemic side effects. \n - Medication safety considerations: Use NSAIDs with caution to avoid gastrointestinal upset, bleeding risks, and kidney or liver impairment; avoid exceeding recommended doses. \n - Return precautions: Return if pain worsens, if there is new onset of numbness, tingling, weakness, swelling, redness, warmth, fever, or if symptoms do not improve with conservative management over the next 2-4 weeks. \n - Testing: Not indicated at this time; consider imaging or specialist referral if symptoms persist or worsen despite treatment.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "rvices without needing a referral from a GP. Get NHS help for back or joint problems Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treat…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      },
+      {
+        "title": "Repetitive strain injury (RSI) - NHS",
+        "source": "https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/",
+        "snippet": "﻿ Repetitive strain injury (RSI) - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Repetitive strain injury (RSI) Repetitive strain injury (RSI) is a term sometimes used for pain caused by repeat…"
+      },
+      {
+        "title": "Alpha-1 Antitrypsin Deficiency | Alpha 1 Antitrypsin | MedlinePlus",
+        "source": "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+        "snippet": "such as colds and the flu Chest pain Fatigue Faster-than-normal heartbeat when you stand up Vision problems Losing weight without trying Some people who have AAT deficiency may have liver damage. Signs of liver damage include jaundice (a condition that causes your skin and eyes to turn yellow) and swelling in your legs. Rarely, AAT deficiency can cause skin…"
+      },
+      {
+        "title": "Orf - NHS",
+        "source": "https://www.nhs.uk/conditions/orf/",
+        "snippet": "um%3d1%26flip%3d0%26pl%3d Credit: BIOPHOTO ASSOCIATES / SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/479030/view Other symptoms Other symptoms of orf include: a high temperature general tiredness (fatigue) swollen glands on the inside of your elbow or under your arm Non-urgent advice: See a GP if: you have a mark or blister on your finger, hand,…"
+      },
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    },
+    {
+      "title": "Repetitive strain injury (RSI) - NHS",
+      "source": "https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/",
+      "snippet": "﻿ Repetitive strain injury (RSI) - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Repetitive strain injury (RSI) Repetitive strain injury (RSI) is a term sometimes used for pain caused by repeat…"
+    },
+    {
+      "title": "Alpha-1 Antitrypsin Deficiency | Alpha 1 Antitrypsin | MedlinePlus",
+      "source": "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+      "snippet": "such as colds and the flu Chest pain Fatigue Faster-than-normal heartbeat when you stand up Vision problems Losing weight without trying Some people who have AAT deficiency may have liver damage. Signs of liver damage include jaundice (a condition that causes your skin and eyes to turn yellow) and swelling in your legs. Rarely, AAT deficiency can cause skin…"
+    },
+    {
+      "title": "Orf - NHS",
+      "source": "https://www.nhs.uk/conditions/orf/",
+      "snippet": "um%3d1%26flip%3d0%26pl%3d Credit: BIOPHOTO ASSOCIATES / SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/479030/view Other symptoms Other symptoms of orf include: a high temperature general tiredness (fatigue) swollen glands on the inside of your elbow or under your arm Non-urgent advice: See a GP if: you have a mark or blister on your finger, hand,…"
+    },
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+    },
+    {
+      "title": "Ceruloplasmin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/ceruloplasmin-test/",
+      "snippet": "he disease, the symptoms don't appear until copper builds up in your liver, brain, or other organs. This usually happens between ages 4 and 40, but symptoms can appear earlier or later in life. Wilson disease can cause many types of symptoms depending on which parts of your body are affected. For example: Nausea and vomiting Pain in your upper abdomen (belly…"
+    }
+  ],
+  "state": null
+}

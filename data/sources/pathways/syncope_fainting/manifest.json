@@ -1,0 +1,12 @@
+{
+  "pathway_id": "syncope_fainting",
+  "sources": [
+    {
+      "id": "syncope_fainting_ref",
+      "source_id": "syncope_fainting_ref",
+      "title": "Fainting/syncope overview (starter)",
+      "url": "https://www.nhlbi.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

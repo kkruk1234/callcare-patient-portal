@@ -1,0 +1,167 @@
+{
+  "call_sid": "CAed0dd2613bd2a9dfb9dfc5a5b927a7d7",
+  "session_id": "6b2d6924-3e46-4990-aaec-4763ef5b580d",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-07T14:22:12.301952+00:00",
+  "ended_at": "2026-03-07T14:26:10.562507+00:00",
+  "packet_id": "8dfa98d9-879b-4da9-bb9a-47385fbaa667",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I got bit by a tick, and now I have a red spot."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you get bitten by the tick?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the size and shape of the red spot, and has it been growing or changing since you noticed it?"
+    },
+    {
+      "role": "user",
+      "text": "It's the size of a quarter."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any other symptoms like fever, chills, headache, muscle aches, or joint pain since the tick bite?"
+    },
+    {
+      "role": "user",
+      "text": "Joint pain."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the appearance of the red spot—does it have a bullseye or target-like pattern, or is it uniformly red?"
+    },
+    {
+      "role": "user",
+      "text": "It's uniformly red."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever or chills since the tick bite?"
+    },
+    {
+      "role": "user",
+      "text": "Piva."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about the joint pain, such as which joints are affected and if the pain is constant or comes and goes?"
+    },
+    {
+      "role": "user",
+      "text": "My ankles and the pain is constant."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling, redness, or warmth around your ankles or any other joints?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. Around my ankles."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any difficulty walking or bearing weight on your ankles since the joint pain and swelling started?"
+    },
+    {
+      "role": "user",
+      "text": "It is difficult to lift things."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any fever, chills, or other systemic symptoms since the tick bite?"
+    },
+    {
+      "role": "user",
+      "text": "Fever."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you removed the tick completely, and if so, when and how?"
+    },
+    {
+      "role": "user",
+      "text": "I use tweezers."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "14."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your weight? You can say it in pounds or kilograms."
+    },
+    {
+      "role": "user",
+      "text": "A 130 pounds."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "Definitely not."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you may have early Lyme disease, which is an infection from a tick bite that can cause a rash, fever, and joint pain like you described. Because this is a phone visit, I can’t examine you or run tests, but based on your symptoms, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe antibiotics to help treat the infection. \n\nFor now, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you need pain or fever relief and can take them safely. If your fever gets worse, your joint swelling increases, or you notice new symptoms like weakness, numbness, or trouble breathing, please seek in-person care urgently or go to the emergency room right away. \n\nA doctor will review your case soon and decide on the best treatment. If you need an in-person exam or testing, please visit urgent care or your primary care provider, as this service does not include in-person visits."
+    }
+  ]
+}

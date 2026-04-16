@@ -1,0 +1,12 @@
+{
+  "pathway_id": "migraine_headache",
+  "sources": [
+    {
+      "id": "migraine_headache_cdc",
+      "source_id": "migraine_headache_cdc",
+      "title": "Headache red flags reference (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "auto_1771530909071",
+  "query": "back pain outpatient pain treatment ibuprofen dosing naproxen dosing acetaminophen dosing adult maximum daily dose",
+  "sources": [
+    {
+      "url": "https://www.ninds.nih.gov/health-information/disorders/low-back-pain",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.fda.gov/drugs/over-counter-otc-drugs/over-counter-otc-pain-relievers",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

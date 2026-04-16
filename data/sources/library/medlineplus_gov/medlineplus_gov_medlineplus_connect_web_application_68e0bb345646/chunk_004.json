@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Application",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-application/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "ponse to the problem code lookup to be in Spanish, use :\ninformationRecipient.languageCode.c=es\n(=sp or =spa also accepted) \nTo specify English, use the following:\ninformationRecipient.languageCode.c=en \nExamples of Requests for Problem Codes \nA complete request for Diabetes Mellitus with other coma type 1 uncontrolled, ICD-9 code 250.33, for a Spanish speaking patient would have the following URL address:\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.cs=2.16.840.1.113883.6.103&mainSearchCriteria.v.c=250.33&mainSearchCriteria.v.dn=Diabetes%20mellitus%20with%20other%20coma%20type%201%20uncontrolled&informationRecipient.languageCode.c=es \nA patient diagnosed with \"Pneumonia due to Pseudomonas\" using SNOMED CT code 41381004:\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.cs=2.16.840.1.113883.6.96&mainSearchCriteria.v.c=41381004&mainSearchCriteria.v.dn=Pneumonia%20due%20to%20Pseudomonas%20%28disorder%29&informationRecipient.languageCode.c=en \nA freeform query, with no code system or problem code, will use the MedlinePlus search engine.\nIdentify if you would like the request to be sent to the English language MedlinePlus search engine or the MedlinePlus en espaÃ±ol search engine. MedlinePlus Connect will assume English as the language if it is not specified and will send the query to the English language MedlinePlus search engine by default:\nhttp",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_application_68e0bb345646",
+  "chunk_id": "chunk_004"
+}

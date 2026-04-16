@@ -1,0 +1,389 @@
+from __future__ import annotations
+
+import os
+import re
+from typing import Any, Dict, List, Optional, Tuple
+
+from app.core.models import CallState
+
+try:
+    import yaml  # type: ignore
+except Exception:  # pragma: no cover
+    yaml = None
+
+
+# ----------------------------
+# Core helpers
+# ----------------------------
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _effective_pathway_id_for_meds(state: CallState, pid: str) -> str:
+    """
+    Map symptom-bucket pathways to the best meds protocol pathway_id.
+    Currently: ear_pain -> otitis_externa / otitis_media when likely.
+    """
+    try:
+        pid = (pid or "").strip()
+        if pid != "ear_pain":
+            return pid
+
+        sx = _symptoms_dict(state)
+
+        def yes(k: str) -> bool:
+            v = sx.get(k)
+            if v is None:
+                return False
+            sv = str(v).strip().lower()
+            return sv in ("yes", "y", "true", "1")
+
+        fever = yes("fever")
+        discharge = yes("ear_discharge")
+        tragus_tender = yes("ear_tragus_tender")
+        swimming = yes("recent_swimming")
+        itching = yes("ear_itching")
+        uri = yes("uri_symptoms")
+
+        # Heuristics:
+        # - Otitis externa: tragus/pinna tenderness, itching, recent water exposure; discharge can occur.
+        # - Otitis media: fever and/or URI symptoms; discharge could be perforation but lacks tragus tenderness.
+        likely_externa = tragus_tender or itching or swimming
+        likely_media = fever or uri
+
+        if likely_externa and not likely_media:
+            return "otitis_externa"
+        if likely_media and not likely_externa:
+            return "otitis_media"
+
+        # If both signals present, use tragus tenderness to break ties:
+        if discharge and tragus_tender:
+            return "otitis_externa"
+        if discharge and fever and not tragus_tender:
+            return "otitis_media"
+
+        # Default: keep ear_pain (no strong signal)
+        return pid
+    except Exception:
+        return pid
+
+
+def _protocol_path_for_pathway_id(pathway_id: str) -> str:
+    return os.path.join("data", "protocols", "meds", f"{pathway_id}.yaml")
+
+
+
+def _protocol_has_real_content(data: Dict[str, Any]) -> bool:
+    """
+    True if protocol has any meaningful content:
+      - at least one non-empty rx_options[].med, OR
+      - at least one non-empty supportive_care item/details, OR
+      - at least one non-empty followup_and_safety item/details
+    """
+    try:
+        if not isinstance(data, dict):
+            return False
+
+        rx = data.get("rx_options") or []
+        if isinstance(rx, list):
+            for r in rx:
+                if isinstance(r, dict) and (r.get("med") or "").strip():
+                    return True
+
+        sup = data.get("supportive_care") or []
+        if isinstance(sup, list):
+            for it in sup:
+                if isinstance(it, dict) and (((it.get("item") or "").strip()) or ((it.get("details") or "").strip())):
+                    return True
+
+        fu = data.get("followup_and_safety") or []
+        if isinstance(fu, list):
+            for it in fu:
+                if isinstance(it, dict) and (((it.get("item") or "").strip()) or ((it.get("details") or "").strip())):
+                    return True
+
+        return False
+    except Exception:
+        return False
+
+
+# ----------------------------
+# Loaders
+# ----------------------------
+
+def load_med_protocol_for_state(state: CallState) -> Tuple[Optional[Dict[str, Any]], str]:
+    """
+    Load meds protocol YAML for the pathway in `state`.
+    Returns (protocol_dict, error_reason). Never raises.
+    """
+    if yaml is None:
+        return (None, "PyYAML not installed (cannot load meds protocol).")
+
+    pid = _pathway_id(state)
+    pid = _effective_pathway_id_for_meds(state, pid)
+    if not pid:
+        return (None, "No pathway_id available at note time.")
+
+    path = _protocol_path_for_pathway_id(pid)
+    if not os.path.exists(path):
+        return (None, f"No meds protocol file found for pathway_id={pid} ({path}).")
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+            if not _protocol_has_real_content(data):
+                return (None, f"Meds protocol is stub/empty in {path}.")
+        if not isinstance(data, dict):
+            return (None, f"Invalid meds protocol YAML structure in {path} (expected mapping).")
+        return (data, "")
+    except Exception as e:
+        return (None, f"Failed to read meds protocol {path}: {type(e).__name__}: {str(e)[:160]}")
+
+
+def load_med_protocol_for_pathway_id(pathway_id: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    """
+    Load meds protocol YAML for a known pathway_id.
+    Returns (protocol_dict, error_reason). Never raises.
+    """
+    if yaml is None:
+        return (None, "PyYAML not installed (cannot load meds protocol).")
+    if not pathway_id:
+        return (None, "No pathway_id provided.")
+
+    path = _protocol_path_for_pathway_id(pathway_id)
+    if not os.path.exists(path):
+        return (None, f"No meds protocol file found for pathway_id={pathway_id} ({path}).")
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        if not isinstance(data, dict):
+            return (None, f"Invalid meds protocol YAML structure in {path} (expected mapping).")
+        return (data, "")
+    except Exception as e:
+        return (None, f"Failed to read meds protocol {path}: {type(e).__name__}: {str(e)[:160]}")
+
+
+def load_protocol_text(pathway_id: str) -> str:
+    """
+    BACK-COMPAT:
+    Some parts of the codebase import `load_protocol_text` from this module.
+    Return raw YAML text for a pathway's meds protocol, or "" if missing/unreadable.
+    """
+    try:
+        if not pathway_id:
+            return ""
+        path = _protocol_path_for_pathway_id(pathway_id)
+        if not os.path.exists(path):
+            return ""
+        return PathLikeReadText(path)
+    except Exception:
+        return ""
+
+
+def PathLikeReadText(path: str) -> str:
+    # Small wrapper to keep load_protocol_text robust across environments.
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception:
+        return ""
+
+
+# ----------------------------
+# Formatting helpers
+# ----------------------------
+
+def protocol_med_names(protocol: Dict[str, Any]) -> List[str]:
+    rx = protocol.get("rx_options", []) or []
+    out: List[str] = []
+    if isinstance(rx, list):
+        for opt in rx:
+            if not isinstance(opt, dict):
+                continue
+            med = str(opt.get("med", "") or "").strip()
+            if med:
+                out.append(med)
+    return out
+
+
+def format_protocol_as_plan_lines(protocol: Dict[str, Any]) -> List[str]:
+    """
+    Returns clean plan lines (no leading '-' so caller can indent/bullet).
+    Schema:
+      rx_options: [{med,dosing,exclusions,notes}, ...]
+      supportive_care: [{item,details}, ...]
+      followup_and_safety: [{item,details}, ...]
+    """
+    lines: List[str] = []
+
+    rx = protocol.get("rx_options", []) or []
+    supp = protocol.get("supportive_care", []) or []
+    fu = protocol.get("followup_and_safety", []) or []
+
+    def _as_list(x) -> List[Dict[str, Any]]:
+        if isinstance(x, list):
+            return [i for i in x if isinstance(i, dict)]
+        return []
+
+    rx = _as_list(rx)
+    supp = _as_list(supp)
+    fu = _as_list(fu)
+
+    # Filter out blank placeholder rows so we don't print headers with nothing underneath.
+    def _rx_nonempty(opt: Dict[str, Any]) -> bool:
+        med = str(opt.get("med", "") or "").strip()
+        dosing = str(opt.get("dosing", "") or "").strip()
+        exclusions = str(opt.get("exclusions", "") or "").strip()
+        notes = str(opt.get("notes", "") or "").strip()
+        return bool(med or dosing or exclusions or notes)
+
+    def _item_nonempty(opt: Dict[str, Any]) -> bool:
+        item = str(opt.get("item", "") or "").strip()
+        details = str(opt.get("details", "") or "").strip()
+        return bool(item or details)
+
+    rx = [opt for opt in rx if _rx_nonempty(opt)]
+    supp = [opt for opt in supp if _item_nonempty(opt)]
+    fu = [opt for opt in fu if _item_nonempty(opt)]
+
+    if rx:
+        lines.append("Medication recommendations (Tier 1):")
+        lines.append("Reviewing physician will confirm appropriateness and prescribe if indicated.")
+        for opt in rx:
+            med = str(opt.get("med", "") or "").strip()
+            dosing = str(opt.get("dosing", "") or "").strip()
+            exclusions = str(opt.get("exclusions", "") or "").strip()
+            notes = str(opt.get("notes", "") or "").strip()
+
+            head = (med + (" — " + dosing if dosing else "")).strip(" —")
+            if head:
+                lines.append(f"{head}")
+            if notes:
+                lines.append(f"Notes: {notes}")
+            if exclusions:
+                lines.append(f"Exclusions: {exclusions}")
+
+    if supp:
+        lines.append("Supportive care:")
+        for it in supp:
+            item = str(it.get("item", "") or "").strip()
+            details = str(it.get("details", "") or "").strip()
+            if item and details:
+                lines.append(f"{item}: {details}")
+            elif item:
+                lines.append(f"{item}")
+            else:
+                lines.append(f"{details}")
+
+    if fu:
+        lines.append("Follow-up and safety:")
+        for it in fu:
+            item = str(it.get("item", "") or "").strip()
+            details = str(it.get("details", "") or "").strip()
+            if item and details:
+                lines.append(f"{item}: {details}")
+            elif item:
+                lines.append(f"{item}")
+            else:
+                lines.append(f"{details}")
+
+    return lines
+
+
+# ----------------------------
+# One-click prescribing objects
+# ----------------------------
+
+def _parse_dosing_simple(dosing: str) -> Dict[str, str]:
+    """
+    Best-effort parsing of common dosing strings.
+    Always preserves full string in `sig`.
+    """
+    s = (dosing or "").strip()
+    out: Dict[str, str] = {"sig": s}
+    if not s:
+        return out
+
+    m = re.search(r"\b(PO|IV|IM|SC|SQ|PR|INH|SL|TOPICAL|TOP)\b", s, flags=re.IGNORECASE)
+    if m:
+        out["route"] = m.group(1).upper()
+
+    freq_map = [
+        (r"\bonce\s+daily\b|\bqday\b|\bqd\b|\bdaily\b", "daily"),
+        (r"\btwice\s+daily\b|\bbid\b", "BID"),
+        (r"\bthree\s+times\s+daily\b|\btid\b", "TID"),
+        (r"\bfour\s+times\s+daily\b|\bqid\b", "QID"),
+    ]
+    for pat, val in freq_map:
+        if re.search(pat, s, flags=re.IGNORECASE):
+            out["frequency"] = val
+            break
+
+    m2 = re.search(r"(?:x|for)\s*(\d{1,3})\s*(day|days|week|weeks|month|months)\b", s, flags=re.IGNORECASE)
+    if m2:
+        out["duration"] = f"{m2.group(1)} {m2.group(2).lower()}"
+
+    return out
+
+
+def protocol_to_med_suggestions(protocol: Dict[str, Any], pathway_id: str) -> List[Dict[str, Any]]:
+    """
+    Convert rx_options into structured dicts suitable for one-click prescribing UI.
+    ReviewPacket.med_suggestions is List[object] so we emit List[dict].
+    """
+    out: List[Dict[str, Any]] = []
+    rx = protocol.get("rx_options", []) or []
+    if not isinstance(rx, list):
+        return out
+
+    source_file = _protocol_path_for_pathway_id(pathway_id)
+
+    for idx, opt in enumerate(rx, 1):
+        if not isinstance(opt, dict):
+            continue
+        med = str(opt.get("med", "") or "").strip()
+        dosing = str(opt.get("dosing", "") or "").strip()
+        exclusions = str(opt.get("exclusions", "") or "").strip()
+        notes = str(opt.get("notes", "") or "").strip()
+
+        if not (med or dosing or exclusions or notes):
+            continue
+
+        parsed = _parse_dosing_simple(dosing)
+        item: Dict[str, Any] = {
+            "rank": idx,
+            "med": med,
+            "dosing": dosing,
+            "sig": parsed.get("sig", dosing),
+            "route": parsed.get("route", ""),
+            "frequency": parsed.get("frequency", ""),
+            "duration": parsed.get("duration", ""),
+            "notes": notes,
+            "exclusions": exclusions,
+            "tier": "Tier 1",
+            "pathway_id": pathway_id,
+            "source_file": source_file,
+        }
+        out.append(item)
+
+    return out
+
+
+# ----------------------------
+# Back-compat aliases
+# ----------------------------
+
+def load_protocol_yaml(pathway_id: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    return load_med_protocol_for_pathway_id(pathway_id)

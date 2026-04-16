@@ -1,0 +1,57 @@
+{
+  "packet_id": "f127c99d-cffd-4ce7-aaec-4a695c3bc56c",
+  "created_at": "2026-03-29T21:45:06.396209+00:00",
+  "session_id": "1abbec4a-6f9a-4646-840c-ba9ef14b00cd",
+  "pathway_id": "",
+  "base_queries": [
+    "systemic lupus erythematosus diagnosis and management guidelines",
+    "adult dosing and contraindications of hydroxychloroquine for lupus",
+    "red flags and urgent testing for butterfly rash and joint pain"
+  ],
+  "queries": [
+    "AAFP systemic lupus erythematosus diagnosis and management guidelines",
+    "AAFP adult dosing and contraindications of hydroxychloroquine for lupus",
+    "MedlinePlus systemic lupus erythematosus diagnosis and management guidelines",
+    "MedlinePlus adult dosing and contraindications of hydroxychloroquine for lupus",
+    "CDC systemic lupus erythematosus diagnosis and management guidelines",
+    "CDC adult dosing and contraindications of hydroxychloroquine for lupus",
+    "NIH systemic lupus erythematosus diagnosis and management guidelines",
+    "NIH adult dosing and contraindications of hydroxychloroquine for lupus",
+    "NICE systemic lupus erythematosus diagnosis and management guidelines",
+    "NICE adult dosing and contraindications of hydroxychloroquine for lupus",
+    "WHO systemic lupus erythematosus diagnosis and management guidelines",
+    "WHO adult dosing and contraindications of hydroxychloroquine for lupus"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Systemic Lupus Erythematosus: Diagnosis and Treatment | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/systemic-lupus-erythematosus.html",
+      "accessed": "2026-03-29",
+      "snippet": "200 mg subcutaneously once per week Monitor for serious infection and malignancies Only available at specialty pharmacies Cyclophosphamide Lupus nephritis, severe SLE 500 to 1,000 mg per m 2 intravenously once per month Complete blood count and metabolic panel at least every three months to monitor for hemorrhagic cystitis, immunosuppression, malignancy, and myelosuppression Only administered by a health care professional Mycophenolate mofetil Lupus nephritis, refractory SLE 2 to 3 g per day Complete blood count and metabolic panel at least every three months to monitor for infection and myelosuppression $30 (—) for 240 250-mg capsules Rituximab (Rituxan) Refractory severe SLE One-time administration of two 1-g doses intravenously, two weeks apart Complete blood count every two to four months; use with caution in patients with a history of infusion reaction Only available at specialty ph"
+    },
+    {
+      "title": "Hydroxychloroquine",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/medicines/hydroxychloroquine/common-questions-about-hydroxychloroquine/",
+      "accessed": "2026-03-29",
+      "snippet": "DMARDs work by calming your immune system or changing the way it responds. They're used to treat autoimmune conditions, where your body's natural defence system mistakenly attacks healthy parts of your body."
+    },
+    {
+      "title": "Lupus | Lupus Symptoms | SLE | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/lupus.html",
+      "accessed": "2026-03-29",
+      "snippet": "Your primary care provider should coordinate care between all of your other providers and treat other problems as they come up. You and your primary care provider will develop a treatment plan to fit your needs. You will both review the plan often to make sure that it is working. You should report new symptoms to your provider right away so that your treatment plan can be changed, if needed."
+    },
+    {
+      "title": "795FM.4 HYDROXYCHLOROQUINE FOR USE IN RHEUMATOLOGY AND DERMATOLOGY",
+      "source": "bucksformulary.nhs.uk",
+      "url": "https://www.bucksformulary.nhs.uk/docs/Guideline_795FM.pdf",
+      "accessed": "2026-03-29",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 33-year-old female presenting with a butterfly-shaped rash across her nose and face that started 2 days ago. She reports significant joint pain and stiffness, especially in her upper arms and generalized body aches including legs. She also notes unexplained fevers, hair loss, sensitivity to sunlight, extreme fatigue, and mild lip swelling. She denies chest pain, shortness of breath, leg swelling beyond her baseline, headaches, confusion, seizures, or urinary abnormalities. There is no history of recent infections, new medications, or known autoimmune diseases. She has an allergy to Luzainopril and is not pregnant.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The clinical presentation is most consistent with systemic lupus erythematosus (SLE), given the classic malar rash, photosensitivity, joint involvement, systemic symptoms including fatigue and fever, and hair loss.\nDifferential:\n1. Systemic lupus erythematosus (SLE)\n2. Dermatomyositis\n3. Rosacea with systemic symptoms\n4. Drug-induced lupus or other autoimmune connective tissue disease\n\nP: - First-line medication: Hydroxychloroquine 200 mg orally twice daily (Physician must verify medication/dosing)\n- Alternatives: Oral corticosteroids such as prednisone 10-20 mg daily for short course (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid Luzainopril due to allergy; monitor for retinal toxicity with hydroxychloroquine; assess for contraindications to corticosteroids\n- Follow-up recommendations: Seek in-person medical care urgently if new onset chest pain, shortness of breath, severe joint swelling, or neurological symptoms develop\n- Testing: Recommend ANA panel, anti-dsDNA, complement levels (C3, C4), CBC, renal function tests, urinalysis, and referral for rheumatology evaluation"
+}

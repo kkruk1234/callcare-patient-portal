@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA1092b8cd155d52d899134ac5a8eddd90",
+  "session_id": "24a078a8-c8ef-4c72-b327-4d2a4cc53921",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-04T14:55:33.824573+00:00",
+  "ended_at": "2026-04-04T15:03:06.287283+00:00",
+  "packet_id": "538242f2-eec6-4569-a5d8-662fedead520",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "My right big toe is painful."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the pain in your right big toe start?"
+    },
+    {
+      "role": "user",
+      "text": "It's been getting worse over the last week. It was it started out where I thought maybe I had stubbed it, but I didn't remember stubbing it. And then it was it was red like I had stubbed it, though. And then it started getting more pain at first, so it was just a little bit of, like, a little bit of a dull ache, but now it's getting more intense."
+    },
+    {
+      "role": "assistant",
+      "text": "Is the right big toe swollen or warm to the touch?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. Both."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or feeling generally unwell?"
+    },
+    {
+      "role": "user",
+      "text": "I don't feel great today. I I'm not gonna lie. I really I don't feel great, but I have no fever or chills. I haven't had any fever or chills this whole time. I just I just feel kind of, like, yucky just mild headache maybe, just, like, down."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any injury, cuts, or wounds on your right big toe or foot recently?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever had gout, arthritis, or similar joint problems before?"
+    },
+    {
+      "role": "user",
+      "text": "I haven't been diagnosed with any of those issues before. So I I don't know. I mean, my brother had been diagnosed with gout in the past, but I I have never been diagnosed with anything like that before."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty moving your right big toe or walking because of the pain?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. It's it's very difficult walking or moving the toe because of the pain. I I certainly don't like putting any anything to touch it, not a sock, not the the sheet on my bed. I just I've been sleeping my toe out of the sheets. Even."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of diabetes, immune problems, or recent infections elsewhere in your body?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any pus, drainage, or open sores on the right big toe?"
+    },
+    {
+      "role": "user",
+      "text": "No. Nothing like that. It's just it's just red. That's it."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent changes in your diet, alcohol intake, or use of medications like diuretics?"
+    },
+    {
+      "role": "user",
+      "text": "No. Nothing like that."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of kidney problems or kidney stones?"
+    },
+    {
+      "role": "user",
+      "text": "Not that I have been diagnosed with."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "52"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing a painful, swollen, and red big toe, which is most likely an acute gout flare. Because this is a phone visit, I can’t examine you or run tests, but based on your symptoms, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe anti-inflammatory medication like naproxen or colchicine to help reduce the pain and swelling. \n\nIf you develop a fever, worsening pain or swelling, or if you can’t move the toe at all, please seek in-person care the same day, as these could be signs of a more serious infection or joint problem. If your symptoms don’t improve or get worse, you may need further testing like joint fluid analysis.\n\nFor now, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you can safely do so to help with pain. Remember, if you need an in-person exam or testing, please go to urgent care, the emergency department, or see your primary care clinician, as this service does not include in-person visits. A physician will review your case and follow up as needed."
+    }
+  ]
+}

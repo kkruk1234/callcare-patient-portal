@@ -1,0 +1,34 @@
+id: neck_pain_nontraumatic
+version: 0.1
+match:
+  any_keywords: ["neck pain", "stiff neck", "neck strain", "whiplash", "torticollis"]
+questions:
+  - id: fever
+    prompt: "Do you have a fever with the neck pain? (yes/no)"
+    store_as: fever
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["fever_with_neck_pain_meningitis_concern"]
+
+  - id: neuro
+    prompt: "Any new weakness, numbness, trouble walking, or trouble speaking? (yes/no)"
+    store_as: neuro
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["neuro_red_flag"]
+
+  - id: trauma
+    prompt: "Was there significant trauma (car crash, fall) before the pain? (yes/no)"
+    store_as: trauma
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["post_trauma_neck_pain"]
+
+stop_rules:
+  - if_all_answered: ["fever","neuro","trauma"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

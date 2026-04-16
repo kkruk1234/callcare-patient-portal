@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Application",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-application/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "y that you are using the LOINC code system.\nFor LOINC use: \nmainSearchCriteria.v.cs=2.16.840.1.113883.6.1 \nMedlinePlus Connect will also accept: \nmainSearchCriteria.v.cs=2.16.840.1.113883.11.79 \nIdentify the actual code you are trying to look up. \nmainSearchCriteria.v.c=3187-2 \nOptional Parameters \nIdentify the name/title of the lab test. However, this information does not impact the response.\nmainSearchCriteria.v.dn=Factor IX assay \nIdentify if you would like the request to be in English or Spanish. MedlinePlus Connect will assume English is the language if it is not specified.\nIf you wish the response to the problem code lookup to be in Spanish, use:\ninformationRecipient.languageCode.c=es\n(=sp or =spa also accepted) \nTo specify English, use the following:\ninformationRecipient.languageCode.c=en \nA freeform query, with no code system or lab code, will use the MedlinePlus search engine. This approach is more effective with diagnoses (see the problem code information above) instead of lab test text strings. Your lab test information request should look like one of the following.\nExamples of Requests for Lab Tests \nTo request information for an English speaker, your request may look like one of the following:\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.cs=2.16.840.1.113883.6.1&mainSearchCriteria.v.c=3187-2&mainSearchCriteria.v.dn=Factor%20IX%20assay&informatio",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_application_68e0bb345646",
+  "chunk_id": "chunk_009"
+}

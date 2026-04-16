@@ -1,0 +1,10 @@
+{
+  "title": "Influenza Vaccination Coverage, Pregnant Women, United States | FluVaxView | CDC",
+  "url": "https://www.cdc.gov/fluvaxview/dashboard/pregnant-women-coverage.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ata from the Vaccine Safety Datalink. \nPregnant Women Flu Vaccination Coverage \nWeekly influenza vaccination coverage estimates for pregnant women ages 18&ndash;49 years are based on electronic health record (EHR) data from the Vaccine Safety Datalink (VSD) , a collaboration between CDC's Immunization Safety Office and multiple integrated health care organizations.*\nThe denominator includes women with a pregnancy during the current flu season (defined as August through March) beginning before or during the specified week. The numerator includes those who received a flu vaccine since July 1 of the respective flu season before or during pregnancy as of the specified week ending date. Pregnant women are not removed from the numerator or denominator when the pregnancy ends. Cumulative vaccination coverage for one week may be lower than cumulative coverage for a previous week due to the addition of pregnant women in the denominator. &dagger; Additionally, no requirements for length of enrollment in a VSD site are applied, and vaccinations given outside of a VSD site might not be included. &Dagger; \nFigure 3A. Percent of Pregnant Women Ages 18&ndash;49 Years Who Have Received an Influenza Vaccine Overall, by Race and Ethnicity, and Season. Data Source: Vaccine Safety Datalink. \nFigure 3B. Percent of Pregnant Women Ages 18&ndash;49 Years Who Have Received an Influenza Vaccine by Week,",
+  "source_type": "library",
+  "source_id": "cdc_gov_fluvaxview_dashboard_pregnant_women_coverage_html_9029ee24968c",
+  "chunk_id": "chunk_002"
+}

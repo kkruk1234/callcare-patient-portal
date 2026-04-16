@@ -1,0 +1,136 @@
+{
+  "packet_id": "f6828874-2d57-4852-87d1-a633f16c2bca",
+  "created_at": "2026-02-20T21:33:20.979048+00:00",
+  "session_id": "5e79dfb2-a548-4b04-94e6-aa2193fb98ad",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol and it really didn't help much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any pain with deep breaths or when pressing on the painful area?",
+    "intake_a9": "pain with pressing on the area",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://www.nhs.uk/conditions/cystitis/",
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+        "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that began three weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, difficulty breathing, coughing, chest pain, numbness, weakness, or tingling in her legs or feet. She reports pain localized to the area with pressing but no associated respiratory symptoms. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, infections, osteoporosis, cancer, or recent steroid use. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nThe working diagnosis is mechanical musculoskeletal back pain localized to the left lower rib cage area, likely due to soft tissue strain or irritation given the absence of systemic symptoms or neurological deficits. \n\nDifferential: \n1. Musculoskeletal strain or soft tissue injury \n2. Costochondritis or rib inflammation \n3. Intercostal muscle strain \n4. Early presentation of a rib fracture (less likely without trauma)\n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation relief. (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs in patients with renal impairment, liver disease, or gastrointestinal bleeding risk; patient denies these conditions. Use the lowest effective dose for the shortest duration. \n - Return precautions: Advise the patient to seek immediate care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, difficulty breathing, chest pain, or any new systemic symptoms. \n - Testing: No imaging or laboratory testing indicated at this time given the absence of red flags. Reassess if symptoms persist beyond 6 weeks or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "any medicines you take with you. Other ways to get help You may be able to refer yourself for help and treatment, such as physiotherapy, from NHS community musculoskeletal (MSK) services without needing a referral from a GP. Get NHS help for back or joint problems Treatments for back pain If your back pain is severe or not getting better, a GP may prescribe…"
+      },
+      {
+        "title": "AAFP: Mechanical Low Back Pain",
+        "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "snippet": "pain and use of health care. Educating patients on prognosis and incorporating psychosocial components of care such as identifying comorbid psychological problems and barriers to treatment are essential components of long-term management. Mechanical low back pain refers to back pain that arises intrinsically from the spine, intervertebral disks, or surroundi…"
+      },
+      {
+        "title": "NICE NG59: Low back pain and sciatica in over 16s",
+        "source": "https://www.nice.org.uk/guidance/ng59",
+        "snippet": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE You are here: Home NICE Guidance Conditions and diseases Musculoskeletal conditions Low back pain Low back pain and sciatica in over 16s: assessment and management NICE guideline Reference number: NG59 Published:&nbsp; 30 November 2016 Last updated:&nbsp; 11 Decemb…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/0bc69d36c2981feb/content.txt",
+        "snippet": "sis and subsequent management strategy. The causes of back pain in a 30-year-old man often differ from those of an 80-year-old woman. Ankle pain in a young professional ballet dancer raises suspicion for ligamentous injury or overuse tendinopathies. Importantly, assess the degree of functional impairment caused by joint symptoms, including impact on activiti…"
+      },
+      {
+        "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+        "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+      },
+      {
+        "title": "Cystitis - NHS",
+        "source": "https://www.nhs.uk/conditions/cystitis/",
+        "snippet": "stitis and your symptoms have not gone away within 3 days your symptoms have not gone away after treatment with antibiotics you have severe cystitis symptoms, such as severe pain in your lower tummy you get cystitis symptoms frequently you have symptoms of cystitis and you're pregnant or you're a man your child has symptoms of cystitis Urgent advice: Ask for…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "AAFP: Mechanical Low Back Pain",
+      "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+      "snippet": "infection. Red Flag Findings in Patients with Low Back Pain&lt;/h3>\" description=\"&lt;p>&lt;i>Information from references &lt;a href=&#34;#afp20181001p421-b3&#34; data-transform-type=&#34;sup&#34;>3&lt;/a>, and &lt;a href=&#34;#afp20181001p421-b5&#34; data-transform-type=&#34;sup&#34;>5&lt;/a> through &lt;a href=&#34;#afp20181001p421-b7&#34; data-transform-t…"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "Cystitis - NHS",
+      "source": "https://www.nhs.uk/conditions/cystitis/",
+      "snippet": "stitis and your symptoms have not gone away within 3 days your symptoms have not gone away after treatment with antibiotics you have severe cystitis symptoms, such as severe pain in your lower tummy you get cystitis symptoms frequently you have symptoms of cystitis and you're pregnant or you're a man your child has symptoms of cystitis Urgent advice: Ask for…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    },
+    {
+      "title": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)",
+      "source": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+      "snippet": "Information Low back pain is one of the most common reasons for an outpatient visit. The evaluation for low back pain should include a complete, focused medical history looking for red flags, which include, but are not limited to: severe or progressive neurologic deficits (e.g., bowel or bladder function), fever, sudden back pain with spinal tenderness, trau…"
+    },
+    {
+      "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+      "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "snippet": "as sign 3.2 0.88 14 4 52 23 Rebound tenderness 2.03 0.54 10 3 40 15 Rigidity 1.59 0.88 9 5 38 23 Anorexia 1.1 0.9 5 5 26 23 Bowel obstruction 4 Constipation 8.8 0.6 32 3 75 16 Abdominal distention 5.7 0.4 23 2 66 12 Pain decreases after vomiting 4.5 0.8 19 4 60 21 Colic 2.8 0.8 13 4 48 21 Previous abdominal surgery 2.7 0.4 12 2 47 12 Cholecystitis 5 Murphy's…"
+    }
+  ],
+  "state": null
+}

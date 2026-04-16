@@ -1,0 +1,57 @@
+{
+  "packet_id": "0b662643-2080-43fe-9ed8-f5370d7e85c7",
+  "created_at": "2026-03-08T18:23:36.420492+00:00",
+  "session_id": "f6513fa3-03c5-43ac-b07d-470cca32c879",
+  "pathway_id": "",
+  "base_queries": [
+    "lower back pain management guidelines elderly with arthritis",
+    "adult dosing and contraindications of pain medications for renal disease",
+    "red flags and return precautions for lower back pain with hand tingling"
+  ],
+  "queries": [
+    "AAFP lower back pain management guidelines elderly with arthritis",
+    "AAFP adult dosing and contraindications of pain medications for renal disease",
+    "MedlinePlus lower back pain management guidelines elderly with arthritis",
+    "MedlinePlus adult dosing and contraindications of pain medications for renal disease",
+    "CDC lower back pain management guidelines elderly with arthritis",
+    "CDC adult dosing and contraindications of pain medications for renal disease",
+    "NIH lower back pain management guidelines elderly with arthritis",
+    "NIH adult dosing and contraindications of pain medications for renal disease",
+    "NICE lower back pain management guidelines elderly with arthritis",
+    "NICE adult dosing and contraindications of pain medications for renal disease",
+    "WHO lower back pain management guidelines elderly with arthritis",
+    "WHO adult dosing and contraindications of pain medications for renal disease"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "accessed": "2026-03-08",
+      "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+    },
+    {
+      "title": "Taking care of your back at home: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/002119.htm",
+      "accessed": "2026-03-08",
+      "snippet": "Stop normal physical activity for only the first few days. This helps calm your symptoms and reduce swelling (inflammation) in the area of the pain. Apply heat or ice to the painful area. Use ice for the first 48 to 72 hours, and then use heat. Take over-the-counter pain relievers such as ibuprofen (Advil, Motrin IB) or acetaminophen (Tylenol). Sleep in a curled-up, fetal position with a pillow between your legs. If you usually sleep on your back, place a pillow or rolled towel under your knees to relieve pressure. Do not do activities that involve heavy lifting or twisting of your back for the first 6 weeks after the pain begins. Do not exercise in the days right after the pain begins. After 2 to 3 weeks, slowly begin to exercise again. A physical therapist can teach you which exercises are right for you. EXERCISE TO PREVENT FUTURE BACK PAIN"
+    },
+    {
+      "title": "Diagnosis and Treatment of Acute Low Back Pain | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2012/0215/p343.html",
+      "accessed": "2026-03-08",
+      "snippet": "Moderate-quality evidence shows that non-benzodiazepine muscle relaxants (e.g., cyclobenzaprine [Flexeril], tizanidine [Zanaflex], metaxalone [Skelaxin]) are beneficial in the treatment of acute low back pain. Most pain reduction from these medications occurs in the first seven to 14 days, but the benefit may continue for up to four weeks. 19 , 20 However, nonbenzodiazepine muscle relaxants do not affect disability status. 19 , 20 Very low-quality evidence shows that a short course (up to five days) of oral diazepam (Valium) may also be beneficial for pain relief. 19 Because all muscle relaxants have adverse effects, such as drowsiness, dizziness, and nausea, they should be used cautiously. Diazepam and carisoprodol (Soma) use should be brief to decrease the risk of abuse and dependence. There is also moderate-quality evidence that muscle relaxants combined with NSAIDs may have additive"
+    },
+    {
+      "title": "Managing your chronic back pain: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000516.htm",
+      "accessed": "2026-03-08",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient is a 73-year-old female with a history of arthritis and renal disease who presents with severe searing pain in the lower back that started yesterday. She reports constant tingling and numbness in her left hand that also began yesterday. There is no radiation of pain to the legs or feet, no weakness or numbness in the lower extremities, and no bladder or bowel changes. She denies recent trauma, fever, chills, or infections. No prior treatments have been tried for this episode.\n\nO: Phone encounter only; no physical exam or vitals available.\n\nA: The working diagnosis is acute lower back pain likely related to arthritis with possible radiculopathy given the associated left hand numbness.\nDifferential:\n1. Acute exacerbation of arthritis causing lower back pain\n2. Cervical radiculopathy causing left hand numbness\n3. Lumbar radiculopathy without lower extremity symptoms\n4. Peripheral neuropathy related to comorbid conditions or renal disease\n\nP: - First-line medication: Acetaminophen 500 mg orally every 6 hours as needed for pain (Physician must verify medication/dosing)\n- Alternatives: Gabapentin 100 mg orally at night, titrate as tolerated, for neuropathic symptoms (Physician must verify medication/dosing)\n- Medication safety considerations: Use acetaminophen cautiously given renal disease; avoid NSAIDs due to renal impairment; monitor for sedation or dizziness with gabapentin\n- Follow-up recommendations: Seek in-person medical care urgently if new weakness, bladder or bowel dysfunction, worsening pain, or signs of infection develop; otherwise follow up with primary care or specialist as needed\n- Testing: Consider cervical and lumbar spine imaging and nerve conduction studies if symptoms persist or worsen to evaluate for radiculopathy or other neurologic causes"
+}

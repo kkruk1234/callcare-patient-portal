@@ -1,0 +1,50 @@
+{
+  "packet_id": "364327e8-983b-4751-a449-b1eb4a9ae15a",
+  "created_at": "2026-03-20T15:09:49.720080+00:00",
+  "session_id": "a69df0fa-48bf-4e38-91e7-643c0df4723f",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for acute diarrhea in adults",
+    "adult dosing and duration of loperamide for diarrhea",
+    "red flags and indications for stool testing in diarrhea"
+  ],
+  "queries": [
+    "AAFP management guidelines for acute diarrhea in adults",
+    "AAFP adult dosing and duration of loperamide for diarrhea",
+    "MedlinePlus management guidelines for acute diarrhea in adults",
+    "MedlinePlus adult dosing and duration of loperamide for diarrhea",
+    "CDC management guidelines for acute diarrhea in adults",
+    "CDC adult dosing and duration of loperamide for diarrhea",
+    "NIH management guidelines for acute diarrhea in adults",
+    "NIH adult dosing and duration of loperamide for diarrhea",
+    "NICE management guidelines for acute diarrhea in adults",
+    "NICE adult dosing and duration of loperamide for diarrhea",
+    "WHO management guidelines for acute diarrhea in adults",
+    "WHO adult dosing and duration of loperamide for diarrhea"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Acute Diarrhea in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0700/acute-diarrhea.html",
+      "accessed": "2026-03-20",
+      "snippet": "Antibiotic Single dose (orally) Three-day dose (orally) Azithromycin (Zithromax) 1,000 mg 500 mg per day * Ciprofloxacin 750 mg 500 mg per day Levofloxacin (Levaquin) 500 mg 500 mg per day Ofloxacin 400 mg 400 mg per day Rifaximin (Xifaxan) † None 200 mg three times per day"
+    },
+    {
+      "title": "How and when to take loperamide",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/medicines/loperamide/how-and-when-to-take-loperamide/",
+      "accessed": "2026-03-20",
+      "snippet": "Dose for adults with long-lasting or recurring diarrhoea Most cases of diarrhoea get better in 5 to 7 days. If your diarrhoea does not stop in 7 days, talk to your doctor. It's important to understand the causes and to treat any complications, for instance dehydration ."
+    },
+    {
+      "title": "Diagnosis and Management of Foodborne Illness | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2015/0901/p358.html",
+      "accessed": "2026-03-20",
+      "snippet": "§— Treatment for cryptosporidiosis is generally not recommended in immunocompetent patients. For persistent symptoms, some clinicians prescribe nitazoxanide (Alinia), although it has not been approved for this use and has not been proven superior to placebo. Dosing for adults and children 12 years and older is 500 mg orally every 12 hours for 3 days. Dosing for children 4 to 11 years of age is 200 mg of oral suspension every 12 hours for 3 days. Dosing for children 1 to 3 years of age is 100 mg of oral suspension every 12 hours for 3 days ."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male who reports having a lot of loose stools for about a week. He denies blood or mucus in the stools, fever, chills, nausea, vomiting, weight loss, night sweats, or fatigue. He has not traveled recently, eaten unusual foods, or taken antibiotics or new medications before symptom onset. He notes mild abdominal cramping related to the frequency of bowel movements but no significant pain. He is maintaining hydration with fluids including Gatorade and denies signs of dehydration. There is no history of inflammatory bowel disease, recent hospitalizations, or immunosuppression.\n\nO: Phone encounter only; no vital signs or physical exam available.\n\nA: The working diagnosis is acute non-infectious diarrhea, likely self-limited given the absence of systemic symptoms or alarming features.\nDifferential:\n1. Infectious gastroenteritis (viral or bacterial)\n2. Irritable bowel syndrome with diarrhea predominance\n3. Medication or supplement-induced diarrhea (though none reported)\n4. Early inflammatory bowel disease or other chronic diarrhea causes\n\nP: - First-line medication: Loperamide 2 mg orally after first loose stool, then 1 mg after each subsequent loose stool, not to exceed 8 mg per day, for up to 48 hours (Physician must verify medication/dosing)\n- Alternatives: Bismuth subsalicylate 524 mg orally every 30 to 60 minutes as needed, up to 8 doses in 24 hours, for up to 48 hours (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; no renal or liver disease; monitor for worsening symptoms or signs of infection; other contraindications not assessed in this telephone encounter\n- Follow-up recommendations: Seek in-person medical care urgently if fever develops, stools become bloody, signs of dehydration occur, or symptoms persist beyond 48 hours\n- Testing: Not indicated at this time given mild symptoms and absence of alarming features; stool studies if symptoms worsen or persist beyond 48 hours"
+}

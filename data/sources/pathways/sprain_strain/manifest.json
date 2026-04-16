@@ -1,0 +1,11 @@
+{
+  "pathway_id": "sprain_strain",
+  "sources": [
+    {
+      "source_id": "aaos_sprains_strains",
+      "type": "url",
+      "title": "AAOS: Sprains, Strains and Other Soft-Tissue Injuries",
+      "url": "https://orthoinfo.aaos.org/en/diseases--conditions/sprained-ankle/"
+    }
+  ]
+}

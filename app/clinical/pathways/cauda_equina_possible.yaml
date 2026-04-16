@@ -1,0 +1,42 @@
+id: cauda_equina_possible
+version: 0.2
+match:
+  any_keywords: ["saddle anesthesia", "saddle numbness", "urinary retention", "can't pee", "incontinence", "lost bladder control", "bowel incontinence", "numb groin", "cauda equina", "both legs weak", "bilateral sciatica"]
+questions:
+  - id: back_pain
+    prompt: "Do you have significant low back pain? (yes/no)"
+    store_as: back_pain
+    type: yesno
+  - id: urinary_retention
+    prompt: "Are you unable to urinate or having new trouble starting urination? (yes/no)"
+    store_as: urinary_retention
+    type: yesno
+  - id: incontinence
+    prompt: "Any new loss of bladder or bowel control (incontinence)? (yes/no)"
+    store_as: incontinence
+    type: yesno
+  - id: saddle_numbness
+    prompt: "Any numbness in the groin/saddle area? (yes/no)"
+    store_as: saddle_numbness
+    type: yesno
+  - id: leg_weakness
+    prompt: "Any new leg weakness or trouble walking? (yes/no)"
+    store_as: leg_weakness
+    type: yesno
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: ivdu
+    prompt: "Any history of IV drug use? (yes/no)"
+    store_as: ivdu
+    type: yesno
+  - id: cancer_history
+    prompt: "Any history of cancer or recent unexplained weight loss? (yes/no)"
+    store_as: cancer_history
+    type: yesno
+stop_rules:
+  - if_all_answered: ["back_pain", "urinary_retention", "incontinence", "saddle_numbness", "leg_weakness", "fever", "ivdu", "cancer_history"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

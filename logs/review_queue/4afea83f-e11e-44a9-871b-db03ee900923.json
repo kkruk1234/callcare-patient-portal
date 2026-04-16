@@ -1,0 +1,36 @@
+{
+  "session_id": "4afea83f-e11e-44a9-871b-db03ee900923",
+  "timestamp_iso": "2026-01-14T01:32:10.800415+00:00",
+  "note": {
+    "soap": "SOAP Note Draft:\n\nS: The patient is an adult aged 18-64 presenting with a chief complaint of burning urination lasting 4 days. The patient reports fever, flank pain, and vaginal discharge. Pregnancy is denied. Duration of symptoms is 4 days.\n\nO: Physical examination and laboratory findings are not provided. No additional objective data available.\n\nA: Evidence insufficient for a definitive diagnosis. The presence of dysuria, fever, flank pain, and vaginal discharge raises concern for a complicated urinary tract infection or pyelonephritis, but further clinical evaluation and diagnostic testing are needed.\n\nP: Recommend urgent in-person evaluation for physical examination, urine analysis, and possible imaging. Advise patient to seek immediate care if symptoms worsen or if new symptoms such as severe abdominal pain, vomiting, or altered mental status develop. Symptomatic treatment and antibiotic therapy should be guided by clinical findings and test results.\n\nPatient Instructions:\n- Seek urgent medical evaluation in person for further assessment and testing.\n- Monitor symptoms closely; if fever worsens, flank pain intensifies, or new symptoms such as vomiting or confusion occur, seek emergency care immediately.\n- Maintain adequate hydration.\n- Avoid sexual intercourse until evaluation is complete.\n- Report any new or worsening symptoms promptly.\n\nEvidence used:\n- pubmed_telephone_care.txt",
+    "patient_instructions": [],
+    "clinician_questions": [
+      "Physician: review, edit if needed, and approve/sign this encounter."
+    ],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "arris C(4), Harris DR(7), Heard \nK(4), Jenneson S(7), Kohli Y(4), Leroux M(4), Mayor-Nunez D(4), Medvedev G(8), \nMehdiratta M(9), Morrison LJ(3), Ospel JM(2), Pennington S(5), Perez Y(9), \nSelchen D(10), Stebner A(2), Tallon J(7), Tkach A(11), Verbeek PR(3), Tymianski \nM(4).\n\nAuthor information:\n(1)University of British Columbia, Vancouver, BC, Can"
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "er urgency \nallocation than those without these symptoms.\nTRIAL REGISTRATION NUMBER: NTR7331.\n\n© Author(s) (or their employer(s)) 2025. Re-use permitted under CC BY-NC. No \ncommercial re-use. See rights and permissions. Published by BMJ Group.\n\nDOI: 10.1136/bmjopen-2024-092368\nPMCID: PMC11800195\nPMID: 39909522 [Indexed for MEDLINE]\n\nConflict of int"
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "/55007\nPMCID: PMC11888022\nPMID: 39951717 [Indexed for MEDLINE]\n\nConflict of interest statement: Conflicts of Interest: None declared.\n\n\n22. Swiss Med Wkly. 2024 Dec 20;154:4030. doi: 10.57187/s.4030.\n\nSAFEty assessment of a REdirection process after TRIage (SAFE RETRI) by a triage \nnurse in an emergency department: a monocentric cohort study.\n\nDégl"
+      }
+    ]
+  },
+  "recommended_disposition": "PHYSICIAN_REVIEW_REQUIRED",
+  "status": "PENDING",
+  "reviewer_id": null,
+  "reviewer_comments": null
+}

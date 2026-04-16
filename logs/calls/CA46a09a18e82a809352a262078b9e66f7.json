@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA46a09a18e82a809352a262078b9e66f7",
+  "session_id": "e2bb2cad-c9a0-433e-b611-23ad8df15cc2",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T21:28:00.968477+00:00",
+  "ended_at": "2026-03-08T21:32:01.510465+00:00",
+  "packet_id": "41d617f0-45e6-4911-9c64-f77d2396659c",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any fever, chills, or swollen glands?"
+    },
+    {
+      "role": "user",
+      "text": "I have fever, chills, and swollen lungs."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what you mean by swollen lungs? Are you having any difficulty breathing or chest pain?"
+    },
+    {
+      "role": "user",
+      "text": "No. I have swollen glands, not swollen lungs."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cough, runny nose, or hoarseness?"
+    },
+    {
+      "role": "user",
+      "text": "I have some hoarseness, but no cough or runny nose."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty swallowing or pain when swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "No difficulty with swallowing, but I do have pain when I swallow."
+    },
+    {
+      "role": "assistant",
+      "text": "Any rash, joint pain, or recent exposure to someone with strep throat or mono?"
+    },
+    {
+      "role": "user",
+      "text": "I don't have a rash or joint pain, but my son had strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing, chest pain, or severe fatigue?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "I just tried some tea with honey and some DayQuil, but neither of those did anything for it."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any white patches or pus on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I did."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you’ve described, it sounds like you most likely have strep throat, which is a bacterial infection causing your sore throat, fever, and swollen glands. Because this is a phone visit, I can’t examine you or do any tests, but a licensed physician will review this information and may prescribe antibiotics if appropriate. In the meantime, you can take acetaminophen (Tylenol) or ibuprofen (Advil) to help with pain and fever if you can take them safely. If you develop trouble breathing, severe throat swelling, or can’t swallow, please seek urgent in-person care the same day. If you have severe difficulty breathing or feel very unwell, go to the emergency room immediately. A doctor will also want to confirm the diagnosis with a throat test when possible. If symptoms worsen or don’t improve, please get in-person care."
+    }
+  ]
+}

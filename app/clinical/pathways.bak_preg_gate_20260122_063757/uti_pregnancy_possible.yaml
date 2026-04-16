@@ -1,0 +1,21 @@
+id: uti_pregnancy_possible
+version: 0.1
+match:
+  any_keywords: ["burning when i pee", "burning urination", "uti", "urinary infection", "frequency and burning", "pregnant and burning"]
+questions:
+  - id: pregnancy
+    prompt: "Are you pregnant or could you be pregnant? (yes/no/unknown)"
+    store_as: pregnancy_possible
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: flank
+    prompt: "Any back/flank pain near the kidneys? (yes/no)"
+    store_as: flank_pain
+    type: yesno
+stop_rules:
+  - if_all_answered: ["pregnancy", "fever", "flank"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,492 @@
+from __future__ import annotations
+from pathlib import Path
+import json
+import re
+from typing import List, Tuple
+
+# ----------------------------
+# CALLCARE_OUTPUT_CLEANUP_V1
+# Deterministic final-output cleanup:
+# - Remove age-band phrasing in S
+# - Convert bullet S to narrative
+# - Ensure Differential present for common dysuria/UTI presentations
+# - Remove "for physician review" phrasing
+# - Remove NSAID suggestions if renal disease flagged
+# - Hide clinician questions by default (async review is implicit)
+# ----------------------------
+import os as _os
+import re as _re
+
+def _cc_truthy(v) -> bool:
+    if v is None:
+        return False
+    if isinstance(v, bool):
+        return v
+    s = str(v).strip().lower()
+    return s in {"yes","y","true","1","present","positive"}
+
+def _cc_sx(state):
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+def _cc_has_renal(sx: dict) -> bool:
+    if any(_cc_truthy(sx.get(k)) for k in [
+        "kidney_disease",
+        "renal_disease",
+        "reduced_kidney_function",
+        "significantly_reduced_kidney_function",
+        "ckd",
+    ]):
+        return True
+    txt = str(sx.get("med_exclusions") or sx.get("med_exclusions_text") or "").lower()
+    return bool(_re.search(r"\b(ckd|kidney|renal|dialysis|end[-\s]?stage|reduced kidney)\b", txt))
+
+def _cc_cleanup_physician_review_phrases(s: str) -> str:
+    if not s:
+        return s
+    # Remove phrases the user doesn't want
+    s = s.replace("Physician review required.", "")
+    s = s.replace("physician review required.", "")
+    s = s.replace("For physician review:", "Suggested option:")
+    s = s.replace("for physician review", "")
+    s = s.replace("pending clinician review", "pending clinician sign-off")
+    return s
+
+def _cc_remove_age_band_lines_in_S(lines: list[str]) -> list[str]:
+    out = []
+    for ln in lines:
+        # kill lines like "- Patient is a female aged 18-64 years."
+        if _re.search(r"\baged\s+\d", ln, flags=_re.I) and _re.search(r"\byears?\b", ln, flags=_re.I):
+            continue
+        if _re.search(r"\bage\s*band\b", ln, flags=_re.I):
+            continue
+        out.append(ln)
+    return out
+
+def _cc_debullet_subjective(soap_text: str) -> str:
+    if not soap_text:
+        return soap_text
+    lines = soap_text.splitlines()
+    # find S: header
+    s_idx = None
+    for i, ln in enumerate(lines):
+        if ln.strip() == "S:" or ln.strip().startswith("S:"):
+            s_idx = i
+            break
+    if s_idx is None:
+        return soap_text
+
+    # find end of S: at next O:/A:/P:
+    end = len(lines)
+    for j in range(s_idx + 1, len(lines)):
+        if _re.match(r"^\s*(O|A|P)\s*:\s*$", lines[j].strip()):
+            end = j
+            break
+
+    s_block = lines[s_idx+1:end]
+    s_block = _cc_remove_age_band_lines_in_S(s_block)
+
+    bullets = []
+    nonbul = []
+    for ln in s_block:
+        if ln.strip().startswith("-"):
+            bullets.append(_re.sub(r"^\s*-\s*", "", ln).strip())
+        else:
+            nonbul.append(ln)
+
+    if not bullets:
+        return "\n".join(lines)
+
+    # Convert bullets to a narrative paragraph.
+    # Keep any existing non-bullet lines first.
+    narrative_parts = [b.rstrip(".") for b in bullets if b]
+    narrative = " ".join([p + "." for p in narrative_parts]).replace("..", ".").strip()
+
+    new_s = []
+    for ln in nonbul:
+        if ln.strip():
+            new_s.append(ln)
+    if narrative:
+        new_s.append(narrative)
+
+    new_lines = lines[:s_idx+1] + [" " + x if x and not x.startswith(" ") else x for x in new_s] + lines[end:]
+    return "\n".join(new_lines)
+
+def _cc_ensure_differential(soap_text: str, state) -> str:
+    """
+    If Assessment lacks a Differential section, add a short differential for common dysuria/UTI complaints.
+    Conservative and clinician-grade (no dosing).
+    """
+    if not soap_text:
+        return soap_text
+
+    sx = _cc_sx(state)
+    chief = str(getattr(state, "chief_complaint", "") or "").lower()
+    pathway_id = str((sx.get("_pathway") or {}).get("id") or "")
+
+    likely_dysuria = ("burn" in chief and ("pee" in chief or "urin" in chief)) or ("dysuria" in chief) or (pathway_id in {"dysuria_uti","urinary_frequency_no_pain"})
+    if not likely_dysuria:
+        return soap_text
+
+    # already has differential?
+    if _re.search(r"\bDifferential\b", soap_text, flags=_re.I):
+        return soap_text
+
+    lines = soap_text.splitlines()
+
+    # locate A:
+    a_idx = None
+    for i, ln in enumerate(lines):
+        if ln.strip() == "A:" or ln.strip().startswith("A:"):
+            a_idx = i
+            break
+    if a_idx is None:
+        return soap_text
+
+    # insert after first 1-3 assessment lines, before P: if possible
+    insert_at = None
+    for j in range(a_idx + 1, len(lines)):
+        if _re.match(r"^\s*P\s*:\s*$", lines[j].strip()):
+            insert_at = j
+            break
+    if insert_at is None:
+        insert_at = min(len(lines), a_idx + 6)
+
+    diff = "Differential: uncomplicated cystitis; pyelonephritis (if fever/flank pain develops); vaginitis/cervicitis or STI; urethritis; nephrolithiasis; interstitial cystitis; chemical/irritant cystitis."
+    lines.insert(insert_at, diff)
+    return "\n".join(lines)
+
+def _cc_cleanup_plan_banner_terms(soap_text: str) -> str:
+    return _cc_cleanup_physician_review_phrases(soap_text)
+
+def _cc_cleanup_patient_instructions(instr: str, state) -> str:
+    if not instr:
+        return instr
+    sx = _cc_sx(state)
+    renal = _cc_has_renal(sx)
+    out_lines = instr.splitlines()
+    cleaned = []
+    for ln in out_lines:
+        # remove ibuprofen/NSAID suggestion lines if renal disease
+        if renal and _re.search(r"\b(ibuprofen|advil|naproxen|aleve|nsaid)\b", ln, flags=_re.I):
+            continue
+        cleaned.append(ln)
+    return _cc_cleanup_physician_review_phrases("\n".join(cleaned))
+
+def _cc_hide_clinician_questions(default_list):
+    # Async review is implicit; only include checklist if explicitly enabled.
+    enabled = _os.getenv("CALLCARE_INCLUDE_REVIEWER_CHECKLIST", "0") == "1"
+    return default_list if enabled else []
+
+# ----------------------------
+# CALLCARE_LAST_MILE_RX_FILTER_SAFE_V1
+# Deterministic final-note medication filter (does NOT alter protocols; only cleans final SOAP text).
+# Goal: prevent unsafe meds from appearing when renal disease and/or beta-lactam allergy is present.
+# Also allows fosfomycin-only suggestion for clinician review in uncomplicated cystitis contexts.
+# ----------------------------
+import re as _re
+
+def _cc_truthy(v) -> bool:
+    if v is None:
+        return False
+    if isinstance(v, bool):
+        return v
+    s = str(v).strip().lower()
+    return s in {"yes","y","true","1","present","positive"}
+
+def _cc_sx(state):
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+def _cc_has_renal(sx: dict) -> bool:
+    if any(_cc_truthy(sx.get(k)) for k in [
+        "kidney_disease",
+        "renal_disease",
+        "reduced_kidney_function",
+        "significantly_reduced_kidney_function",
+        "ckd",
+    ]):
+        return True
+    txt = str(sx.get("med_exclusions") or sx.get("med_exclusions_text") or "").lower()
+    return bool(_re.search(r"\b(ckd|kidney|renal|dialysis|end[-\s]?stage|reduced kidney)\b", txt))
+
+def _cc_has_pcn(sx: dict) -> bool:
+    allergies = str(sx.get("allergies") or sx.get("allergies_text") or sx.get("med_allergies") or "").lower()
+    return any(k in allergies for k in ["penicillin", "pcn", "amoxicillin", "augmentin", "beta-lactam"])
+
+def _cc_has_fos_allergy(sx: dict) -> bool:
+    allergies = str(sx.get("allergies") or sx.get("allergies_text") or sx.get("med_allergies") or "").lower()
+    return "fosfomycin" in allergies
+
+def _callcare_last_mile_rx_filter(soap_text: str, state) -> str:
+    if not soap_text:
+        return soap_text
+
+    sx = _cc_sx(state)
+    renal = _cc_has_renal(sx)
+    pcn = _cc_has_pcn(sx)
+
+    # If no flags, do nothing
+    if not renal and not pcn:
+        return soap_text
+
+    # Remove unsafe med mentions anywhere (covers protocol injection + LLM prose)
+    bad_terms = []
+    if renal:
+        # conservative: avoid nitrofurantoin + TMP-SMX when renal impairment is present/unknown
+        bad_terms += ["nitrofurantoin", "macrobid", "tmp-smx", "trimethoprim", "sulfamethoxazole", "bactrim"]
+    if pcn:
+        # conservative: remove beta-lactams + cef* lines
+        bad_terms += ["amoxicillin", "augmentin", "amox", "clavulanate", "cephalexin", "penicillin"]
+
+    bad_pat = _re.compile(r"|".join([_re.escape(x) for x in bad_terms]), _re.I) if bad_terms else None
+    cef_pat = _re.compile(r"\bcef[a-z]+\b", _re.I)
+
+    lines = soap_text.splitlines()
+    kept = []
+    for ln in lines:
+        if bad_pat and bad_pat.search(ln):
+            continue
+        if pcn and cef_pat.search(ln):
+            continue
+        kept.append(ln)
+
+    out = "\n".join(kept)
+
+    # Insert Plan banner + fosfomycin-only suggestion for physician review (unless fos allergy)
+    reason_parts = []
+    if renal: reason_parts.append("renal disease / reduced kidney function")
+    if pcn: reason_parts.append("beta-lactam allergy (penicillin/PCN)")
+    reason = ", ".join(reason_parts)
+
+    banner = f"Medication suggestions filtered due to contraindication flags ({reason}). Physician review required."
+    fos = "For physician review: consider fosfomycin 3 g PO once for uncomplicated cystitis if clinically appropriate."
+    if _cc_has_fos_allergy(sx):
+        fos = "For physician review: fosfomycin avoided due to listed allergy; consider alternative per clinician judgment or in-person evaluation."
+
+    out_lines = out.splitlines()
+    plan_idx = None
+    for i, ln in enumerate(out_lines):
+        if ln.strip() == "P:" or ln.strip().lower().startswith("plan"):
+            plan_idx = i
+            break
+
+    if plan_idx is None:
+        return out.rstrip() + "\n\n" + banner + "\n" + fos + "\n"
+
+    # Avoid duplicates
+    for j in range(plan_idx + 1, min(plan_idx + 60, len(out_lines))):
+        if banner in out_lines[j] or fos in out_lines[j]:
+            return out
+
+    indent = _re.match(r"^(\s*)", out_lines[plan_idx]).group(1) if out_lines[plan_idx] else ""
+    child = indent + "  "
+    out_lines.insert(plan_idx + 1, child + banner)
+    out_lines.insert(plan_idx + 2, child + fos)
+    return "\n".join(out_lines)
+
+
+
+def _phoneify(text: str) -> str:
+    """Convert clinic-discharge phrasing into telephone-advice phrasing."""
+    if not text:
+        return text
+    replacements = [
+        ("return promptly", "seek in-person care promptly"),
+        ("return to clinic", "seek in-person care"),
+        ("follow up in clinic", "follow up with your primary care clinician or local clinic"),
+        ("follow-up in clinic", "follow up with your primary care clinician or local clinic"),
+        ("come back", "seek in-person care"),
+    ]
+    out = text
+    for a, b in replacements:
+        out = re.sub(rf"\b{re.escape(a)}\b", b, out, flags=re.IGNORECASE)
+    return out
+from app.core.models import CallState, EvidenceRef, NoteDraft
+from app.clinical.llm_note_writer import generate_note_text
+from app.clinical.llm_patient_summary import generate_patient_summary
+from app.clinical.meds import suggest_meds_tier1
+
+EVID_ROOT = Path("data/sources/pathways")
+
+
+def now_iso() -> str:
+    """Return current time as ISO string (UTC)."""
+    from datetime import datetime, timezone
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _tokenize(s: str) -> List[str]:
+    s = (s or "").lower()
+    s = re.sub(r"[^a-z0-9\s]", " ", s)
+    parts = [p for p in s.split() if len(p) >= 3]
+    return parts
+
+
+def _load_pathway_docs(pathway_id: str) -> List[dict]:
+    pdir = EVID_ROOT / pathway_id
+    if not pdir.exists():
+        return []
+    docs = []
+    for fp in sorted(pdir.glob("*.json")):
+        if fp.name == "manifest.json":
+            continue
+        try:
+            docs.append(json.loads(fp.read_text(encoding="utf-8")))
+        except Exception:
+            continue
+    return docs
+
+
+def _score_doc(query_tokens: List[str], doc_text: str) -> int:
+    t = (doc_text or "").lower()
+    score = 0
+    for tok in query_tokens:
+        if tok in t:
+            score += 1
+    return score
+
+
+def _best_snippets(state: CallState, max_snips: int = 5) -> List[EvidenceRef]:
+    pw = (state.symptoms.get("_pathway") or {})
+    pathway_id = str(pw.get("id") or "").strip() or "cough_uri"
+
+    docs = _load_pathway_docs(pathway_id)
+
+    answers = state.symptoms.get("_answers", {}) or {}
+    query_text = " ".join([state.chief_complaint or ""] + [str(v) for v in answers.values()])
+    qtokens = _tokenize(query_text)
+
+    scored: List[Tuple[int, dict]] = []
+    for d in docs:
+        txt = d.get("text", "")
+        score = _score_doc(qtokens, txt)
+        scored.append((score, d))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+
+    out: List[EvidenceRef] = []
+    for score, d in scored:
+        if score <= 0 and out:
+            continue
+
+        snippet = (d.get("text") or "")[:800].strip()
+        if not snippet:
+            continue
+
+        src = d.get("title") or d.get("source_id") or "evidence"
+        url = d.get("url") or ""
+        label = f"{src} ({url})" if url else src
+
+        # IMPORTANT: EvidenceRef requires title, source, snippet
+        out.append(EvidenceRef(title=src, source=label, snippet=snippet))
+
+        if len(out) >= max_snips:
+            break
+
+    return out
+
+
+def _build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    cc = state.chief_complaint or ""
+    age = state.age_band or "unknown"
+    preg = state.symptoms.get("pregnancy_possible", state.pregnancy_possible or "unknown")
+
+    pathway = state.symptoms.get("_pathway", {})
+    answers = state.symptoms.get("_answers", {})
+
+
+    meds = suggest_meds_tier1(state)
+    meds_block = ""
+    if meds:
+        otc = meds.get("otc_options", [])
+        rx = meds.get("rx_review_only", [])
+        caut = meds.get("cautions", [])
+        meds_block = "\n".join([
+            "Medication options (Tier-1; Rx requires clinician review):",
+            "OTC options (no dosing): " + ("; ".join(otc) if otc else "none"),
+            "Reviewer Rx candidates: " + ("; ".join(rx) if rx else "none"),
+            "Cautions: " + ("; ".join(caut) if caut else "none"),
+        ])
+    ev_block = ""
+    if evidence:
+        bits = []
+        for i, e in enumerate(evidence, 1):
+            bits.append(f"[{i}] {e.source}\n{e.snippet}")
+        ev_block = "\n\n".join(bits)
+    else:
+        ev_block = "(No evidence snippets retrieved.)"
+
+    return f"""Encounter: phone-only autonomous assistant with physician async review (Tier model).
+
+Chief complaint: {cc}
+Age band: {age}
+Pregnancy possible: {preg}
+Selected pathway: {pathway}
+
+Structured answers:
+{json.dumps(answers, indent=2)}
+
+{meds_block}
+
+Evidence snippets (guidelines/peer-reviewed):
+{ev_block}
+
+Generate the SOAP note now.
+""".strip()
+
+
+def build_note(state: CallState) -> NoteDraft:
+    evidence = _best_snippets(state, max_snips=5)
+    prompt = _build_prompt(state, evidence)
+
+    meds = suggest_meds_tier1(state)
+
+    soap_text = generate_note_text(prompt)
+
+    # Spoken summary for the patient (what we will say out loud)
+    patient_summary = generate_patient_summary(
+        soap_text,
+        disposition=state.symptoms.get("_disposition"),
+        disposition_reasons=state.symptoms.get("_disposition_reasons"),
+    )
+
+    patient_instructions = [
+        "If symptoms worsen or you develop new severe symptoms, seek urgent care or call 911.",
+        "Follow the disposition and safety net plan explained in the spoken summary."
+    ]
+
+    clinician_questions = []
+    risk_flags = []
+
+    # Tier-1 medication suggestions (phone-safe: no dosing; Rx is clinician-review only)
+    if meds:
+        otc = meds.get("otc_options", [])
+        caut = meds.get("cautions", [])
+        rx = meds.get("rx_review_only", [])
+        reviewer_qs = meds.get("reviewer_questions", [])
+        if otc:
+            patient_instructions.append("Medication options you may consider if safe (no dosing by phone): " + "; ".join(otc))
+        if caut:
+            patient_instructions.append("Medication cautions: " + "; ".join(caut))
+        # What the reviewing clinician should consider/approve
+        if rx:
+            clinician_questions.append("Rx candidates for clinician review: " + "; ".join(rx))
+        for q in reviewer_qs:
+            clinician_questions.append("Reviewer check: " + q)
+
+    soap_text = _callcare_last_mile_rx_filter(soap_text, state)
+    soap_text = _cc_debullet_subjective(soap_text)
+    soap_text = _cc_ensure_differential(soap_text, state)
+    soap_text = _cc_cleanup_plan_banner_terms(soap_text)
+    patient_instructions = _cc_cleanup_patient_instructions(patient_instructions, state)
+    clinician_questions = _cc_hide_clinician_questions(clinician_questions)
+
+    return NoteDraft(
+        soap=soap_text,
+        patient_summary=patient_summary,
+        patient_instructions=patient_instructions,
+        clinician_questions=clinician_questions,
+        risk_flags=risk_flags,
+        evidence=evidence,
+    )

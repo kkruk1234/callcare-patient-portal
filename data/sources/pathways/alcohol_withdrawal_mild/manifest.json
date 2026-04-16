@@ -1,0 +1,20 @@
+{
+  "pathway_id": "alcohol_withdrawal_mild",
+  "sources": [
+    {
+      "title": "Alcohol withdrawal (clinical overview)",
+      "source": "NHS",
+      "url": "https://www.nhs.uk/conditions/alcohol-misuse/"
+    },
+    {
+      "title": "Alcohol withdrawal syndrome (clinical reference)",
+      "source": "NICE CKS (Alcohol dependence/withdrawal)",
+      "url": "https://cks.nice.org.uk/topics/alcohol-problem-drinking/"
+    },
+    {
+      "title": "Alcohol withdrawal",
+      "source": "MedlinePlus",
+      "url": "https://medlineplus.gov/ency/article/000764.htm"
+    }
+  ]
+}

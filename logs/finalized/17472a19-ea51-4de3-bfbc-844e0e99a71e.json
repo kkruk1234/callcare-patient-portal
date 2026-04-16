@@ -1,0 +1,101 @@
+{
+  "packet_id": "280fdd0c-dc0f-436e-8710-96540fed3dac",
+  "created_at": "2026-02-27T21:01:09.677345+00:00",
+  "session_id": "17472a19-ea51-4de3-bfbc-844e0e99a71e",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any pain radiating to your abdomen, groin, or leg?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma or injury to your back or chest area?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney stones, urinary tract infections, or abdominal issues?",
+    "intake_a6": "no",
+    "intake_q7": "Any difficulty breathing, coughing, or chest pain?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what was the effect?",
+    "intake_a8": "I tried tylenol but it really didn't help much with the pain",
+    "intake_q9": "Any numbness, weakness, or changes in bladder or bowel function?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent unexplained weight loss or history of cancer?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "management guidelines for left lower rib cage back pain",
+      "adult dosing and duration of NSAIDs for back pain",
+      "red flags and return precautions for back pain without trauma or neurological"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any radiation of pain to the abdomen, groin, or leg. There are no associated symptoms such as fever, chills, night sweats, difficulty breathing, coughing, chest pain, numbness, weakness, or changes in bladder or bowel function. She has no history of trauma, kidney stones, urinary tract infections, abdominal issues, unexplained weight loss, or cancer. She has tried acetaminophen (Tylenol) without significant relief. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage area, likely due to muscle strain or intercostal irritation given the absence of systemic symptoms or neurological deficits.\nDifferential:\n1. Musculoskeletal strain or intercostal muscle irritation\n2. Costochondritis or rib inflammation\n3. Early herpes zoster (pre-eruptive phase)\n4. Referred pain from thoracic spine pathology\n\nP:\n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs if history of gastrointestinal issues or renal impairment; use lowest effective dose for shortest duration\n - Return precautions: Return if pain worsens, develops radiation, neurological symptoms, fever, or if new symptoms such as rash or chest pain occur\n - Testing: Not indicated at this time given lack of red flags; consider imaging if symptoms persist beyond 6 weeks or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Get Back Pain Treatment | Cleveland Clinic",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/services/back-pain-treatment",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Back pain - Diagnosis and treatment - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/diseases-conditions/back-pain/diagnosis-treatment/drc-20369911",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Assessment and Management of Acute Low Back Pain | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/1999/1115/p2299.html",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "535",
+        "source": "www.bmj.com",
+        "url": "https://www.bmj.com/content/326/7388/535",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

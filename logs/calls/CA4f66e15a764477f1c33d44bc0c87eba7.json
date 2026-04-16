@@ -1,0 +1,31 @@
+{
+  "call_sid": "CA4f66e15a764477f1c33d44bc0c87eba7",
+  "session_id": "d44854fd-bf17-4474-a6e7-fcea57378e69",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-12T20:44:12.835140+00:00",
+  "ended_at": "2026-03-12T20:44:45.667200+00:00",
+  "packet_id": "",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have lower abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "The following questions may be repetitive but are important for medication and treatment decisions. How old are you? Please say your age in years."
+    }
+  ]
+}

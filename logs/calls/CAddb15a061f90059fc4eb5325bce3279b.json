@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAddb15a061f90059fc4eb5325bce3279b",
+  "session_id": "54f303b3-384c-42d7-81d2-8c0ce48562a1",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-12T13:59:10.136117+00:00",
+  "ended_at": "2026-03-12T14:04:25.872463+00:00",
+  "packet_id": "b53e84c3-89ab-4fc0-8232-346b794051d7",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have lower abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your lower abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain you are feeling in your lower abdomen?"
+    },
+    {
+      "role": "user",
+      "text": "It's a sharp stabbing pain."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or nausea since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. A little bit of all 3."
+    },
+    {
+      "role": "assistant",
+      "text": "Is there any vaginal bleeding, discharge, or urinary symptoms like burning or increased frequency?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any chance you could be pregnant or any recent sexual activity?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any changes in bowel movements, such as diarrhea or constipation?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or tenderness when you press on your lower abdomen?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain radiating to your back or sides, or any difficulty urinating?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any vaginal odor or itching?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent abdominal surgeries, known medical conditions, or similar episodes in the past?"
+    },
+    {
+      "role": "user",
+      "text": "Sometimes it's my period."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing lower abdominal pain with some fever and nausea, which could be due to a few different causes like an infection or a gynecologic issue. Because I can’t examine you or do tests over the phone, a licensed physician will review this information and may recommend medication to help with your pain. For now, you can take ibuprofen or acetaminophen if you can safely do so. If your pain gets worse, your fever goes higher, you develop vaginal bleeding, new urinary symptoms, or severe abdominal pain, please seek urgent in-person care right away. If you notice signs of severe infection like feeling very weak, confused, or having difficulty breathing, go to the emergency room immediately. A healthcare provider will need to do an exam and possibly some tests to find the exact cause and guide treatment."
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "packet_id": "e6a9a254-d313-45ba-93a9-05a3f6954c96",
+  "created_at": "2026-01-22T23:48:50.850531+00:00",
+  "session_id": "df6298f7-0152-4b21-9cb7-0d2c27fce1a5",
+  "chief_complaint": "tooth pain and swelling",
+  "age_band": "",
+  "pregnancy_possible": "yes",
+  "pathway_id": "dental_abscess",
+  "answers": {
+    "pregnancy_possible": "yes",
+    "renal_disease": "no",
+    "fever": "yes",
+    "face_swelling": "yes",
+    "trouble_swallow": "no",
+    "immune": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO BID x 5–7 days",
+      "sig": "875/125 mg PO BID x 5–7 days",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Broad option for odontogenic infection; still requires urgent dental follow-up.",
+      "exclusions": "Immediate-type beta-lactam allergy; adjust in renal impairment per clinician judgment.",
+      "tier": "Tier 1",
+      "pathway_id": "dental_abscess",
+      "source_file": "data/protocols/meds/dental_abscess.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Amoxicillin",
+      "dosing": "500 mg PO TID x 5–7 days",
+      "sig": "500 mg PO TID x 5–7 days",
+      "route": "PO",
+      "frequency": "TID",
+      "duration": "",
+      "notes": "Alternative when clavulanate not needed; clinician judgment based on severity.",
+      "exclusions": "Penicillin allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "dental_abscess",
+      "source_file": "data/protocols/meds/dental_abscess.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Clindamycin",
+      "dosing": "300 mg PO QID x 5–7 days",
+      "sig": "300 mg PO QID x 5–7 days",
+      "route": "PO",
+      "frequency": "QID",
+      "duration": "",
+      "notes": "Common alternative for immediate-type beta-lactam allergy; generally acceptable in pregnancy.",
+      "exclusions": "History of C. difficile/high CDI risk; lincosamide allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "dental_abscess",
+      "source_file": "data/protocols/meds/dental_abscess.yaml"
+    },
+    {
+      "rank": 4,
+      "med": "Metronidazole",
+      "dosing": "500 mg PO TID x 5–7 days",
+      "sig": "500 mg PO TID x 5–7 days",
+      "route": "PO",
+      "frequency": "TID",
+      "duration": "",
+      "notes": "Adjunct for anaerobic coverage (often combined with penicillin/amoxicillin when needed).",
+      "exclusions": "Alcohol use (disulfiram-like reaction); significant liver disease; interactions.",
+      "tier": "Tier 1",
+      "pathway_id": "dental_abscess",
+      "source_file": "data/protocols/meds/dental_abscess.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:  \nThe patient is a 23-year-old adult presenting with tooth pain and swelling. They report associated fever and noticeable swelling of the face. There is no trouble swallowing or airway compromise. The patient has no known medication allergies, no history of renal disease, and is not immunocompromised. Pregnancy is possible.\n\nO:  \nNo physical exam or vital signs available due to phone-only history.\n\nA:  \n- Working diagnosis (most likely):  \n  Dental abscess with associated facial cellulitis.\n\n- Differential:  \n  1. Periapical abscess  \n  2. Periodontal abscess  \n  3. Cellulitis secondary to dental infection  \n  4. Other odontogenic infections (e.g., pericoronitis)\n\n- Red flags considered:  \n  Presence of fever and facial swelling raises concern for spreading infection; no airway compromise or swallowing difficulty reported, which is reassuring.\n\nP:  \n- Disposition:  \n  Urgent evaluation recommended in person for clinical examination and possible imaging. If symptoms worsen (increased swelling, difficulty breathing or swallowing), immediate emergency care is advised.\n\n- Plan: Amoxicillin-clavulanate — 875/125 mg PO BID x 5–7 days. Alternative: Amoxicillin (500 mg PO TID x 5–7 days).\n  Medication protocol (from data/protocols/meds):\n  - Medication recommendations (Tier 1):\n  - Reviewing physician will confirm appropriateness and prescribe if indicated.\n  - Amoxicillin-clavulanate — 875/125 mg PO BID x 5–7 days\n    - Notes: Broad option for odontogenic infection; still requires urgent dental follow-up.\n    - Exclusions: Immediate-type beta-lactam allergy; adjust in renal impairment per clinician judgment.\n  - Amoxicillin — 500 mg PO TID x 5–7 days\n    - Notes: Alternative when clavulanate not needed; clinician judgment based on severity.\n    - Exclusions: Penicillin allergy.\n  - Clindamycin — 300 mg PO QID x 5–7 days\n    - Notes: Common alternative for immediate-type beta-lactam allergy; generally acceptable in pregnancy.\n    - Exclusions: History of C. difficile/high CDI risk; lincosamide allergy.\n  - Metronidazole — 500 mg PO TID x 5–7 days\n    - Notes: Adjunct for anaerobic coverage (often combined with penicillin/amoxicillin when needed).\n    - Exclusions: Alcohol use (disulfiram-like reaction); significant liver disease; interactions.\n  - Supportive care:\n  - Pain control: Acetaminophen if safe; avoid NSAIDs in late pregnancy, renal disease, ulcer/GI bleed risk.\n  - Oral care: Warm salt-water rinses; avoid very hot/cold triggers; soft foods.\n  - Follow-up and safety:\n  - Definitive care: Needs urgent dental evaluation for drainage/root canal/extraction; antibiotics alone may not resolve.\n  - Urgent/ED now: Facial swelling affecting eye, trismus, trouble swallowing/breathing, fever with toxicity, rapid spread, immunocompromise.\n  Amoxicillin-clavulanate 875 mg/125 mg orally twice daily for 7 days.  \n  Alternatives include clindamycin 300 mg orally every 6 hours or doxycycline 100 mg orally twice daily for 7 days, especially if penicillin allergy develops.  \n  Reviewing physician will confirm appropriateness and prescribe if indicated.  \n  Advise analgesics for pain control and warm saline rinses.  \n  Recommend prompt dental follow-up for definitive management (e.g., drainage, extraction).\n\n- Safety net:  \n  Return or seek emergency care if there is worsening facial swelling, onset of difficulty breathing or swallowing, increased fever, or new neurological symptoms.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "ADA — Antibiotics for Dental Pain and Swelling (Guideline page, 2019)",
+        "source": "https://www.ada.org/resources/research/science/evidence-based-dental-research/antibiotics-for-dental-pain-and-swelling",
+        "snippet": "Listed in pathway manifest https://www.ada.org/resources/research/science/evidence-based-dental-research/antibiotics-for-dental-pain-and-swelling"
+      },
+      {
+        "title": "JADA — Evidence-based guideline on antibiotic use for pulpal-/periapical-related pain & intraoral swelling (2019)",
+        "source": "https://jada.ada.org/article/S0002-8177(19)30617-8/fulltext",
+        "snippet": "Listed in pathway manifest https://jada.ada.org/article/S0002-8177(19)30617-8/fulltext"
+      },
+      {
+        "title": "CDC — Treating Patients with Dental Pain and Swelling (ADA guidance PDF)",
+        "source": "https://www.cdc.gov/antibiotic-use/media/pdfs/ada-treatment-guidelines-508.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/media/pdfs/ada-treatment-guidelines-508.pdf"
+      },
+      {
+        "title": "NICE CKS — Dental abscess: Prescribing information",
+        "source": "https://cks.nice.org.uk/topics/dental-abscess/prescribing-information/",
+        "snippet": "Listed in pathway manifest https://cks.nice.org.uk/topics/dental-abscess/prescribing-information/"
+      },
+      {
+        "title": "SDCEP — Management of Acute Dental Problems (Guidance PDF)",
+        "source": "https://www.sdcep.org.uk/media/ixlpeakb/sdcep-madp-guidance-march-2013.pdf",
+        "snippet": "Listed in pathway manifest https://www.sdcep.org.uk/media/ixlpeakb/sdcep-madp-guidance-march-2013.pdf"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "ADA — Antibiotics for Dental Pain and Swelling (Guideline page, 2019)",
+      "source": "https://www.ada.org/resources/research/science/evidence-based-dental-research/antibiotics-for-dental-pain-and-swelling",
+      "snippet": "Listed in pathway manifest https://www.ada.org/resources/research/science/evidence-based-dental-research/antibiotics-for-dental-pain-and-swelling"
+    },
+    {
+      "title": "JADA — Evidence-based guideline on antibiotic use for pulpal-/periapical-related pain & intraoral swelling (2019)",
+      "source": "https://jada.ada.org/article/S0002-8177(19)30617-8/fulltext",
+      "snippet": "Listed in pathway manifest https://jada.ada.org/article/S0002-8177(19)30617-8/fulltext"
+    },
+    {
+      "title": "CDC — Treating Patients with Dental Pain and Swelling (ADA guidance PDF)",
+      "source": "https://www.cdc.gov/antibiotic-use/media/pdfs/ada-treatment-guidelines-508.pdf",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/media/pdfs/ada-treatment-guidelines-508.pdf"
+    },
+    {
+      "title": "NICE CKS — Dental abscess: Prescribing information",
+      "source": "https://cks.nice.org.uk/topics/dental-abscess/prescribing-information/",
+      "snippet": "Listed in pathway manifest https://cks.nice.org.uk/topics/dental-abscess/prescribing-information/"
+    },
+    {
+      "title": "SDCEP — Management of Acute Dental Problems (Guidance PDF)",
+      "source": "https://www.sdcep.org.uk/media/ixlpeakb/sdcep-madp-guidance-march-2013.pdf",
+      "snippet": "Listed in pathway manifest https://www.sdcep.org.uk/media/ixlpeakb/sdcep-madp-guidance-march-2013.pdf"
+    }
+  ]
+}

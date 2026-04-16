@@ -1,0 +1,12 @@
+{
+  "pathway_id": "eye_pain_vision_change",
+  "sources": [
+    {
+      "id": "aao_pacd_ppp",
+      "type": "web",
+      "url": "https://www.aao.org/education/preferred-practice-pattern/primary-angle-closure-disease-ppp",
+      "title": "AAO Preferred Practice Pattern: Primary Angle-Closure Disease",
+      "license_note": "Use link + store limited excerpted text for retrieval."
+    }
+  ]
+}

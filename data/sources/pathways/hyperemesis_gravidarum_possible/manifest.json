@@ -1,0 +1,19 @@
+{
+  "pathway_id": "hyperemesis_gravidarum_possible",
+  "sources": [
+    {
+      "id": "acog_nvp_faq",
+      "type": "web",
+      "url": "https://www.acog.org/womens-health/faqs/morning-sickness-nausea-and-vomiting-of-pregnancy",
+      "title": "ACOG FAQ: Morning Sickness (Nausea and Vomiting of Pregnancy)",
+      "license_note": "Summarize concepts; do not reproduce full text."
+    },
+    {
+      "id": "nice_cks_nvp",
+      "type": "web",
+      "url": "https://cks.nice.org.uk/topics/nausea-vomiting-in-pregnancy/",
+      "title": "NICE CKS: Nausea/vomiting in pregnancy",
+      "license_note": "Use short excerpts only."
+    }
+  ]
+}

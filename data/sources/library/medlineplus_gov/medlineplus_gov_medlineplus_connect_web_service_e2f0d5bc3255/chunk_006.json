@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Service",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-service/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "mmaries have an attribution. Unattributed text is original to MedlinePlus. \nsummary \nclass= \"NLMrelatedLinks\" \nSelected links associated with the topic. This includes the page name, URL, and associated organization (when applicable). The links are formatted in a bulleted list. Not all topics have these links. The number of links can range from zero to dozens. \nExamples of Requests for Problem Codes \nA complete request for Diabetes Mellitus with other coma type 1 uncontrolled, ICD-9 code 250.33, for a Spanish speaking patient would have the following URL address:\nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.cs=2.16.840.1.113883.6.103&mainSearchCriteria.v.c=250.33&mainSearchCriteria.v.dn=Diabetes%20mellitus%20with%20other%20coma%20type%201%20uncontrolled&informationRecipient.languageCode.c=es \nA patient with the same diagnosis but the requested format is JSON and the language is English:\nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.cs=2.16.840.1.113883.6.103&mainSearchCriteria.v.c=250.33&knowledgeResponseType=application/json \nA patient diagnosed with \"Pneumonia due to Pseudomonas\" using SNOMED CT code 41381004:\nhttps://connect.medlineplus.gov/service?mainSearchCriteria.v.cs=2.16.840.1.113883.6.96&mainSearchCriteria.v.c=41381004&mainSearchCriteria.v.dn=Pneumonia%20due%20to%20Pseudomonas%20%28disorder%29&informationRecipient.languageCode.c=en \nA pat",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_service_e2f0d5bc3255",
+  "chunk_id": "chunk_006"
+}

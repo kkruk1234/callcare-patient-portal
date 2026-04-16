@@ -1,0 +1,75 @@
+from __future__ import annotations
+
+from typing import Any, Dict, List, Optional
+
+def _infer_publisher(url: str) -> str:
+    try:
+        u = (url or "").strip().lower()
+        if "://" in u:
+            host = u.split("://", 1)[1].split("/", 1)[0]
+        else:
+            host = u.split("/", 1)[0]
+        host = host.lstrip("www.")
+        parts = host.split(".")
+        if len(parts) >= 2:
+            return ".".join(parts[-2:])
+        return host
+    except Exception:
+        return ""
+
+def as_evidence_refs(retrieved: List[Dict[str, Any]]) -> List[Any]:
+    """
+    Convert retrieve() dict chunks into app.core.models.EvidenceRef instances.
+
+    This is intentionally defensive:
+    - We introspect EvidenceRef's accepted fields and only pass those.
+    - Works even if EvidenceRef schema changes slightly.
+    """
+    try:
+        from app.core.models import EvidenceRef  # type: ignore
+    except Exception:
+        # If EvidenceRef import fails, just return the dicts.
+        return retrieved
+
+    # Determine allowed field names (pydantic v2: model_fields; v1: __fields__)
+    allowed = set()
+    if hasattr(EvidenceRef, "model_fields"):
+        allowed = set(getattr(EvidenceRef, "model_fields").keys())
+    elif hasattr(EvidenceRef, "__fields__"):
+        allowed = set(getattr(EvidenceRef, "__fields__").keys())
+
+    out: List[Any] = []
+    for idx, ch in enumerate(retrieved or [], start=1):
+        if not isinstance(ch, dict):
+            continue
+
+        title = str(ch.get("title") or "").strip()
+        url = str(ch.get("url") or "").strip()
+        text = str(ch.get("text") or "").strip()
+        source = str(ch.get("source") or ch.get("path") or "").strip()
+        publisher = str(ch.get("publisher") or "").strip() or _infer_publisher(url)
+        date = str(ch.get("date") or "").strip()
+
+        # Stable key for citation use
+        key = str(ch.get("key") or f"EVID_{idx}").strip()
+
+        candidate = {
+            "key": key,
+            "title": title,
+            "url": url,
+            "publisher": publisher,
+            "date": date,
+            "text": text,
+            "source": source,
+            "path": source,
+        }
+
+        payload = {k: v for k, v in candidate.items() if k in allowed}
+
+        try:
+            out.append(EvidenceRef(**payload))  # type: ignore
+        except Exception:
+            # If instantiation fails (schema mismatch), fall back to dict
+            out.append(candidate)
+
+    return out

@@ -1,0 +1,12 @@
+{
+  "pathway_id": "relationship_distress_noncrisis",
+  "sources": [
+    {
+      "id": "relationship_distress_noncrisis_ref",
+      "source_id": "relationship_distress_noncrisis_ref",
+      "title": "Mental health: coping and safety planning (starter)",
+      "url": "https://www.samhsa.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

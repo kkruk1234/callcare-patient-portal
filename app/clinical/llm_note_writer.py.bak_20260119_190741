@@ -1,0 +1,303 @@
+import os
+from typing import List, Dict, Any, Optional, Callable
+
+from openai import OpenAI
+from app.core.models import EvidenceRef, CallState
+
+
+# =============================================================================
+# SAFE HELPERS
+# =============================================================================
+
+def _as_int(v) -> Optional[int]:
+    try:
+        if v is None:
+            return None
+        s = str(v).strip()
+        if not s:
+            return None
+        n = float(s)
+        if n <= 0 or n > 130:
+            return None
+        return int(round(n))
+    except Exception:
+        return None
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _answers_dict(state: CallState) -> Dict[str, Any]:
+    sx = _symptoms_dict(state)
+    ans = sx.get("_answers") or {}
+    return ans if isinstance(ans, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _age_years(state: CallState) -> Optional[int]:
+    return _as_int(getattr(state, "age_years", None))
+
+
+def _tick_attachment_hours(state: CallState) -> Optional[int]:
+    """
+    Reads common keys and extracts a number of hours if present.
+    Never throws. Always returns int hours or None.
+    """
+    sx = _symptoms_dict(state)
+    for k in ("tick_attachment_hours", "tick_attached_hours", "tick_attachment_timeframe", "tick_attached_timeframe"):
+        if k not in sx:
+            continue
+        raw = str(sx.get(k) or "").strip().lower()
+        if not raw:
+            continue
+        cleaned = (
+            raw.replace("hours", "")
+            .replace("hour", "")
+            .replace("about", "")
+            .replace("approximately", "")
+            .strip()
+        )
+        iv = _as_int(cleaned)
+        if iv is not None:
+            return iv
+        for token in raw.replace("/", " ").replace(",", " ").split():
+            iv = _as_int(token)
+            if iv is not None:
+                return iv
+    return None
+
+
+def _best_exposure_location(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    for k in ("exposure_location", "exposure_state", "state_exposure", "location", "travel_location"):
+        v = sx.get(k)
+        if v not in (None, ""):
+            return str(v).strip()
+    return ""
+
+
+def _has_bullseye_rash(state: CallState) -> Optional[bool]:
+    sx = _symptoms_dict(state)
+    ans = _answers_dict(state)
+
+    for k in ("bullseye_rash", "erythema_migrans", "em_rash", "tick_rash"):
+        if k in ans:
+            v = str(ans.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+
+    for k in ("bullseye_rash", "erythema_migrans", "expanding_rash"):
+        if k in sx:
+            v = str(sx.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+
+    return None
+
+
+def _systemic_rule(state: CallState) -> str:
+    """
+    Enforce: no hallucinated symptom lists.
+    If _answers exists, allow denial ONLY for symptoms actually present in _answers keys.
+    """
+    ans = _answers_dict(state)
+    if not ans:
+        return 'Do NOT list specific systemic symptom examples. If needed, write only: "No systemic symptoms reported."'
+
+    return (
+        "STRICT: You may ONLY deny symptoms that appear explicitly in Structured answers (_answers). "
+        "Do NOT add examples like malaise/fatigue/joint pain unless those exact items were explicitly asked and answered."
+    )
+
+
+def _evidence_text(evidence: List[EvidenceRef]) -> str:
+    if not evidence:
+        return "(No evidence snippets retrieved.)"
+
+    lines: List[str] = []
+    for i, e in enumerate(evidence[:8], 1):
+        src = (getattr(e, "source", "") or "").strip()
+        title = (getattr(e, "title", "") or "Guideline excerpt").strip()
+        url = (getattr(e, "url", "") or "").strip()
+        snip = (getattr(e, "snippet", "") or "").strip()
+
+        header = f"[{i}] {title} — {src}".strip()
+        if url:
+            header += f"\nURL: {url}"
+        if snip:
+            header += f"\nSNIPPET: {snip[:450]}"
+        lines.append(header)
+
+    return "\n\n".join(lines)
+
+
+# =============================================================================
+# PROMPT BUILDER
+# =============================================================================
+
+def build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    pid = _pathway_id(state)
+    cc = (getattr(state, "chief_complaint", "") or "").strip()
+    ans = _answers_dict(state)
+
+    age = _age_years(state)
+    attach_h = _tick_attachment_hours(state)   # always defined
+    exposure = _best_exposure_location(state)  # always defined
+    bullseye = _has_bullseye_rash(state)       # always defined
+    systemic_rule = _systemic_rule(state)      # always defined
+    ev_text = _evidence_text(evidence)
+
+    facts: List[str] = []
+    if age is not None:
+        facts.append(f"Age: {age} years.")
+    if cc:
+        facts.append(f"Chief complaint (patient words): {cc}")
+
+    if pid in ("tick_bite", "tick_borne_illness_possible"):
+        if attach_h is not None:
+            facts.append(f"Tick attachment duration: ~{attach_h} hours (attachment time, not time since bite).")
+        if exposure:
+            facts.append(f"Exposure location: {exposure}")
+        if bullseye is True:
+            facts.append("Rash description: bullseye / erythema migrans appearance was reported.")
+
+    # Structured answers view (grounding)
+    structured_lines: List[str] = []
+    if ans:
+        for k in sorted(ans.keys()):
+            v = ans.get(k)
+            if v in (None, ""):
+                continue
+            structured_lines.append(f"- {k}: {v}")
+    else:
+        structured_lines.append("(none)")
+
+    requirements = [
+        "A must include:",
+        "- Working diagnosis (most likely): 1 clear diagnosis phrase",
+        "- Differential: 3–6 items (clinician-realistic)",
+        "- Red flags considered: 1–2 sentences (do NOT hallucinate symptoms not asked)",
+        "",
+        "P must include:",
+        "- Disposition aligned with decision level",
+        "- Testing / in-person needs when appropriate",
+        "- Treatment phrased for async physician review (conditional, pending review)",
+        "- Clear safety net",
+    ]
+
+    return f"""
+You are writing a PHONE-ONLY urgent care / primary care clinician note (NOT nurse triage).
+This system uses ASYNC PHYSICIAN REVIEW: you may recommend therapies, but phrase them as conditional pending physician review.
+
+STYLE:
+- Clinician tone, concise, actionable.
+- Do NOT invent negatives (no extra symptom denials).
+- {systemic_rule}
+
+OUTPUT FORMAT (plain text; headings exactly):
+S:
+O:
+A:
+  - Working diagnosis (most likely):
+  - Differential:
+  - Red flags considered:
+P:
+  - Disposition:
+  - Plan:
+  - Safety net:
+
+FACTS TO INCLUDE (use if present; do not add extra facts):
+{chr(10).join("- " + f for f in facts) if facts else "- (none provided)"}
+
+STRUCTURED ANSWERS (_answers):
+{chr(10).join(structured_lines)}
+
+EVIDENCE SNIPPETS (use to support A/P; do not quote more than 1 short phrase):
+{ev_text}
+
+REQUIREMENTS:
+{chr(10).join(requirements)}
+""".strip()
+
+
+# =============================================================================
+# LLM NOTE GENERATION (core)
+# =============================================================================
+
+def _call_openai(prompt: str, disposition: Optional[str] = None) -> str:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+
+    client = OpenAI()
+
+    if disposition:
+        prompt = prompt + f"\n\nDISPOSITION (must match): {disposition}"
+
+    resp = client.chat.completions.create(
+        model=os.getenv("OPENAI_NOTE_MODEL", "gpt-4.1-mini"),
+        messages=[
+            {"role": "system", "content": "You are a careful medical documentation assistant."},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+    )
+    txt = (resp.choices[0].message.content or "").strip()
+    if not txt:
+        raise RuntimeError("Empty LLM note output.")
+    return txt
+
+
+def generate_note(state: CallState, evidence: List[EvidenceRef], disposition: Optional[str] = None) -> str:
+    """Primary entrypoint used by some versions of CallCare."""
+    prompt = build_prompt(state, evidence)
+    return _call_openai(prompt, disposition=disposition)
+
+
+# =============================================================================
+# COMPATIBILITY LAYER (what your error is about)
+# =============================================================================
+# Different parts of the codebase may expect different function names.
+# We provide them all, pointing to the same implementation.
+
+def generate_llm_note(state: CallState, evidence: List[EvidenceRef], disposition: Optional[str] = None) -> str:
+    """Alternate entrypoint some note_builders expect."""
+    return generate_note(state, evidence, disposition=disposition)
+
+
+def write_llm_note(state: CallState, evidence: List[EvidenceRef], disposition: Optional[str] = None) -> str:
+    """Alternate entrypoint some note_builders expect."""
+    return generate_note(state, evidence, disposition=disposition)
+
+
+def create_llm_note(state: CallState, evidence: List[EvidenceRef], disposition: Optional[str] = None) -> str:
+    """Alternate entrypoint some note_builders expect."""
+    return generate_note(state, evidence, disposition=disposition)
+
+
+# ==========================================================
+# BACKCOMPAT_ALIASES_V2
+# note_builder.py may call older function names with either:
+#   generate_note_text(state)  OR  generate_note_text(state, evidence)
+# ==========================================================
+
+def generate_note_text(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def create_note_text(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+

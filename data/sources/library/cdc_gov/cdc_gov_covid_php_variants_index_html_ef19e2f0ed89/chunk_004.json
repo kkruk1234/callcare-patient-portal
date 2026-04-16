@@ -1,0 +1,10 @@
+{
+  "title": "CDC's Role in Tracking Variants | COVID-19 | CDC",
+  "url": "https://www.cdc.gov/covid/php/variants/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "tages to generating SARS-CoV-2 genetic sequence data from specimens to make it available in public repositories: \nSpecimen receipt and initial processing : Clinical specimens, such as nasal swabs, are received and entered into the laboratory information system. \nSpecimen preparation and sequencing : SARS-CoV-2 RNA is extracted and converted to complimentary DNA, prepared for sequencing, and loaded into the next-generation sequencing equipment. \nSequence data generation and collection : Specimens are sequenced, and data is collected from sequencers and initial quality control steps are taken. The raw data is processed and turned into sequence data. At this point, a parallel process begins where sequence data collected from non-public health laboratories are integrated with CDC databases for processing. \nSequence data submission to public repositories : Scientists conduct additional quality control steps. Sequences not initially accepted by public repositories are analyzed and potentially re-sequenced for resubmission. Published data are made available to scientists around the world through public repositories. \n*There are quality control tests at multiple stages of the pipeline to verify the accuracy of genomic sequencing data. \nBioinformatic analysis of genomic sequence data \nPublic health laboratories, medical laboratories, commercial testing laboratories, research laboratorie",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_php_variants_index_html_ef19e2f0ed89",
+  "chunk_id": "chunk_004"
+}

@@ -1,0 +1,40 @@
+id: sore_throat_child
+version: 0.2
+match:
+  any_keywords: ["sore throat", "throat pain", "strep", "tonsils", "tonsillitis", "pain swallowing", "swollen glands", "pharyngitis"]
+questions:
+  - id: age
+    prompt: "How old is the child?"
+    store_as: age
+  - id: duration
+    prompt: "How long has the sore throat been going on? (e.g., 2 days, 1 week)"
+    store_as: duration
+  - id: fever
+    prompt: "Any fever? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: cough
+    prompt: "Is there a cough? (yes/no)"
+    store_as: cough
+    type: yesno
+  - id: drooling_stridor
+    prompt: "Any drooling, noisy breathing/stridor, or trouble breathing? (yes/no)"
+    store_as: drooling_stridor
+    type: yesno
+  - id: dehydration
+    prompt: "Is the child unable to swallow fluids or showing signs of dehydration? (yes/no)"
+    store_as: dehydration
+    type: yesno
+  - id: neck_stiffness
+    prompt: "Any stiff neck, severe headache, or sensitivity to light? (yes/no)"
+    store_as: neck_stiffness
+    type: yesno
+  - id: rash
+    prompt: "Any new rash (especially sandpaper-like) with the sore throat? (yes/no)"
+    store_as: rash
+    type: yesno
+stop_rules:
+  - if_all_answered: ["age", "duration", "fever", "cough", "drooling_stridor", "dehydration", "neck_stiffness", "rash"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

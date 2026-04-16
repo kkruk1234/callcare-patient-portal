@@ -1,0 +1,43 @@
+{
+  "packet_id": "5a4e64f8-f527-4e63-b628-39fab9a97ce4",
+  "created_at": "2026-03-26T13:46:44.801447+00:00",
+  "session_id": "f1cbce3a-4714-42b0-a778-510e718c2061",
+  "pathway_id": "",
+  "base_queries": [
+    "guidelines for diagnosis and management of traumatic toe injury",
+    "adult dosing and contraindications for pain management in toe trauma",
+    "red flags and indications for imaging in toe injury with numbness and"
+  ],
+  "queries": [
+    "AAFP guidelines for diagnosis and management of traumatic toe injury",
+    "AAFP adult dosing and contraindications for pain management in toe trauma",
+    "MedlinePlus guidelines for diagnosis and management of traumatic toe injury",
+    "MedlinePlus adult dosing and contraindications for pain management in toe trauma",
+    "CDC guidelines for diagnosis and management of traumatic toe injury",
+    "CDC adult dosing and contraindications for pain management in toe trauma",
+    "NIH guidelines for diagnosis and management of traumatic toe injury",
+    "NIH adult dosing and contraindications for pain management in toe trauma",
+    "NICE guidelines for diagnosis and management of traumatic toe injury",
+    "NICE adult dosing and contraindications for pain management in toe trauma",
+    "WHO guidelines for diagnosis and management of traumatic toe injury",
+    "WHO adult dosing and contraindications for pain management in toe trauma"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Diagnosis and Management of Common Foot Fractures | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2016/0201/p183.html",
+      "accessed": "2026-03-26",
+      "snippet": "Initial management of lesser toe fractures ( Figure 14 ) includes buddy taping to an adjacent toe, use of a rigid-sole shoe, and ambulation as tolerated. Initial follow-up should occur within one to two weeks, then every two to four weeks for a total healing time of four to six weeks. 6 , 23 , 24 Radiographic follow-up in seven to 10 days is necessary for fractures that required reduction or that involve more than 25% of the joint. 6"
+    },
+    {
+      "title": "Common Foot Fractures | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0200/common-foot-fractures.html",
+      "accessed": "2026-03-26",
+      "snippet": "When a foot or toe fracture is suspected, weight-bearing anteroposterior, lateral, and oblique radiography of the foot and dedicated toe radiography should be obtained. 4 , 5 , 16 The Ottawa foot and ankle rules ( Table 2 15 and Figure 2 15 ) can be used to determine the need for radiography for an acute ankle inversion injury. 4 , 5 , 15 Avulsion fractures in the midfoot can have specific radiographic findings ( Table 3 ) . 17 Computed tomography should be considered if radiography does not show a fracture but clinical suspicion is high. Magnetic resonance imaging can be helpful when there is suspected soft tissue (i.e., ligament or tendon) injury. 11 , 12 , 16 If computed tomography or magnetic resonance imaging is not available and there is high clinical suspicion for fracture, a fracture can be assumed until radiography is repeated in seven to 10 days. 4"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old man who reports sharp, throbbing pain in his toe that started yesterday after dropping a bowling ball on it. He describes redness, warmth, and bruising around the toe, with significant swelling limiting movement and some numbness. He is able to put weight on the toe but states the pain is severe.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is traumatic toe injury with likely contusion and possible fracture given the mechanism of injury, swelling, bruising, and limited movement.\nDifferential:\n1. Traumatic toe fracture\n2. Soft tissue contusion or hematoma\n3. Toe joint dislocation\n4. Infectious process (less likely without systemic signs but possible given redness and warmth)\n\nP: - First-line medication: Acetaminophen 500 mg orally every 6 hours as needed for pain (Physician must verify medication/dosing)\n- Alternatives: Ibuprofen 400 mg orally every 6 hours as needed for pain and inflammation (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid NSAIDs if renal disease or gastrointestinal issues develop; patient allergic to penicillin, no other contraindications noted\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, swelling increases, numbness persists, or if there is inability to move the toe; seek emergency care if signs of infection develop such as fever or spreading redness\n- Testing: Recommend prompt in-person evaluation with foot X-rays to assess for fracture or dislocation"
+}

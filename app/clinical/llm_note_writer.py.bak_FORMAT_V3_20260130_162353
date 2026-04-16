@@ -1,0 +1,509 @@
+import os
+from typing import List, Dict, Any, Optional, Tuple, Union
+
+from openai import OpenAI
+from app.core.models import EvidenceRef, CallState
+
+
+# ============================
+# CALLCARE_PHYSICIAN_NOTE_VOICE_V2
+# Physician voice. No governance/review language in note.
+# ============================
+CALLCARE_NOTE_SYSTEM_VOICE = """You are a practicing physician authoring a clinician-grade medical SOAP note.
+
+WRITE AS THE TREATING CLINICIAN.
+Do NOT write as an AI, triage agent, assistant, or decision-support tool.
+
+STYLE:
+- Use SOAP headers exactly: S:, O:, A:, P:
+- Subjective MUST be narrative prose (no bullet points).
+- Objective: phone-only limitations; do not invent vitals or exam.
+- Assessment: give a working diagnosis and include a concise differential when appropriate.
+- Plan: clinician voice. Include medications when appropriate.
+
+PROHIBITED META-LANGUAGE (do not write any of these):
+- pending review / physician review / approval / suggested / decision-support / recommend the reviewing physician / will confirm
+- Do NOT address a reviewer. This is the medical record.
+
+TRUTHFULNESS:
+- Use ONLY the structured answers provided. Do not invent negatives, PMH, meds, vitals, exam, tests.
+- If not asked, omit it (or write "Not assessed" only if needed for clarity).
+""".strip()
+
+
+# ============================
+# Helpers (safe parsing)
+# ============================
+
+def _as_int(v) -> Optional[int]:
+    try:
+        if v is None:
+            return None
+        s = str(v).strip()
+        if not s:
+            return None
+        n = float(s)
+        if n <= 0 or n > 120:
+            return None
+        return int(round(n))
+    except Exception:
+        return None
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _answers_dict(state: CallState) -> Dict[str, Any]:
+    sx = _symptoms_dict(state)
+    ans = sx.get("_answers", {})
+    return ans if isinstance(ans, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _age_years(state: CallState) -> Optional[int]:
+    return _as_int(getattr(state, "age_years", None))
+
+
+def _chief_complaint(state: CallState) -> str:
+    return (getattr(state, "chief_complaint", "") or "").strip()
+
+
+def _allergies_text(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    for k in ("allergies", "med_allergies", "medication_allergies"):
+        if k in sx and sx.get(k):
+            return str(sx.get(k)).strip()
+    v = getattr(state, "allergies", None)
+    return ("" if v is None else str(v)).strip()
+
+
+# ============================
+# Deterministic gating extraction (from structured answers FIRST)
+# ============================
+
+def _norm_ynu(raw: Any) -> str:
+    """
+    Normalize to: yes / no / unknown / not_applicable / ''.
+    Accepts yes/no/unknown/not sure.
+    """
+    if raw is None:
+        return ""
+    s = str(raw).strip().lower()
+    if not s:
+        return ""
+    if s in ("yes", "y", "true", "1"):
+        return "yes"
+    if s in ("no", "n", "false", "0"):
+        return "no"
+    if s in ("unknown", "unsure", "not sure", "dont know", "don't know", "maybe", "possible"):
+        return "unknown"
+    if s in ("na", "n/a", "not applicable", "not_applicable", "not-applicable"):
+        return "not_applicable"
+    return "unknown"
+
+
+def _get_answer_first(state: CallState, key: str) -> Any:
+    ans = _answers_dict(state)
+    if key in ans:
+        return ans.get(key)
+    sx = _symptoms_dict(state)
+    if key in sx:
+        return sx.get(key)
+    if hasattr(state, key):
+        return getattr(state, key, None)
+    return None
+
+
+def _preg_norm(state: CallState) -> str:
+    # The simulator asks "Is pregnancy possible? (yes/no/unknown)"
+    return _norm_ynu(_get_answer_first(state, "pregnancy_possible"))
+
+
+def _renal_norm(state: CallState) -> str:
+    # The simulator asks "Have you ever been told you have kidney disease... (yes/no/not sure)"
+    v = _get_answer_first(state, "renal_disease")
+    if v is None:
+        v = _get_answer_first(state, "kidney_disease")
+    return _norm_ynu(v)
+
+
+def _liver_norm(state: CallState) -> str:
+    # The simulator asks "Have you ever been told you have liver disease... (yes/no/not sure)"
+    v = _get_answer_first(state, "liver_disease")
+    return _norm_ynu(v)
+
+
+def _preg_sentence_from_norm(p: str) -> str:
+    """
+    NOTE: This is only used if you decide to mention pregnancy.
+    Your downstream note_builder already controls pregnancy placement.
+    Keep this conservative.
+    """
+    if p == "yes":
+        return "Patient is pregnant."
+    if p == "no":
+        return "Patient is not pregnant."
+    if p == "unknown":
+        return "Pregnancy status is unknown."
+    # not_applicable / missing -> suppress
+    return ""
+
+
+# ============================
+# Tick-bite specifics (kept, but NO review language)
+# ============================
+
+def _tick_attachment_hours(state: CallState) -> Optional[int]:
+    sx = _symptoms_dict(state)
+    for k in ("tick_attachment_timeframe", "tick_attached_timeframe", "tick_attachment_hours", "tick_attached_hours"):
+        if k not in sx:
+            continue
+        raw = str(sx.get(k)).strip().lower()
+        if not raw:
+            continue
+        cleaned = (
+            raw.replace("hours", "")
+            .replace("hour", "")
+            .replace("about", "")
+            .replace("approximately", "")
+            .strip()
+        )
+        iv = _as_int(cleaned)
+        if iv is not None:
+            return iv
+        for token in raw.replace("/", " ").replace(",", " ").split():
+            iv = _as_int(token)
+            if iv is not None:
+                return iv
+    return None
+
+
+def _best_exposure_location(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    for k in ("exposure_location", "location", "state_exposure", "exposure_state", "travel_location"):
+        v = sx.get(k)
+        if v:
+            return str(v).strip()
+    return ""
+
+
+def _has_bullseye_rash(state: CallState) -> Optional[bool]:
+    ans = _answers_dict(state)
+    for k in ("tick_rash", "bullseye_rash", "erythema_migrans", "em_rash", "expanding_rash"):
+        if k in ans:
+            v = str(ans.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+    sx = _symptoms_dict(state)
+    for k in ("bullseye_rash", "erythema_migrans", "expanding_rash"):
+        if k in sx:
+            v = str(sx.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+    return None
+
+
+def _systemic_answer_text_for_tickbite(state: CallState) -> str:
+    ans = _answers_dict(state)
+    for k in ("systemic_symptoms", "systemic", "tick_systemic"):
+        if k in ans and ans.get(k) is not None:
+            raw = str(ans.get(k)).strip().lower()
+            if raw in ("none", "no", "n", "nil"):
+                return "None reported."
+            return str(ans.get(k)).strip()
+    return ""
+
+
+# ============================
+# Evidence formatting
+# ============================
+
+def _evidence_text(evidence) -> str:
+    """
+    Render evidence blocks for the LLM prompt.
+    Supports:
+      - EvidenceRef-like objects (attrs)
+      - dict chunks from app.rag.retrieve (keys)
+    """
+    if not evidence:
+        return ""
+
+    lines = []
+    for i, e in enumerate(evidence, start=1):
+        if isinstance(e, dict):
+            key = str(e.get("key") or f"EVID_{i}").strip()
+            title = str(e.get("title") or "").strip()
+            url = str(e.get("url") or "").strip()
+            publisher = str(e.get("publisher") or "").strip()
+            date = str(e.get("date") or "").strip()
+            text = str(e.get("text") or "").strip()
+        else:
+            key = str(getattr(e, "key", "") or f"EVID_{i}").strip()
+            title = str(getattr(e, "title", "") or "").strip()
+            url = str(getattr(e, "url", "") or "").strip()
+            publisher = str(getattr(e, "publisher", "") or "").strip()
+            date = str(getattr(e, "date", "") or "").strip()
+            text = str(getattr(e, "text", "") or "").strip()
+
+        hdr = f"{key}: {title}".strip(": ").strip()
+        if publisher:
+            hdr += f" [{publisher}]"
+        if date:
+            hdr += f" ({date})"
+
+        lines.append(hdr)
+        if url:
+            lines.append(url)
+        if text:
+            t = text.replace("\r", " ").strip()
+            if len(t) > 1800:
+                t = t[:1800] + "…"
+            lines.append(t)
+        lines.append("---")
+
+    return "\n".join(lines).strip()
+
+
+def build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    pid = _pathway_id(state)
+    cc = _chief_complaint(state)
+    age = _age_years(state)
+    allergies = _allergies_text(state)
+
+    sx = _symptoms_dict(state)
+    ans = _answers_dict(state)
+
+    preg = _preg_norm(state)
+    renal = _renal_norm(state)
+    liver = _liver_norm(state)
+
+    preg_sentence = _preg_sentence_from_norm(preg) if preg else ""
+
+    attach_h = _tick_attachment_hours(state)
+    exposure = _best_exposure_location(state)
+    bullseye = _has_bullseye_rash(state)
+    systemic_txt = _systemic_answer_text_for_tickbite(state)
+
+    case_lines: List[str] = []
+    if age is not None:
+        case_lines.append(f"AGE_YEARS: {age}")
+    case_lines.append(f"CHIEF_COMPLAINT: {cc or '(not captured)'}")
+    case_lines.append(f"PATHWAY_ID: {pid or '(none)'}")
+    case_lines.append(f"ALLERGIES: {allergies or 'no known medication allergies (or not captured)'}")
+
+    # Deterministic gating (displayed only in Plan safety considerations)
+    case_lines.append(f"PREGNANCY_POSSIBLE: {preg or '(missing)'}")
+    case_lines.append(f"RENAL_DISEASE: {renal or '(missing)'}")
+    case_lines.append(f"LIVER_DISEASE: {liver or '(missing)'}")
+
+    # Pregnancy sentence: downstream note_builder may insert; keep available but do not force if not captured.
+    if preg_sentence:
+        case_lines.append(f"PREGNANCY_SENTENCE: {preg_sentence}")
+    else:
+        case_lines.append("PREGNANCY_SENTENCE: (do not mention pregnancy unless relevant to medication safety considerations)")
+
+    if pid == "tick_bite":
+        if exposure:
+            case_lines.append(f"EXPOSURE_LOCATION: {exposure}")
+        if attach_h is not None:
+            case_lines.append(f"TICK_ATTACHED_HOURS: {attach_h}")
+        if bullseye is True:
+            case_lines.append("RASH: expanding/bullseye-like rash reported (erythema migrans-like).")
+        elif bullseye is False:
+            case_lines.append("RASH: expanding/bullseye rash denied.")
+        if systemic_txt:
+            case_lines.append(f"SYSTEMIC_SYMPTOMS_RESPONSE: {systemic_txt}")
+
+    ev_text = _evidence_text(evidence)
+
+    hard_rules = """
+HARD RULES (TRUTHFULNESS):
+- Use ONLY CASE DATA / STRUCTURED_ANSWERS / STORED_SYMPTOM_FIELDS.
+- Do NOT invent negatives, past history, medication lists, vital signs, exam findings, labs, imaging, or test results.
+- If something was not asked, do NOT deny it.
+
+HARD RULES (MEDICATIONS):
+- You may recommend medications ONLY if supported by the EVIDENCE SNIPPETS.
+- Every medication recommendation MUST include at least one evidence key citation in parentheses, e.g., (EVID_2).
+- Do NOT include dosing unless the dosing is explicitly present in the evidence text.
+  If dosing is not present, write the medication name only and say "dose per guideline" only if the guideline snippet explicitly states that phrasing.
+
+HARD RULES (TESTING — telephone-only default):
+- Default testing language: recommend in-person testing ONLY if no improvement in 48–72h, worsening, or recurrent symptoms.
+- Recommend "in-person evaluation now" only if evidence explicitly requires test-first OR if red flags are present in structured data.
+
+HARD RULES (PLAN FORMAT — MUST FOLLOW EXACT ORDER):
+In P:, write exactly these subsections and in this order:
+ - Plan assessment:
+ - Medication options:
+ - Medication safety considerations:
+ - Return precautions:
+ - Testing:
+
+Plan assessment requirements:
+- 1–2 lines summarizing working impression + approach.
+- The LAST line of Plan assessment must be:
+  "Working impression based on telephone history. Management below is limited by telephone-only evaluation (no vitals/labs available during the call)."
+""".strip()
+
+    tickbite_regimens = ""
+    if pid == "tick_bite":
+        tickbite_regimens = """
+TICK BITE / ERYTHEMA MIGRANS:
+- If erythema migrans-like rash is reported, include an antibiotic regimen ONLY if supported by evidence snippets.
+- If evidence supports doxycycline but pregnancy_possible is yes/unknown, avoid doxycycline and choose an evidence-supported pregnancy-safe alternative.
+- Do NOT mention review/approval workflows.
+""".strip()
+
+    return f"""
+{hard_rules}
+
+{tickbite_regimens}
+
+CASE DATA:
+{chr(10).join(case_lines)}
+
+STRUCTURED_ANSWERS (verbatim):
+{ans}
+
+STORED_SYMPTOM_FIELDS (verbatim):
+{ {k: v for k, v in sx.items() if not str(k).startswith("_")} }
+
+EVIDENCE SNIPPETS:
+{ev_text}
+
+OUTPUT FORMAT (plain text; headings exactly):
+S:
+O:
+A:
+P:
+ - Plan assessment:
+ - Medication options:
+ - Medication safety considerations:
+ - Return precautions:
+ - Testing:
+""".strip()
+
+
+# ============================
+# LLM call
+# ============================
+
+def _client_and_model() -> Tuple[OpenAI, str]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+    client = OpenAI(api_key=api_key)
+
+    model = os.getenv("CALLCARE_LLM_MODEL", "").strip()
+    if not model:
+        model = "gpt-4.1-mini"
+    return client, model
+
+
+def _generate_from_prompt(prompt: str) -> str:
+    client, model = _client_and_model()
+
+    resp = client.responses.create(
+        model=model,
+        input=[
+            {"role": "system", "content": CALLCARE_NOTE_SYSTEM_VOICE},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+        max_output_tokens=900,
+    )
+
+    text = getattr(resp, "output_text", None)
+    if not text:
+        try:
+            parts = []
+            for o in resp.output:
+                for c in getattr(o, "content", []) or []:
+                    if getattr(c, "type", "") == "output_text":
+                        parts.append(getattr(c, "text", ""))
+            text = "\n".join([p for p in parts if p])
+        except Exception:
+            text = ""
+    return (text or "").strip()
+
+
+def generate_note(state: CallState, evidence: List[EvidenceRef]) -> str:
+    prompt = build_prompt(state, evidence)
+
+    # --- CALLCARE_ANSWERED_FIELDS_GUARD_V2 ---
+    # Strong guard: only structured answers may be stated as positives/negatives.
+    sx = getattr(state, "symptoms", None) or {}
+    ans = {}
+    if isinstance(sx, dict):
+        a = sx.get("_answers", {})
+        if isinstance(a, dict):
+            ans = dict(a)
+
+    # Normalize allergy wording a bit
+    allergies_val = ""
+    if isinstance(ans.get("allergies"), str):
+        allergies_val = ans.get("allergies")
+    elif getattr(state, "allergies", None) is not None:
+        allergies_val = str(getattr(state, "allergies"))
+    allergies_norm = allergies_val.strip().lower()
+    if allergies_norm in ("no", "none", "nope", "n"):
+        allergies_norm = "none"
+    if allergies_norm:
+        ans["allergies"] = allergies_norm
+
+    answered_lines = []
+    for key in sorted(ans.keys()):
+        answered_lines.append("- " + str(key) + ": " + str(ans.get(key)))
+    answered_block = "\n".join(answered_lines) if answered_lines else "(none)"
+
+    guard = (
+        "CRITICAL RULES (DO NOT VIOLATE):\n"
+        "- You may ONLY state symptoms, negatives, history, or treatments that are explicitly present in the structured answers provided below.\n"
+        "- If something was not asked, you MUST NOT state or imply it.\n"
+        "- Do NOT infer typical findings. Do NOT invent negatives.\n"
+        "- Allergy phrasing rule:\n"
+        "  - If allergies == 'none' or empty: you may say 'No known drug allergies.'\n"
+        "  - If allergies is non-empty: list the allergy(ies) plainly and DO NOT say 'no known allergies.'\n"
+    )
+
+    prompt = guard + "\n\nANSWERED_FIELDS (anything not listed here was NOT ASKED):\n" + answered_block + "\n\n" + prompt
+    # --- END CALLCARE_ANSWERED_FIELDS_GUARD_V2 ---
+
+    return _generate_from_prompt(prompt)
+
+
+# ============================
+# Exports / back-compat
+# ============================
+
+def generate_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def write_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def create_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def create_note_text(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def generate_note_text(prompt_or_state: Union[str, CallState], evidence: Optional[List[EvidenceRef]] = None) -> str:
+    if isinstance(prompt_or_state, str):
+        return _generate_from_prompt(prompt_or_state)
+    return generate_note(prompt_or_state, evidence or [])

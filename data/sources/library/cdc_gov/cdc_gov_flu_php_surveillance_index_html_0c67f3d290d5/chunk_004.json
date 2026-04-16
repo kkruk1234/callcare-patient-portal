@@ -1,0 +1,10 @@
+{
+  "title": "How CDC Classifies Flu Severity each Season in the United States | Influenza (Flu) | CDC",
+  "url": "https://www.cdc.gov/flu/php/surveillance/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "weekly throughout the flu season. Past flu season severity assessments are available at Past Flu Season Severity Assessments . In addition to assessing the severity of flu seasons, this methodology may also be used to help monitor the severity during a flu pandemic.\nHow CDC tracks flu activity \nCDC tracks flu activity through key flu indicators, including the percentage of influenza-like illness (ILI) visits to outpatient health clinics, the rates of flu-related hospitalizations, and the percentage of deaths resulting from flu.\nHow CDC defines \"severity\" \nCDC began using an approach published in 2017 to define flu season severity. CDC first calculates intensity thresholds for three key flu indicators (ILI visits, rates of flu-related hospitalizations, and percentage of deaths resulting from flu) using data from past flu seasons. CDC then classifies the severity of specific flu seasons or a given week during the flu season by determining whether the indicator values during the peak of each flu season crossed their respective ITs.\nData sources used to classify flu severity \nU.S. Outpatient Influenza-like Illness Surveillance Network (ILINet): Percent of outpatient visits for flu-like illness out of all outpatient visits by week. ILINet sites that collect age-specific data on the number of influenza-like illness visits and total number of outpatient visits are used for the severi",
+  "source_type": "library",
+  "source_id": "cdc_gov_flu_php_surveillance_index_html_0c67f3d290d5",
+  "chunk_id": "chunk_004"
+}

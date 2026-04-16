@@ -1,0 +1,10 @@
+{
+  "title": "RSV-NET | RSV | CDC",
+  "url": "https://www.cdc.gov/rsv/php/surveillance/rsv-net.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "in useful for monitoring disease severity. \nDemographic and detailed clinical information, including underlying conditions, allows CDC to better understand RSV-associated hospitalization trends and determine who is most at risk. \nKey Concept \nCDC uses RSV-NET hospitalization data, combined with mathematical and statistical models, to inform in-season RSV disease burden estimates, updated weekly. \nRSV-NET: Monitoring RSV Hospitalizations \nCase definition \nA case is defined as laboratory-confirmed RSV in a person who: \nLives in a defined RSV-NET surveillance area AND \nTests positive for RSV (using a laboratory-based molecular, antigen, serology, or antibody test) within 14 days before or during hospitalization. \nRSV-NET surveillance area \nRSV-NET currently comprises 170 counties and county equivalents in 14 states participating in the Respiratory Virus Surveillance Network. It covers more than 36.8 million people and includes an estimated 10.8% of the U.S. population. The RSV-NET surveillance area is generally similar to the U.S. population by demographics; however, RSV-NET data might not be generalizable to the entire country.\nKey Concept \nPopulation-based surveillance is the active collection, analysis, and interpretation of data on a population in a specified geographic area. \nCalculating hospitalization rates \nRSV-NET surveillance began tracking RSV-associated hospitalization",
+  "source_type": "library",
+  "source_id": "cdc_gov_rsv_php_surveillance_rsv_net_html_e8119c231d0a",
+  "chunk_id": "chunk_004"
+}

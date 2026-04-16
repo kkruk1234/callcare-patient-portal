@@ -1,0 +1,22 @@
+id: urinary_frequency_no_pain
+version: 0.1
+match:
+  any_keywords: ["peeing a lot", "urinating a lot", "urinary frequency", "frequent urination", "have to pee all the time"]
+questions:
+  - id: burning
+    prompt: "Any burning when you urinate? (yes/no)"
+    store_as: dysuria
+    type: yesno
+  - id: thirst
+    prompt: "Are you very thirsty or urinating large amounts day and night? (yes/no)"
+    store_as: polydipsia_polyuria
+    type: yesno
+  - id: weak
+    prompt: "Any weakness, confusion, vomiting, or severe abdominal pain? (yes/no)"
+    store_as: severe_symptoms
+    type: yesno
+stop_rules:
+  - if_all_answered: ["burning", "thirst", "weak"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

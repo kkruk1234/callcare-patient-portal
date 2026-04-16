@@ -1,0 +1,57 @@
+{
+  "packet_id": "8dfa98d9-879b-4da9-bb9a-47385fbaa667",
+  "created_at": "2026-03-07T14:26:06.850029+00:00",
+  "session_id": "6b2d6924-3e46-4990-aaec-4763ef5b580d",
+  "pathway_id": "",
+  "base_queries": [
+    "tick bite management guidelines in adolescents",
+    "doxycycline dosing for tick bite in 14-year-olds mg duration contraindications",
+    "red flags and return precautions after tick bite with fever and joint"
+  ],
+  "queries": [
+    "AAFP tick bite management guidelines in adolescents",
+    "AAFP doxycycline dosing for tick bite in 14-year-olds mg duration contraindications",
+    "MedlinePlus tick bite management guidelines in adolescents",
+    "MedlinePlus doxycycline dosing for tick bite in 14-year-olds mg duration contraindications",
+    "CDC tick bite management guidelines in adolescents",
+    "CDC doxycycline dosing for tick bite in 14-year-olds mg duration contraindications",
+    "NIH tick bite management guidelines in adolescents",
+    "NIH doxycycline dosing for tick bite in 14-year-olds mg duration contraindications",
+    "NICE tick bite management guidelines in adolescents",
+    "NICE doxycycline dosing for tick bite in 14-year-olds mg duration contraindications",
+    "WHO tick bite management guidelines in adolescents",
+    "WHO doxycycline dosing for tick bite in 14-year-olds mg duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Lyme Disease - Clinical Practice Guideline | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/lyme-disease.html",
+      "accessed": "2026-03-07",
+      "snippet": "Individuals with Lyme arthritis should be treated with oral antibiotic therapy for 28 days."
+    },
+    {
+      "title": "One Dose of Doxycycline for the Prevention of Lyme Disease: A Review of Clinical Effectiveness and Guidelines [Internet] - PubMed",
+      "source": "pubmed.ncbi.nlm.nih.gov",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31449366/",
+      "accessed": "2026-03-07",
+      "snippet": "If an infected tick bite is not detected or is left untreated, Lyme disease can progress to neurological, joint, and cardiac involvement. – Lyme disease from an infected tick bite can be prevented if the tick is removed within 24 to 36 hours. – Prophylaxis might be considered within 72 hours of tick removal if the vector was identified as an immature black-legged tick which remained attached for more than 36 hours and the patient had visited a region where local rates of infection are greater than 20%. – If any of these criteria are unclear, clinician judgment and patient preference is used to determine if prophylaxis or watchful waiting is warranted. , If any of these criteria are not met, watchful waiting for 30 days has been recommended to monitor the appearance of fever, arthralgia, and rash symptoms. ,"
+    },
+    {
+      "title": "How to remove a tick | NIH MedlinePlus Magazine",
+      "source": "magazine.medlineplus.gov",
+      "url": "https://magazine.medlineplus.gov/article/how-to-remove-a-tick/",
+      "accessed": "2026-03-07",
+      "snippet": ""
+    },
+    {
+      "title": "Lyme Disease | Borreliosis | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/lymedisease.html",
+      "accessed": "2026-03-07",
+      "snippet": "Lyme disease is a bacterial infection you get from the bite of an infected tick . At first, Lyme disease usually causes symptoms such as a rash , fever , headache , and fatigue . But if it is not treated early, the infection can spread to your joints, heart, and nervous system. Prompt treatment can help you recover quickly."
+    }
+  ],
+  "note_text": "S: The patient is a 14-year-old female who reports being bitten by a tick 2 days ago. She now has a uniformly red spot about the size of a quarter at the bite site. She also reports constant joint pain and swelling around her ankles, with difficulty lifting things and bearing weight. She has experienced fever since the tick bite. The tick was removed using tweezers.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is early Lyme disease presenting with erythema migrans and associated arthritis.\nDifferential:\n1. Early Lyme disease\n2. Tick-borne rickettsial infection\n3. Localized cellulitis or soft tissue infection\n4. Reactive arthritis following tick bite\n\nP: - First-line medication: Doxycycline 100 mg orally twice daily for 21 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally three times daily for 21 days (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies reported; patient is not pregnant; no renal or liver disease\n- Follow-up recommendations: Seek in-person medical care urgently if fever worsens, joint swelling increases, or new neurological symptoms develop; seek emergency care if difficulty breathing or severe systemic symptoms occur\n- Testing: Not assessed in this telephone encounter; consider Lyme serology and inflammatory markers if symptoms persist or worsen"
+}

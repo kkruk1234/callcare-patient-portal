@@ -1,0 +1,22 @@
+id: urinary_incontinence_new
+version: 0.1
+match:
+  any_keywords: ["can't hold urine", "leaking urine", "new incontinence", "wetting myself", "urine leakage"]
+questions:
+  - id: cauda
+    prompt: "Any new leg weakness, numbness in the groin/saddle area, or trouble urinating? (yes/no)"
+    store_as: cauda_redflags
+    type: yesno
+  - id: fever
+    prompt: "Any fever or burning with urination? (yes/no)"
+    store_as: infection_signs
+    type: yesno
+  - id: blood
+    prompt: "Any blood in urine? (yes/no)"
+    store_as: hematuria
+    type: yesno
+stop_rules:
+  - if_all_answered: ["cauda", "fever", "blood"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

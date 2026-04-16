@@ -1,0 +1,26 @@
+id: eye_foreign_body
+version: 0.1
+match:
+  any_keywords: ["something in my eye", "foreign body in eye", "got dust in my eye", "metal in eye", "eye scratch", "grit in my eye"]
+questions:
+  - id: chemical
+    prompt: "Was this a chemical splash into the eye? (yes/no)"
+    store_as: chemical
+    type: yesno
+
+  - id: vision
+    prompt: "Any vision change? (yes/no)"
+    store_as: vision_change
+    type: yesno
+
+  - id: severe_pain
+    prompt: "Is the pain severe or getting worse quickly? (yes/no)"
+    store_as: severe_pain
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["chemical", "vision", "severe_pain"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

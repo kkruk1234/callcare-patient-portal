@@ -1,0 +1,57 @@
+{
+  "packet_id": "b5ca4c10-86e8-4aec-ae59-dd8eb570385e",
+  "created_at": "2026-03-20T14:36:42.442455+00:00",
+  "session_id": "5f68325b-5c41-4551-a54a-9ad80b3fb956",
+  "pathway_id": "",
+  "base_queries": [
+    "Clostridium difficile infection diagnosis and management guidelines",
+    "C. diff infection treatment adult dosing and duration",
+    "Red flags and testing indications for diarrhea with C. diff exposure"
+  ],
+  "queries": [
+    "AAFP Clostridium difficile infection diagnosis and management guidelines",
+    "AAFP C. diff infection treatment adult dosing and duration",
+    "MedlinePlus Clostridium difficile infection diagnosis and management guidelines",
+    "MedlinePlus C. diff infection treatment adult dosing and duration",
+    "CDC Clostridium difficile infection diagnosis and management guidelines",
+    "CDC C. diff infection treatment adult dosing and duration",
+    "NIH Clostridium difficile infection diagnosis and management guidelines",
+    "NIH C. diff infection treatment adult dosing and duration",
+    "NICE Clostridium difficile infection diagnosis and management guidelines",
+    "NICE C. diff infection treatment adult dosing and duration",
+    "WHO Clostridium difficile infection diagnosis and management guidelines",
+    "WHO C. diff infection treatment adult dosing and duration"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Clostridioides difficile Infection:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/0201/p168.pdf",
+      "accessed": "2026-03-20",
+      "snippet": ""
+    },
+    {
+      "title": "C. diff Infections | C. difficile | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/clostridiumdifficileinfections.html",
+      "accessed": "2026-03-20",
+      "snippet": "Certain antibiotics can treat C. diff infections. If you were already taking a different antibiotic when you got C. diff , your provider may ask you to stop taking that one."
+    },
+    {
+      "title": "Common Questions About Clostridium difficile Infection | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2014/0315/p437.html/1000",
+      "accessed": "2026-03-20",
+      "snippet": "Overall, 20% to 30% of patients with C. difficile infection experience a recurrence of the infection within 60 days. Similar recurrence rates are reported with vancomycin and metronidazole. A second course of either drug for recurrent infection does not increase the risk of an additional episode. 22 , 23 Metronidazole should not be used for subsequent recurrences because of the risk of neurotoxicity. 2 A typical dosing regimen of oral vancomycin includes 125 mg four times per day for 10 to 14 days, 125 mg two times per day for one week, 125 mg per day for one week, and then 125 mg every two or three days for two to eight weeks."
+    },
+    {
+      "title": "Stool C difficile toxin: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/003590.htm",
+      "accessed": "2026-03-20",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient reports having diarrhea for about one week. They note a little mucus in the stool but no visible blood. There is some abdominal pain and bloating. The patient denies fever, chills, or night sweats. They have been drinking fluids including Gatorade to stay hydrated but feel dry. The patient was recently exposed to a family member diagnosed with C. difficile infection.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is infectious diarrhea, possibly Clostridioides difficile infection given the exposure history and symptoms of diarrhea with mucus and abdominal pain.\nDifferential:\n1. Clostridioides difficile infection\n2. Other bacterial infectious gastroenteritis\n3. Viral gastroenteritis\n4. Inflammatory bowel disease flare\n\nP: - First-line medication: Oral vancomycin 125 mg by mouth four times daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Oral fidaxomicin 200 mg by mouth twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no renal or liver disease, not pregnant; monitor for worsening symptoms or adverse reactions\n- Follow-up recommendations: Seek in-person medical care urgently if diarrhea worsens, develops blood, severe abdominal pain, signs of dehydration, or fever\n- Testing: Stool testing for C. difficile toxin and other pathogens to confirm diagnosis and guide therapy"
+}

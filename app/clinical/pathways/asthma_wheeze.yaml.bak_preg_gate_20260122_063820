@@ -1,0 +1,29 @@
+id: asthma_wheeze
+version: 0.1
+match:
+  any_keywords: ["wheeze", "wheezing", "asthma", "shortness of breath", "tight chest", "inhaler", "albuterol"]
+questions:
+  - id: severe
+    prompt: "Right now, are you struggling to speak in full sentences or using a lot of effort to breathe? (yes/no)"
+    store_as: severe_work_of_breathing
+    type: yesno
+
+  - id: cyanosis
+    prompt: "Any blue lips or gray/blue skin? (yes/no)"
+    store_as: cyanosis
+    type: yesno
+
+  - id: relief
+    prompt: "If you have a rescue inhaler, is it not helping at all? (yes/no/not_applicable)"
+    store_as: rescue_not_helping
+
+  - id: hx
+    prompt: "Have you been hospitalized or intubated for asthma before? (yes/no/unknown)"
+    store_as: prior_severe_asthma
+
+stop_rules:
+  - if_all_answered: ["severe", "cyanosis", "relief", "hx"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

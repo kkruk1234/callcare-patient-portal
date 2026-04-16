@@ -1,0 +1,81 @@
+{
+  "packet_id": "24d6cfb3-5edd-4012-9741-3857e06294d1",
+  "created_at": "2026-03-04T13:36:38.157659+00:00",
+  "session_id": "b14ee29d-9140-4be4-9f1e-4a6dccc68895",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back hurts?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since your back pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Have you had any recent injuries, falls, or heavy lifting before the pain started?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a6": "I tried tylenol but it didn't really help much",
+    "intake_q7": "Any pain with deep breaths or coughing?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any abdominal pain, nausea, or changes in bowel habits?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of trauma, cancer, or osteoporosis?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "musculoskeletal back pain left lower rib cage treatment",
+      "intercostal muscle strain management adult",
+      "NSAIDs for rib cage musculoskeletal pain",
+      "costochondritis diagnosis and treatment"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started 3 weeks ago. She denies any numbness, weakness, or tingling in her legs or feet. There are no associated symptoms such as fever, chills, unexplained weight loss, pain with deep breaths or coughing, abdominal pain, nausea, or changes in bowel habits. She has no history of recent injury, trauma, cancer, osteoporosis, kidney problems, urinary symptoms, or recent infections. She has tried acetaminophen (Tylenol) without significant relief.\n\nO: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage area, likely due to a strain or minor soft tissue injury given the absence of systemic symptoms or neurological deficits.\nDifferential:\n1. Musculoskeletal strain or sprain\n2. Intercostal muscle strain\n3. Rib contusion or minor fracture (less likely without trauma)\n4. Early presentation of costochondritis or other inflammatory process\n\nP:\n - First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation.\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated.\n - Medication safety considerations: Avoid NSAIDs if there is a history of gastrointestinal bleeding, renal impairment, or allergy; use acetaminophen cautiously to avoid hepatotoxicity.\n - Return precautions: Advise the patient to seek immediate care if she develops new symptoms such as fever, worsening pain, neurological symptoms (numbness, weakness), chest pain, or difficulty breathing.\n - Testing: No immediate testing indicated given the absence of red flag symptoms; consider imaging if symptoms persist beyond 6 weeks or worsen.\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Diagnosis and Treatment of Acute Low Back Pain | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2012/0215/p343.html",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "mayoclinic.org",
+        "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Diagnosis and Treatment of Acute Low Back Pain | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+      "source": "mayoclinic.org",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

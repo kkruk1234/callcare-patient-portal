@@ -1,0 +1,44 @@
+{
+  "packet_id": "63a63ef0-ba00-4a1a-9169-03398ad1a41e",
+  "created_at": "2026-04-04T15:27:12.950860+00:00",
+  "session_id": "67aa6be3-9acd-4a38-9a81-a3058ca1593a",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for acute cough with fever and colored sputum adults",
+    "adult antibiotic treatment for community-acquired pneumonia dosing and duration",
+    "red flags and indications for urgent testing in adults with chest pain",
+    "return precautions for adults with cough, fever, and chest pain"
+  ],
+  "queries": [
+    "AAFP management guidelines for acute cough with fever and colored sputum adults",
+    "AAFP adult antibiotic treatment for community-acquired pneumonia dosing and duration",
+    "MedlinePlus management guidelines for acute cough with fever and colored sputum adults",
+    "MedlinePlus adult antibiotic treatment for community-acquired pneumonia dosing and duration",
+    "CDC management guidelines for acute cough with fever and colored sputum adults",
+    "CDC adult antibiotic treatment for community-acquired pneumonia dosing and duration",
+    "NIH management guidelines for acute cough with fever and colored sputum adults",
+    "NIH adult antibiotic treatment for community-acquired pneumonia dosing and duration",
+    "NICE management guidelines for acute cough with fever and colored sputum adults",
+    "NICE adult antibiotic treatment for community-acquired pneumonia dosing and duration",
+    "WHO management guidelines for acute cough with fever and colored sputum adults",
+    "WHO adult antibiotic treatment for community-acquired pneumonia dosing and duration"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Guidelines for Treating Adults with Acute Cough | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2007/0215/p476.html",
+      "accessed": "2026-04-04",
+      "snippet": "A history, physical examination, and selected diagnostic testing can help physicians accurately diagnose patients who will likely benefit from antibiotics. For example, cough will be at its worst during the first few days of a common cold when it is caused by an uncomplicated viral infection and will gradually and progressively improve over the next week or two. 5 If the cough worsens (a biphasic course) or does not steadily improve after the first week, another cause for the cough for which an antibiotic may be beneficial (e.g., bacterial sinusitis, whooping cough) should be considered. 18"
+    },
+    {
+      "title": "Acute Bronchitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/afp/980315ap/hueston.html",
+      "accessed": "2026-04-04",
+      "snippet": "Three studies 32 – 34 have evaluated the effectiveness of bronchodilators in the treatment of acute bronchitis ( Table 3 ) . These studies all demonstrated significant relief of symptoms in patients with bronchitis who received oral albuterol (4 mg four times daily), 33 inhaled albuterol (two puffs four times daily) 34 or fenoterol (not available in the United States). 32 Compared with patients who received placebo, those who were treated with albuterol were more likely to have stopped coughing within a week of the initiation of therapy. 33 , 34 The patients who were treated with inhaled albuterol also returned to work sooner. 33 The effects of combining albuterol with an antibiotic have also been assessed. In one of these studies, 32 no benefit was shown from adding erythromycin to the treatment regimen of patients who were already receiving albuterol."
+    }
+  ],
+  "note_text": "S: The patient is a 49-year-old male presenting with a 2-day history of fever up to 104°F last night, currently around 102°F, and a productive cough with yellow to green mucus. He reports chest pain that occurs with breathing and coughing, described as moderate and lasting longer than the cough itself. He denies coughing up blood, leg swelling, or redness. His sister recently had pneumonia, suggesting possible exposure. He has a history of childhood asthma but no known recent lung or heart problems. He is unsure about shortness of breath but notes chest pain with breathing.\n\nO: Phone encounter only; no vital signs or physical exam available.\n\nA: The working diagnosis is acute bronchitis with possible superimposed bacterial infection given the productive cough with colored sputum and fever. The chest pain with breathing may be pleuritic, possibly related to the respiratory infection.\nDifferential:\n1. Acute bacterial bronchitis\n2. Community-acquired pneumonia\n3. Viral upper respiratory infection with reactive airway inflammation\n4. Pleuritis or pleurisy secondary to infection\n\nP: \n- First-line medication: Amoxicillin 500 mg orally three times daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Doxycycline 100 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; no renal or liver disease; monitor for antibiotic side effects\n- Follow-up recommendations: Seek in-person medical care urgently if worsening shortness of breath, chest pain, hemoptysis, or high fever persists beyond 48 hours\n- Testing: Chest X-ray to evaluate for pneumonia if symptoms worsen or do not improve within 48-72 hours"
+}

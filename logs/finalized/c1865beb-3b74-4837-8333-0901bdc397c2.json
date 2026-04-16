@@ -1,0 +1,64 @@
+{
+  "packet_id": "c1865beb-3b74-4837-8333-0901bdc397c2",
+  "created_at": "2026-03-06T17:56:56.152701+00:00",
+  "session_id": "fae9defa-49fc-49a3-8e48-1abca76f35e3",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin dosing for strep throat adults mg duration contraindications",
+    "red flags sore throat difficulty breathing swallowing testing"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin dosing for strep throat adults mg duration contraindications",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin dosing for strep throat adults mg duration contraindications",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin dosing for strep throat adults mg duration contraindications",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin dosing for strep throat adults mg duration contraindications",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin dosing for strep throat adults mg duration contraindications",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin dosing for strep throat adults mg duration contraindications"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.html",
+      "accessed": "2026-03-06",
+      "snippet": "Skoog Ståhlgren G, Tyrstrup M, Edlund C, et al. Penicillin V four times daily for five days versus three times daily for 10 days in patients with pharyngotonsillitis caused by group A streptococci: randomised controlled, open label, non-inferiority study. BMJ. 2019;367:l5337."
+    },
+    {
+      "title": "Strep throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000639.htm",
+      "accessed": "2026-03-06",
+      "snippet": "Certain other antibiotics may also work against the strep bacteria. Antibiotics should be taken for 10 days, even though symptoms are often gone within a few days. The following tips may help your sore throat feel better:"
+    },
+    {
+      "title": "This Patient Group Direction (PGD) must only be used by registered healthcare",
+      "source": "england.nhs.uk",
+      "url": "https://www.england.nhs.uk/wp-content/uploads/2023/11/PRN01010-5b.-sore-throat-clarithromycin-patient-group-direction-pharmacy-first.pdf",
+      "accessed": "2026-03-06",
+      "snippet": "%=J&%�t �t$��W�\u0017vO[{L��Y�K��\u000e2�]��\u0012)By�վ�Gr�����\u0017�f�jkkc�\u000fB������1 MC\u0005(��5��ѣ�KF\u000fN�}F\u0011�0=4mCg ά���M\u0005ۋ��tE�7�eJ�\u0001\u0019\u0011�p�@8�r�~\u0014#\u000f]��g��@e\u0004\"\u0002(z�\b\u0016�Ng8Y���Ƴ!�Q{��\u0018Q~ ��y��\u0005�>��n�߃�\u0013�Y]\u0012�\u000f]o\u000e:�\u0006\u001ci����A��\u0014�Vͅ�ʙ��\u0010/�#\u0004\u0006[�J�eZ\bBV�l�\u0013����tԈ�Fפ��-��˸�ܯӛ����\u001d'%�2&Δ�6}�\u0010\u0012���/46 \u0014z*�7�F�Ͱ����\u0007} ���\u0018\\�W��]�!^ݟ�؁#y僜\u0003� �TKtV���!��XB Q�jV��EIhf_�w^�g���7�C`G?��ľ�G\u001f|����ꧠ�\u0007�7dj�UWT8\u0014���\u000f7��ct�����!A���s����g�G�&]1�x�U\u001eHT\u000fo(/\u0018�7\u0013L�"
+    },
+    {
+      "title": "Strep A",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/conditions/strep-a/",
+      "accessed": "2026-03-06",
+      "snippet": "If you or your child has a strep A infection, or are prescribed antibiotics for strep A, you should stay away from nursery, school or work for 24 hours after you start taking antibiotics. This will help stop the infection spreading to other people."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sore throat accompanied by fever and painful swallowing. She reports swollen glands in her neck and visible white patches on her tonsils. There is a known exposure to strep throat from her son last week. She denies cough, nasal congestion, rash, joint pain, or difficulty breathing or swallowing saliva.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the classic presentation of sore throat with fever, tonsillar exudates, tender cervical lymphadenopathy, and recent exposure to a confirmed case.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Peritonsillar abscess (less likely without severe dysphagia or respiratory distress)\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies reported; no pregnancy, renal, or liver disease; monitor for allergic reactions\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe swallowing difficulty, or worsening symptoms occur; seek emergency care if airway compromise develops\n- Testing: Throat culture or rapid antigen detection test for group A streptococcus if available to confirm diagnosis"
+}

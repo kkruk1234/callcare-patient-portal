@@ -1,0 +1,26 @@
+id: meningitis_possible
+version: 0.1
+match:
+  any_keywords: ["fever and stiff neck", "severe headache with fever", "stiff neck headache", "confusion with fever and headache"]
+questions:
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: stiff
+    prompt: "Do you have a stiff neck or pain when you try to look down? (yes/no)"
+    store_as: stiff_neck
+    type: yesno
+
+  - id: confusion
+    prompt: "Are you confused, very sleepy, or hard to wake? (yes/no)"
+    store_as: altered
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["fever", "stiff", "confusion"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,39 @@
+id: cellulitis
+version: 0.1
+match:
+  any_keywords: ["cellulitis", "skin redness spreading", "hot red skin", "skin infection spreading", "red swollen skin"]
+questions:
+
+  - id: pregnancy_possible
+    prompt: "Is there any chance you are pregnant right now? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: pregnancy_possible
+
+  - id: renal_disease
+    prompt: "Have you ever been told you have kidney disease or reduced kidney function? (yes/no/unknown)"
+    type: text
+    store_as: renal_disease
+
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: rapid_spread
+    prompt: "Is the redness spreading quickly? (yes/no)"
+    type: yesno
+    store_as: rapid_spread
+
+  - id: pain_out_of_proportion
+    prompt: "Is the pain severe or out of proportion to what you can see? (yes/no)"
+    type: yesno
+    store_as: pain_out_of_proportion
+  - id: face_or_near_eye
+    prompt: "Is this on the face or near an eye? (yes/no/unknown)"
+    type: text
+    store_as: face_or_near_eye
+
+  - id: diabetes_or_immunosuppressed
+    prompt: "Do you have diabetes or a weakened immune system? (yes/no/unknown)"
+    type: text
+    store_as: diabetes_or_immunosuppressed

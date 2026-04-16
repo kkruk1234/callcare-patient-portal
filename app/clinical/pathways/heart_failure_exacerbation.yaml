@@ -1,0 +1,22 @@
+id: heart_failure_exacerbation
+version: 0.1
+match:
+  any_keywords: ["heart failure", "fluid in lungs", "swelling legs", "sudden weight gain", "worse when lying flat"]
+questions:
+  - id: severe_sob
+    prompt: "Are you short of breath at rest or unable to speak full sentences? (yes/no)"
+    store_as: sob_severe
+    type: yesno
+  - id: chest
+    prompt: "Any chest pressure, fainting, or blue lips? (yes/no)"
+    store_as: danger_signs
+    type: yesno
+  - id: rapid_swelling
+    prompt: "New rapid leg swelling or waking up gasping for air? (yes/no)"
+    store_as: acute_worsening
+    type: yesno
+stop_rules:
+  - if_all_answered: ["severe_sob", "chest", "rapid_swelling"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

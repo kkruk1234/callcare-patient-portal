@@ -1,0 +1,60 @@
+{
+  "packet_id": "f7a00ba3-1a0b-4b64-abd9-71c91f9c8268",
+  "created_at": "2026-01-25T20:06:08.892069+00:00",
+  "session_id": "80bb80fa-2a94-4b73-934a-aec20559fc12",
+  "chief_complaint": "My period cramps are so bad I feel faint",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "cough_uri",
+  "answers": {
+    "duration": "0",
+    "fever": "no",
+    "sob": "no",
+    "chest_pain": "no",
+    "high_risk": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 23-year-old woman presenting with severe menstrual cramps so intense that she feels faint. She reports no fever, shortness of breath, or chest pain. The duration of symptoms is very recent (0 days). There are no known medication allergies. No chronic lung disease or other high-risk conditions are reported.\n\nO:  \nNo physical exam or vital signs available due to phone-only encounter. No evidence of fever or respiratory symptoms.\n\nA:  \n- Working diagnosis (most likely): Primary dysmenorrhea causing severe menstrual cramps with associated presyncope.  \n- Differential:  \n  1. Primary dysmenorrhea  \n  2. Secondary dysmenorrhea (e.g., endometriosis, pelvic inflammatory disease)  \n  3. Anemia-related symptoms exacerbating faintness  \n  4. Other causes of presyncope unrelated to menstruation (less likely given history)  \n- Red flags considered: No fever, no chest pain, no shortness of breath, no high-risk conditions, no signs of infection or acute illness.\n\nP:  \n- Disposition: Patient can be managed at home with symptomatic treatment unless symptoms worsen or new concerning signs develop.  \n- Plan: Recommend use of NSAIDs (e.g., ibuprofen 400-600 mg every 6-8 hours as needed) for pain relief, ensuring adequate hydration and rest. If cramps persist or worsen, or if faintness increases, patient should seek in-person evaluation. Consider evaluation for secondary causes if symptoms recur or do not improve with treatment.  \n- Safety net: Advise patient to seek urgent care if she develops fever, severe abdominal pain not relieved by NSAIDs, heavy vaginal bleeding, persistent faintness, or any new symptoms such as chest pain or shortness of breath.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+        "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+      },
+      {
+        "title": "NICE NG120: Cough (acute)",
+        "source": "https://www.nice.org.uk/guidance/ng120",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+      },
+      {
+        "title": "BMJ Best Practice: Acute Cough",
+        "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+        "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+      "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+    },
+    {
+      "title": "NICE NG120: Cough (acute)",
+      "source": "https://www.nice.org.uk/guidance/ng120",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+    },
+    {
+      "title": "BMJ Best Practice: Acute Cough",
+      "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+      "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+    }
+  ]
+}

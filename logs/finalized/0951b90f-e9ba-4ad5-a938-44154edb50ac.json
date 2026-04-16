@@ -1,0 +1,136 @@
+{
+  "packet_id": "54bbf9c6-8b45-4448-a673-cbae4b3d712d",
+  "created_at": "2026-02-13T02:11:50.215142+00:00",
+  "session_id": "0951b90f-e9ba-4ad5-a938-44154edb50ac",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your elbow pain start?",
+    "intake_a1": "4 days ago",
+    "intake_q2": "Can you describe what caused the elbow pain or if you injured it in any way?",
+    "intake_a2": "it started after playing tennis",
+    "intake_q3": "Can you describe the location of the pain on your elbow and if it is on the inside, outside, or general area?",
+    "intake_a3": "outside",
+    "intake_q4": "Any swelling, redness, or warmth around the outside of your elbow?",
+    "intake_a4": "maybe a little swelling",
+    "intake_q5": "Any numbness, tingling, or weakness in your arm or hand?",
+    "intake_a5": "no",
+    "intake_q6": "Any difficulty moving your elbow or pain when you try to grip or lift objects?",
+    "intake_a6": "pain with lifting objects",
+    "intake_q7": "Any fever, chills, or other signs of infection?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your elbow pain so far?",
+    "intake_a8": "icing",
+    "intake_q9": "Any prior history of elbow problems or repetitive strain injuries?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent trauma or injury to the elbow besides playing tennis?",
+    "intake_a10": "no",
+    "age_years": 51,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://www.cdc.gov/flu/signs-symptoms/index.html",
+        "https://medlineplus.gov/druginfo/meds/a607001.html",
+        "https://medlineplus.gov/genetics/condition/cryopyrin-associated-periodic-syndromes/",
+        "https://medlineplus.gov/lymedisease.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 51-year-old female presenting with a 4-day history of pain localized to the outside of her elbow. The pain began after playing tennis and is associated with some mild swelling but no redness or warmth. She reports pain with lifting objects but denies numbness, tingling, weakness, fever, or chills. She has tried icing the area with some relief. There is no prior history of elbow problems or recent trauma other than the tennis activity. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe clinical presentation is consistent with lateral epicondylitis (tennis elbow), characterized by pain on the outside of the elbow following repetitive wrist extension activities such as tennis. The mild swelling and pain with lifting support this diagnosis. \n\nDifferential: \n1. Lateral epicondylitis (tennis elbow) \n2. Radial tunnel syndrome \n3. Olecranon bursitis \n4. Referred pain from cervical radiculopathy \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain and inflammation relief. \n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; patient currently has no known renal or liver disease. Avoid NSAIDs if allergy develops. \n- Return precautions: Advise patient to seek care if symptoms worsen, if there is increasing swelling, redness, warmth, fever, or if numbness or weakness develops. \n- Testing: Not indicated at this time based on clinical presentation; consider imaging or specialist referral if no improvement after conservative management or if symptoms worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "rvices without needing a referral from a GP. Get NHS help for back or joint problems Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treat…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      },
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+      },
+      {
+        "title": "Signs and Symptoms of Flu | Influenza (Flu) | CDC",
+        "source": "https://www.cdc.gov/flu/signs-symptoms/index.html",
+        "snippet": "Flu) Symptom onset Gradual Abrupt Fever Rare Common; lasts 3-4 days Aches Slight Common; often severe Chills Uncommon Fairly common Fatigue, weakness Sometimes Usual Sneezing Common Sometimes Chest discomfort, cough Mild to moderate; hacking cough Common; can be severe Stuffy nose Common Sometimes Sore throat Common Sometimes Headache Rare Common Emergency W…"
+      },
+      {
+        "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+        "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+      },
+      {
+        "title": "Cryopyrin-associated periodic syndromes : MedlinePlus Genetics",
+        "source": "https://medlineplus.gov/genetics/condition/cryopyrin-associated-periodic-syndromes/",
+        "snippet": "ain, other possible symptoms include muscle aches, chills, drowsiness, eye redness, headache, and nausea. Individuals with MWS develop the typical periodic episodes of skin rash, fever, and joint pain after cold exposure, although episodes may occur spontaneously or all the time. Additionally, they can develop progressive hearing loss in their teenage years.…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    },
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+    },
+    {
+      "title": "Signs and Symptoms of Flu | Influenza (Flu) | CDC",
+      "source": "https://www.cdc.gov/flu/signs-symptoms/index.html",
+      "snippet": "Flu) Symptom onset Gradual Abrupt Fever Rare Common; lasts 3-4 days Aches Slight Common; often severe Chills Uncommon Fairly common Fatigue, weakness Sometimes Usual Sneezing Common Sometimes Chest discomfort, cough Mild to moderate; hacking cough Common; can be severe Stuffy nose Common Sometimes Sore throat Common Sometimes Headache Rare Common Emergency W…"
+    },
+    {
+      "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+      "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+    },
+    {
+      "title": "Cryopyrin-associated periodic syndromes : MedlinePlus Genetics",
+      "source": "https://medlineplus.gov/genetics/condition/cryopyrin-associated-periodic-syndromes/",
+      "snippet": "ain, other possible symptoms include muscle aches, chills, drowsiness, eye redness, headache, and nausea. Individuals with MWS develop the typical periodic episodes of skin rash, fever, and joint pain after cold exposure, although episodes may occur spontaneously or all the time. Additionally, they can develop progressive hearing loss in their teenage years.…"
+    },
+    {
+      "title": "Lyme Disease | Borreliosis | MedlinePlus",
+      "source": "https://medlineplus.gov/lymedisease.html",
+      "snippet": "-eye.\" Fever Chills Headache Fatigue Muscle and joint aches Swollen lymph nodes (\"swollen glands\") If the infection is not treated, it can spread to your joints, heart, and nervous system. The symptoms may include: Severe headaches and neck stiffness. More EM rashes on other areas of your body. Facial palsy, which is a weakness in your facial muscles. It can…"
+    }
+  ],
+  "state": null
+}

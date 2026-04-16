@@ -1,0 +1,327 @@
+import os, json, time, re
+from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
+
+from app.core.models import EvidenceRef
+
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini")
+
+# Authoritative allowlist (including subdomains)
+# NOTE: intentionally EXCLUDES ncbi.nlm.nih.gov / pmc / pubmed
+ALLOWLIST_DOMAINS = {
+    "medlineplus.gov",
+    "nice.org.uk",
+    "nhs.uk",
+    "who.int",
+    "merckmanuals.com",
+    "idsociety.org",
+    "acog.org",
+    "acep.org",
+    "aaos.org",
+    "aafp.org",
+    "cdc.gov",
+}
+
+BAD_TITLE_SIGNALS = [
+    "page not found",
+    "not found",
+    "error",
+    "access denied",
+    "forbidden",
+    "unauthorized",
+    "oops",
+    "we can’t find",
+    "we can't find",
+]
+
+STOPWORDS = {
+    "the","a","an","and","or","of","to","in","on","for","with","without","is","are",
+    "this","that","it","as","by","from","at","be","been","was","were","can","may",
+    "your","you","patient","patients","adult","adults","child","children",
+}
+
+def _now_ts() -> float:
+    try:
+        return time.time()
+    except Exception:
+        return 0.0
+
+def _normalize_url(u: str) -> str:
+    u = (u or "").strip()
+    if not u:
+        return u
+    # strip tracking junk (keep meaningful params if needed later)
+    try:
+        parsed = urlparse(u)
+        q = [(k, v) for (k, v) in parse_qsl(parsed.query, keep_blank_values=True) if not k.lower().startswith("utm_")]
+        new_q = urlencode(q, doseq=True)
+        parsed = parsed._replace(query=new_q)
+        u = urlunparse(parsed)
+    except Exception:
+        pass
+
+    u = u.replace("://www.", "://")
+    if u.endswith("/"):
+        u = u[:-1]
+    return u
+
+def _domain(url: str) -> str:
+    try:
+        host = urlparse(url).netloc.lower().split(":")[0]
+        if host.startswith("www."):
+            host = host[4:]
+        return host
+    except Exception:
+        return ""
+
+def _domain_allowed(url: str) -> bool:
+    host = _domain(url)
+    if not host:
+        return False
+    for d in ALLOWLIST_DOMAINS:
+        if host == d or host.endswith("." + d):
+            return True
+    return False
+
+def _url_blocked(url: str) -> bool:
+    """Hard block: anything NCBI/PMC/PubMed/Bookshelf/MedGen regardless of allowlist."""
+    u = (url or "").lower()
+    if "pubmed.ncbi.nlm.nih.gov" in u:
+        return True
+    if "pmc.ncbi.nlm.nih.gov" in u:
+        return True
+    if "ncbi.nlm.nih.gov" in u:
+        return True  # blocks MedGen, Bookshelf, StatPearls, etc.
+    return False
+
+def _bad_title(title: str) -> bool:
+    t = (title or "").strip().lower()
+    if not t:
+        return True
+    for sig in BAD_TITLE_SIGNALS:
+        if sig in t:
+            return True
+    # some sites return garbage “value is what coveo indexes…”
+    if "coveo" in t and "indexes" in t:
+        return True
+    return False
+
+def _tokenize_query(q: str) -> list[str]:
+    q = re.sub(r"\s+", " ", (q or "").strip()).lower()
+    toks = re.findall(r"[a-z0-9]+", q)
+    toks = [t for t in toks if t and t not in STOPWORDS and len(t) >= 3]
+    return toks[:12]
+
+def _publisher_from_url(url: str) -> str:
+    host = _domain(url)
+    if not host:
+        return "Source"
+    mapping = {
+        "nhs.uk": "NHS",
+        "nice.org.uk": "NICE",
+        "medlineplus.gov": "MedlinePlus (NIH)",
+        "merckmanuals.com": "Merck Manual Professional",
+        "aafp.org": "AAFP",
+        "aaos.org": "AAOS",
+        "acog.org": "ACOG",
+        "acep.org": "ACEP",
+        "idsociety.org": "IDSA",
+        "cdc.gov": "CDC",
+        "who.int": "WHO",
+    }
+    for k, v in mapping.items():
+        if host == k or host.endswith("." + k):
+            return v
+    return host
+
+def _cc_trace(trace_fn, event: str, **fields):
+    try:
+        if trace_fn:
+            trace_fn(event, **fields)
+    except Exception:
+        pass
+
+def _web_search_sources(openai_client, query: str, model: str, trace_fn=None) -> list[dict]:
+    """
+    Returns list of dicts with keys: url, title, snippet (best-effort)
+    """
+    t0 = _now_ts()
+    resp = openai_client.responses.create(
+        model=model,
+        input=query,
+        tools=[{"type": "web_search"}],
+        include=["web_search_call.action.sources", "web_search_call.results"],
+    )
+    latency = _now_ts() - t0
+
+    # Parse sources from the response object (best-effort; robust to schema changes)
+    sources = []
+    try:
+        out = getattr(resp, "output", None) or []
+        for item in out:
+            if getattr(item, "type", "") == "web_search_call":
+                # The SDK may expose .action.sources or .results depending on version
+                action = getattr(item, "action", None)
+                if action:
+                    for s in (getattr(action, "sources", None) or []):
+                        sources.append({
+                            "url": getattr(s, "url", None) or "",
+                            "title": getattr(s, "title", None) or "",
+                            "snippet": getattr(s, "snippet", None) or "",
+                        })
+                for r in (getattr(item, "results", None) or []):
+                    sources.append({
+                        "url": getattr(r, "url", None) or "",
+                        "title": getattr(r, "title", None) or "",
+                        "snippet": getattr(r, "snippet", None) or "",
+                    })
+    except Exception:
+        sources = []
+
+    # Dedup by normalized URL
+    seen = set()
+    out2 = []
+    for s in sources:
+        url = _normalize_url(s.get("url") or "")
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        out2.append({"url": url, "title": (s.get("title") or "").strip(), "snippet": (s.get("snippet") or "").strip()})
+
+    _cc_trace(trace_fn, "web_search_sources", q=query, sources=len(out2), latency_s=latency, model=model)
+    return out2
+
+def llm_http_evidence(
+    context: str,
+    diagnosis_hint: str,
+    chief_complaint: str,
+    max_urls: int = 6,
+    min_urls: int = 4,
+    trace_fn=None,
+    model: str | None = None,
+):
+    """
+    LLM+web_search evidence gatherer (NO FAISS).
+    Returns list[EvidenceRef] where:
+      - EvidenceRef.title = human title
+      - EvidenceRef.source = URL (so renderer can print URL)
+      - EvidenceRef.snippet = short snippet (optional)
+    Enforces min_urls by running multiple web_search queries until enough allowed sources are found.
+    """
+    model = model or DEFAULT_MODEL
+    dx = (diagnosis_hint or "").strip()
+    cc = (chief_complaint or "").strip()
+    ctx = (context or "").strip()
+
+    _cc_trace(trace_fn, "llm_http_evidence_start", dx=dx, cc=cc, model=model)
+
+    # Import OpenAI client (project-local)
+    try:
+        from openai import OpenAI
+        client = OpenAI()
+    except Exception as e:
+        _cc_trace(trace_fn, "llm_http_evidence_error", err_type=type(e).__name__, err=str(e))
+        return []
+
+    # Query strategy (scalable; not diagnosis-specific):
+    #  - start with dx/cc
+    #  - then add “self care / red flags / analgesic dosing” (general outpatient telephone care)
+    base = " ".join([t for t in [dx, cc, ctx] if t]).strip()
+    if not base:
+        base = "symptom management"
+
+    queries = [
+        base,
+        f"{base} self care red flags",
+        f"{base} acetaminophen ibuprofen naproxen dosing",
+        f"{base} when to seek urgent care",
+        f"{base} evaluation management guideline",
+    ]
+
+    # Collect allowed, non-blocked sources
+    collected = []
+    seen_url = set()
+
+    for q in queries:
+        if len(collected) >= min_urls:
+            break
+
+        srcs = _web_search_sources(client, q, model=model, trace_fn=trace_fn) or []
+        # Filter + keep best
+        for s in srcs:
+            url = _normalize_url(s.get("url") or "")
+            title = (s.get("title") or "").strip()
+            snippet = (s.get("snippet") or "").strip()
+
+            if not url or url in seen_url:
+                continue
+            seen_url.add(url)
+
+            if _url_blocked(url):
+                continue
+            if not _domain_allowed(url):
+                continue
+            if _bad_title(title):
+                continue
+
+            collected.append({"url": url, "title": title, "snippet": snippet})
+            if len(collected) >= max_urls:
+                break
+
+    # If still under min_urls, expand by adding more general “guideline” queries (still not diagnosis-specific)
+    if len(collected) < min_urls:
+        extra_queries = [
+            f"{base} guideline",
+            f"{base} patient information",
+            f"{base} treatment options dosing",
+        ]
+        for q in extra_queries:
+            if len(collected) >= min_urls:
+                break
+            srcs = _web_search_sources(client, q, model=model, trace_fn=trace_fn) or []
+            for s in srcs:
+                url = _normalize_url(s.get("url") or "")
+                title = (s.get("title") or "").strip()
+                snippet = (s.get("snippet") or "").strip()
+
+                if not url or url in seen_url:
+                    continue
+                seen_url.add(url)
+
+                if _url_blocked(url):
+                    continue
+                if not _domain_allowed(url):
+                    continue
+                if _bad_title(title):
+                    continue
+
+                collected.append({"url": url, "title": title, "snippet": snippet})
+                if len(collected) >= max_urls:
+                    break
+
+    # Build EvidenceRef objects
+    refs = []
+    for c in collected[:max_urls]:
+        try:
+            refs.append(EvidenceRef(
+                title=c["title"],
+                source=c["url"],     # store URL here (renderer will treat as URL)
+                snippet=c.get("snippet") or "",
+            ))
+        except Exception:
+            pass
+
+    _cc_trace(
+        trace_fn,
+        "llm_http_evidence_done",
+        refs=len(refs),
+        good_urls=len(refs),
+        min_urls=min_urls,
+        max_urls=max_urls,
+    )
+
+    # Fail-closed to your requirement: if we can't reach min_urls, return [] so finalize can handle that explicitly
+    if len(refs) < min_urls:
+        _cc_trace(trace_fn, "llm_http_evidence_under_min", refs=len(refs), required=min_urls)
+        return []
+
+    return refs

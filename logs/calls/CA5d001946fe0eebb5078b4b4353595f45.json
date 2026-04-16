@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA5d001946fe0eebb5078b4b4353595f45",
+  "session_id": "aa50f2fc-53b1-4a0d-bebb-214574761b15",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-20T17:48:01.236963+00:00",
+  "ended_at": "2026-03-20T17:54:58.988741+00:00",
+  "packet_id": "a45bca44-6fad-443e-86c5-69c4773f63d8",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "Well, I've been having some constipation issues."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your constipation start?"
+    },
+    {
+      "role": "user",
+      "text": "It's started maybe, like, 3 weeks ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any associated symptoms like abdominal pain, blood in stool, or weight loss?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any changes in your bowel habits, such as stool caliber, frequency, or difficulty passing stool?"
+    },
+    {
+      "role": "user",
+      "text": "No. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or remedies for your constipation so far?"
+    },
+    {
+      "role": "user",
+      "text": "I've tried the Murallax. I have tried some other over the counter other ones. I've tried more fiber in my diet. I've tried drinking more water. I've tried a lot of things, but nothing seems to be helping."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of recent travel, new medications, or illnesses before the constipation started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of abdominal surgeries, neurological conditions, or metabolic disorders like diabetes?"
+    },
+    {
+      "role": "user",
+      "text": "No. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent unexplained fatigue, night sweats, or fevers?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any changes in appetite or any nausea or vomiting?"
+    },
+    {
+      "role": "user",
+      "text": "No. No. No vomiting. But I am a little bit more nauseous every now and then, but my appetite is the same except when I'm nauseous, of course."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any abdominal bloating or distension?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I have. I am very bloated. My abdomen is huge. And that's not getting any better no matter how many crunches I do."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any vomiting, especially if it is persistent or projectile?"
+    },
+    {
+      "role": "user",
+      "text": "No. No vomiting, period."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’ve been dealing with constipation and bloating for a few weeks now. Based on what you’ve told me, this is most likely chronic functional constipation. Because this is a phone visit, I can’t examine you or run tests, but a licensed physician will review your information and may recommend medication like a gentle laxative to help. In the meantime, you can continue to manage symptoms with fiber, fluids, and over-the-counter options if safe for you. If you develop severe belly pain, vomiting, or can’t pass stool or gas, please seek urgent in-person care right away. Otherwise, if symptoms persist or worsen, consider seeing a healthcare provider for further evaluation. A physician will review your case and decide on the best next steps."
+    }
+  ]
+}

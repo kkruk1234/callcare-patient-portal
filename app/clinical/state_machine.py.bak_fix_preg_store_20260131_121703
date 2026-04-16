@@ -1,0 +1,211 @@
+import uuid
+"""
+CallCare Intake State Machine (LLM-driven; free-text only)
+
+Flow:
+CONSENT -> CHIEF -> LLM_INTAKE (iterative) -> AGE -> ALLERGIES -> SEX_AT_BIRTH -> PREGNANCY -> RENAL -> LIVER -> DECIDE
+
+Notes:
+- This replaces OLD CARTS and deterministic question packs.
+- No YAML pathways, no per-condition scaffolds.
+- Pregnancy/renal/liver handling is NOT being refactored here; we preserve existing stages for now
+  because you explicitly want the larger LLM intake first.
+"""
+
+from typing import Dict, Any
+import os
+
+from app.core.models import CallState  # type: ignore
+
+
+def _sx(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None)
+    if not isinstance(sx, dict):
+        state.symptoms = {"_answers": {}}
+        sx = state.symptoms
+    if "_answers" not in sx or not isinstance(sx.get("_answers"), dict):
+        sx["_answers"] = {}
+    return sx
+
+
+def _ans(state: CallState) -> Dict[str, Any]:
+    return _sx(state)["_answers"]
+
+
+def _is_yes(t: str) -> bool:
+    return (t or "").strip().lower().startswith("y")
+
+
+def _llm_intake_active() -> bool:
+    # default ON if key exists and RAG is not disabled
+    if os.getenv("CALLCARE_RAG_DISABLED", "0") == "1":
+        return False
+    return os.getenv("CALLCARE_LLM_INTAKE", "1") != "0"
+
+
+def next_prompt(state: CallState) -> str:
+    sx = _sx(state)
+
+    if not getattr(state, "stage", None):
+        state.stage = "CONSENT"
+
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What is your main medical concern today?"
+
+    if state.stage == "LLM_INTAKE":
+        # Ask the next LLM-generated intake question
+        try:
+            from app.clinical.llm_intake import next_intake_step
+        except Exception:
+            # If LLM intake module missing, fail closed to AGE (still allows flow)
+            state.stage = "AGE"
+            return "How old are you? Please say your age in years."
+
+        step = next_intake_step(state)
+        action = str(step.get("action") or "").lower()
+
+        if action == "ask":
+            q = str(step.get("question") or "").strip()
+            if q:
+                sx["_llm_last_q"] = q
+                return q
+
+        if action == "stop":
+            state.stage = "AGE"
+            return "How old are you? Please say your age in years."
+
+        # error path: proceed, but preserve error info
+        err = str(step.get("why") or "unknown LLM intake error").strip()
+        sx["_llm_intake_error"] = err
+        state.stage = "AGE"
+        return "How old are you? Please say your age in years."
+
+    # Medication safety context AFTER intake (unchanged for now)
+    if state.stage == "AGE":
+        return "How old are you? Please say your age in years."
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "SEX_AT_BIRTH":
+        return "What sex were you assigned at birth? Please say male or female."
+
+    if state.stage == "PREGNANCY":
+        return "Is pregnancy possible? (yes/no/unknown)"
+
+    if state.stage == "RENAL":
+        return "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+
+    if state.stage == "LIVER":
+        return "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+
+    return ""
+
+
+def process_answer(state: CallState, text: str) -> None:
+    t = (text or "").strip()
+    sx = _sx(state)
+    ans = _ans(state)
+
+    if not getattr(state, "stage", None):
+        state.stage = "CONSENT"
+
+    if state.stage == "CONSENT":
+        if _is_yes(t):
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    if state.stage == "CHIEF":
+        state.chief_complaint = t
+        # Initialize LLM intake loop
+        if _llm_intake_active():
+            sx["_llm_intake_turns"] = []
+            sx["_llm_intake_extract"] = {}
+            sx["_llm_intake_summary"] = ""
+            sx["_llm_last_q"] = ""
+            sx["_llm_intake_error"] = ""
+            state.stage = "LLM_INTAKE"
+        else:
+            # If disabled, fall back to old safety context sequence (minimal)
+            state.stage = "AGE"
+        return
+
+    if state.stage == "LLM_INTAKE":
+        # Record answer to the last asked question, then keep looping.
+        last_q = str(sx.get("_llm_last_q") or "").strip()
+        if last_q:
+            try:
+                from app.clinical.llm_intake import record_answer
+                record_answer(state, last_q, t)
+            except Exception:
+                # If recording fails, still continue; store minimally.
+                turns = sx.get("_llm_intake_turns")
+                if not isinstance(turns, list):
+                    turns = []
+                    sx["_llm_intake_turns"] = turns
+                turns.append({"q": last_q, "a": t})
+                n = len(turns)
+                ans[f"intake_q{n}"] = last_q
+                ans[f"intake_a{n}"] = t
+
+        # Stay in LLM intake until next_prompt advances stage to AGE
+        return
+
+    # Medication safety context AFTER intake (unchanged for now)
+    if state.stage == "AGE":
+        try:
+            age = int(float(t))
+        except Exception:
+            return
+        ans["age_years"] = age
+        state.age_band = "child" if age < 18 else "adult"
+        sx["age_years"] = age
+        sx["age_band"] = state.age_band
+        state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "ALLERGIES":
+        if t.lower() in ("no", "none", "nope", "n"):
+            ans["allergies"] = "none"
+        else:
+            ans["allergies"] = t
+        state.stage = "SEX_AT_BIRTH"
+        return
+
+    if state.stage == "SEX_AT_BIRTH":
+        ans["sex_at_birth"] = t.lower()
+        state.stage = "PREGNANCY"
+        return
+
+    if state.stage == "PREGNANCY":
+        # Store pregnancy_possible consistently for downstream medication safety logic
+        val = t.lower()
+        ans["pregnancy_possible"] = val
+        sx["pregnancy_possible"] = val
+        state.pregnancy_possible = val
+        state.stage = "RENAL"
+        return
+    if state.stage == "RENAL":
+        ans["renal_disease"] = t.lower()
+        sx["renal_disease"] = t.lower()
+        state.stage = "LIVER"
+        return
+    if state.stage == "LIVER":
+        ans["liver_disease"] = t.lower()
+        sx["liver_disease"] = t.lower()
+        state.stage = "DECIDE"
+        return
+def start_call() -> CallState:
+    state = CallState(session_id=str(uuid.uuid4()))
+    state.stage = "CONSENT"
+    state.symptoms = {"_answers": {}}
+    return state

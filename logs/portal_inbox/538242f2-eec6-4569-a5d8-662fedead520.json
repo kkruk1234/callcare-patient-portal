@@ -1,0 +1,58 @@
+{
+  "packet_id": "538242f2-eec6-4569-a5d8-662fedead520",
+  "created_at": "2026-04-04T15:01:34.902682+00:00",
+  "session_id": "24a078a8-c8ef-4c72-b327-4d2a4cc53921",
+  "pathway_id": "",
+  "base_queries": [
+    "gout diagnosis and management guidelines",
+    "adult gout treatment dosing and contraindications",
+    "red flags and return precautions for acute toe pain",
+    "differential diagnosis and testing for red swollen toe"
+  ],
+  "queries": [
+    "AAFP gout diagnosis and management guidelines",
+    "AAFP adult gout treatment dosing and contraindications",
+    "MedlinePlus gout diagnosis and management guidelines",
+    "MedlinePlus adult gout treatment dosing and contraindications",
+    "CDC gout diagnosis and management guidelines",
+    "CDC adult gout treatment dosing and contraindications",
+    "NIH gout diagnosis and management guidelines",
+    "NIH adult gout treatment dosing and contraindications",
+    "NICE gout diagnosis and management guidelines",
+    "NICE adult gout treatment dosing and contraindications",
+    "WHO gout diagnosis and management guidelines",
+    "WHO adult gout treatment dosing and contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Acute and Recurrent Gout | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/gout-cpg.html",
+      "accessed": "2026-04-04",
+      "snippet": "These guidelines are provided only as assistance for physicians making clinical decisions regarding the care of their patients. As such, they cannot substitute the individual judgment brought to each clinical situation by the patient’s family physician. As with all clinical reference resources, they reflect the best understanding of the science of medicine at the time of publication, but they should be used with the clear understanding that continued research may result in new knowledge and recommendations. These guidelines are only one element in the complex process of improving the health of America. To be effective, the guidelines must be implemented."
+    },
+    {
+      "title": "Gout - StatPearls - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK546606/",
+      "accessed": "2026-04-04",
+      "snippet": "Prednisolone or prednisone 30 to 40 mg once daily or divided into twice-daily doses until resolution begins. Taper the dose over the next 5 to 10 days. This has been proven to be at least comparable to NSAID efficacy. High starting doses of systemic steroids (>0.5 mg/kg body weight) are required for acute gout, especially in patients with a polyarticular presentation. A depot preparation for triamcinolone (60mg once) or methylprednisolone has been reported to be effective. [117] [118]  However, the dose may need to be repeated at 48-hour intervals to achieve resolution of the flare. Glucocorticoids can be administered intra-articularly for a monoarticular gout flare-up or orally for polyarticular flare-ups. The efficacy of glucocorticoids is similar to or superior to that of other agents, and they have no greater risk of adverse effects in most patients. [119] [120] [121]"
+    },
+    {
+      "title": "Recommendations | Gout: diagnosis and management | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng219/chapter/Recommendations",
+      "accessed": "2026-04-04",
+      "snippet": "Measure the serum urate level in people with symptoms and signs of gout (see recommendations 1.1.1 and 1.1.2 ) to confirm the clinical diagnosis (serum urate level of 360 micromol/litre [6 mg/dl] or more). If serum urate level is below 360 micromol/litre (6 mg/dl) during a flare and gout is strongly suspected, repeat the serum urate level measurement at least 2 weeks after the flare has settled."
+    },
+    {
+      "title": "Management of Gout: Update from the American College of Rheumatology | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/0800/p209.html",
+      "accessed": "2026-04-04",
+      "snippet": "Medication Mechanism of action Dosage Special considerations Allopurinol (first-line option for all patients) Xanthine oxidase inhibitor Start at ≤100 mg daily (or lower in ≥ stage 3 chronic kidney disease), dosages can be titrated to 800 mg daily Test for HLA-B*5801 in patients of Southeast Asian or African American descent Febuxostat (Uloric) Xanthine oxidase inhibitor Start at ≤40 mg daily, maximum dosage is 80 mg daily in the United States Switch to another agent in patients with history of cardiovascular disease or new cardiovascular event Probenecid Uricosuric Start at 100 mg once or twice daily, can be increased to 1 g twice daily No evidence for checking urinary uric acid Pegloticase (Krystexxa) Uricase 8 mg intravenously every 2 weeks Not recommended as first-line option"
+    }
+  ],
+  "note_text": "S: The patient is a 52-year-old male presenting with worsening pain in the right big toe over the past week. The pain started as a dull ache without a remembered injury but has progressively intensified. The toe is swollen, warm, and red. The patient reports difficulty moving the toe and walking due to pain and avoids contact with the toe even from bed sheets. There is no fever or chills, but the patient feels generally unwell with mild headache and malaise. There is no history of gout, arthritis, diabetes, immune problems, recent infections, or kidney disease. No pus, drainage, or open sores are present. No recent changes in diet, alcohol intake, or medications such as diuretics.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The clinical presentation is consistent with acute gouty arthritis of the right big toe, given the classic symptoms of acute monoarticular joint inflammation with redness, swelling, warmth, and severe pain, especially in the absence of trauma or infection signs.\nDifferential:\n1. Acute gouty arthritis\n2. Septic arthritis\n3. Acute pseudogout (calcium pyrophosphate deposition disease)\n4. Cellulitis\n\nP: - First-line medication: Naproxen 500 mg orally twice daily for 5 days (Physician must verify medication/dosing)\n- Alternatives: Colchicine 0.6 mg orally twice daily for 3 days (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies reported; no renal or liver disease; monitor for gastrointestinal side effects with NSAIDs; colchicine contraindications not present\n- Follow-up recommendations: Seek in-person medical care urgently if fever develops, if the pain or swelling worsens significantly, or if inability to move the toe persists or worsens\n- Testing: Recommend joint aspiration and synovial fluid analysis if symptoms do not improve or worsen, and consider serum uric acid level and inflammatory markers if diagnosis remains uncertain"
+}

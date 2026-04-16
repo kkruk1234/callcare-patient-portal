@@ -1,0 +1,50 @@
+{
+  "packet_id": "fc6a32a4-295a-4553-8e8d-c4916e896e38",
+  "created_at": "2026-03-08T14:43:11.426653+00:00",
+  "session_id": "c09e8a48-e107-48e6-8816-37736bb27bb7",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin allergy alternative antibiotics dosing strep throat adults",
+    "red flags and return precautions sore throat with fever and white patches"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin allergy alternative antibiotics dosing strep throat adults",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin allergy alternative antibiotics dosing strep throat adults",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin allergy alternative antibiotics dosing strep throat adults",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin allergy alternative antibiotics dosing strep throat adults",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin allergy alternative antibiotics dosing strep throat adults",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin allergy alternative antibiotics dosing strep throat adults"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.pdf",
+      "accessed": "2026-03-08",
+      "snippet": ""
+    },
+    {
+      "title": "Sore throat (acute): antimicrobial prescribing",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng84/resources/sore-throat-acute-in-adults-antimicrobial-prescribing-visual-summary-pdf-11315864557",
+      "accessed": "2026-03-08",
+      "snippet": ""
+    },
+    {
+      "title": "Strep throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000639.htm",
+      "accessed": "2026-03-08",
+      "snippet": "Certain other antibiotics may also work against the strep bacteria. Antibiotics should be taken for 10 days, even though symptoms are often gone within a few days. The following tips may help your sore throat feel better:"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sore throat accompanied by fever, chills, painful swallowing without difficulty, swollen lymph nodes, and white patches on the tonsils. She reports no cough, nasal congestion, runny nose, rash, difficulty breathing, or drooling. She has had recent exposure to strep throat through her son. She has no history of rheumatic fever or heart valve problems and has tried DayQuil without relief. She is allergic to penicillin and is not pregnant.\n\nO: Phone consultation only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the clinical presentation of sore throat with fever, tonsillar exudates, tender cervical lymphadenopathy, and known exposure to strep throat.\nDifferential:\n1. Acute streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Peritonsillar abscess (less likely given no difficulty breathing or drooling)\n\nP: - First-line medication: Azithromycin 500 mg orally on day 1, then 250 mg orally daily on days 2 through 5 (Physician must verify medication/dosing)\n- Alternatives: Clindamycin 300 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; monitor for gastrointestinal side effects with macrolides or clindamycin; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, drooling, worsening throat pain, inability to swallow, or high fever develops. Seek emergency care if severe respiratory distress occurs.\n- Testing: Arrange for rapid antigen detection test or throat culture for group A streptococcus if possible to confirm diagnosis and guide therapy."
+}

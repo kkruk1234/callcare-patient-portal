@@ -1,0 +1,15 @@
+{
+  "pathway_id": "nausea_vomiting",
+  "sources": [
+    {
+      "source_id": "cdc_norovirus",
+      "title": "CDC: Norovirus (common cause of vomiting/diarrhea)",
+      "url": "https://www.cdc.gov/norovirus/index.html"
+    },
+    {
+      "source_id": "nih_medlineplus_nausea_vomiting",
+      "title": "MedlinePlus: Nausea and vomiting",
+      "url": "https://medlineplus.gov/nauseaandvomiting.html"
+    }
+  ]
+}

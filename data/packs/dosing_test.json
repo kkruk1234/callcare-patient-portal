@@ -1,0 +1,9 @@
+{
+  "pack_id": "dosing_test",
+  "description": "Temporary dosing sources for proof-of-ingest",
+  "sources": [
+    {"url": "https://www.nhs.uk/medicines/ibuprofen-for-adults/"},
+    {"url": "https://www.nhs.uk/medicines/naproxen/"},
+    {"url": "https://www.aafp.org/pubs/afp/issues/2021/0700/p63.html"}
+  ]
+}

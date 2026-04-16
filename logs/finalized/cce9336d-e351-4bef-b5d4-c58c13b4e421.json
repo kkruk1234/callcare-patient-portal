@@ -1,0 +1,233 @@
+{
+  "packet_id": "78f7bd19-f6ca-4195-9258-3629356f2365",
+  "created_at": "2026-03-04T04:11:21.465654+00:00",
+  "session_id": "cce9336d-e351-4bef-b5d4-c58c13b4e421",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of left side lower rib cage back pain. There is no history of trauma or injury, and she denies systemic symptoms such as fever, chills, or unexplained weight loss. She also reports no respiratory symptoms like cough or chest pain, and no neurological symptoms including numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen without significant relief. There is no history of kidney problems, urinary symptoms, osteoporosis, cancer, or recent infections.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely due to costochondritis or intercostal soft tissue inflammation given the localized rib cage pain without systemic or neurological symptoms and no trauma history. Differential:\n1. Costochondritis\n2. Intercostal muscle strain or inflammation\n3. Rib fracture (occult)\n4. Early herpes zoster (pre-eruption phase)\n\nP:\n - First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation relief.\n - Alternatives: If NSAIDs are contraindicated or not tolerated, consider acetaminophen or topical analgesics.\n - Medication safety considerations: NSAIDs should be used with caution in patients with renal or liver disease; this patient has no such history. Monitor for gastrointestinal side effects.\n - Return precautions: Advise patient to seek urgent care if she develops fever, worsening pain, neurological symptoms, respiratory symptoms, or any new systemic signs.\n - Testing: Not indicated at this time given absence of red flags; imaging or labs if symptoms worsen or fail to improve.\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis (rib pain) | CUH",
+        "source": "cuh.nhs.uk",
+        "snippet": "Costochondritis (rib pain) | CUH | cuh.nhs.uk | https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/"
+      },
+      {
+        "title": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust",
+        "source": "hey.nhs.uk",
+        "snippet": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust | hey.nhs.uk | https://www.hey.nhs.uk/patient-leaflet/__trashed-35/"
+      },
+      {
+        "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+        "source": "nhs.uk",
+        "snippet": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services | nhs.uk | https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/"
+      },
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "mayoclinic.org",
+        "snippet": "Costochondritis - Diagnosis & treatment - Mayo Clinic | mayoclinic.org | https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180"
+      }
+    ]
+  },
+  "evidence": [],
+  "state": {
+    "session_id": "cce9336d-e351-4bef-b5d4-c58c13b4e421",
+    "transcript": [],
+    "chief_complaint": "back pain",
+    "age_band": "adult",
+    "age_years": null,
+    "pregnancy_possible": "no",
+    "symptoms": {
+      "_answers": {
+        "intake_q1": "When did your back pain start?",
+        "intake_a1": "3 weeks ago",
+        "intake_q2": "Can you describe where exactly your back pain is located?",
+        "intake_a2": "left side lower rib cage",
+        "intake_q3": "Any recent injury or trauma to your back or ribs?",
+        "intake_a3": "no",
+        "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+        "intake_a4": "no",
+        "intake_q5": "Any difficulty breathing, coughing, or chest pain along with your back pain?",
+        "intake_a5": "no",
+        "intake_q6": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+        "intake_a6": "no",
+        "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+        "intake_a7": "I tried tylenol but it didn't help very much",
+        "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+        "intake_a8": "no",
+        "intake_q9": "Any history of osteoporosis, cancer, or recent infections?",
+        "intake_a9": "no",
+        "intake_summary": "Patient presents with 3 weeks of left lower rib cage back pain without trauma, systemic symptoms, or neurological deficits. Tried acetaminophen without significant relief. No history of kidney problems, osteoporosis, cancer, or infections.",
+        "age_years": 47,
+        "allergies": "none",
+        "sex_at_birth": "female",
+        "pregnancy_possible": "no",
+        "pregnancy": "no",
+        "renal_disease": "no",
+        "liver_disease": "no",
+        "evidence_search_queries": [
+          "costochondritis rib pain management",
+          "intercostal muscle strain treatment guidelines",
+          "NSAIDs safety in adults without renal disease",
+          "diagnosis of rib cage musculoskeletal pain"
+        ],
+        "evidence_used": [
+          {
+            "title": "Costochondritis (rib pain) | CUH",
+            "source": "cuh.nhs.uk",
+            "url": "https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/",
+            "accessed": "2026-03-03",
+            "snippet": ""
+          },
+          {
+            "title": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust",
+            "source": "hey.nhs.uk",
+            "url": "https://www.hey.nhs.uk/patient-leaflet/__trashed-35/",
+            "accessed": "2026-03-03",
+            "snippet": ""
+          },
+          {
+            "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+            "source": "nhs.uk",
+            "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+            "accessed": "2026-03-03",
+            "snippet": ""
+          },
+          {
+            "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+            "source": "mayoclinic.org",
+            "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+            "accessed": "2026-03-03",
+            "snippet": ""
+          }
+        ],
+        "evidence": [
+          {
+            "title": "Costochondritis (rib pain) | CUH",
+            "source": "cuh.nhs.uk",
+            "url": "https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/",
+            "accessed": "2026-03-03",
+            "snippet": ""
+          },
+          {
+            "title": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust",
+            "source": "hey.nhs.uk",
+            "url": "https://www.hey.nhs.uk/patient-leaflet/__trashed-35/",
+            "accessed": "2026-03-03",
+            "snippet": ""
+          },
+          {
+            "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+            "source": "nhs.uk",
+            "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+            "accessed": "2026-03-03",
+            "snippet": ""
+          },
+          {
+            "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+            "source": "mayoclinic.org",
+            "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+            "accessed": "2026-03-03",
+            "snippet": ""
+          }
+        ]
+      },
+      "_llm_intake_turns": [
+        {
+          "q": "When did your back pain start?",
+          "a": "3 weeks ago"
+        },
+        {
+          "q": "Can you describe where exactly your back pain is located?",
+          "a": "left side lower rib cage"
+        },
+        {
+          "q": "Any recent injury or trauma to your back or ribs?",
+          "a": "no"
+        },
+        {
+          "q": "Any fever, chills, or unexplained weight loss since the pain started?",
+          "a": "no"
+        },
+        {
+          "q": "Any difficulty breathing, coughing, or chest pain along with your back pain?",
+          "a": "no"
+        },
+        {
+          "q": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+          "a": "no"
+        },
+        {
+          "q": "Have you tried any treatments or medications for your back pain, and did they help?",
+          "a": "I tried tylenol but it didn't help very much"
+        },
+        {
+          "q": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+          "a": "no"
+        },
+        {
+          "q": "Any history of osteoporosis, cancer, or recent infections?",
+          "a": "no"
+        }
+      ],
+      "_llm_intake_extract": {
+        "onset": "3 weeks ago",
+        "key_symptoms": "back pain",
+        "location": "left side lower rib cage",
+        "relevant_history": "no history of osteoporosis, cancer, or infections",
+        "red_flags": "none",
+        "treatments_tried": "tylenol without much help"
+      },
+      "_llm_intake_summary": "Patient presents with 3 weeks of left lower rib cage back pain without trauma, systemic symptoms, or neurological deficits. Tried acetaminophen without significant relief. No history of kidney problems, osteoporosis, cancer, or infections.",
+      "_llm_last_q": "Any history of osteoporosis, cancer, or recent infections?",
+      "_llm_intake_error": "",
+      "age_years": 47,
+      "age_band": "adult",
+      "pregnancy_possible": "no",
+      "renal_disease": "no",
+      "liver_disease": "no",
+      "evidence_used": [
+        {
+          "title": "Costochondritis (rib pain) | CUH",
+          "source": "cuh.nhs.uk",
+          "url": "https://www.cuh.nhs.uk/patient-information/costochondritis-rib-pain/",
+          "accessed": "2026-03-03",
+          "snippet": ""
+        },
+        {
+          "title": "Advice on: Soft Tissue, Chest Injuries and Rib Fractures | Hull University Teaching Hospitals NHS Trust",
+          "source": "hey.nhs.uk",
+          "url": "https://www.hey.nhs.uk/patient-leaflet/__trashed-35/",
+          "accessed": "2026-03-03",
+          "snippet": ""
+        },
+        {
+          "title": "Get NHS help for back or joint problems from community musculoskeletal (MSK) services",
+          "source": "nhs.uk",
+          "url": "https://www.nhs.uk/nhs-services/get-nhs-help-for-back-joint-problems/",
+          "accessed": "2026-03-03",
+          "snippet": ""
+        },
+        {
+          "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+          "source": "mayoclinic.org",
+          "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+          "accessed": "2026-03-03",
+          "snippet": ""
+        }
+      ]
+    },
+    "red_flags": [],
+    "decision": null,
+    "stage": "DECIDE",
+    "note_draft": null
+  }
+}

@@ -1,0 +1,25 @@
+id: new_onset_diabetes_hyperglycemia
+version: 0.1
+match:
+  any_keywords: ["peeing a lot and very thirsty", "very thirsty", "urinating a lot", "unexplained weight loss", "high blood sugar", "blurry vision and thirsty"]
+questions:
+  - id: confusion
+    prompt: "Any confusion, severe weakness, or you feel dangerously ill right now? (yes/no)"
+    store_as: dangerously_ill
+    type: yesno
+
+  - id: vomiting
+    prompt: "Any vomiting, belly pain, or fast deep breathing? (yes/no)"
+    store_as: dka_like
+    type: yesno
+
+  - id: known_diabetes
+    prompt: "Have you ever been told you have diabetes? (yes/no/unknown)"
+    store_as: known_diabetes
+
+stop_rules:
+  - if_all_answered: ["confusion", "vomiting", "known_diabetes"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

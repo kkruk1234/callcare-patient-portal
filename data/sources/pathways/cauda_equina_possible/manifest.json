@@ -1,0 +1,12 @@
+{
+  "pathway_id": "cauda_equina_possible",
+  "sources": [
+    {
+      "id": "nice_ng59_low_back_pain_sciatica",
+      "type": "web",
+      "url": "https://www.nice.org.uk/guidance/ng59",
+      "title": "NICE NG59: Low back pain and sciatica in over 16s",
+      "license_note": "Use short excerpts only."
+    }
+  ]
+}

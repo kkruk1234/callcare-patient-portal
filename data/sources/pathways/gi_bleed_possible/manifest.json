@@ -1,0 +1,12 @@
+{
+  "pathway_id": "gi_bleed_possible",
+  "sources": [
+    {
+      "id": "gi_bleed_possible_cdc",
+      "source_id": "gi_bleed_possible_cdc",
+      "title": "GI bleed red flags reference (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

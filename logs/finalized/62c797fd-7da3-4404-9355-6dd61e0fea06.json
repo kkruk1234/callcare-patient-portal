@@ -1,0 +1,121 @@
+{
+  "packet_id": "3dc3548b-4053-4dc0-8cdc-4120dee9a13b",
+  "created_at": "2026-02-06T14:09:53.044233+00:00",
+  "session_id": "62c797fd-7da3-4404-9355-6dd61e0fea06",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain—where exactly is it located and what does it feel like?",
+    "intake_a1": "next to my sternum on the right",
+    "intake_q2": "When did the chest pain start and was it sudden or gradual?",
+    "intake_a2": "I don't know - it started after lifting heavy boxes helping a friend move last week.",
+    "intake_q3": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a3": "no",
+    "intake_q4": "Any recent trauma, injury, or swelling in the chest or ribs area?",
+    "intake_a4": "I don't think so - unless you consider heavy lifting a trauma",
+    "intake_q5": "Any tenderness or increased pain when pressing on the chest area or with movement?",
+    "intake_a5": "yes",
+    "intake_q6": "Any history of heart disease, lung problems, or recent infections?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for the chest pain, and did they help?",
+    "intake_a7": "no",
+    "intake_q8": "Any fever, chills, or recent respiratory symptoms like cough or shortness of breath since the pain started?",
+    "intake_a8": "no",
+    "intake_summary": "Patient has right parasternal chest pain starting about a week ago after heavy lifting, with tenderness and pain on movement, no associated cardiac or respiratory symptoms, no history of heart or lung disease, and no treatments tried yet. Presentation is consistent with musculoskeletal chest pain.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "https://www.nhs.uk/conditions/turner-syndrome/",
+        "https://medlineplus.gov/chestpain.html",
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.nhs.uk/conditions/congenital-heart-disease/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 45-year-old female presenting with right parasternal chest pain that began about one week ago after lifting heavy boxes while helping a friend move. The pain is localized next to the sternum on the right side, described as tender and worsened by pressing on the chest and with movement. She denies any shortness of breath, sweating, nausea, pain radiating to the arm or jaw, fever, chills, or recent respiratory symptoms. There is no history of heart disease, lung problems, or recent infections. She has not tried any treatments or medications for the pain.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal chest pain, likely costochondritis related to heavy lifting and mechanical strain. This is supported by localized tenderness and pain with movement and palpation, absence of systemic or cardiac symptoms, and no history of cardiopulmonary disease.\n\nDifferential:\n1. Costochondritis or musculoskeletal chest wall strain\n2. Rib contusion or minor injury from heavy lifting\n3. Gastroesophageal reflux disease (less likely without typical symptoms)\n4. Cardiac causes (less likely given no associated symptoms but should be considered if symptoms change). Patient is not pregnant.\n\nP: \n - First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 7 days. Avoid if history of allergy to NSAIDs, active gastrointestinal ulcer, or severe renal impairment. \n - Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, for 7 days; avoid if liver disease or allergy. \n - Naproxen 250 mg orally twice daily as needed for pain, for 7 days; avoid if allergy to NSAIDs or severe renal impairment. \n - Medication safety considerations: No known medication allergies, no pregnancy, no renal or liver disease reported. NSAIDs should be used cautiously if any new contraindications develop. \n - Return precautions: Advise patient to seek urgent care if chest pain worsens, becomes severe, is associated with shortness of breath, sweating, nausea, radiating pain to arm or jaw, or if new symptoms such as fever or respiratory symptoms develop. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Heart Disease in Women | MedlinePlus",
+        "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+      },
+      {
+        "title": "Turner syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/turner-syndrome/",
+        "snippet": "e typical features or symptoms of the condition are noticed – a blood test can confirm the diagnosis during pregnancy if problems with the heart or kidneys are found during routine ultrasound scans If you're pregnant and your maternity team think your baby could have Turner syndrome, you may be offered tests to check for the condition. This could be either:\nchorionic villus sampling (CVS) amniocentesis \nCauses of Turner syndrome \nTurner syndrome is a genetic condition, caused by a missing or partially missing sex chromosome.\nIt's not possible to prevent Turner syndrome.\nVery rarely it can be passed to a child by a parent, but most of the time it happens by chance. It is not linked to age or anything the parents did before or during pregnancy.\nHow Turner syndrome affects your life \nTurner syndrome can slightly reduce how long someone is expected to live, but most people should be able to"
+      },
+      {
+        "title": "Chest Pain | MedlinePlus",
+        "source": "https://medlineplus.gov/chestpain.html",
+        "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+      },
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+      },
+      {
+        "title": "Congenital heart disease - NHS",
+        "source": "https://www.nhs.uk/conditions/congenital-heart-disease/",
+        "snippet": "face.\nThese are signs of a serious medical problem.\nInformation: \nDo not drive yourself to A&E. \nThe person you speak to at 999 will give you advice about what to do.\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if:\nyou think you or your child may have symptoms of congenital heart disease You can call 111 or get help from 111 online . Call 111 if you need advice for a child under 5 years old.\nDiagnosing congenital heart disease \nCongenital heart disease is screened for during the 20-week pregnancy screening scan . The 20-week scan cannot find all conditions, so it’s possible for congenital heart disease to be misse"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Heart Disease in Women | MedlinePlus",
+      "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+      "snippet": "ull and heavy or sharp \nPain in the neck, jaw, throat, upper belly, or back \nNausea or vomiting \nUnusual fatigue \nShortness of breath (feeling like you can't get enough air) during physical activity \nWomen who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also more likely than men to feel chest pain from mental stress.\nSymptoms of a heart attack in women may also be different than in men. Chest pain is the most common symptom for both sexes. It may feel like crushing or squeezing. But women are somewhat less likely than men to have chest pa"
+    },
+    {
+      "title": "Turner syndrome - NHS",
+      "source": "https://www.nhs.uk/conditions/turner-syndrome/",
+      "snippet": "e typical features or symptoms of the condition are noticed – a blood test can confirm the diagnosis during pregnancy if problems with the heart or kidneys are found during routine ultrasound scans If you're pregnant and your maternity team think your baby could have Turner syndrome, you may be offered tests to check for the condition. This could be either:\nchorionic villus sampling (CVS) amniocentesis \nCauses of Turner syndrome \nTurner syndrome is a genetic condition, caused by a missing or partially missing sex chromosome.\nIt's not possible to prevent Turner syndrome.\nVery rarely it can be passed to a child by a parent, but most of the time it happens by chance. It is not linked to age or anything the parents did before or during pregnancy.\nHow Turner syndrome affects your life \nTurner syndrome can slightly reduce how long someone is expected to live, but most people should be able to"
+    },
+    {
+      "title": "Chest Pain | MedlinePlus",
+      "source": "https://medlineplus.gov/chestpain.html",
+      "snippet": "opedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nChest Pain \nURL of this page: https://medlineplus.gov/chestpain.html \nChest Pain\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nTeenagers \nPatient Handouts \nSummary \nHaving a pain in your chest can be scary. It does not always mean that you are having a heart attack . There can be many other causes, including:\nOther heart problems, such as angina \nPanic attacks \nDigestive problems,"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ \nCostochondritis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCostochondritis \nCostochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. \nSymptoms of costochondritis \nCostochondritis may cause sharp pain in the front or side of your chest.\nThe pain may be worse when:\nmoving your upper body lying down breathing deeply you press the middle of your chest \nUrgent advice: Get help from NHS 111 if:\nyou think you have costochondritis It is important to get chest pain checked to rule out other more serious conditions.\nYou can call 111 or get help from 111 online"
+    },
+    {
+      "title": "Congenital heart disease - NHS",
+      "source": "https://www.nhs.uk/conditions/congenital-heart-disease/",
+      "snippet": "face.\nThese are signs of a serious medical problem.\nInformation: \nDo not drive yourself to A&E. \nThe person you speak to at 999 will give you advice about what to do.\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if:\nyou think you or your child may have symptoms of congenital heart disease You can call 111 or get help from 111 online . Call 111 if you need advice for a child under 5 years old.\nDiagnosing congenital heart disease \nCongenital heart disease is screened for during the 20-week pregnancy screening scan . The 20-week scan cannot find all conditions, so it’s possible for congenital heart disease to be misse"
+    }
+  ]
+}

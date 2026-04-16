@@ -1,0 +1,39 @@
+# Clinician-facing medication/dosing protocol for: sinusitis
+# Sources (high-level): IDSA ABRS guideline; AAFP/ACP summaries; CDC antibiotic stewardship materials.
+# Conservative default: prioritize supportive care and reserve antibiotics for ABRS criteria.
+
+rx_options:
+  - med: "Amoxicillin-clavulanate"
+    dosing: "875/125 mg PO twice daily x 5–7 days (adults) OR weight-based pediatric dosing per clinician judgment"
+    exclusions: "Severe immediate beta-lactam allergy; significant liver disease history with amox-clav; review drug interactions."
+    notes: "First-line antibiotic when acute bacterial rhinosinusitis (ABRS) criteria met."
+
+  - med: "Doxycycline"
+    dosing: "100 mg PO twice daily x 5–7 days (adults)"
+    exclusions: "Pregnancy; children < 8 years; tetracycline allergy."
+    notes: "Alternative for adults with beta-lactam allergy or intolerance."
+
+  - med: "Levofloxacin"
+    dosing: "500 mg PO once daily x 5 days (adults)"
+    exclusions: "Reserve due to adverse-effect profile; QT/tendon/neuropathy/aortic risk counseling; significant interactions; pregnancy generally avoid."
+    notes: "More aggressive path: reserve for severe beta-lactam allergy or treatment failure when benefits outweigh risks."
+
+supportive_care:
+  - item: "Nasal saline irrigation"
+    details: "May help symptoms; avoid forceful irrigation if severe pain/ear symptoms."
+
+  - item: "Intranasal corticosteroid"
+    details: "Helpful especially if allergic rhinitis component; clinician to choose agent/dose."
+
+  - item: "Analgesics/antipyretics"
+    details: "OTC options if safe (avoid dosing instructions by phone)."
+
+followup_and_safety:
+  - item: "When antibiotics are indicated (ABRS criteria)"
+    details: "Consider antibiotics if: persistent symptoms >10 days without improvement, severe symptoms (high fever + purulent discharge/facial pain) for ≥3–4 days, or 'double-worsening' after initial improvement."
+
+  - item: "Escalation / more aggressive path"
+    details: "If severe illness, immunocompromise, orbital symptoms, neurologic symptoms, or failure to improve after 48–72 hours on appropriate antibiotics → urgent in-person evaluation; consider imaging and specialist input."
+
+  - item: "Return precautions"
+    details: "Urgent evaluation for vision changes, periorbital swelling/erythema, severe headache/neck stiffness, altered mental status, high fever, or worsening facial swelling/pain."

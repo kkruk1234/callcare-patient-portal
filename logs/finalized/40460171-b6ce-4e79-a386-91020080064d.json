@@ -1,0 +1,50 @@
+{
+  "packet_id": "40460171-b6ce-4e79-a386-91020080064d",
+  "created_at": "2026-04-03T13:25:17.393455+00:00",
+  "session_id": "c9a96709-3cb3-4135-9ef5-6e97e4010e09",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for nocturnal calf muscle twitching",
+    "adult dosing and duration of iron supplements for low ferritin",
+    "red flags and testing for calf redness, warmth, bruising with twitching"
+  ],
+  "queries": [
+    "AAFP management guidelines for nocturnal calf muscle twitching",
+    "AAFP adult dosing and duration of iron supplements for low ferritin",
+    "MedlinePlus management guidelines for nocturnal calf muscle twitching",
+    "MedlinePlus adult dosing and duration of iron supplements for low ferritin",
+    "CDC management guidelines for nocturnal calf muscle twitching",
+    "CDC adult dosing and duration of iron supplements for low ferritin",
+    "NIH management guidelines for nocturnal calf muscle twitching",
+    "NIH adult dosing and duration of iron supplements for low ferritin",
+    "NICE management guidelines for nocturnal calf muscle twitching",
+    "NICE adult dosing and duration of iron supplements for low ferritin",
+    "WHO management guidelines for nocturnal calf muscle twitching",
+    "WHO adult dosing and duration of iron supplements for low ferritin"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Nocturnal Leg Cramps",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2012/0815/p350.pdf",
+      "accessed": "2026-04-03",
+      "snippet": ""
+    },
+    {
+      "title": "Muscle twitching: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/003296.htm",
+      "accessed": "2026-04-03",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Iron Deficiency Anemia: Guidelines from the American Gastroenterological Association | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/0800/p211.html",
+      "accessed": "2026-04-03",
+      "snippet": "Oral iron supplementation should be provided for most patients with iron deficiency. Oral iron formulations appear to be similarly effective and tolerated. Although 150 mg or more of daily elemental iron was previously recommended, studies show improved absorption and tolerability with lower dosing or every-other-day dosing. The hemoglobin level should increase after one month of oral iron supplementation. Lack of hemoglobin change may be because of low adherence, malabsorption, or blood loss. Intravenous iron may be appropriate with malabsorption, inflammatory bowel disease, chronic kidney disease, or ongoing blood loss."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a long-standing history of twitching in her calf muscles, which has been intermittent over several years. She reports the twitching typically begins in the early evening around 6 to 7 PM and worsens when lying down to sleep, accompanied by an urge to move her legs to relieve the sensation. She also describes recent calf muscle cramping for the past two days, with some associated redness, warmth, and bruising on the left calf, which has been a chronic baseline finding for about seven years after a negative workup for deep vein thrombosis. She denies muscle weakness, significant pain, numbness, or sensory changes. Her caffeine intake is limited, and she admits to inadequate hydration. She has low ferritin levels and has taken iron supplements with some past relief of twitching symptoms. She stretches her calves to relieve cramps but has not tried other treatments or medications for the twitching.\n\nO: Phone consultation only; no physical exam or vitals available.\n\nA: The working diagnosis is restless legs syndrome (RLS) given the evening onset of twitching, urge to move the legs, and relief with movement. The chronicity and symptom pattern support this diagnosis.\nDifferential:\n1. Restless legs syndrome\n2. Muscle cramps due to electrolyte imbalance or dehydration\n3. Peripheral neuropathy\n4. Chronic venous insufficiency or localized vascular changes related to the longstanding left calf findings\n\nP: - First-line medication: Gabapentin 300 mg orally at bedtime for restless legs syndrome (Physician must verify medication/dosing)\n- Alternatives: Pramipexole 0.125 mg orally once daily 2-3 hours before bedtime for restless legs syndrome (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, not pregnant, no renal or liver disease; monitor for side effects such as dizziness or somnolence; other contraindications not assessed in this telephone encounter\n- Follow-up recommendations: Seek in-person medical care urgently if symptoms worsen significantly, new weakness or sensory changes develop, or if signs of deep vein thrombosis recur such as increased swelling, pain, or redness\n- Testing: Consider serum electrolytes, ferritin level monitoring, and possibly nerve conduction studies if symptoms evolve or do not improve with treatment"
+}

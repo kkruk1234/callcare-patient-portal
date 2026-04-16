@@ -1,0 +1,30 @@
+id: dehydration
+version: 0.1
+match:
+  any_keywords: ["dehydration", "dry mouth", "dizzy when standing", "not peeing", "dark urine", "can't keep fluids down", "weak and dehydrated"]
+questions:
+  - id: severe
+    prompt: "Are you confused, very sleepy/hard to wake, or having severe trouble breathing? (yes/no)"
+    store_as: severe_redflags
+    type: yesno
+
+  - id: urine
+    prompt: "Are you peeing much less than usual or not at all? (yes/no)"
+    store_as: low_urine
+    type: yesno
+
+  - id: fluids
+    prompt: "Can you keep fluids down right now? (yes/no)"
+    store_as: can_keep_fluids
+    type: yesno
+
+  - id: duration
+    prompt: "How long has this been going on?"
+    store_as: duration
+
+stop_rules:
+  - if_all_answered: ["severe","urine","fluids","duration"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

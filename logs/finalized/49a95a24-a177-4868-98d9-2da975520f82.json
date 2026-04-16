@@ -1,0 +1,123 @@
+{
+  "packet_id": "6c664d5a-a7b6-4861-9276-d27378484650",
+  "created_at": "2026-02-05T02:20:41.114171+00:00",
+  "session_id": "49a95a24-a177-4868-98d9-2da975520f82",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the ear pain start?",
+    "intake_a1": "4 days ago",
+    "intake_q2": "Can you describe the ear pain—sharp, dull, constant, or intermittent?",
+    "intake_a2": "dull and intermittent",
+    "intake_q3": "Any hearing loss, ear discharge, or ringing in the ear?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or recent upper respiratory symptoms?",
+    "intake_a4": "yes",
+    "intake_q5": "Can you tell me more about your fever and any other symptoms like sore throat, cough, or nasal congestion?",
+    "intake_a5": "I had a fever a day ago and it went up to 102. I also have a sore throat, cough and runny nose",
+    "intake_q6": "Any pain or tenderness when touching or pulling on the ear?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your ear pain or other symptoms?",
+    "intake_a7": "no",
+    "intake_q8": "Any difficulty swallowing, swelling around the ear or jaw, or neck stiffness?",
+    "intake_a8": "no",
+    "intake_q9": "Have you experienced any recent exposure to someone with strep throat or COVID-19?",
+    "intake_a9": "no",
+    "intake_summary": "Patient has had dull, intermittent ear pain for 4 days without hearing loss or discharge, accompanied by recent fever (up to 102), sore throat, cough, and runny nose. No ear tenderness, swelling, or exposure to strep or COVID-19. No treatments tried yet.",
+    "age_years": 34,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/cholesteatoma/",
+        "https://www.nhs.uk/conditions/otosclerosis/",
+        "https://medlineplus.gov/earinfections.html",
+        "https://www.nhs.uk/conditions/glue-ear/",
+        "https://www.nhs.uk/conditions/ear-infections/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 34-year-old female presenting with a 4-day history of dull, intermittent ear pain without hearing loss or ear discharge. She reports a recent fever up to 102°F one day ago, accompanied by sore throat, cough, and runny nose. There is no pain or tenderness on touching or pulling the ear, no swelling around the ear or jaw, no neck stiffness, and no known recent exposure to strep throat or COVID-19. She has not tried any treatments or medications for these symptoms.\nPatient is not pregnant.\n\nO: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is likely viral upper respiratory infection with associated referred ear pain. The absence of ear discharge, ear tenderness, or hearing loss makes acute otitis media less likely at this time.\n\nDifferential:\n1. Viral upper respiratory infection with referred otalgia\n2. Early or mild acute otitis media\n3. Eustachian tube dysfunction\n4. Pharyngitis with referred ear pain\n\nP: \n - First-line medication: Acetaminophen 500-1000 mg orally every 6 hours as needed for pain and fever for up to 5 days. Avoid if allergy or liver disease. \n - Alternatives: \n - Ibuprofen 200-400 mg orally every 6-8 hours as needed for pain and fever, avoid if allergy, renal impairment, or gastrointestinal issues. \n - Nasal saline spray or decongestants for symptomatic relief of nasal congestion (avoid in hypertension or pregnancy). \n - Medication safety considerations: No known medication allergies, not pregnant, no renal or liver disease reported. Use acetaminophen and NSAIDs cautiously according to standard guidelines. \n - Return precautions: Seek in-person evaluation if symptoms worsen, if ear pain becomes severe or constant, if hearing loss or ear discharge develops, if fever persists beyond 3 days or recurs, or if new symptoms such as swelling, neck stiffness, or difficulty swallowing occur. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Cholesteatoma - NHS",
+        "source": "https://www.nhs.uk/conditions/cholesteatoma/",
+        "snippet": "eon will tell you when it&#x27;s OK to do so again, but you can sniff if you need to\nIf you have any problems after surgery, speak to a GP.\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if you have:\ndischarge or a lot of bleeding from your ear or wound a high temperature severe or increasing pain Call 111 or get help from 111 online .\nIf you have any of these symptoms, it may be a sign of an infection.\nCauses of a cholesteatoma \nA cholesteatoma can develop if your eardrum is damaged through injury, infection or after any kind of ear surgery.\nYou can also be born with a cholesteatoma, but this is rare.\nPage last rev"
+      },
+      {
+        "title": "Otosclerosis - NHS",
+        "source": "https://www.nhs.uk/conditions/otosclerosis/",
+        "snippet": "﻿ \nOtosclerosis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nOtosclerosis \nOtosclerosis is a problem with the bones inside the ear which causes gradual hearing loss. Hearing aids or surgery will usually improve your hearing and total hearing loss is rare. \nSymptoms of otosclerosis \nSymptoms of otosclerosis include:\ngradual hearing loss in 1 or both ears, often over several years hearing ringing, buzzing or other noises in 1 or both ears ( tinnitus ) dizziness problems with your balance Otosclerosis is a common cause of hearing loss in younger adults. Symptoms usually start between the ages of 30 to 50.\nNon-urgent advice: See a GP if:\nyou think your hearing is gradually getting worse you have tinnitus regularly o"
+      },
+      {
+        "title": "Ear Infections | Otitis Media | MedlinePlus",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "ou \nChildren \nPatient Handouts \nSummary \nEar infections are the most common reason parents bring their child to a doctor. Three out of four children will have at least one ear infection by their third birthday. Adults can also get ear infections, but they are less common.\nThe infection usually affects the middle ear and is called otitis media. The tubes inside the ears become clogged with fluid and mucus. This can affect hearing, because sound cannot get through all that fluid.\nIf your child isn't old enough to say \"My ear hurts,\" here are a few things to look for:\nTugging at ears \nCrying more than usual \nFluid draining from the ear \nTrouble sleeping \nBalance difficulties \nHearing problems \nYour health care provider will diagnose an ear infection by looking inside the ear with an instrument called an otoscope.\nOften, ear infections go away on their own. Your health care provider may reco"
+      },
+      {
+        "title": "Glue ear - NHS",
+        "source": "https://www.nhs.uk/conditions/glue-ear/",
+        "snippet": "velopment and progress at school.\nGlue ear is much more common in children, but adults with glue ear have the same symptoms.\nOther conditions that cause ear pain\nOther causes of ear pain \nSymptoms\nPossible condition\nEar pain with a change in hearing\nEarwax build-up , an object stuck in the ear (do not try to remove it yourself – see a GP), perforated eardrum (particularly after a loud noise or accident)\nEar pain with toothache\nBaby teething , dental abscess \nEar pain with pain when swallowing\nSore throat , tonsillitis \nEar pain with a high temperature\nEar infection , flu , cold \nNon-urgent advice: See a GP if:\nYour child has signs of a hearin"
+      },
+      {
+        "title": "Ear infections - NHS",
+        "source": "https://www.nhs.uk/conditions/ear-infections/",
+        "snippet": "tting ear infections \nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 now if:\nYou or your child have symptoms of an ear infection and:\nfeel generally unwell have a very high temperature, or feel hot, cold or shivery have swelling around the ear fluid is coming out of the ear have a change in hearing or new hearing loss feel sick or are being sick (vomiting), feel dizzy or have a severe sore throat your child is under 12 months old and has earache in both ears have diabetes, or a heart, lung, kidney or neurological condition have a weakened immune system (for example, because of chemotherapy) You can call 111 or get he"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Cholesteatoma - NHS",
+      "source": "https://www.nhs.uk/conditions/cholesteatoma/",
+      "snippet": "eon will tell you when it&#x27;s OK to do so again, but you can sniff if you need to\nIf you have any problems after surgery, speak to a GP.\nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 if you have:\ndischarge or a lot of bleeding from your ear or wound a high temperature severe or increasing pain Call 111 or get help from 111 online .\nIf you have any of these symptoms, it may be a sign of an infection.\nCauses of a cholesteatoma \nA cholesteatoma can develop if your eardrum is damaged through injury, infection or after any kind of ear surgery.\nYou can also be born with a cholesteatoma, but this is rare.\nPage last rev"
+    },
+    {
+      "title": "Otosclerosis - NHS",
+      "source": "https://www.nhs.uk/conditions/otosclerosis/",
+      "snippet": "﻿ \nOtosclerosis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nOtosclerosis \nOtosclerosis is a problem with the bones inside the ear which causes gradual hearing loss. Hearing aids or surgery will usually improve your hearing and total hearing loss is rare. \nSymptoms of otosclerosis \nSymptoms of otosclerosis include:\ngradual hearing loss in 1 or both ears, often over several years hearing ringing, buzzing or other noises in 1 or both ears ( tinnitus ) dizziness problems with your balance Otosclerosis is a common cause of hearing loss in younger adults. Symptoms usually start between the ages of 30 to 50.\nNon-urgent advice: See a GP if:\nyou think your hearing is gradually getting worse you have tinnitus regularly o"
+    },
+    {
+      "title": "Ear Infections | Otitis Media | MedlinePlus",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "ou \nChildren \nPatient Handouts \nSummary \nEar infections are the most common reason parents bring their child to a doctor. Three out of four children will have at least one ear infection by their third birthday. Adults can also get ear infections, but they are less common.\nThe infection usually affects the middle ear and is called otitis media. The tubes inside the ears become clogged with fluid and mucus. This can affect hearing, because sound cannot get through all that fluid.\nIf your child isn't old enough to say \"My ear hurts,\" here are a few things to look for:\nTugging at ears \nCrying more than usual \nFluid draining from the ear \nTrouble sleeping \nBalance difficulties \nHearing problems \nYour health care provider will diagnose an ear infection by looking inside the ear with an instrument called an otoscope.\nOften, ear infections go away on their own. Your health care provider may reco"
+    },
+    {
+      "title": "Glue ear - NHS",
+      "source": "https://www.nhs.uk/conditions/glue-ear/",
+      "snippet": "velopment and progress at school.\nGlue ear is much more common in children, but adults with glue ear have the same symptoms.\nOther conditions that cause ear pain\nOther causes of ear pain \nSymptoms\nPossible condition\nEar pain with a change in hearing\nEarwax build-up , an object stuck in the ear (do not try to remove it yourself – see a GP), perforated eardrum (particularly after a loud noise or accident)\nEar pain with toothache\nBaby teething , dental abscess \nEar pain with pain when swallowing\nSore throat , tonsillitis \nEar pain with a high temperature\nEar infection , flu , cold \nNon-urgent advice: See a GP if:\nYour child has signs of a hearin"
+    },
+    {
+      "title": "Ear infections - NHS",
+      "source": "https://www.nhs.uk/conditions/ear-infections/",
+      "snippet": "tting ear infections \nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 now if:\nYou or your child have symptoms of an ear infection and:\nfeel generally unwell have a very high temperature, or feel hot, cold or shivery have swelling around the ear fluid is coming out of the ear have a change in hearing or new hearing loss feel sick or are being sick (vomiting), feel dizzy or have a severe sore throat your child is under 12 months old and has earache in both ears have diabetes, or a heart, lung, kidney or neurological condition have a weakened immune system (for example, because of chemotherapy) You can call 111 or get he"
+    }
+  ]
+}

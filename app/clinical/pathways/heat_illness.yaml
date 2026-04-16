@@ -1,0 +1,22 @@
+id: heat_illness
+version: 0.1
+match:
+  any_keywords: ["heat exhaustion", "overheated", "too hot", "heat stroke", "worked in heat", "dehydrated in heat"]
+questions:
+  - id: mental
+    prompt: "Are you confused, fainting, or unable to stay awake? (yes/no)"
+    store_as: mental_status_change
+    type: yesno
+  - id: severe
+    prompt: "Are you unable to keep fluids down or not urinating much? (yes/no)"
+    store_as: severe_dehydration
+    type: yesno
+  - id: cramping
+    prompt: "Do you have muscle cramps, heavy sweating, or dizziness? (yes/no)"
+    store_as: heat_exhaustion_features
+    type: yesno
+stop_rules:
+  - if_all_answered: ["mental", "severe", "cramping"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

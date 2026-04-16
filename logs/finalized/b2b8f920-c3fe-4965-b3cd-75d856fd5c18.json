@@ -1,0 +1,89 @@
+{
+  "packet_id": "0fe09da4-d26d-4f91-bc94-4076a238d678",
+  "created_at": "2026-02-26T18:31:28.309296+00:00",
+  "session_id": "b2b8f920-c3fe-4965-b3cd-75d856fd5c18",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain radiating to your abdomen, groin, or legs?",
+    "intake_a5": "no",
+    "intake_q6": "Any difficulty breathing, coughing, or chest pain associated with the back pain?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any changes in your bowel or bladder function since the pain started?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal issues?",
+    "intake_a8": "no",
+    "intake_q9": "Have you tried any treatments or medications for the back pain, and if so, what was the effect?",
+    "intake_a9": "I tried tylenol but it didn't really help much",
+    "intake_q10": "Any history of cancer, unexplained weight loss, or recent infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury, trauma, or heavy lifting prior to onset. There are no associated symptoms such as fever, chills, night sweats, pain radiating to abdomen, groin, or legs, difficulty breathing, coughing, chest pain, or changes in bowel or bladder function. She has no history of kidney problems, urinary symptoms, abdominal issues, cancer, unexplained weight loss, or recent infections. She has tried acetaminophen (Tylenol) without significant relief. O: Phone consultation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage without red flag symptoms. This is likely a benign musculoskeletal strain or irritation given the absence of trauma, systemic symptoms, or neurological signs.\nDifferential:\n1. Musculoskeletal strain or rib cage muscle spasm\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation or neuropathy\n4. Early presentation of visceral pathology (e.g., renal or splenic causes) though less likely given no systemic symptoms\n\nP:\n- First-line medication: NSAIDs such as ibuprofen for pain and inflammation\n - Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n - Medication safety considerations: Avoid NSAIDs if history of renal or liver disease, gastrointestinal bleeding, or allergy; monitor for side effects\n - Return precautions: Advise patient to seek care if pain worsens, new symptoms develop such as fever, chills, chest pain, shortness of breath, neurological deficits, or changes in bowel/bladder function\n - Testing: Not indicated at this time given lack of red flags; consider imaging or labs if symptoms persist or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal lower back pain - Symptoms, diagnosis and treatment | BMJ Best Practice US",
+        "source": "bestpractice.bmj.com",
+        "url": "https://bestpractice.bmj.com/topics/en-us/778",
+        "accessed": "2026-02-26",
+        "snippet": "http://annals.org/article.aspx?articleid=736814 http://www.ncbi.nlm.nih.gov/pubmed/17909209?tool=bestpractice.com History and exam Key diagnostic factors obesity, stress, and psychiatric comorbidities history of prior lower back pain pain radiation does not extend beyond the knee absence of red-flag symptoms absence of fever, fluctuance, exquisite tendern..."
+      },
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain",
+        "accessed": "2026-02-26",
+        "snippet": "While it typically begins in your lower back, many people with this condition also experience inflammation in their thoracic spines and the joints in their rib cages, causing pain throughout their chest walls."
+      },
+      {
+        "title": "535",
+        "source": "www.bmj.com",
+        "url": "https://www.bmj.com/content/326/7388/535",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

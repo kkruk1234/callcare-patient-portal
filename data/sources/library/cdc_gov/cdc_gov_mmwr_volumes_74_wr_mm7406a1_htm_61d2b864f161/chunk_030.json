@@ -1,0 +1,10 @@
+{
+  "title": "Interim Estimates of 2024â2025 COVID-19 Vaccine Effectiveness Among Adults Aged â¥18 Years â VISION and IVY Networks, September 2024âJanuary 2025 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7406a1.htm?s_cid=mm7406a1_e&amp;ACSTrackingID=USCDC_921-DM145368&amp;ACSTrackingLabel=This%20Week%20in%20MMWR%3A%20Vol.%2074%2C%20February%2027%2C%202025&amp;deliveryName=USCDC_921-DM145368",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "herapy, hypoxemia was defined as SpO2 below baseline or an escalation of supplemental oxygen to maintain a baseline SpO2.\n&sect;&sect;&sect; VISION regression models were adjusted for age, sex, race and ethnicity, calendar day, and geographic region with age and calendar day included as natural cubic splines. Geographic region was included in the model based on site-defined geographic cluster of the final discharge facility of the encounter. IVY network regression models were adjusted for age, sex, race and ethnicity, calendar time in biweekly intervals, and U.S. Department of Health and Human Services region.\n&para;&para;&para; Immunocompromising conditions were obtained from ICD-10 discharge codes. The specific codes used were hematologic malignancy: C81.*, C82.*, C83.*, C84.*, C85.*, C86.*, C88.*, C90.*, C91.*, C92.*, C93.*, C94.*, C95.*, C96.*, D46.*, D61.0*, D70.0, D61.2, D61.9, and D71.*; solid malignancy: C00.*, C01.*, C02.*, C03.*, C04.*, C05.*, C06.*, C07.*, C08.*, C09.*, C10.*, C11.*, C12.*, C13.*, C14.*, C15.*, C16.*, C17.*, C18.*, C19.*, C20.*, C21.*, C22.*, C23.*, C24.*, C25.*, C26.*, C30.*, C31.*, C32.*, C33, C34.*, C37, C38.*, C39.*, C40.*, C41.*, C43.*, C45.*, C46.*, C47.*, C48.*, C49.*, C50.*, C51.*, C52, C53.*, C54.*, C55, C56.*, C57.*, C58, C60.*, C61, C62.*, C63.*, C64.*, C65.*, C66.*, C67.*, C68.*, C69.*, C70.*, C71.*, C72.*, C73, C74.*, C75.*, C76.*, C77.*",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7406a1_htm_61d2b864f161",
+  "chunk_id": "chunk_030"
+}

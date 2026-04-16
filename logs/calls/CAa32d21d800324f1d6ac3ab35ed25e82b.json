@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAa32d21d800324f1d6ac3ab35ed25e82b",
+  "session_id": "23bc162b-4782-4213-8a9f-9b7d482d48aa",
+  "from_number": "+16318072183",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T18:23:42.350498+00:00",
+  "ended_at": "2026-04-03T18:29:26.836062+00:00",
+  "packet_id": "3ee8c2ab-c306-40c3-b18f-2160e8185b8d",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a pain in my stomach."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the stomach pain start?"
+    },
+    {
+      "role": "user",
+      "text": "Yesterday."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe exactly where in your stomach the pain is located?"
+    },
+    {
+      "role": "user",
+      "text": "Just under the breast bone."
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea, vomiting, or difficulty swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or recent weight loss?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if the pain gets worse with eating or improves after eating?"
+    },
+    {
+      "role": "user",
+      "text": "Worse with dating."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if the pain is sharp, burning, or cramping?"
+    },
+    {
+      "role": "user",
+      "text": "Burning."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of heartburn, acid reflux, or use of NSAIDs or alcohol?"
+    },
+    {
+      "role": "user",
+      "text": "Acid reflux."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent use of NSAIDs or alcohol that might worsen your stomach pain?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any chest pain, shortness of breath, or sweating with the stomach pain?"
+    },
+    {
+      "role": "user",
+      "text": "Sweating."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the chest pain or discomfort you are experiencing along with the sweating?"
+    },
+    {
+      "role": "user",
+      "text": "No chest pain."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "74"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "Female. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No. No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing burning pain under your breastbone that gets worse when you eat, which is most likely related to acid reflux or a similar stomach issue. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and may prescribe a medication to help reduce your stomach acid. \n\nIf you develop chest pain, shortness of breath, worsening sweating, or if your symptoms don’t improve after a few weeks, please seek in-person care at an urgent care center or emergency room. If you need an exam or testing, those places can provide that. \n\nFor now, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you need pain relief and can take them safely. A doctor will review everything and decide on the best next steps. If you notice any sudden or severe symptoms, don’t wait—go to the emergency room right away."
+    }
+  ]
+}

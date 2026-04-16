@@ -1,0 +1,414 @@
+[Table], Table 1. Dosing Recommendations for Acetaminophen and Anti-inflammatoriesa - PDQ Cancer Information Summaries - NCBI Bookshelf
+
+An official website of the United States government
+
+Here's how you know
+
+The .gov means it's official.
+
+ Federal government websites often end in .gov or .mil. Before
+ sharing sensitive information, make sure you're on a federal
+ government site.
+ 
+
+The site is secure.
+
+ The 
+https://
+ ensures that you are connecting to the
+ official website and that any information you provide is encrypted
+ and transmitted securely.
+ 
+
+Log in
+
+Show account info
+
+Close
+
+Account
+
+ Logged in as:
+
+username
+
+Dashboard
+
+Publications
+
+Account settings
+
+Log out
+
+Access keys
+
+NCBI Homepage
+
+MyNCBI Homepage
+
+Main Content
+
+Main Navigation
+
+Bookshelf
+
+Search database
+Books
+All Databases
+Assembly
+Biocollections
+BioProject
+BioSample
+Books
+ClinVar
+Conserved Domains
+dbGaP
+dbVar
+Gene
+Genome
+GEO DataSets
+GEO Profiles
+GTR
+Identical Protein Groups
+MedGen
+MeSH
+NLM Catalog
+Nucleotide
+OMIM
+PMC
+Protein
+Protein Clusters
+Protein Family Models
+PubChem BioAssay
+PubChem Compound
+PubChem Substance
+PubMed
+SNP
+SRA
+Structure
+Taxonomy
+ToolKit
+ToolKitAll
+ToolKitBookgh
+Search term
+Search
+
+Browse Titles
+
+Advanced
+
+Help
+
+Disclaimer
+
+NCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.
+PDQ Cancer Information Summaries [Internet]. Bethesda (MD): National Cancer Institute (US); 2002-. 
+PDQ Cancer Information Summaries [Internet].
+Show details
+Bethesda (MD): 
+National Cancer Institute (US)
+; 2002-.
+Search term
+ 
+
+Table 1. Dosing Recommendations for Acetaminophen and Anti-inflammatories
+a
+View in own window
+Drug
+Usual Dose for Adults
+and Children ≥50 kg
+Body Weight
+Usual Dose for Adults and Children
+b
+ <50 kg Body Weight
+Enteral Medications
+acetaminophen
+c
+50 mg q4h; max dose is 400 mg in 24 h (PO)
+10–15 mg/kg q4h; max dose is 75 mg/kg total in 24 h (PO)
+975 mg q6h; max dose is 4,000 mg in 24 h (PO) 
+aspirin
+d
+
+650 mg q4h (PO)
+10–15 mg/kg q4h (PO)
+975 mg q6h (PO)
+15–20 mg/kg q4h
+(PR)
+ibuprofen (Motrin, Advil)
+ 400–600 mg q6h (PO)
+5–10 mg/kg q4–6h (PO)
+magnesium salicylate
+(Doan’s, Magan,
+Mobidin, others)
+650 mg q4h (PO)
+naproxen (Naprosyn, Aleve)
+250–275 mg q6–8h (PO)
+5 mg/kg q8h (PO)
+naproxen sodium
+(Anaprox)
+275 mg q6–8h (PO)
+carprofen (Rimadyl)
+ 100 mg tid (PO)
+choline magnesium
+trisalicylate
+e
+ (Trilisate)
+ 1,000–1,500 mg q6–8h (PO)
+ 25 mg/kg q6–8h (PO)
+choline salicylate
+e
+ (Arthropan)
+870 mg q3–4h (PO)
+diclofenac (oral) (Voltaren - 1% topical; Pennsaid - 1.5% topical)
+50 mg bid–tid oral; 32 g/d topical
+Flector (patch): 1 patch bid
+diflunisal
+f
+ (Dolobid) 
+ 500 mg q12h (PO)
+etodolac (Lodine)
+ 200–400 mg q6–8h (PO)
+fenoprofen calcium
+(Nalfon)
+300–600 mg q6h (PO)
+ketoprofen (Orudis)
+25–60 mg q6–8h (PO)
+ketorolac tromethamine
+g
+ (Toradol)
+10 mg q4–6h to a
+maximum of 40 mg/d
+
+IV administration
+should not exceed 5 days
+meclofenamate sodium
+h
+
+(Meclomen)
+50–100 mg q6h (PO)
+mefenamic acid (Ponstel)
+250 mg q6h (PO)
+sodium salicylate
+(Anacin, Bufferin)
+ 325–650 mg q3–4h (PO)
+Parenteral Medications
+acetaminophen (rectal)
+650 mg q4–6h, total 3,900 mg (adults aged >12 y) (PR)
+15–20 mg/kg q4h (PR), max dose 75 mg/kg total in 24 h
+IV acetaminophen 
+1,000 mg q6h (IV) (adults)
+15 mg/kg max (IV), 75 mg/kg in 24 h (children aged <13 y)
+ketorolac tromethamine
+g,i
+ (Toradol)
+ 60 mg initially, then 30
+mg q6h (IV)
+IV administration
+should not exceed 5 days
+bid = twice a day; IV = intravenous; PO = by mouth; PR = by rectum; q = every; tid = 3 times a day.
+a
+Only the nonsteroidal anti-inflammatory
+drugs (NSAIDs) listed here have FDA approval for use as simple analgesics, but
+clinical experience has also been gained with other drugs.
+b
+Acetaminophen and NSAID dosages for adults weighing less than 50 kg 
+should be adjusted for weight.
+
+c
+Acetaminophen lacks the peripheral anti-inflammatory and antiplatelet
+activities of the other NSAIDs.
+
+d
+The standard against which other NSAIDs are compared. May inhibit platelet
+aggregation for longer than 1 week and may cause bleeding.
+Aspirin is not recommended for pain in children.
+e
+May have minimal antiplatelet activity.
+
+f
+Administration with antacids may decrease absorption.
+
+g
+Use limited to 5 days or fewer.
+
+h
+Coombs-positive autoimmune hemolytic anemia has been associated with
+prolonged use.
+
+i
+Has the same gastrointestinal toxic effects as oral NSAIDs.
+
+From: 
+Pain (PDQ®)
+Copyright Notice
+
+Views
+Cite this Page
+PDQ Supportive and Palliative Care Editorial Board. Pain (PDQ®): Health Professional Version. 2015 Jul 16. In: PDQ Cancer Information Summaries [Internet]. Bethesda (MD): National Cancer Institute (US); 2002-. [Table], Table 1. Dosing Recommendations for Acetaminophen and Anti-inflammatoriesa.
+Version History
+NBK65949.33
+ April 24, 2025
+NBK65949.32
+ July 25, 2024
+NBK65949.31
+ February 12, 2024
+NBK65949.30
+ September 7, 2023
+NBK65949.29
+ July 14, 2023
+NBK65949.28
+ January 9, 2023
+NBK65949.27
+ September 2, 2022
+NBK65949.26
+ June 28, 2022
+NBK65949.25
+ March 18, 2022
+NBK65949.24
+ December 2, 2021
+NBK65949.23
+ June 10, 2021
+NBK65949.22
+ May 6, 2021
+NBK65949.21
+ October 29, 2020
+NBK65949.20
+ September 3, 2020
+NBK65949.19
+ May 5, 2020
+NBK65949.18
+ February 19, 2020
+NBK65949.17
+ October 30, 2019
+NBK65949.16
+ September 12, 2019
+NBK65949.15
+ March 6, 2019
+NBK65949.14
+ September 12, 2018
+NBK65949.13
+ August 30, 2017
+NBK65949.12
+ July 25, 2017
+NBK65949.11
+ June 29, 2017
+NBK65949.10
+ May 17, 2017
+NBK65949.9
+ April 19, 2017
+NBK65949.8
+ September 15, 2016
+NBK65949.7
+ August 29, 2016
+NBK65949.6
+ June 22, 2016
+NBK65949.5
+ March 10, 2016
+NBK65949.4
+ February 17, 2016
+NBK65949.3
+ January 4, 2016
+NBK65949.2
+ December 15, 2015
+NBK65949.1
+ July 16, 2015 (Displayed Version)
+Related information
+PMC
+PubMed Central citations
+PubMed
+Links to PubMed
+Similar articles in PubMed
+Review
+ Delirium (PDQ®): Health Professional Version.
+[PDQ Cancer Information Summari...]
+Review
+ Delirium (PDQ®): Health Professional Version.
+PDQ Supportive and Palliative Care Editorial Board. 
+PDQ Cancer Information Summaries. 2002
+Review
+ Fatigue (PDQ®): Health Professional Version.
+[PDQ Cancer Information Summari...]
+Review
+ Fatigue (PDQ®): Health Professional Version.
+PDQ Supportive and Palliative Care Editorial Board. 
+PDQ Cancer Information Summaries. 2002
+Review
+ Lymphedema (PDQ®): Health Professional Version.
+[PDQ Cancer Information Summari...]
+Review
+ Lymphedema (PDQ®): Health Professional Version.
+PDQ Supportive and Palliative Care Editorial Board. 
+PDQ Cancer Information Summaries. 2002
+Review
+ Pruritus (PDQ®): Health Professional Version.
+[PDQ Cancer Information Summari...]
+Review
+ Pruritus (PDQ®): Health Professional Version.
+PDQ Supportive and Palliative Care Editorial Board. 
+PDQ Cancer Information Summaries. 2002
+Review
+ Sleep Disorders (PDQ®): Health Professional Version.
+[PDQ Cancer Information Summari...]
+Review
+ Sleep Disorders (PDQ®): Health Professional Version.
+PDQ Supportive and Palliative Care Editorial Board. 
+PDQ Cancer Information Summaries. 2002
+See reviews...
+See all...
+Recent Activity
+Clear
+Turn Off
+Turn On
+[Table], Table 1. Dosing Recommendations for Acetaminophen and Anti-inflammatori...
+[Table], Table 1. Dosing Recommendations for Acetaminophen and Anti-inflammatoriesa - PDQ Cancer Information Summaries
+Your browsing activity is empty.
+Activity recording is turned off.
+Turn recording back on
+See more...
+
+Follow NCBI
+
+Twitter
+
+Facebook
+
+LinkedIn
+
+GitHub
+
+NCBI Insights Blog
+
+Connect with NLM
+
+Twitter
+
+Facebook
+
+Youtube
+
+National Library of Medicine
+
+8600 Rockville Pike
+
+ Bethesda, MD 20894
+
+Web Policies
+
+FOIA
+
+HHS Vulnerability Disclosure
+
+Help
+
+Accessibility
+
+Careers
+
+NLM
+
+NIH
+
+HHS
+
+USA.gov

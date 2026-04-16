@@ -1,0 +1,26 @@
+{
+  "id": "auto_1772223437643",
+  "query": " guideline treatment management",
+  "sources": [
+    {
+      "url": "https://www.who.int/publications/i/item/9789241501583",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24813298/",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.who.int/publications/i/item/9789240031593",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://platform.who.int/docs/default-source/mca-documents/policy-documents/guideline/SWZ-MN-78-01-GUIDELINE-2012-eng-Swaziland-STG-Booklet.pdf",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

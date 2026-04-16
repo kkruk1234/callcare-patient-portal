@@ -1,0 +1,38 @@
+# Clinician-facing medication/dosing protocol for: otitis_externa
+# Sources (high-level): AAO-HNS/AAFP guidance; CDC stewardship.
+# Conservative default: topical therapy first-line; avoid routine oral antibiotics.
+
+rx_options:
+  - med: "Ciprofloxacin-dexamethasone otic drops"
+    dosing: "4 drops in affected ear(s) twice daily x 7 days"
+    exclusions: "Allergy to components."
+    notes: "Preferred when tympanic membrane status uncertain (safer with possible perforation) and for anti-inflammatory benefit."
+
+  - med: "Ofloxacin otic drops"
+    dosing: "10 drops in affected ear once daily x 7 days (or per product labeling/clinician judgment)"
+    exclusions: "Allergy to components."
+    notes: "Alternative topical fluoroquinolone; safe with possible TM perforation."
+
+  - med: "Neomycin/polymyxin B/hydrocortisone otic drops"
+    dosing: "3–4 drops in affected ear(s) 3–4x/day x 7 days"
+    exclusions: "Avoid if TM perforation suspected; neomycin allergy/contact dermatitis risk."
+    notes: "Use only if TM intact and no neomycin sensitivity."
+
+  - med: "Oral antibiotic (if cellulitis beyond canal / systemic infection)"
+    dosing: "Cephalexin 500 mg PO four times daily x 5–7 days (physician discretion) OR alternative per allergy profile"
+    exclusions: "Use only when indicated; avoid in simple otitis externa."
+    notes: "More aggressive path: reserved for extension beyond ear canal, immunocompromise, or systemic signs."
+
+supportive_care:
+  - item: "Ear care"
+    details: "Keep ear dry; avoid swimming; avoid cotton swabs. Consider wick placement if severe canal swelling (in-person)."
+
+  - item: "Pain control"
+    details: "OTC analgesics if safe (avoid dosing instructions by phone)."
+
+followup_and_safety:
+  - item: "Escalation"
+    details: "Urgent evaluation for severe pain out of proportion, fever, spreading cellulitis, cranial nerve deficits, diabetes/immunocompromise with worsening symptoms (concern for malignant otitis externa)."
+
+  - item: "Return precautions"
+    details: "Seek care if no improvement in 48–72 hours on appropriate topical therapy or if symptoms worsen."

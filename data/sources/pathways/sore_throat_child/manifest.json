@@ -1,0 +1,19 @@
+{
+  "pathway_id": "sore_throat_child",
+  "sources": [
+    {
+      "id": "cdc_group_a_strep",
+      "type": "web",
+      "url": "https://www.cdc.gov/groupastrep/",
+      "title": "CDC: Group A Strep (strep throat) information",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "nice_ng84_sore_throat",
+      "type": "web",
+      "url": "https://www.nice.org.uk/guidance/ng84",
+      "title": "NICE NG84: Sore throat (acute): antimicrobial prescribing",
+      "license_note": "Use short excerpts only."
+    }
+  ]
+}

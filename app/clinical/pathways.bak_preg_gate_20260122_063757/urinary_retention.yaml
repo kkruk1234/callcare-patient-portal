@@ -1,0 +1,22 @@
+id: urinary_retention
+version: 0.1
+match:
+  any_keywords: ["can't pee", "cannot pee", "unable to pee", "bladder feels full", "urinary retention"]
+questions:
+  - id: pain
+    prompt: "Is there severe lower belly pain or swelling? (yes/no)"
+    store_as: severe_suprapubic_pain
+    type: yesno
+  - id: blood
+    prompt: "Any blood in urine or fever? (yes/no)"
+    store_as: blood_or_fever
+    type: yesno
+  - id: neuro
+    prompt: "Any new leg weakness, numbness in the groin area, or back injury? (yes/no)"
+    store_as: neuro_redflags
+    type: yesno
+stop_rules:
+  - if_all_answered: ["pain", "blood", "neuro"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

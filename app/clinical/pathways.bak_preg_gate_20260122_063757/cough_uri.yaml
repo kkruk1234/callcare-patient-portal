@@ -1,0 +1,35 @@
+id: cough_uri
+version: 0.2
+match:
+  any_keywords: ["cough", "runny nose", "rhinorrhea", "congestion", "cold", "flu", "sinus", "upper respiratory", "uri", "sneeze", "sneezing", "post nasal drip"]
+questions:
+  - id: duration
+    prompt: "How long have you had the cough/symptoms? (e.g., 2 days, 1 week)"
+    store_as: duration
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: sob
+    prompt: "Any shortness of breath at rest or trouble speaking in full sentences? (yes/no)"
+    store_as: sob_rest
+    type: yesno
+
+  - id: chest_pain
+    prompt: "Any chest pain? (yes/no)"
+    store_as: chest_pain
+    type: yesno
+
+  - id: high_risk
+    prompt: "Any major medical conditions (heart/lung disease, immunocompromised) or age 65+? (yes/no)"
+    store_as: high_risk
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["duration", "fever", "sob", "chest_pain", "high_risk"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

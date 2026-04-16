@@ -1,0 +1,11 @@
+{
+  "pathway_id": "dental_pain",
+  "sources": [
+    {
+      "source_id": "ada_toothache",
+      "type": "url",
+      "title": "American Dental Association: Toothache",
+      "url": "https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/toothache"
+    }
+  ]
+}

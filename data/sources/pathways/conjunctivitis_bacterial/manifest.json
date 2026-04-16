@@ -1,0 +1,19 @@
+{
+  "pathway_id": "conjunctivitis_bacterial",
+  "sources": [
+    {
+      "id": "conjunctivitis_bacterial_cdc",
+      "source_id": "conjunctivitis_bacterial_cdc",
+      "title": "Conjunctivitis references (starter)",
+      "url": "https://www.cdc.gov/conjunctivitis/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "conjunctivitis_bacterial_aao",
+      "source_id": "conjunctivitis_bacterial_aao",
+      "title": "Ophthalmology reference (starter)",
+      "url": "https://www.aao.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

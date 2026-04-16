@@ -1,0 +1,82 @@
+from __future__ import annotations
+
+from typing import Any, Dict, List, Optional
+
+from app.core.models import EvidenceRef
+
+
+def _clean_text(s: str) -> str:
+    s = (s or "").replace("\r", " ").replace("\n", " ").strip()
+    # collapse runs of whitespace
+    while "  " in s:
+        s = s.replace("  ", " ")
+    return s
+
+
+def _make_snippet(text: str, max_len: int = 280) -> str:
+    t = _clean_text(text)
+    if not t:
+        return ""
+    if len(t) <= max_len:
+        return t
+    return t[: max_len - 1].rstrip() + "…"
+
+
+def as_evidence_refs(chunks: List[Dict[str, Any]]) -> List[EvidenceRef]:
+    """
+    Convert retrieval chunks (dicts from app.rag.retrieve.retrieve) into EvidenceRef objects
+    that satisfy app/core/models.py.
+
+    Expected chunk keys (best-effort):
+      - title, url, text, source, publisher, date, score
+
+    Critical:
+      - EvidenceRef.snippet must be present (required in your error).
+    """
+    refs: List[EvidenceRef] = []
+    for i, ch in enumerate(chunks or []):
+        title = _clean_text(str(ch.get("title") or ""))
+        url = _clean_text(str(ch.get("url") or ""))
+        source = _clean_text(str(ch.get("source") or ""))
+
+        # RAG chunks typically provide "text"
+        text = str(ch.get("text") or "")
+        snippet = _make_snippet(text)
+
+        # Build a payload that matches the repo’s common EvidenceRef schema.
+        # We include multiple candidate id fields so this works even if your model expects
+        # `key` OR `source_id`. Extra keys will be rejected by pydantic if forbidden; in that case
+        # we fall back to a minimal constructor.
+        payload: Dict[str, Any] = {
+            "key": f"EVID_{i+1}",
+            "source_id": source or f"chunk_{i+1}",
+            "title": title,
+            "url": url,
+            "publisher": _clean_text(str(ch.get("publisher") or "")),
+            "date": _clean_text(str(ch.get("date") or "")),
+            "snippet": snippet,
+            "source": source,
+        }
+
+        try:
+            refs.append(EvidenceRef(**payload))
+            continue
+        except Exception:
+            # Minimal fallback: only keep fields that are almost certainly in the model.
+            minimal = {
+                "title": title,
+                "url": url,
+                "snippet": snippet,
+            }
+            # try likely required ID field names
+            for id_field in ("key", "source_id"):
+                try:
+                    refs.append(EvidenceRef(**{id_field: f"EVID_{i+1}", **minimal}))
+                    break
+                except Exception:
+                    pass
+            else:
+                # last resort: let it raise with full context
+                refs.append(EvidenceRef(**payload))
+
+    return refs

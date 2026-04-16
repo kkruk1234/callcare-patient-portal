@@ -1,0 +1,29 @@
+{
+  "packet_id": "f7b5686f-fcc5-4a39-aa39-e84cf25d1cb3",
+  "created_at": "2026-03-04T19:31:20.048213+00:00",
+  "session_id": "2309af63-cd22-41b4-9156-a72e5d45bfb6",
+  "pathway_id": "",
+  "queries": [
+    "NSAID dosing for musculoskeletal rib cage pain",
+    "management of costochondritis in adults",
+    "differential diagnosis of unilateral rib cage pain",
+    "indications for imaging in rib cage pain"
+  ],
+  "evidence": [
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Costochondritis: Diagnosis and Treatment | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2009/0915/p617.html/1000",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. The pain worsens with leaning against the area when sitting and improves with good posture. There is no history of trauma, fever, chills, night sweats, respiratory symptoms, neurological symptoms, or systemic signs such as weight loss. She has tried acetaminophen without significant relief.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal pain likely related to strain or minor soft tissue injury in the left lower rib cage area.\nDifferential:\n1. Musculoskeletal strain or costochondritis\n2. Intercostal muscle strain\n3. Rib fracture (occult)\n4. Less likely visceral causes such as pleuritis or referred pain from abdominal organs\n\nP: First-line medication: NSAIDs such as ibuprofen 400 mg orally every 6-8 hours with food, not to exceed 1200 mg/day for up to 7 days.\nAlternatives: Topical NSAIDs or acetaminophen if NSAIDs contraindicated or not tolerated.\nMedication safety considerations: Use NSAIDs with caution if history of gastrointestinal issues or renal impairment; patient denies renal or liver disease. Avoid NSAIDs in pregnancy (not applicable).\nReturn precautions: Advise patient to seek urgent care if she develops fever, worsening pain, neurological symptoms, chest pain, shortness of breath, or signs of systemic illness.\nTesting: Not indicated at this time given absence of red flags; consider imaging if no improvement or worsening symptoms after 4-6 weeks or if clinical suspicion for fracture or other pathology arises."
+}

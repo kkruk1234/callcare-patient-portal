@@ -1,0 +1,36 @@
+{
+  "id": "auto_1771255607684",
+  "query": "Lateral epicondylitis (tennis elbow) guideline management treatment outpatient (site:nhs.uk OR site:nice.org.uk OR site:aafp.org OR site:cdc.gov OR site:nih.gov OR site:medlineplus.gov OR site:dailymed.nlm.nih.gov OR site:fda.gov OR site:who.int OR site:ncbi.nlm.nih.gov OR site:pubmed.ncbi.nlm.nih.gov)",
+  "sources": [
+    {
+      "url": "https://www.royalberkshire.nhs.uk/media/ivkg5bwv/tennis-elbow-or-lateral-epicondylitis_jan25.pdf",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.royalberkshire.nhs.uk/media/vdfcn4mx/tennis-elbow-or-lateral-epicondylitis_jan23.pdf",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://leaflets.ekhuft.nhs.uk/s3/leaflets/tennis-elbow-lateral-epicondylitis/27e37203-f993-4d30-ab2c-9dfd6917cbb8.p1733491839.pdf",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://leaflets.ekhuft.nhs.uk/s3/assets/easysite-leaflets/tennis-elbow-march-2022-version-2.pdf",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.aafp.org/pubs/afp/issues/2007/0915/p843.html",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35031850/",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

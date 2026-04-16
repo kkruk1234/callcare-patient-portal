@@ -1,0 +1,37 @@
+id: bell_palsy_possible
+version: 0.2
+match:
+  any_keywords: ["face droop", "facial droop", "facial weakness", "one side of face", "crooked smile", "can't close eye", "bell's palsy", "bells palsy", "facial paralysis"]
+questions:
+  - id: onset
+    prompt: "When did the facial weakness start? (e.g., 2 hours ago, yesterday)"
+    store_as: onset
+  - id: stroke_signs
+    prompt: "Any trouble speaking, confusion, or weakness/numbness in an arm or leg? (yes/no)"
+    store_as: stroke_signs
+    type: yesno
+  - id: severe_headache
+    prompt: "Any sudden severe headache or the worst headache of your life? (yes/no)"
+    store_as: severe_headache
+    type: yesno
+  - id: eye_closure
+    prompt: "Can you fully close the affected eye? (yes/no)"
+    store_as: eye_closure
+    type: yesno
+  - id: ear_pain_rash
+    prompt: "Any ear pain or a blistering rash around the ear/face? (yes/no)"
+    store_as: ear_pain_rash
+    type: yesno
+  - id: pregnancy_postpartum
+    prompt: "Are you pregnant or within 6 weeks postpartum? (yes/no)"
+    store_as: pregnancy_postpartum
+    type: yesno
+  - id: tick_exposure
+    prompt: "Any recent tick bite or possible tick exposure? (yes/no)"
+    store_as: tick_exposure
+    type: yesno
+stop_rules:
+  - if_all_answered: ["onset", "stroke_signs", "severe_headache", "eye_closure", "ear_pain_rash", "pregnancy_postpartum", "tick_exposure"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

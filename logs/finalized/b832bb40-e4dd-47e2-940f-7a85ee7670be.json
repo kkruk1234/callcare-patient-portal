@@ -1,0 +1,60 @@
+{
+  "packet_id": "0ce7e39d-97e1-417e-98e5-ae0d90c924f5",
+  "created_at": "2026-01-26T20:45:18.346631+00:00",
+  "session_id": "b832bb40-e4dd-47e2-940f-7a85ee7670be",
+  "chief_complaint": "I think I have pneumonia",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "cough_uri",
+  "answers": {
+    "duration": "5 days",
+    "fever": "no",
+    "sob": "no",
+    "chest_pain": "no",
+    "high_risk": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 45-year-old adult presenting with a 5-day history of cough. The patient reports no fever, no shortness of breath, and no chest pain. There are no known chronic lung conditions or medication allergies. The patient does not belong to a high-risk group.\n\nO:\nNo physical exam or vital signs available due to phone-only consultation.\n\nA:\n - Working diagnosis (most likely): Acute upper respiratory tract infection (URI) with cough\n - Differential:\n  1. Viral upper respiratory infection\n  2. Acute bronchitis\n  3. Early or mild pneumonia (less likely given absence of fever, chest pain, and shortness of breath)\n  4. Allergic or irritant cough\n - Red flags considered:\n   No fever, no shortness of breath, no chest pain, and no high-risk status reduce concern for severe pneumonia or other serious lower respiratory tract infection.\n\nP:\n - Disposition: Manage conservatively at home with symptomatic treatment.\n - Plan: \n   Advise supportive care including hydration, rest, and over-the-counter remedies for cough if needed. No antibiotics indicated at this time given absence of fever, respiratory distress, or high-risk features. Patient should monitor symptoms closely.\n - Safety net: \n   Instruct patient to seek urgent care if they develop fever, worsening cough, shortness of breath, chest pain, or any new concerning symptoms. Follow-up if symptoms persist beyond 10 days or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+        "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+      },
+      {
+        "title": "NICE NG120: Cough (acute)",
+        "source": "https://www.nice.org.uk/guidance/ng120",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+      },
+      {
+        "title": "BMJ Best Practice: Acute Cough",
+        "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+        "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+      "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+    },
+    {
+      "title": "NICE NG120: Cough (acute)",
+      "source": "https://www.nice.org.uk/guidance/ng120",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+    },
+    {
+      "title": "BMJ Best Practice: Acute Cough",
+      "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+      "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+    }
+  ]
+}

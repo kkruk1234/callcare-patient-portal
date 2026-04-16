@@ -1,0 +1,10 @@
+{
+  "title": "Provisional COVID-19 Mortality Surveillance",
+  "url": "https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "or some combination of these factors.\nDelays in reporting \nProvisional counts of deaths are underestimated relative to final counts. This is due to the many steps involved in reporting death certificate data. When a death occurs, a certifier (e.g. physician, medical examiner or coroner) will complete the death certificate with the underlying cause of death and any contributing causes of death. In some cases, laboratory tests or autopsy results may be required to determine the cause of death. Completed death certificate are sent to the state vital records office and then to NCHS for cause of death coding. At NCHS, about 90% of deaths are automatically processed and coded within seconds, but 10% of deaths need to be manually coded, or coded by a person. Death certificates are typically manually coded within 7 days of receipt, although the coding delay can grow if there is a large increase in the number of deaths. As a result, underestimation of the number of deaths may be greater for certain causes of death than others.\nDeath data are approximately 65% complete within 2 weeks, 85% complete within 4 weeks, and at least 94% complete within 8 weeks of when the death occurred. Similarly, COVID-19 deaths are 65% complete within 2 weeks, 85% complete within 4 weeks, and 95% complete within 8 weeks of when the death occurred.\nSource \nNCHS, National Vital Statistics System. Estimates ar",
+  "source_type": "library",
+  "source_id": "cdc_gov_nchs_nvss_vsrr_covid19_index_htm_3f94c56fcede",
+  "chunk_id": "chunk_009"
+}

@@ -1,0 +1,15 @@
+{
+  "pathway_id": "low_back_pain",
+  "sources": [
+    {
+      "source_id": "acp_low_back_pain_guideline_2017",
+      "title": "ACP Clinical Practice Guideline: Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain (2017) [PDF]",
+      "url": "https://www.acponline.org/sites/default/files/acp-policy-library/guidelines/noninvasive_treatments_for_chronic_low_back_pain_2017.pdf"
+    },
+    {
+      "source_id": "niams_living_with_back_pain",
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "url": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain"
+    }
+  ]
+}

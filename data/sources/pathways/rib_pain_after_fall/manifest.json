@@ -1,0 +1,12 @@
+{
+  "pathway_id": "rib_pain_after_fall",
+  "sources": [
+    {
+      "id": "rib_pain_after_fall_ref",
+      "source_id": "rib_pain_after_fall_ref",
+      "title": "Chest injuries overview (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

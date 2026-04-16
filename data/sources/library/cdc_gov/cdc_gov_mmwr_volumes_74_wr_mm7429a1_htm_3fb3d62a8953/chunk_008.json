@@ -1,0 +1,10 @@
+{
+  "title": "Emergency Department Survey of Vaccination Knowledge, Vaccination Coverage, and Willingness to Receive Vaccines in an Emergency Department Among Underserved Populations â Eight U",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7429a1.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "for survey questions and time thresholds for up-to-date status were determined using the CDC Recommended Adult Immunization Schedule (as of April 2024) &para; ( 1 ). For example, age &ge;60 years was used to prompt the series of questions about RSV,** pneumococcal, shingles, COVID-19, influenza, and tetanus-containing vaccines; tetanus vaccination was considered up to date only if the most recent dose had been received within the previous 10 years. In addition to vaccination questions, participants were asked questions about their race, ethnicity, health insurance, primary care, and housing. &dagger;&dagger; \nAnalysis \nParticipant characteristics were summarized as raw counts and frequency percentages, and aggregate key survey question responses were summarized as percentages with 95% CIs, excluding nonresponses in proportion denominators. Three multiple logistic regression models were fitted, one each with incomplete vaccination knowledge, vaccine coverage, and willingness to accept one or more missed vaccines as dependent variables; model adjustment factors included age group, sex, city, and characteristics previously associated with low vaccination coverage (Black or African American [Black] race, Hispanic or Latino [Hispanic] ethnicity, non-English primary language, no source of primary health care, and lack of health insurance) ( 4 ). Model results are reported as adjuste",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7429a1_htm_3fb3d62a8953",
+  "chunk_id": "chunk_008"
+}

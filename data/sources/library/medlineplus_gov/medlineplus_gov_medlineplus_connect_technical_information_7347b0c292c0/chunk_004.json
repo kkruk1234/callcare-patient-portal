@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Technical Information",
+  "url": "https://medlineplus.gov/medlineplus-connect/technical-information/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "he MedlinePlus servers, NLM requires that users of MedlinePlus Connect send no more than 100 requests per minute per IP address. Requests that exceed this limit will not be serviced, and service will not be restored for 300 seconds or until the request rate falls beneath the limit, whichever comes later. To limit the number of requests that you send to Connect, NLM recommends caching results for a 12-24 hour period.\nThis policy is in place to ensure that the service remains available and accessible to all users. If you have a specific use case that requires you to send a large number of requests to MedlinePlus Connect, and thus exceed the request rate limit outlined in this policy, please contact us . NLM staff will evaluate your request and determine if an exception may be granted. Please also review the MedlinePlus XML files documentation. These XML files contain complete health topic records and can serve as an alternate method of accessing MedlinePlus data.\nMore Information \nHow MedlinePlus Connect Works \nMedlinePlus Connect News \nDemonstrations â Web application and Web service \nTechnical information for developers\nMedlinePlus Connect Users and Partners \nMedlinePlus Connect handout - PDF\nFrequently Asked Questions (FAQs) \nMedlinePlus Connect email list \nContact MedlinePlus Connect \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nSubscribe to RSS \nConnect with",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_technical_information_7347b0c292c0",
+  "chunk_id": "chunk_004"
+}

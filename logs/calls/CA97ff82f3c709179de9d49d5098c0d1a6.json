@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA97ff82f3c709179de9d49d5098c0d1a6",
+  "session_id": "75fe5e47-e9eb-43c5-8c86-f6e4eecb338f",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-27T14:34:45.741646+00:00",
+  "ended_at": "2026-03-27T14:41:22.096593+00:00",
+  "packet_id": "6f3e51bc-dc72-47fb-86ba-d4c234257af9",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have low back pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your low back pain start?"
+    },
+    {
+      "role": "user",
+      "text": "A week ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the type of pain and if it radiates anywhere, like down your legs?"
+    },
+    {
+      "role": "user",
+      "text": "The pain is sharp and it's right on my spine, but it does seem to spread or radiate or whatever you wanna call it down my right side into my butt area, into my right butt cheek. But it doesn't go any further than my my buttock."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or weakness in your legs or feet?"
+    },
+    {
+      "role": "user",
+      "text": "No. As I said, it is it's operated at the butt area. It doesn't go any further than my buttock. There's nothing in my leg. There's nothing in my"
+    },
+    {
+      "role": "assistant",
+      "text": "Any bladder or bowel problems, like difficulty urinating, incontinence, or constipation?"
+    },
+    {
+      "role": "user",
+      "text": "I was a little constipated last week, but I put this old off, and it's not a problem. I I have I don't think any of these problems any issues are related to the talking."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your low back pain so far?"
+    },
+    {
+      "role": "user",
+      "text": "I tried icing it in the beginning, but it didn't really do much. I did use some Tylenol and I mean, it helped but only a little bit. And other than that, I really haven't been doing anything."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of trauma or heavy lifting before the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No trauma, I guess. But I I was helping my daughter move into a dorm room. So I was living I think when I lifted the microwave, it it really started I I almost felt like a popping by"
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or unexplained weight loss since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No. But I am on weight loss medication, though I'm hoping for weight loss at some point."
+    },
+    {
+      "role": "assistant",
+      "text": "Any prior history of back problems, surgeries, or chronic conditions like arthritis or osteoporosis?"
+    },
+    {
+      "role": "user",
+      "text": "No. I don't have anything like that."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty walking, balance problems, or falls since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No. I mean, my my back hurt when I walk, but no. No difficulty with"
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent infections, fevers, or other systemic symptoms before the back pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No. I was fine before the back end started."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re dealing with acute low back pain likely caused by a muscle strain or mild nerve irritation from lifting. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment like naproxen or ibuprofen may be helpful. A licensed physician will review this note and, if appropriate, may prescribe the recommended medication. For now, you can try acetaminophen or ibuprofen if you can take them safely. Watch for any new symptoms like weakness, numbness, trouble controlling your bladder or bowels, or worsening pain—if these happen, please seek in-person care the same day. If your symptoms don’t improve or get worse over the next week or two, consider seeing a healthcare provider for further evaluation."
+    }
+  ]
+}

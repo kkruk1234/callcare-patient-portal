@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA8a7cb262b16fb24114169d4a1c0f5055",
+  "session_id": "9b5c1ec1-e613-490f-a420-4632e0faa6f8",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-23T14:33:02.804792+00:00",
+  "ended_at": "2026-03-23T14:38:25.361002+00:00",
+  "packet_id": "79f8a500-65e8-432a-a7de-203207929ed7",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a rash on my arms."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the rash start?"
+    },
+    {
+      "role": "user",
+      "text": "Probably about 2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what the rash looks like and if it is itchy or painful?"
+    },
+    {
+      "role": "user",
+      "text": "Oh, it's very itchy. It's on both arms from my wrist to my elbows, and it has this red, uh, bumpy surface with these little, like like, little tiny blisters."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any fever, swelling, or spreading of the rash beyond your arms?"
+    },
+    {
+      "role": "user",
+      "text": "And it's not typically painful until I itch it, like, crazy, and then it starts, like,"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you recently been exposed to any new soaps, lotions, plants, or chemicals that might have caused this rash?"
+    },
+    {
+      "role": "user",
+      "text": "And then that's that is painful if I itch it at that point."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any other symptoms like fever, chills, or feeling unwell?"
+    },
+    {
+      "role": "user",
+      "text": "I don't feel great."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what you mean by 'I don't feel great'? Are you experiencing symptoms like fever, chills, body aches, or fatigue?"
+    },
+    {
+      "role": "user",
+      "text": "But, uh, no. I don't think I have fever, chills, or anything like that."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for the rash so far?"
+    },
+    {
+      "role": "user",
+      "text": "My my mother gave me some kind of cream"
+    },
+    {
+      "role": "assistant",
+      "text": "What kind of cream did your mother give you, and have you noticed any improvement or worsening since using it?"
+    },
+    {
+      "role": "user",
+      "text": "I don't know. It's I I wanna say, like, a Benadryl like cream, but I don't I don't know. Maybe it's calamine cream. That's it. That's what she gave me."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any oozing, crusting, or signs of infection in the rash area?"
+    },
+    {
+      "role": "user",
+      "text": "There's definite oozing. There's definite crusting, but it doesn't look in fact It just is, like, a little crusty."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swollen lymph nodes near the rash or elsewhere on your body?"
+    },
+    {
+      "role": "user",
+      "text": "And gross, but not nothing infected. It's like clear liquid that's coming out. Nothing, like, yellow or green or puffy or weird like that."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have a rash on your arms that’s likely a type of contact dermatitis, which is an irritation or allergic reaction of the skin. Because I can’t examine you in person, a licensed physician will review this information and may recommend a topical steroid cream to help reduce the itching and inflammation. For now, you can try to keep the area clean and avoid scratching. If the rash gets worse, starts to have yellow or green discharge, swelling, more pain, or if you develop a fever or feel very unwell, please seek in-person care the same day. If you need an exam or testing, going to an urgent care or emergency room is the best option. A doctor will review your case soon and decide if medication is appropriate."
+    }
+  ]
+}

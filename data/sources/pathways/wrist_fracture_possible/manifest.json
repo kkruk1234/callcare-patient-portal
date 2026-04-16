@@ -1,0 +1,12 @@
+{
+  "pathway_id": "wrist_fracture_possible",
+  "sources": [
+    {
+      "id": "wrist_fracture_possible_ref",
+      "source_id": "wrist_fracture_possible_ref",
+      "title": "Wrist injuries: when to seek care (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

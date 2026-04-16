@@ -1,0 +1,33 @@
+{
+  "pathway_id": "otitis_externa",
+  "sources": [
+    {
+      "id": "otitis_externa_src_1",
+      "source_id": "otitis_externa_src_1",
+      "title": "otitis_externa references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "otitis_externa_src_2",
+      "source_id": "otitis_externa_src_2",
+      "title": "otitis_externa references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "otitis_externa_src_3",
+      "source_id": "otitis_externa_src_3",
+      "title": "otitis_externa references (starter)",
+      "url": "https://www.aao.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "otitis_externa_src_4",
+      "source_id": "otitis_externa_src_4",
+      "title": "otitis_externa references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

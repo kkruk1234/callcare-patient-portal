@@ -1,0 +1,63 @@
+{
+  "packet_id": "1aecb4c6-34c8-4e7d-9c63-20849eb0df51",
+  "created_at": "2026-01-29T21:15:16+00:00",
+  "session_id": "1ac23714-8aaf-4227-9575-1f3ad860ce90",
+  "chief_complaint": "I think I have genital warts",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "onset": "3 weeks ago",
+    "location": "my privates",
+    "course": "same",
+    "characteristics": "bumps and lumps",
+    "morph_type": "bumps and a few ulcers",
+    "morph_color": "skin-colored",
+    "morph_bleed": "no",
+    "morph_pain_itch": "yes",
+    "sex_new_partner": "yes",
+    "sex_unprotected": "yes",
+    "aggravating": "itching makes it feel better",
+    "associated": "none",
+    "treatments_tried": "no",
+    "severity": "mild",
+    "age_years": 34,
+    "allergies": "penicillin",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "renal_disease": "yes",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old female presenting with a 3-week history of skin-colored bumps and a few ulcers located on her genital area. She reports mild itching associated with these lesions, which she notes actually improves with scratching. There has been no bleeding or pain from the lesions. She has a new sexual partner and has engaged in unprotected intercourse. She has not tried any treatments so far. She has a history of renal disease and a penicillin allergy. She is not pregnant.\n\nO:  \nPhone consultation only; no physical examination or vital signs available.\n\nA:  \n- Working diagnosis (most likely): Genital warts (condyloma acuminata) caused by human papillomavirus (HPV) infection.  \n- Differential:  \n  1. Herpes simplex virus infection (ulcerative lesions could suggest this)  \n  2. Molluscum contagiosum  \n  3. Syphilitic chancre  \n  4. Other sexually transmitted infections with genital lesions (e.g., chancroid)  \n- Red flags considered: No systemic symptoms, no severe pain, no bleeding, no signs of systemic infection or immunosuppression.\n\nP:  \n- Disposition: Patient is appropriate for outpatient management with follow-up as needed.  \n- Plan:  \n  1. Discuss the diagnosis of genital warts likely due to HPV infection.  \n  2. Recommend evaluation in person for lesion confirmation and possible treatment options such as topical agents (e.g., imiquimod, podophyllotoxin) or procedural removal.  \n  3. Counsel on safe sexual practices, including condom use, to reduce transmission risk.  \n  4. Screen for other STIs given new partner and unprotected sex.  \n  5. Advise that treatment is generally safe but to avoid treatments containing penicillin due to allergy.  \n  6. Provide education about the natural history of HPV and genital warts, including potential for spontaneous resolution and recurrence.  \n- Safety net: Advise patient to seek urgent care if lesions rapidly worsen, become painful, bleed, or if systemic symptoms such as fever or malaise develop. Follow-up if symptoms persist or worsen despite initial management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+        "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_015.json",
+        "snippet": "ect genital warts and tests for other STIs. No recommendations can be made regarding informing future sex partners about a diagnosis of genital warts because the duration of viral persistence after warts have resolved is unknown. Special Considerations Pregnancy Podofilox, podop…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_006.json",
+        "snippet": "gnancy. But you'll usually be referred to a sexual health specialist if you have genital warts and you’re pregnant. During pregnancy, genital warts may: multiply and get bigger (they may be removed if they're very big) become more easily irritated be passed on to the baby during…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+      "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_015.json",
+      "snippet": "ect genital warts and tests for other STIs. No recommendations can be made regarding informing future sex partners about a diagnosis of genital warts because the duration of viral persistence after warts have resolved is unknown. Special Considerations Pregnancy Podofilox, podop…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_006.json",
+      "snippet": "gnancy. But you'll usually be referred to a sexual health specialist if you have genital warts and you’re pregnant. During pregnancy, genital warts may: multiply and get bigger (they may be removed if they're very big) become more easily irritated be passed on to the baby during…"
+    }
+  ]
+}

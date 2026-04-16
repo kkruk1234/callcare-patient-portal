@@ -1,0 +1,12 @@
+{
+  "packet_id": "d7163c21-bb38-4f13-b617-e7e6dc572ce6",
+  "status": "under review",
+  "prescription_status": "under review",
+  "note_sent": "to be mailed",
+  "call_sid": "CA32bff084bab74155be13db0f416f8c04",
+  "session_id": "fe658f7c-af07-4b2c-85ec-9e2bfb0f1b5f",
+  "from_number": "+13047161907",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-15T21:49:59.257148+00:00",
+  "routed_at": "2026-03-15T21:54:25.216804+00:00"
+}

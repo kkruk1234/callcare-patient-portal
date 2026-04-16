@@ -1,0 +1,21 @@
+id: insomnia
+version: 0.1
+match:
+  any_keywords: ["can't sleep", "insomnia", "trouble sleeping", "awake all night", "sleep problem"]
+questions:
+  - id: duration
+    prompt: "How long has this been going on? (days/weeks)"
+    store_as: duration
+  - id: severe
+    prompt: "Are you feeling unsafe, confused, or unable to function today? (yes/no)"
+    store_as: severe_impairment
+    type: yesno
+  - id: mania
+    prompt: "Have you had several days with very little sleep and unusually high energy or risky behavior? (yes/no)"
+    store_as: mania_possible
+    type: yesno
+stop_rules:
+  - if_all_answered: ["duration", "severe", "mania"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

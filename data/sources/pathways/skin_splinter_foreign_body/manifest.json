@@ -1,0 +1,12 @@
+{
+  "pathway_id": "skin_splinter_foreign_body",
+  "sources": [
+    {
+      "id": "skin_splinter_foreign_body_ref",
+      "source_id": "skin_splinter_foreign_body_ref",
+      "title": "Wound foreign body overview (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

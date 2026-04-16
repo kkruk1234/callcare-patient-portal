@@ -1,0 +1,22 @@
+id: diverticulitis_possible
+version: 0.1
+match:
+  any_keywords: ["left lower belly pain", "left lower abdominal pain", "diverticulitis", "lower left stomach pain", "llq pain"]
+questions:
+  - id: severe
+    prompt: "Is the pain severe, worsening, or are you unable to keep fluids down? (yes/no)"
+    store_as: severe
+    type: yesno
+  - id: fever
+    prompt: "Any fever or shaking chills? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: gi_bleed
+    prompt: "Any black/tarry stool or large amounts of blood in stool? (yes/no)"
+    store_as: gi_bleed
+    type: yesno
+stop_rules:
+  - if_all_answered: ["severe", "fever", "gi_bleed"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

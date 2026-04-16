@@ -1,0 +1,10 @@
+{
+  "title": "COVID-NET | Covid | CDC",
+  "url": "https://www.cdc.gov/covid/php/covid-net/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "rt of the Respiratory Virus Hospitalization Surveillance Network (RESP-NET) , which monitors laboratory-confirmed hospitalizations associated with COVID-19, influenza (FluSurv-NET) , and RSV (RSV-NET) . The rates presented on the COVID-NET interactive dashboard can be used to follow trends and comparisons of COVID-19 -associated hospitalizations in different demographic groups and over time. \nHow to Use the COVID-NET interactive dashboard \n1) Select a topic of interest \nTo use the COVID-NET interactive dashboard, select a topic to see specific data trends. Topics include hospitalization rates by season, surveillance site, age group, sex, or race and ethnicity as well as clinical characteristics, including underlying medical conditions, reason for admission, and patient outcomes. Hospitalizations can be viewed as weekly, monthly, or cumulative rates. Clinical characteristics can be viewed by month, quarter, or surveillance season.\n2) Select a filter of interest \nTopics of interest can be filtered by season, surveillance site, age group, sex, and race and ethnicity. Filters vary by topic, as not all topics have filters available.\n3) Select different ways to view the data \nThe data can be displayed in a graph or as a table. Right click anywhere in the graph for a tabular view. Hovering your mouse over or selecting a data point or bar in the graph will display detailed information.",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_php_covid_net_index_html_0a920a68ae99",
+  "chunk_id": "chunk_003"
+}

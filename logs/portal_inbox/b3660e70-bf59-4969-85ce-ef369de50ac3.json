@@ -1,0 +1,50 @@
+{
+  "packet_id": "b3660e70-bf59-4969-85ce-ef369de50ac3",
+  "created_at": "2026-03-11T18:50:19.421218+00:00",
+  "session_id": "d85d4a6d-4c57-401c-9bbe-b01ff25263d9",
+  "pathway_id": "",
+  "base_queries": [
+    "eye chemical exposure management guidelines",
+    "adult eye chemical exposure treatment dosing and duration",
+    "red flags and return precautions for chemical eye injury"
+  ],
+  "queries": [
+    "AAFP eye chemical exposure management guidelines",
+    "AAFP adult eye chemical exposure treatment dosing and duration",
+    "MedlinePlus eye chemical exposure management guidelines",
+    "MedlinePlus adult eye chemical exposure treatment dosing and duration",
+    "CDC eye chemical exposure management guidelines",
+    "CDC adult eye chemical exposure treatment dosing and duration",
+    "NIH eye chemical exposure management guidelines",
+    "NIH adult eye chemical exposure treatment dosing and duration",
+    "NICE eye chemical exposure management guidelines",
+    "NICE adult eye chemical exposure treatment dosing and duration",
+    "WHO eye chemical exposure management guidelines",
+    "WHO adult eye chemical exposure treatment dosing and duration"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Eye Emergencies | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1101/p539.html",
+      "accessed": "2026-03-11",
+      "snippet": "Posttraumatic endophthalmitis, attributed commonly to Bacillus , Streptococcus , and the coagulase-negative Staphylococcus species, may occur in up to 8% of cases when an associated intraocular foreign body is present. 23 Prophylactic systemic antibiotics are recommended to reduce the risk of endophthalmitis after a mechanical globe rupture or laceration. 9 , 10 Levofloxacin (Levaquin; 500 mg orally every 12 hours) is an appropriate first-line medication; however, intravenous vancomycin (1 g every 12 hours) or ceftazidime (Fortaz; 1 g every eight hours) is an acceptable alternative. 9 , 10 Antifungal therapy with voriconazole (Vfend; 200 mg orally every 12 hours) or fluconazole (Diflucan; 200 mg orally every 12 hours) may be considered if plant or organic matter is involved. 9 A tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis (Tdap) vaccine booster should also be admin"
+    },
+    {
+      "title": "Eye emergencies: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000054.htm",
+      "accessed": "2026-03-11",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Evaluation and Management",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2013/0115/p114.pdf",
+      "accessed": "2026-03-11",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 73-year-old who reports getting laundry detergent in the eye this morning. Since the exposure, the patient has experienced a burning sensation but denies redness, swelling, discharge, vision changes, worsening pain, difficulty opening the eye, or light sensitivity. The patient has rinsed the eye with water since the exposure.\n\nO: Phone-only encounter; no physical exam or vitals available.\n\nA: The working diagnosis is chemical conjunctivitis due to laundry detergent exposure. This is consistent with the reported burning sensation without signs of infection or corneal injury.\nDifferential:\n1. Chemical conjunctivitis from detergent exposure\n2. Corneal abrasion or injury\n3. Allergic conjunctivitis\n4. Infectious conjunctivitis\n\nP: - First-line medication: Artificial tears eye drops, e.g., carboxymethylcellulose 0.5% ophthalmic solution, 1 drop in the affected eye every 4-6 hours as needed for comfort (Physician must verify medication/dosing)\n- Alternatives: Topical antibiotic ointment, e.g., erythromycin ophthalmic ointment 0.5%, apply to the affected eye 3-4 times daily for 5 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; no pregnancy; no renal or liver disease; monitor for signs of worsening symptoms or allergic reaction\n- Follow-up recommendations: Seek in-person medical care urgently if vision changes, increasing pain, redness, swelling, discharge, or inability to open the eye develop; seek emergency care if severe eye pain or vision loss occurs\n- Testing: Not indicated at this time unless symptoms worsen or do not improve within 24-48 hours"
+}

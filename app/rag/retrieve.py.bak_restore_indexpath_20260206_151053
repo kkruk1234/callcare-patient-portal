@@ -1,0 +1,79 @@
+import re
+
+import faiss
+import numpy as np
+
+from app.clinical.embeddings import get_embedder  # EMBED_HARDEN_PATCH_V1
+
+# Lazy-loaded globals (as in your current setup)
+_model = get_embedder()
+_index = faiss.read_index("data/rag/index.faiss")
+_DOCS = np.load("data/rag/docs.npy", allow_pickle=True).tolist()
+
+
+def _norm(s: str) -> str:
+    return (s or "").strip().lower()
+
+
+def _tokens(s: str) -> set:
+    # Simple, robust tokenizer for relevance overlap
+    return {t for t in re.findall(r"[a-z0-9]+", _norm(s)) if len(t) >= 3}
+
+
+def retrieve(query: str, k: int = 5):
+    if query is None:
+        query = ""
+    query = str(query).strip()
+    if not query:
+        return []
+
+    q = _model.encode([query]).astype("float32")
+    faiss.normalize_L2(q)
+    scores, ids = _index.search(q, k)
+
+    results = []
+    for score, idx in zip(scores[0], ids[0]):
+        try:
+            d = _DOCS[int(idx)]
+        except Exception:
+            continue
+
+        results.append(
+            {
+                "score": float(score),
+                "source": d.get("source", ""),
+                "title": d.get("title", "") or "Guideline excerpt",
+                "url": d.get("url", "") or "",
+                "text": d.get("text", "") or "",
+            }
+        )
+
+    # --- CallCare safety: dedupe + relevance tighten ---
+    # 1) Deduplicate: prevents multiple identical sources crowding top-K
+    dedup = []
+    seen = set()
+    for r in results:
+        url = _norm(r.get("url", ""))
+        title = _norm(r.get("title", ""))
+        key = url or title
+        if not key:
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        dedup.append(r)
+
+    # 2) Re-rank by overlap with query tokens to reduce off-target semantic drift
+    q_toks = _tokens(query)
+    scored = []
+    for r in dedup:
+        t = r.get("title", "") or ""
+        tx = r.get("text", "") or ""
+        overlap = len(q_toks & _tokens(t + " " + tx))
+        scored.append((overlap, r))
+
+    scored.sort(key=lambda x: (x[0], x[1].get("score", 0.0)), reverse=True)
+    results = [r for _ov, r in scored]
+    # --- end tighten ---
+
+    return results

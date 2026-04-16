@@ -1,0 +1,21 @@
+from pathlib import Path
+from app.core.models import ReviewPacket, NoteDraft
+from app.clinical.note_builder import now_iso
+
+FINAL_DIR = Path("logs/finalized")
+
+
+def finalize(session_id: str, note: NoteDraft) -> ReviewPacket:
+    FINAL_DIR.mkdir(parents=True, exist_ok=True)
+    packet = ReviewPacket(
+        session_id=session_id,
+        timestamp_iso=now_iso(),
+        note=note,
+        recommended_disposition="AUTO_FINALIZED_PROTOCOL",
+        status="APPROVED",
+        reviewer_id="SYSTEM",
+        reviewer_comments="Tier-1 protocol auto-finalized",
+    )
+    out_path = FINAL_DIR / f"{session_id}.json"
+    out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+    return packet

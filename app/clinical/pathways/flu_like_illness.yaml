@@ -1,0 +1,34 @@
+id: flu_like_illness
+version: 0.1
+match:
+  any_keywords: ["flu", "influenza", "covid", "fever", "body aches", "chills", "sore throat and fever", "viral symptoms"]
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+
+  - id: breathing
+    prompt: "Any severe trouble breathing, blue lips, or confusion? (yes/no)"
+    store_as: severe_breathing_or_confusion
+    type: yesno
+
+  - id: dehydration
+    prompt: "Are you unable to keep fluids down or peeing very little? (yes/no)"
+    store_as: dehydration_risk
+    type: yesno
+
+  - id: duration
+    prompt: "How many days have you been sick? (number of days)"
+    store_as: days_sick
+
+  - id: high_risk
+    prompt: "Are you at higher risk (pregnant, age 65+, chronic lung/heart disease, immunocompromised)? (yes/no/unknown)"
+    store_as: high_risk_group
+
+stop_rules:
+  - if_all_answered: ["breathing", "dehydration", "duration", "high_risk"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,22 @@
+id: mastitis_breastfeeding
+version: 0.1
+match:
+  any_keywords: ["breastfeeding and fever", "breast is red and painful", "mastitis", "breast tenderness with fever", "breast lump and fever"]
+questions:
+  - id: fever
+    prompt: "Do you have a fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: spreading
+    prompt: "Is there a red, warm area that is spreading, or severe pain? (yes/no)"
+    store_as: spreading_or_severe
+    type: yesno
+  - id: abscess
+    prompt: "Is there a hard lump that is worsening or pus/drainage? (yes/no)"
+    store_as: abscess_possible
+    type: yesno
+stop_rules:
+  - if_all_answered: ["fever", "spreading", "abscess"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

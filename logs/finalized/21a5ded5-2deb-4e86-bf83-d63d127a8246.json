@@ -1,0 +1,135 @@
+{
+  "packet_id": "5a5c02ac-2589-4216-9795-e78c4241f9f1",
+  "created_at": "2026-02-19T19:36:53.857193+00:00",
+  "session_id": "21a5ded5-2deb-4e86-bf83-d63d127a8246",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain radiating to your abdomen, groin, or leg?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney stones, urinary symptoms, or abdominal issues?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "tylenol and it didn't really help much",
+    "intake_q8": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any numbness, weakness, or changes in bowel or bladder function?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of chronic illnesses like osteoporosis, cancer, or recent infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+        "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+        "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+        "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She denies any recent injury, trauma, or heavy lifting prior to onset. There are no associated symptoms such as fever, chills, unexplained weight loss, pain radiating to the abdomen, groin, or leg, shortness of breath, cough, chest pain, numbness, weakness, or changes in bowel or bladder function. She has no history of kidney stones, urinary symptoms, abdominal issues, chronic illnesses like osteoporosis, cancer, or recent infections. She has tried acetaminophen (Tylenol) with minimal relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical examination or vital signs available.\n\nA: \nThe working diagnosis is mechanical musculoskeletal back pain localized to the left lower rib cage area, likely of musculoskeletal origin given the absence of red flag symptoms or systemic signs. \n\nDifferential: \n1. Musculoskeletal strain or myofascial pain \n2. Intercostal muscle strain or costochondritis \n3. Early rib fracture or contusion (less likely without trauma) \n4. Referred pain from visceral causes (less likely given no abdominal or systemic symptoms) \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain relief and inflammation reduction. \n- Alternatives: Continue acetaminophen if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with renal or liver disease, gastrointestinal risk, or cardiovascular disease; patient currently has no known renal or liver disease. Acetaminophen should be used within recommended dosing limits to avoid hepatotoxicity. \n- Return precautions: Advise patient to seek urgent care if she develops fever, chills, worsening pain, numbness, weakness, bowel or bladder dysfunction, or any new systemic symptoms. \n- Testing: No imaging or laboratory testing indicated at this time given absence of red flag symptoms. Reassess if symptoms worsen or fail to improve with conservative management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "any medicines you take with you. Other ways to get help You may be able to refer yourself for help and treatment, such as physiotherapy, from NHS community musculoskeletal (MSK) services without needing a referral from a GP. Get NHS help for back or joint problems Treatments for back pain If your back pain is severe or not getting better, a GP may prescribe…"
+      },
+      {
+        "title": "Polymyalgia rheumatica - NHS",
+        "source": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/",
+        "snippet": "﻿ Polymyalgia rheumatica - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Polymyalgia rheumatica Contents Overview Symptoms Diagnosis Treatment Polymyalgia rheumatica (PMR) is a condi…"
+      },
+      {
+        "title": "Ankylosing spondylitis - NHS",
+        "source": "https://www.nhs.uk/conditions/ankylosing-spondylitis/",
+        "snippet": "lood vessels Read about the  complications of ankylosing spondylitis . Living with AS The National Axial Spondyloarthritis Society (NASS) has information on living with the condition, including advice on working, travelling and driving. Video: Back stretches In this video, a physiotherapist shows some simple back stretches to help prevent aches and pains. Me…"
+      },
+      {
+        "title": "NICE NG59: Low back pain and sciatica in over 16s",
+        "source": "https://www.nice.org.uk/guidance/ng59",
+        "snippet": "Overview | Low back pain and sciatica in over 16s: assessment and management | Guidance | NICE You are here: Home NICE Guidance Conditions and diseases Musculoskeletal conditions Low back pain Low back pain and sciatica in over 16s: assessment and management NICE guideline Reference number: NG59 Published:&nbsp; 30 November 2016 Last updated:&nbsp; 11 Decemb…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "musculoskeletal pain, an injection of a 2-mL mixture of 1 mL of 40 mg/mL of methylprednisolone acetate or equivalent and 1 mL of local anesthetic can work quite well helping to resolve pain if symptoms persist for more than a few months.18 Gaps in the Evidence-Based Knowledge The mechanism of costochondritis is unclear and is often a diagnosis of exclusion.…"
+      },
+      {
+        "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+        "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)",
+      "source": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+      "snippet": "Information Low back pain is one of the most common reasons for an outpatient visit. The evaluation for low back pain should include a complete, focused medical history looking for red flags, which include, but are not limited to: severe or progressive neurologic deficits (e.g., bowel or bladder function), fever, sudden back pain with spinal tenderness, trau…"
+    },
+    {
+      "title": "AAFP: Evaluation of Acute Abdominal Pain in Adults",
+      "source": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "snippet": "olitis, diverticulitis, IBD, IBS Gynecologic: ectopic pregnancy, fibroids, ovarian mass, torsion, PID Renal: cystitis, nephrolithiasis, pyelonephritis Left lower quadrant Colonic: colitis, diverticulitis, IBD, IBS Gynecologic: ectopic pregnancy, fibroids, ovarian mass, torsion, PID Renal: nephrolithiasis, pyelonephritis Any location Abdominal wall: herpes zo…"
+    },
+    {
+      "title": "AAFP: Mechanical Low Back Pain",
+      "source": "https://www.aafp.org/pubs/afp/issues/2018/1001/p421.html",
+      "snippet": "further evaluation or treatment. The presence of red flags that suggest systemic disease or urgent problems warrants additional evaluation before empiric treatment ( Table 1 3 , 5 – 7 ) . A systematic review showed a higher likelihood of fracture with the presence of one or more red flags for trauma (older age, prolonged corticosteroid use, significant traum…"
+    },
+    {
+      "title": "Non-alcoholic fatty liver disease (NAFLD) - NHS",
+      "source": "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/",
+      "snippet": "It's usually found when you have tests for another reason. Some people have symptoms including: feeling very tired feeling generally unwell liver pain or discomfort, which is felt in your tummy (abdomen) under the right side of your ribs Who is more likely to get non-alcoholic fatty liver disease Non-alcoholic fatty liver disease is very common. You're more…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "e, clavicle, shoulders, and thoracic and lumbar spine must be included. Movement of the rib cage can be assessed with deep breathing exercises. The effect of upper extremity movement on pain should also be noted, because moving the arm on the affected side will usually cause pain.2,11 Examination should also include auscultation of the heart and lungs, and e…"
+    }
+  ],
+  "state": null
+}

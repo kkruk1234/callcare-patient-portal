@@ -1,0 +1,11 @@
+{
+  "pathway_id": "hives_urticaria",
+  "sources": [
+    {
+      "source_id": "medline_hives",
+      "type": "url",
+      "title": "MedlinePlus: Hives",
+      "url": "https://medlineplus.gov/hives.html"
+    }
+  ]
+}

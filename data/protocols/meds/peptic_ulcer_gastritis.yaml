@@ -1,0 +1,27 @@
+# Clinician-facing medication/dosing protocol for: peptic_ulcer_gastritis
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: "Omeprazole"
+    dosing: "20 mg PO daily x 14–28 days (or clinician judgment)"
+    exclusions: "Hypersensitivity; significant interaction risk (e.g., clopidogrel) — clinician judgment"
+    notes: "PPI trial for dyspepsia/gastritis symptoms when no red flags."
+  - med: "Famotidine"
+    dosing: "20 mg PO BID (or 40 mg PO daily) x 14–28 days"
+    exclusions: "Renal impairment requires dose reduction; hypersensitivity"
+    notes: "H2 blocker option if PPI not preferred."
+  - med: "Sucralfate"
+    dosing: "1 g PO QID x 2–4 weeks"
+    exclusions: "Renal failure (aluminum accumulation risk); drug binding interactions (separate other meds by 2 hours)"
+    notes: "Adjunct for ulcer symptoms; clinician judgment."
+
+supportive_care:
+  - item: "Avoid irritants"
+    details: "Avoid NSAIDs, alcohol, tobacco; limit spicy/acidic triggers if they worsen symptoms."
+  - item: "Diet/behavior"
+    details: "Small meals; avoid late-night meals; elevate head of bed if reflux symptoms overlap."
+
+followup_and_safety:
+  - item: "Urgent/ED now"
+    details: "Black/tarry stools, vomiting blood/coffee-ground material, severe persistent abdominal pain, fainting/syncope, chest pain, or signs of dehydration."
+  - item: "In-person evaluation"
+    details: "Persistent symptoms despite therapy, unintended weight loss, progressive dysphagia, recurrent vomiting, or anemia concern."

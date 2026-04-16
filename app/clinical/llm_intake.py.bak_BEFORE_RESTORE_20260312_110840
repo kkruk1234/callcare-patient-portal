@@ -1,0 +1,435 @@
+import os
+import json
+import re
+from typing import Any, Dict, List, Optional, Tuple
+
+
+# --- CALLCARE_NO_REDUNDANT_FOLLOWUPS_V1 ---
+def _cc_norm(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip().lower())
+
+
+def _cc_extract_symptom_flags(free_text: str) -> dict:
+    """
+    Conservative symptom flag extraction.
+    If a symptom is NOT mentioned, treat as absent for redundancy control.
+    """
+    t = _cc_norm(free_text)
+
+    def has(*keys):
+        return any(k in t for k in keys)
+
+    return {
+        "fever": has("fever", "temp", "temperature"),
+        "chills": has("chills", "shivering", "rigors"),
+        "cough": has("cough", "coughing"),
+        "sputum": has("sputum", "phlegm", "mucus", "productive"),
+        "shortness_of_breath": has("shortness of breath", "sob", "breathless", "hard to breathe"),
+        "chest_pain": has("chest pain", "chest tightness", "pleuritic"),
+        "nausea": has("nausea", "queasy"),
+        "vomiting": has("vomit", "vomiting", "threw up", "throwing up"),
+        "diarrhea": has("diarrhea", "loose stool", "watery stool"),
+        "sore_throat": has("sore throat", "throat pain"),
+        "congestion": has("congestion", "stuffy", "runny nose", "rhinorrhea"),
+        "fatigue": has("fatigue", "tired", "exhausted"),
+    }
+
+
+def _cc_should_ask_followup(symptom_key: str, flags: dict) -> bool:
+    """
+    Only ask followups IF the symptom was endorsed in the free-text sweep.
+    If not endorsed, do NOT re-ask it.
+    """
+    try:
+        return bool(flags.get(symptom_key, False))
+    except Exception:
+        return False
+# --- END CALLCARE_NO_REDUNDANT_FOLLOWUPS_V1 ---
+
+
+def _cc_intake_symptom_sweep_flags(state):
+    sx = getattr(state, "symptoms", None) or {}
+    if not isinstance(sx, dict):
+        return {}
+    ans = sx.get("_answers") or {}
+    if not isinstance(ans, dict):
+        return {}
+    # Prefer explicitly stored symptom sweep fields
+    sweep = ans.get("symptom_sweep") or ans.get("associated") or ans.get("symptoms_now") or ""
+    return _cc_extract_symptom_flags(str(sweep))
+
+
+from openai import OpenAI
+
+from app.core.models import CallState  # type: ignore
+
+
+# ============================
+# CallCare LLM Intake (free-text only)
+# ============================
+
+SYSTEM = """
+You are a practicing urgent care / primary care physician conducting a TELEPHONE intake.
+
+GOAL:
+- Ask the minimum number of questions needed to safely reach a working diagnosis and an initial management plan.
+- Questions must be HIGH-YIELD and must change disposition, testing, or treatment.
+
+CRITICAL RULES:
+- DO NOT ask redundant questions.
+  - If the patient already answered something (including by explicitly not endorsing it), do not ask again.
+- DO NOT ask "severity" or "how bad" questions unless the answer changes disposition or management.
+- DO NOT ask about symptoms the patient did not endorse unless you have a specific safety/decision reason.
+- Use free-text questions only (no multi-choice, no yes/no-only prompts).
+  - If you need a yes/no concept, ask it in a free-text way: "Any fever?" (patient can answer freely).
+- Telephone-only: no vitals/exam unless the patient states them.
+
+OUTPUT MUST BE VALID JSON ONLY (no extra text).
+Choose ONE action:
+
+1) Ask one next question:
+{
+  "action": "ask",
+  "question": "<single free-text question>",
+  "why": "<short reason this question is needed>",
+  "extract": { "<field>": "<value>", ... }   // only facts supported by prior patient text
+}
+
+2) Stop intake:
+{
+  "action": "stop",
+  "why": "<short reason you have enough>",
+  "summary": "<1-3 sentences summarizing the intake in clinician language, using only stated facts>",
+  "extract": { "<field>": "<value>", ... }   // only facts supported by prior patient text
+}
+
+EXTRACT FIELDS (when available from patient text; never invent):
+- onset
+- location
+- key_symptoms
+- red_flags
+- exposures
+- relevant_history
+- treatments_tried
+- prior_testing
+- pregnancy_context (only if patient said it; otherwise omit)
+- renal_context (only if patient said it; otherwise omit)
+- liver_context (only if patient said it; otherwise omit)
+""".strip()
+
+
+def _client_and_model() -> Tuple[OpenAI, str]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+    client = OpenAI(api_key=api_key)
+    model = os.getenv("CALLCARE_INTAKE_MODEL", "").strip() or "gpt-4.1-mini"
+    return client, model
+
+
+def _safe_json_load(s: str) -> Optional[dict]:
+    if not s or not isinstance(s, str):
+        return None
+    txt = s.strip()
+
+    # If model wrapped JSON in code fences, strip them.
+    txt = re.sub(r"^```(?:json)?\s*", "", txt)
+    txt = re.sub(r"\s*```$", "", txt)
+
+    # Try direct JSON parse
+    try:
+        obj = json.loads(txt)
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        pass
+
+    # Try to find first JSON object substring
+    m = re.search(r"\{.*\}", txt, flags=re.DOTALL)
+    if not m:
+        return None
+    try:
+        obj = json.loads(m.group(0))
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        return None
+
+
+def _sx(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None)
+    if not isinstance(sx, dict):
+        state.symptoms = {"_answers": {}}
+        sx = state.symptoms
+    if "_answers" not in sx or not isinstance(sx.get("_answers"), dict):
+        sx["_answers"] = {}
+    return sx
+
+
+def _ans(state: CallState) -> Dict[str, Any]:
+    return _sx(state)["_answers"]
+
+
+def _history_lines(turns: List[Dict[str, str]], max_chars: int = 7000) -> str:
+    # Build compact transcript for prompt context.
+    chunks: List[str] = []
+    for t in turns[-30:]:
+        q = (t.get("q") or "").strip()
+        a = (t.get("a") or "").strip()
+        if not q and not a:
+            continue
+        chunks.append(f"Q: {q}\nA: {a}".strip())
+    out = "\n\n".join(chunks).strip()
+    if len(out) > max_chars:
+        out = out[-max_chars:]
+    return out
+
+
+def _normalize_yes_no_unknown(text: str) -> str:
+    v = (text or "").strip().lower()
+    if not v:
+        return ""
+    if v in ("n/a", "na", "not applicable", "not_applicable"):
+        return "not_applicable"
+    if v.startswith("y"):
+        return "yes"
+    if v.startswith("n"):
+        return "no"
+    if "not sure" in v or "unsure" in v:
+        return "not sure"
+    if "unknown" in v:
+        return "unknown"
+    return v
+
+
+def _normalize_sex_at_birth(text: str) -> str:
+    v = (text or "").strip().lower()
+    if not v:
+        return ""
+    if v.startswith("m"):
+        return "male"
+    if v.startswith("f"):
+        return "female"
+    return v
+
+
+def _parse_age_years(text: str):
+    raw = (text or "").strip()
+    if not raw:
+        return None
+    try:
+        return int(float(raw))
+    except Exception:
+        m = re.search(r"(\d+(?:\.\d+)?)", raw)
+        if not m:
+            return None
+        try:
+            return int(float(m.group(1)))
+        except Exception:
+            return None
+
+
+def _parse_weight_kg(text: str):
+    raw = (text or "").strip().lower()
+    if not raw:
+        return None
+    m = re.search(r"(\d+(?:\.\d+)?)", raw)
+    if not m:
+        return None
+    try:
+        num = float(m.group(1))
+    except Exception:
+        return None
+    if num <= 0:
+        return None
+    is_kg = ("kg" in raw) or ("kilogram" in raw)
+    if is_kg:
+        kg = num
+        units = "kg"
+    else:
+        kg = num * 0.45359237
+        units = "lb"
+    try:
+        kg = round(float(kg), 1)
+    except Exception:
+        pass
+    return {"weight_raw": raw, "weight_kg": kg, "weight_units": units}
+
+
+def _question_mentions(q: str, *needles: str) -> bool:
+    ql = (q or "").strip().lower()
+    return any(n in ql for n in needles)
+
+
+def next_intake_step(state: CallState) -> Dict[str, Any]:
+    """
+    Returns dict:
+      - action: "ask"|"stop"|"error"
+      - question (if ask)
+      - why
+      - summary (if stop)
+      - extract (dict)
+    Never raises.
+    """
+    try:
+        sx = _sx(state)
+        ans = _ans(state)
+
+        chief = (getattr(state, "chief_complaint", "") or "").strip()
+
+        # Storage
+        turns = sx.get("_llm_intake_turns")
+        if not isinstance(turns, list):
+            turns = []
+            sx["_llm_intake_turns"] = turns
+
+        extract_store = sx.get("_llm_intake_extract")
+        if not isinstance(extract_store, dict):
+            extract_store = {}
+            sx["_llm_intake_extract"] = extract_store
+
+        # Hard cap to prevent runaway
+        max_q = int(os.getenv("CALLCARE_LLM_INTAKE_MAX_Q", "10"))
+        if len(turns) >= max_q:
+            return {
+                "action": "stop",
+                "why": f"Reached max intake questions ({max_q}).",
+                "summary": "Telephone intake reached the maximum question limit; proceed with available history.",
+                "extract": dict(extract_store),
+            }
+
+        transcript = _history_lines(turns)
+
+        user_payload = {
+            "chief_complaint": chief,
+            "transcript": transcript or "(none yet)",
+            "structured_answers_so_far": dict(ans),
+            "instruction": "Generate the next best single intake step per system rules.",
+        }
+
+        client, model = _client_and_model()
+        resp = client.responses.create(
+            model=model,
+            input=[
+                {"role": "system", "content": SYSTEM},
+                {"role": "user", "content": json.dumps(user_payload, ensure_ascii=False)},
+            ],
+            temperature=0.2,
+            max_output_tokens=450,
+        )
+
+        text = getattr(resp, "output_text", "") or ""
+        obj = _safe_json_load(text)
+
+        if not obj:
+            return {"action": "error", "why": "LLM did not return valid JSON.", "raw": text[:500]}
+
+        action = str(obj.get("action") or "").strip().lower()
+        why = str(obj.get("why") or "").strip()
+        extract = obj.get("extract") if isinstance(obj.get("extract"), dict) else {}
+
+        # Merge extracts (patient-fact only; we trust model to follow rule, but still only merge strings)
+        for k, v in (extract or {}).items():
+            if v is None:
+                continue
+            vs = str(v).strip()
+            if vs:
+                extract_store[str(k)] = vs
+
+        if action == "ask":
+            q = str(obj.get("question") or "").strip()
+            if not q:
+                return {"action": "error", "why": "LLM asked but did not provide a question.", "raw": text[:500]}
+            return {"action": "ask", "question": q, "why": why, "extract": dict(extract_store)}
+
+        if action == "stop":
+            summary = str(obj.get("summary") or "").strip()
+            if summary:
+                sx["_llm_intake_summary"] = summary
+                ans["intake_summary"] = summary
+            return {"action": "stop", "why": why, "summary": summary, "extract": dict(extract_store)}
+
+        return {"action": "error", "why": f"Unknown action: {action}", "raw": text[:500]}
+
+    except Exception as e:
+        return {"action": "error", "why": f"{type(e).__name__}: {str(e)[:200]}"}
+
+
+def record_answer(state: CallState, question: str, answer: str) -> None:
+    """
+    Record Q/A into sx._llm_intake_turns and also into structured answers (non-redundant keys).
+    """
+    sx = _sx(state)
+    ans = _ans(state)
+
+    turns = sx.get("_llm_intake_turns")
+    if not isinstance(turns, list):
+        turns = []
+        sx["_llm_intake_turns"] = turns
+
+    q = (question or "").strip()
+    a = (answer or "").strip()
+
+    # Avoid double-appending the identical final turn if another caller already stored it.
+    if not (turns and str(turns[-1].get("q") or "").strip() == q and str(turns[-1].get("a") or "").strip() == a):
+        turns.append({"q": q, "a": a})
+
+    # Store stable transcript keys
+    n = len(turns)
+    ans[f"intake_q{n}"] = q
+    ans[f"intake_a{n}"] = a
+
+    # Normalize common safety-tail fields so they can be skipped later.
+    ql = q.lower()
+
+    if _question_mentions(ql, "how old are you", "age in years", "your age"):
+        age = _parse_age_years(a)
+        if age is not None:
+            ans["age_years"] = age
+            sx["age_years"] = age
+            state.age_band = "child" if age < 18 else "adult"
+            sx["age_band"] = state.age_band
+
+    if _question_mentions(ql, "what is your weight", "your weight", "weigh", "pounds", "kilograms", "kilogram", "kg", "lb"):
+        parsed = _parse_weight_kg(a)
+        if parsed:
+            ans["weight_raw"] = parsed["weight_raw"]
+            ans["weight_kg"] = parsed["weight_kg"]
+            ans["weight_units"] = parsed["weight_units"]
+            sx["weight_raw"] = parsed["weight_raw"]
+            sx["weight_kg"] = parsed["weight_kg"]
+
+    if _question_mentions(ql, "medication allergies", "medicine allergies", "drug allergies", "allergies"):
+        val = a.strip()
+        if val.lower() in ("no", "none", "nope", "n"):
+            val = "none"
+        if val:
+            ans["allergies"] = val
+
+    if _question_mentions(ql, "sex were you assigned at birth", "assigned at birth", "male or female", "sex at birth"):
+        norm_sex = _normalize_sex_at_birth(a)
+        if norm_sex:
+            ans["sex_at_birth"] = norm_sex
+            if norm_sex == "male":
+                ans["pregnancy_possible"] = "not_applicable"
+                ans["pregnancy"] = "not_applicable"
+                sx["pregnancy_possible"] = "not_applicable"
+                state.pregnancy_possible = "not_applicable"
+
+    if _question_mentions(ql, "pregnan"):
+        norm_preg = _normalize_yes_no_unknown(a)
+        if norm_preg:
+            ans["pregnancy_possible"] = norm_preg
+            ans["pregnancy"] = norm_preg
+            sx["pregnancy_possible"] = norm_preg
+            state.pregnancy_possible = norm_preg
+
+    if _question_mentions(ql, "kidney disease", "reduced kidney function", "renal disease"):
+        norm_renal = _normalize_yes_no_unknown(a)
+        if norm_renal:
+            ans["renal_disease"] = norm_renal
+            sx["renal_disease"] = norm_renal
+
+    if _question_mentions(ql, "liver disease", "hepatitis", "cirrhosis", "fatty liver", "abnormal liver tests"):
+        norm_liver = _normalize_yes_no_unknown(a)
+        if norm_liver:
+            ans["liver_disease"] = norm_liver
+            sx["liver_disease"] = norm_liver

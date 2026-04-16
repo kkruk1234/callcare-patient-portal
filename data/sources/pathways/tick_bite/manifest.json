@@ -1,0 +1,40 @@
+{
+  "pathway_id": "tick_bite",
+  "sources": [
+    {
+      "id": "cdc_after_tick_bite",
+      "type": "web",
+      "url": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+      "title": "CDC: What to Do After a Tick Bite",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "cdc_tick_bite_fact_sheet_pdf",
+      "type": "web",
+      "url": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+      "title": "CDC: Tick Bite—What to Do (PDF)",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "cdc_clinician_caring_after_tick_bite_pdf",
+      "type": "web",
+      "url": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+      "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "idsa_lyme_guideline_2020",
+      "type": "web",
+      "url": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+      "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+      "license_note": "Summarize concepts; do not reproduce full text."
+    },
+    {
+      "id": "aafp_lyme_updated_recommendations_2021",
+      "type": "web",
+      "url": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+      "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+      "license_note": "Summarize; do not reproduce full text."
+    }
+  ]
+}

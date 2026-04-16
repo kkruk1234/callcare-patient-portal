@@ -1,0 +1,151 @@
+{
+  "call_sid": "CAbb4af506b9b2e4e3ee8a4afac7632205",
+  "session_id": "07b089cf-4b84-4b02-a0d7-cf3c33c28c98",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-09T00:34:21.562567+00:00",
+  "ended_at": "2026-03-09T00:38:55.249388+00:00",
+  "packet_id": "02c9d468-5e9c-443a-8849-504d8b92c9e0",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What symptoms are you experiencing today?"
+    },
+    {
+      "role": "user",
+      "text": "Head pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your head pain start?"
+    },
+    {
+      "role": "user",
+      "text": "About 3 weeks ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe where exactly in your head the pain is located?"
+    },
+    {
+      "role": "user",
+      "text": "In, like, the back of my head, and it kind of, like, radiates towards the front."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any other symptoms like fever, vision changes, weakness, numbness, or difficulty speaking?"
+    },
+    {
+      "role": "user",
+      "text": "Not really. I think maybe just some numbness."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the numbness you are experiencing, such as where it is located and if it is constant or intermittent?"
+    },
+    {
+      "role": "user",
+      "text": "And, like, the my fingers and toes."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any weakness, difficulty walking, or balance problems along with the numbness in your fingers and toes?"
+    },
+    {
+      "role": "user",
+      "text": "Sometimes it's hard to walk because my toes are so numb."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent infections, injuries, or new medications before these symptoms started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any recent weight loss, night sweats, or changes in bladder or bowel function?"
+    },
+    {
+      "role": "user",
+      "text": "I've been constipated."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any previous neurological conditions or autoimmune diseases?"
+    },
+    {
+      "role": "user",
+      "text": "Unsure."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any changes in your vision, such as double vision or loss of vision, or any difficulty speaking or swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "29."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Yes. Acetaminophen."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Meal."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "I'm unsure. I have a family history."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Not sure."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’ve been dealing with ongoing head pain and numbness in your fingers and toes, which may suggest a neurological issue affecting your nerves. Because this is a phone visit, I can’t examine you or run tests, but based on what you’ve described, a medication like gabapentin might help with nerve pain. A licensed physician will review your information and decide if this treatment is appropriate. It’s important to get an in-person neurological evaluation soon, including imaging and lab tests, to better understand what’s causing your symptoms. If you notice worsening weakness, trouble walking, new vision problems, difficulty speaking, or sudden severe symptoms, please seek emergency care right away. Otherwise, if symptoms worsen, go to urgent care the same day. This service doesn’t include in-person visits, so for any exam or testing, you’ll need to see a healthcare provider in person."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "packet_id": "ddaacd03-f1a7-4673-bda4-dea270929c2d",
+  "created_at": "2026-01-19T15:25:51.498268+00:00",
+  "session_id": "8ca56f86-f088-4da4-abc8-51ccdb940556",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old male reports burning sensation when urinating without fever, flank pain, or testicular pain. No systemic symptoms reported. There are no known medication allergies. Pregnancy status is not captured. \n\nO: No physical exam available due to phone-only encounter. Vital signs and physical findings cannot be assessed. No laboratory results available at this time.\n\nA:  \n  - Working diagnosis (most likely): UTI in male (complicated by definition)  \n  - Differential: male dysuria—UTI vs urethritis (including gonorrhea/chlamydia) vs prostatitis  \n  - Red flags considered: absence of fever, flank pain, and testicular pain reduces concern for pyelonephritis or severe prostatitis but cannot be excluded without exam and labs\n\nP:  \n  - Disposition: Urgent care or primary care visit recommended for urinalysis, urine culture, and STI testing to confirm diagnosis and guide therapy.  \n  - Plan: Empiric antibiotic therapy may be considered after evaluation; avoid fluoroquinolones if local resistance is high or contraindications exist. Symptomatic treatment with hydration and analgesics advised.  \n  - Safety net: Advise patient to seek immediate care if fever, worsening pain, testicular swelling, or systemic symptoms develop. Follow-up within 48–72 hours to review test results and clinical progress is essential.\n\nEvidence (snippets used): None",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aao.org/",
+        "snippet": "Listed in pathway manifest https://www.aao.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": []
+}

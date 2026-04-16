@@ -1,0 +1,131 @@
+{
+  "call_sid": "CA846b512e44dd2e897a5c1e6d954d6ca3",
+  "session_id": "e3cbc080-a66b-4553-a53a-762061fd43b4",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T15:59:56.822941+00:00",
+  "ended_at": "2026-03-08T16:04:31.012009+00:00",
+  "packet_id": "",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any fever, chills, or swollen glands?"
+    },
+    {
+      "role": "user",
+      "text": "All of the above."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty swallowing or breathing?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any rash, joint pain, or recent exposure to anyone with strep throat or COVID-19?"
+    },
+    {
+      "role": "user",
+      "text": "No rash. No joint pain, but my son had strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "I tried DayQuil, but it didn't help very much."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cough, nasal congestion, or hoarseness?"
+    },
+    {
+      "role": "user",
+      "text": "No cough. No nasal congestion, but I am a little hoarse."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty opening your mouth or severe throat pain that limits swallowing liquids?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    }
+  ]
+}

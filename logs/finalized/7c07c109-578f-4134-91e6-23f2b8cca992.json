@@ -1,0 +1,56 @@
+{
+  "packet_id": "7c07c109-578f-4134-91e6-23f2b8cca992",
+  "created_at": "2026-03-05T15:40:37.149211+00:00",
+  "session_id": "d396ca42-9ea3-4111-8a3a-046945b53dd2",
+  "pathway_id": "",
+  "base_queries": [
+    "management of musculoskeletal back pain lower rib cage",
+    "NSAID dosing for musculoskeletal pain"
+  ],
+  "queries": [
+    "AAFP management of musculoskeletal back pain lower rib cage",
+    "AAFP NSAID dosing for musculoskeletal pain",
+    "MedlinePlus management of musculoskeletal back pain lower rib cage",
+    "MedlinePlus NSAID dosing for musculoskeletal pain",
+    "CDC management of musculoskeletal back pain lower rib cage",
+    "CDC NSAID dosing for musculoskeletal pain",
+    "NIH management of musculoskeletal back pain lower rib cage",
+    "NIH NSAID dosing for musculoskeletal pain",
+    "NICE management of musculoskeletal back pain lower rib cage",
+    "NICE NSAID dosing for musculoskeletal pain",
+    "WHO management of musculoskeletal back pain lower rib cage",
+    "WHO NSAID dosing for musculoskeletal pain"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+      "accessed": "2026-03-05",
+      "snippet": "Topical nonsteroidal anti-inflammatory drugs (NSAIDs) are the primary recommended treatment, being among the most effective medications and the only to improve all measured outcomes. Topical NSAIDs improve pain within two hours, provide sustained relief over one week, and are the most effective intervention for improving physical function. They also lead to symptom relief and patient satisfaction more than oral NSAIDs. No adverse effects are more common with topical NSAIDs than with placebo. The effectiveness of topical NSAIDs with menthol gel is similar to that of topical NSAIDs alone."
+    },
+    {
+      "title": "Taking care of your back at home: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/002119.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Improve your posture Strengthen your back and abdomen, and improve flexibility Lose weight Avoid falls A complete exercise program should include aerobic activity such as walking, swimming, or riding a stationary bicycle. It should also include stretching and strength training. Follow the instructions of your provider or physical therapist."
+    },
+    {
+      "title": "Management of Acute Musculoskeletal Pain - Clinical Practice Guideline | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/musculoskeletal-pain.html",
+      "accessed": "2026-03-05",
+      "snippet": "Topical NSAIDs, with or without menthol gel, should be used as first line therapy for adults with acute pain from non-low back, musculoskeletal injuries."
+    },
+    {
+      "title": "Cognitive behavioral therapy for back pain: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000415.htm",
+      "accessed": "2026-03-05",
+      "snippet": "For CBT to help reduce pain, your treatment goals need to be realistic and your treatment should be done in steps. For example, your goals may be to see friends more and start exercising. It is realistic to see one or two friends at first and take short walks, maybe just down the block. It is not realistic to reconnect with all of your friends all at once and walk 3 miles (5 kilometers) at once on your first outing. Exercise can help you to deal with chronic pain issues."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. She denies any recent trauma, fever, chills, weight loss, respiratory symptoms, or neurological deficits. The pain improves with good posture but worsens when leaning against the affected area while sitting. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, chronic illnesses, or recent travel.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely due to strain or minor soft tissue injury localized to the left lower rib cage area.\nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib cartilage inflammation\n3. Intercostal nerve irritation or neuropathy\n4. Early presentation of visceral pathology such as pleuritis or referred pain from abdominal organs\n\nP: First-line medication: Naproxen 500 mg PO twice daily for 7 days with food\nAlternatives: Diclofenac 50 mg PO three times daily for 7 days; Meloxicam 15 mg PO once daily for 7 days (Physician must verify medication/dosing)\nMedication safety considerations: Use with caution in patients with gastrointestinal risk factors; take with food to minimize GI irritation; avoid in patients with known NSAID allergy or contraindications\nReturn precautions: Advise patient to seek immediate care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, chest pain, shortness of breath, or any new concerning symptoms\nTesting: Not indicated at this time given absence of red flag symptoms; consider imaging if symptoms persist beyond 6 weeks or worsen"
+}

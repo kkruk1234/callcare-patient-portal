@@ -1,0 +1,415 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from datetime import date
+from typing import Optional, List, Dict, Any, Callable, Tuple
+from urllib.parse import urlparse
+import json
+import re
+import time
+import urllib.request
+import urllib.error
+
+try:
+    from openai import OpenAI  # type: ignore
+except Exception:
+    OpenAI = None  # type: ignore
+
+
+def _today_iso() -> str:
+    try:
+        return date.today().isoformat()
+    except Exception:
+        return ""
+
+
+def _shorten(s: str, n: int) -> str:
+    s = str(s or "")
+    s = re.sub(r"\s+", " ", s).strip()
+    if len(s) <= n:
+        return s
+    return s[: n].rstrip() + "…"
+
+
+def _host(url: str) -> str:
+    try:
+        return (urlparse(url).netloc or "").lower().replace("www.", "")
+    except Exception:
+        return ""
+
+
+def _publisher_from_url(url: str) -> str:
+    h = _host(url)
+    if not h:
+        return "Source"
+    if "nhs.uk" in h or "nhs" in h:
+        return "NHS"
+    if "nice.org.uk" in h:
+        return "NICE"
+    if "aafp.org" in h:
+        return "AAFP"
+    if "cdc.gov" in h:
+        return "CDC"
+    if "medlineplus.gov" in h:
+        return "MEDLINEPLUS"
+    if "nih.gov" in h or "ncbi.nlm.nih.gov" in h or "pubmed.ncbi.nlm.nih.gov" in h:
+        return "NIH"
+    if "who.int" in h:
+        return "WHO"
+    if "mayoclinic.org" in h:
+        return "MAYOCLINIC"
+    if "merckmanuals.com" in h:
+        return "MERCK"
+    if "idsociety.org" in h:
+        return "IDSA"
+    if "acog.org" in h:
+        return "ACOG"
+    return h.split(".")[0].upper() if "." in h else h.upper()
+
+
+def _allow_hosts() -> Tuple[str, ...]:
+    return (
+        "nhs.uk",
+        "nice.org.uk",
+        "aafp.org",
+        "cdc.gov",
+        "medlineplus.gov",
+        "nih.gov",
+        "ncbi.nlm.nih.gov",
+        "pubmed.ncbi.nlm.nih.gov",
+        "who.int",
+        "mayoclinic.org",
+        "merckmanuals.com",
+        "idsociety.org",
+        "acog.org",
+        "accessdata.fda.gov",
+    )
+
+
+def _is_allowed(url: str) -> bool:
+    u = (url or "").strip()
+    if not (u.startswith("http://") or u.startswith("https://")):
+        return False
+    h = _host(u)
+    if not h:
+        return False
+    return any(ah in h for ah in _allow_hosts())
+
+
+def _unique_keep_order(urls: List[str]) -> List[str]:
+    seen = set()
+    out = []
+    for u in urls:
+        u = (u or "").strip()
+        if not u:
+            continue
+        if u in seen:
+            continue
+        seen.add(u)
+        out.append(u)
+    return out
+
+
+def _extract_urls_from_openai_message(message_item: Any) -> List[str]:
+    """
+    Parses OpenAI Responses API message item.
+    Supports both dict-shaped and object-shaped annotations.
+    We rely on url_citation annotations, not free-text scraping.
+    """
+    urls: List[str] = []
+    try:
+        content = getattr(message_item, "content", None)
+        if content is None and isinstance(message_item, dict):
+            content = message_item.get("content")
+        if not isinstance(content, list):
+            return []
+        for part in content:
+            if isinstance(part, dict):
+                ann = part.get("annotations")
+            else:
+                ann = getattr(part, "annotations", None)
+            if not isinstance(ann, list):
+                continue
+            for a in ann:
+                if isinstance(a, dict):
+                    atype = a.get("type")
+                    u = a.get("url")
+                else:
+                    atype = getattr(a, "type", None)
+                    u = getattr(a, "url", None)
+                if atype != "url_citation":
+                    continue
+                u = (u or "").strip()
+                if u:
+                    urls.append(u)
+    except Exception:
+        return []
+    return urls
+
+
+def _openai_web_search(query: str, *, timeout_s: int = 12, debug: bool = False) -> List[str]:
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+
+    q = (query or "").strip()
+    if not q:
+        return []
+
+    client = OpenAI()
+
+    tools_variants = [{"type": "web_search"}, {"type": "web_search_preview"}]
+    last_err: Optional[Exception] = None
+    best_debug: Dict[str, Any] = {}
+
+    for tv in tools_variants:
+        try:
+            model = "gpt-4.1-mini"
+            resp = client.responses.create(
+                model=model,
+                input=q,
+                tools=[tv],
+                timeout=timeout_s,
+            )
+            out = getattr(resp, "output", None)
+            if out is None and isinstance(resp, dict):
+                out = resp.get("output")
+            if not isinstance(out, list) or not out:
+                best_debug = {"model": model, "tool_type": tv.get("type"), "status": getattr(resp, "status", None), "output_types": []}
+                raise RuntimeError("web_search_call produced no output items")
+
+            out_types = []
+            urls_all: List[str] = []
+
+            for it in out:
+                t = getattr(it, "type", None) if not isinstance(it, dict) else it.get("type")
+                out_types.append(t)
+                if t == "message":
+                    urls_all.extend(_extract_urls_from_openai_message(it))
+
+            urls_all = _unique_keep_order(urls_all)
+            urls_allowed = [u for u in urls_all if _is_allowed(u)]
+
+            if debug:
+                print(f"=== TOOLS = {[tv]} ===")
+                print("status =", getattr(resp, "status", None))
+                print("have_output_list =", isinstance(out, list), "len =", len(out) if isinstance(out, list) else None)
+                print("output_types =", out_types)
+                if urls_allowed:
+                    print("EVID_URLS:", urls_allowed[:10])
+
+            if urls_allowed:
+                return urls_allowed
+
+            best_debug = {"model": model, "tool_type": tv.get("type"), "status": getattr(resp, "status", None), "output_types": out_types}
+            raise RuntimeError("web_search_call produced no parsable results")
+
+        except Exception as e:
+            last_err = e
+            continue
+
+    raise RuntimeError(
+        "web_search_call produced no parsable results; last_debug="
+        + json.dumps(best_debug, ensure_ascii=False)
+        + " last_err="
+        + (type(last_err).__name__ if last_err else "None")
+        + ":"
+        + (str(last_err) if last_err else "")
+    )
+
+
+def _guess_title_from_url(url: str) -> str:
+    try:
+        p = urlparse(url)
+        host = (p.netloc or "").replace("www.", "")
+        path = (p.path or "").strip("/")
+        if not path:
+            return host
+        tail = path.split("/")[-1]
+        tail = tail.replace("-", " ").replace("_", " ")
+        tail = re.sub(r"\s{2,}", " ", tail).strip()
+        if not tail or len(tail) < 3:
+            return host
+        return f"{host}: {tail[:80]}"
+    except Exception:
+        return (url or "")[:80]
+
+
+def _fetch_title_snippet(url: str, *, timeout_s: int = 3, max_chars: int = 600) -> Dict[str, str]:
+    """
+    Best-effort HTTP fetch for title + a short snippet.
+    - For PDFs: do not download; just return filename title and empty snippet.
+    """
+    u = (url or "").strip()
+    if not u:
+        return {"title": "", "snippet": ""}
+
+    if u.lower().endswith(".pdf"):
+        return {"title": _guess_title_from_url(u), "snippet": ""}
+
+    req = urllib.request.Request(
+        u,
+        headers={
+            "User-Agent": "Mozilla/5.0 (CallCareEvidenceBot/1.0)",
+            "Accept": "text/html,application/xhtml+xml",
+        },
+        method="GET",
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=timeout_s) as r:
+            raw = r.read(200000)  # cap
+    except Exception:
+        return {"title": _guess_title_from_url(u), "snippet": ""}
+
+    try:
+        enc = "utf-8"
+        try:
+            ctype = r.headers.get("Content-Type") if hasattr(r, "headers") else ""
+            m = re.search(r"charset=([A-Za-z0-9_\-]+)", ctype or "", flags=re.I)
+            if m:
+                enc = m.group(1)
+        except Exception:
+            enc = "utf-8"
+        html_text = raw.decode(enc, errors="replace")
+    except Exception:
+        html_text = raw.decode("utf-8", errors="replace")
+
+    import html as html_lib
+
+    title = ""
+    m = re.search(r"(?is)<title[^>]*>(.*?)</title>", html_text)
+    if m:
+        title = html_lib.unescape(re.sub(r"\s+", " ", m.group(1)).strip())
+
+    if not title:
+        m2 = re.search(r'(?is)<meta[^>]+property=["\']og:title["\'][^>]+content=["\'](.*?)["\']', html_text)
+        if m2:
+            title = html_lib.unescape(re.sub(r"\s+", " ", m2.group(1)).strip())
+
+    snippet = ""
+    md = re.search(r'(?is)<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']', html_text)
+    if md:
+        snippet = html_lib.unescape(re.sub(r"\s+", " ", md.group(1)).strip())
+
+    if not snippet:
+        # strip tags; keep first visible text chunk
+        text = re.sub(r"(?is)<(script|style).*?>.*?</\1>", " ", html_text)
+        text = re.sub(r"(?is)<[^>]+>", " ", text)
+        text = html_lib.unescape(text)
+        text = re.sub(r"\s+", " ", text).strip()
+        snippet = text[:max_chars]
+
+    return {"title": title or _guess_title_from_url(u), "snippet": (snippet or "")[:max_chars]}
+
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    queries: Optional[List[str]] = None,
+    diagnosis_hint: Optional[str] = None,
+    context: Optional[str] = None,
+    assessment_text: Optional[str] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    timeout_s: int = 12,
+    max_queries: int = 2,
+    title_fetch_n: int = 6,
+    debug: bool = False,
+    max_per_publisher: int = 2,
+    snippet_fetch_n: int = 2,
+    snippet_timeout_s: int = 4,
+    trace_fn: Optional[Callable[..., None]] = None,
+    **_ignored,
+) -> List[Dict[str, Any]]:
+    """
+    Returns URL-bearing dict evidence items:
+      {"title","source","url","accessed","snippet"}
+    This is intentional because app.core.models.EvidenceRef lacks url/accessed.
+    """
+
+    cc = (chief_complaint or "").strip()
+    if not cc:
+        raise ValueError("chief_complaint is required")
+
+    anchor = (assessment_text or "").strip() or (diagnosis_hint or "").strip() or (context or "").strip() or cc
+    anchor = _shorten(anchor, 200)
+
+    qs: List[str] = []
+    if isinstance(queries, list) and queries:
+        qs = [str(x).strip() for x in queries if str(x).strip()]
+    if not qs:
+        qs = [f"{anchor} outpatient management guideline", f"{anchor} treatment medication dosing contraindications"]
+    qs = qs[: max(1, int(max_queries or 1))]
+
+    urls: List[str] = []
+    for q in qs:
+        try:
+            got = _openai_web_search(q, timeout_s=timeout_s, debug=debug)
+            urls.extend(got)
+            if trace_fn:
+                try:
+                    trace_fn("llm_http_evidence_query", query=q, urls=len(got))
+                except Exception:
+                    pass
+        except Exception as e:
+            if trace_fn:
+                try:
+                    trace_fn("llm_http_evidence_query_error", query=q, err_type=type(e).__name__, err=str(e))
+                except Exception:
+                    pass
+            continue
+
+    urls = _unique_keep_order([u.split("?utm_source=openai")[0] if "utm_source=openai" in u else u for u in urls])
+    urls = [u for u in urls if _is_allowed(u)]
+
+    # enforce per-publisher cap
+    capped: List[str] = []
+    counts: Dict[str, int] = {}
+    for u in urls:
+        pub = _publisher_from_url(u)
+        counts[pub] = counts.get(pub, 0)
+        if counts[pub] >= int(max_per_publisher or 1):
+            continue
+        counts[pub] += 1
+        capped.append(u)
+        if len(capped) >= int(max_urls or 6):
+            break
+
+    urls = capped
+    if len(urls) < int(min_urls or 1):
+        # best-effort: keep what we got; caller decides whether to retry
+        pass
+
+    accessed = _today_iso()
+    out: List[Dict[str, Any]] = []
+    for i, u in enumerate(urls, start=1):
+        title = _guess_title_from_url(u)
+        snippet = ""
+
+        # fetch title/snippet for first N; keep latency controlled
+        if i <= int(title_fetch_n or 0):
+            info = _fetch_title_snippet(u, timeout_s=min(3, max(2, int(timeout_s or 12) // 4)), max_chars=600)
+            title = (info.get("title") or title).strip()
+            snippet = (info.get("snippet") or "").strip()
+        elif i <= int(snippet_fetch_n or 0):
+            info = _fetch_title_snippet(u, timeout_s=min(3, max(2, int(snippet_timeout_s or 4))), max_chars=600)
+            title = (info.get("title") or title).strip()
+            snippet = (info.get("snippet") or "").strip()
+
+        out.append(
+            {
+                "title": title[:200],
+                "source": _publisher_from_url(u),
+                "url": u,
+                "accessed": accessed,
+                "snippet": snippet[:600],
+            }
+        )
+
+    if trace_fn:
+        try:
+            trace_fn("llm_http_evidence_done", urls=len(urls), returned=len(out))
+        except Exception:
+            pass
+
+    return out

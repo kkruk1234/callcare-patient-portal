@@ -1,0 +1,102 @@
+{
+  "packet_id": "fe3b627c-1997-45d2-9656-0ec79fbe7b02",
+  "created_at": "2026-02-05T20:09:15.554259+00:00",
+  "session_id": "7b333240-a9f5-4f2a-88a8-9e5e7881aba8",
+  "chief_complaint": "bunion pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your bunion pain start?",
+    "intake_a1": "3 years ago",
+    "intake_q2": "Can you describe the type of pain you feel in your bunion and if anything makes it better or worse?",
+    "intake_a2": "sharp, shooting pain. Staying off of my feet and elevating my foot makes it better",
+    "intake_q3": "Any redness, swelling, or warmth around the bunion area?",
+    "intake_a3": "yes",
+    "intake_q4": "Any fever, chills, or other signs of infection?",
+    "intake_a4": "no",
+    "intake_q5": "Have you tried any treatments or interventions for your bunion pain, such as orthotics, medications, or surgery?",
+    "intake_a5": "orthotics and medication, no surgery",
+    "intake_q6": "Have you noticed any changes in the appearance of the bunion, such as increased size or deformity?",
+    "intake_a6": "it is deformed and red, but that has been like that for years",
+    "intake_q7": "Any numbness, tingling, or weakness in your foot or toes?",
+    "intake_a7": "no",
+    "intake_q8": "Any recent trauma or injury to the foot?",
+    "intake_a8": "no",
+    "intake_q9": "What medications have you tried for your bunion pain, and did any help?",
+    "intake_a9": "tylenol, advil, OTC pain medications but they only helped a little in the past",
+    "intake_q10": "Any difficulty walking or bearing weight on the affected foot?",
+    "intake_a10": "yes - walking is painful",
+    "age_years": 51,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/bunions/",
+        "https://www.nhs.uk/conditions/autosomal-recessive-polycystic-kidney-disease-arpkd/",
+        "https://medlineplus.gov/toeinjuriesanddisorders.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 51-year-old female presenting with a 3-year history of sharp, shooting pain localized to a bunion on her foot. The pain improves with rest and elevation but worsens with walking, causing difficulty bearing weight. She reports redness and deformity of the bunion that has been present for years but denies any fever, chills, numbness, tingling, weakness, or recent trauma. She has previously tried orthotics and over-the-counter pain medications such as acetaminophen and ibuprofen, which provided only minimal relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is chronic bunion pain with associated inflammation and deformity, likely related to hallux valgus. The presence of redness and deformity without systemic signs of infection suggests chronic inflammation rather than acute infection.\n\nDifferential: \n1. Chronic hallux valgus with bursitis or inflammation \n2. Osteoarthritis of the first metatarsophalangeal joint \n3. Gout or other crystal arthropathy \n4. Stress injury or metatarsal pain syndrome \n\nP: \n- First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain and inflammation for up to 7 days. Avoid if history of gastrointestinal bleeding or allergy to NSAIDs. Dosing details were not found in retrieved evidence; prescriber should verify. \n- Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, up to 3 grams per day; avoid in severe liver disease. \n - Topical NSAIDs (e.g., diclofenac gel) applied to the bunion area 3-4 times daily for localized pain relief; avoid if allergy to topical NSAIDs. \n- Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease reported. Use NSAIDs cautiously if any future renal or gastrointestinal issues develop. \n- Return precautions: Return for in-person evaluation if pain worsens, swelling or redness increases, fever or systemic symptoms develop, or if there is new numbness, tingling, or weakness. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Bunions - NHS",
+        "source": "https://www.nhs.uk/conditions/bunions/",
+        "snippet": "pain from a bunion has not improved after trying home treatments for a few weeks the pain is stopping you doing your normal activities your bunions are getting worse you have bunions and diabetes – foot problems can be more serious if you have diabetes \nTreatments for bunions \nIf you have bunions, a GP will look at your foot and ask you about your symptoms.\nThey might refer you to a foot specialist (podiatrist).\nA GP or podiatrist can advise you about:\nthings you can do to ease your symptoms things you can buy or have specially made to reduce bunion pain, such as insoles (orthotics), toe spacers and toe supports (splints) You can also pay to"
+      },
+      {
+        "title": "Autosomal recessive polycystic kidney disease - NHS",
+        "source": "https://www.nhs.uk/conditions/autosomal-recessive-polycystic-kidney-disease-arpkd/",
+        "snippet": "oblems, including:\nunderdeveloped lungs, which can cause severe breathing difficulties soon after birth high blood pressure (hypertension) excessive peeing and thirst problems with blood flow through the liver, which can lead to serious internal bleeding a progressive loss of kidney function, known as chronic kidney disease (CKD) When these problems develop and how severe they are can vary considerably, even between family members with the condition.\nRead more about the symptoms of ARPKD  and diagnosing ARPKD .\nEven though ARPKD is rare, it's one of the most common kidney problems to affect young children.\nIt's estimated around 1 in 20,000 ba"
+      },
+      {
+        "title": "Toe Injuries | Toe Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/toeinjuriesanddisorders.html",
+        "snippet": "ican College of Foot and Ankle Surgeons) \nAlso in Spanish \nTailor&#x27;s Bunion (Bunionette) \n(American College of Foot and Ankle Surgeons) \nAlso in Spanish \nToe and Metatarsal Fractures (Broken Toes) \n(American College of Foot and Ankle Surgeons) \nAlso in Spanish \nTurf Toe \n(American College of Foot and Ankle Surgeons) \nAlso in Spanish \nVideos and Tutorials\nBunion \n(Medical Encyclopedia) \nAlso in Spanish \nClinical Trials\nClinicalTrials.gov: Bunion \n(National Institutes of Health) \nJournal Articles\nReferences and abstracts from MEDLINE/PubMed (National Library of Medicine) \nArticle: Empty Toe Phenomenon 3 Decades After Its Initial Description"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Bunions - NHS",
+      "source": "https://www.nhs.uk/conditions/bunions/",
+      "snippet": "pain from a bunion has not improved after trying home treatments for a few weeks the pain is stopping you doing your normal activities your bunions are getting worse you have bunions and diabetes – foot problems can be more serious if you have diabetes \nTreatments for bunions \nIf you have bunions, a GP will look at your foot and ask you about your symptoms.\nThey might refer you to a foot specialist (podiatrist).\nA GP or podiatrist can advise you about:\nthings you can do to ease your symptoms things you can buy or have specially made to reduce bunion pain, such as insoles (orthotics), toe spacers and toe supports (splints) You can also pay to"
+    },
+    {
+      "title": "Autosomal recessive polycystic kidney disease - NHS",
+      "source": "https://www.nhs.uk/conditions/autosomal-recessive-polycystic-kidney-disease-arpkd/",
+      "snippet": "oblems, including:\nunderdeveloped lungs, which can cause severe breathing difficulties soon after birth high blood pressure (hypertension) excessive peeing and thirst problems with blood flow through the liver, which can lead to serious internal bleeding a progressive loss of kidney function, known as chronic kidney disease (CKD) When these problems develop and how severe they are can vary considerably, even between family members with the condition.\nRead more about the symptoms of ARPKD  and diagnosing ARPKD .\nEven though ARPKD is rare, it's one of the most common kidney problems to affect young children.\nIt's estimated around 1 in 20,000 ba"
+    },
+    {
+      "title": "Toe Injuries | Toe Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/toeinjuriesanddisorders.html",
+      "snippet": "ican College of Foot and Ankle Surgeons) \nAlso in Spanish \nTailor&#x27;s Bunion (Bunionette) \n(American College of Foot and Ankle Surgeons) \nAlso in Spanish \nToe and Metatarsal Fractures (Broken Toes) \n(American College of Foot and Ankle Surgeons) \nAlso in Spanish \nTurf Toe \n(American College of Foot and Ankle Surgeons) \nAlso in Spanish \nVideos and Tutorials\nBunion \n(Medical Encyclopedia) \nAlso in Spanish \nClinical Trials\nClinicalTrials.gov: Bunion \n(National Institutes of Health) \nJournal Articles\nReferences and abstracts from MEDLINE/PubMed (National Library of Medicine) \nArticle: Empty Toe Phenomenon 3 Decades After Its Initial Description"
+    }
+  ]
+}

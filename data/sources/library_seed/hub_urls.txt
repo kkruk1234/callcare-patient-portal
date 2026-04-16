@@ -1,0 +1,23 @@
+# CDC hubs
+https://www.cdc.gov/antibiotic-use/index.html
+https://www.cdc.gov/std/treatment-guidelines/default.htm
+https://www.cdc.gov/vaccines/index.html
+https://www.cdc.gov/respiratory-viruses/index.html
+
+# MedlinePlus hubs (NIH/NLM curated)
+https://medlineplus.gov/healthtopics.html
+https://medlineplus.gov/druginformation.html
+https://medlineplus.gov/lab-tests.html
+
+# NICE hubs
+https://www.nice.org.uk/guidance
+https://www.nice.org.uk/guidance/conditions-and-diseases/infections
+
+# NHS hubs (optional, but broad)
+https://www.nhs.uk/conditions/
+
+# USPSTF hub
+https://www.uspreventiveservicestaskforce.org/uspstf/recommendation-topics
+
+# FDA (labels are huge; still allowlisted)
+https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files

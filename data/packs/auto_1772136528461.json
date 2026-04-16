@@ -1,0 +1,21 @@
+{
+  "id": "auto_1772136528461",
+  "query": "Musculoskeletal strain or myofascial pain ibuprofen dosing naproxen dosing adult maximum daily dose",
+  "sources": [
+    {
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/017581s117%2C018164s067%2C020067s026lbl.pdf",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32941116/",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK542299/",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

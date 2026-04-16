@@ -1,0 +1,57 @@
+{
+  "packet_id": "82ad9372-3f5d-4eb7-9d1b-f88945ee6714",
+  "created_at": "2026-03-27T15:01:27.281004+00:00",
+  "session_id": "7c7feae7-0495-48fc-b6ce-b482abc1fa53",
+  "pathway_id": "",
+  "base_queries": [
+    "low back pain management guidelines adults",
+    "adult low back pain treatment dosing acetaminophen contraindications",
+    "red flags in low back pain evaluation adults"
+  ],
+  "queries": [
+    "AAFP low back pain management guidelines adults",
+    "AAFP adult low back pain treatment dosing acetaminophen contraindications",
+    "MedlinePlus low back pain management guidelines adults",
+    "MedlinePlus adult low back pain treatment dosing acetaminophen contraindications",
+    "CDC low back pain management guidelines adults",
+    "CDC adult low back pain treatment dosing acetaminophen contraindications",
+    "NIH low back pain management guidelines adults",
+    "NIH adult low back pain treatment dosing acetaminophen contraindications",
+    "NICE low back pain management guidelines adults",
+    "NICE adult low back pain treatment dosing acetaminophen contraindications",
+    "WHO low back pain management guidelines adults",
+    "WHO adult low back pain treatment dosing acetaminophen contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "accessed": "2026-03-27",
+      "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+    },
+    {
+      "title": "How to manage low back pain before it gets worse | NIH MedlinePlus Magazine",
+      "source": "magazine.medlineplus.gov",
+      "url": "https://magazine.medlineplus.gov/article/how-to-manage-low-back-pain-before-it-gets-worse",
+      "accessed": "2026-03-27",
+      "snippet": "Dr. Lurie explains that acupuncture, spinal manipulation, or physical therapy are other potential treatment options, depending on your type of low back pain. There are also behavioral treatments like biofeedback and nerve stimulation, which use electric pulses to help people learn how to manage pain. This type of care is recommended as a first line of treatment before medication."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.pdf",
+      "accessed": "2026-03-27",
+      "snippet": ""
+    },
+    {
+      "title": "Articles about Low Back Pain | NIH MedlinePlus Magazine",
+      "source": "magazine.medlineplus.gov",
+      "url": "https://magazine.medlineplus.gov/topic/low-back-pain",
+      "accessed": "2026-03-27",
+      "snippet": "Many military veterans suffer from chronic low back pain. This pain can be treated with medication, but high medication use..."
+    }
+  ],
+  "note_text": "S: The patient is a 52-year-old male presenting with low back pain that started about 2 weeks ago after helping his daughter move into her dorm. He describes the pain as sharp and localized on the spine with shooting pain down to the right buttock. He denies numbness, tingling, weakness in the legs or feet, bladder or bowel dysfunction, fever, chills, or unexplained weight loss. He has tried icing, heat, and acetaminophen with minimal relief. There is no difficulty standing or walking, only pain while walking. No prior history of back problems or surgeries is reported.\n\nO: Phone encounter only; no physical examination or vital signs available.\n\nA: The working diagnosis is acute mechanical low back pain with radicular symptoms likely due to lumbar strain or possible mild nerve root irritation.\nDifferential:\n1. Lumbar muscle strain\n2. Lumbar radiculopathy (e.g., mild sciatica)\n3. Lumbar disc herniation\n4. Degenerative lumbar spine disease\n\nP: \n- First-line medication: Naproxen 500 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Cyclobenzaprine 5 mg orally three times daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid NSAIDs if history of allergy or gastrointestinal issues; patient allergic to steroids and penicillin; no renal or liver disease reported\n- Follow-up recommendations: Seek in-person medical care urgently if new onset weakness, numbness, bladder or bowel dysfunction, or worsening pain occurs; seek emergency care if severe neurological symptoms develop\n- Testing: Not indicated at this time given absence of red flags; consider imaging if symptoms persist beyond 6 weeks or worsen significantly"
+}

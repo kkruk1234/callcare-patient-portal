@@ -1,0 +1,11 @@
+{
+  "pathway_id": "minor_burn",
+  "sources": [
+    {
+      "source_id": "nih_burns",
+      "type": "url",
+      "title": "MedlinePlus: Burns",
+      "url": "https://medlineplus.gov/burns.html"
+    }
+  ]
+}

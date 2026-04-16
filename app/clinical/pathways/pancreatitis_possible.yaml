@@ -1,0 +1,22 @@
+id: pancreatitis_possible
+version: 0.1
+match:
+  any_keywords: ["severe upper belly pain", "upper abdominal pain", "pain to the back", "epigastric pain", "pancreatitis", "vomiting with upper belly pain"]
+questions:
+  - id: severe
+    prompt: "Is the pain severe and constant, or are you unable to keep fluids down? (yes/no)"
+    store_as: severe_or_dehydrated
+    type: yesno
+  - id: fever
+    prompt: "Any fever, confusion, or fainting? (yes/no)"
+    store_as: systemic_redflags
+    type: yesno
+  - id: jaundice
+    prompt: "Any yellowing of the eyes/skin or very dark urine? (yes/no)"
+    store_as: jaundice
+    type: yesno
+stop_rules:
+  - if_all_answered: ["severe", "fever", "jaundice"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

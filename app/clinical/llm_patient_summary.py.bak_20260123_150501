@@ -1,0 +1,137 @@
+import json
+import os
+from typing import List, Optional
+
+from openai import OpenAI
+
+from app.clinical.phrasebook import PHONE_ONLY
+
+
+def build_patient_summary_system_prompt(disposition: Optional[str] = None) -> str:
+    """
+    Build the system prompt for the patient spoken summary.
+    If disposition is provided, the summary MUST match that level of care.
+    """
+    disp = (disposition or "").strip().lower()
+
+    disposition_rules = ""
+    if disp:
+        disposition_rules = f"""
+DISPOSITION REQUIREMENT (must follow exactly):
+- Disposition signal: "{disp}"
+- If disposition == "ed_now":
+  - You MUST clearly tell the patient to go to the ER now (or call 911 if severe).
+- If disposition == "urgent_today":
+  - You MUST clearly tell the patient to seek in-person evaluation today (same day).
+- If disposition == "routine":
+  - You MUST describe home-care / watchful waiting and when to seek in-person care.
+Do not contradict the disposition signal.
+""".strip()
+
+    return f"""You are a phone-based medical assistant for CallCare. Create a spoken closing summary for the patient.
+TIER1_ASYNC_PRESCRIBING_V1 (critical rules):
+- This is a Tier-1 model: an ASYNC licensed physician will review the note and recommendations after this call.
+- Do NOT instruct the patient to "see a doctor to get antibiotics" if the plan already recommends medication.
+- Instead say: "Based on what you told me, medication treatment may be appropriate. A licensed physician will review this note, and if appropriate, may prescribe the recommended medication."
+- If medication is NOT recommended in the plan, you may recommend supportive care.
+- Always give a brief safety-net: what symptoms mean urgent care today vs emergency now.
+- Keep it spoken, warm, and concise (about 20–45 seconds).
+
+
+PHONE-ONLY REALITY (must be reflected in wording):
+- {PHONE_ONLY["care_setting"]}
+- {PHONE_ONLY["no_scheduling"]}
+
+Style:
+- 20–45 seconds spoken length.
+- Plain language. Calm, non-alarmist, but clear.
+- Do NOT repeat the patient's answers back.
+
+Required content:
+1) What this is most likely (working diagnosis / risk level)
+2) What to do now (plan) — phone-advice wording only
+3) What is pending clinician review vs immediate
+4) Safety net (red flags) in phone-advice wording
+5) What happens next (factually)
+
+Critical constraints:
+- Do NOT imply that CallCare schedules appointments, arranges follow-up, or contacts clinics/hospitals.
+- Use phone-forward phrasing like:
+  - "If you need an in-person exam or testing, please go to an urgent care, emergency department, or see your primary care clinician — this service does not include in-person visits."
+  - "If symptoms worsen, seek in-person care..."
+- Avoid clinic discharge language like "return promptly" or "follow up with your PCP" as a directive.
+
+Pain relief wording (be explicit):
+- Never use the term NSAIDs. Say: "ibuprofen (Advil/Motrin)" or "naproxen (Aleve)" in plain language.
+
+- Say: "acetaminophen (Tylenol) or ibuprofen (Advil) if you can take them safely"
+- If urinary discomfort, you MAY mention OTC urinary analgesic phenazopyridine (AZO) as optional relief,
+  BUT include: "can turn urine orange; avoid if pregnant; doesn't treat infection."
+
+Safety wording:
+- Replace "return promptly" with:
+  - "seek in-person care the same day" (urgent)
+  - or "go to urgent care/ER now" (emergency)
+
+{disposition_rules}
+
+Never:
+- claim a definitive diagnosis when red flags exist
+- give medication dosing
+- invent labs/vitals/exams
+- mention arranging follow-up
+
+Return ONLY the spoken script.
+""".strip()
+
+
+def generate_patient_summary(
+    soap_note: str,
+    disposition: Optional[str] = None,
+    disposition_reasons: Optional[List[str]] = None,
+) -> str:
+
+    # DVT_SUMMARY_OVERRIDE (deterministic; do not call LLM for DVT)
+    s = (soap_note or "").lower()
+    if ("deep vein thrombosis" in s) or ("dvt" in s) or ("blood clot" in s):
+        return (
+            "Based on what you described, your symptoms could be a blood clot in the leg (deep vein thrombosis, DVT), "
+            "which needs urgent in-person evaluation today. Because this is a phone visit, please go to urgent care or the "
+            "emergency department now for an exam and testing (typically an ultrasound). Do not wait for follow-up. "
+            "Go to the emergency department immediately or call 911 if you develop chest pain, shortness of breath, "
+            "coughing up blood, fainting, or rapidly worsening leg swelling or pain."
+        )
+
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError(
+            "OPENAI_API_KEY is not set. Set it in your environment before calling generate_patient_summary()."
+        )
+
+    client = OpenAI(api_key=api_key)
+
+    system = build_patient_summary_system_prompt(disposition=disposition)
+
+    reasons = disposition_reasons or []
+    if not isinstance(reasons, list):
+        reasons = []
+
+    user = f"""SOAP NOTE:
+{soap_note}
+
+Disposition signal (deterministic):
+- disposition: {disposition or "UNKNOWN"}
+- reasons: {json.dumps(reasons)}
+
+Write the spoken summary.
+"""
+
+    resp = client.responses.create(
+        model="gpt-4.1-mini",
+        input=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        temperature=0.2,
+    )
+    return (resp.output_text or "").strip()

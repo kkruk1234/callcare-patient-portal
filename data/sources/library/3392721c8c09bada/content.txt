@@ -1,0 +1,1008 @@
+Myofascial Pain - StatPearls - NCBI Bookshelf
+
+An official website of the United States government
+
+Here's how you know
+
+The .gov means it's official.
+
+ Federal government websites often end in .gov or .mil. Before
+ sharing sensitive information, make sure you're on a federal
+ government site.
+ 
+
+The site is secure.
+
+ The 
+https://
+ ensures that you are connecting to the
+ official website and that any information you provide is encrypted
+ and transmitted securely.
+ 
+
+Log in
+
+Show account info
+
+Close
+
+Account
+
+ Logged in as:
+
+username
+
+Dashboard
+
+Publications
+
+Account settings
+
+Log out
+
+Access keys
+
+NCBI Homepage
+
+MyNCBI Homepage
+
+Main Content
+
+Main Navigation
+
+Bookshelf
+
+Search database
+Books
+All Databases
+Assembly
+Biocollections
+BioProject
+BioSample
+Books
+ClinVar
+Conserved Domains
+dbGaP
+dbVar
+Gene
+Genome
+GEO DataSets
+GEO Profiles
+GTR
+Identical Protein Groups
+MedGen
+MeSH
+NLM Catalog
+Nucleotide
+OMIM
+PMC
+Protein
+Protein Clusters
+Protein Family Models
+PubChem BioAssay
+PubChem Compound
+PubChem Substance
+PubMed
+SNP
+SRA
+Structure
+Taxonomy
+ToolKit
+ToolKitAll
+ToolKitBookgh
+Search term
+Search
+
+Browse Titles
+
+Advanced
+
+Help
+
+Disclaimer
+
+NCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.
+StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2025 Jan-. 
+StatPearls [Internet].
+Show details
+Treasure Island (FL): 
+StatPearls Publishing
+; 2025 Jan-.
+Search term
+ 
+
+Myofascial Pain
+Bruno Bordoni
+; 
+Kavin Sugumar
+; 
+Anterpreet Dua
+.
+Author Information and Affiliations
+Authors
+Bruno Bordoni
+1
+; 
+Kavin Sugumar
+2
+; 
+Anterpreet Dua
+3
+.
+Affiliations
+1
+ Foundation Don Carlo Gnocchi IRCCS
+2
+ Department of Surgery, Tulane University
+3
+ Augusta University
+Last Update: 
+October 21, 2025
+.
+Continuing Education Activity
+Myofascial pain syndrome is a complex musculoskeletal condition involving the myofascial system, which comprises contractile muscle tissue, connective tissue, and associated nervous, vascular, and lymphatic structures. The fascial system integrates muscles into a continuous network that transmits force and coordinates movement, comprising both solid components (muscle, bone, cartilage, and adipose tissue) and fluid components (blood and lymph). Pain in myofascial pain syndrome arises from trigger points—palpable nodules within taut muscle bands—that cause localized or referred pain and may lead to muscle weakness, restricted range of motion, and functional limitations. Trigger points are classified as active, producing spontaneous pain or pain with movement, and latent, which elicit pain only on palpation. Disruption of the myofascial continuum can result from mechanical, neurological, or vascular factors, as well as changes in fluid dynamics. The condition often presents with vague, overlapping symptoms, complicating diagnosis and management, and lacks universally accepted treatment and surveillance protocols.
+The participant in this course gains advanced knowledge of the anatomy, pathophysiology, and clinical presentation of myofascial pain syndrome, including distinctions between active and latent trigger points and the interplay of muscular, connective, and fluid fascia in generating symptoms. Skills developed include comprehensive patient assessment, identification of trigger points, and application of evidence-based interventions ranging from manual therapies to multimodal pain management strategies. To optimize outcomes, emphasis is placed on integrating care with an interprofessional healthcare team—such as physical therapists, pain specialists, and rehabilitation experts. Collaboration enables coordinated evaluation, targeted interventions, and ongoing monitoring, reducing pain, restoring function, and improving quality of life for patients affected by myofascial pain syndrome.
+
+Objectives:
+
+Identify the etiology of myofascial pain, with a particular focus on the pathophysiology of muscular trigger points.
+Assess patients for the presence of active and latent myofascial trigger points using validated palpation methods, pain mapping, and patient-reported symptom patterns.
+Compare the efficacy, safety, and patient adherence of conservative management strategies, including physical therapy, dry needling, and interventional approaches.
+Identify and collaborate effectively with the interprofessional healthcare team, including physical therapists, occupational therapists, pain specialists, and primary care clinicians, to coordinate comprehensive care and optimize long-term patient outcomes.
+
+Access free multiple choice questions on this topic.
+
+Introduction
+The fascial system consists of the components of solid (muscles, bone, cartilage, and adipose tissue) and fluid (blood, lymph).
+[1]
+[2]
+ The myofascial system comprises contractile muscle and connective tissue. The latter creates the shape of the muscle, penetrates the muscle, and orients the nerve and vascular endings; it has a thickening at the end of the contractile district that forms the insertions and origins of the muscle on the bone, thereby transmitting movement from the muscles to the bones to which they are attached. Within the myofascial system, the other components include the nervous, vascular, and lymphatic systems. Nervous tissue (axon and various afferents) and the resulting terminations are enclosed in multiple layers of fascia.
+[3]
+ Different tissues work in harmony to make up the myofascial continuum. The fascia integrates all the muscles within an interconnected network, and it would be incorrect to consider a muscular district as a separate entity.
+[4]
+[5]
+The myofascial system, if disturbed, can be a source of pain and functional limitation by creating vague symptoms that are not always clear and a challenge for the treating clinician. Myofascial pain is characterized by muscular trigger points (TP), which are hard, palpable nodules within the taut skeletal muscle bands. They are tender to palpation and movement, causing local and referred pain. There are 2 types of trigger points: active and latent. Active trigger points are associated with pain without movement or palpation. There are also latent trigger points, which are painful only to palpation.
+[6]
+Myofascial pain syndrome is a disease with no standard management and surveillance protocol. The previous term to describe a TP was "fibrositis" (inflammation of the connective tissue covering the muscles). Myofascial trigger points are nodules in muscles that are tender to pressure and movement. TPs cause muscle weakness and limitation in the range of motion. Multiple TPs that have persisted for not less than a year confirm myofascial pain syndrome.
+[7]
+Myofascial pain was first described by Guillaume de Baillou in 1600. In 1816, Balfour described this pain as associated with "thickenings" and "nodular tumors."
+[7]
+ In 1843, Froriep described the TPs as an accumulation of painful connective tissue. In 1904, Gowers wrote that the TPs were accumulations of inflamed connective tissue responsible for creating painful nodules. In 1919, Schade proposed the term "myogeloses" to describe the hard texture of the TP. In the mid-1900s, some scientists identified painful local areas in patients with myofascial pain, which produce pain when stimulated with hypertonic saline.
+[7]
+ Janet Travell was inspired by these studies, and together with Rinzler, coined the term "myofascial trigger points." 
+Etiology
+When considering the etiology of myofascial pain, one must remember that the myofascial compartment is also constituted by the soft tissue that transports fluids (blood and lymph) and action potentials (afferent and efferent nerves). Vascular and nerve pathways can be a source of pain because they are innervated. The liquid fascia (blood and lymph) can be a source of pain because changes in flow velocity, direction, and type of flow can affect surrounding tissues, leading to myofascial pain.
+The cause of myofascial pain is not fully understood; this may be due to one or more of the hypothesized causes given below:
+Constant microtrauma to the muscle system can increase oxidative metabolism and quickly deplete cellular energy reserves (ATP). This altered mechano-metabolic environment increases nociceptive sensation, particularly if the musculature has a majority of red fibers (postural muscle).
+[6]
+ Type III and IV afferents transmit nociceptive messages from muscles, which can be activated by various substances, including potassium, prostaglandins, histamine, and kinins, leading to increased stiffness. This constant peripheral stimulation could alter the response of medullary interneurons, generating peripheral sensitization to pain in the first phase and central sensitization in the second temporal phase.
+[6]
+The presence of trigger points (TPs) may result from altering the synaptic plate of muscle fibers. An increase in acetylcholine concentration with consequent uncontrolled release from the motor endplate causes continued contraction of the muscle fibers in the absence of central innervation. This constant contraction would deplete the tissue of ATP, causing the release of pro-inflammatory substances and the formation of TPs.
+[6]
+In the presence of a constantly changing mechano-metabolic environment, there is a shift in the connective tissue that comprises the myofascial system. The fibroblasts are transformed into myofibroblasts, which contribute to the shortening of surrounding tissue and increase tone. The receptors present within the fascia can be transformed into nociceptors and become sensitive to mechanical stimuli (allodynia or mechanical hyperalgesia). We know that the myofascial system can carry neural signals, and any alteration in the connective tissue structure can alter the polarization of muscle fibers, leading to spontaneous muscle contraction.
+[8]
+[9]
+Hyaluronan (HA) is a component of glycosaminoglycan polymer found in the extracellular matrix. Any change in the mechano-metabolic environment causing HA to change its properties creates a more viscous extracellular matrix. This causes the fascia to have difficulty sliding between layers, making muscle contraction harder.
+[10]
+ The nerve endings in the most vulnerable area of the fascia stretch, becoming constantly activated, and create a trigger point.
+[11]
+An alteration of blood flow (an increase in systolic wave velocity and decreased diastolic velocity due to increased outflow resistance) may cause myofascial pain. The change in flow velocity induces alterations in the morphology and function of the muscular capillaries, leading to ischemia during small, active movements. This activates type IV nerve endings, contributing to the development of myofascial pain.
+[12]
+Iron deficiency in pregnant women and vitamin D deficiency in the general population.
+[13]
+Altered emotional, psychological, and psychiatric states may contribute to this condition as well.
+[13]
+Epidemiology
+The prevalence of myofascial pain syndrome in the United States is about 9 million, with an estimation that the same percentage of patients is found in Canada. Myofascial pain syndrome affects men and women equally, but it is more prevalent in people older than 60. There is no convincing data to suggest a relationship between myofascial pain and ethnicity or geographical location.
+[14]
+According to recent data, pain underlying myofascial tissue involves a population aged between 30 and 60 years, where women have a 65% incidence compared to men, who have a presence of pain of about 37%. In people 65 and older, the prevalence rates can reach up to 85%. The location will depend on lifestyle, work, and previous medical history. In some clinical conditions, such as nonspecific muscle pain, the percentage of myofascial pain as the primary cause can reach 100%.
+[13]
+Pathophysiology
+To understand and effectively treat myofascial pain, it is essential to comprehend the underlying pathological processes that contribute to this syndrome. The myofascial trigger point is a site of latent ischemia, which could explain the cause of pain. This ischemia lowers the pH, creating an acidic environment in the myofascial compartment. This decreases acetylcholinesterase (AChE) levels while increasing the effectiveness of acetylcholine (ACh), thereby causing prolonged muscle contraction.
+[12]
+ In this altered environment, the release of nociceptive substances, such as calcitonin gene-related peptide, results in an increased number of ACh receptors and ACh release, while decreasing the effectiveness of AChE.
+[12]
+The amount of ATP within a TP is decreased. Ischemia causes decreased ATP, leading to a lack of muscle relaxation (ATP depletion prevents the calcium pump, also known as calcium ATPase, from withdrawing calcium from the muscle fibers). This leads to the accumulation of calcium within the myocytes. Suppose calcium is not completely withdrawn from the cytoplasm. In that case, it becomes cytotoxic, stimulating the release of inflammatory mediators, including bradykinin, calcitonin gene-related peptide, tumor necrosis factor-alpha, substance P, inflammatory interleukins (IL-6, IL-8, IL-1β), norepinephrine, and serotonin. Such inflammatory substances cause increased nociceptive sensitization that results in severe pain.
+[12]
+[15]
+According to a recent theory, TPs may derive nociceptive afferents through the subcutaneous accessory pain system, an extra-innervation pathway to the spinal cord via the dorsal rami.
+[16]
+ Another theory states that myofascial pain could be due to dysfunction of spinal and supraspinal pathways. The cutaneous silent period (CSP) is a brief interruption of voluntary action that occurs after intense sensory stimulation, which helps evaluate sensory nervous system features that are poorly assessed by other electrodiagnostic studies and the spinal and supraspinal pathways. Abnormal CSP parameters in patients with myofascial pain may suggest a problem with spinal or supraspinal pathways.
+[17]
+ Results from a study revealed a reduction in gray matter volume in the limbic area (including the thalamus, cingulate gyrus, insula, and parahippocampal gyrus) in patients with myofascial pain syndrome.
+[18]
+ 
+Nociceptive afferent signals from the myofascial system could cause structural and functional changes of the central nervous system, starting from the spinal cord (due to an accumulation of inflammatory substances), causing changes in medullary neurons (increase in neuronal excitability) with centrifugal progression.
+[14]
+ This mechanism would lead to central sensitization, characterized by a lack of inhibition of the descending pain inhibitory pathways, thereby perpetuating inflammation and the formation of TPs.
+[14]
+ Another possible cause stems from the idea known as the Cinderella Hypothesis. This hypothesis posits that myofascial pain may arise from inadequate neuromuscular coordination, whereby the smallest fibers are consistently recruited for low- to medium-intensity motor efforts. This constant activation (inadequate activation for the required effort) would lead to local metabolic alterations, with the onset of inflammatory phenomena.
+[19]
+Histopathology
+Myocytes in TPs are nonuniformly distributed, rounded in the center, and thinner at the periphery, with reduced mitochondria and an accumulation of inflammatory cells.
+[20]
+ The thickness of the Z line of sarcomeres is smaller, with a broader band A and the absence of band I. These muscle cells are less elastic due to damage to proteins such as desmin, titin, and nebulin, as well as a reduced volume of capillaries.
+[20]
+ Erythrocytes in patients with myofascial pain exhibit a deficiency in antioxidants, including selenium and zinc. This leads to increased oxidative stress, triggering a systemic inflammatory response; however, further studies are needed to draw definitive conclusions.
+[21]
+History and Physical
+Myofascial pain syndrome comprises both acute and chronic pain. The pain experienced in this syndrome is usually dull, aching, poorly localized, and indistinguishable from other causes of somatic and visceral pain. Sensory paresthesias or dysesthesias may occasionally accompany myofascial pain. Sometimes, the pain associated with this condition can be felt at a point distant from the actual disease process; the pain may persist for many months or years after the initial insult, even if the initiating event is resolved. Constricting myofascial taut bands may cause entrapment of the nervous component of the myofascial system, leading to further pain and disability. 
+The presence of myofascial trigger points and associated pain diagnoses is myofascial pain syndrome. Myofascial trigger points are located by palpation of the tender or painful areas of the patient. A trigger point is defined by the presence of a tight band that is palpable within the muscle tissue, which, through practice and experience, can be easily palpated in all types of muscles, whether superficial or deep. Such muscles containing trigger points are nonuniform, with heterogeneous areas that consist of soft, firm, or hard consistency, rather than a uniform homogeneous consistency. During daily activity, the contraction of trigger points typically causes exquisite and localized pain in the patient.
+Sometimes, taut bands are not painful to palpation but can alter the typical sequence of muscle activation. The correct method of palpating trigger points consists of palpating the muscle perpendicular to the direction of the muscle fibers.
+[22]
+ A Delphi study conducted in 2017 proposed that at least 2 of the following criteria must be positive for trigger point diagnosis: a taut band, a hypersensitive spot, and referred pain. The pain referred from a myofascial trigger point causes different sensory sensations, including pain traveling to a distant area, deep pain, dull aching, tingling, or burning pain.
+[22]
+Evaluation
+Several diagnostic tools are available to assess the presence of trigger points, with individual advantages.
+[10]
+Ultrasound imaging:
+ Ultrasound is often used to analyze the thickness and consistency of muscle nodules and the movement of various tissue layers. Some studies analyzed TPs using ultrasound elastography by Doppler variance imaging while inducing vibrations with a handheld vibrator. Myofascial trigger points appear as focal, hypoechoic nodules, characterized by decreased vibration amplitude. (indicates increased stiffness and modified blood supply compared to normal tissue)
+[23]
+Microdialysis:
+ 
+This method is used to measure inflammatory mediators in TPs, including bradykinin, substance P, tumor necrosis factor-alpha, calcitonin gene–related peptide, interleukin-1 beta, serotonin, interleukin-6 and -8, and norepinephrine.
+[23]
+Electromyography:
+ This is used to evaluate the electrical activity of active and latent TPs (ie, the test is performed at rest and during active motion). Generally, the TPs exhibit increased electromyographic activity during synergistic muscle contraction compared to normal muscles.
+[23]
+Infrared thermography:
+ 
+This tool is used to assess skin temperature in the areas of TPs. This is currently used as an auxiliary test due to conflicting results.
+[23]
+Magnetic resonance elastography:
+ There is no consensus on the validity of results obtained from magnetic resonance elastography due to its low sensitivity.
+[23]
+Vibration elastography
+: This method allows for the testing of the movement of myofascial tissue.
+[24]
+Treatment / Management
+
+Pharmacotherapy
+
+Nonsteroidal anti-inflammatory drugs
+
+Clinicians often use nonsteroidal anti-inflammatory drugs to manage patients with myofascial pain symptomatically. These medications are available in both oral and topical formulations; however, there is no scientific evidence to support their use in this form.
+[25]
+
+Muscle Relaxants
+
+Muscle relaxants act on the central nervous system to reduce central pain stimulation. However, no scientific evidence exists in the literature for their use as a treatment for TPs.
+[25]
+
+Benzodiazepines
+
+Benzodiazepines such as clonazepam and diazepam have several adverse effects. (ataxia, cognitive decline, and depression) Although a study showed promising results of benzodiazepines in treating TPs, it was not feasible to follow such a long-term therapeutic trial because of the side effects of benzodiazepines.
+[25]
+
+Antidepressants
+
+Antidepressant drugs (tricyclic antidepressants, serotonin-norepinephrine reuptake inhibitors, and selective serotonin reuptake inhibitors) are used for relieving myofascial pain in the presence of mood disorders. Several recent studies support the use of amitriptyline in the treatment of myofascial pain. Nortriptyline has also been successful in some studies.
+[25]
+
+Lidocaine Patches
+
+A transdermal patch of lidocaine has fewer adverse effects than a needle infiltration. One study showed that transdermal patches decreased pain at TPs. Larger studies are lacking at present.
+[25]
+
+Botox
+
+Botulinum toxin targets central and peripheral nerve endings; it blocks the release of ACh from the nerve endings and hence decreases muscle spasm at TPs. Studies on the efficacy of botulinum toxin in reducing myofascial pain have yielded mixed results.
+[25]
+
+Nonpharmacological Modalities
+
+Exercise/physical therapy/postural regimens
+
+Regular and consistent physical exercise is an effective strategy for treating myofascial pain. Exercise improves the range of motion, mood, and pain threshold. One of the exercises prescribed for myofascial pain is stretching exercises, which lengthens the myofascial compartments containing the TPs and may prevent the further appearance of other tender areas.
+[25]
+A repeated load in undesirable positions predisposes to muscle injury and may cause microtrauma, increasing the risk of developing myofascial pain. Hence, postural rehabilitation is another strategy that can be used for this syndrome. 
+[25]
+All nonpharmacological measures that reduce stress (yoga, meditation, behavioral therapy, and acupuncture) help reduce muscle tone, increasing the pain threshold.
+
+Ultrasound
+
+Ultrasound applies mechanical and thermal energy to the underlying connective tissue, improving circulation, elasticity, and metabolism. A few studies' results show the usefulness of ultrasound in decreasing the pain of active TPs, even though the benefits are temporary.
+[25]
+
+Dry Needling
+
+Dry needling involves the insertion of a needle directly into the trigger points, which reduces myofascial pain; this is one of the quickest ways to inactivate TPs. The use of dry needling seems promising in some studies with patients diagnosed with myofascial pain. This technique is thought to act on the cutaneous type A-delta fibers.
+[25]
+ 
+
+Manipulative Therapy 
+
+The manipulation of joints in the treatment of TPs has been observed to be effective, but there are no randomized studies to prove its efficacy at present.
+[26]
+[27]
+Differential Diagnosis
+Fibromyalgia can be confused with the presence of myofascial pain; some studies' results highlight an alteration in the connective tissue, possibly involving stem cells that produce adipose tissue. The latter could cause an inflammatory environment and local pain.
+[28]
+ Fibromyalgia is hardly localized; this is already a good indication of differential diagnosis. Another syndrome that can be poorly framed concerning myofascial syndrome is chronic pelvic pain. The latter is a condition that must be present from 6 months onwards and not necessarily influenced by movements or the presence of menstruation (in women). Understanding whether there are organic dysfunctions or only musculature involvement through ultrasound examinations (the easiest way to make a differential diagnosis) is necessary.
+[29]
+The temporomandibular joint can be involved in myofascial pain, but it can also be a part of a referred pain pattern. If trigger points do not improve after a manual or pharmacological approach, it could be a symptom of cardiac ischemia.
+[30]
+ Throat or neck pain, if unilateral, could be caused by Eagle syndrome. Pain should improve with tissue treatment; if this does not happen, the causes must be investigated.
+[31]
+ Inflammations of tendons or inflammations of purely connective formations (fasciitis, tendinopathies, and more) have a particular anatomical area of interest that can be delimited with palpation and do not have more tense areas than other areas of the same tissue.
+[32]
+ Different causes and pathologies can lead to myofascial pain, where, in some cases, perpetuating factors may exist that have a feed-forward effect on myofascial pain.
+There are perpetuating mechanical factors such as:
+Scoliosis
+Limb dysmetria
+Joint hypermobility
+Muscle hypertrophy
+Repetitive microtraumas
+Spondylotic radiculopathy
+There are systemic or metabolic perpetuating factors:
+Hypothyroidism
+Iron deficiency
+Vitamin D insufficiency
+Vitamin C deficiency
+Vitamin B12 insufficiency
+Psychosocial perpetuating factors:
+Stress
+Anxiety
+Other possible perpetuating factors:
+Infectious diseases
+Parasitic diseases (eg, Lyme disease)
+Rheumatic polymyalgia
+Use of drugs such as statins
+Hyperalgesia
+Allodynia
+Pertinent Studies and Ongoing Trials
+A recent randomized controlled trial evaluated 50 healthy subjects to assess the efficacy of dry needling on soleus myofascial trigger points, aiming to determine if improving the pain threshold could enhance ankle range of motion in individuals with medial tibial stress syndrome. After treatment, pain decreased, but the range of motion did not improve.
+[33]
+ Another recent randomised, placebo-controlled clinical trial (45 patients) evaluated the effect of using a laser (with different modalities depending on the group) in reducing trigger point pain at the level of the masseter muscle. The study's results highlighted that applying the laser to the painful myofascial areas decreased the pain the participants perceived and led to greater oxygenation of the tissues.
+[34]
+ A 2025 randomized trial (n = 30) demonstrated that a manual technique of osteopathic origin, strain-counterstrain therapy, applied to trigger points in the lumbar area causing chronic low back pain, improves pain threshold, functional disability, and lumbar spine mobility.
+[35]
+Treatment Planning 
+There is currently no curative, pharmacological, instrumental, or manual procedure that is considered the gold standard for treatment.
+Prognosis
+Myofascial pain syndrome usually resolves with consistent treatment and regular follow-up. However, most patients with this condition have had this problem for decades. Long-term morbidity is lowest when an interprofessional team of well-trained clinicians, nurses, and physiotherapists treats such patients and constantly monitors the response to various therapies.
+Complications
+Myofascial pain syndrome can significantly reduce the quality of life. Long-term pain is usually associated with mood disorders (depression and anxiety). This can decrease the patient's mobility, reduce daily activity, and exacerbate the condition. Undesirable effects of drug therapies may occur if the patient does not follow the clinician's instructions carefully. Similarly, if the approach to physical activity does not follow specific rules set by competent personnel, muscle trauma may occur.
+Postoperative and Rehabilitation Care
+Postsurgical myofascial pain is a widespread occurrence. The reasons vary depending on the type of surgery, the anatomical area involved, concomitant pathologies, the patient's age and sex, and other factors. Identifying a rehabilitation treatment that is always appropriate is not easy. Indeed, the objectives in the rehabilitation field are always to improve the range of motion of the joints or the sliding of the different tissues, and to reduce the patient's perception of pain. Instrumental tests can help the clinician better identify the cause(s) that determine the symptom of myofascial pain, such as nerve entrapment (cutaneous nerve entrapment syndrome) or significant adhesions that develop in the tissues.
+Consultations
+When treatment for the myofascial pain area persists, the clinician needs to collaborate with other healthcare professionals and seek their advice.
+Deterrence and Patient Education
+Upon identifying the cause of myofascial pain, it is essential to explain the relevant pathophysiology and provide guidance on ways to improve the patient's quality of life. For example, suppose the patient is anxious at work or during daily activities. In that case, they may require strategies to relax, such as deep breathing or learning other relaxation techniques with the help of a psychologist.
+If a poor diet causes the pain, teaching the patient to adopt a more balanced diet is necessary. If repetitive movements cause pain, encourage the patient to engage in physical activity, including stretching exercises. Sleep disorders may lead to increased muscle tension, resulting in the formation of TPs. In this case, it is necessary to adopt strategies to improve sleep quality.
+Pearls and Other Issues
+In animal models (eg, rats), it is highlighted how the intake of cannabidiol can improve orofacial pain typically found in patients with Parkinson's disease. According to a recent review, applying topical pharmacological agents such as creams, compared to a placebo, demonstrates positive clinical responses.
+[36]
+ 
+A different approach could be to turn to acupuncture, although there is no specific data.
+[37]
+ Similarly, there is an approach involving transcutaneous electrical nerve stimulation; however, more in-depth data are lacking because the cause of the pain can vary from person to person.
+[38]
+ Another (little-used) method is magnetic stimulation, particularly for the presence of trigger points.
+[39]
+Enhancing Healthcare Team Outcomes 
+In diagnosing and treating myofascial syndrome, multiple professionals should collaborate to address the patient's condition optimally; this requires the intervention of an interprofessional healthcare team. The clinician will make the diagnosis, and based on the etiology, the patient will be directed to specialists, such as physiotherapists, osteopaths, chiropractors, psychologists, and nutritionists. An interprofessional team will treat the patient because they need physical, psychological, and nutritional support.
+Pharmacists should be included as part of the team to ensure accurate dosing and no drug-drug interactions from pain management pharmacotherapy. The clinician should examine all areas of the patient's health, including any painful areas. Interprofessional care coordination and open communication regarding findings and progress will drive optimal patient outcomes for myofascial syndrome. In the current scientific panorama, there is uncertainty in correctly identifying a diagnosis in the presence of myofascial pain.
+[40]
+Review Questions
+
+Access free multiple choice questions on this topic.
+
+Click here for a simplified version.
+
+Comment on this article.
+
+References
+1.
+Bordoni B, Marelli F, Morabito B, Castagna R. A New Concept of Biotensegrity Incorporating Liquid Tissues: Blood and Lymph. 
+J Evid Based Integr Med. 
+2018 Jan-Dec;
+23
+:2515690X18792838.
+ [
+PMC free article
+: PMC6102753
+] [
+PubMed
+: 30124054
+]
+2.
+Bordoni B, Lintonbon D, Morabito B. Meaning of the Solid and Liquid Fascia to Reconsider the Model of Biotensegrity. 
+Cureus. 
+2018 Jul 05;
+10
+(7):e2922.
+ [
+PMC free article
+: PMC6126780
+] [
+PubMed
+: 30197845
+]
+3.
+Bordoni B, Bordoni G. Reflections on osteopathic fascia treatment in the peripheral nervous system. 
+J Pain Res. 
+2015;
+8
+:735-40.
+ [
+PMC free article
+: PMC4634830
+] [
+PubMed
+: 26586962
+]
+4.
+Krause F, Wilke J, Vogt L, Banzer W. Intermuscular force transmission along myofascial chains: a systematic review. 
+J Anat. 
+2016 Jun;
+228
+(6):910-8.
+ [
+PMC free article
+: PMC5341578
+] [
+PubMed
+: 27001027
+]
+5.
+Wilke J, Krause F, Vogt L, Banzer W. What Is Evidence-Based About Myofascial Chains: A Systematic Review. 
+Arch Phys Med Rehabil. 
+2016 Mar;
+97
+(3):454-61.
+ [
+PubMed
+: 26281953
+]
+6.
+Fricton J. Myofascial Pain: Mechanisms to Management. 
+Oral Maxillofac Surg Clin North Am. 
+2016 Aug;
+28
+(3):289-311.
+ [
+PubMed
+: 27475508
+]
+7.
+Shah JP, Thaker N, Heimur J, Aredo JV, Sikdar S, Gerber L. Myofascial Trigger Points Then and Now: A Historical and Scientific Perspective. 
+PM R. 
+2015 Jul;
+7
+(7):746-761.
+ [
+PMC free article
+: PMC4508225
+] [
+PubMed
+: 25724849
+]
+8.
+Bordoni B, Marelli F, Morabito B, Castagna R. Chest pain in patients with COPD: the fascia's subtle silence. 
+Int J Chron Obstruct Pulmon Dis. 
+2018;
+13
+:1157-1165.
+ [
+PMC free article
+: PMC5903840
+] [
+PubMed
+: 29695899
+]
+9.
+Bordoni B, Marelli F. Failed back surgery syndrome: review and new hypotheses. 
+J Pain Res. 
+2016;
+9
+:17-22.
+ [
+PMC free article
+: PMC4716715
+] [
+PubMed
+: 26834497
+]
+10.
+Stecco A, Gesi M, Stecco C, Stern R. Fascial components of the myofascial pain syndrome. 
+Curr Pain Headache Rep. 
+2013 Aug;
+17
+(8):352.
+ [
+PubMed
+: 23801005
+]
+11.
+Stecco C, Stern R, Porzionato A, Macchi V, Masiero S, Stecco A, De Caro R. Hyaluronan within fascia in the etiology of myofascial pain. 
+Surg Radiol Anat. 
+2011 Dec;
+33
+(10):891-6.
+ [
+PubMed
+: 21964857
+]
+12.
+Bron C, Dommerholt JD. Etiology of myofascial trigger points. 
+Curr Pain Headache Rep. 
+2012 Oct;
+16
+(5):439-44.
+ [
+PMC free article
+: PMC3440564
+] [
+PubMed
+: 22836591
+]
+13.
+Steen JP, Jaiswal KS, Kumbhare D. Myofascial Pain Syndrome: An Update on Clinical Characteristics, Etiopathogenesis, Diagnosis, and Treatment. 
+Muscle Nerve. 
+2025 May;
+71
+(5):889-910.
+ [
+PMC free article
+: PMC11998975
+] [
+PubMed
+: 40110636
+]
+14.
+Bourgaize S, Newton G, Kumbhare D, Srbely J. A comparison of the clinical manifestation and pathophysiology of myofascial pain syndrome and fibromyalgia: implications for differential diagnosis and management. 
+J Can Chiropr Assoc. 
+2018 Apr;
+62
+(1):26-41.
+ [
+PMC free article
+: PMC6160895
+] [
+PubMed
+: 30270926
+]
+15.
+Simons DG. New views of myofascial trigger points: etiology and diagnosis. 
+Arch Phys Med Rehabil. 
+2008 Jan;
+89
+(1):157-9.
+ [
+PubMed
+: 18164347
+]
+16.
+Eloqayli H. Subcutaneous accessory pain system (SAPS): A novel pain pathway for myofascial trigger points. 
+Med Hypotheses. 
+2018 Feb;
+111
+:55-57.
+ [
+PubMed
+: 29406997
+]
+17.
+Kilinc O, Sencan S, Ercalik T, Koytak PK, Alibas H, Gunduz OH, Tanridag T, Uluc K. Cutaneous silent period in myofascial pain syndrome. 
+Muscle Nerve. 
+2018 Jan;
+57
+(1):E24-E28.
+ [
+PubMed
+: 28877555
+]
+18.
+Xie P, Qin B, Song G, Zhang Y, Cao S, Yu J, Wu J, Wang J, Zhang T, Zhang X, Yu T, Zheng H. Microstructural Abnormalities Were Found in Brain Gray Matter from Patients with Chronic Myofascial Pain. 
+Front Neuroanat. 
+2016;
+10
+:122.
+ [
+PMC free article
+: PMC5167736
+] [
+PubMed
+: 28066193
+]
+19.
+Dommerholt J, Chou LW, Finnegan M, Hooks T. A critical overview of the current myofascial pain literature - February 2019. 
+J Bodyw Mov Ther. 
+2019 Apr;
+23
+(2):295-305.
+ [
+PubMed
+: 31103111
+]
+20.
+Zhang H, Lü JJ, Huang QM, Liu L, Liu QG, Eric OA. Histopathological nature of myofascial trigger points at different stages of recovery from injury in a rat model. 
+Acupunct Med. 
+2017 Dec;
+35
+(6):445-451.
+ [
+PMC free article
+: PMC5738529
+] [
+PubMed
+: 29109129
+]
+21.
+Barros-Neto JA, Souza-Machado A, Kraychete DC, Jesus RP, Cortes ML, Lima MD, Freitas MC, Santos TM, Viana GF, Menezes-Filho JA. Selenium and Zinc Status in Chronic Myofascial Pain: Serum and Erythrocyte Concentrations and Food Intake. 
+PLoS One. 
+2016;
+11
+(10):e0164302.
+ [
+PMC free article
+: PMC5068745
+] [
+PubMed
+: 27755562
+]
+22.
+Fernández-de-Las-Peñas C, Dommerholt J. International Consensus on Diagnostic Criteria and Clinical Considerations of Myofascial Trigger Points: A Delphi Study. 
+Pain Med. 
+2018 Jan 01;
+19
+(1):142-150.
+ [
+PubMed
+: 29025044
+]
+23.
+Do TP, Heldarskard GF, Kolding LT, Hvedstrup J, Schytz HW. Myofascial trigger points in migraine and tension-type headache. 
+J Headache Pain. 
+2018 Sep 10;
+19
+(1):84.
+ [
+PMC free article
+: PMC6134706
+] [
+PubMed
+: 30203398
+]
+24.
+Hojo E, Sui Y, Shan X, Zheng K, Rossman P, Manduca A, Powell GM, An KN, Zhao KD, Bauer BA, Ehman RL, Yin Z. MR elastography-based slip interface imaging (SII) for functional assessment of myofascial interfaces: A feasibility study. 
+Magn Reson Med. 
+2024 Aug;
+92
+(2):676-687.
+ [
+PMC free article
+: PMC11142878
+] [
+PubMed
+: 38523575
+]
+25.
+Borg-Stein J, Iaccarino MA. Myofascial pain syndrome treatments. 
+Phys Med Rehabil Clin N Am. 
+2014 May;
+25
+(2):357-74.
+ [
+PubMed
+: 24787338
+]
+26.
+McPartland JM. Travell trigger points--molecular and osteopathic perspectives. 
+J Am Osteopath Assoc. 
+2004 Jun;
+104
+(6):244-9.
+ [
+PubMed
+: 15233331
+]
+27.
+Wong CK, Abraham T, Karimi P, Ow-Wing C. Strain counterstrain technique to decrease tender point palpation pain compared to control conditions: a systematic review with meta-analysis. 
+J Bodyw Mov Ther. 
+2014 Apr;
+18
+(2):165-73.
+ [
+PubMed
+: 24725782
+]
+28.
+Bordoni B, Marelli F, Morabito B, Cavallaro F, Lintonbon D. Fascial preadipocytes: another missing piece of the puzzle to understand fibromyalgia? 
+Open Access Rheumatol. 
+2018;
+10
+:27-32.
+ [
+PMC free article
+: PMC5935082
+] [
+PubMed
+: 29750060
+]
+29.
+Montenegro ML, Gomide LB, Mateus-Vasconcelos EL, Rosa-e-Silva JC, Candido-dos-Reis FJ, Nogueira AA, Poli-Neto OB. Abdominal myofascial pain syndrome must be considered in the differential diagnosis of chronic pelvic pain. 
+Eur J Obstet Gynecol Reprod Biol. 
+2009 Nov;
+147
+(1):21-4.
+ [
+PubMed
+: 19628327
+]
+30.
+Jenzer AC, Jackson H, Berry-Cabán CS. Temporomandibular Joint Pain Presentation of Myocardial Ischemia. 
+J Oral Maxillofac Surg. 
+2018 Nov;
+76
+(11):2317.e1-2317.e2.
+ [
+PubMed
+: 30009784
+]
+31.
+Saccomanno S, Greco F, DE Corso E, Lucidi D, Deli R, D'Addona A, Paludetti G. Eagle's Syndrome, from clinical presentation to diagnosis and surgical treatment: a case report. 
+Acta Otorhinolaryngol Ital. 
+2018 Apr;
+38
+(2):166-169.
+ [
+PMC free article
+: PMC6028820
+] [
+PubMed
+: 29967562
+]
+32.
+Hubbard MJ, Hildebrand BA, Battafarano MM, Battafarano DF. Common Soft Tissue Musculoskeletal Pain Disorders. 
+Prim Care. 
+2018 Jun;
+45
+(2):289-303.
+ [
+PubMed
+: 29759125
+]
+33.
+Singh A, Wadhwani N, Sharma M. Short-term effectiveness of dry needling on pain and ankle range of motion in athletes with medial tibial stress syndrome- a randomized control trial. 
+J Man Manip Ther. 
+2025 Feb;
+33
+(1):47-53.
+ [
+PMC free article
+: PMC11770860
+] [
+PubMed
+: 39097941
+]
+34.
+Karagözoğlu İ, Demirkol N, Parlar Öz Ö, Yılmaz S, Özcan M. New generation low level laser effect on masseter muscle oxygenation, bite force and algometric changes in myofacial pain syndrome: a randomised, placebo-controlled clinical trial. 
+Lasers Med Sci. 
+2025 Jan 27;
+40
+(1):48.
+ [
+PMC free article
+: PMC11772557
+] [
+PubMed
+: 39869221
+]
+35.
+Koura GMR, Elshiwi AMF, Selim MN, Asiri AAM, Alqahtani RHJ, Elimy DA, Alshehri MA, Alnakhli HH, Assiri SM, Ahmad F, Ahmad I. Comparing the Therapeutic Impact of Strain-Counterstrain and Exercise on Low Back Myofascial Pain Syndrome: A Randomized Trial. 
+J Multidiscip Healthc. 
+2025;
+18
+:1-12.
+ [
+PMC free article
+: PMC11721143
+] [
+PubMed
+: 39802681
+]
+36.
+Manoharan H, K M V, Shenoy P. Effectiveness of Topical Agents in Management of Pain Associated with Myofascial Pain Dysfunction Syndrome-A Systematic Review. 
+J Pain Palliat Care Pharmacother. 
+2025 Jun;
+39
+(2):266-275.
+ [
+PubMed
+: 40203136
+]
+37.
+Hu J, Tong H, Zhang J, Jiang L. Acupotomy for Musculoskeletal Pain: Exploring Therapeutic Potential and Future Directions. 
+J Pain Res. 
+2025;
+18
+:3027-3036.
+ [
+PMC free article
+: PMC12182231
+] [
+PubMed
+: 40546830
+]
+38.
+Rebekah R, Navaneethan R, Nagachandran KS. Effect of transcutaneous electrical nerve stimulation therapy on condylar position and myofascial pain in patients with temporomandibular joint disorders-A pilot clinical trial. 
+J Orthod Sci. 
+2024;
+13
+:36.
+ [
+PMC free article
+: PMC11500744
+] [
+PubMed
+: 39450226
+]
+39.
+Vearasilp A, Sukareechai C. Effectiveness of Repetitive Peripheral Magnetic Stimulation (rPMS) in Relieving Post-Needling Soreness in Patient with Upper Trapezius Myofascial Pain Syndrome: A Double-Blind, Randomized Clinical Trial. 
+J Pain Res. 
+2025;
+18
+:2541-2548.
+ [
+PMC free article
+: PMC12103201
+] [
+PubMed
+: 40417075
+]
+40.
+Cook CE, Degenhardt B, Aspinall S, Nim C, Malik S, Keter D. Myofascial Pain Syndromes: Controversies and Suggestions for Improving Diagnosis and Treatment. 
+J Orthop Sports Phys Ther. 
+2025 Apr;
+55
+(4):231-234.
+ [
+PubMed
+: 40042392
+]
+
+Disclosure: 
+Bruno Bordoni declares no relevant financial relationships with ineligible companies.
+
+Disclosure: 
+Kavin Sugumar declares no relevant financial relationships with ineligible companies.
+
+Disclosure: 
+Anterpreet Dua declares no relevant financial relationships with ineligible companies.
+
+Copyright
+ © 2025, StatPearls Publishing LLC.
+
+This book is distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+(
+
+http://creativecommons.org/licenses/by-nc-nd/4.0/
+
+), which permits others to distribute the work, provided that the article is not altered or used commercially. You are not required to obtain permission to distribute this article, provided that you credit the author and journal.
+
+Bookshelf ID: NBK535344
+PMID: 
+30570965
+
+Share
+
+Views
+PubReader
+Print View
+Cite this Page
+Bordoni B, Sugumar K, Dua A. Myofascial Pain. [Updated 2025 Oct 21]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2025 Jan-. 
+In this Page
+Continuing Education Activity
+Introduction
+Etiology
+Epidemiology
+Pathophysiology
+Histopathology
+History and Physical
+Evaluation
+Treatment / Management
+Differential Diagnosis
+Pertinent Studies and Ongoing Trials
+Treatment Planning 
+Prognosis
+Complications
+Postoperative and Rehabilitation Care
+Consultations
+Deterrence and Patient Education
+Pearls and Other Issues
+Enhancing Healthcare Team Outcomes 
+Review Questions
+References
+Related information
+PMC
+PubMed Central citations
+PubMed
+Links to PubMed
+Similar articles in PubMed
+Vesicoureteral Reflux.
+[StatPearls. 2025]
+Vesicoureteral Reflux.
+Leslie SW, Aeddula NR. 
+StatPearls. 2025 Jan
+Shoulder Arthrogram.
+[StatPearls. 2025]
+Shoulder Arthrogram.
+Roberts CC, Escobar E. 
+StatPearls. 2025 Jan
+Salzmann Nodular Corneal Degeneration.
+[StatPearls. 2025]
+Salzmann Nodular Corneal Degeneration.
+Tripathi M, Markan A, Gurnani B. 
+StatPearls. 2025 Jan
+Botulinum toxin for myofascial pain syndromes in adults.
+[Cochrane Database Syst Rev. 2014]
+Botulinum toxin for myofascial pain syndromes in adults.
+Soares A, Andriolo RB, Atallah AN, da Silva EM. 
+Cochrane Database Syst Rev. 2014 Jul 25; 2014(7):CD007533. Epub 2014 Jul 25.
+Review
+ The Black Book of Psychotropic Dosing and Monitoring.
+[Psychopharmacol Bull. 2024]
+Review
+ The Black Book of Psychotropic Dosing and Monitoring.
+DeBattista C, Schatzberg AF. 
+Psychopharmacol Bull. 2024 Jul 8; 54(3):8-59. 
+See reviews...
+See all...
+Recent Activity
+Clear
+Turn Off
+Turn On
+Myofascial Pain - StatPearls
+Myofascial Pain - StatPearls
+Your browsing activity is empty.
+Activity recording is turned off.
+Turn recording back on
+See more...
+
+Follow NCBI
+
+Twitter
+
+Facebook
+
+LinkedIn
+
+GitHub
+
+NCBI Insights Blog
+
+Connect with NLM
+
+Twitter
+
+Facebook
+
+Youtube
+
+National Library of Medicine
+
+8600 Rockville Pike
+
+ Bethesda, MD 20894
+
+Web Policies
+
+FOIA
+
+HHS Vulnerability Disclosure
+
+Help
+
+Accessibility
+
+Careers
+
+NLM
+
+NIH
+
+HHS
+
+USA.gov

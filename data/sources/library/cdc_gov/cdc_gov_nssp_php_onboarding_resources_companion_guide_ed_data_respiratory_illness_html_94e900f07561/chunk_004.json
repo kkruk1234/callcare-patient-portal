@@ -1,0 +1,10 @@
+{
+  "title": "Companion Guide: NSSP ED Data on Respiratory Illness | National Syndromic Surveillance Program (NSSP) | CDC",
+  "url": "https://www.cdc.gov/nssp/php/onboarding-resources/companion-guide-ed-data-respiratory-illness.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "centages shown on the CDC COVID Data Tracker. Metrics will differ across websites due to factors such as updates on different days of the week or different calculations, such as presentation of a 7-day moving average on daily data rather than weekly totals. Data will also differ from state websites due to different update schedules, calculations, or definitions. These data are not a random sample and are not intended to capture data from every hospital. While these data are not designed to be randomly sampled or comprehensive, they provide a useful overall indicator of trends in emergency department use.\nHow percent of visits is calculated \nFor data that are presented as a percentage, each respiratory illness is presented as a percent of all emergency department visits by age group. For example, the COVID-19 data show emergency department visits for children ages 5-11 with diagnosed COVID-19 as a fraction of all emergency department visits for children ages 5-11.\nDefinitions \nThe following discharge diagnoses (DD) and clinical terms are included: International Classification of Diseases, Tenth Revision, Clinical Modification (ICD-10-CM), the International Classification of Diseases, Ninth Revision, Clinical Modification (ICD-9-CM), and Systematized Nomenclature of Medicine &ndash; Clinical Terms (SNOMED CT). Please note that conditions can be defined in different ways in electr",
+  "source_type": "library",
+  "source_id": "cdc_gov_nssp_php_onboarding_resources_companion_guide_ed_data_respiratory_illness_html_94e900f07561",
+  "chunk_id": "chunk_004"
+}

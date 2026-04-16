@@ -1,0 +1,16 @@
+{
+  "id": "auto_1771613034860",
+  "query": "Musculoskeletal strain or sprain guideline treatment management",
+  "sources": [
+    {
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/musculoskeletal-pain.html",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://medlineplus.gov/sprainsandstrains.html",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

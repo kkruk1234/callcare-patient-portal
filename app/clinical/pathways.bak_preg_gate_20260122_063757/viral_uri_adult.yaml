@@ -1,0 +1,23 @@
+id: viral_uri_adult
+version: 0.1
+match:
+  any_keywords: ["cold","runny nose","sore throat","viral","upper respiratory"]
+questions:
+  - id: sob
+    prompt: "Any shortness of breath or chest pain? (yes/no)"
+    store_as: sob
+    type: yesno
+    if_yes:
+      add_flags: { ed_now: ["respiratory_distress"] }
+
+  - id: fever
+    prompt: "Fever over 102°F or lasting more than 3 days? (yes/no)"
+    store_as: fever
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["persistent_fever"] }
+
+stop_rules:
+  - if_all_answered: ["sob","fever"]
+    outcome: DECIDE
+routing: { tier_default: TIER_2_REVIEW }

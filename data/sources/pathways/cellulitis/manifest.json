@@ -1,0 +1,30 @@
+{
+  "pathway_id": "cellulitis",
+  "sources": [
+    {
+      "title": "CDC \u2014 Clinical Guidance for Group A Streptococcal Cellulitis",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/cellulitis.html",
+      "type": "guideline"
+    },
+    {
+      "title": "IDSA \u2014 Practice Guideline: Skin and Soft Tissue Infections (2014 Update)",
+      "url": "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/",
+      "type": "guideline"
+    },
+    {
+      "title": "NICE NG141 \u2014 Cellulitis and erysipelas: antimicrobial prescribing (2019, updated)",
+      "url": "https://www.nice.org.uk/guidance/ng141",
+      "type": "guideline"
+    },
+    {
+      "title": "NICE NG141 \u2014 PDF (Cellulitis and erysipelas: antimicrobial prescribing)",
+      "url": "https://www.nice.org.uk/guidance/ng141/resources/cellulitis-and-erysipelas-antimicrobial-prescribing-pdf-66141774778309",
+      "type": "guideline"
+    },
+    {
+      "title": "NCBI Bookshelf \u2014 Cellulitis (StatPearls)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK549770/",
+      "type": "reference"
+    }
+  ]
+}

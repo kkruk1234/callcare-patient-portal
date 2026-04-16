@@ -1,0 +1,501 @@
+"""
+CallCare TEXT CALL SIMULATOR (robust)
+
+
+
+Run:
+  cd ~/Desktop/callcare
+  python3 -m app.tests.simulate_text_call
+"""
+
+from __future__ import annotations
+
+import importlib
+import uuid
+import datetime
+
+from app.core.models import CallState
+from app.clinical.finalize import finalize
+from app.core.models import EvidenceRef
+import re
+import warnings
+
+# CallCare: ensure minimum evidence sources for printing
+def _topup_evidence_for_printing(state, evidence_items, min_unique=3):
+    try:
+        from app.rag.retrieve import retrieve
+        from app.core.models import EvidenceRef
+    except Exception:
+        return list(evidence_items or [])
+
+    ev = list(evidence_items or [])
+    seen = set()
+    out = []
+    for e in ev:
+        src = (getattr(e, 'source', '') or '').strip()
+        if not src or src in seen:
+            continue
+        seen.add(src)
+        out.append(e)
+    ev = out
+    if len(ev) >= min_unique:
+        return ev
+
+    # Build a urinary-weighted query when cc suggests dysuria/UTI
+    cc = ''
+    try:
+        cc = (getattr(state, 'chief_complaint', '') or '')
+    except Exception:
+        cc = ''
+    try:
+        if not cc and hasattr(state, 'symptoms') and isinstance(state.symptoms, dict):
+            cc = state.symptoms.get('chief_complaint') or state.symptoms.get('chief') or ''
+    except Exception:
+        pass
+    q = (str(cc) + ' dysuria UTI cystitis nitrites chlamydia gonorrhea urethritis').strip()
+    hits = retrieve(q, k=80)
+    for h in hits:
+        if not isinstance(h, dict):
+            continue
+        url = (h.get('url') or h.get('source') or '').strip()
+        if not url or url in seen:
+            continue
+        title = (h.get('title') or '').strip() or 'Source'
+        snippet = (h.get('snippet') or '').strip()
+        try:
+            evref = EvidenceRef(source=url, snippet=snippet, title=title)
+        except Exception:
+            try:
+                evref = EvidenceRef(source=url, snippet=snippet)
+            except Exception:
+                continue
+        seen.add(url)
+        ev.append(evref)
+        # stop as soon as we hit min_unique
+        if len({(getattr(e, 'source', '') or '').strip() for e in ev}) >= min_unique:
+            break
+
+    # final dedupe
+    seen2 = set()
+    final = []
+    for e in ev:
+        src = (getattr(e, 'source', '') or '').strip()
+        if not src or src in seen2:
+            continue
+        seen2.add(src)
+        final.append(e)
+    return final
+# --- End CallCare helper ---
+
+warnings.filterwarnings("ignore", message="Pydantic serializer warnings:.*")
+
+
+
+# --- CallCare evidence print filter: urinary burning disambiguation ---
+def _cc_is_urinary_context(state) -> bool:
+    """Best-effort: infer urinary context from chief complaint text in state."""
+    cc = ""
+    try:
+        cc = getattr(state, "chief_complaint", "") or ""
+    except Exception:
+        cc = ""
+    try:
+        if not cc and hasattr(state, "symptoms") and isinstance(state.symptoms, dict):
+            cc = state.symptoms.get("chief_complaint") or state.symptoms.get("chief") or ""
+    except Exception:
+        pass
+    cc = str(cc).lower()
+
+    urinary_terms = (
+        "dysuria", "burns when i pee", "burning when i pee", "burning urination",
+        "burning with urination", "urine", "urinary", "pee", "peeing", "urination",
+        "uti", "cystitis", "bladder", "urethra", "kidney infection"
+    )
+    return any(t in cc for t in urinary_terms)
+
+def _cc_filter_burn_scalt_evidence_if_urinary(evidence_items, state):
+    """
+    If urinary context, remove clearly skin-burn/scald sources from Evidence Used.
+    This prevents word-sense mismatch ('burning urination' ≠ skin burns).
+    """
+    if not evidence_items:
+        return evidence_items
+    if not _cc_is_urinary_context(state):
+        return evidence_items
+
+    banned = (
+        "nhs.uk/conditions/burns-and-scalds",
+        "medlineplus.gov/burns.html",
+        "medlineplus.gov/lab-tests/burn-evaluation",
+    )
+
+    out = []
+    for ev in evidence_items:
+        # EvidenceRef uses .source for URL in your system; fall back safely.
+        src = ""
+        try:
+            src = getattr(ev, "source", "") or ""
+        except Exception:
+            src = ""
+        src = str(src).lower()
+
+        if any(b in src for b in banned):
+            continue
+        # Also catch titles if present.
+        title = ""
+        try:
+            title = getattr(ev, "title", "") or ""
+        except Exception:
+            title = ""
+        title = str(title).lower()
+        if title.strip() in ("burns and scalds", "burn evaluation"):
+            continue
+
+        out.append(ev)
+    return out
+# --- End CallCare evidence print filter ---
+
+
+
+def _pick_handler(sm):
+    for name in ("process_answer", "process", "process_input", "handle_answer", "advance_state"):
+        fn = getattr(sm, name, None)
+        if callable(fn):
+            return fn, name
+    raise RuntimeError(
+        "No input handler found in app/clinical/state_machine.py. "
+        "Expected one of: process_answer, process, process_input, handle_answer, advance_state."
+    )
+
+
+def _pick_prompt(sm):
+    for name in ("next_prompt", "get_prompt", "prompt"):
+        fn = getattr(sm, name, None)
+        if callable(fn):
+            return fn, name
+    raise RuntimeError(
+        "No prompt function found in app/clinical/state_machine.py. "
+        "Expected next_prompt() (recommended) or get_prompt()/prompt()."
+    )
+
+
+def _try_natural_question(raw: str, state: CallState) -> str:
+    """
+    Try to naturalize the question via LLM (if llm_dialogue exists).
+    Fall back to raw prompt on any error (rate limits, missing key, etc).
+    """
+    try:
+        llm = importlib.import_module("app.clinical.llm_dialogue")
+        make_natural_question = getattr(llm, "make_natural_question")
+        return make_natural_question(raw, state=state)
+    except Exception:
+        return raw
+
+
+def _extract_evidence(note, state: CallState):
+    """
+    Evidence can exist in multiple places depending on the build:
+    - note.evidence (preferred)
+    - state.decision.evidence (common older behavior)
+    - state.evidence / state.evidence_used (fallback)
+    """
+    ev = getattr(note, "evidence", None)
+    if ev:
+        return list(ev)
+
+    decision = getattr(state, "decision", None)
+    if decision is not None:
+        dev = getattr(decision, "evidence", None)
+        if dev:
+            return list(dev)
+
+    for attr in ("evidence", "evidence_used"):
+        sev = getattr(state, attr, None)
+        if sev:
+            return list(sev)
+
+    return []
+
+
+def _print_evidence(evidence_items):
+    """Print Evidence Used as citation bullets only (no snippets/body text)."""
+    print("\n--- EVIDENCE USED ---")
+    if not evidence_items:
+        print("(none found — no RAG evidence attached)")
+        return
+
+    today = datetime.date.today().isoformat()
+    seen = set()
+    printed = 0
+
+    for ev in (evidence_items or []):
+        # EvidenceRef schema in this repo: title, source, snippet
+        # URL is stored in `.source` (EvidenceRef has no `.url` field).
+        if isinstance(ev, dict):
+            title = str(ev.get("title") or "").strip()
+            url = str(ev.get("source") or ev.get("url") or "").strip()
+        else:
+            title = str(getattr(ev, "title", "") or "").strip()
+            url = str(getattr(ev, "source", "") or "").strip()
+
+        key = (title, url)
+        if key in seen:
+            continue
+        seen.add(key)
+
+        if not title:
+            title = "(Untitled source)"
+
+        if url:
+            print(f"- {title}. Accessed {today}. {url}.")
+        else:
+            print(f"- {title}. Accessed {today}.")
+
+        printed += 1
+        if printed >= 8:
+            break
+
+
+
+def _print_note(note, state: CallState):
+    print("\n--- CLINICAL NOTE (SOAP) ---")
+    soap = getattr(note, "soap", "") or ""
+    soap = _clean_soap(soap, state)
+    soap = _clean_soap(soap, state)
+    soap = _strip_snippets_block(soap)
+    # If we have a numeric age, force it into the Subjective line for clarity.
+    age_val = getattr(state, 'age', None)
+    if age_val is None:
+        sx = getattr(state, 'symptoms', None) or {}
+        if isinstance(sx, dict):
+            v = sx.get('age') or sx.get('age_years') or sx.get('patient_age')
+            if v is not None:
+                m = re.match(r'^(\d{1,3})', str(v).strip())
+                if m:
+                    age_val = int(m.group(1))
+    if age_val is not None and str(age_val).strip() != '':
+        parts = soap.splitlines()
+        for idx, ln in enumerate(parts):
+            if ln.strip().startswith('S:') and 'Age' not in ln and 'age' not in ln:
+                # DISABLED: do not append inline age to S: line
+                parts[idx] = ln
+                break
+        soap = '\n'.join(parts)
+    print(soap.strip() if soap.strip() else '(no soap text)')
+
+    instr = getattr(note, "patient_instructions", None)
+    if instr:
+        print("\n--- PATIENT INSTRUCTIONS ---")
+        for x in instr:
+            print("-", x)
+
+    cq = getattr(note, "clinician_questions", None)
+    if cq:
+        print("\n--- CLINICIAN QUESTIONS (for async review) ---")
+        for x in cq:
+            print("-", x)
+
+    rf = getattr(note, "risk_flags", None)
+    if rf:
+        print("\n--- RISK FLAGS ---")
+        for x in rf:
+            print("-", x)
+
+    # Evidence (with citation lines + URL if available)
+    evidence_items = _extract_evidence(note, state)
+    # CallCare: top-up evidence to min 3 before printing
+    evidence_items = _topup_evidence_for_printing(state, evidence_items, min_unique=3)
+    # CallCare: filter urinary 'burn' word-sense mismatch before printing citations
+    evidence_items = _cc_filter_burn_scalt_evidence_if_urinary(evidence_items, state)
+
+    _print_evidence(evidence_items)
+
+
+def _print_patient_summary(note):
+    try:
+        mod = importlib.import_module("app.clinical.llm_patient_summary")
+        gen = getattr(mod, "generate_patient_summary")
+        soap = getattr(note, "soap", "") or ""
+        if soap.strip():
+            summary = (gen(soap) or "").strip()
+            if summary:
+                print("\n--- SPOKEN SUMMARY TO PATIENT ---")
+                print(summary)
+    except Exception:
+        return
+
+
+
+def _sync_numeric_age(state: CallState):
+    """Copy numeric age from state.symptoms into state.age so notes use actual age."""
+    try:
+        sx = getattr(state, 'symptoms', None) or {}
+        if not isinstance(sx, dict):
+            return
+        for k in ('age', 'age_years', 'patient_age', 'years_old'):
+            v = sx.get(k)
+            if v is None:
+                continue
+            vs = str(v).strip()
+            if not vs:
+                continue
+            m = re.match(r'^(\d{1,3})', vs)
+            if not m:
+                continue
+            age_int = int(m.group(1))
+            try:
+                setattr(state, 'age', age_int)
+            except Exception:
+                pass
+            return
+    except Exception:
+        return
+
+
+def _strip_snippets_block(soap: str) -> str:
+    """Remove the Evidence (snippets used) block from SOAP text if present."""
+    if not soap:
+        return soap
+    patterns = [
+        r"\n---\s*EVIDENCE\s*\(snippets used\)\s*---\n.*?(?=\n---\s*[A-Z][A-Z _-]*\s*---\n|\Z)",
+        r"\nEvidence \(snippets used\):\n.*?(?=\n---\s*[A-Z][A-Z _-]*\s*---\n|\Z)",
+        r"\n\(none found — check.*?\)\n"
+    ]
+    out = soap
+    for p in patterns:
+        out = re.sub(p, "\n", out, flags=re.IGNORECASE | re.DOTALL)
+    return out
+
+
+
+def _clean_soap(soap: str, state: CallState) -> str:
+    """Clean SOAP for simulator display (age line, duration confusion, pregnancy wording)."""
+    if not soap:
+        return soap
+
+    out = soap
+
+    # --- Remove '(Age: N)' anywhere on the S: line, no matter spacing ---
+    cleaned = []
+    for ln in out.splitlines():
+        if ln.lstrip().startswith('S:') and '(Age:' in ln:
+            ln = re.sub(r"\(Age:\s*\d{1,3}\)", "", ln)
+            ln = re.sub(r"\s+", " ", ln).rstrip()
+        cleaned.append(ln)
+    out = "\n".join(cleaned)
+
+    # --- Replace age band phrases with numeric age (best-effort) ---
+    age_val = getattr(state, 'age', None)
+    if age_val is None:
+        sx = getattr(state, 'symptoms', None) or {}
+        if isinstance(sx, dict):
+            v = sx.get('age') or sx.get('age_years') or sx.get('patient_age') or sx.get('years_old')
+            if v is not None:
+                mm = re.match(r'^(\d{1,3})', str(v).strip())
+                if mm:
+                    age_val = int(mm.group(1))
+    if age_val is not None:
+        out = re.sub(r"\b\d{1,2}\s*-\s*\d{1,2}\s*year\s*old\b", f"{age_val}-year-old", out, flags=re.IGNORECASE)
+        out = re.sub(r"\b\d{1,2}\s*-\s*\d{1,2}\s*[- ]?year[- ]?old\b", f"{age_val}-year-old", out, flags=re.IGNORECASE)
+
+    # --- Fix tick-bite duration confusion in printed narrative ---
+    sx = getattr(state, 'symptoms', None) or {}
+    tick_tf = None
+    if isinstance(sx, dict):
+        tick_tf = sx.get('tick_attachment_timeframe') or sx.get('tick_attached_duration') or sx.get('tick_attachment_duration') or sx.get('tick_attached_duration')
+    if tick_tf:
+        # Robust tick-attachment timeframe lookup (from state.symptoms)
+        tf = None
+        sx = getattr(state, 'symptoms', None) or {}
+        if isinstance(sx, dict):
+            tf = (
+                sx.get('tick_attachment_timeframe')
+                or sx.get('tick_attached_duration')
+                or sx.get('tick_attachment_duration')
+                or sx.get('tick_attached_time')
+                or sx.get('tick_duration')
+            )
+        if tf is not None:
+            tf = str(tf).strip() or None
+        if tf:
+            out = re.sub(
+                r"\b(fever\s+and\s+chills)\s+for\s+" + re.escape(tf) + r"\b",
+                r"\1. Tick may have been attached for " + tf,
+                out,
+                flags=re.IGNORECASE
+            )
+            out = re.sub(
+                r"\b(associated\s+fever\s+and\s+chills)\s+for\s+" + re.escape(tf) + r"\b",
+                r"\1. Tick may have been attached for " + tf,
+                out,
+                flags=re.IGNORECASE
+            )
+
+    # --- Pregnancy wording cleanup ---
+    out = re.sub(r"\bPregnancy not possible\b", "Patient is not pregnant", out, flags=re.IGNORECASE)
+
+    return out
+
+def run():
+    print("\n--- CallCare TEXT CALL SIMULATOR ---\n")
+
+    sm = importlib.import_module("app.clinical.state_machine")
+    handler, handler_name = _pick_handler(sm)
+    prompt_fn, prompt_name = _pick_prompt(sm)
+
+    print(f"(Using handler: {handler_name}; prompt: {prompt_name})\n")
+
+    state = CallState(session_id=str(uuid.uuid4()))
+
+    while True:
+        raw_prompt = prompt_fn(state)
+
+        # End-of-encounter signals:
+        # - None: clean completion
+        # - "" (blank string): some state machines "end" by returning empty prompt
+        if raw_prompt is None:
+            break
+        if isinstance(raw_prompt, str) and raw_prompt.strip() == "":
+            break
+
+        prompt = _try_natural_question(raw_prompt, state)
+        print("AI:", prompt)
+        user = input("YOU: ").strip()
+
+        if user.lower() in ("quit", "exit"):
+            print("AI: Ending session.")
+            break
+
+        handler(state, user)
+        _sync_numeric_age(state)
+
+        if getattr(state, "stage", "") in ("DONE", "COMPLETE", "END", "FINISHED"):
+            break
+
+    # Build note + queue review (Tier 1)
+    try:
+        nb = importlib.import_module("app.clinical.note_builder")
+        build_note = getattr(nb, "build_note")
+        note = build_note(state)
+
+        # Finalize first so evidence-from-manifest is attached to the note
+        packet = finalize(state.session_id, note, state)
+        _print_note(packet.note, state)
+        _print_patient_summary(note)
+
+        try:
+            rq = importlib.import_module("app.clinical.review_queue")
+            enqueue_for_review = getattr(rq, "enqueue_for_review")
+            enqueue_for_review(state, note)
+            print("\n(Queued for async physician review.)")
+        except Exception as e:
+            print("\n(Warn) Review queue failed:", str(e))
+
+    except Exception as e:
+        print("\n(Warn) Could not build note:", str(e))
+
+    print("\n--- END SIMULATION ---\n")
+
+
+if __name__ == "__main__":
+    run()

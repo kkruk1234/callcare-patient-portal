@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Frequently Asked Questions (FAQs)",
+  "url": "https://medlineplus.gov/medlineplus-connect/faqs/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "can reply with English or Spanish information. The \"How MedlinePlus Connect Works\" page has more information. \nCan I test out MedlinePlus Connect before I decide to implement it? \nA demonstration page for the MedlinePlus Connect Web application allows you to view how the responses from MedlinePlus will appear in your EHR. \nA demonstration page for the MedlinePlus Connect Web service is also available. It shows the responses in XML, JSON, and JSONP. \nOur EHR/patient portal already links to another patient education source. Can I use it and MedlinePlus Connect in the same system? \nYes. You don't have to use MedlinePlus Connect exclusively to link to patient education information. Many EHR systems can be configured to link to more than one source of consumer health information. \nTechnical Questions \nTechnical Questions \nWhat is the difference between the Web application and the Web service? \nThe MedlinePlus Connect Web application and Web service use different methods to deliver the same easy access to MedlinePlus consumer health information. The Web application provides an on-demand, formatted MedlinePlus Connect Web page. The Web service returns XML, JSON, or JSONP, which allows implementers greater flexibility to tailor the display and format of the information.\nTo view the differences between the two, check out the Web application demonstration page and the Web service demonst",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_faqs_9f7bfefd71c9",
+  "chunk_id": "chunk_005"
+}

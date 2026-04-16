@@ -1,0 +1,126 @@
+{
+  "packet_id": "6b9973e2-8370-4116-b5f7-ca068badc56d",
+  "created_at": "2026-02-07T19:44:48.531392+00:00",
+  "session_id": "9db5b5be-48e6-4085-b63c-d539087c5a9e",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "next to my sternum on the right and no it doesn't radiate anywhere",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or dizziness with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Have you noticed any swelling, redness, or tenderness in your chest or nearby areas?",
+    "intake_a5": "tenderness",
+    "intake_q6": "Any recent trauma, heavy lifting, or injury to your chest area?",
+    "intake_a6": "heavy lifting",
+    "intake_q7": "Have you tried any treatments or medications for the chest pain, and did they help?",
+    "intake_a7": "no",
+    "intake_q8": "Any fever, chills, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Do you have any history of heart disease, lung problems, or blood clots?",
+    "intake_a9": "no",
+    "intake_q10": "Does the chest pain worsen with breathing, coughing, or movement?",
+    "intake_a10": "a little bit",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/lab-tests/troponin-test/",
+        "https://www.nhs.uk/conditions/pericarditis/",
+        "https://medlineplus.gov/heartattack.html",
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.nhs.uk/conditions/chest-infection/",
+        "https://www.nhs.uk/conditions/pulmonary-hypertension/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain located next to the sternum on the right side, without radiation. The pain started one week ago and is associated with tenderness in the area. She reports that the pain worsens slightly with breathing, coughing, or movement. There is a history of heavy lifting prior to the onset of symptoms. She denies shortness of breath, sweating, nausea, dizziness, fever, chills, or recent infections. She has no known history of heart disease, lung problems, or blood clots. No treatments or medications have been tried yet. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings available.\n\nA: \nThe working diagnosis is musculoskeletal chest pain likely due to costochondritis or a strain related to heavy lifting. This is supported by localized tenderness, sharp pain near the sternum, and exacerbation with movement and breathing.\n\nDifferential: \n1. Costochondritis or musculoskeletal strain \n2. Rib contusion or minor injury from heavy lifting \n3. Intercostal muscle strain \n4. Less likely cardiac or pulmonary causes given absence of systemic symptoms and risk factors \n\nP: \n- First-line medication: \n Ibuprofen 400 mg orally every 6–8 hours as needed for pain, for 7 days. Avoid if history of allergy to NSAIDs, active gastrointestinal ulcers, or severe renal impairment. Dosing details were not found in retrieved evidence; prescriber should verify. \n\n- Alternatives: \n - Acetaminophen 500–1000 mg orally every 6 hours as needed for pain, for 7 days. Avoid in severe liver disease. \n - Naproxen 250–500 mg orally twice daily as needed for pain, for 7 days. Avoid if allergy to NSAIDs or severe renal impairment. \n\n- Medication safety considerations: \n The patient is not pregnant, has no known allergies, and no renal or liver disease. NSAIDs should be used cautiously if any gastrointestinal or renal issues develop. \n\n- Return precautions: \n The patient should seek immediate care if she develops worsening chest pain, shortness of breath, dizziness, sweating, nausea, or any new concerning symptoms. \n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+      },
+      {
+        "title": "Thoracic outlet syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/thoracic-outlet-syndrome/",
+        "snippet": "if: you have sudden breathlessness, sharp chest pain (this may be worse when you breathe in) and a cough or coughing up blood What happens at your appointment If you have symptoms of thoracic outlet syndrome, a GP will usually check your arms, chest and neck to look for possible causes of your symptoms. They may refer you for an X-ray or other tests, such as…"
+      },
+      {
+        "title": "Pericarditis - NHS",
+        "source": "https://www.nhs.uk/conditions/pericarditis/",
+        "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+      },
+      {
+        "title": "Chest infection - NHS",
+        "source": "https://www.nhs.uk/conditions/chest-infection/",
+        "snippet": "ears old. Find a pharmacy Non-urgent advice: See a GP if: You have a chest infection and: you feel very unwell or your symptoms get worse you cough up blood or blood-stained mucus you've had a cough for more than 3 weeks you're pregnant you're over 65 your immune system is weak – for example, you have a condition like diabetes or you're having chemotherapy y…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    },
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    },
+    {
+      "title": "Chest infection - NHS",
+      "source": "https://www.nhs.uk/conditions/chest-infection/",
+      "snippet": "ears old. Find a pharmacy Non-urgent advice: See a GP if: You have a chest infection and: you feel very unwell or your symptoms get worse you cough up blood or blood-stained mucus you've had a cough for more than 3 weeks you're pregnant you're over 65 your immune system is weak – for example, you have a condition like diabetes or you're having chemotherapy y…"
+    },
+    {
+      "title": "Pulmonary hypertension - NHS",
+      "source": "https://www.nhs.uk/conditions/pulmonary-hypertension/",
+      "snippet": "tummy (abdomen) The symptoms often get worse during exercise, which can limit your ability to take part in physical activities. If you have a type of pulmonary hypertension known as pulmonary arterial hypertension (PAH), you may not have any symptoms until the condition is quite advanced. When to get medical help See a GP if you have any symptoms of pulmonar…"
+    }
+  ],
+  "state": null
+}

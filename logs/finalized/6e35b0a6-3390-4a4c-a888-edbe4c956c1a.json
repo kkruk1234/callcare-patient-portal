@@ -1,0 +1,133 @@
+{
+  "packet_id": "9b5619e5-7169-4a58-8bfd-f89f223b9ef7",
+  "created_at": "2026-02-16T02:30:33.977774+00:00",
+  "session_id": "6e35b0a6-3390-4a4c-a888-edbe4c956c1a",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the elbow pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly on your elbow the pain is located?",
+    "intake_a2": "outside",
+    "intake_q3": "Any recent injury or activity that might have caused the pain?",
+    "intake_a3": "no, but the pain started when I was playing tennis",
+    "intake_q4": "Any swelling, redness, or warmth around the elbow?",
+    "intake_a4": "no",
+    "intake_q5": "Any numbness, tingling, or weakness in your arm or hand?",
+    "intake_a5": "no",
+    "intake_q6": "Any difficulty moving your elbow or pain when you try to bend or straighten it?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for the elbow pain, and did they help?",
+    "intake_a7": "I iced the elbow the first day and it helped a little with the pain",
+    "intake_q8": "Any fever, chills, or other systemic symptoms since the pain started?",
+    "intake_a8": "no",
+    "intake_q9": "Have you noticed any clicking, popping, or locking sensations in your elbow?",
+    "intake_a9": "no",
+    "intake_summary": "A patient presents with 3 weeks of lateral elbow pain that began during tennis without injury, no swelling, redness, systemic symptoms, or neurological deficits. The pain does not limit range of motion and partially improved with ice.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/tennis-elbow/",
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://medlineplus.gov/tendinitis.html",
+        "https://medlineplus.gov/sportsinjuries.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a 3-week history of pain localized to the outside of her right elbow. The pain began during tennis without any specific injury. She reports no swelling, redness, warmth, numbness, tingling, weakness, or limitation in elbow movement. Ice applied on the first day provided some relief. There are no systemic symptoms such as fever or chills, and no clicking, popping, or locking sensations have been noted. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical examination or vital signs available.\n\nA: \nThe clinical presentation is consistent with lateral epicondylitis (tennis elbow), characterized by lateral elbow pain triggered by repetitive wrist extension activities such as tennis. There is no evidence of infection, neurological compromise, or joint instability.\n\nDifferential: \n1. Lateral epicondylitis (tennis elbow) \n2. Radial tunnel syndrome \n3. Osteoarthritis of the elbow \n4. Referred pain from cervical radiculopathy \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen at recommended doses to reduce pain and inflammation. \n- Alternatives: Topical NSAID gels applied over the lateral elbow to minimize systemic side effects. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, cardiovascular, renal, or hepatic conditions. Avoid exceeding recommended doses. \n- Return precautions: Advise the patient to seek further care if pain worsens, if there is new swelling, redness, warmth, numbness, weakness, or if systemic symptoms such as fever develop. \n- Testing: Not indicated at this time given the typical presentation and absence of red flags. Consider imaging or nerve conduction studies if symptoms persist or worsen despite conservative management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "rvices without needing a referral from a GP. Get NHS help for back or joint problems Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treat…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/5ecc4db411135621/content.txt",
+        "snippet": "g a referral from a GP. Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treatments at home for 6 weeks. Physiotherapy treatments may inclu…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/6c79f98b5f50aa7e/content.txt",
+        "snippet": "g a referral from a GP. Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treatments at home for 6 weeks. Physiotherapy treatments may inclu…"
+      },
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+      },
+      {
+        "title": "Tendinitis: MedlinePlus",
+        "source": "https://medlineplus.gov/tendinitis.html",
+        "snippet": "onnect muscles to bones. They help your muscles move your bones. Tendinitis is the severe swelling of a tendon. Tendinitis usually happens after repeated injury to an area such as the wrist or ankle. It causes pain and soreness around a joint. Some common forms of tendinitis are named after the sports that increase their risk. They include tennis elbow, golf…"
+      },
+      {
+        "title": "Sports Injuries: MedlinePlus",
+        "source": "https://medlineplus.gov/sportsinjuries.html",
+        "snippet": "turning to sports after a back injury (Medical Encyclopedia) Also in Spanish Topic Image MEDICAL ENCYCLOPEDIA Achilles tendon repair ACL reconstruction Acute mountain sickness Back pain and sports Concussion How to avoid exercise injuries Lactic acidosis Medial epicondylitis - golfer&#x27;s elbow Osgood-Schlatter disease Returning to sports after a back inju…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Tennis elbow - NHS",
+      "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+      "snippet": "﻿ Tennis elbow - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Tennis elbow Tennis elbow is a condition that causes pain around the outside of the elbow. It usually goes away with rest but can…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/5ecc4db411135621/content.txt",
+      "snippet": "g a referral from a GP. Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treatments at home for 6 weeks. Physiotherapy treatments may inclu…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/6c79f98b5f50aa7e/content.txt",
+      "snippet": "g a referral from a GP. Treatments for tennis elbow Tennis elbow usually gets better after resting your arm for a few weeks, but it can sometimes last longer. A GP may give you anti-inflammatory tablets. They may also refer you for physiotherapy if your symptoms have not improved after trying treatments at home for 6 weeks. Physiotherapy treatments may inclu…"
+    },
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow problems. Many things can make your elbow hurt. A common cause is tendinitis , an inflammation or injury to the tendons that attach muscle to bone. Tendinitis of the elbow is a sports injury , often from playin…"
+    },
+    {
+      "title": "Tendinitis: MedlinePlus",
+      "source": "https://medlineplus.gov/tendinitis.html",
+      "snippet": "onnect muscles to bones. They help your muscles move your bones. Tendinitis is the severe swelling of a tendon. Tendinitis usually happens after repeated injury to an area such as the wrist or ankle. It causes pain and soreness around a joint. Some common forms of tendinitis are named after the sports that increase their risk. They include tennis elbow, golf…"
+    },
+    {
+      "title": "Sports Injuries: MedlinePlus",
+      "source": "https://medlineplus.gov/sportsinjuries.html",
+      "snippet": "turning to sports after a back injury (Medical Encyclopedia) Also in Spanish Topic Image MEDICAL ENCYCLOPEDIA Achilles tendon repair ACL reconstruction Acute mountain sickness Back pain and sports Concussion How to avoid exercise injuries Lactic acidosis Medial epicondylitis - golfer&#x27;s elbow Osgood-Schlatter disease Returning to sports after a back inju…"
+    }
+  ],
+  "state": null
+}

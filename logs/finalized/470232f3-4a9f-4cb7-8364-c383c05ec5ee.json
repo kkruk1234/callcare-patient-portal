@@ -1,0 +1,91 @@
+{
+  "packet_id": "818257d2-2637-46a0-8be8-64fdc6336d81",
+  "created_at": "2026-01-29T17:06:16+00:00",
+  "session_id": "470232f3-4a9f-4cb7-8364-c383c05ec5ee",
+  "chief_complaint": "I think I have genital warts",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "age_years": 34,
+    "allergies": "penicillin",
+    "renal_disease": "yes",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "onset": "3 weeks ago",
+    "severity": "mild",
+    "associated": "none"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old female presenting with a chief complaint of what she believes to be genital warts. The lesions have been present for approximately three weeks and are described as mild in severity. She reports no associated symptoms such as pain, itching, or discharge. She has a history of renal disease and a penicillin allergy. The patient is not pregnant.\n\nO:  \nPhone consultation only; no physical examination or vital signs available.\n\nA:  \n- Working diagnosis (most likely): Genital warts (condyloma acuminata), given the patient's report of genital lesions consistent with warts and the typical time course.  \n- Differential:  \n  1. Molluscum contagiosum  \n  2. Herpes simplex virus infection (atypical presentation)  \n  3. Seborrheic keratosis or benign skin tags  \n  4. Syphilitic condyloma lata or other sexually transmitted infections  \n- Red flags considered: No systemic symptoms, no signs of acute infection or ulceration, no rapid progression or severe pain.\n\nP:  \n- Disposition: Outpatient management with follow-up if symptoms worsen or new symptoms develop.  \n- Plan: Educate the patient about the nature of genital warts as a sexually transmitted infection caused by human papillomavirus (HPV). Recommend evaluation by a healthcare provider for physical examination and confirmation of diagnosis. Treatment options include topical agents (e.g., imiquimod, podophyllotoxin) or procedural removal, which should be guided by a clinician. Given the penicillin allergy and renal disease, avoid systemic antibiotics unless secondary infection is suspected. Counsel on safe sexual practices and consider screening for other STIs.  \n- Safety net: Advise the patient to seek urgent care if lesions become painful, rapidly increase in size, develop ulceration, or if systemic symptoms such as fever or malaise occur. Follow-up with primary care or gynecology for definitive diagnosis and treatment planning.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+        "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps th…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+        "snippet": "ineum) Genital warts may: appear on their own or in a group (groups of warts can look like a cauliflower) feel soft or firm be white, red, skin-coloured, or darker than the surrounding skin They do not usually cause symptoms but sometimes they may be painful, itchy or bleed. You…"
+      },
+      {
+        "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+        "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_002.json",
+        "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. The…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_002.json",
+        "snippet": "TO LIBRARY https://www.sciencephoto.com/media/295848/view Credit: DR HAROUT TANIELIAN/SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/88265/view Credit: DR P. MARAZZI/SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/295869/view Credit: Clinical Photography/SCIEN…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_005.json",
+        "snippet": "rmacy because they&#x27;re not made for genital warts do not smoke – many treatments for genital warts work better if you do not smoke do not have vaginal, anal or oral sex until the warts have gone (but if you do have sex, always use a condom) How genital warts are passed on Ge…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_004.json",
+        "snippet": "ntact with them. Ask the doctor or nurse about this. Things you can do while having treatment for genital warts There are some things you can do while having treatment for genital warts. Do follow the instructions about how to apply creams, liquids and ointments carefully – some…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+      "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps th…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+      "snippet": "ineum) Genital warts may: appear on their own or in a group (groups of warts can look like a cauliflower) feel soft or firm be white, red, skin-coloured, or darker than the surrounding skin They do not usually cause symptoms but sometimes they may be painful, itchy or bleed. You…"
+    },
+    {
+      "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+      "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_002.json",
+      "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. The…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_002.json",
+      "snippet": "TO LIBRARY https://www.sciencephoto.com/media/295848/view Credit: DR HAROUT TANIELIAN/SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/88265/view Credit: DR P. MARAZZI/SCIENCE PHOTO LIBRARY https://www.sciencephoto.com/media/295869/view Credit: Clinical Photography/SCIEN…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_005.json",
+      "snippet": "rmacy because they&#x27;re not made for genital warts do not smoke – many treatments for genital warts work better if you do not smoke do not have vaginal, anal or oral sex until the warts have gone (but if you do have sex, always use a condom) How genital warts are passed on Ge…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_004.json",
+      "snippet": "ntact with them. Ask the doctor or nurse about this. Things you can do while having treatment for genital warts There are some things you can do while having treatment for genital warts. Do follow the instructions about how to apply creams, liquids and ointments carefully – some…"
+    }
+  ]
+}

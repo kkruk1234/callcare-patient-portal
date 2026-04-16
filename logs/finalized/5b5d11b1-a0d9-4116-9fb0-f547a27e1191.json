@@ -1,0 +1,118 @@
+{
+  "packet_id": "9ecdcbcf-eda0-41a5-ab18-7a4e08e2f06d",
+  "created_at": "2026-01-26T21:24:25.967865+00:00",
+  "session_id": "5b5d11b1-a0d9-4116-9fb0-f547a27e1191",
+  "chief_complaint": "I think I have pneumonia",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "pneumonia_possible",
+  "answers": {
+    "breathing_trouble": "no",
+    "chest_pain": "no",
+    "high_risk": "no",
+    "med_exclusions": "QT prolongation"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Doxycycline",
+      "dosing": "100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)",
+      "sig": "100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)",
+      "route": "",
+      "frequency": "daily",
+      "duration": "5 days",
+      "notes": "",
+      "exclusions": "Pregnancy/possible pregnancy; severe liver disease; allergy/intolerance",
+      "tier": "Tier 1",
+      "pathway_id": "pneumonia_possible",
+      "source_file": "data/protocols/meds/pneumonia_possible.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Azithromycin",
+      "dosing": "500 mg by mouth on day 1, then 250 mg by mouth daily on days 2–5",
+      "sig": "500 mg by mouth on day 1, then 250 mg by mouth daily on days 2–5",
+      "route": "",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "",
+      "exclusions": "QT prolongation history or on QT-prolonging meds; significant liver disease; allergy/intolerance; use only if locally appropriate",
+      "tier": "Tier 1",
+      "pathway_id": "pneumonia_possible",
+      "source_file": "data/protocols/meds/pneumonia_possible.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Amoxicillin-clavulanate + Azithromycin",
+      "dosing": "Amoxicillin-clavulanate 875/125 mg PO twice daily for 5–7 days PLUS azithromycin 500 mg day 1 then 250 mg daily days 2–5",
+      "sig": "Amoxicillin-clavulanate 875/125 mg PO twice daily for 5–7 days PLUS azithromycin 500 mg day 1 then 250 mg daily days 2–5",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "",
+      "exclusions": "Severe beta-lactam anaphylaxis; QT risk (for azithro); renal dose adjustment may be needed in CKD",
+      "tier": "Tier 1",
+      "pathway_id": "pneumonia_possible",
+      "source_file": "data/protocols/meds/pneumonia_possible.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nPatient is a 45-year-old adult who reports concern for pneumonia. There is no breathing trouble or chest pain. The patient is not considered high risk and has no medication allergies. The patient has a medication exclusion of QT prolongation.\n\nO:\nNo physical exam or vital signs available due to phone-only history.\n\nA:\n - Working diagnosis (most likely): Possible pneumonia\n - Differential:\n  1. Viral respiratory infection\n  2. Atypical pneumonia\n  3. Bronchitis\n  4. Other lower respiratory tract infection\n - Red flags considered: No breathing difficulty, no chest pain, no high-risk features reported.\n\nP:\n - Disposition: Patient advised to seek in-person evaluation if symptoms worsen or new symptoms develop.\n - Plan: Given absence of breathing difficulty and chest pain, and no high-risk features, initial conservative management is reasonable. If clinical suspicion for bacterial pneumonia increases or patient develops worsening symptoms, further evaluation and treatment may be needed.\n  - Primary medication option (based on the patient's responses): Doxycycline — 100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Amoxicillin-clavulanate + Azithromycin — Amoxicillin-clavulanate 875/125 mg PO twice daily for 5–7 days PLUS azithromycin 500 mg day 1 then 250 mg daily days 2–5\n     - Exclusions: Severe beta-lactam anaphylaxis; QT risk (for azithro); renal dose adjustment may be needed in CKD\n   - Doxycycline — 100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)\n     - Exclusions: Pregnancy/possible pregnancy; severe liver disease; allergy/intolerance\n   - Azithromycin — 500 mg by mouth on day 1, then 250 mg by mouth daily on days 2–5\n     - Exclusions: QT prolongation history or on QT-prolonging meds; significant liver disease; allergy/intolerance; use only if locally appropriate\n   - Supportive care:\n   - Hydration and rest.\n   - Acetaminophen for fever/pain if safe for the patient.\n   - Avoid NSAIDs if kidney disease, ulcer/GI bleed history, or blood thinners.\n   - Follow-up and safety:\n   - Follow-up: Recheck within 24–48 hours if started antibiotics; sooner if worsening.\n   - Expected course: Some improvement by 48–72 hours if bacterial and treated; cough can last longer.\n   - Go to urgent care/ED now if: Trouble breathing, chest pain, blue lips, confusion, fainting, or rapidly worsening symptoms.\n   - In-person evaluation needed if: No improvement by 72 hours, persistent high fever, inability to keep fluids down, or concern for dehydration.\n - Safety net: Instruct patient to seek urgent care or emergency services if they develop breathing difficulty, chest pain, confusion, or worsening symptoms. Follow-up if symptoms persist beyond several days or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "Hydration and rest.",
+      "Acetaminophen for fever/pain if safe for the patient.",
+      "Avoid NSAIDs if kidney disease, ulcer/GI bleed history, or blood thinners.",
+      "Follow-up: Recheck within 24–48 hours if started antibiotics; sooner if worsening.",
+      "Expected course: Some improvement by 48–72 hours if bacterial and treated; cough can last longer.",
+      "Go to urgent care/ED now if: Trouble breathing, chest pain, blue lips, confusion, fainting, or rapidly worsening symptoms.",
+      "In-person evaluation needed if: No improvement by 72 hours, persistent high fever, inability to keep fluids down, or concern for dehydration."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "ATS/IDSA (2019) Community-Acquired Pneumonia guideline (full guideline)",
+        "source": "https://www.atsjournals.org/doi/10.1164/rccm.201908-1581ST",
+        "snippet": "Listed in pathway manifest https://www.atsjournals.org/doi/10.1164/rccm.201908-1581ST"
+      },
+      {
+        "title": "IDSA — Community-acquired pneumonia in adults (guideline landing page)",
+        "source": "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/"
+      },
+      {
+        "title": "AAFP (2022) Community-Acquired Pneumonia in Adults (PDF)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2022/0600/p625.pdf",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2022/0600/p625.pdf"
+      },
+      {
+        "title": "NICE NG250 (2025) Pneumonia: diagnosis and management",
+        "source": "https://www.nice.org.uk/guidance/ng250",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng250"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "ATS/IDSA (2019) Community-Acquired Pneumonia guideline (full guideline)",
+      "source": "https://www.atsjournals.org/doi/10.1164/rccm.201908-1581ST",
+      "snippet": "Listed in pathway manifest https://www.atsjournals.org/doi/10.1164/rccm.201908-1581ST"
+    },
+    {
+      "title": "IDSA — Community-acquired pneumonia in adults (guideline landing page)",
+      "source": "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/",
+      "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/"
+    },
+    {
+      "title": "AAFP (2022) Community-Acquired Pneumonia in Adults (PDF)",
+      "source": "https://www.aafp.org/pubs/afp/issues/2022/0600/p625.pdf",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2022/0600/p625.pdf"
+    },
+    {
+      "title": "NICE NG250 (2025) Pneumonia: diagnosis and management",
+      "source": "https://www.nice.org.uk/guidance/ng250",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng250"
+    }
+  ]
+}

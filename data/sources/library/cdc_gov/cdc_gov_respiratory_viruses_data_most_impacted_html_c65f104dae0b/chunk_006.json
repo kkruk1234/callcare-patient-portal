@@ -1,0 +1,10 @@
+{
+  "title": "People Most Impacted by Respiratory Viruses | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/most-impacted.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": ") National Vital Statistics System (NVSS). Accessed from https://wonder.cdc.gov/mcd-icd10-provisional.html \nCombined is the sum of COVID-19, influenza, and respiratory syncytial virus (RSV) deaths. \nProvisional data are non-final counts of deaths based on the flow of mortality data in NVSS. Data during recent periods are incomplete because of the lag in time between when a death occurs and when a death certificate is completed, submitted to NCHS, and processed for reporting. This delay can range from 1 week to 8 weeks or more, depending on the jurisdiction. \nDefinitions: Provisional data are non-final counts of deaths based on the flow of mortality data in NVSS. Cause-specific death counts are defined as those deaths with the designated ICD-10 codes listed as an underlying or contributing cause of death on the death certificate. The ICD-10 code definitions are as follows: COVID-19 (U07.1), Influenza (J09-J11), Respiratory Syncytial Virus (J12.1, J20.5, J21.0). \nDeath data are displayed by date of death. Death data reported are based on the total number of deaths received and coded as of the date of analysis and may not represent all deaths that occurred in that period. \nPercent of deaths is not presented for weeks where death counts are between 1-9 in accordance with NCHS data confidentiality standards. \nProvisional death data represent deaths among U.S. residents and occurring",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_most_impacted_html_c65f104dae0b",
+  "chunk_id": "chunk_006"
+}

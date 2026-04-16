@@ -1,0 +1,58 @@
+{
+  "packet_id": "34dd2da1-dba0-4df9-97e8-a7a01a0f98eb",
+  "created_at": "2026-03-13T17:47:04.529203+00:00",
+  "session_id": "3f1bfe08-3a40-4daf-b602-fe6c33343572",
+  "pathway_id": "",
+  "base_queries": [
+    "syncope management guidelines adult",
+    "penicillin dosing for infected toe adult",
+    "red flags syncope recurrent episodes",
+    "syncope evaluation tests and precautions"
+  ],
+  "queries": [
+    "AAFP syncope management guidelines adult",
+    "AAFP penicillin dosing for infected toe adult",
+    "MedlinePlus syncope management guidelines adult",
+    "MedlinePlus penicillin dosing for infected toe adult",
+    "CDC syncope management guidelines adult",
+    "CDC penicillin dosing for infected toe adult",
+    "NIH syncope management guidelines adult",
+    "NIH penicillin dosing for infected toe adult",
+    "NICE syncope management guidelines adult",
+    "NICE penicillin dosing for infected toe adult",
+    "WHO syncope management guidelines adult",
+    "WHO penicillin dosing for infected toe adult"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Evaluation of Syncope | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2011/0915/p640.html",
+      "accessed": "2026-03-13",
+      "snippet": "Test Indication Comments Basic laboratory testing As clinically indicated, including human chorionic gonadotropin in women of childbearing age Laboratory evaluation rarely is helpful; complete blood count for anemia; brain natriuretic peptide testing may be beneficial for cardiac etiology Carotid sinus massage Syncope of unknown etiology in patients older than 40 years * Diagnostic if ventricular pause is more than three seconds or if a decrease in systolic blood pressure > 50 mm Hg Contraindicated in patients with bruits or a history of transient ischemic attack/cerebrovascular accident within the past three months ECG All patients with syncope Can aid in diagnosing arrhythmia, ischemia, pulmonary embolus (increased pulmonary pressures or right ventricular enlargement), hypertrophic cardiomyopathy Findings suggestive of arrhythmia include presence of bundle branch block, intraventricula"
+    },
+    {
+      "title": "Recommendations | Cellulitis and erysipelas: antimicrobial prescribing | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng141/chapter/Recommendations",
+      "accessed": "2026-03-13",
+      "snippet": "1 month to 11 months, 0.25 ml/kg of 125/31 suspension three times a day orally (dose doubled in severe infection) 1 year to 5 years, 0.25 ml/kg or 5 ml of 125/31 suspension three times a day orally (dose doubled in severe infection) 6 years to 11 years, 0.15 ml/kg or 5 ml of 250/62 suspension three times a day orally (dose doubled in severe infection) 12 years to 17 years, 250/125 mg or 500/125 mg three times a day orally or 1 month to 2 months, 30 mg/kg twice a day intravenously 3 months to 17 years, 30 mg/kg three times a day intravenously (maximum 1.2 g three times a day) Clarithromycin (5 to 7 days):"
+    },
+    {
+      "title": "ANTIMICROBIAL GUIDELINES",
+      "source": "gloshospitals.nhs.uk",
+      "url": "https://www.gloshospitals.nhs.uk/documents/17606/GHC_Antibiotic_Guidelines_Skin_and_soft_tissue_v2.pdf",
+      "accessed": "2026-03-13",
+      "snippet": ""
+    },
+    {
+      "title": "Syncope: Evaluation and Differential Diagnosis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2017/0301/p303.html",
+      "accessed": "2026-03-13",
+      "snippet": "Test Indication Comments Basic laboratory testing As clinically indicated Rarely helpful; complete blood count, brain natriuretic peptide testing, fecal occult blood testing, human chorionic gonadotropin testing in women of childbearing age; troponin testing may be beneficial to identify cardiac etiology Carotid sinus massage Syncope of unknown etiology in patients older than 40 years 1 Diagnostic if ventricular pause is more than three seconds or if systolic blood pressure decreases by more than 50 mm Hg; contraindicated in patients with bruits or a history of transient ischemic attack/cerebrovascular accident within the past three months ECG All patients with syncope Diagnostic yield is 3% to 5%, but can aid in diagnosing arrhythmia, ischemia, pulmonary embolus (increased pulmonary pressures or right ventricular enlargement), hypertrophic cardiomyopathy, and Brugada syndrome; findings"
+    }
+  ],
+  "note_text": "S: The patient is a 44-year-old female who experienced a blackout lasting about 10 seconds after standing up from sitting. She reports a sensation of heart racing and sweating prior to the episode. This is her fourth similar episode, and she felt very weak afterward. She has an infected toe for which she is taking penicillin and recently felt cold but denies chest pain, shortness of breath, or other symptoms after the blackout. She has no known history of heart disease or arrhythmias.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is likely vasovagal syncope or orthostatic hypotension given the brief loss of consciousness upon standing, associated palpitations, and sweating. \nDifferential:\n1. Vasovagal syncope\n2. Orthostatic hypotension\n3. Cardiac arrhythmia\n4. Seizure disorder\n\nP: - First-line medication: Not indicated at this time; focus on non-pharmacologic measures such as hydration and slow positional changes (Physician must verify medication/dosing)\n- Alternatives: If arrhythmia suspected, referral for cardiology evaluation and possible beta-blocker therapy (e.g., metoprolol 25 mg PO daily) (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies, no renal or liver disease, not pregnant; penicillin use noted\n- Follow-up recommendations: Seek in-person medical care urgently if blackout recurs, worsens, or is associated with chest pain, severe weakness, or neurological symptoms; emergency care if prolonged unconsciousness or seizure occurs\n- Testing: Recommend ECG and orthostatic vital signs measurement in person; consider Holter monitor or event recorder if arrhythmia suspected"
+}

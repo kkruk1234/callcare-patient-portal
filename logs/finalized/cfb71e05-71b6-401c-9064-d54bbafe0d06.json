@@ -1,0 +1,57 @@
+{
+  "packet_id": "cfb71e05-71b6-401c-9064-d54bbafe0d06",
+  "created_at": "2026-03-29T18:04:41.814969+00:00",
+  "session_id": "c13dfec1-21a5-4c83-a450-d96cfad727b0",
+  "pathway_id": "",
+  "base_queries": [
+    "urinary tract infection diagnosis and management guidelines adult female",
+    "adult female UTI treatment antibiotics dosing duration contraindications",
+    "red flags and return precautions for urinary tract infection"
+  ],
+  "queries": [
+    "AAFP urinary tract infection diagnosis and management guidelines adult female",
+    "AAFP adult female UTI treatment antibiotics dosing duration contraindications",
+    "MedlinePlus urinary tract infection diagnosis and management guidelines adult female",
+    "MedlinePlus adult female UTI treatment antibiotics dosing duration contraindications",
+    "CDC urinary tract infection diagnosis and management guidelines adult female",
+    "CDC adult female UTI treatment antibiotics dosing duration contraindications",
+    "NIH urinary tract infection diagnosis and management guidelines adult female",
+    "NIH adult female UTI treatment antibiotics dosing duration contraindications",
+    "NICE urinary tract infection diagnosis and management guidelines adult female",
+    "NICE adult female UTI treatment antibiotics dosing duration contraindications",
+    "WHO urinary tract infection diagnosis and management guidelines adult female",
+    "WHO adult female UTI treatment antibiotics dosing duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Diagnosis and Treatment of Acute Uncomplicated Cystitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2011/1001/p771.html",
+      "accessed": "2026-03-29",
+      "snippet": "\"> Tier Drug Dosage Cost of generic (brand) Pregnancy category First Fosfomycin (Monurol) 3-g single dose NA ($51) * B Nitrofurantoin (macrocrystals) 100 mg twice per day for five days $55 ($64) * B Trimethoprim/sulfamethoxazole (Bactrim, Septra) 160/800 mg twice per day for three days $17 ($34) * † C Second Ciprofloxacin (Cipro) 250 mg twice per day for three days $26 ($30) † ‡ C Ciprofloxacin, extended release (Cipro XR) 500 mg per day for three days $57 ($76) * C Levofloxacin (Levaquin) 250 mg per day for three days NA ($86) * C Ofloxacin 200 mg per day for three days $14 (NA) ‡ C or 400-mg single dose $10 (NA) ‡ Third § Amoxicillin/clavulanate (Augmentin) 500/125 mg twice per day for seven days $32 ($98) * B Cefdinir (Omnicef) 300 mg twice per day for 10 days $40 ($119) * B Cefpodoxime 100 mg twice per day for seven days $71 (NA) ‡ B There are several first-line agents recommended by"
+    },
+    {
+      "title": "Urinary tract infection - adults: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000521.htm",
+      "accessed": "2026-03-29",
+      "snippet": "Take a single dose of an antibiotic after sexual contact to prevent an infection. Have a 3 to 5 day course of antibiotics at home to use if you develop an infection. Take a single, daily dose of an antibiotic to prevent infections. MORE SEVERE KIDNEY INFECTIONS"
+    },
+    {
+      "title": "This is a corrected and updated version of the article that appeared in print.",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0200/acute-uncomplicated-utis-adults.pdf",
+      "accessed": "2026-03-29",
+      "snippet": ""
+    },
+    {
+      "title": "Cystitis - acute: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000526.htm",
+      "accessed": "2026-03-29",
+      "snippet": "Taking a single dose of an antibiotic after sexual contact. These may prevent sexually transmitted infections. Keeping a 3-day course of antibiotics. These will be given based on your symptoms. Taking a single, daily dose of an antibiotic. This dose will prevent infections. Over-the-counter products that increase acid in the urine, such as ascorbic acid or cranberry juice, may be recommended. These medicines may lower the concentration of bacteria in the urine."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 4-5 day history of painful urination characterized by sharp pain at the start and end of urination and burning throughout. She reports urinary urgency and frequency approximately every 15 minutes with a sensation of incomplete bladder emptying. She denies fever, chills, back pain, nausea, vomiting, or unusual vaginal discharge aside from normal menstrual odor. She has no prior history of urinary tract infections and is not pregnant.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is an acute uncomplicated urinary tract infection (cystitis).\nDifferential:\n1. Acute uncomplicated urinary tract infection (cystitis)\n2. Vaginitis or other vaginal infection related to menstruation\n3. Urethritis\n4. Interstitial cystitis\n\nP: - First-line medication: Nitrofurantoin 100 mg orally twice daily for 5 days (Physician must verify medication/dosing)\n- Alternatives: Fosfomycin 3 g orally single dose (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin and steroids due to allergies; assess renal function if possible before nitrofurantoin use; other contraindications not assessed in this telephone encounter\n- Follow-up recommendations: Seek in-person medical care urgently if fever, chills, flank pain, nausea, vomiting, or worsening symptoms develop; seek emergency care if severe abdominal pain or inability to urinate occurs\n- Testing: Urinalysis and urine culture recommended if symptoms persist or worsen, or if initial treatment fails"
+}

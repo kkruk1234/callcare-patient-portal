@@ -1,0 +1,46 @@
+id: fever_child
+version: 0.1
+match:
+  any_keywords: ["child fever", "kid fever", "toddler fever", "baby fever", "fever in child"]
+questions:
+  - id: age
+    prompt: "How old is the child? (under 3 months, 3-12 months, 1-2 years, 3-12 years, 13-17)"
+    store_as: age_group
+
+  - id: breathing
+    prompt: "Any trouble breathing, blue lips, or severe breathing effort? (yes/no)"
+    store_as: breathing
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["respiratory_distress_child"]
+
+  - id: lethargy
+    prompt: "Is the child hard to wake, very weak, or not acting like themselves? (yes/no)"
+    store_as: lethargy
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["ill_appearing_child"]
+
+  - id: dehydration
+    prompt: "Signs of dehydration (no urine for 8+ hours, very dry mouth, no tears)? (yes/no)"
+    store_as: dehydration
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_dehydration_child"]
+
+  - id: neck
+    prompt: "Stiff neck, severe headache, or purple/non-blanching rash? (yes/no)"
+    store_as: meningitis_signs
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["meningitis_red_flag_child"]
+
+stop_rules:
+  - if_all_answered: ["age","breathing","lethargy","dehydration","neck"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

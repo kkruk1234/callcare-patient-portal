@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA15fa325d7d0e363276628b53f70df8e6",
+  "session_id": "1abbec4a-6f9a-4646-840c-ba9ef14b00cd",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-29T21:39:18.009865+00:00",
+  "ended_at": "2026-03-29T21:46:30.191982+00:00",
+  "packet_id": "f127c99d-cffd-4ce7-aaec-4a695c3bc56c",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a butterfly shaped rash across my nose and face."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first notice the butterfly-shaped rash on your face?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any joint pain, swelling, or stiffness along with the rash?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. Definitely. I don't know. Like, the joints, especially in my, like, upper arms and stuff, they've been, like, particularly bad. But just, like, all around pretty bad in the whole body, you know, just, like, legs, everything, you know."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any fever, mouth sores, hair loss, or sensitivity to sunlight since the rash appeared?"
+    },
+    {
+      "role": "user",
+      "text": "I've not all that, but I've notified unexplained fevers. And hair loss and yeah. And, sensitivity to sunlight."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any chest pain, shortness of breath, or swelling in your legs recently?"
+    },
+    {
+      "role": "user",
+      "text": "No. Not really."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent infections, new medications, or known autoimmune diseases in the past?"
+    },
+    {
+      "role": "user",
+      "text": "No. I don't think so. No. Definitely not."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling or pain in your kidneys, changes in your urine color, or decreased urine output?"
+    },
+    {
+      "role": "user",
+      "text": "I think everything is the same. I think I've been urinating and, like, all down there, fluids been the same quantity as I've always been. I think that's normal."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any new headaches, confusion, or seizures recently?"
+    },
+    {
+      "role": "user",
+      "text": "Definitely not. I don't think I've had any of that. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent weight changes, fatigue, or swollen lymph nodes?"
+    },
+    {
+      "role": "user",
+      "text": "Oh my god. I've had such extreme fatigue. And maybe the lip feels a little bit swollen, but the fatigue is crazy."
+    },
+    {
+      "role": "assistant",
+      "text": "Any chest pain, shortness of breath, or swelling in your legs?"
+    },
+    {
+      "role": "user",
+      "text": "Maybe I'd say I'd like to go with school then, but I feel like I just had swollen legs since I was a child."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any blood in your urine or foamy urine recently?"
+    },
+    {
+      "role": "user",
+      "text": "No. My unit sign."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "33"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Yeah. Luzainopril."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you described, your symptoms most likely suggest a condition called systemic lupus erythematosus, or lupus, which is an autoimmune disease that can cause rash, joint pain, fatigue, and other symptoms. Because this is a phone visit, I can’t examine you or run tests, but a licensed physician will review your information and may decide that medication treatment, such as hydroxychloroquine, is appropriate. \n\nFor now, if you develop new chest pain, trouble breathing, severe joint swelling, or neurological symptoms like confusion or seizures, please seek urgent in-person care right away. Otherwise, managing symptoms with rest and avoiding sun exposure can help. \n\nA doctor will review your case and may recommend blood tests and a referral to a specialist to confirm the diagnosis and guide treatment. If your symptoms worsen or you have concerns, please go to urgent care or the emergency room as needed."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+from datetime import date
+import re
+
+from app.clinical.state_machine import CallState
+from app.tests.simulate_text_call import process_answer  # keep existing entrypoint import if needed
+
+
+def _clean_soap(text, state):
+    return text
+
+
+def _strip_snippets_block(text):
+    return text
+
+
+def _print_evidence(evidence_items):
+    print("\n--- EVIDENCE USED ---")
+    if not evidence_items:
+        print("(none)")
+        return
+
+    for e in evidence_items:
+        if isinstance(e, dict):
+            title = (e.get("title") or "").replace("\n", " ").strip()
+            url = (e.get("url") or "").strip()
+            accessed = (e.get("accessed_at") or "").strip()
+        else:
+            title = getattr(e, "title", "")
+            url = getattr(e, "url", "")
+            accessed = getattr(e, "accessed_at", "")
+
+        if not title:
+            continue
+
+        if title and url and accessed:
+            print(f"- {title}. Accessed {accessed}. {url}")
+        elif title and url:
+            print(f"- {title}. {url}")
+        else:
+            print(f"- {title}")
+
+
+def _print_note(note, state: CallState):
+    print("\n--- CLINICAL NOTE (SOAP) ---")
+    soap = getattr(note, "soap", "") or ""
+    print(soap.strip() if soap.strip() else "(no soap text)")
+
+    instr = getattr(note, "patient_instructions", None)
+    if instr:
+        print("\n--- PATIENT INSTRUCTIONS ---")
+        for x in instr:
+            print("-", x)
+
+    rf = getattr(note, "risk_flags", None)
+    if rf:
+        print("\n--- RISK FLAGS ---")
+        for x in rf:
+            print("-", x)
+
+    evidence = getattr(note, "evidence", None)
+    _print_evidence(evidence)

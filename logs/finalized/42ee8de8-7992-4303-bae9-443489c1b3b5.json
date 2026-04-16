@@ -1,0 +1,49 @@
+{
+  "packet_id": "ee66874a-88f4-4827-9faf-7eab2eb4ba7c",
+  "created_at": "2026-01-18T16:25:03.654826+00:00",
+  "session_id": "42ee8de8-7992-4303-bae9-443489c1b3b5",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: 35-year-old patient reports a tick bite approximately Tick was attached for approximately 37 hours while in Georgia. No systemic symptoms such as fever, chills, or malaise reported. Patient notes presence of a bullseye rash at the bite site. Patient is not pregnant.\n\nO: Unable to perform physical exam due to phone-only encounter. Patient description of bullseye rash consistent with erythema migrans.\n\nA:  \n  - Working diagnosis (most likely): Early localized Lyme disease  \n  - Differential:  \n    1. Early Lyme disease (erythema migrans)  \n    2. Tick-bite hypersensitivity reaction  \n    3. Cellulitis or local skin infection  \n    4. Southern tick-associated rash illness (STARI)  \n  - Red flags considered: No systemic symptoms such as fever, headache, or joint pain reported. No signs of neurological or cardiac involvement.\n\nP:  \n  - Disposition: Urgent in-person evaluation recommended for clinical confirmation and initiation of treatment.  \n  - Plan: Advise patient to seek prompt medical evaluation for physical examination and possible antibiotic therapy for early Lyme disease. Educate on signs of progression including fever, arthralgia, or neurological symptoms.  \n  - Safety net: Instruct patient to seek emergency care if fever, worsening rash, neurological symptoms (e.g., facial palsy, severe headache), or cardiac symptoms develop.\n\nEvidence (snippets used):  \n- CDC guidance indicates erythema migrans with tick exposure in endemic areas is diagnostic of early Lyme disease and warrants antibiotic treatment.  \n- AAFP review supports early treatment to prevent progression of Lyme disease.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  },
+  "evidence": []
+}

@@ -1,0 +1,11 @@
+{
+  "pathway_id": "bronchitis_uncomplicated",
+  "sources": [
+    {
+      "source_id": "cdc_bronchitis",
+      "type": "url",
+      "title": "CDC: Acute Bronchitis",
+      "url": "https://www.cdc.gov/antibiotic-use/bronchitis.html"
+    }
+  ]
+}

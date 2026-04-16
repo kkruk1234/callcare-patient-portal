@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "d, updated definitions. \n&ldquo;Respiratory Conditions Treated in the Emergency Department&rdquo; was renamed to &ldquo;Respiratory Conditions Reported in the Emergency Department&rdquo; \nThe accompanying text under this header was revised to better describe the data collected and the purpose of the data visualizations that follow. \nThe Data Notes under &ldquo;Respiratory Conditions in the Emergency Department&rdquo; were revised to better explain how data points were calculated and how the ICD-10 code groupings underscore the data visualization. We reorganized and prioritized plain language in the table showing the ICD-10 codes used in the dataset and explain the groupings used in the data visualization. \nWhy: \nThe updated condition definitions better reflect acute conditions in the emergency department. The definitions are now reported in detail, to assist researchers in analyzing and reproducing this work. \nThe change from &ldquo;Treated&rdquo; to &ldquo;Reported&rdquo; better reflects data collected for this section because a visit to the emergency department does not always indicate that a patient received treatment. \nThe revised text in this section better links the title above to the visual below and more clearly highlights why we report data beyond COVID-19, RSV, and flu. \nDecember 5, 2025 release \n1. Updates to the National and State Acute Respiratory Illness (ARI) Thr",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_013"
+}

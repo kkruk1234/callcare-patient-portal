@@ -1,0 +1,41 @@
+{
+  "packet_id": "b5970c85-291d-415e-81ef-8a479213a9be",
+  "created_at": "2026-01-26T03:23:37.157045+00:00",
+  "session_id": "1987c03c-fd6f-4da7-b50f-8d1eb7d3550c",
+  "chief_complaint": "I have hives and itching but I can breathe fine",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "hives_urticaria",
+  "answers": {
+    "breathing": "no",
+    "faint": "no",
+    "fever": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with hives and itching. They report no difficulty breathing, no fainting, and no fever. There are no known medication allergies.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter. No evidence of respiratory distress or systemic symptoms reported.\n\nA:\n - Working diagnosis (most likely): Acute urticaria (hives) without anaphylaxis\n - Differential:\n  1. Allergic urticaria\n  2. Idiopathic urticaria\n  3. Viral exanthem presenting with urticaria\n  4. Contact dermatitis with urticarial reaction\n - Red flags considered:\n  - No breathing difficulty or airway compromise\n  - No syncope or fainting\n  - No fever or systemic signs of infection\n\nP:\n - Disposition: Manage as outpatient with close follow-up if symptoms worsen\n - Plan:\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Supportive care:\n   - Avoid triggers: Stop any new suspected trigger (food/supplement/med) if safe to do so; avoid hot showers which can worsen itching.\n   - Skin care: Cool compresses; fragrance-free moisturizer; avoid scratching.\n   - Follow-up and safety:\n   - Re-evaluation: If hives persist >24–48h, recur frequently, or you need frequent medication dosing—seek in-person evaluation.\n   - Urgent/ED now: Any trouble breathing, throat tightness, swelling of lips/tongue/face, fainting, severe dizziness, or widespread blistering rash—call 911/go to ED.\n   - Recommend oral antihistamines such as cetirizine 10 mg once daily or loratadine 10 mg once daily to control itching and hives.\n   - Avoid known triggers if identified.\n   - Monitor for any signs of respiratory difficulty, swelling of face or throat, or systemic symptoms.\n - Safety net:\n   - Advise patient to seek emergency care immediately if they develop difficulty breathing, swelling of the face or throat, dizziness, or fainting.\n   - Follow up with primary care or urgent care if hives persist beyond several days or worsen despite treatment.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "Avoid triggers: Stop any new suspected trigger (food/supplement/med) if safe to do so; avoid hot showers which can worsen itching.",
+      "Skin care: Cool compresses; fragrance-free moisturizer; avoid scratching.",
+      "Re-evaluation: If hives persist >24–48h, recur frequently, or you need frequent medication dosing—seek in-person evaluation.",
+      "Urgent/ED now: Any trouble breathing, throat tightness, swelling of lips/tongue/face, fainting, severe dizziness, or widespread blistering rash—call 911/go to ED."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "MedlinePlus: Hives",
+        "source": "https://medlineplus.gov/hives.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/hives.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "MedlinePlus: Hives",
+      "source": "https://medlineplus.gov/hives.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/hives.html"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "pathway_id": "contact_lens_red_eye",
+  "sources": [
+    {
+      "id": "contact_lens_red_eye_ref",
+      "source_id": "contact_lens_red_eye_ref",
+      "title": "Contact lens complications overview (starter)",
+      "url": "https://www.aao.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

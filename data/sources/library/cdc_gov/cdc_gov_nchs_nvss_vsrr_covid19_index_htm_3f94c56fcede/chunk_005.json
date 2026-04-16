@@ -1,0 +1,10 @@
+{
+  "title": "Provisional COVID-19 Mortality Surveillance",
+  "url": "https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "2015-2019 are based on final data and data from 2020-2026 are provisional. Data are presented with a 2-week lag. \nIndex of COVID-19 Surveillance Data Files \nNote: AH = Ad-hoc. Datasets with the prefix AH are not updated routinely, but can be updated upon request.\nTechnical Notes \nThe provisional counts for COVID-19 deaths are based on a current flow of mortality data in the National Vital Statistics System. National provisional counts include deaths occurring within the 50 states and the District of Columbia that have been received and coded as of the date specified. It is important to note that it can take several weeks for death records to be submitted to National Center for Health Statistics (NCHS), processed, coded, and tabulated. Therefore, the data shown on this page may be incomplete, and will likely not include all deaths that occurred during a given time period, especially for the more recent time periods. Death counts for earlier weeks are continually revised and may increase or decrease as new and updated death certificate data are received from the states by NCHS. COVID-19 death counts shown here may differ from other published sources, as data currently are lagged by an average of 1&ndash;2 weeks.\nNature and sources of data \nProvisional death counts are based on death records received and processed by NCHS as of a specified cutoff date. National provisional count",
+  "source_type": "library",
+  "source_id": "cdc_gov_nchs_nvss_vsrr_covid19_index_htm_3f94c56fcede",
+  "chunk_id": "chunk_005"
+}

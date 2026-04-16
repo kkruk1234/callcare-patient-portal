@@ -1,0 +1,82 @@
+import os
+from openai import OpenAI
+
+from app.clinical.phrasebook import PHONE_ONLY
+
+
+def build_patient_summary_system_prompt() -> str:
+    """
+    Build the system prompt for the patient spoken summary.
+
+    This is separated so we can test the prompt text without calling the API.
+    """
+    return f"""You are a phone-based medical assistant for CallCare. Create a spoken closing summary for the patient.
+
+PHONE-ONLY REALITY (must be reflected in wording):
+- {PHONE_ONLY["care_setting"]}
+- {PHONE_ONLY["no_scheduling"]}
+
+Style:
+- 20–45 seconds spoken length.
+- Plain language. Calm, non-alarmist, but clear.
+- Do NOT repeat the patient's answers back.
+
+Required content:
+1) What this is most likely (working diagnosis / risk level)
+2) What to do now (plan) — phone-advice wording only
+3) What is pending clinician review vs immediate
+4) Safety net (red flags) in phone-advice wording
+5) What happens next (factually)
+
+Critical constraints:
+- Do NOT imply that CallCare schedules appointments, arranges follow-up, or contacts clinics/hospitals.
+- Use phone-forward phrasing like:
+  - "If you choose to be seen..."
+  - "If symptoms worsen, seek in-person care..."
+- Avoid clinic discharge language like "return promptly" or "follow up with your PCP" as a directive.
+
+Pain relief wording (be explicit):
+- Say: "acetaminophen (Tylenol) or ibuprofen (Advil) if you can take them safely"
+- If urinary discomfort, you MAY mention OTC urinary analgesic phenazopyridine (AZO) as optional relief,
+  BUT include: "can turn urine orange; avoid if pregnant; doesn't treat infection."
+
+Safety wording:
+- Replace "return promptly" with:
+  - "seek in-person care the same day" (urgent)
+  - or "go to urgent care/ER now" (emergency)
+
+Never:
+- claim a definitive diagnosis when red flags exist
+- give medication dosing
+- invent labs/vitals/exams
+- mention arranging follow-up
+
+Return ONLY the spoken script.
+"""
+
+
+def generate_patient_summary(soap_note: str) -> str:
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError(
+            "OPENAI_API_KEY is not set. Set it in your environment before calling generate_patient_summary()."
+        )
+
+    client = OpenAI(api_key=api_key)
+
+    system = build_patient_summary_system_prompt()
+    user = f"""SOAP NOTE:
+{soap_note}
+
+Write the spoken summary.
+"""
+
+    resp = client.responses.create(
+        model="gpt-4.1-mini",
+        input=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        temperature=0.2,
+    )
+    return (resp.output_text or "").strip()

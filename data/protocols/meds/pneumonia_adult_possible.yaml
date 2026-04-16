@@ -1,0 +1,25 @@
+rx_options:
+- med: Amoxicillin
+  dosing: 1 g PO TID x 5 days (reviewer to confirm)
+  exclusions: Immediate-type beta-lactam allergy; adjust in renal impairment.
+  notes: Option for uncomplicated CAP in low-risk adults depending on local guidance.
+- med: Doxycycline
+  dosing: 100 mg PO BID x 5 days
+  exclusions: Pregnancy; severe liver disease (clinician judgment); allergy.
+  notes: Alternative for CAP depending on local resistance and patient factors.
+- med: Amoxicillin-clavulanate
+  dosing: 875/125 mg PO BID x 5 days (often with doxy/azith per reviewer)
+  exclusions: Immediate-type beta-lactam allergy; adjust in renal impairment.
+  notes: Use when comorbidities or aspiration concern (reviewer decides regimen).
+supportive_care:
+- item: Hydration/rest
+  details: Fluids, rest, and fever control as safe.
+- item: Cough care
+  details: Honey (if age-appropriate), humidifier; avoid smoking/vaping.
+followup_and_safety:
+- item: Re-evaluation
+  details: If not improving within 24–48h, worsening fever, worsening cough, or new
+    chest pain—needs evaluation.
+- item: Urgent/ED now
+  details: Difficulty breathing, low oxygen symptoms (blue lips/confusion), severe
+    chest pain, fainting, or inability to keep fluids down.

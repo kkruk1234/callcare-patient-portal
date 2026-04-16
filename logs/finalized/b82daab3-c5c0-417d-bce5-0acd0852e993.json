@@ -1,0 +1,68 @@
+{
+  "packet_id": "7af1434a-736b-4def-a111-520fbbabd1c2",
+  "created_at": "2026-03-01T19:20:01.354911+00:00",
+  "session_id": "b82daab3-c5c0-417d-bce5-0acd0852e993",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what were the effects?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent changes in bowel or bladder function?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adults",
+      "adult back pain treatment dosing acetaminophen alternatives",
+      "red flags in back pain evaluation and when to seek care"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, difficulty breathing, coughing, chest pain, numbness, weakness, tingling in the legs or feet, urinary symptoms, abdominal pain, or changes in bowel or bladder function. She has tried acetaminophen (Tylenol) with minimal relief. O: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely of benign etiology given the absence of red flag symptoms and no history of trauma. Differential:\n1. Musculoskeletal strain or myofascial pain\n2. Intercostal nerve irritation or neuropathy\n3. Early costochondritis or rib inflammation\n4. Referred pain from visceral sources (less likely given no associated symptoms)\n\nP:\n- Medication safety considerations: Avoid NSAIDs if history of renal or liver disease, gastrointestinal bleeding, or allergy; acetaminophen should not exceed 3000 mg daily to prevent hepatotoxicity\n - Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen 400 mg orally every 6–8 hours as needed, if no contraindications\n - Acetaminophen 500 mg orally every 6 hours as needed for pain (use caution in liver disease; consider lower max daily dose)\n - Return precautions: Seek urgent care if experiencing new onset fever, worsening pain, neurological symptoms such as numbness or weakness, chest pain, difficulty breathing, or any signs of systemic illness\n - Testing: Not indicated at this time given absence of red flags; consider imaging or further workup if symptoms persist beyond 6 weeks or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back Pain - StatPearls - NCBI Bookshelf",
+        "source": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538173/?utm_source=openai",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538173/?utm_source=openai",
+        "accessed": "2026-03-01",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back Pain - StatPearls - NCBI Bookshelf",
+      "source": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538173/?utm_source=openai",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

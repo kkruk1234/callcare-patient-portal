@@ -1,0 +1,35 @@
+id: rash_skin_infection
+version: 0.1
+match:
+  any_keywords: ["rash", "hives", "cellulitis", "skin infection", "impetigo", "shingles", "blisters"]
+questions:
+  - id: anaphylaxis
+    prompt: "Any lip/tongue swelling, wheezing, or trouble breathing? (yes/no)"
+    store_as: anaphylaxis_redflag
+    type: yesno
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: pain_out_of_proportion
+    prompt: "Is the pain severe or out of proportion to how the skin looks? (yes/no)"
+    store_as: nec_fasciitis_redflag
+    type: yesno
+
+  - id: shingles_pattern
+    prompt: "Is it a painful blistering rash in a stripe on one side of the body? (yes/no/unsure)"
+    store_as: shingles_pattern
+
+  - id: face_eye
+    prompt: "Is the rash on the face, near the eye, or affecting the eye? (yes/no)"
+    store_as: face_eye_involvement
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["anaphylaxis","fever","pain_out_of_proportion","shingles_pattern","face_eye"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

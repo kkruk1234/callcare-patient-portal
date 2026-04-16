@@ -1,0 +1,25 @@
+id: minor_head_injury
+version: 0.1
+match:
+  any_keywords: ["hit my head", "head injury", "concussion", "fell and hit head", "bumped head", "head trauma"]
+questions:
+  - id: danger
+    prompt: "Any loss of consciousness, repeated vomiting, seizure, or confusion right now? (yes/no)"
+    store_as: danger_signs
+    type: yesno
+
+  - id: anticoag
+    prompt: "Are you on a blood thinner (like warfarin, apixaban, rivaroxaban) or have a bleeding disorder? (yes/no/unknown)"
+    store_as: anticoagulant_or_bleeding
+
+  - id: severe_headache
+    prompt: "Is there a severe worsening headache or weakness/numbness? (yes/no)"
+    store_as: neuro_redflags
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["danger","anticoag","severe_headache"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

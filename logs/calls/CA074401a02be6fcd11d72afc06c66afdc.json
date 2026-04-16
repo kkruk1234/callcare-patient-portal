@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA074401a02be6fcd11d72afc06c66afdc",
+  "session_id": "60c791b8-2778-4fb4-b91f-77f37cb57e0a",
+  "from_number": "+13047161907",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-14T21:52:23.142790+00:00",
+  "ended_at": "2026-03-14T21:57:51.596715+00:00",
+  "packet_id": "4fae5405-4c9e-4bed-9574-d72316610ca7",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a really bad earache."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your earache start?"
+    },
+    {
+      "role": "user",
+      "text": "3 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Is the earache on one side or both sides?"
+    },
+    {
+      "role": "user",
+      "text": "It's on my left ear I'm not sure. My right ear might hurt a little bit, but I'm not really sure because, like, it came in when."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or recent upper respiratory symptoms like a cold or sore throat?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any hearing loss, ear drainage, or ringing in the ears?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. No fever, but I think I might have had chills, like, 3 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the ear drainage—what color or smell does it have, and how much is there?"
+    },
+    {
+      "role": "user",
+      "text": "My my left ear is kinda stopped up."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or swelling around your jaw, neck, or head, or any dizziness or balance problems?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your earache so far?"
+    },
+    {
+      "role": "user",
+      "text": "I took Tylenol, but it didn't really help."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any fluid or pus coming out of your left ear?"
+    },
+    {
+      "role": "user",
+      "text": "No. Nothing's come out of it."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent exposure to loud noises, water in the ear, or trauma to the ear?"
+    },
+    {
+      "role": "user",
+      "text": "It just feels stopped up."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent history of allergies, sinus infections, or nasal congestion?"
+    },
+    {
+      "role": "user",
+      "text": "I don't think so. I went swimming, like, a week ago."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "51."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re dealing with an ear infection likely caused by recent swimming, called acute otitis externa. Because this is a phone visit, I can’t examine your ear or run tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if suitable, may prescribe antibiotic ear drops to help clear the infection. In the meantime, you can take acetaminophen (Tylenol) or ibuprofen (Advil) for pain if you can safely use them. If your ear pain worsens, if you develop fever, drainage from the ear, or hearing loss, please seek in-person care the same day. If you experience severe symptoms like high fever, confusion, or severe swelling, go to the emergency room right away. A physician will review your case soon and decide on the best treatment."
+    }
+  ]
+}

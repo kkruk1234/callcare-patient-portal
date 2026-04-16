@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "sent the most complete data regarding respiratory illness hospitalizations. By using these two sources, we ensure that users have access to both historical context and current trends across all states. \nContinue exploring these data \nRespiratory Virus Activity Levels \nSevere Viral Respiratory Illness \nPeople Most Impacted \nVaccination Trends \nRelease Notes \nRelease notes record what has changed within the Respiratory Illnesses Data Channel since the last version. Check here to see what&rsquo;s new, what&rsquo;s fixed, and why it changed.\nJanuary 16, 2026 release \n1. Change in Age Group Reporting for Emergency Department Visit (NSSP) and Hospitalization (RESP-NET) Data\nWhat:\nNSSP Previously reported data for the following age groups: \n0-4 years \n5-17 years \n18-64 years \n65+ years \nRESP-NET previously reported data for the following age groups: \n0-4 years \n5-17 years \n18-49 years \n50-64 years \n65+ years \nBoth NSSP and RESP-NET will now report data for the following age groups: \n<1 year \n1-4 years \n5-17 years \n18-49 years \n50-64 years \n65+ years \nWhy:\nThe standardization of age group reporting by NSSP and RESP-NET creates consistency between data visualizations on the People Most Impacted Page under \"By Age\". This will improve readability and comparison between emergency department visits and hospitalizations. \nDecember 23, 2025 release \n1. Season Outlook Update on Data and Trends",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_011"
+}

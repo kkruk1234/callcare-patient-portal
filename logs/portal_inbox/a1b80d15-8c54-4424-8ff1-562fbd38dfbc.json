@@ -1,0 +1,43 @@
+{
+  "packet_id": "a1b80d15-8c54-4424-8ff1-562fbd38dfbc",
+  "created_at": "2026-04-03T12:11:11.638919+00:00",
+  "session_id": "79be69c8-7fb8-495e-9925-21afb978688b",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for calf muscle twitching at night",
+    "iron supplementation dosing and duration for muscle twitching adults",
+    "red flags and when to seek care for muscle twitching and leg"
+  ],
+  "queries": [
+    "AAFP management guidelines for calf muscle twitching at night",
+    "AAFP iron supplementation dosing and duration for muscle twitching adults",
+    "MedlinePlus management guidelines for calf muscle twitching at night",
+    "MedlinePlus iron supplementation dosing and duration for muscle twitching adults",
+    "CDC management guidelines for calf muscle twitching at night",
+    "CDC iron supplementation dosing and duration for muscle twitching adults",
+    "NIH management guidelines for calf muscle twitching at night",
+    "NIH iron supplementation dosing and duration for muscle twitching adults",
+    "NICE management guidelines for calf muscle twitching at night",
+    "NICE iron supplementation dosing and duration for muscle twitching adults",
+    "WHO management guidelines for calf muscle twitching at night",
+    "WHO iron supplementation dosing and duration for muscle twitching adults"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Nocturnal Leg Cramps | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2012/0815/p350-s1.html",
+      "accessed": "2026-04-03",
+      "snippet": "Please note:  This information was current at the time of publication but now may be out of date. This handout provides a general overview and may not apply to everyone."
+    },
+    {
+      "title": "Treatments for Nocturnal Leg Cramps | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2017/1001/od3.html",
+      "accessed": "2026-04-03",
+      "snippet": "Three systematic reviews found that oral quinine (most common dosage: 300 mg at bedtime) significantly reduced the frequency, intensity, and number of cramps, and number of days with cramps. 1 , 2 , 4 The most common minor adverse effects included tinnitus, headache, and gastrointestinal effects. Major adverse effects included thrombocytopenia, acute hypersensitivity reactions, and QT prolongation, which may lead to hemodialysis or death. 4 Because of this, the U.S. Food and Drug Administration has not approved quinine for treatment or prevention of leg cramps. 5 If treatment with quinine is considered, physicians should inform patients of the potential adverse effects, discuss the warning signs of thrombocytopenia, and encourage patients to read the package insert."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female who reports experiencing twitching of her calf muscles primarily in the early evening and at night. She notes that this has been an intermittent issue for years and that symptoms improved somewhat when she started taking iron supplements once daily, although she is unsure if the dose is adequate. She denies leg pain, numbness, weakness, swelling, redness, or warmth. She has had some leg cramps over the past two days but no other neurological symptoms or diagnoses such as restless legs syndrome. There are no symptoms suggestive of systemic illness such as difficulty breathing or chest pain.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is nocturnal calf muscle twitching likely related to iron deficiency or suboptimal iron supplementation.\nDifferential:\n1. Iron deficiency-related muscle twitching\n2. Early restless legs syndrome\n3. Electrolyte imbalance (e.g., magnesium or potassium deficiency)\n4. Benign fasciculations or muscle fatigue\n\nP: - First-line medication: Oral iron supplementation, e.g., ferrous sulfate 325 mg PO once daily for at least 3 months (Physician must verify medication/dosing)\n- Alternatives: Oral iron formulations such as ferrous gluconate 240 mg PO once daily for at least 3 months (Physician must verify medication/dosing)\n- Medication safety considerations: Monitor for gastrointestinal side effects; ensure no contraindications to iron therapy; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if new symptoms such as leg weakness, numbness, swelling, or systemic symptoms develop; seek emergency care if severe muscle pain or signs of thrombosis occur.\n- Testing: Arrange blood tests including serum ferritin, complete blood count, and electrolytes to assess iron status and rule out other causes of muscle twitching."
+}

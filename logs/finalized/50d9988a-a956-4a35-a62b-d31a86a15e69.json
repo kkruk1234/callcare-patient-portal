@@ -1,0 +1,61 @@
+{
+  "packet_id": "450e3d6a-10f3-4545-981e-a38a4676e818",
+  "created_at": "2026-01-29T17:46:26+00:00",
+  "session_id": "50d9988a-a956-4a35-a62b-d31a86a15e69",
+  "chief_complaint": "I think I have genital warts",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "age_years": 34,
+    "allergies": "penicillin",
+    "renal_disease": "yes",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "onset": "3 weeks ago",
+    "severity": "mild",
+    "associated": "none"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old female presenting with a chief complaint of what she believes to be genital warts. The symptoms began approximately three weeks ago and are described as mild in severity. She reports no associated symptoms. The patient has a history of renal disease and a penicillin allergy. She is not pregnant.\n\nO:\nPhone consultation only; no physical examination or vital signs available.\n\nA:\n- Working diagnosis (most likely): Genital warts (condyloma acuminata), likely caused by human papillomavirus (HPV).\n- Differential:\n  1. Molluscum contagiosum\n  2. Herpes simplex virus infection (atypical presentation)\n  3. Seborrheic keratosis or other benign skin lesions\n  4. Syphilitic chancre or other sexually transmitted infections\n- Red flags considered: No signs of systemic infection, severe pain, bleeding, or rapid lesion growth reported.\n\nP:\n- Disposition: Patient is appropriate for outpatient management with follow-up.\n- Plan: Educate the patient about genital warts, including the viral etiology and potential for spontaneous resolution or persistence. Discuss treatment options such as topical agents (e.g., imiquimod, podophyllotoxin) or procedural removal, emphasizing the need for in-person evaluation to confirm diagnosis and treatment suitability. Recommend avoidance of sexual contact until evaluation and treatment. Screen for other sexually transmitted infections as appropriate. Given the patient's penicillin allergy and renal disease, avoid penicillin-based treatments if STI treatment is needed.\n- Safety net: Advise the patient to seek urgent care if lesions rapidly increase in size, become painful, bleed, or if systemic symptoms such as fever develop. Recommend follow-up with a healthcare provider for lesion evaluation and management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+        "source": "library/medlineplus_gov/medlineplus_gov_genitalwarts_html_7b4ec61d7aad/chunk_001.json",
+        "snippet": "ics Medical Tests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Genital Warts URL of this page: https://medlineplus.gov/genitalwarts.html Genital Warts Also called: Condylomata acuminata, Venereal warts On this page Basics Summary Start Here Preven…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+        "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps th…"
+      },
+      {
+        "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+        "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_002.json",
+        "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. The…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+      "source": "library/medlineplus_gov/medlineplus_gov_genitalwarts_html_7b4ec61d7aad/chunk_001.json",
+      "snippet": "ics Medical Tests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Genital Warts URL of this page: https://medlineplus.gov/genitalwarts.html Genital Warts Also called: Condylomata acuminata, Venereal warts On this page Basics Summary Start Here Preven…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+      "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps th…"
+    },
+    {
+      "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+      "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_002.json",
+      "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. The…"
+    }
+  ]
+}

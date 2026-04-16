@@ -1,0 +1,54 @@
+{
+  "packet_id": "c770a91d-3994-4ec2-ace5-080874ab9c4e",
+  "created_at": "2026-01-17T20:38:31.084857+00:00",
+  "session_id": "7ceded31-ac79-4f78-8761-fa37467c0379",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nPatient is a 13-17-year-old with a recent tick bite and fever present for 24-72 hours. No rash reported. Location is Georgia. No information on pregnancy status.\n\nO:\nNo physical exam available due to phone-only encounter. No rash observed or reported.\n\nA:\n  - Working diagnosis (most likely): Early tick-borne illness (e.g., early Lyme disease or other tick-borne infection)\n  - Differential:\n    1. Early Lyme disease\n    2. Other tick-borne infections (e.g., ehrlichiosis, anaplasmosis)\n    3. Viral illness unrelated to tick bite\n  - Red flags considered:\n    - High fever, severe headache, neck stiffness, altered mental status, difficulty breathing, or signs of systemic illness were not reported but must be monitored.\n\nP:\n  - Disposition: Urgent in-person evaluation recommended due to fever following tick bite in an endemic area.\n  - Plan:\n    - Advise patient/guardian to seek prompt medical evaluation for physical examination, possible laboratory testing, and initiation of empiric treatment if indicated.\n    - Educate on signs of worsening illness or complications.\n  - Safety net:\n    - Instruct to seek emergency care immediately if symptoms worsen, including high fever, severe headache, neck stiffness, confusion, difficulty breathing, or rash development.\n    - Follow up with primary care or urgent care within 24 hours.\n\nEvidence (snippets used):\nNo direct evidence snippets retrieved; recommendations based on standard clinical practice for tick bites with fever in endemic areas.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": "Source from manifest: cdc_after_tick_bite",
+        "url": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": "Source from manifest: cdc_tick_bite_fact_sheet_pdf",
+        "url": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": "Source from manifest: cdc_clinician_caring_after_tick_bite_pdf",
+        "url": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": "Source from manifest: idsa_lyme_guideline_2020",
+        "url": "https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": "Source from manifest: aafp_lyme_updated_recommendations_2021",
+        "url": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  },
+  "evidence": []
+}

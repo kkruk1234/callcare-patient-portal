@@ -1,0 +1,68 @@
+{
+  "packet_id": "93752709-407a-497a-89a5-708bf3f95c7f",
+  "created_at": "2026-03-03T18:32:48.076427+00:00",
+  "session_id": "84bc8570-4162-4725-b941-f0a62b6c21dd",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Have you noticed any swelling, bruising, or skin changes over the area of your back pain?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adult",
+      "back pain treatment dosing acetaminophen adult mg duration",
+      "red flags in back pain evaluation adult"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, weight loss, shortness of breath, cough, chest pain, numbness, weakness, tingling, urinary symptoms, swelling, bruising, or skin changes. She has tried acetaminophen (Tylenol) without significant relief. There is no history of cancer, osteoporosis, or recent steroid use. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely due to a strain or minor soft tissue injury given the absence of red flag symptoms and no trauma history. \nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral pathology such as renal or splenic causes (less likely given no urinary or systemic symptoms)\n\nP:\n- First-line medication: Acetaminophen 500 mg every 6 hours as needed for pain, not to exceed 3000 mg per day.\n - Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen if no contraindications.\n - Medication safety considerations: Monitor for liver toxicity with acetaminophen; avoid NSAIDs if gastrointestinal or renal risk factors develop.\n - Return precautions: Return or seek care urgently if fever, worsening pain, neurological symptoms, new onset weakness, numbness, urinary symptoms, or unexplained weight loss occur.\n - Testing: Not indicated at this time given absence of red flags; consider imaging or labs if symptoms worsen or fail to improve in 4-6 weeks.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians",
+        "source": "NIH",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28192789/",
+        "accessed": "2026-03-03",
+        "snippet": "In patients with chronic low back pain who have had an inadequate response to nonpharmacologic therapy, clinicians and patients should consider pharmacologic treatment with nonsteroidal anti-inflammatory drugs as first-line therapy, or tramadol or duloxetine as second-line therapy. Clinicians should …"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians",
+      "source": "NIH",
+      "snippet": "In patients with chronic low back pain who have had an inadequate response to nonpharmacologic therapy, clinicians and patients should consider pharmacologic treatment with nonsteroidal anti-inflammatory drugs as first-line therapy, or tramadol or duloxetine as second-line therapy. Clinicians should …"
+    }
+  ],
+  "state": null
+}

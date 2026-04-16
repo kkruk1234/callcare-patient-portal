@@ -1,0 +1,80 @@
+{
+  "packet_id": "c924c018-d299-45c7-9eff-fccc76e74154",
+  "created_at": "2026-03-02T02:54:37.764853+00:00",
+  "session_id": "55cd186a-52b0-4dfb-ba5d-3b87595956b4",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Have you noticed any swelling, bruising, or tenderness over the area where your back pain is located?",
+    "intake_a9": "tenderness",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adult",
+      "adult back pain treatment dosing acetaminophen mg duration",
+      "back pain red flags and return precautions adult"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, weight loss, shortness of breath, cough, chest pain, numbness, weakness, or tingling in her legs or feet. She has tenderness over the painful area and has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, abdominal pain, osteoporosis, cancer, or recent infections. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage without systemic symptoms or neurological deficits. This is likely a strain or localized inflammation.\nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral causes such as renal or pleural pathology (less likely given absence of systemic symptoms)\n\nP:\n- First-line medication: Acetaminophen 500 mg every 6 hours as needed for pain, not to exceed 3000 mg per day\n - Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen if no contraindications\n - Medication safety considerations: Avoid NSAIDs if history of gastrointestinal bleeding, renal impairment, or liver disease; monitor total acetaminophen dose to prevent hepatotoxicity\n - Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), chest pain, shortness of breath, or urinary symptoms\n - Testing: Not indicated at this time given absence of red flags; consider imaging or labs if symptoms worsen or new concerning features develop",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "aafp.org: acute low back pain.pdf",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2025/1100/acute-low-back-pain.pdf",
+        "accessed": "2026-03-01",
+        "snippet": ""
+      },
+      {
+        "title": "WHO releases guidelines on chronic low back pain",
+        "source": "WHO",
+        "url": "https://www.who.int/news/item/07-12-2023-who-releases-guidelines-on-chronic-low-back-pain",
+        "accessed": "2026-03-01",
+        "snippet": "The World Health Organization (WHO) is releasing its first-ever guidelines on managing chronic low back pain (LBP) in primary and community care settings, listing interventions for health workers to use and also to not use during routine care."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "aafp.org: acute low back pain.pdf",
+      "source": "AAFP",
+      "snippet": ""
+    },
+    {
+      "title": "WHO releases guidelines on chronic low back pain",
+      "source": "WHO",
+      "snippet": "The World Health Organization (WHO) is releasing its first-ever guidelines on managing chronic low back pain (LBP) in primary and community care settings, listing interventions for health workers to use and also to not use during routine care."
+    }
+  ],
+  "state": null
+}

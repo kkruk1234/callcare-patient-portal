@@ -1,0 +1,25 @@
+id: urticaria_hives
+version: 0.1
+match:
+  any_keywords: ["hives", "urticaria", "itchy welts", "raised itchy rash", "allergic rash", "welts"]
+questions:
+  - id: anaphylaxis
+    prompt: "Any trouble breathing, throat tightness, tongue/lip swelling, or fainting? (yes/no)"
+    store_as: anaphylaxis_signs
+    type: yesno
+
+  - id: vomiting
+    prompt: "Any repeated vomiting or severe belly pain with the reaction? (yes/no)"
+    store_as: systemic_symptoms
+    type: yesno
+
+  - id: new_med
+    prompt: "Did this start soon after a new medication or food? (yes/no/unknown)"
+    store_as: trigger_possible
+
+stop_rules:
+  - if_all_answered: ["anaphylaxis","vomiting","new_med"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

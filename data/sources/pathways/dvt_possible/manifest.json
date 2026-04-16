@@ -1,0 +1,22 @@
+{
+  "pathway_id": "dvt_possible",
+  "version": "0.2",
+  "updated_utc": "2026-01-23T00:00:00Z",
+  "sources": [
+    {
+      "title": "NICE guideline NG158: Venous thromboembolic diseases: diagnosis, management and thrombophilia testing (covers Wells score, D-dimer, ultrasound for suspected DVT/PE)",
+      "source": "NICE",
+      "url": "https://www.nice.org.uk/guidance/ng158"
+    },
+    {
+      "title": "NICE NG158 Context (summary of diagnostic approach incl. Wells score, D-dimer, imaging for suspected DVT/PE)",
+      "source": "NICE",
+      "url": "https://www.nice.org.uk/guidance/ng158/chapter/Context"
+    },
+    {
+      "title": "AAFP: Diagnosis of Deep Venous Thrombosis and Pulmonary Embolism (clinical review; use of clinical prediction + D-dimer + ultrasound)",
+      "source": "American Academy of Family Physicians (AAFP)",
+      "url": "https://www.aafp.org/pubs/afp/issues/2007/0301/p709.html"
+    }
+  ]
+}

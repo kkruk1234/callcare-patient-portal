@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA0ac94085c539af5b7217ed66bf3e96f8",
+  "session_id": "612efacc-3346-45a9-a46b-a6ac233e4bb4",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-20T16:48:39.066769+00:00",
+  "ended_at": "2026-03-20T16:54:03.753759+00:00",
+  "packet_id": "f5ac1544-6a7a-4e4e-bf12-63d0f2cd1c60",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm feeling a little depressed."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first start feeling this way?"
+    },
+    {
+      "role": "user",
+      "text": "Not No. That's a tough 1. Maybe 3 weeks ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what symptoms of depression you are experiencing?"
+    },
+    {
+      "role": "user",
+      "text": "I'm having loss of appetite."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you experiencing any thoughts of harming yourself or feeling hopeless?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any changes in your sleep patterns, such as trouble falling asleep, staying asleep, or sleeping too much?"
+    },
+    {
+      "role": "user",
+      "text": "I am having problems falling asleep and staying asleep."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent stressors or significant life changes that might be contributing to how you're feeling?"
+    },
+    {
+      "role": "user",
+      "text": "Well, I just changed to a different job after we moved."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your symptoms so far?"
+    },
+    {
+      "role": "user",
+      "text": "No. I know. Then what would I try?"
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of depression or other mental health conditions in the past?"
+    },
+    {
+      "role": "user",
+      "text": "My father has depression, diagnosed, and he's on treatment. And my mother probably should be on treatment for some intermittent depression."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any changes in your energy levels or concentration recently?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. My energy has been low, and my concentration is been absolutely horrible. So yeah. Yeah. I think it's safe to say. I'm noticing some issues in those."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any recent changes in weight or noticed any physical symptoms like fatigue or pain?"
+    },
+    {
+      "role": "user",
+      "text": "I definitely feel fatigue. No pain, and my weight doesn't change."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of bipolar disorder or manic episodes in yourself or family?"
+    },
+    {
+      "role": "user",
+      "text": "If anything, it gets higher, so whatever."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No. Because I said I was a man."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’ve been feeling down for a few weeks with symptoms like low energy, trouble sleeping, and loss of appetite, which may be related to depression. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe medication to help. If you notice any worsening symptoms, especially thoughts of self-harm or feeling hopeless, please seek urgent in-person care right away. For now, you can consider supportive steps like gentle routines and self-care. A doctor will also want to check for any medical causes and monitor how you’re doing over time. If you need an in-person exam or testing, please go to urgent care, the emergency department, or see your primary care clinician."
+    }
+  ]
+}

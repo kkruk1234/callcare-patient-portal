@@ -1,0 +1,124 @@
+{
+  "packet_id": "3c72bd70-fd46-40f2-90f2-3b0d0d2c775e",
+  "created_at": "2026-02-05T19:44:50.931163+00:00",
+  "session_id": "8612aa85-b6ba-44d2-841c-64d76102f6a0",
+  "chief_complaint": "elbow pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your elbow pain start?",
+    "intake_a1": "1 week ago",
+    "intake_q2": "Can you describe what caused your elbow pain or any injury to it?",
+    "intake_a2": "I don't know. It just started when I was golfing.",
+    "intake_q3": "Can you describe the type of pain you are feeling in your elbow and if it worsens with any specific movements?",
+    "intake_a3": "sharp pain with moving my forearm backwards",
+    "intake_q4": "Any swelling, redness, or warmth around the elbow?",
+    "intake_a4": "just a little swelling - maybe",
+    "intake_q5": "Any numbness, tingling, or weakness in your hand or fingers?",
+    "intake_a5": "just a little tingling",
+    "intake_q6": "Any fever, chills, or other signs of infection?",
+    "intake_a6": "no",
+    "intake_q7": "Any prior history of elbow problems or other joint issues?",
+    "intake_a7": "no",
+    "intake_q8": "Can you point to the exact spot on your elbow where the pain is the worst?",
+    "intake_a8": "outside on the bone",
+    "intake_q9": "Any difficulty gripping or lifting objects with your hand?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent changes in your activity level or new repetitive motions besides golfing?",
+    "intake_a10": "no",
+    "age_years": 54,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "https://www.nhs.uk/conditions/tennis-elbow/",
+        "https://medlineplus.gov/arminjuriesanddisorders.html",
+        "https://medlineplus.gov/bonesjointsandmuscles.html",
+        "https://www.nhs.uk/conditions/arthritis/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 54-year-old female presenting with a one-week history of sharp pain localized to the outside of her elbow. The pain began while golfing and worsens with moving the forearm backward. She reports mild swelling and slight tingling but denies numbness, weakness, fever, chills, or prior elbow problems. There is no difficulty gripping or lifting objects, and no recent changes in activity other than golfing.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is lateral epicondylitis (tennis elbow), given the location of pain on the lateral elbow, onset related to repetitive activity (golfing), and pain exacerbated by forearm movement. \nDifferential: \n1. Lateral epicondylitis (tennis elbow) \n2. Radial tunnel syndrome \n3. Elbow bursitis \n4. Early osteoarthritis of the elbow. Patient is not pregnant.\n\nP: \n - First-line medication: Ibuprofen 400 mg orally every 6–8 hours as needed for pain, for 7–10 days. Avoid if history of gastrointestinal bleeding or allergy to NSAIDs. \n - Alternatives: \n - Naproxen 250–500 mg orally twice daily for 7–10 days; avoid if NSAID allergy or gastrointestinal risk. \n - Acetaminophen 500–1000 mg orally every 6 hours as needed for pain, max 3 g/day; avoid in severe liver disease. \n - Medication safety considerations: No known medication allergies, no pregnancy, no renal or liver disease. NSAIDs should be used cautiously if gastrointestinal risk factors develop. \n - Return precautions: Return for in-person evaluation if pain worsens, swelling increases, new numbness or weakness develops, or if symptoms do not improve within 1–2 weeks. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+        "snippet": "l Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nElbow Injuries and Disorders \nURL of this page: https://medlineplus.gov/elbowinjuriesanddisorders.html \nElbow Injuries and Disorders\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nPatient Handouts \nSummary \nYour elbow joint is made up of bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow"
+      },
+      {
+        "title": "Tennis elbow - NHS",
+        "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+        "snippet": "m ultrasound therapy – where high-frequency sound waves are used to increase blood flow, which can reduce pain and speed up healing Surgery may be an option if you still have tennis elbow after 6 to 12 months.\nCauses of tennis elbow \nTennis elbow is where the tendons in your elbow become inflamed. Tendons are strong cords that connect muscle to bone.\nYou can get tennis elbow if you do activities that involve gripping something and repeatedly twisting your wrist and forearm.\nActivities that can cause tennis elbow include:\ncomputer work, such as typing or using a mouse manual tasks, such as sewing or using a screwdriver leisure activities, such as tennis or playing a musical instrument Anyone can get tennis elbow but it's more common in people between 35 and 54 years of age.\nPage last reviewed: 31 May 2024\nNext review due: 31 May 2027\nSupport links \nHome \nHealth A to Z \nNHS services \nLive"
+      },
+      {
+        "title": "Arm Injuries | Arm Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/arminjuriesanddisorders.html",
+        "snippet": "sts Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nArm Injuries and Disorders \nURL of this page: https://medlineplus.gov/arminjuriesanddisorders.html \nArm Injuries and Disorders\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nLearn More \nSpecifics \nGenetics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nReference Desk \nFind an Expert \nFor You \nChildren \nOlder Adults \nPatient Handouts \nSummary \nOf the 206 bones in your body, three of them are in your arm: the humerus, radius, and ulna. Your arms are also made up of muscles, joints, tendons, an"
+      },
+      {
+        "title": "Bones, Joints and Muscles: MedlinePlus",
+        "source": "https://medlineplus.gov/bonesjointsandmuscles.html",
+        "snippet": "e Disorders \nCramps\nsee \nMuscle Cramps \nCraniofacial Abnormalities \nCraniosynostosis\nsee \nCraniofacial Abnormalities \nCubital Tunnel Syndrome\nsee \nElbow Injuries and Disorders \nDegenerative Joint Disease\nsee \nOsteoarthritis \nDermatomyositis\nsee \nMyositis \nDiabetic Foot \nDislocated Shoulder \nDislocations \nDuchenne Muscular Dystrophy\nsee \nMuscular Dystrophy \nDupuytren Contracture\nsee \nFinger Injuries and Disorders \nDwarfism \nDyskinesia\nsee \nMovement Disorders \nEhlers-Danlos Syndrome \nElbow Injuries and Disorders \nErgonomics \nEwing&#x27;s Sarcoma\nsee \nBone Cancer \nFibromyalgia \nFinger Injuries and Disorders \nFoot Health \nFoot Injuries and Disorders \nFractures \nFrozen Shoulder\nsee \nShoulder Injuries and Disorders \nGait Abnormalities\nsee \nWalking Problems \nGanglion Cyst\nsee \nWrist Injuries and Disorders \nGout \nGuide to Good Posture \nHammer Toe\nsee \nToe Injuries and Disorders \nHand Injuries an"
+      },
+      {
+        "title": "Arthritis - NHS",
+        "source": "https://www.nhs.uk/conditions/arthritis/",
+        "snippet": "wards polymyalgia rheumatica  – a condition that almost always affects people over 50 years of age, where the immune system causes muscle pain and stiffness, usually across the shoulders and tops of the legs. It can also cause joint inflammation \nSymptoms of arthritis \nThere are lots of different types of arthritis.\nThe symptoms you experience will vary depending on the type you have.\nThis is why it's important to have an accurate diagnosis if you have:\njoint pain, tenderness and stiffness inflammation in and around the joints restricted movement of the joints warm red skin over the affected joint weakness and muscle wasting \nArthritis and children Arthritis is often associated with older people, but it can also affect children.\nMost types of childhood arthritis are known as juvenile idiopathic arthritis (JIA).\nJIA causes pain and inflammation in 1 or more joints for at least 6 weeks.\nAl"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Elbow Injuries | Elbow Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/elbowinjuriesanddisorders.html",
+      "snippet": "l Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nElbow Injuries and Disorders \nURL of this page: https://medlineplus.gov/elbowinjuriesanddisorders.html \nElbow Injuries and Disorders\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nLearn More \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nPatient Handouts \nSummary \nYour elbow joint is made up of bone, cartilage, ligaments and fluid. Muscles and tendons help the elbow joint move. When any of these structures is hurt or diseased, you have elbow"
+    },
+    {
+      "title": "Tennis elbow - NHS",
+      "source": "https://www.nhs.uk/conditions/tennis-elbow/",
+      "snippet": "m ultrasound therapy – where high-frequency sound waves are used to increase blood flow, which can reduce pain and speed up healing Surgery may be an option if you still have tennis elbow after 6 to 12 months.\nCauses of tennis elbow \nTennis elbow is where the tendons in your elbow become inflamed. Tendons are strong cords that connect muscle to bone.\nYou can get tennis elbow if you do activities that involve gripping something and repeatedly twisting your wrist and forearm.\nActivities that can cause tennis elbow include:\ncomputer work, such as typing or using a mouse manual tasks, such as sewing or using a screwdriver leisure activities, such as tennis or playing a musical instrument Anyone can get tennis elbow but it's more common in people between 35 and 54 years of age.\nPage last reviewed: 31 May 2024\nNext review due: 31 May 2027\nSupport links \nHome \nHealth A to Z \nNHS services \nLive"
+    },
+    {
+      "title": "Arm Injuries | Arm Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/arminjuriesanddisorders.html",
+      "snippet": "sts Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nArm Injuries and Disorders \nURL of this page: https://medlineplus.gov/arminjuriesanddisorders.html \nArm Injuries and Disorders\nOn this page \nBasics \nSummary \nStart Here \nDiagnosis and Tests \nLearn More \nSpecifics \nGenetics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nReference Desk \nFind an Expert \nFor You \nChildren \nOlder Adults \nPatient Handouts \nSummary \nOf the 206 bones in your body, three of them are in your arm: the humerus, radius, and ulna. Your arms are also made up of muscles, joints, tendons, an"
+    },
+    {
+      "title": "Bones, Joints and Muscles: MedlinePlus",
+      "source": "https://medlineplus.gov/bonesjointsandmuscles.html",
+      "snippet": "e Disorders \nCramps\nsee \nMuscle Cramps \nCraniofacial Abnormalities \nCraniosynostosis\nsee \nCraniofacial Abnormalities \nCubital Tunnel Syndrome\nsee \nElbow Injuries and Disorders \nDegenerative Joint Disease\nsee \nOsteoarthritis \nDermatomyositis\nsee \nMyositis \nDiabetic Foot \nDislocated Shoulder \nDislocations \nDuchenne Muscular Dystrophy\nsee \nMuscular Dystrophy \nDupuytren Contracture\nsee \nFinger Injuries and Disorders \nDwarfism \nDyskinesia\nsee \nMovement Disorders \nEhlers-Danlos Syndrome \nElbow Injuries and Disorders \nErgonomics \nEwing&#x27;s Sarcoma\nsee \nBone Cancer \nFibromyalgia \nFinger Injuries and Disorders \nFoot Health \nFoot Injuries and Disorders \nFractures \nFrozen Shoulder\nsee \nShoulder Injuries and Disorders \nGait Abnormalities\nsee \nWalking Problems \nGanglion Cyst\nsee \nWrist Injuries and Disorders \nGout \nGuide to Good Posture \nHammer Toe\nsee \nToe Injuries and Disorders \nHand Injuries an"
+    },
+    {
+      "title": "Arthritis - NHS",
+      "source": "https://www.nhs.uk/conditions/arthritis/",
+      "snippet": "wards polymyalgia rheumatica  – a condition that almost always affects people over 50 years of age, where the immune system causes muscle pain and stiffness, usually across the shoulders and tops of the legs. It can also cause joint inflammation \nSymptoms of arthritis \nThere are lots of different types of arthritis.\nThe symptoms you experience will vary depending on the type you have.\nThis is why it's important to have an accurate diagnosis if you have:\njoint pain, tenderness and stiffness inflammation in and around the joints restricted movement of the joints warm red skin over the affected joint weakness and muscle wasting \nArthritis and children Arthritis is often associated with older people, but it can also affect children.\nMost types of childhood arthritis are known as juvenile idiopathic arthritis (JIA).\nJIA causes pain and inflammation in 1 or more joints for at least 6 weeks.\nAl"
+    }
+  ]
+}

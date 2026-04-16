@@ -1,0 +1,26 @@
+id: acute_diarrhea
+version: 0.1
+match:
+  any_keywords: ["acute diarrhea", "watery diarrhea", "loose stools", "stomach bug diarrhea", "gastroenteritis diarrhea"]
+questions:
+  - id: blood
+    prompt: "Any blood in the stool or black/tarry stool? (yes/no)"
+    store_as: gi_bleed_redflag
+    type: yesno
+
+  - id: dehydration
+    prompt: "Are you unable to keep fluids down or not peeing much? (yes/no)"
+    store_as: dehydration_risk
+    type: yesno
+
+  - id: fever
+    prompt: "Any high fever or severe belly pain? (yes/no)"
+    store_as: severe_infection
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["blood","dehydration","fever"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

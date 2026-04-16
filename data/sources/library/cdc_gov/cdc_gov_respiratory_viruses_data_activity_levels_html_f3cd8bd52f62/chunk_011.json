@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Activity Levels | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/activity-levels.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "The Center for Forecasting and Outbreak Analytics: Current Epidemic Trends (Based on R t ) for States . \nThe epidemic trend is based on R t , the time-varying reproductive number. R t measures disease transmission. If R t is above 1, the number of infections is growing because, on average, each infected person is causing more than one new infection; if R t is below 1, it indicates that infections are declining. \nR t is estimated using data on Emergency Department visits reported through the National Syndromic Surveillance Program (NSSP ). \nThe map's color coding reflects whether infections are likely increasing or decreasing: \nDark purple: Infections are growing \nPurple: Infections are likely growing \nGray: Infections are likely not changing \nGreen: Infections are likely declining \nDark green: Infections are declining \nThe accuracy of R t can be temporarily affected by changes in how many people with infections go to emergency departments (i.e. if a new variant or strain emerges that causes more severe disease) and by changes in testing or reporting practices. \nThe data used to estimate R t are updated frequently, and initially reported counts might later be revised. The data are manually reviewed each week and occasionally implausible outlier values are excluded. \nR t is not estimated for states in the following cases: \nJurisdictions with low emergency department facility par",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_activity_levels_html_f3cd8bd52f62",
+  "chunk_id": "chunk_011"
+}

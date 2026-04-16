@@ -1,0 +1,10 @@
+{
+  "title": "How CDC Classifies Flu Severity each Season in the United States | Influenza (Flu) | CDC",
+  "url": "https://www.cdc.gov/flu/php/surveillance/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "d be moderate. If the weekly indicator value is equal to or above the IT90 and below the IT98, the classification would be high. If the weekly indicator value is above the IT98, the classification would be very high. This is then repeated for the next indicator. For each week, the overall weekly assessment of severity is classified based on all three indicators combined. If two or three indicators have the same assessment, then the overall classification is matched to those indicators. If all three of the indicators have different classifications, then the classification in the middle is used for the overall classification. Weekly severity assessments may change because indicator data may not be complete at the time of assessment because of reporting delays and backfill of information.\nFigure 1: Illustration of how researchers classify severity for flu weekly \nThe graphic provides an example of how severity is classified each week. \nThe above graphic provides an example of how severity is classified each week. The figure shows a bar graph with the black lines representing a flu indicator at different levels across time, intensity thresholds, and shading to represent the different severity classifications. Each black bar represents a week in time as additional black bars will be added as time continues and those future weeks will be classified. The dashed lines represent the dif",
+  "source_type": "library",
+  "source_id": "cdc_gov_flu_php_surveillance_index_html_0c67f3d290d5",
+  "chunk_id": "chunk_007"
+}

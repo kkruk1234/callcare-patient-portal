@@ -1,0 +1,22 @@
+id: wrist_fracture_possible
+version: 0.1
+match:
+  any_keywords: ["wrist injury", "fell on my wrist", "fell on my hand", "wrist swelling", "wrist pain after fall"]
+questions:
+  - id: deform
+    prompt: "Is the wrist deformed, or is pain severe with swelling right away? (yes/no)"
+    store_as: deform_or_severe
+    type: yesno
+  - id: neuro
+    prompt: "Any numbness/tingling in the hand or fingers? (yes/no)"
+    store_as: neuro_symptoms
+    type: yesno
+  - id: use
+    prompt: "Can you use the hand for normal tasks, or is it too painful? (yes/no)"
+    store_as: cannot_use
+    type: yesno
+stop_rules:
+  - if_all_answered: ["deform", "neuro", "use"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,12 @@
+{
+  "pathway_id": "work_stress_burnout_noncrisis",
+  "sources": [
+    {
+      "id": "work_stress_burnout_noncrisis_ref",
+      "source_id": "work_stress_burnout_noncrisis_ref",
+      "title": "Mental health: workplace stress overview (starter)",
+      "url": "https://www.nimh.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

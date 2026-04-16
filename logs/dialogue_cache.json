@@ -1,0 +1,74 @@
+{
+  "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)": {
+    "question": "If this is an emergency, please hang up and call 911. Do you consent to continue? (yes/no)",
+    "ack": "Thank you for your response."
+  },
+  "What is the main reason for your call today?": {
+    "question": "What is the main reason for your call today?",
+    "ack": "Thank you for sharing that."
+  },
+  "Do you have chest pain? (yes/no)": {
+    "question": "Do you have chest pain?",
+    "ack": "Thank you for letting me know."
+  },
+  "Do you have severe trouble breathing? (yes/no)": {
+    "question": "Do you have severe trouble breathing?",
+    "ack": "Thank you for letting me know."
+  },
+  "Do you have stroke symptoms (face droop, arm weakness, speech trouble)? (yes/no)": {
+    "question": "Do you have stroke symptoms like face drooping, arm weakness, or trouble speaking?",
+    "ack": "Thank you for letting me know."
+  },
+  "Do you have severe bleeding? (yes/no)": {
+    "question": "Do you have severe bleeding? Yes or no?",
+    "ack": "Thank you for letting me know."
+  },
+  "Have you fainted or nearly fainted? (yes/no)": {
+    "question": "Have you fainted or nearly fainted? Yes or no?",
+    "ack": "Thank you for letting me know."
+  },
+  "Are you having thoughts of harming yourself? (yes/no)": {
+    "question": "Are you having thoughts of harming yourself?",
+    "ack": "Thank you for letting me know."
+  },
+  "How old are you? (0-2, 3-12, 13-17, 18-64, 65+)": {
+    "question": "How old are you? (0-2, 3-12, 13-17, 18-64, 65+)",
+    "ack": "Got it, thank you."
+  },
+  "How long have you had the cough/symptoms? (e.g., 2 days, 1 week)": {
+    "question": "How long have you been experiencing your cough or symptoms?",
+    "ack_template": "Thanks for letting me know you've had it for {answer}."
+  },
+  "Do you have a fever? (yes/no)": {
+    "question": "Do you have a fever?",
+    "ack": "Thank you for letting me know."
+  },
+  "Any shortness of breath at rest or trouble speaking in full sentences? (yes/no)": {
+    "question": "Are you having any shortness of breath when resting or difficulty speaking in full sentences?",
+    "ack_template": "Thanks for letting me know you answered {answer}."
+  },
+  "Any chest pain? (yes/no)": {
+    "question": "Are you experiencing any chest pain?",
+    "ack_template": "Thanks for letting me know that chest pain is {answer}."
+  },
+  "Any major medical conditions (heart/lung disease, immunocompromised) or age 65+? (yes/no)": {
+    "question": "Do you have any major medical conditions like heart or lung disease, are immunocompromised, or are you 65 or older?",
+    "ack_template": "Thanks for letting me know that your answer is {answer}."
+  },
+  "When did the abdominal pain start? (hours/days) and is it getting worse? (yes/no)": {
+    "question": "When did the abdominal pain start, and is it getting worse?",
+    "ack": "Thanks for letting me know."
+  },
+  "Where is the pain located? (upper, lower, right, left, diffuse)": {
+    "question": "Where is the pain located? Is it upper, lower, right, left, or diffuse?",
+    "ack": "Got it."
+  },
+  "Any repeated vomiting or inability to keep fluids down? (yes/no)": {
+    "question": "Any repeated vomiting or inability to keep fluids down? (yes/no)",
+    "ack": "Got it."
+  },
+  "Any blood in vomit or stool, or black tarry stools? (yes/no)": {
+    "question": "Any blood in vomit or stool, or black tarry stools?",
+    "ack": "Thanks for letting me know."
+  }
+}

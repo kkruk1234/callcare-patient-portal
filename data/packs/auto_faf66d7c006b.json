@@ -1,0 +1,18 @@
+{
+  "pack_id": "auto_faf66d7c006b",
+  "description": "Auto-acquired (OpenAI web search) evidence for: lateral epicondylitis tennis elbow treatment guideline dosing ibuprofen naproxen acetaminophen maximum daily dose",
+  "sources": [
+    {
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p"
+    },
+    {
+      "url": "https://www.aafp.org/afp/2019/0601/p690.html"
+    },
+    {
+      "url": "https://www.nice.org.uk/guidance/ng59"
+    },
+    {
+      "url": "https://www.nhs.uk/conditions/tennis-elbow/"
+    }
+  ]
+}

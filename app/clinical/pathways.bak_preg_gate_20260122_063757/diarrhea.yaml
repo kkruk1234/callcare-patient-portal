@@ -1,0 +1,31 @@
+id: diarrhea
+label: Diarrhea
+
+match:
+  any_keywords: ["diarrhea", "loose stools", "watery stool", "gastroenteritis"]
+
+questions:
+  - id: duration
+    prompt: "How long have you had diarrhea? (today, 1–2 days, 3–7 days, >1 week)"
+    type: text
+    store_as: duration
+
+  - id: blood
+    prompt: "Is there blood in your stool? (yes/no)"
+    type: yesno
+    store_as: bloody_stool
+
+  - id: dehydration
+    prompt: "Are you dizzy, weak, or unable to keep fluids down? (yes/no)"
+    type: yesno
+    store_as: dehydration
+
+  - id: fever
+    prompt: "Do you have fever? (yes/no)"
+    type: yesno
+    store_as: fever
+
+  - id: antibiotics
+    prompt: "Recent antibiotics or recent travel? (yes/no)"
+    type: yesno
+    store_as: antibiotic_or_travel

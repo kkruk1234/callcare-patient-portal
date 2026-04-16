@@ -1,0 +1,11 @@
+{
+  "queued_at": "2026-04-12T18:44:08.611439+00:00",
+  "to_email": "kkruk@osteo.wvsom.edu",
+  "patient_name": "Kelly Kruk",
+  "chart_number": "CC-00000002",
+  "packet_id": "4655b969-ecec-4cd3-b2ba-9faf804df6ec",
+  "subject": "A new CallCare note is available",
+  "body": "Hello Kelly Kruk,\n\nA new CallCare note is available in your patient portal.\n\nPlease log in to review your latest physician-reviewed note.\n",
+  "sent": true,
+  "send_method": "resend"
+}

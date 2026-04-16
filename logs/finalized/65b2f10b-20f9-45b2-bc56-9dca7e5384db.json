@@ -1,0 +1,129 @@
+{
+  "packet_id": "e7350b66-5259-43b1-bb6b-194e817775d9",
+  "created_at": "2026-02-01T19:32:40.203780+00:00",
+  "session_id": "65b2f10b-20f9-45b2-bc56-9dca7e5384db",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "not_applicable",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the ear pain start?",
+    "intake_a1": "3 days ago",
+    "intake_q2": "Can you describe the ear pain—sharp, dull, constant, or intermittent?",
+    "intake_a2": "dull",
+    "intake_q3": "Any hearing loss, ear discharge, or ringing in the ear?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or recent upper respiratory infection?",
+    "intake_a4": "yes",
+    "intake_q5": "Any pain or swelling around the jaw, neck, or head area?",
+    "intake_a5": "no",
+    "intake_q6": "Can you tell me if the fever is still present and if you have taken any medications for it?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any fullness or pressure in the ear, or any recent water exposure or trauma to the ear?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of ear infections or other ear problems in the past?",
+    "intake_a8": "yes",
+    "intake_q9": "Can you describe the recent upper respiratory infection symptoms you had and when they started?",
+    "intake_a9": "coughing, sneezing, fever, chills",
+    "intake_q10": "Have you tried any treatments or medications for the ear pain so far?",
+    "intake_a10": "no",
+    "age_years": 14,
+    "weight_raw": "100 lbs",
+    "weight_units": "lb",
+    "weight_kg": 45.4,
+    "allergies": "none",
+    "sex_at_birth": "male",
+    "pregnancy_possible": "not_applicable",
+    "pregnancy": "not_applicable",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "pregnancy status is yes/unknown (avoid teratogenic options unless explicitly appropriate)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/earinfections.html",
+        "https://www.nhs.uk/conditions/glue-ear/",
+        "https://www.nhs.uk/conditions/ear-infections/",
+        "https://www.nhs.uk/conditions/otosclerosis/",
+        "https://medlineplus.gov/eardisorders.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S:  \nThe patient is a 14-year-old male presenting with a 3-day history of dull ear pain. He reports no hearing loss, ear discharge, or tinnitus. He recently experienced an upper respiratory infection characterized by coughing, sneezing, fever, and chills, but currently has no fever and has not taken any medications for the ear pain. There is no pain or swelling around the jaw, neck, or head, and no history of recent water exposure or trauma to the ear. The patient has a prior history of ear infections. No treatments have been attempted for the current ear pain.\n\nO:  \nPhone evaluation only; no physical examination or vital signs available.\n\nA:  \nThe working diagnosis is acute otitis media likely secondary to a recent upper respiratory infection, given the ear pain, recent URI symptoms, and history of ear infections.  \n\nDifferential:  \n1. Acute otitis media  \n2. Otitis externa  \n3. Eustachian tube dysfunction / middle ear effusion  \n4. Referred pain from upper respiratory tract inflammation  \n\nP:  \n - First-line medication: Amoxicillin 45 mg/kg/day divided into two doses for 10 days; avoid if allergic to penicillin (EVID_1, EVID_3).  \n - Alternatives:  \n   - Amoxicillin-clavulanate 45 mg/kg/day (amoxicillin component) divided twice daily for 10 days; avoid if penicillin allergy (EVID_1).  \n   - Cefdinir 14 mg/kg/day divided twice daily for 10 days; avoid if severe penicillin allergy (EVID_1).  \n - Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease reported. Standard dosing applies; verify renal/hepatic function if clinical status changes.  \n - Return precautions: Advise to seek urgent care if symptoms worsen, fever develops or persists, ear discharge appears, hearing loss occurs, or if no improvement within 48–72 hours.  \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., otoscopic exam, tympanometry, or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Ear Infections | Otitis Media | MedlinePlus",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "ou \nChildren \nPatient Handouts \nSummary \nEar infections are the most common reason parents bring their child to a doctor. Three out of four children will have at least one ear infection by their third birthday. Adults can also get ear infections, but they are less common.\nThe infection usually affects the middle ear and is called otitis media. The tubes inside the ears become clogged with fluid and mucus. This can affect hearing, because sound cannot get through all that fluid.\nIf your child isn't old enough to say \"My ear hurts,\" here are a few things to look for:\nTugging at ears \nCrying more than usual \nFluid draining from the ear \nTrouble sleeping \nBalance difficulties \nHearing problems \nYour health care provider will diagnose an ear infection by looking inside the ear with an instrument called an otoscope.\nOften, ear infections go away on their own. Your health care provider may reco"
+      },
+      {
+        "title": "Glue ear - NHS",
+        "source": "https://www.nhs.uk/conditions/glue-ear/",
+        "snippet": "velopment and progress at school.\nGlue ear is much more common in children, but adults with glue ear have the same symptoms.\nOther conditions that cause ear pain\nOther causes of ear pain \nSymptoms\nPossible condition\nEar pain with a change in hearing\nEarwax build-up , an object stuck in the ear (do not try to remove it yourself – see a GP), perforated eardrum (particularly after a loud noise or accident)\nEar pain with toothache\nBaby teething , dental abscess \nEar pain with pain when swallowing\nSore throat , tonsillitis \nEar pain with a high temperature\nEar infection , flu , cold \nNon-urgent advice: See a GP if:\nYour child has signs of a hearin"
+      },
+      {
+        "title": "Ear infections - NHS",
+        "source": "https://www.nhs.uk/conditions/ear-infections/",
+        "snippet": "tting ear infections \nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 now if:\nYou or your child have symptoms of an ear infection and:\nfeel generally unwell have a very high temperature, or feel hot, cold or shivery have swelling around the ear fluid is coming out of the ear have a change in hearing or new hearing loss feel sick or are being sick (vomiting), feel dizzy or have a severe sore throat your child is under 12 months old and has earache in both ears have diabetes, or a heart, lung, kidney or neurological condition have a weakened immune system (for example, because of chemotherapy) You can call 111 or get he"
+      },
+      {
+        "title": "Otosclerosis - NHS",
+        "source": "https://www.nhs.uk/conditions/otosclerosis/",
+        "snippet": "﻿ \nOtosclerosis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nOtosclerosis \nOtosclerosis is a problem with the bones inside the ear which causes gradual hearing loss. Hearing aids or surgery will usually improve your hearing and total hearing loss is rare. \nSymptoms of otosclerosis \nSymptoms of otosclerosis include:\ngradual hearing loss in 1 or both ears, often over several years hearing ringing, buzzing or other noises in 1 or both ears ( tinnitus ) dizziness problems with your balance Otosclerosis is a common cause of hearing loss in younger adults. Symptoms usually start between the ages of 30 to 50.\nNon-urgent advice: See a GP if:\nyou think your hearing is gradually getting worse you have tinnitus regularly o"
+      },
+      {
+        "title": "Ear Disorders | Ear Problems | MedlinePlus",
+        "source": "https://medlineplus.gov/eardisorders.html",
+        "snippet": "sts Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nEar Disorders \nURL of this page: https://medlineplus.gov/eardisorders.html \nEar Disorders\nOn this page \nBasics \nSummary \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nRelated Issues \nSpecifics \nGenetics \nSee, Play and Learn \nImages \nResearch \nClinical Trials \nJournal Articles \nResources \nReference Desk \nFind an Expert \nFor You \nChildren \nPatient Handouts \nSummary \nYour ear has three main parts: outer, middle and inner. You use all of them in hearing. Sound waves come in through your outer ear. They reach your middle ear, where they make your ear"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Ear Infections | Otitis Media | MedlinePlus",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "ou \nChildren \nPatient Handouts \nSummary \nEar infections are the most common reason parents bring their child to a doctor. Three out of four children will have at least one ear infection by their third birthday. Adults can also get ear infections, but they are less common.\nThe infection usually affects the middle ear and is called otitis media. The tubes inside the ears become clogged with fluid and mucus. This can affect hearing, because sound cannot get through all that fluid.\nIf your child isn't old enough to say \"My ear hurts,\" here are a few things to look for:\nTugging at ears \nCrying more than usual \nFluid draining from the ear \nTrouble sleeping \nBalance difficulties \nHearing problems \nYour health care provider will diagnose an ear infection by looking inside the ear with an instrument called an otoscope.\nOften, ear infections go away on their own. Your health care provider may reco"
+    },
+    {
+      "title": "Glue ear - NHS",
+      "source": "https://www.nhs.uk/conditions/glue-ear/",
+      "snippet": "velopment and progress at school.\nGlue ear is much more common in children, but adults with glue ear have the same symptoms.\nOther conditions that cause ear pain\nOther causes of ear pain \nSymptoms\nPossible condition\nEar pain with a change in hearing\nEarwax build-up , an object stuck in the ear (do not try to remove it yourself – see a GP), perforated eardrum (particularly after a loud noise or accident)\nEar pain with toothache\nBaby teething , dental abscess \nEar pain with pain when swallowing\nSore throat , tonsillitis \nEar pain with a high temperature\nEar infection , flu , cold \nNon-urgent advice: See a GP if:\nYour child has signs of a hearin"
+    },
+    {
+      "title": "Ear infections - NHS",
+      "source": "https://www.nhs.uk/conditions/ear-infections/",
+      "snippet": "tting ear infections \nUrgent advice: Ask for an urgent GP appointment or get help from NHS 111 now if:\nYou or your child have symptoms of an ear infection and:\nfeel generally unwell have a very high temperature, or feel hot, cold or shivery have swelling around the ear fluid is coming out of the ear have a change in hearing or new hearing loss feel sick or are being sick (vomiting), feel dizzy or have a severe sore throat your child is under 12 months old and has earache in both ears have diabetes, or a heart, lung, kidney or neurological condition have a weakened immune system (for example, because of chemotherapy) You can call 111 or get he"
+    },
+    {
+      "title": "Otosclerosis - NHS",
+      "source": "https://www.nhs.uk/conditions/otosclerosis/",
+      "snippet": "﻿ \nOtosclerosis\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nOtosclerosis \nOtosclerosis is a problem with the bones inside the ear which causes gradual hearing loss. Hearing aids or surgery will usually improve your hearing and total hearing loss is rare. \nSymptoms of otosclerosis \nSymptoms of otosclerosis include:\ngradual hearing loss in 1 or both ears, often over several years hearing ringing, buzzing or other noises in 1 or both ears ( tinnitus ) dizziness problems with your balance Otosclerosis is a common cause of hearing loss in younger adults. Symptoms usually start between the ages of 30 to 50.\nNon-urgent advice: See a GP if:\nyou think your hearing is gradually getting worse you have tinnitus regularly o"
+    },
+    {
+      "title": "Ear Disorders | Ear Problems | MedlinePlus",
+      "source": "https://medlineplus.gov/eardisorders.html",
+      "snippet": "sts Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nEar Disorders \nURL of this page: https://medlineplus.gov/eardisorders.html \nEar Disorders\nOn this page \nBasics \nSummary \nDiagnosis and Tests \nTreatments and Therapies \nLearn More \nRelated Issues \nSpecifics \nGenetics \nSee, Play and Learn \nImages \nResearch \nClinical Trials \nJournal Articles \nResources \nReference Desk \nFind an Expert \nFor You \nChildren \nPatient Handouts \nSummary \nYour ear has three main parts: outer, middle and inner. You use all of them in hearing. Sound waves come in through your outer ear. They reach your middle ear, where they make your ear"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Interim Evaluation of Respiratory Syncytial Virus Hospitalization Rates Among Infants and Young Children After Introduction of Respiratory Syncytial Virus Prevention Products â U",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7416a1.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ntified all children aged <5 years hospitalized during 2018&ndash;2023 with ARI in select hospitals, as identified by International Classification of Diseases, Tenth Revision, Clinical Modification codes, and determined the proportion of those children who received testing for RSV and type of RSV test used among a stratified random sample. Adjustment multipliers, the inverse of RSV testing frequency times the average test sensitivity (using 74% sensitivity for rapid antigen tests and 96% for molecular diagnosis), were estimated for each season using testing data from hospitalizations in each age group. Adjusted hospitalization rates were calculated by multiplying unadjusted rates by adjustment multipliers and presented with 95% CIs to account for multiplier uncertainty; 2022&ndash;23 adjustment multipliers were the most recent available data and applied to 2024&ndash;25. Rate ratios, 95% CIs, and Z-tests were used to identify significant differences between rates.\n&para;&para;&para;&para; NVSN population-based numerators are calculated by adjusting the observed number of hospitalizations to account for weeks with <7 days of surveillance, the percentage of eligible children not enrolled, sensitivity of RSV RT-PCR testing (87.6%), and the market share of each enrollment hospital site for the estimated proportion of catchment-area ARI hospitalizations captured.\n***** Pooled rates",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7416a1_htm_a79682c48682",
+  "chunk_id": "chunk_023"
+}

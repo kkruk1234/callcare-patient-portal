@@ -1,0 +1,49 @@
+{
+  "packet_id": "1018f90a-5475-4da9-900f-a4bb01b87813",
+  "created_at": "2026-03-04T23:34:18.547726+00:00",
+  "session_id": "9ebf8abf-e4e9-45f2-a52a-c165472973de",
+  "pathway_id": "",
+  "base_queries": [
+    "management of localized musculoskeletal back pain without trauma",
+    "NSAID dosing for musculoskeletal back pain"
+  ],
+  "queries": [
+    "AAFP management of localized musculoskeletal back pain without trauma",
+    "AAFP NSAID dosing for musculoskeletal back pain",
+    "MedlinePlus management of localized musculoskeletal back pain without trauma",
+    "MedlinePlus NSAID dosing for musculoskeletal back pain",
+    "CDC management of localized musculoskeletal back pain without trauma",
+    "CDC NSAID dosing for musculoskeletal back pain",
+    "NIH management of localized musculoskeletal back pain without trauma",
+    "NIH NSAID dosing for musculoskeletal back pain",
+    "NICE management of localized musculoskeletal back pain without trauma",
+    "NICE NSAID dosing for musculoskeletal back pain"
+  ],
+  "raw_evidence_count": 7,
+  "raw_domain_counts": {
+    "medlineplus.gov": 5,
+    "aafp.org": 2
+  },
+  "selected_evidence_count": 2,
+  "selected_domains": [
+    "aafp.org",
+    "medlineplus.gov"
+  ],
+  "evidence": [
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Taking care of your back at home: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/002119.htm",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately 3 weeks ago. She denies any fever, chills, night sweats, recent trauma, difficulty breathing, chest pain, numbness, weakness, tingling, urinary symptoms, or systemic symptoms such as weight loss or fatigue. She reports tenderness over the affected area. She has tried acetaminophen (Tylenol) without significant relief.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely due to muscle strain or localized inflammation given the tenderness and absence of systemic or neurologic symptoms.\nDifferential:\n1. Musculoskeletal strain or localized inflammation\n2. Costochondritis or rib fracture (less likely without trauma)\n3. Herpes zoster (early stage without rash yet)\n4. Referred pain from visceral causes such as renal or gastrointestinal pathology (less likely given no urinary or systemic symptoms)\n\nP: First-line medication: Naproxen 500 mg PO twice daily for 7 days with food\nAlternatives: Diclofenac 50 mg PO three times daily for 7 days; Meloxicam 15 mg PO once daily for 7 days (Physician must verify medication/dosing)\nMedication safety considerations: Use NSAIDs with caution in patients with gastrointestinal risk factors; advise taking with food to minimize GI upset; avoid in patients with renal or liver disease (not present in this patient)\nReturn precautions: Return if pain worsens, new neurological symptoms develop (numbness, weakness), fever or systemic symptoms appear, or if no improvement after 7 days of treatment\nTesting: Not indicated at this time given absence of red flag symptoms; consider imaging if symptoms persist or worsen"
+}

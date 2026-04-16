@@ -1,0 +1,12 @@
+{
+  "pathway_id": "peptic_ulcer_gastritis",
+  "sources": [
+    {
+      "id": "peptic_ulcer_gastritis_ref",
+      "source_id": "peptic_ulcer_gastritis_ref",
+      "title": "Ulcer/gastritis basics (starter)",
+      "url": "https://www.niddk.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

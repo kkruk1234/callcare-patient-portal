@@ -1,0 +1,10 @@
+{
+  "title": "Current Epidemic Trends (Based on Rt) for States | CFA: Modeling and Forecasting | CDC",
+  "url": "https://www.cdc.gov/cfa-modeling-and-forecasting/rt-estimates/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "rer to 1 with wide credible intervals, which reflects uncertainty in the true epidemic trend during these time periods. \nCaveats and limitations \nR t estimates are sensitive to assumptions about the generation interval (see definition) distribution. \nR t estimates may be over-or-underestimated if the proportion of infections that result in emergency department visits changes abruptly. These estimates can be impacted by shifts in clinical severity, increased or decreased use of clinical testing, or changes in reporting. \nMethods \nR t is defined as the average number of new infections caused by each infected person at a particular time, t . When R t > 1, infections are growing, and when R t < 1, infections are declining. The color categories in the maps above were determined by estimating a distribution of possible R t values based on the observed emergency department visit data and model assumptions (formally, a &ldquo;credible interval&rdquo;). We then calculate the proportion of that credible interval where the R t > 1. Credible intervals are determined using the EpiNow2 package, which uses a Bayesian model to estimate R t , while adjusting for delays and reporting effects.\nIf >90% of the credible interval distribution of R t >1, infections are growing \nIf 76%-90% of the credible interval distribution of R t > 1, infections are likely growing \nIf 26%-75% of the credible interv",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_modeling_and_forecasting_rt_estimates_index_html_011e1577cf58",
+  "chunk_id": "chunk_005"
+}

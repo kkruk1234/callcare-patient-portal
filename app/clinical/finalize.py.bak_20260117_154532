@@ -1,0 +1,188 @@
+from pathlib import Path
+from typing import Optional, Tuple, List
+import json
+import uuid
+
+from app.core.models import ReviewPacket, NoteDraft, CallState
+from app.clinical.note_builder import now_iso
+
+FINAL_DIR = Path("logs/finalized")
+MANIFESTS_DIR = Path("data/sources/pathways")
+
+
+def _extract_disposition_from_state(state: Optional[CallState]) -> Tuple[str, List[str]]:
+    """
+    Pull deterministic disposition + reasons from the state machine.
+    Backward-safe: if state is missing or fields aren't set, return defaults.
+    """
+    if state is None:
+        return "UNKNOWN", []
+
+    symptoms = getattr(state, "symptoms", None) or {}
+
+    disp = symptoms.get("_disposition") or "UNKNOWN"
+    reasons = symptoms.get("_disposition_reasons") or []
+
+    if not isinstance(reasons, list):
+        reasons = []
+    reasons = [str(r) for r in reasons if r]
+
+    return str(disp), reasons
+
+
+def _map_disposition_to_recommendation(disposition: str) -> str:
+    """
+    Map state machine disposition to the ReviewPacket recommended_disposition.
+    Keep strings predictable for downstream review tooling.
+    """
+    d = (disposition or "").strip().lower()
+    if d == "ed_now":
+        return "ED_NOW"
+    if d == "urgent_today":
+        return "URGENT_IN_PERSON_TODAY"
+    if d == "routine":
+        return "ROUTINE_HOME_CARE"
+    return "AUTO_FINALIZED_PROTOCOL"
+
+
+def _infer_pathway_id(note: NoteDraft, state: Optional[CallState]) -> str:
+    """
+    Prefer state machine pathway id if present; fall back to note.pathway_id if it exists.
+    Try multiple state locations because different flows store pathway differently.
+    """
+    if state is not None:
+        for attr in ("pathway_id", "pathway"):
+            try:
+                pid = getattr(state, attr, "") or ""
+                pid = str(pid).strip()
+                if pid:
+                    return pid
+            except Exception:
+                pass
+
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+            pid = str(pid).strip()
+            if pid:
+                return pid
+        except Exception:
+            pass
+
+    try:
+        pid = getattr(note, "pathway_id", "") or ""
+        pid = str(pid).strip()
+        if pid:
+            return pid
+    except Exception:
+        pass
+
+    return ""
+
+
+def _load_manifest_sources(pathway_id: str) -> List[dict]:
+    if not pathway_id:
+        return []
+    manifest_path = MANIFESTS_DIR / pathway_id / "manifest.json"
+    if not manifest_path.exists():
+        return []
+
+    try:
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+    sources = data.get("sources") or []
+    if not isinstance(sources, list):
+        return []
+
+    out: List[dict] = []
+    for s in sources:
+        if isinstance(s, dict):
+            out.append(s)
+    return out
+
+
+def _set_note_evidence_from_manifest(note: NoteDraft, pathway_id: str) -> None:
+    """
+    Replace note.evidence with citations based on manifest sources.
+    Ensures evidence is present even if RAG snippet retrieval returns empty.
+    """
+    sources = _load_manifest_sources(pathway_id)
+    if not sources:
+        return
+
+    evidence_items: List[dict] = []
+    for s in sources:
+        title = (s.get("title") or s.get("id") or pathway_id)
+        url = (s.get("url") or "")
+        sid = (s.get("id") or "")
+        snippet = f"Source from manifest: {sid}" if sid else "Source from manifest"
+        evidence_items.append(
+            {
+                "title": str(title),
+                "source": str(url) if url else str(title),
+                "snippet": snippet,
+                "url": str(url) if url else "",
+            }
+        )
+
+    try:
+        setattr(note, "evidence", evidence_items)
+        return
+    except Exception:
+        pass
+
+    try:
+        if isinstance(note, dict):
+            note["evidence"] = evidence_items
+    except Exception:
+        pass
+
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    """
+    Finalize a note into a ReviewPacket and write it to logs/finalized/<session_id>.json
+
+    ReviewPacket schema (current):
+      - packet_id (required)
+      - created_at (required)
+      - session_id
+      - note
+      - recommended_disposition
+      - status
+      - reviewer_id
+      - reviewer_comments
+    """
+    FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+    pid = _infer_pathway_id(note, state)
+    if pid:
+        _set_note_evidence_from_manifest(note, pid)
+
+    disposition, reasons = _extract_disposition_from_state(state)
+    recommended = _map_disposition_to_recommendation(disposition)
+
+    comments = "Tier-1 protocol auto-finalized"
+    if disposition != "UNKNOWN":
+        if reasons:
+            comments += f" | disposition={disposition} reasons={reasons}"
+        else:
+            comments += f" | disposition={disposition}"
+    if pid:
+        comments += f" | pathway_id={pid}"
+
+    packet = ReviewPacket(
+        packet_id=str(uuid.uuid4()),
+        created_at=now_iso(),
+        session_id=session_id,
+        note=note,
+        recommended_disposition=recommended,
+        status="APPROVED",
+        reviewer_id="SYSTEM",
+        reviewer_comments=comments,
+    )
+
+    out_path = FINAL_DIR / f"{session_id}.json"
+    out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+    return packet

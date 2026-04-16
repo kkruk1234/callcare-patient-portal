@@ -1,0 +1,41 @@
+id: eye_pain_vision_change
+version: 0.3
+match:
+  any_keywords: ["eye pain", "painful eye", "red eye pain", "vision change", "blurred vision", "halos", "rainbow rings", "vomiting with eye pain", "acute glaucoma", "angle closure"]
+
+questions:
+  - id: vision
+    prompt: "Is your vision significantly worse than normal right now? (yes/no)"
+    store_as: vision_loss
+    type: yesno
+
+  - id: severe
+    prompt: "Is the eye pain severe? (yes/no)"
+    store_as: severe_pain
+    type: yesno
+
+  - id: nausea_vomiting
+    prompt: "Do you have nausea or vomiting with the eye pain? (yes/no)"
+    store_as: nausea_vomiting
+    type: yesno
+
+  - id: contact
+    prompt: "Are you wearing contact lenses or did you wear them in the last 24 hours? (yes/no)"
+    store_as: contact_lens
+    type: yesno
+
+  - id: trauma
+    prompt: "Did anything hit your eye, or did you get an eye injury recently? (yes/no)"
+    store_as: eye_trauma
+    type: yesno
+
+  - id: pregnancy
+    prompt: "Is there any chance you could be pregnant? (yes/no/not applicable)"
+    store_as: pregnancy_possible
+
+stop_rules:
+  - if_all_answered: ["vision", "severe", "nausea_vomiting", "contact", "trauma", "pregnancy"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

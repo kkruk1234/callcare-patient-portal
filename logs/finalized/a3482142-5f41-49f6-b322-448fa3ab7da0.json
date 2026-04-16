@@ -1,0 +1,97 @@
+{
+  "packet_id": "12395b7e-9613-43f0-b800-323aab4aa4ca",
+  "created_at": "2026-01-30T00:48:51+00:00",
+  "session_id": "a3482142-5f41-49f6-b322-448fa3ab7da0",
+  "chief_complaint": "it burns when I pee",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "onset": "4 days ago",
+    "location": "my privates",
+    "course": "not sure",
+    "characteristics": "it feels like burning",
+    "aggravating": "nothing that I've noticed",
+    "associated": "none",
+    "treatments_tried": "no",
+    "severity": "moderate",
+    "age_years": 34,
+    "allergies": "penicillin",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old female presenting with a 4-day history of burning sensation during urination localized to her genital area. She describes the discomfort as moderate in severity and has not noticed any specific aggravating factors. She has not tried any treatments so far. There are no associated symptoms reported such as fever, flank pain, vaginal discharge, or bleeding. She has a known allergy to penicillin and is not pregnant.\n\nO:  \nPhone evaluation only; no physical examination or vital signs available.\n\nA:  \n- Working diagnosis (most likely): Uncomplicated lower urinary tract infection (cystitis)  \n- Differential:  \n  1. Urethritis (possibly infectious, including sexually transmitted infections)  \n  2. Vaginitis (irritative or infectious)  \n  3. Interstitial cystitis/painful bladder syndrome  \n  4. Chemical irritation or allergic reaction  \n- Red flags considered: No fever, flank pain, or systemic symptoms reported to suggest pyelonephritis or complicated UTI.\n\nP:  \n- Disposition: Patient can be managed with outpatient treatment and close follow-up.  \n- Plan: Empiric antibiotic therapy for uncomplicated cystitis is appropriate given the clinical presentation. Due to penicillin allergy, recommended regimen is nitrofurantoin 100 mg twice daily for 5 days or trimethoprim-sulfamethoxazole (if local resistance patterns allow and no sulfa allergy). Alternatively, fosfomycin single dose can be considered. Advise increased fluid intake and symptomatic relief measures such as urinary analgesics if needed. Recommend follow-up if symptoms worsen, persist beyond 7 days, or if systemic symptoms develop.  \n- Safety net: Instruct patient to seek urgent care if she develops fever, flank pain, worsening dysuria, hematuria, or any signs of systemic illness. If symptoms do not improve or worsen after completing antibiotics, further evaluation including urine culture and possible pelvic examination will be necessary.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Chlamydia - NHS",
+        "source": "https://www.nhs.uk/conditions/chlamydia/",
+        "snippet": "bleeding after sex or between periods a burning feeling when you pee pain in your lower tummy Symptoms in men Chlamydia can cause symptoms in men. These symptoms can affect anyone with a penis: white, cloudy or watery discharge from the tip of your penis burning and itching around the testicles (balls) and penis pain and swelling in the testicles a burning f…"
+      },
+      {
+        "title": "Nitrites in Urine: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/nitrites-in-urine/",
+        "snippet": "in your bladder Pain or burning when you pee Dark, cloudy, or reddish-colored urine Bad smelling urine Weakness, fatigue , or confusion, mainly in older people Fever , which may be a sign of a kidney infection If you have symptoms of a UTI, it's important to see your provider so you can start treatment right away, if needed. What happens during a nitrites in…"
+      },
+      {
+        "title": "Cystitis - NHS",
+        "source": "https://www.nhs.uk/conditions/cystitis/",
+        "snippet": "﻿ Cystitis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Cystitis Cystitis is a urinary tract infection (UTI) that affects the bladder. It's common, particularly in women. It often gets better by…"
+      },
+      {
+        "title": "Bladder pain syndrome (BPS) - NHS",
+        "source": "https://www.nhs.uk/conditions/bladder-pain-syndrome/",
+        "snippet": "oms worse, such as making you pee more take regular low-impact exercise, like walking, swimming or yoga, and try relaxation techniques such as mediation, as these may help with some symptoms Don&rsquo;t do not eat too much spicy food or acidic food (like citrus fruits) do not have too much alcohol or caffeinated drinks, such as energy drinks, tea or coffee C…"
+      },
+      {
+        "title": "Burns and scalds - NHS",
+        "source": "https://www.nhs.uk/conditions/burns-and-scalds/",
+        "snippet": "﻿ Burns and scalds - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Burns and scalds Contents Overview Treatment Recovery Complications Prevention Burns and scalds are damage to the s…"
+      },
+      {
+        "title": "CDC: Urinary Tract Infection Basics",
+        "source": "https://www.cdc.gov/uti/about/index.html",
+        "snippet": "clear search UTI Menu clear search For Everyone UTI View All Health Care Providers Urinary Catheter Culture Stewardship Clinical Safety View All Related Topics Antibiotic Prescribing and Use Healthcare-Associated Infections (HAIs) UTI &nbsp; January 22, 2024 Español Urinary Tract Infection Basics Key points Do you have pain or burning when you urinate? You m…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Chlamydia - NHS",
+      "source": "https://www.nhs.uk/conditions/chlamydia/",
+      "snippet": "bleeding after sex or between periods a burning feeling when you pee pain in your lower tummy Symptoms in men Chlamydia can cause symptoms in men. These symptoms can affect anyone with a penis: white, cloudy or watery discharge from the tip of your penis burning and itching around the testicles (balls) and penis pain and swelling in the testicles a burning f…"
+    },
+    {
+      "title": "Nitrites in Urine: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/nitrites-in-urine/",
+      "snippet": "in your bladder Pain or burning when you pee Dark, cloudy, or reddish-colored urine Bad smelling urine Weakness, fatigue , or confusion, mainly in older people Fever , which may be a sign of a kidney infection If you have symptoms of a UTI, it's important to see your provider so you can start treatment right away, if needed. What happens during a nitrites in…"
+    },
+    {
+      "title": "Cystitis - NHS",
+      "source": "https://www.nhs.uk/conditions/cystitis/",
+      "snippet": "﻿ Cystitis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Cystitis Cystitis is a urinary tract infection (UTI) that affects the bladder. It's common, particularly in women. It often gets better by…"
+    },
+    {
+      "title": "Bladder pain syndrome (BPS) - NHS",
+      "source": "https://www.nhs.uk/conditions/bladder-pain-syndrome/",
+      "snippet": "oms worse, such as making you pee more take regular low-impact exercise, like walking, swimming or yoga, and try relaxation techniques such as mediation, as these may help with some symptoms Don&rsquo;t do not eat too much spicy food or acidic food (like citrus fruits) do not have too much alcohol or caffeinated drinks, such as energy drinks, tea or coffee C…"
+    },
+    {
+      "title": "Burns and scalds - NHS",
+      "source": "https://www.nhs.uk/conditions/burns-and-scalds/",
+      "snippet": "﻿ Burns and scalds - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Burns and scalds Contents Overview Treatment Recovery Complications Prevention Burns and scalds are damage to the s…"
+    },
+    {
+      "title": "CDC: Urinary Tract Infection Basics",
+      "source": "https://www.cdc.gov/uti/about/index.html",
+      "snippet": "clear search UTI Menu clear search For Everyone UTI View All Health Care Providers Urinary Catheter Culture Stewardship Clinical Safety View All Related Topics Antibiotic Prescribing and Use Healthcare-Associated Infections (HAIs) UTI &nbsp; January 22, 2024 Español Urinary Tract Infection Basics Key points Do you have pain or burning when you urinate? You m…"
+    }
+  ]
+}

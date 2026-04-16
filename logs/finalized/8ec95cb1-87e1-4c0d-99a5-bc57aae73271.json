@@ -1,0 +1,80 @@
+{
+  "packet_id": "475b296c-bd70-4767-a63b-9148d7a19922",
+  "created_at": "2026-03-03T12:51:45.156148+00:00",
+  "session_id": "8ec95cb1-87e1-4c0d-99a5-bc57aae73271",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any swelling, bruising, or tenderness over the area where your back hurts?",
+    "intake_a7": "tenderness",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what were they and did they help?",
+    "intake_a8": "I tried tylenol but it didn't really help much",
+    "intake_q9": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent travel?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adult",
+      "adult back pain treatment dosing acetaminophen alternatives",
+      "red flags back pain when to seek emergency care"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, difficulty breathing, coughing, chest pain, numbness, weakness, or tingling in her legs or feet. She reports tenderness over the painful area. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, recent infections, osteoporosis, cancer, or recent travel. No known medication allergies. Pregnancy is not possible. O: Phone evaluation only; no physical exam or vitals available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage without systemic symptoms or neurological deficits, likely due to soft tissue strain or inflammation.\nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Intercostal muscle strain\n4. Early presentation of a visceral cause such as renal or pleural pathology (less likely given absence of systemic symptoms)\n\nP:\n- First-line medication: NSAIDs such as ibuprofen or naproxen for pain and inflammation\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - Medication safety considerations: Avoid NSAIDs if history of renal or liver disease, gastrointestinal ulcers, or bleeding disorders; use acetaminophen cautiously in liver disease\n - Return precautions: Seek urgent care if fever, worsening pain, new neurological symptoms, difficulty breathing, chest pain, or unexplained weight loss develop\n - Testing: Not indicated at this time given absence of red flags; consider imaging or labs if symptoms worsen or fail to improve with conservative management",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "WHO releases guidelines on chronic low back pain",
+        "source": "WHO",
+        "url": "https://www.who.int/news/item/07-12-2023-who-releases-guidelines-on-chronic-low-back-pain",
+        "accessed": "2026-03-03",
+        "snippet": "The World Health Organization (WHO) is releasing its first-ever guidelines on managing chronic low back pain (LBP) in primary and community care settings, listing interventions for health workers to use and also to not use during routine care."
+      },
+      {
+        "title": "Back Pain - StatPearls - NCBI Bookshelf",
+        "source": "NIH",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538173/",
+        "accessed": "2026-03-03",
+        "snippet": "Back pain is one of the most common reasons for primary- and emergency-care consultations. An estimated $200 billion is spent annually on managing back pain. Additionally, work hours, productivity, and workers"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "WHO releases guidelines on chronic low back pain",
+      "source": "WHO",
+      "snippet": "The World Health Organization (WHO) is releasing its first-ever guidelines on managing chronic low back pain (LBP) in primary and community care settings, listing interventions for health workers to use and also to not use during routine care."
+    },
+    {
+      "title": "Back Pain - StatPearls - NCBI Bookshelf",
+      "source": "NIH",
+      "snippet": "Back pain is one of the most common reasons for primary- and emergency-care consultations. An estimated $200 billion is spent annually on managing back pain. Additionally, work hours, productivity, and workers"
+    }
+  ],
+  "state": null
+}

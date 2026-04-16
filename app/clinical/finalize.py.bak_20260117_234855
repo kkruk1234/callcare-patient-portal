@@ -1,0 +1,226 @@
+from pathlib import Path
+from typing import Optional, Tuple, List
+import json
+import re
+
+from app.core.models import ReviewPacket, NoteDraft, CallState, EvidenceRef
+from app.clinical.note_builder import now_iso
+
+FINAL_DIR = Path("logs/finalized")
+MANIFESTS_DIR = Path("data/sources/pathways")
+
+
+def _extract_disposition_from_state(state: Optional[CallState]) -> Tuple[str, List[str]]:
+    if state is None:
+        return "UNKNOWN", []
+
+    symptoms = getattr(state, "symptoms", None) or {}
+    disp = symptoms.get("_disposition") or "UNKNOWN"
+    reasons = symptoms.get("_disposition_reasons") or []
+
+    if not isinstance(reasons, list):
+        reasons = []
+    reasons = [str(r) for r in reasons if r]
+    return str(disp), reasons
+
+
+def _map_disposition_to_recommendation(disposition: str) -> str:
+    d = (disposition or "").strip().lower()
+    if d == "ed_now":
+        return "ED_NOW"
+    if d == "urgent_today":
+        return "URGENT_IN_PERSON_TODAY"
+    if d == "routine":
+        return "ROUTINE_HOME_CARE"
+    return "AUTO_FINALIZED_PROTOCOL"
+
+
+def _infer_pathway_id(note: NoteDraft, state: Optional[CallState]) -> str:
+    if state is not None:
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+            pid = str(pid).strip()
+            if pid:
+                return pid
+        except Exception:
+            pass
+
+    try:
+        pid = getattr(note, "pathway_id", "") or ""
+        pid = str(pid).strip()
+        if pid:
+            return pid
+    except Exception:
+        pass
+
+    return ""
+
+
+def _load_manifest_sources(pathway_id: str) -> List[dict]:
+    if not pathway_id:
+        return []
+    manifest_path = MANIFESTS_DIR / pathway_id / "manifest.json"
+    if not manifest_path.exists():
+        return []
+
+    try:
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+    sources = data.get("sources") or []
+    if not isinstance(sources, list):
+        return []
+
+    out: List[dict] = []
+    for s in sources:
+        if isinstance(s, dict):
+            out.append(s)
+    return out
+
+
+def _mk_evidence_ref(title: str, url: str, snippet: str, sid: str) -> EvidenceRef:
+    # EvidenceRef schema can vary slightly; keep safe fields.
+    payload = {}
+    if hasattr(EvidenceRef, "model_fields"):  # pydantic v2
+        fields = set(EvidenceRef.model_fields.keys())
+    else:
+        fields = set(getattr(EvidenceRef, "__fields__", {}).keys())
+
+    if "title" in fields:
+        payload["title"] = title
+    if "url" in fields:
+        payload["url"] = url
+    if "source" in fields:
+        payload["source"] = url or title
+    if "snippet" in fields:
+        payload["snippet"] = snippet
+    if "source_id" in fields:
+        payload["source_id"] = sid
+
+    return EvidenceRef(**payload)
+
+
+def _set_note_evidence_from_manifest(note: NoteDraft, pathway_id: str) -> None:
+    sources = _load_manifest_sources(pathway_id)
+    if not sources:
+        return
+
+    ev: List[EvidenceRef] = []
+    for s in sources:
+        title = str((s.get("title") or s.get("id") or pathway_id) or "").strip() or pathway_id
+        url = str((s.get("url") or "") or "").strip()
+        sid = str((s.get("id") or "") or "").strip()
+        snippet = f"Manifest source_id={sid}" if sid else "Manifest source"
+        ev.append(_mk_evidence_ref(title=title, url=url, snippet=snippet, sid=sid))
+
+    try:
+        setattr(note, "evidence", ev)
+    except Exception:
+        pass
+
+
+def _age_years_from_state(state: Optional[CallState]) -> Optional[int]:
+    if state is None:
+        return None
+    sx = getattr(state, "symptoms", None) or {}
+    for k in ("age_years", "age", "age_in_years"):
+        v = sx.get(k) if isinstance(sx, dict) else None
+        if v is not None and str(v).strip() != "":
+            try:
+                return int(float(v))
+            except Exception:
+                pass
+    # also check attributes
+    for attr in ("age_years", "age"):
+        v = getattr(state, attr, None)
+        if v is not None and str(v).strip() != "":
+            try:
+                return int(float(v))
+            except Exception:
+                pass
+    return None
+
+
+def _ensure_age_in_subjective(note: NoteDraft, state: Optional[CallState]) -> None:
+    """
+    If soap exists but doesn't mention numeric age, inject a clean 'Patient is a <age>-year-old ...' in S section.
+    """
+    try:
+        soap = getattr(note, "soap", "") or ""
+    except Exception:
+        return
+    soap_s = str(soap)
+
+    age = _age_years_from_state(state)
+    if age is None:
+        return
+
+    # If numeric age already present (e.g., "14-year-old"), do nothing.
+    if re.search(rf"\b{age}\s*-\s*year\s*-\s*old\b|\b{age}\s*year\s*old\b|\b{age}\s*-\s*year\s*old\b|\b{age}-year-old\b", soap_s, flags=re.IGNORECASE):
+        return
+
+    # If any "<number>-year-old" already present, do nothing (avoid double-age)
+    if re.search(r"\b\d{1,3}\s*-\s*year\s*-\s*old\b|\b\d{1,3}-year-old\b", soap_s, flags=re.IGNORECASE):
+        return
+
+    lines = soap_s.splitlines()
+    out = []
+    injected = False
+
+    for ln in lines:
+        if not injected and ln.lstrip().startswith("S:"):
+            # If S: line is empty or short, append a sentence.
+            if ln.strip() == "S:" or ln.strip() == "S:":
+                out.append(ln.rstrip())
+                out.append(f"Patient is a {age}-year-old presenting by phone.")
+            else:
+                # Add a short clause after "S:" if it doesn't already mention age.
+                out.append(ln.rstrip() + f" Patient is a {age}-year-old.")
+            injected = True
+        else:
+            out.append(ln.rstrip())
+
+    new_soap = "\n".join(out).strip() + "\n"
+    try:
+        setattr(note, "soap", new_soap)
+    except Exception:
+        pass
+
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+    pid = _infer_pathway_id(note, state)
+    if pid:
+        _set_note_evidence_from_manifest(note, pid)
+
+    # Ensure age appears in Subjective if missing
+    _ensure_age_in_subjective(note, state)
+
+    disposition, reasons = _extract_disposition_from_state(state)
+    recommended = _map_disposition_to_recommendation(disposition)
+
+    comments = "Tier-1 protocol auto-finalized"
+    if disposition != "UNKNOWN":
+        if reasons:
+            comments += f" | disposition={disposition} reasons={reasons}"
+        else:
+            comments += f" | disposition={disposition}"
+    if pid:
+        comments += f" | pathway_id={pid}"
+
+    packet = ReviewPacket(
+        session_id=session_id,
+        timestamp_iso=now_iso(),
+        note=note,
+        recommended_disposition=recommended,
+        status="APPROVED",
+        reviewer_id="SYSTEM",
+        reviewer_comments=comments,
+    )
+
+    out_path = FINAL_DIR / f"{session_id}.json"
+    out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+    return packet

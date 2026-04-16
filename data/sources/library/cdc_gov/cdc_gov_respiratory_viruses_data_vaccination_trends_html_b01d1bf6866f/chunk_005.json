@@ -1,0 +1,10 @@
+{
+  "title": "Vaccination Trends | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/vaccination-trends.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "aken via a survey. 95% CIs represent the range of values that would result if the data collection had been repeated many times. For a 95% CI, if the sampling method is repeated many times, the value would fall within this interval at least 95% of the time. Wider CIs reflect larger random error in estimates resulting from survey sampling. \nCOVID-19 vaccination coverage estimates presented in this report represent uptake or intent for uptake of the 2025-26 COVID-19 vaccine. For children &ge;2 years, up-to-date with the 2025-2026 COVID-19 vaccine is defined as receipt of at least one vaccination since September 2025; for children <2 years, up-to-date status is defined based on the current recommendations that also take into account number of doses and brand of vaccine. Up-to-date status was determined by survey questions on month and year of most recent COVID-19 vaccine, and, for children <2 years, total number of COVID-19 vaccinations received and brand of most recent COVID-19 vaccine. \nEstimates from the NIS-Flu may differ from estimates based on other data sources, and are subject to errors resulting from incomplete sample frame (exclusion of households without cell phones), selection bias (survey respondents may be more likely to be vaccinated than non-respondents), and errors in self or parental reported vaccination status. Estimates are weighted to selected sociodemographic",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_vaccination_trends_html_b01d1bf6866f",
+  "chunk_id": "chunk_005"
+}

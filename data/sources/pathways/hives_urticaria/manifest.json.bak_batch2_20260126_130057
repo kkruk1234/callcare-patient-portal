@@ -1,0 +1,25 @@
+{
+  "pathway_id": "hives_urticaria",
+  "sources": [
+    {
+      "title": "Urticaria: Managing urticaria (CKS)",
+      "source": "NICE Clinical Knowledge Summaries (CKS)",
+      "url": "https://cks.nice.org.uk/topics/urticaria/management/managing-urticaria/"
+    },
+    {
+      "title": "The diagnosis and management of acute and chronic urticaria (Practice Parameter)",
+      "source": "AAAAI/ACAAI Joint Task Force on Practice Parameters (2014)",
+      "url": "https://www.aaaai.org/Aaaai/media/MediaLibrary/PDF%20Documents/Practice%20and%20Parameters/Urticaria-2014.pdf"
+    },
+    {
+      "title": "International guideline for urticaria (EAACI/GA\u00b2LEN/EuroGuiDerm/APAAACI) \u2013 2021/2022 update",
+      "source": "Allergy (EAACI guideline) \u2013 PDF",
+      "url": "https://www.guidelines.edf.one/uploads/attachments/cl263w4y200oilajn3li6nqa1-urticaria-2021-gl.pdf"
+    },
+    {
+      "title": "Hives (urticaria) \u2013 overview",
+      "source": "MedlinePlus",
+      "url": "https://medlineplus.gov/hives.html"
+    }
+  ]
+}

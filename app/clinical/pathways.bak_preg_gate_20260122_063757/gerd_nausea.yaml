@@ -1,0 +1,30 @@
+id: gerd_nausea
+version: 0.1
+match:
+  any_keywords: ["heartburn", "acid reflux", "gerd", "burning chest after meals", "sour taste", "regurgitation", "indigestion", "nausea after eating"]
+questions:
+  - id: redflags
+    prompt: "Any chest pressure with exertion, fainting, or severe trouble breathing? (yes/no)"
+    store_as: cardiac_redflags
+    type: yesno
+
+  - id: vomiting_blood
+    prompt: "Any vomiting blood, black/tarry stool, or severe persistent vomiting? (yes/no)"
+    store_as: gi_bleed_redflags
+    type: yesno
+
+  - id: swallow
+    prompt: "Any trouble swallowing or food getting stuck? (yes/no)"
+    store_as: dysphagia
+    type: yesno
+
+  - id: duration
+    prompt: "How long has this been happening?"
+    store_as: duration
+
+stop_rules:
+  - if_all_answered: ["redflags", "vomiting_blood", "swallow", "duration"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

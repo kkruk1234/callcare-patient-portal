@@ -1,0 +1,10 @@
+{
+  "title": "Hospital Sepsis Program Core Elements | Sepsis | CDC",
+  "url": "https://www.cdc.gov/sepsis/hcp/core-elements/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "institutional guidelines\nDenominator: Hospitalizations meeting criteria for sepsis and initiated on systemic antimicrobial therapy \nSepsis management \nAdditional \nLactate remeasurement \nNumerator: Hospitalizations with a lactate measurement within 3 hours of arrival in community-onset sepsis or 3 hours of onset of hospital-onset sepsis\nDenominator: Hospitalizations meeting criteria for sepsis \nSepsis management \nAdditional \nBlood culture prior to antimicrobial initiation \nNumerator: Hospitalizations with a lactate collected within 4 hours of the collection of the first lactate measurement &ge;2 mmol/L |\nDenominator: Hospitalizations meeting criteria for sepsis and with a lactate measurement &ge;2 mmol/L \nSepsis management \nAdditional \nFluid resuscitation \nNumerator: Hospitalizations receiving &ge;30 ml/kg crystalloid fluid within 6 hours of evidence of low blood pressure and/or elevated lactate\nDenominator: Hospitalizations meeting criteria for sepsis, with low blood pressure (e.g., SBP<90, MAP<65, or initiated on vasopressor therapy) and/or elevated lactate (&ge;2-4 mmol/L), and without contraindications to fluid administration (e.g., excluding patients with severely reduced cardiac function, end-stage renal disease, or evidence of fluid overload) \nSepsis management \nAdditional \nFluid type \nNumerator: &ge;75% of crystalloid fluid resuscitation provided as a balanced solution",
+  "source_type": "library",
+  "source_id": "cdc_gov_sepsis_hcp_core_elements_index_html_ba504aef1d0a",
+  "chunk_id": "chunk_037"
+}

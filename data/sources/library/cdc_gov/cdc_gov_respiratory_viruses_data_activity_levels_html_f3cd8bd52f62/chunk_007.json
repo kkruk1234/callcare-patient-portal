@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Activity Levels | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/activity-levels.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "M + 3D < X \nMissouri: Due to data quality issues, Missouri's historical data before MMWR Week 10 of 2025 (March 2-8, 2025) could not be used for computing levels, thus leaving insufficient data. To address this, data from all of HHS Region 7 (Missouri, Iowa, Kansas, and Nebraska) were used to compute the 2025-2026 levels for Missouri, excluding Missouri's data prior to 2025 Week 10 in the regional aggregation. \nHospital Service Area (HSAs): &#8239;HSAs were created by CDC's National Center for Health Statistics (NCHS) in 1996. An HSA is an area that is relatively self-contained with respect to hospital care. There are 949 HSAs. HSAs can vary in size, encompassing a single city, a county or a larger region within a state. Areas with higher population concentrations may have smaller HSAs to ensure adequate healthcare access, while sparsely populated regions might have larger HSAs that cover a broader geographical area. The National Institutes of Health National Cancer Institute (NCI) modified the HSA designations so that any HSA that crossed state or Surveillance, Epidemiology, and End Results (SEER) Registry boundaries was split so that all counties from one HSA were in one state and/or SEER Registry. The NCI SEER dataset can be accessed here:&#8239; Health Service Areas (HSA) - SEER Datasets (cancer.gov) \nDisplay criteria for sub-state levels (categories): \nJurisdictions may el",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_activity_levels_html_f3cd8bd52f62",
+  "chunk_id": "chunk_007"
+}

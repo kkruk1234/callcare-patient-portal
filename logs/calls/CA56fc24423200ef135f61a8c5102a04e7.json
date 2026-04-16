@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA56fc24423200ef135f61a8c5102a04e7",
+  "session_id": "79be69c8-7fb8-495e-9925-21afb978688b",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T12:05:57.707357+00:00",
+  "ended_at": "2026-04-03T12:12:22.233760+00:00",
+  "packet_id": "a1b80d15-8c54-4424-8ff1-562fbd38dfbc",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "At night, I am very twitchy. Like, I have a lot of twitches of my, like, my calf muscles."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first notice these calf muscle twitches, and how often do they occur at night?"
+    },
+    {
+      "role": "user",
+      "text": "When did I first notice? It's been going on and off for years now. It got better when I started taking iron,"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any weakness, numbness, or pain in your legs along with the twitching?"
+    },
+    {
+      "role": "user",
+      "text": "but it I don't know if I'm just not taking a high enough."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent blood tests to check your iron levels or other labs related to this twitching?"
+    },
+    {
+      "role": "user",
+      "text": "Okay."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent blood tests to check your iron levels, and if so, what were the results?"
+    },
+    {
+      "role": "user",
+      "text": "Pain in my legs. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed if the twitching occurs only at night or also during the day?"
+    },
+    {
+      "role": "user",
+      "text": "No. But you keep interrupting me, which is a I already answered this and said no. It occurs during the early evening and then into night."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any other symptoms like difficulty sleeping, leg cramps, or restless legs sensations along with the twitching?"
+    },
+    {
+      "role": "user",
+      "text": "I have had some leg cramps the last 2 days."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been diagnosed with restless legs syndrome or any other neurological conditions?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling, redness, or warmth in your legs along with the cramps and twitching?"
+    },
+    {
+      "role": "user",
+      "text": "No. Not really."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing, chest pain, or recent trauma to your legs?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe your current iron supplementation regimen, including dose and frequency?"
+    },
+    {
+      "role": "user",
+      "text": "No. I I don't have it directly in front of me. But I take it once a day."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like your calf muscle twitching is most likely related to low iron levels or not enough iron supplementation. Since I can’t examine you or run tests over the phone, a licensed physician will review your information and may recommend iron supplements if appropriate. For now, you can continue any iron supplements you’re taking, but if you notice new symptoms like leg weakness, numbness, swelling, or severe muscle pain, please seek urgent in-person care. If you experience sudden chest pain, difficulty breathing, or severe symptoms, go to the emergency room right away. A doctor may also want to check your blood to better understand your iron levels and rule out other causes. If your symptoms worsen or don’t improve, getting an in-person evaluation would be important."
+    }
+  ]
+}

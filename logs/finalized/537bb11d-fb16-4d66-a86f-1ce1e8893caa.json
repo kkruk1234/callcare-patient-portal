@@ -1,0 +1,117 @@
+{
+  "packet_id": "753a2b73-0524-4385-b8e1-02629f4994c0",
+  "created_at": "2026-03-04T14:39:37.769938+00:00",
+  "session_id": "537bb11d-fb16-4d66-a86f-1ce1e8893caa",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain radiating to your abdomen, groin, or legs?",
+    "intake_a5": "no",
+    "intake_q6": "Any difficulty breathing, coughing, or chest pain along with your back pain?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a8": "I tried tylenol but it didn't really help much",
+    "intake_q9": "Have you noticed any changes in your bowel or bladder function since the back pain started?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of kidney stones, urinary tract infections, or other kidney problems?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "NSAID dosing for musculoskeletal back pain",
+      "treatment of intercostal muscle strain",
+      "management of costochondritis pain",
+      "indications for imaging in rib cage pain"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with back pain localized to the left side of the lower rib cage that started approximately 3 weeks ago. She denies any recent injury, trauma, or heavy lifting prior to onset. There are no associated symptoms such as fever, chills, unexplained weight loss, pain radiating to the abdomen, groin, or legs, difficulty breathing, coughing, chest pain, numbness, weakness, tingling in the legs or feet, or changes in bowel or bladder function. She has no history of kidney stones, urinary tract infections, or other kidney problems. She has tried acetaminophen (Tylenol) without significant relief.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal pain likely related to strain or minor soft tissue injury localized to the left lower rib cage area. Differential diagnoses include 1) intercostal muscle strain, 2) costochondritis, 3) referred pain from underlying visceral pathology (less likely given absence of systemic symptoms), and 4) early presentation of rib fracture or other structural abnormality.\n\nP: \n- First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours with food, not to exceed 1200 mg per day, for up to 7 days.\n- Alternatives: Naproxen 250 mg orally twice daily with food for up to 7 days.\n- Medication safety considerations: Use NSAIDs with caution if history of gastrointestinal issues; avoid if patient develops abdominal pain or signs of bleeding. Ensure adequate hydration and take with food to minimize GI irritation.\n- Return precautions: Advise patient to seek urgent care if she develops worsening pain, new onset fever, chest pain, difficulty breathing, numbness or weakness in legs, or changes in bowel or bladder function.\n- Testing: Not indicated at this time given lack of red flag symptoms; consider imaging if symptoms persist beyond 4-6 weeks or worsen despite treatment.\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Management of Acute Musculoskeletal Pain - Clinical Practice Guideline | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/musculoskeletal-pain.html",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      },
+      {
+        "title": "New guideline for managing acute pain from musculoskeletal injuries | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/afp-community-blog/entry/new-guideline-for-managing-acute-pain-from-musculoskeletal-injuries.html",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis: Diagnosis and Treatment | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2009/0915/p617.html/1000",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "mayoclinic.org",
+        "url": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis:​ Rapid Evidence Review",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2021/0700/p73.pdf",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Management of Acute Musculoskeletal Pain - Clinical Practice Guideline | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "New guideline for managing acute pain from musculoskeletal injuries | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Costochondritis: Diagnosis and Treatment | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+      "source": "mayoclinic.org",
+      "snippet": ""
+    },
+    {
+      "title": "Costochondritis:​ Rapid Evidence Review",
+      "source": "aafp.org",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

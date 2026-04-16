@@ -1,0 +1,40 @@
+# Clinician-facing medication/dosing protocol for: tick_bite
+# Tier 1: reviewer must approve/modify/prescribe.
+
+rx_options:
+  - med: "Doxycycline"
+    dosing: "100 mg PO twice daily x 10 days"
+    exclusions: "Avoid in pregnancy; avoid in children < 8 years; check tetracycline allergy."
+    notes: "First-line for erythema migrans / early localized Lyme disease when not pregnant."
+
+  - med: "Amoxicillin"
+    dosing: "500 mg PO three times daily x 14 days"
+    exclusions: "Avoid if penicillin allergy."
+    notes: "Alternative first-line; preferred option in pregnancy when treatment indicated."
+
+  - med: "Cefuroxime axetil"
+    dosing: "500 mg PO twice daily x 14 days"
+    exclusions: "Avoid if severe cephalosporin allergy."
+    notes: "Alternative first-line regimen."
+
+  - med: "Azithromycin"
+    dosing: "500 mg PO once daily x 7 days"
+    exclusions: "Use only if unable to take doxycycline/amoxicillin/cefuroxime; QT risk/interaction review."
+    notes: "Less effective; reserve for intolerance/contraindications to preferred regimens."
+
+supportive_care:
+  - item: "Local care"
+    details: "Clean the bite area; avoid scratching; consider cool compress for itch/swelling."
+
+  - item: "Symptom control"
+    details: "OTC analgesics/antipyretics if safe (avoid dosing instructions by phone)."
+
+followup_and_safety:
+  - item: "Follow-up"
+    details: "Follow up with urgent care/primary care within 1 week to reassess rash progression and any new symptoms."
+
+  - item: "Do not rely on serology for classic erythema migrans"
+    details: "If classic erythema migrans is present, treatment is typically recommended without waiting for lab confirmation."
+
+  - item: "Return precautions"
+    details: "Seek urgent care/ED if fever, worsening/spreading rash, severe headache/neck stiffness, facial weakness, neurologic symptoms, chest pain/palpitations/syncope, shortness of breath, or other systemic symptoms develop."

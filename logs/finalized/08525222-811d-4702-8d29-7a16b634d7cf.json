@@ -1,0 +1,40 @@
+{
+  "packet_id": "83145274-078b-487a-9c80-c61800ffa654",
+  "created_at": "2026-01-27T21:34:42.839738+00:00",
+  "session_id": "08525222-811d-4702-8d29-7a16b634d7cf",
+  "chief_complaint": "it burns when I pee",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "minor_burn",
+  "answers": {
+    "location": "3 days ago",
+    "size": "moderate",
+    "deep": "no",
+    "face_hands_genitals": "no",
+    "inhalation": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with a complaint of burning sensation when urinating. There is a history of a moderate-sized burn that occurred 3 days ago. The burn is not deep, does not involve the face, hands, or genitals, and there was no inhalation injury. The patient has a penicillin allergy.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Superficial moderate burn injury without involvement of special areas.\n - Differential:\n  1. Superficial burn-related skin irritation causing dysuria.\n  2. Urinary tract infection (not confirmed, no symptoms reported).\n  3. Chemical irritation or contact dermatitis.\n  4. Other causes of dysuria unrelated to burn (not assessable from current data).\n - Red flags considered: No deep burn, no involvement of face/hands/genitals, no inhalation injury, no signs of systemic infection reported.\n\nP:\n - Disposition: Patient can be managed conservatively at home with close monitoring.\n - Plan: Advise gentle wound care for the burn area, avoid irritants, maintain hydration, and monitor for signs of infection or worsening symptoms. If dysuria persists or worsens, or if new symptoms develop, patient should seek in-person evaluation.\n - Safety net: Instruct patient to seek urgent care if they develop increasing pain, spreading redness, fever, difficulty urinating, or if the burn worsens or shows signs of infection.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "MedlinePlus: Burns",
+        "source": "https://medlineplus.gov/burns.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/burns.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "MedlinePlus: Burns",
+      "source": "https://medlineplus.gov/burns.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/burns.html"
+    }
+  ]
+}

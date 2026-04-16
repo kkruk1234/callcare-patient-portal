@@ -1,0 +1,15 @@
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+
+app = FastAPI()
+
+@app.get("/", response_class=HTMLResponse)
+async def home():
+    return """
+    <html>
+      <body>
+        <h1>CallCare Physician Portal</h1>
+        <p>If you see this, the new file is loaded correctly.</p>
+      </body>
+    </html>
+    """

@@ -1,0 +1,10 @@
+{
+  "title": "Companion Guide: NSSP ED Data on Respiratory Illness | National Syndromic Surveillance Program (NSSP) | CDC",
+  "url": "https://www.cdc.gov/nssp/php/onboarding-resources/companion-guide-ed-data-respiratory-illness.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": ", and Systematized Nomenclature of Medicine &ndash; Clinical Terms (SNOMED CT). Please note that conditions can be defined in different ways in electronic healthcare data, and some jurisdictions may use different definitions. Short codes listed capture all codes underneath (J09 captures J09.X1-J09.X9).\nCOVID-19 \nDefinition name in the NSSP Electronic Surveillance System for the Early Notification of Community-Based Epidemics (ESSENCE) system: CDC COVID-Specific DD v1\nDefinition name in the NSSP Electronic Surveillance System for the Early Notification of Community-Based Epidemics (ESSENCE) system: CDC COVID-Specific DD v1 \nCode Type \nCodes \nCode Description \nInclusions \nICD-10-CM \nJ12.82 \nPneumonia due to coronavirus disease 2019 \nU07.1 \nCOVID-19 \nSNOMED CT \n840539006 \nDisease caused by severe acute respiratory syndrome coronavirus 2 \n840544004 \nSuspected disease caused by severe acute respiratory coronavirus 2 \n840533007 \nSevere acute respiratory syndrome coronavirus 2 \nInfluenza \nDefinition name in the NSSP ESSENCE system: CDC Influenza DD v1\nDefinition name in the NSSP ESSENCE system: CDC Influenza DD v1 \nCode Type \nCodes \nCode Description \nInclusions \nICD-10-CM \nJ09 \nInfluenza due to certain identified influenza viruses \nJ10 \nInfluenza due to other identified influenza viruses \nJ11 \nInfluenza due to unidentified influenza virus \nICD-9-CM \n487.0 \nInfluenza with pneumonia \n48",
+  "source_type": "library",
+  "source_id": "cdc_gov_nssp_php_onboarding_resources_companion_guide_ed_data_respiratory_illness_html_94e900f07561",
+  "chunk_id": "chunk_005"
+}

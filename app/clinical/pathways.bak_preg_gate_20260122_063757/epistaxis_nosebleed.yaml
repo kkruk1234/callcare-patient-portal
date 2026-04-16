@@ -1,0 +1,22 @@
+id: epistaxis_nosebleed
+version: 0.1
+match:
+  any_keywords: ["nosebleed", "nose bleeding", "bleeding from nose", "epistaxis"]
+questions:
+  - id: heavy
+    prompt: "Is the bleeding heavy? (yes/no)"
+    store_as: heavy_bleeding
+    type: yesno
+  - id: faint
+    prompt: "Do you feel faint or weak? (yes/no)"
+    store_as: faint_or_weak
+    type: yesno
+  - id: blood_thinners
+    prompt: "Are you on blood thinners like warfarin, Eliquis, or Xarelto? (yes/no)"
+    store_as: anticoagulant
+    type: yesno
+stop_rules:
+  - if_all_answered: ["heavy", "faint", "blood_thinners"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

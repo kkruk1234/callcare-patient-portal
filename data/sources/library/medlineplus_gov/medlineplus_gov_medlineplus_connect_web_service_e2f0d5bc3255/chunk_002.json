@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Service",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-service/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "e as a Web application or Web service. Below are the technical details for implementing the Web service, which responds to requests based on: diagnosis (problem) code requests, drug code requests, lab test code requests, and medical procedure code requests.\nYou are welcome to link to and display the data returned by MedlinePlus Connect. You may not copy MedlinePlus pages onto your site. If you use data from the MedlinePlus Connect Web Service, please indicate that the information is from MedlinePlus.gov but do not use the MedlinePlus logo or otherwise imply that MedlinePlus endorses your particular product. For more information on how to link to MedlinePlus content outside of this service, please see our guidelines and instructions on linking.\nIf you decide to use MedlinePlus Connect, sign up for the email list to keep up with developments and exchange ideas with your colleagues. Please tell us if you implement MedlinePlus Connect by contacting us .\nWeb Service Overview \nThe parameters for the Web service requests conform to the HL7 Context-Aware Knowledge Retrieval (Infobutton) Knowledge Request URL-Based Implementation Guide . The REST-based response conforms to the HL7 Context-Aware Knowledge Retrieval (Infobutton) Service-Oriented Architecture Implementation Guide . The output of the request can be XML in the Atom feed format, JSON, or JSONP.\nThe structure of the request in",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_service_e2f0d5bc3255",
+  "chunk_id": "chunk_002"
+}

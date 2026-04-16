@@ -1,0 +1,42 @@
+# Clinician-facing medication/dosing protocol for: otitis_externa
+# Tier 1: async physician approval
+#
+# Goal: provide ONE primary regimen appropriate for typical AOE, with brief alternatives.
+# Otic therapy is preferred unless cellulitis beyond canal/systemic infection.
+
+requires_pregnancy_status: true
+
+rx_options:
+  - med: "Ciprofloxacin/dexamethasone otic (e.g., Ciprodex)"
+    dosing: "4 drops into affected ear BID x 7 days"
+    exclusions: "Otic use. If severe canal edema prevents drops, may require wick/in-person care."
+    notes: "PRIMARY (when available): topical antibiotic + steroid can reduce inflammation/pain."
+
+  - med: "Ofloxacin otic 0.3%"
+    dosing: "10 drops into affected ear once daily x 7 days (or 5 drops BID x 7 days per clinician preference)"
+    exclusions: "Otic use."
+    notes: "PRIMARY alternative; preferred if tympanic membrane perforation suspected or status unknown."
+
+  - med: "Neomycin/polymyxin B/hydrocortisone otic"
+    dosing: "4 drops into affected ear TID–QID x 7 days"
+    exclusions: "Avoid if tympanic membrane perforation suspected/known; avoid if neomycin allergy/contact sensitivity."
+    notes: "Alternative when TM intact and no neomycin sensitivity."
+
+  - med: "Oral antibiotic (only if cellulitis beyond canal / systemic infection suspected)"
+    dosing: "In-person evaluation recommended before oral antibiotics; choose agent based on exam findings and local resistance."
+    exclusions: "Do not initiate by phone if severe, immunocompromised, diabetes with disproportionate pain (consider malignant OE)."
+    notes: "Reserve for extension beyond canal or systemic signs; otherwise otic therapy."
+
+supportive_care:
+  - item: "Keep ear dry"
+    details: "Avoid swimming; use ear protection for showers; do not insert cotton swabs."
+
+  - item: "Pain control"
+    details: "Use acetaminophen or ibuprofen if safe for you (avoid NSAIDs in 3rd trimester pregnancy, kidney disease, ulcer/GI bleed risk)."
+
+followup_and_safety:
+  - item: "Re-evaluate if not improving"
+    details: "If not improving within 48–72 hours or worsening pain/swelling, seek in-person evaluation."
+
+  - item: "Urgent/ED now"
+    details: "Severe pain out of proportion, fever with diabetes/immunocompromise, facial weakness, severe dizziness/vertigo, mastoid swelling/tenderness, altered mental status."

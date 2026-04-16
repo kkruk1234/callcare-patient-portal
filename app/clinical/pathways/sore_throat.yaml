@@ -1,0 +1,38 @@
+id: sore_throat
+version: 0.1
+match:
+  any_keywords: ["sore throat", "throat", "pharyng", "tonsil"]
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+
+  - id: throat_severity
+    prompt: "How severe is the sore throat? (mild/moderate/severe)"
+    store_as: throat_severity
+
+  - id: associated
+    prompt: "Any other symptoms with it? (cough, runny nose, fever, swollen glands, rash, hoarse voice, none)"
+    store_as: associated_symptoms
+
+  - id: swallow_breathe
+    prompt: "Any trouble swallowing liquids or trouble breathing? (yes/no)"
+    store_as: trouble_swallow_breathe
+    type: yesno
+
+  - id: duration
+    prompt: "How long have you had this problem? (e.g., 2 days, 1 week)"
+    store_as: duration
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["throat_severity", "associated", "swallow_breathe", "duration", "fever"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

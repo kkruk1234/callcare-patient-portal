@@ -1,0 +1,36 @@
+{
+  "session_id": "3e0c30b9-7f39-4f41-aabf-4354677fbfee",
+  "timestamp_iso": "2026-01-14T00:08:37.547010+00:00",
+  "note": {
+    "soap": "SOAP Note Draft:\n\nS: The patient is an adult aged 18-64 presenting with a sore throat lasting 3 days. The patient denies fever. No other symptoms such as severe sore throat, high fever, or significant comorbidities reported.\n\nO: No physical exam findings available at this time.\n\nA: Likely viral upper respiratory infection given sore throat duration of 3 days without fever or severe symptoms. Evidence insufficient for bacterial infection or other diagnosis.\n\nP: Recommend supportive care including hydration and rest. Advise patient to monitor symptoms closely. Instruct to seek urgent care if symptoms worsen or new symptoms develop, such as high fever, severe throat pain, difficulty breathing, chest pain, or neurological symptoms.\n\nPatient Instructions:\n- Maintain good hydration and rest as much as possible.\n- Use over-the-counter pain relievers or throat lozenges if needed for symptom relief.\n- Monitor for any worsening symptoms such as high fever, severe throat pain, difficulty breathing, chest pain, or neurological symptoms.\n- Seek urgent medical care if any of the above severe symptoms occur.\n- If symptoms persist beyond 10 days or worsen, follow up with healthcare provider.\n\nEvidence used:\n- guideline_demo.txt\n- pubmed_telephone_care.txt",
+    "patient_instructions": [],
+    "clinician_questions": [
+      "Physician: verify assessment/plan; edit as needed; approve/sign."
+    ],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "source": "guideline_demo.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "days, severe sore throat with high fever, or significant comorbidities.\n\nURINARY SYMPTOMS (possible uncomplicated cystitis) - ADULT FEMALE:\n- Typical: dysuria, frequency, urgency, suprapubic discomfort, no flank pain, no fever.\n- Urgent evaluation today if: fever, flank pain, vomiting, pregnancy, or severe systemic symptoms.\n- Otherwise: clinic eva"
+      },
+      {
+        "source": "guideline_demo.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "TITLE: Demo Triage Guidance (Prototype)\n\nGENERAL SAFETY:\n- If chest pain, severe trouble breathing, stroke symptoms, severe bleeding, fainting, or active self-harm thoughts: call EMS.\n\nUPPER RESPIRATORY INFECTION (URI) - ADULT:\n- Typical viral URI: sore throat, runny nose, mild cough, low-grade fever, symptoms < 10 days.\n- Self-care: hydration, res"
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "arris C(4), Harris DR(7), Heard \nK(4), Jenneson S(7), Kohli Y(4), Leroux M(4), Mayor-Nunez D(4), Medvedev G(8), \nMehdiratta M(9), Morrison LJ(3), Ospel JM(2), Pennington S(5), Perez Y(9), \nSelchen D(10), Stebner A(2), Tallon J(7), Tkach A(11), Verbeek PR(3), Tymianski \nM(4).\n\nAuthor information:\n(1)University of British Columbia, Vancouver, BC, Can"
+      }
+    ]
+  },
+  "recommended_disposition": "PHYSICIAN_REVIEW_REQUIRED",
+  "status": "PENDING",
+  "reviewer_id": null,
+  "reviewer_comments": null
+}

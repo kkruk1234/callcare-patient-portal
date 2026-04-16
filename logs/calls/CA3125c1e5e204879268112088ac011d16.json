@@ -1,0 +1,147 @@
+{
+  "call_sid": "CA3125c1e5e204879268112088ac011d16",
+  "session_id": "1441896b-853c-4293-8ca2-8241e1b8779e",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T17:03:01.206476+00:00",
+  "ended_at": "2026-03-08T17:07:47.262683+00:00",
+  "packet_id": "",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or night sweats since your sore throat started?"
+    },
+    {
+      "role": "user",
+      "text": "Fever and chills. No night sweats."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty swallowing or breathing?"
+    },
+    {
+      "role": "user",
+      "text": "No. But it does hurt when I swallow."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cough, runny nose, or nasal congestion?"
+    },
+    {
+      "role": "user",
+      "text": "No. None of the above."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swollen lymph nodes or rash?"
+    },
+    {
+      "role": "user",
+      "text": "I have swollen lymph nodes, but no rash."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "I tried tea with honey and some NyQuil, but nothing seems to really help."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any white patches or pus on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I have."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of similar sore throat episodes or recent exposure to someone with strep throat or infectious mononucleosis?"
+    },
+    {
+      "role": "user",
+      "text": "My son had strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty opening your mouth or severe throat pain that limits swallowing liquids?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    }
+  ]
+}

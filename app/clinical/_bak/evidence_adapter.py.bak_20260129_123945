@@ -1,0 +1,100 @@
+from __future__ import annotations
+
+from typing import Any, Dict, List
+
+from app.core.models import EvidenceRef
+
+
+def _clean_text(s: str) -> str:
+    s = (s or "").replace("\r", " ").replace("\n", " ").strip()
+    while "  " in s:
+        s = s.replace("  ", " ")
+    return s
+
+
+def _make_snippet(text: str, max_len: int = 280) -> str:
+    t = _clean_text(text)
+    if not t:
+        return ""
+    if len(t) <= max_len:
+        return t
+    return t[: max_len - 1].rstrip() + "…"
+
+
+def _dedupe_chunks(chunks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Deduplicate retrieval chunks.
+    Preference order:
+      - unique by URL when present
+      - else unique by source
+    Keep the first/best occurrence (assumes chunks are already sorted by relevance).
+    """
+    seen = set()
+    out = []
+    for ch in chunks or []:
+        url = _clean_text(str(ch.get("url") or ""))
+        source = _clean_text(str(ch.get("source") or ""))
+        key = url or source
+        if not key:
+            # If neither exists, keep it (rare)
+            out.append(ch)
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(ch)
+    return out
+
+
+def as_evidence_refs(chunks: List[Dict[str, Any]]) -> List[EvidenceRef]:
+    """
+    Convert retrieval chunks (dicts from app.rag.retrieve.retrieve) into EvidenceRef objects.
+
+    Critical:
+      - EvidenceRef.snippet must be present (required in your models)
+      - Deduplicate by URL/source so Evidence Used looks like citations, not repeated chunks
+    """
+    # Keep relevance ordering, but dedupe identical sources
+    chunks = _dedupe_chunks(chunks or [])
+
+    refs: List[EvidenceRef] = []
+    for i, ch in enumerate(chunks):
+        title = _clean_text(str(ch.get("title") or ""))
+        url = _clean_text(str(ch.get("url") or ""))
+        source = _clean_text(str(ch.get("source") or ""))
+
+        text = str(ch.get("text") or "")
+        snippet = _make_snippet(text)
+
+        payload: Dict[str, Any] = {
+            "key": f"EVID_{i+1}",
+            "source_id": source or (url or f"chunk_{i+1}"),
+            "title": title,
+            "url": url,
+            "publisher": _clean_text(str(ch.get("publisher") or "")),
+            "date": _clean_text(str(ch.get("date") or "")),
+            "snippet": snippet,
+            "source": source,
+        }
+
+        # Try full payload first; fall back to minimal if model rejects extras
+        try:
+            refs.append(EvidenceRef(**payload))
+            continue
+        except Exception:
+            minimal = {
+                "title": title,
+                "url": url,
+                "snippet": snippet,
+            }
+            # satisfy whichever ID field your EvidenceRef requires
+            for id_field in ("key", "source_id"):
+                try:
+                    refs.append(EvidenceRef(**{id_field: f"EVID_{i+1}", **minimal}))
+                    break
+                except Exception:
+                    pass
+            else:
+                refs.append(EvidenceRef(**payload))
+
+    return refs

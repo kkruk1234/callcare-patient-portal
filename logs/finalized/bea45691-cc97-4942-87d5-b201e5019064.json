@@ -1,0 +1,101 @@
+{
+  "packet_id": "f1fe0e23-9d65-4150-9396-b58b050df1d7",
+  "created_at": "2026-03-01T03:58:21.477739+00:00",
+  "session_id": "bea45691-cc97-4942-87d5-b201e5019064",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back hurts and if the pain radiates anywhere?",
+    "intake_a2": "left side lower rib cage and the pain does not radiate anywhere",
+    "intake_q3": "Any recent injury, heavy lifting, or trauma to your back or chest area?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney problems, urinary symptoms, or abdominal pain?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much",
+    "intake_q8": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of recent infections, such as a cold, flu, or urinary tract infection?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of chronic illnesses like osteoporosis, cancer, or autoimmune diseases?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain left lower rib cage management guidelines",
+      "adult back pain treatment dosing acetaminophen contraindications",
+      "red flags in back pain evaluation and when to order imaging"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left-sided back pain localized to the lower rib cage area, which started approximately three weeks ago. She denies any radiation of the pain, recent injury, heavy lifting, trauma, fever, chills, weight loss, shortness of breath, cough, chest pain, urinary symptoms, abdominal pain, numbness, weakness, or tingling in the legs or feet. She has no history of recent infections or chronic illnesses such as osteoporosis, cancer, or autoimmune diseases. She has tried acetaminophen (Tylenol) without significant relief. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely due to muscle strain or soft tissue injury given the absence of trauma or systemic symptoms. Differential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib cage inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral causes such as splenic or renal pathology (less likely given no systemic symptoms)\n\nP:\n- First-line medication: NSAIDs such as ibuprofen for pain and inflammation relief\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - Medication safety considerations: Avoid NSAIDs if there is a history of renal or liver disease, gastrointestinal bleeding, or allergy; acetaminophen should not exceed recommended dosing to prevent hepatotoxicity\n - Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, chest pain, shortness of breath, or any new systemic symptoms\n - Testing: Not indicated at this time given absence of red flag symptoms; consider imaging if symptoms persist beyond 6 weeks or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal lower back pain - Symptoms, diagnosis and treatment | BMJ Best Practice US",
+        "source": "bestpractice.bmj.com",
+        "url": "https://bestpractice.bmj.com/topics/en-us/778?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": "History and exam Key diagnostic factors obesity, stress, and psychiatric comorbidities history of prior lower back pain pain radiation does not extend beyond the knee absence of red-flag symptoms absence of fever, fluctuance, exquisite tenderness to palpation sensory, motor, and deep-tendon reflex exams within normal limits negative straight- or crossed straight-leg raise test Full details Other diagnostic factors dull, gnawing, tearing, burning, or electric pain associated with muscle spasms lack of pain on flexion or relief on extension scoliosis or kyphosis negative FABER, Gaenslen, or Schober testing Full details Risk factors obesity family history of degenerative disk disease poor musculotendinous flexibility and abnormal posture stress and psychiatric comorbidities increasing age female sex heavy physical and occupational activities tobacco use prolonged standing vitamin D levels F"
+      },
+      {
+        "title": "Back pain: Symptom When to see a doctor - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://mayoclinic.org/symptoms/back-pain/basics/when-to-see-doctor/sym-20050878?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Pleuritic Chest Pain: Sorting Through the Differential Diagnosis | AAFP",
+        "source": "AAFP",
+        "url": "https://aafp.org/pubs/afp/issues/2017/0901/p306.html?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

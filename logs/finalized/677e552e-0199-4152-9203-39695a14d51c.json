@@ -1,0 +1,42 @@
+{
+  "packet_id": "677e552e-0199-4152-9203-39695a14d51c",
+  "created_at": "2026-03-05T15:55:58.225379+00:00",
+  "session_id": "fc44d8d5-3f52-48bb-a057-b3d34920c526",
+  "pathway_id": "",
+  "base_queries": [
+    "first-line treatment for musculoskeletal back pain",
+    "NSAIDs dosing for adult musculoskeletal pain"
+  ],
+  "queries": [
+    "AAFP first-line treatment for musculoskeletal back pain",
+    "AAFP NSAIDs dosing for adult musculoskeletal pain",
+    "MedlinePlus first-line treatment for musculoskeletal back pain",
+    "MedlinePlus NSAIDs dosing for adult musculoskeletal pain",
+    "CDC first-line treatment for musculoskeletal back pain",
+    "CDC NSAIDs dosing for adult musculoskeletal pain",
+    "NIH first-line treatment for musculoskeletal back pain",
+    "NIH NSAIDs dosing for adult musculoskeletal pain",
+    "NICE first-line treatment for musculoskeletal back pain",
+    "NICE NSAIDs dosing for adult musculoskeletal pain",
+    "WHO first-line treatment for musculoskeletal back pain",
+    "WHO NSAIDs dosing for adult musculoskeletal pain"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+      "accessed": "2026-03-05",
+      "snippet": "Topical nonsteroidal anti-inflammatory drugs (NSAIDs) are the primary recommended treatment, being among the most effective medications and the only to improve all measured outcomes. Topical NSAIDs improve pain within two hours, provide sustained relief over one week, and are the most effective intervention for improving physical function. They also lead to symptom relief and patient satisfaction more than oral NSAIDs. No adverse effects are more common with topical NSAIDs than with placebo. The effectiveness of topical NSAIDs with menthol gel is similar to that of topical NSAIDs alone."
+    },
+    {
+      "title": "ACP, AAFP Release New Guideline for Treatment of Non-low Back Pain From Musculoskeletal Injuries in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/news/media-center/releases/acp--aafp-release-new-guideline-for-treatment-of-non-low-back-pa.html",
+      "accessed": "2026-03-05",
+      "snippet": "Recommends topical NSAIDs as first-line therapy, suggests against use of opioids"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately 3 weeks ago. She denies any recent trauma, fever, chills, weight loss, shortness of breath, chest pain, numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, infections, osteoporosis, cancer, or recent steroid use.\n\nO: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage area, likely of benign etiology given the absence of systemic symptoms or neurological deficits.\nDifferential:\n1. Musculoskeletal strain or sprain\n2. Intercostal muscle strain\n3. Costochondritis\n4. Early presentation of herpes zoster (pre-eruption phase)\n\nP: First-line medication: Naproxen 250 mg orally twice daily for 7 days (Physician must verify medication/dosing)\nAlternatives: Ibuprofen 400 mg orally every 6-8 hours as needed for pain\nMedication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; patient currently has no known contraindications.\nFollow-up recommendations: Seek immediate in-person care if the pain worsens significantly, if new neurological symptoms develop (such as numbness, weakness, or tingling), or if systemic symptoms like fever or unexplained weight loss occur.\nTesting: Not indicated at this time given the absence of red flag symptoms or signs."
+}

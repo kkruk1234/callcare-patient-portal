@@ -1,0 +1,26 @@
+{
+  "pathway_id": "testicular_pain_torsion_possible",
+  "sources": [
+    {
+      "id": "testicular_pain_torsion_possible_src_1",
+      "source_id": "testicular_pain_torsion_possible_src_1",
+      "title": "testicular_pain_torsion_possible references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "testicular_pain_torsion_possible_src_2",
+      "source_id": "testicular_pain_torsion_possible_src_2",
+      "title": "testicular_pain_torsion_possible references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "testicular_pain_torsion_possible_src_3",
+      "source_id": "testicular_pain_torsion_possible_src_3",
+      "title": "testicular_pain_torsion_possible references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+from __future__ import annotations
+
+from typing import Dict, Optional
+
+from fastapi import FastAPI, Form, HTTPException, Request
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
+
+from app.portal.portal_common import (
+    html_escape,
+    load_meta,
+    make_session_token,
+    packet_bundle,
+    packet_path,
+    patient_groups,
+    render_list_items,
+    render_pharmacy,
+    safe_str,
+    signed_note_text,
+    addendum_block,
+    signed_patient_group,
+    verify_portal_login,
+)
+
+app = FastAPI(title="CallCare Patient Portal")
+
+SESSIONS: Dict[str, Dict[str, str]] = {}
+
+
+def _current_session(request: Request) -> Optional[Dict[str, str]]:
+    token = request.cookies.get("callcare_patient_session", "")
+    if not token:
+        return None
+    return SESSIONS.get(token)
+
+
+def _require_session(request: Request) -> Dict[str, str]:
+    sess = _current_session(request)
+    if not sess:
+        raise HTTPException(status_code=401, detail="Not logged in")
+    return sess
+
+
+@app.get("/healthz")
+async def healthz() -> PlainTextResponse:
+    return PlainTextResponse("ok")
+
+
+@app.get("/", response_class=HTMLResponse)
+async def login_page() -> str:
+    return """
+    <html>
+      <head>
+        <title>CallCare Patient Portal</title>
+        <style>
+          body { font-family: Arial, sans-serif; margin: 24px; max-width: 640px; }
+          label { display:block; margin-top: 12px; }
+          input { width: 100%; padding: 8px; }
+          button { margin-top: 16px; padding: 8px 12px; }
+        </style>
+      </head>
+      <body>
+        <h1>CallCare Patient Portal</h1>
+        <p>Log in to view signed physician-reviewed notes.</p>
+        <form method="post" action="/login">
+          <label>Chart Number</label>
+          <input name="chart_number" />
+          <label>Date of Birth (YYYY-MM-DD)</label>
+          <input name="dob" />
+          <label>Portal Password</label>
+          <input name="password" type="password" />
+          <button type="submit">Log In</button>
+        </form>
+      </body>
+    </html>
+    """
+
+
+@app.post("/login")
+async def login(chart_number: str = Form(...), dob: str = Form(...), password: str = Form(...)) -> RedirectResponse:
+    verified = verify_portal_login(chart_number, dob, password)
+    if not verified:
+        return RedirectResponse(url="/?error=invalid", status_code=303)
+
+    token = make_session_token()
+    SESSIONS[token] = {
+        "chart_number": safe_str(verified.get("chart_number")),
+        "patient_name": safe_str(verified.get("patient_name")),
+    }
+
+    response = RedirectResponse(url="/dashboard", status_code=303)
+    response.set_cookie("callcare_patient_session", token, httponly=True, samesite="lax")
+    return response
+
+
+@app.get("/logout")
+async def logout(request: Request) -> RedirectResponse:
+    token = request.cookies.get("callcare_patient_session", "")
+    if token and token in SESSIONS:
+        del SESSIONS[token]
+    response = RedirectResponse(url="/", status_code=303)
+    response.delete_cookie("callcare_patient_session")
+    return response
+
+
+@app.get("/dashboard", response_class=HTMLResponse)
+async def dashboard(request: Request) -> str:
+    sess = _require_session(request)
+    chart_number = sess["chart_number"]
+
+    group = signed_patient_group(chart_number)
+    if not group:
+        return f"""
+        <html><body style="font-family: Arial, sans-serif; margin: 24px;">
+        <h1>CallCare Patient Portal</h1>
+        <p><a href="/logout">Log out</a></p>
+        <p>No signed notes are available yet.</p>
+        </body></html>
+        """
+
+    patient_ctx = group["patient_ctx"] or {}
+    encounters = group["encounters"]
+
+    rows = []
+    for enc in encounters:
+        enc_ctx = enc.get("patient_ctx") or {}
+        rows.append(
+            f"<tr>"
+            f"<td><a href='/encounter/{html_escape(enc['packet_id'])}'>{html_escape(safe_str(enc_ctx.get('chief_complaint')) or 'Encounter')}</a></td>"
+            f"<td>{html_escape(safe_str(enc_ctx.get('encounter_started_at')) or safe_str(enc.get('created_at')))}</td>"
+            f"<td>{html_escape(safe_str(enc['meta'].get('prescription_status')))}</td>"
+            f"<td>{html_escape(safe_str(enc['meta'].get('note_sent')))}</td>"
+            f"</tr>"
+        )
+
+    return f"""
+    <html>
+      <head>
+        <title>CallCare Patient Portal</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          table {{ border-collapse: collapse; width: 100%; }}
+          th, td {{ border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }}
+          th {{ background: #f5f5f5; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <h1>CallCare Patient Portal</h1>
+        <p><a href="/logout">Log out</a></p>
+
+        <p><strong>Patient Name:</strong> {html_escape(patient_ctx.get('patient_name'))}</p>
+        <p><strong>Chart #:</strong> {html_escape(patient_ctx.get('chart_number'))}</p>
+        <p><strong>Date of Birth:</strong> {html_escape(patient_ctx.get('date_of_birth'))}</p>
+
+        <h2>Signed Encounters</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Chief Complaint</th>
+              <th>Date / Time</th>
+              <th>Prescription Status</th>
+              <th>Delivery Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {''.join(rows)}
+          </tbody>
+        </table>
+      </body>
+    </html>
+    """
+
+
+@app.get("/encounter/{packet_id}", response_class=HTMLResponse)
+async def encounter_detail(packet_id: str, request: Request) -> str:
+    sess = _require_session(request)
+    chart_number = sess["chart_number"]
+
+    path = packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Encounter not found")
+
+    bundle = packet_bundle(path)
+    if not bundle:
+        raise HTTPException(status_code=404, detail="Encounter bundle not found")
+
+    patient_ctx = bundle.get("patient_ctx") or {}
+    if safe_str(patient_ctx.get("chart_number")) != chart_number:
+        raise HTTPException(status_code=403, detail="Forbidden")
+
+    meta = bundle["meta"]
+    if not meta.get("signed"):
+        raise HTTPException(status_code=403, detail="Only signed notes are viewable")
+
+    packet = bundle["packet"]
+    note_text = safe_str(packet.get("note_text"))
+    signed_note = signed_note_text(note_text, meta)
+    spoken_comments = safe_str(meta.get("spoken_summary_comments"))
+    addenda = meta.get("addenda") or []
+
+    pharmacy_html = render_pharmacy(patient_ctx.get("preferred_pharmacy") or {})
+    allergies_html = render_list_items(
+        patient_ctx.get("allergies") or [],
+        ["allergen", "reaction", "severity"],
+        "No allergy data on file.",
+    )
+
+    addenda_html = ""
+    if addenda:
+        addenda_html += "<h2>Addenda</h2>"
+        for idx, add in enumerate(addenda, 1):
+            addenda_html += f"<div style='border:1px solid #ccc;background:#fafafa;padding:12px;white-space:pre-wrap;margin-bottom:12px;'><strong>Addendum {idx}</strong>\n\n{html_escape(addendum_block(add))}</div>"
+
+    return f"""
+    <html>
+      <head>
+        <title>CallCare Patient Encounter</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <p><a href="/dashboard">← Back to dashboard</a> | <a href="/logout">Log out</a></p>
+
+        <h1>Encounter Details</h1>
+        <p><strong>Patient:</strong> {html_escape(patient_ctx.get('patient_name'))}</p>
+        <p><strong>Chart #:</strong> {html_escape(patient_ctx.get('chart_number'))}</p>
+        <p><strong>Date of Birth:</strong> {html_escape(patient_ctx.get('date_of_birth'))}</p>
+        <p><strong>Sex at Birth:</strong> {html_escape(patient_ctx.get('sex_at_birth'))}</p>
+        <p><strong>Chief Complaint:</strong> {html_escape(patient_ctx.get('chief_complaint'))}</p>
+        <p><strong>Prescription Status:</strong> {html_escape(meta.get('prescription_status'))}</p>
+        <p><strong>Preferred Pharmacy:</strong></p>
+        {pharmacy_html}
+
+        <h2>Allergies</h2>
+        {allergies_html}
+
+        <h2>Signed Clinical Note</h2>
+        <div style="border:1px solid #ccc;background:#fafafa;padding:12px;white-space:pre-wrap;">{html_escape(signed_note)}</div>
+
+        {addenda_html}
+
+        <h2>Physician Comments on Spoken Summary</h2>
+        <div style="border:1px solid #ccc;background:#fafafa;padding:12px;white-space:pre-wrap;">{html_escape(spoken_comments or 'No additional physician comments.')}</div>
+      </body>
+    </html>
+    """

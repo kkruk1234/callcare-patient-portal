@@ -1,0 +1,44 @@
+{
+  "packet_id": "ad47163c-7bf8-48b2-a2ac-ddbe3a537971",
+  "created_at": "2026-01-19T02:43:21.020519+00:00",
+  "session_id": "4c37d9fb-a493-4092-af69-1d74c80cafbd",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old male presents with burning urination. He denies fever, flank pain, and testicular pain. There are no reported allergies. Pregnancy not applicable.\n\nO: No physical exam available due to phone-only encounter. Vital signs and physical findings are not available. No laboratory results yet.\n\nA:  \n  - Working diagnosis (most likely): UTI in male (complicated by definition)  \n  - Differential: urethritis (including gonorrhea/chlamydia), prostatitis, other causes of male dysuria  \n  - Red flags considered: fever, flank pain, testicular pain—all denied\n\nP:  \n  - Disposition: Urgent care or primary care visit recommended for urine analysis, urine culture, and STI testing to guide therapy.  \n  - Plan: Empiric antibiotic therapy may be considered after evaluation; pending lab results to tailor treatment. Encourage hydration and symptom management with analgesics such as phenazopyridine if no contraindications.  \n  - Safety net: Advise patient to seek immediate care if fever, worsening pain, testicular swelling, or systemic symptoms develop.\n\nEvidence (snippets used):  \n- sex_at_birth: male  \n- fever: no  \n- flank: no  \n- testicular: no  \n- Pregnancy not applicable statement",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aao.org/",
+        "snippet": "Listed in pathway manifest https://www.aao.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": []
+}

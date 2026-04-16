@@ -1,0 +1,67 @@
+{
+  "packet_id": "d26af28b-5fbb-40dd-a386-6e7d4777a83f",
+  "created_at": "2026-02-21T13:44:23.001863+00:00",
+  "session_id": "97ee5274-1c07-43af-a865-acab2db8b655",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what was the effect?",
+    "intake_a7": "I tried tylenol and it didn't help very much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of osteoporosis, cancer, or recent unexplained fractures?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the nature of your back pain? For example, is it sharp, dull, burning, or aching?",
+    "intake_a10": "dull",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with a 3-week history of dull back pain localized to the left side of the lower rib cage. She denies any recent injury or trauma, fever, chills, unexplained weight loss, difficulty breathing, chest pain, numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of kidney problems, urinary symptoms, infections, osteoporosis, cancer, or recent fractures. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely due to muscle strain or soft tissue injury without red flag symptoms. \n\nDifferential: \n1. Musculoskeletal strain or myofascial pain \n2. Costochondritis or rib dysfunction \n3. Early herpes zoster (pre-eruptive phase) \n4. Referred pain from visceral organs (e.g., renal or gastrointestinal origin) \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n- Alternatives: Acetaminophen 500 mg orally every 6 hours as needed for pain, not to exceed 3000 mg per day. \n - Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, not to exceed 1200 mg per day. (avoid in renal disease; especially severe CKD/dialysis)\n- Medication safety considerations: Avoid NSAIDs if gastrointestinal bleeding risk or renal impairment develops; monitor for side effects such as gastrointestinal upset or allergic reactions. \n- Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, numbness or weakness in legs, chest pain, difficulty breathing, or new urinary symptoms. \n- Testing: Not indicated at this time given absence of red flag symptoms; consider imaging or labs if symptoms worsen or fail to improve in 4-6 weeks.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

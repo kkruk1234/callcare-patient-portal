@@ -1,0 +1,94 @@
+{
+  "packet_id": "1406470f-c9ac-4feb-848c-8681f7ed7652",
+  "created_at": "2026-02-28T03:41:11.811077+00:00",
+  "session_id": "2eea4ae2-a14e-45e3-be63-1a2508da0a9b",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, trauma, or heavy lifting before the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a5": "no",
+    "intake_q6": "Any pain with breathing or coughing?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of kidney stones, urinary symptoms, or abdominal pain?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what were they and did they help?",
+    "intake_a8": "I tried tylenol but it didn't really help much",
+    "intake_q9": "Any recent unexplained weight loss or changes in appetite?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of cancer, osteoporosis, or recent infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adults",
+      "adult back pain treatment dosing acetaminophen alternatives",
+      "red flags in back pain evaluation adults"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury, trauma, or heavy lifting prior to onset. There are no associated systemic symptoms such as fever, chills, night sweats, unexplained weight loss, or appetite changes. She reports no numbness, weakness, or tingling in her legs or feet, and no pain with breathing or coughing. She has no history of kidney stones, urinary symptoms, or abdominal pain. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of cancer, osteoporosis, or recent infections. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage area, likely of benign etiology given the absence of red flag symptoms and no trauma history. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costovertebral joint dysfunction\n3. Intercostal muscle strain\n4. Early presentation of visceral pathology such as renal or pleural disease (less likely given lack of systemic symptoms)\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief\n- Alternatives: Consider muscle relaxants if NSAIDs are contraindicated or ineffective\n- Medication safety considerations: Avoid NSAIDs if history of renal or liver disease; monitor for gastrointestinal side effects\n- Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), or new urinary symptoms\n- Testing: No immediate testing indicated; consider imaging or labs if symptoms worsen or red flags develop",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal lower back pain - Symptoms, diagnosis and treatment | BMJ Best Practice US",
+        "source": "bestpractice.bmj.com",
+        "url": "https://bestpractice.bmj.com/topics/en-us/778",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal lower back pain - Symptoms, diagnosis and treatment | BMJ Best Practice US",
+        "source": "bestpractice.bmj.com",
+        "url": "https://bestpractice.bmj.com/crawler/topics/en-us/778",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

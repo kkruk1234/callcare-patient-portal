@@ -1,0 +1,145 @@
+id: uri_sinus_overlap
+version: 0.2
+
+match:
+  any_keywords:
+    - sinus
+    - sinusitis
+    - sinus infection
+    - sinus pressure
+    - sinus pain
+    - facial pressure
+    - facial pain
+    - forehead pressure
+    - cheek pain
+    - nasal congestion
+    - congestion
+    - post nasal drip
+    - postnasal drip
+    - thick mucus
+    - green mucus
+    - yellow mucus
+
+questions:
+  - id: duration_days
+    type: text
+    prompt: "How many days have you had these sinus/nasal symptoms? (e.g., 2 days, 6 days, 2 weeks)"
+    store_as: duration_days
+
+  - id: fever
+    type: yesno
+    prompt: "Do you have a fever? (yes/no)"
+    store_as: fever
+
+  - id: facial_pressure
+    type: yesno
+    prompt: "Do you have facial pain or pressure around the eyes, cheeks, or forehead? (yes/no)"
+    store_as: facial_pressure
+
+  - id: facial_pressure_side
+    type: text
+    prompt: "If yes, is it mostly on one side or both sides? (one side/both/unknown)"
+    store_as: facial_pressure_side
+
+  - id: headache
+    type: yesno
+    prompt: "Do you have a headache with this illness? (yes/no)"
+    store_as: headache
+
+  - id: postnasal_drip
+    type: yesno
+    prompt: "Do you have post-nasal drip (mucus draining down the throat) or frequent throat clearing? (yes/no)"
+    store_as: postnasal_drip
+
+  - id: nasal_discharge_type
+    type: text
+    prompt: "What is your nasal drainage mostly like? Please say one: thick yellow/green, clear watery, none, or unknown."
+    store_as: nasal_discharge_type
+
+  - id: smell_change
+    type: yesno
+    prompt: "Have you noticed reduced sense of smell or taste with this illness? (yes/no)"
+    store_as: smell_change
+
+  - id: dental_pain
+    type: yesno
+    prompt: "Do you have upper tooth pain on one side? (yes/no)"
+    store_as: dental_pain
+
+  - id: allergy_features
+    type: yesno
+    prompt: "Do you have allergy-type symptoms like sneezing or itchy/watery eyes? (yes/no)"
+    store_as: allergy_features
+
+  - id: double_worsening
+    type: yesno
+    prompt: "Did you start to improve and then get worse again ('double worsening')? (yes/no)"
+    store_as: double_worsening
+
+  - id: severe_onset
+    type: yesno
+    prompt: "Did this start with severe symptoms (high fever and significant facial pain/pressure) right from the beginning? (yes/no)"
+    store_as: severe_onset
+
+  # Red flags — asked one at a time (no multi-symptom yes/no questions)
+  - id: eye_swelling
+    type: yesno
+    prompt: "Is there swelling or redness around an eye? (yes/no)"
+    store_as: eye_swelling
+
+  - id: vision_change
+    type: yesno
+    prompt: "Any vision changes (blurred vision, double vision, new vision loss)? (yes/no)"
+    store_as: vision_change
+
+  - id: severe_one_sided_facial_pain
+    type: yesno
+    prompt: "Do you have severe one-sided facial pain that feels intense or worsening? (yes/no)"
+    store_as: severe_one_sided_facial_pain
+
+  - id: confusion
+    type: yesno
+    prompt: "Are you confused, very drowsy, or hard to wake up? (yes/no)"
+    store_as: confusion
+
+  - id: stiff_neck
+    type: yesno
+    prompt: "Do you have a stiff neck with fever or severe headache? (yes/no)"
+    store_as: stiff_neck
+
+  - id: trouble_breathing
+    type: yesno
+    prompt: "Do you have trouble breathing at rest or trouble speaking full sentences? (yes/no)"
+    store_as: trouble_breathing
+
+  # Pregnancy (optional but important once antibiotics are considered)
+  - id: pregnancy_possible
+    type: text
+    prompt: "Is there any chance you could be pregnant? You can answer yes, no, unknown, or not applicable."
+    store_as: pregnancy_possible
+
+stop_rules:
+  - if_all_answered:
+      - duration_days
+      - fever
+      - facial_pressure
+      - facial_pressure_side
+      - headache
+      - postnasal_drip
+      - nasal_discharge_type
+      - smell_change
+      - dental_pain
+      - allergy_features
+      - double_worsening
+      - severe_onset
+      - eye_swelling
+      - vision_change
+      - severe_one_sided_facial_pain
+      - confusion
+      - stiff_neck
+      - trouble_breathing
+      - pregnancy_possible
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

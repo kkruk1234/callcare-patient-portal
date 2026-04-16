@@ -1,0 +1,151 @@
+{
+  "call_sid": "CAfd8adc5cb32f6d94826b79c0172ea5e3",
+  "session_id": "67aa6be3-9acd-4a38-9a81-a3058ca1593a",
+  "from_number": "+19127716743",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-04T15:21:02.380311+00:00",
+  "ended_at": "2026-04-04T15:28:48.307672+00:00",
+  "packet_id": "63a63ef0-ba00-4a1a-9169-03398ad1a41e",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I've had a fever, and I'm, like, coughing of mucus."
+    },
+    {
+      "role": "assistant",
+      "text": "How long have you had the fever and cough?"
+    },
+    {
+      "role": "user",
+      "text": "I can't put it on time. I wouldn't say more than that a lot of the time. Like, definitely not upwards of, like, a couple days. I guess maybe, like, 3 to 4 or maybe, like, 2 days. Let's say 2 days. Yeah. 2 days."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the color of the mucus you are coughing up?"
+    },
+    {
+      "role": "user",
+      "text": "It's kind of in various. I feel like, maybe after I wake up, it will be a little bit darker. I think I just could sitting for a while maybe, but who am I? I don't know a lot of medicine. But I'd say, like, it just depends on the time, maybe mostly yellowish. Greenest at most."
+    },
+    {
+      "role": "assistant",
+      "text": "Any shortness of breath, chest pain, or wheezing with your cough?"
+    },
+    {
+      "role": "user",
+      "text": "Not from this address and not chest pain or cough, but I have chest pain when I breathe. Like, every time I, like, breathe or most times I breathe, I just, like it, like, that's like, oh my god. So much pain. You know?"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the chest pain when you breathe? Is it sharp, stabbing, or more like pressure? Does it get worse with coughing or movement?"
+    },
+    {
+      "role": "user",
+      "text": "It's kinda like I feel like not swiped. It kinda, like, not not vibrating because it's, like, long, I feel. Like, when I cough, it just happens maybe it's just, like not dull, but it's, like, medium pain, and it happens for, like, a little bit longer than the cough itself or the breathing itself."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of recent travel, sick contacts, or known exposures to COVID-19 or other respiratory illnesses?"
+    },
+    {
+      "role": "user",
+      "text": "I'm well, my sister just got off of She just had pneumonia, so I may have caught some, like, a sickness somewhere."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever measured with a thermometer, and if so, how high?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. I measured the thermometer, and it's by I think right now, it's, like, a 102, but yesterday night, it was a 104. But we got it down."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing or feeling short of breath at rest or with minimal exertion?"
+    },
+    {
+      "role": "user",
+      "text": "I feel like shortness of breath. I really don't really know how what that means. I just say I've I've just it's 1 of the chest pain that I breathe. That's a big problem."
+    },
+    {
+      "role": "assistant",
+      "text": "Any coughing up blood or sudden worsening of symptoms?"
+    },
+    {
+      "role": "user",
+      "text": "I called from I actually know what I'm I didn't have any of those."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of heart or lung problems, such as asthma, COPD, or blood clots?"
+    },
+    {
+      "role": "user",
+      "text": "I've asked them, but I've had it since childhood. Like, since really young."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling, redness, or pain in your legs recently?"
+    },
+    {
+      "role": "user",
+      "text": "Definitely not."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "49"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you’ve told me, it sounds like you have an acute bronchitis, which is an infection of the airways that can cause fever, cough with mucus, and chest pain when you breathe or cough. Because of the fever and the color of your mucus, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe antibiotics like amoxicillin or doxycycline.\n\nFor now, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you need to reduce fever or pain, as long as you can take them safely. Since this is a phone visit, I can’t examine you or do tests, so if your symptoms get worse—like if you have increasing shortness of breath, chest pain that gets severe, coughing up blood, or a high fever that lasts more than two days—please seek in-person care at an urgent care or emergency room right away.\n\nA doctor will review your case soon to decide if medication is needed. If your symptoms don’t improve in a few days, you may need a chest X-ray to check for pneumonia. Remember, if you need an in-person exam or testing, please go to urgent care, the emergency department, or see your primary care clinician."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# Clinician-facing medication/dosing protocol for: mastitis_breastfeeding
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: "Dicloxacillin"
+    dosing: "500 mg PO QID x 10–14 days"
+    exclusions: "Immediate-type penicillin allergy; renal impairment may require adjustment"
+    notes: "First-line for lactational mastitis when MRSA risk low."
+  - med: "Cephalexin"
+    dosing: "500 mg PO QID x 10–14 days"
+    exclusions: "Immediate-type severe beta-lactam allergy; renal impairment requires adjustment"
+    notes: "Alternative first-line; compatible with breastfeeding."
+  - med: "Clindamycin"
+    dosing: "300–450 mg PO TID x 10–14 days"
+    exclusions: "C. difficile history/high CDI risk; lincosamide allergy"
+    notes: "Consider when MRSA risk or beta-lactam allergy."
+  - med: "Trimethoprim-sulfamethoxazole (TMP-SMX)"
+    dosing: "DS (160/800) PO BID x 10–14 days"
+    exclusions: "Sulfa allergy; pregnancy (avoid 1st trimester if possible and near term); breastfeeding caution if infant premature, jaundiced, or G6PD deficiency suspected"
+    notes: "MRSA option; clinician judgment for lactation/infant risk."
+
+supportive_care:
+  - item: "Continue breastfeeding/pumping"
+    details: "Maintain milk removal; frequent feeds/pumping; gentle massage; avoid over-vigorous pressure."
+  - item: "Analgesia"
+    details: "Acetaminophen (Tylenol) or ibuprofen (Advil) if safe."
+  - item: "Hydration/rest"
+    details: "Fluids, rest, supportive care."
+
+followup_and_safety:
+  - item: "Re-evaluation"
+    details: "If no improvement within 24–48 hours after starting therapy, consider breast ultrasound for abscess and in-person evaluation."
+  - item: "ED/urgent now"
+    details: "High fever/toxicity, rapidly worsening redness, severe pain, fluctuance (possible abscess), or inability to maintain hydration."

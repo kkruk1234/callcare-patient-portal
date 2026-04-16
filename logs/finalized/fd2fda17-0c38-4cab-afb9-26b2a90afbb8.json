@@ -1,0 +1,39 @@
+{
+  "packet_id": "b9a4feb6-8cd3-4084-9d72-9a1f488c80f8",
+  "created_at": "2026-01-19T10:17:28.073643+00:00",
+  "session_id": "fd2fda17-0c38-4cab-afb9-26b2a90afbb8",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old patient presents with sinus pressure and congestion of less than one day’s duration. The patient denies fever, shortness of breath, chest pain, and has no high-risk medical conditions. There are no reported allergies. Pregnancy status not captured.\n\nO: No physical exam available due to phone-only encounter. Vital signs and physical findings are not available. No reported fever or respiratory distress.\n\nA:  \n  - Working diagnosis (most likely): Acute viral rhinosinusitis  \n  - Differential: Bacterial sinusitis, allergic rhinitis, early upper respiratory tract infection  \n  - Red flags considered: No fever, no severe headache, no facial swelling, no vision changes, no altered mental status\n\nP:  \n  - Disposition: Manage conservatively at home with symptomatic care; follow up with primary care if symptoms worsen or persist beyond 10 days.  \n  - Plan: Recommend supportive treatment including nasal saline irrigation, oral analgesics such as acetaminophen or ibuprofen for discomfort, and adequate hydration. Decongestants may be used if no contraindications. Antibiotics are not indicated at this time given the short duration and absence of bacterial infection signs.  \n  - Safety net: Advise patient to seek urgent care if they develop high fever, severe facial pain or swelling, worsening headache, vision changes, or if symptoms persist beyond 10 days or worsen after initial improvement.\n\nEvidence (snippets used):  \n- Chief complaint: sinus pressure and congestion  \n- Duration: 0 days  \n- Fever: no  \n- SOB: no  \n- Chest pain: no  \n- High risk: no  \n- Pregnancy status not captured",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+        "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+      },
+      {
+        "title": "NICE NG120: Cough (acute)",
+        "source": "https://www.nice.org.uk/guidance/ng120",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+      },
+      {
+        "title": "BMJ Best Practice: Acute Cough",
+        "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+        "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+      }
+    ]
+  },
+  "evidence": []
+}

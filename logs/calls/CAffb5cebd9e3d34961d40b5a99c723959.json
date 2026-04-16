@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAffb5cebd9e3d34961d40b5a99c723959",
+  "session_id": "7ff1b7ba-7d12-4479-881a-6b2935c7d018",
+  "from_number": "+13047161907",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-15T20:36:48.305658+00:00",
+  "ended_at": "2026-03-15T20:42:05.070349+00:00",
+  "packet_id": "07e415bb-0fff-4bb6-8437-4ef00b4281c1",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "My ear hurts."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your ear pain start?"
+    },
+    {
+      "role": "user",
+      "text": "About 3 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Is the ear pain associated with any hearing loss, discharge, or fever?"
+    },
+    {
+      "role": "user",
+      "text": "I mean, I guess, ear is a little blocked up, but I don't know if that's you know, hearing loss necessarily."
+    },
+    {
+      "role": "assistant",
+      "text": "Any ear discharge, ringing, or dizziness?"
+    },
+    {
+      "role": "user",
+      "text": "There's nothing coming out of my ear."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent upper respiratory symptoms like a cold, sore throat, or sinus congestion?"
+    },
+    {
+      "role": "user",
+      "text": "No. I don't think so."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or swelling around your jaw, neck, or face?"
+    },
+    {
+      "role": "user",
+      "text": "My daughter had a cold, but I didn't."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or general feeling of being unwell since the ear pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of ear infections or ear problems in the past?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your ear pain so far?"
+    },
+    {
+      "role": "user",
+      "text": "Uh, it's taken some Tylenol, but it doesn't really help."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the quality of the ear pain? For example, is it sharp, dull, throbbing, or something else?"
+    },
+    {
+      "role": "user",
+      "text": "It's kinda dull and frothing."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent water exposure, swimming, or trauma to the ear?"
+    },
+    {
+      "role": "user",
+      "text": "I went swimming last week."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "51."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you likely have swimmer’s ear, which is an irritation or infection of the ear canal often caused by water exposure. Because this is a phone visit, I can’t examine your ear or do any tests. Based on what you told me, medication treatment may be appropriate. A licensed physician will review this note, and if appropriate, may prescribe antibiotic ear drops to help clear the infection. In the meantime, you can use acetaminophen or ibuprofen for pain if you can take them safely. If your ear pain worsens, you develop hearing loss, fever, or any ear drainage, please seek in-person care the same day. If you experience severe swelling or feel very unwell, go to the emergency room right away. A doctor will review your case soon and decide if medication is needed."
+    }
+  ]
+}

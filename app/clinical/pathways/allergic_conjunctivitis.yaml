@@ -1,0 +1,30 @@
+id: allergic_conjunctivitis
+version: 0.1
+match:
+  any_keywords: ["itchy eyes", "watery eyes", "allergic eye", "eye itching"]
+questions:
+  - id: pain
+    prompt: "Is there significant eye pain or light sensitivity? (yes/no)"
+    store_as: pain
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["eye_pain_red_flag"] }
+
+  - id: vision
+    prompt: "Any vision change or blurring? (yes/no)"
+    store_as: vision
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["vision_change"] }
+
+  - id: discharge
+    prompt: "Is there thick pus-like discharge? (yes/no)"
+    store_as: discharge
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["possible_infection"] }
+
+stop_rules:
+  - if_all_answered: ["pain","vision","discharge"]
+    outcome: DECIDE
+routing: { tier_default: TIER_2_REVIEW }

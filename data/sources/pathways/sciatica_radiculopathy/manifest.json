@@ -1,0 +1,33 @@
+{
+  "pathway_id": "sciatica_radiculopathy",
+  "sources": [
+    {
+      "id": "sciatica_radiculopathy_src_1",
+      "source_id": "sciatica_radiculopathy_src_1",
+      "title": "sciatica_radiculopathy references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "sciatica_radiculopathy_src_2",
+      "source_id": "sciatica_radiculopathy_src_2",
+      "title": "sciatica_radiculopathy references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "sciatica_radiculopathy_src_3",
+      "source_id": "sciatica_radiculopathy_src_3",
+      "title": "sciatica_radiculopathy references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "sciatica_radiculopathy_src_4",
+      "source_id": "sciatica_radiculopathy_src_4",
+      "title": "sciatica_radiculopathy references (starter)",
+      "url": "https://www.acep.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

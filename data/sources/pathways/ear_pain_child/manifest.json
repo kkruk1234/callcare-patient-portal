@@ -1,0 +1,11 @@
+{
+  "pathway_id": "ear_pain_child",
+  "sources": [
+    {
+      "source_id": "cdc_ear_infection",
+      "type": "url",
+      "title": "CDC: Ear Infection",
+      "url": "https://www.cdc.gov/antibiotic-use/ear-infection.html"
+    }
+  ]
+}

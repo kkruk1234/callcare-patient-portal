@@ -1,0 +1,20 @@
+{
+  "pathway_id": "hypertensive_urgency",
+  "sources": [
+    {
+      "title": "Severe hypertension / hypertensive crisis (patient guidance)",
+      "source": "American Heart Association",
+      "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/hypertensive-crisis-when-you-should-call-911-for-high-blood-pressure"
+    },
+    {
+      "title": "High blood pressure (hypertension)",
+      "source": "NHLBI",
+      "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure"
+    },
+    {
+      "title": "High blood pressure",
+      "source": "MedlinePlus",
+      "url": "https://medlineplus.gov/highbloodpressure.html"
+    }
+  ]
+}

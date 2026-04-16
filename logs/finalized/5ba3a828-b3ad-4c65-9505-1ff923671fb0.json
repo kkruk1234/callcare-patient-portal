@@ -1,0 +1,49 @@
+{
+  "packet_id": "8ff96519-976c-4d44-bef8-f8d42bc942ad",
+  "created_at": "2026-01-18T21:38:33.924599+00:00",
+  "session_id": "5ba3a828-b3ad-4c65-9505-1ff923671fb0",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: A 35-year-old adult reports a tick bite with the tick attached for approximately 37 hours after exposure in Georgia. The patient describes a rash with a bullseye or erythema migrans appearance at the site of the bite. There are no systemic symptoms such as fever, chills reported. Pregnancy status is unknown.\n\nO: No physical exam available due to phone-only encounter. Patient describes a rash consistent with erythema migrans, characterized by a bullseye appearance at the tick bite site. No other physical findings can be assessed remotely.\n\nA: \n - Working diagnosis (most likely): Early localized Lyme disease presenting with erythema migrans rash. \n - Differential: \n 1. Early Lyme disease \n 2. Southern tick-associated rash illness (STARI) \n 3. Cellulitis or local skin infection \n 4. Allergic reaction to tick bite \n - Red flags considered: No systemic symptoms such as fever, headache, or joint pain; no signs of severe allergic reaction or anaphylaxis.\n\nP: \n - Disposition: Urgent care or primary care follow-up recommended within 48 hours for clinical evaluation and possible initiation of antibiotic therapy. \n - Plan: Empiric treatment with doxycycline 100 mg twice daily for 10–21 days is appropriate given the erythema migrans rash and tick exposure in an endemic area. If doxycycline is contraindicated (e.g., pregnancy), consider amoxicillin. Provide patient education on signs of progression or systemic symptoms. \n - Safety net: Advise the patient to seek immediate care if fever, worsening rash, joint pain, neurological symptoms, or other systemic signs develop. Emphasize the importance of follow-up to confirm diagnosis and treatment response.\n\nEvidence (snippets used): \n- Tick attachment duration: 37 hours \n- Exposure location: Georgia \n- Bullseye rash: yes \n- Systemic symptoms: none \n- Pregnancy status is unknown",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": "Listed in pathway manifest https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  },
+  "evidence": []
+}

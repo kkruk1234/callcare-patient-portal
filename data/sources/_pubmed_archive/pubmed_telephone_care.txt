@@ -1,0 +1,1718 @@
+1. Front Public Health. 2025 Dec 5;13:1727725. doi: 10.3389/fpubh.2025.1727725. 
+eCollection 2025.
+
+Remote follow-up for pediatric epilepsy: effective care with equity-focused 
+oversight.
+
+Zhong T(1)(2), Lei J(1)(2).
+
+Author information:
+(1)West China Second University Hospital, Sichuan University, Chengdu, China.
+(2)Key Laboratory of Birth Defects and Related Diseases of Women and Children 
+(Sichuan University), Ministry of Education, Chengdu, China.
+
+BACKGROUND: Pediatric epilepsy care is often constrained by follow-up 
+bottlenecks-travel burden, caregiver time loss, and limited pediatric neurology 
+capacity-leading to fragmented management and preventable utilization. Methods: 
+We conducted a narrative mini-review of studies and practice statements 
+(2019-2025) identified in PubMed and Scopus, prioritizing pediatric populations 
+and major guidelines relevant to tele-follow-up, adherence and refills, 
+unplanned care, equity, privacy, data governance, and implementation; no 
+meta-analysis was performed.
+RESULTS: Evidence indicates that, for established patients, video or telephone 
+visits can safely support medication titration, adverse-effect checks, 
+seizure-diary review, counseling, and care coordination, with performance 
+broadly comparable to clinic visits for these tasks when used judiciously. 
+Tele-follow-up is inappropriate for new diagnoses, acute neurologic change, or 
+other red flags requiring examination and electroencephalography. Effective 
+implementation relies on risk-stratified schedules, predefined escalation 
+thresholds and time-to-action, nurse-led triage, and measured substitution 
+rather than wholesale replacement of in-person care. Equity risks persist for 
+families with low connectivity, low income, language barriers, or disability; 
+mitigations include device and data subsidies, school-linked access points, 
+multilingual materials, and privacy-by-design with developmentally appropriate 
+consent and auditable safeguards.
+CONCLUSION: Tele-follow-up is a feasible complement to clinic care that can 
+reduce burden while maintaining quality when paired with transparent oversight. 
+We propose a practical oversight approach using key performance indicators with 
+equity stratifiers to monitor completion, adherence, and unplanned care, and 
+outline research priorities on longer-term outcomes in under-connected 
+populations, privacy impact evaluations, interoperability, and pragmatic trials 
+with equity endpoints.
+
+Copyright © 2025 Zhong and Lei.
+
+DOI: 10.3389/fpubh.2025.1727725
+PMCID: PMC12714952
+PMID: 41426681 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+2. Scand J Prim Health Care. 2025 Nov 17:1-13. doi:
+10.1080/02813432.2025.2588126.  Online ahead of print.
+
+Stroke recognition and early care pathways following telephone triage in 
+out-of-hours primary care: a register-based study from the Central Denmark 
+Region.
+
+Gude MF(1)(2), Huibers L(2)(3)(4), Lock MK(1), Pedersen AF(2)(3)(4), Blauenfeldt 
+RA(2)(5).
+
+Author information:
+(1)Department of Research & Development, Prehospital Emergency Medical Services, 
+Aarhus, Denmark.
+(2)Department of Clinical Medicine, Aarhus University, Aarhus, Denmark.
+(3)Research Unit for General Practice, Aarhus University, Aarhus, Denmark.
+(4)Department of Public Health, Aarhus University, Aarhus, Denmark.
+(5)Department of Neurology, Danish Stroke Center, Aarhus University Hospital, 
+Aarhus, Denmark.
+
+BACKGROUND: Out-of-hours primary care (OOH-PC) plays a key role in initial 
+stroke triage, yet the accuracy of telephone assessments by general 
+practitioners (GPs) and their impact on prehospital stroke care remain 
+insufficiently studied.
+AIMS: To evaluate the sensitivity of stroke and transient ischemic attack (TIA) 
+identification by GPs during OOH-PC telephone triage and examine associations 
+with time from first call to admission, treatment rates, and admission pathways.
+PATIENTS AND METHODS: We conducted a retrospective cohort study including 
+patients admitted to stroke centers in the Central Denmark Region (2020-2022) 
+following OOH-PC contact within 48 h. Triage classification was based on GP 
+documentation and compared with final hospital diagnoses. Outcomes included 
+triage sensitivity, intravenous thrombolysis (IVT) rates, and time to admission.
+RESULTS: Among 4414 patients, 2738 had a final diagnosis of stroke or TIA, of 
+whom 1728 were triage positive, corresponding to a sensitivity of 63.1% (95% CI, 
+61.2-64.9). Among patients with acute ischemic stroke (AIS) and symptom onset 
+≤3 h before OOH-PC contact, 387 of 544 were identified (71.1%, 95% CI, 
+67.2-74.8). Triage-positive AIS patients had higher IVT rates (adjusted 
+difference: 8.9%, 95% CI, 5.4-12.5) and shorter call-to-admission time. In 
+early-presenting AIS, the adjusted IVT difference was 10.9% (95% CI, 1.4-20.5), 
+and triage-negative patients more often presented with impaired consciousness 
+and visual symptoms.
+CONCLUSIONS: GPs demonstrated moderate sensitivity in telephone triage of stroke 
+in OOH-PC. Symptom presentation differed between triage groups, suggesting 
+recognition may be influenced by symptom type as well as time from onset.
+
+DOI: 10.1080/02813432.2025.2588126
+PMID: 41243862
+
+
+3. Ther Clin Risk Manag. 2025 Nov 6;21:1549-1558. doi: 10.2147/TCRM.S545756. 
+eCollection 2025.
+
+Impact of Oncology Nursing Interventions on Chemotherapy-Induced Toxicities in 
+Lung Cancer Patients.
+
+Gao Y(1), Guo M(2).
+
+Author information:
+(1)Department of Ward I, Chest Medicine, Hubei Cancer Hospital, Tongji Medical 
+College, Huazhong University of Science and Technology, Wuhan, Hubei, 430079, 
+People's Republic of China.
+(2)Department of Intra-Abdominal II, Hubei Cancer Hospital, Tongji Medical 
+College, Huazhong University of Science and Technology, Wuhan, Hubei, 430079, 
+People's Republic of China.
+
+BACKGROUND: Chemotherapy-induced toxicities are a significant challenge in lung 
+cancer treatment, leading to reduced treatment adherence, increased hospital 
+readmissions, and lower quality of life. Oncology nursing plays a vital role in 
+managing these toxicities through early assessment, patient education, and 
+supportive care. This study aimed to evaluate the impact of a structured 
+oncology nursing intervention on the management of chemotherapy-related 
+toxicities in lung cancer patients.
+METHODS: This retrospective cohort study analyzed 313 patients with 
+pathologically confirmed lung cancer who received first-line chemotherapy at 
+Hubei Cancer Hospital, Tongji Medical College, Huazhong University of Science 
+and Technology, between January 2021 and December 2023. Patients were divided 
+into two groups: the intervention group (n = 148) received comprehensive 
+oncology nursing services, including toxicity education, symptom monitoring via 
+telephone follow-up, early triage of adverse events, and individualized 
+supportive care plans; the control group (n = 165) received standard care. 
+Primary outcomes included the incidence and severity of grade ≥2 chemotherapy 
+toxicities, unscheduled hospital visits, and treatment delays. Secondary 
+outcomes included patient satisfaction and anxiety levels.
+RESULTS: The intervention group showed a significantly lower incidence of grade 
+≥2 neutropenia (18.2% vs 30.3%, P = 0.012), chemotherapy-induced nausea/vomiting 
+(24.3% vs 39.4%, P = 0.006), and unplanned emergency visits (9.5% vs 19.4%, P = 
+0.018). Treatment delays due to unmanaged toxicity were also reduced (12.8% vs 
+23.0%, P = 0.021). Additionally, the intervention group reported lower anxiety 
+scores (mean STAI: 34.7 vs 41.3, P < 0.001) and higher satisfaction (8.7 vs 7.4, 
+P < 0.001).
+CONCLUSION: Structured oncology nursing interventions significantly improve the 
+management of chemotherapy-induced toxicities in lung cancer patients, reducing 
+complications, enhancing treatment continuity, and improving psychological 
+well-being.
+
+© 2025 Gao and Guo.
+
+DOI: 10.2147/TCRM.S545756
+PMCID: PMC12599214
+PMID: 41221162
+
+Conflict of interest statement: The authors have no conflicts of interest to 
+declare for this work.
+
+
+4. BMJ Open. 2025 Nov 4;15(11):e097622. doi: 10.1136/bmjopen-2024-097622.
+
+Impact of video service failure on triage outcomes in Danish out-of-hours 
+primary care: a register-based study across four regions.
+
+Nebsbjerg MA(1)(2), Bomholt KB(3)(2), Vestergaard CH(2), Christensen MB(2)(4), 
+Huibers L(2)(4).
+
+Author information:
+(1)Department of Obstetrics and Gynaecology, Aarhus Universitetshospital, 
+Aarhus, Denmark man@ph.au.dk.
+(2)Research Unit for General Practice, Aarhus, Denmark.
+(3)Department of Obstetrics and Gynaecology, Aarhus Universitetshospital, 
+Aarhus, Denmark.
+(4)Department of Public Health, Aarhus University, Aarhus, Denmark.
+
+OBJECTIVES: To evaluate the impact of video use in out-of-hours primary care 
+(OOH-PC) telephone triage by examining how triage outcomes (ie, ended by 
+telephone, clinic consultation or home visit) changed during a period with video 
+service failure.
+DESIGN: Observational register-based study, using periods of video service 
+failure as a randomisation mechanism for a controlled study.
+SETTING: OOH-PC in four of the five Danish regions.
+PARTICIPANTS: All telephone triage contacts to the OOH-PC call centres between 
+April 2020 and December 2021.
+INTERVENTIONS: Video service failures resulted in a subset of telephone triage 
+contacts without the option of using video as a triage tool. Video service 
+failures were identified algorithmically based on observed periods without video 
+use.
+MAIN OUTCOME MEASURES: Proportion of telephone triage contacts with clinic 
+consultations or home visits as triage outcome during a period of video service 
+failure compared with matched reference telephone triage contacts taking place 
+during normal service (1:10), presented as risk ratios (RR) with 95% CI).
+RESULTS: The algorithm identified 6605 telephone triage contacts during video 
+service failure. Compared with matched contacts during normal service, these had 
+a 15% higher risk of resulting in a clinic consultation (RR: 1.15, 95% CI 1.09 
+to 1.20). This effect was primarily isolated to the year 2021 (RR: 1.23, 95% CI 
+1.16 to 1.31) compared with 2020 (RR: 1.05%, 95% CI 0.97 to 1.13). Video service 
+failure did not significantly affect the risk of a home visit.
+CONCLUSIONS: Results strongly suggest that the unavailability of the video 
+service is likely to significantly increase the number of clinic consultations 
+in OOH-PC as a triage outcome. Whether this effect is likely to persist in the 
+long term remains unclear.
+
+© Author(s) (or their employer(s)) 2025. Re-use permitted under CC BY-NC. No 
+commercial re-use. See rights and permissions. Published by BMJ Group.
+
+DOI: 10.1136/bmjopen-2024-097622
+PMCID: PMC12588023
+PMID: 41193219 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: None declared.
+
+
+5. BJGP Open. 2025 Nov 3:BJGPO.2025.0133. doi: 10.3399/BJGPO.2025.0133. Online 
+ahead of print.
+
+Telephone first access to general practice for older people- a qualitative 
+study.
+
+Parsons J(1), Bryce C(2), Fleming J(2), Newbould J(3), Dale J(2), Atherton H(4).
+
+Author information:
+(1)Centre for Evidence and Implementation Science, University of Birmingham, 
+Birmingham, England j.e.parsons@bham.ac.uk.
+(2)Warwick Applied Health, University of Warwick, Coventry, UK.
+(3)RAND Europe, Cambridge, UK.
+(4)Primary Care Research Centre, University of Southampton, Southampton, UK.
+
+BACKGROUND: Recent years have seen increasing pressure on primary care workforce 
+and appointments, with 'telephone first' introduced in the UK to manage demand 
+and workload. Patients discuss healthcare needs via telephone with a general 
+practitioner (GP) before being invited to make an appointment.Older people are 
+at increased risk of inequality in accessing primary care appointments, with 
+more long-term conditions and increased communication difficulties using 
+telephone. These inequalities were potentially exacerbated during Covid-19.
+AIMS: This study aimed to explore experiences of older people, carers and 
+general practice teams in using telephone first to access appointments.
+DESIGN & SETTING: Qualitative study in primary care.
+METHOD: We conducted 48 interviews with older people/carers, and six focus 
+groups with staff from general practices using telephone first.
+RESULTS: Practices and older patients had varied approaches to 'telephone 
+first.' As well as adapting to the concept of triage call back, challenges for 
+older people and their practices included changing their understanding of what 
+constituted consultations. Trust between patients and their general practice 
+influenced views and experiences, with acceptance of telephone first being 
+linked to their overall trust in the general practice. We observed differing 
+views on how telephone first worked between patients and general practices 
+reflecting poor communication between the two groups.
+CONCLUSION: Systems implemented into practices need to be adequately explained 
+regarding processes, staff roles and expectations of patients, to allow for 
+thorough understanding, and a demystification of the unknown. Future research 
+should examine how telephone first approaches affect older patients' health 
+outcomes.
+
+Copyright © 2025, The Authors.
+
+DOI: 10.3399/BJGPO.2025.0133
+PMID: 41184063
+
+
+6. Health Serv Insights. 2025 Oct 23;18:11786329251385022. doi: 
+10.1177/11786329251385022. eCollection 2025.
+
+To Choose or Not to Choose: Patients with Chest Pain Often Do Not Choose to 
+Triage for Chest Pain During Online Self-Triage.
+
+Pecina JL(1), Curry EN(1), Miller NE(1), Thompson MC(2), North F(3).
+
+Author information:
+(1)Department of Family Medicine, Mayo Clinic Rochester Minnesota, USA.
+(2)Mayo Clinic Enterprise Office of Access Management, Mayo Clinic Rochester 
+Minnesota, USA.
+(3)Division of Community Internal Medicine, Geriatrics, and Palliative Care, 
+Mayo Clinic Rochester Minnesota, USA.
+
+BACKGROUND: Patients performing self-triage for chest pain need to pick an 
+algorithm which includes questions pertinent to chest pain to triage accurately.
+OBJECTIVE: Our study reviews patient self-triage choices and outcomes for 
+patients who completed an online self-triage encounter before being triaged by a 
+nurse for chest pain.
+METHODS: Patients who underwent telephone nurse triage for chest pain, and also 
+had an online self-triage encounter within the prior 24 hours were reviewed for 
+the frequency with which they chose "chest pain" as their symptom to triage for 
+during self-triage, whether they reported chest pain during the self-triage 
+encounter (if asked as part of the algorithm for their chosen self-triage 
+symptom) and whether the patient had any follow up evaluation within 1 week.
+RESULTS: There were 70 self-triage and nurse triage dyads during the study 
+period where triage nurses chose "chest pain" as the primary symptom to be 
+triaged for during the telephone triage encounter. Of these, only 5 (7.1%) 
+patients chose the "chest pain" self-triage option during online self-triage. 
+During the self-triage encounter, 50 (71%) reported chest pain, 10 (14%) denied 
+chest pain and 10 chose to self-triage their symptoms with an algorithm that did 
+not include a question on whether chest pain was present. Of the 70 total dyads 
+59 (84%) had a follow up emergency department (40 patients) or office visit (19 
+patients) documented.
+CONCLUSION: Most patients chosen to be triaged for chest pain by triage nurses 
+did not choose the online self-triage algorithm for chest pain even though the 
+majority did report chest pain during their self-triage encounter (when asked). 
+This is concerning from a safety perspective as a non-chest pain self-triage 
+option chosen by the patient may not always ask about the presence or absence of 
+chest pain and thus could increase the risk of being triaged inaccurately. 
+Implications for improvement of self-triage could include diagrams for patients 
+to choose the symptom area.
+
+© The Author(s) 2025.
+
+DOI: 10.1177/11786329251385022
+PMCID: PMC12559617
+PMID: 41164083
+
+Conflict of interest statement: The authors declared no potential conflicts of 
+interest with respect to the research, authorship, and/or publication of this 
+article.
+
+
+7. Rev Esp Quimioter. 2025 Oct 21;38(6):504-516. doi: 10.37201/req/097.2025. Epub
+ 2025 Oct 21.
+
+Risk model derivation and clinical outcomes in COVID-19 pneumonia patients 
+discharged from the emergency department.
+
+Martín-Sánchez FJ(#)(1)(2)(3), Laínez-Martínez S(#)(4), López-Ayala P(5), 
+Calvo-Manuel E(2), Del-Toro E(4), Chaparro-Pardo D(4), García-Briñón MÁ(3), 
+González-Armengol JJ(4), González-Del-Castillo J(2)(3)(6).
+
+Author information:
+(1)Hospital Emergencias Isabel Zendal, Madrid, Spain.
+(2)Universidad Complutense de Madrid, Madrid, Spain.
+(3)Instituto de Investigación Sanitaria del Hospital San Carlos, Madrid, Spain.
+(4)Hospital Clínico San Carlos, Madrid, Spain.
+(5)Cardiovascular Research Institute Basel (CRIB), Department of Cardiology, 
+University Hospital Basel, University of Basel, Basel, Switzerland.
+(6)Hospital Clínico San Carlos, Madrid, Spain. jgonzalezcast@gmail.com.
+(#)Contributed equally
+
+OBJECTIVES: To develop and validate a clinical model to predict 30-day mortality 
+in high-risk COVID-19 patients evaluated in the Emergency Department, and to 
+evaluate outcomes in adults with COVID-19 pneumonia classified as low-risk by 
+the model and discharged home.
+METHODS: Secondary analysis of the COVID-19\_URG-HCSC registry at Hospital 
+Clínico San Carlos (Madrid). Phase 1 (Feb-Apr 2020): derivation of a model in 
+patients aged ≥18 years with probable or confirmed COVID-19 who were classified 
+as high-risk at triage (age ≥55 years, baseline oxygen saturation <96% on 
+arrival, or pulmonary infiltrates on chest radiograph). The primary outcome was 
+30-day all-cause mortality. Phase 2 (Sep 2020-May 2021): validation in adults 
+with low-risk pneumonia discharged home and monitored by telephone. Primary 
+outcomes were 30-day all-cause mortality, revisits, and hospitalization.
+RESULTS: Of 2,436 eligible patients in phase 1, age, oxygen saturation, renal 
+function, LDH, CRP, platelet count and dementia were independent mortality 
+predictors. The model showed excellent discrimination (AUC 0.918) and good 
+calibration, and was implemented in a web-based tool. In phase 2, 565 patients 
+with low-risk pneumonia were monitored; no deaths occurred at 30 days. 
+Re-attendance was 8.0% and hospitalisation 12.6%, mainly for respiratory 
+failure. All hospitalised patients were ultimately discharged home.
+CONCLUSIONS: The PrediCOVID model provides accurate risk stratification and, 
+when combined with telemonitoring, enables safe early discharges while reducing 
+hospital burden.
+
+Publisher: OBJETIVOS: Desarrollar y validar un modelo clínico para predecir la 
+mortalidad a 30 días en pacientes con COVID-19 de alto riesgo evaluados en el 
+Servicio de Urgencias, y evaluar los desenlaces en adultos con neumonía por 
+COVID-19 clasificados como de bajo riesgo por el modelo y dados de alta a 
+domicilio.
+MÉTODOS: Análisis secundario del registro COVID-19\_URG-HCSC del Hospital 
+Clínico San Carlos (Madrid). Fase 1 (febrero–abril 2020): derivación de un 
+modelo en pacientes ≥18 años con COVID-19 probable o confirmado clasificados 
+como de alto riesgo en el triaje (edad ≥55 años, saturación basal de oxígeno 
+<96% a su llegada, o infiltrados pulmonares en la radiografía de tórax). El 
+desenlace principal fue la mortalidad por todas las causas a 30 días. Fase 2 
+(septiembre 2020–mayo 2021): validación en adultos con neumonía de bajo riesgo 
+dados de alta a domicilio y monitorizados telefónicamente. Los desenlaces 
+principales fueron mortalidad por todas las causas a 30 días, reconsultas y 
+hospitalización.
+RESULTADOS: De los 2.436 pacientes elegibles en la fase 1, la edad, la 
+saturación de oxígeno, la función renal, la LDH, la PCR, el recuento plaquetario 
+y la demencia fueron predictores independientes de mortalidad. El modelo mostró 
+una excelente discriminación (AUC 0,918) y buena calibración, y se implementó en 
+una herramienta web. En la fase 2, se monitorizó a 565 pacientes con neumonía de 
+bajo riesgo; no se registraron muertes a los 30 días. La tasa de reconsulta fue 
+del 8,0% y la de hospitalización del 12,6%, principalmente por insuficiencia 
+respiratoria. Todos los pacientes hospitalizados fueron finalmente dados de alta 
+a domicilio.
+CONCLUSIONES: El modelo PrediCOVID proporciona una estratificación del riesgo 
+precisa y, combinado con la telemonitorización, permite altas precoces seguras 
+al tiempo que reduce la sobrecarga hospitalaria.
+
+© 2025 The Author(s). This article is distributed under the terms of the 
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) 
+(https://creativecommons.org/licenses/by-nc/4.0/). Published with Index on 
+behalf of the Sociedad Española de Quimioterapia.
+
+DOI: 10.37201/req/097.2025
+PMCID: PMC12707343
+PMID: 41140259 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.
+
+
+8. Scand J Trauma Resusc Emerg Med. 2025 Oct 22;33(1):172. doi: 
+10.1186/s13049-025-01462-8.
+
+Evaluation of the performance of telephone triage service.
+
+Vainio H(1), Eklund A(2), Soininen L(3), Castrén M(4), Torkki P(5).
+
+Author information:
+(1)Department of Emergency Medicine and Services, University of Helsinki and 
+Helsinki University Hospital, Haartmaninkatu 8, University of Helsinki, 00014, 
+Finland. hanna.m.vainio@helsinki.fi.
+(2)Department of Industrial Engineering and Management, Department of Accounting 
+and Business Law, Aalto University, Finland. Faculty of Medicine, University of 
+Helsinki, Helsinki, Finland.
+(3)DigiFinland, Helsinki, Finland.
+(4)Department of Emergency Medicine and Services, University of Helsinki and 
+Helsinki University Hospital, Haartmaninkatu 8, University of Helsinki, 00014, 
+Finland.
+(5)Department of Public Health, University of Helsinki, Helsinki, Finland.
+
+BACKGROUND: There is a growing need to assess the impact of the Medical Helpline 
+(MH) 116117 on emergency care services and patient pathways. This study aims to 
+test a validated performance measurement (PM) framework in a real-life setting 
+and evaluate how MH influences ED service utilization and patient pathways in 
+acute care settings.
+METHODS: We tested the PM framework to evaluate the Finnish MH service. A 
+quantitative before-and-after analysis was conducted using data from Vantaa for 
+two periods: January 1 to December 31, 2016 ("Before Period") and January 1 to 
+December 31, 2021 ("After Period"). Patient pathways were mapped by linking MH 
+call logs and electronic health records (EHR). Data analysis included compliance 
+and non-compliance rates for triage instructions, accessibility metrics, ED 
+referral patterns, and cost-per-call calculations. Costs were categorized into 
+fixed and variable components, and triage levels, diagnoses, and follow-up care 
+outcomes were evaluated within the PM framework. The dataset included 
+information from 146,858 patients who sought ED services during the study 
+periods.
+RESULTS: The framework provides a valuable tool for continuously measuring and 
+improving MH performance. However, its usability highlights typical PM 
+challenges, including data availability issues and indicator complexity. Broader 
+validation and further development are necessary for systematic implementation. 
+Future efforts should improve data collection processes to support more 
+comprehensive evaluations and address identified gaps. Nevertheless, successful 
+PM requires more than just a feasible measurement tool -it demands developing 
+expertise in PM, refining processes, and understanding how these changes impact 
+patient outcomes. Using a framework, PM demonstrates that the MH effectively 
+manages high call volumes and provides timely support, particularly outside 
+regular office hours. While patient satisfaction is generally high, advancing 
+expertise in PM and refining processes are crucial to better understanding and 
+enhancing patient outcomes. These efforts will further improve the quality and 
+efficiency of MH services.
+CONCLUSIONS: This study addresses a critical gap in evidence-based support for 
+assessing MH performance-an essential foundation for defining current and future 
+care standards. The proposed framework offers actionable insights to support 
+cost control and improve the quality of care delivery. Findings underscore the 
+value of comprehensive monitoring across performance domains to enhance service 
+effectiveness. Nonetheless, further refinement of the framework is necessary to 
+more accurately capture patient outcomes and assess the real-world impact of 
+these services. Going forward, incorporating patients' perspectives and focusing 
+on outcomes that are meaningful to them will be equally important. Establishing 
+standardised performance metrics is crucial for enabling valid comparisons 
+across different service providers.
+TRIAL REGISTRATION: Not applicable.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s13049-025-01462-8
+PMCID: PMC12542025
+PMID: 41126286 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: This study was approved and registered by Helsinki University 
+Hospital (approval number HUS/247/2020, dated July 2, 2020) under the 
+Declaration of Helsinki. Since anonymized patient data provided by HUS was used, 
+informed consent was waived according to national legislation and institutional 
+requirements. Therefore, individual consent to participate was not required. 
+Consent for publication: Not applicable. Competing interests: The authors 
+declare no competing interests.
+
+
+9. BMC Public Health. 2025 Oct 9;25(1):3413. doi: 10.1186/s12889-025-24538-7.
+
+Protocol for an observational prospective study on the use and impact of 
+over-the-phone interpretation in 911 calls with language discordance.
+
+Meischke H(1), Fogel CA(2), Garrison MM(3), Yip MP(2), Loza-Gomez A(4)(5), 
+Turner AM(2)(6), Ramirez M(2), Stankovic N(2).
+
+Author information:
+(1)Department of Health Services and Population Health, University of 
+Washington, 1959 NE Pacific St, Box 357660, Seattle, WA, 98195, USA. 
+hendrika@uw.edu.
+(2)Department of Health Services and Population Health, University of 
+Washington, 1959 NE Pacific St, Box 357660, Seattle, WA, 98195, USA.
+(3)Department of Public Health, Purdue University, 812 W State St, West 
+Lafayette, IN, 47907, USA.
+(4)Los Angeles General Medical Center, 1200 N State St, Los Angeles, CA, 90033, 
+USA.
+(5)Keck School of Medicine, University of Southern California, 1975 Zonal Ave, 
+Los Angeles, CA, 90033, USA.
+(6)Department of Biomedical Informatics and Medical Education, University of 
+Washington, 1959 NE Pacific St, Box 358047, Seattle, WA, 98195, USA.
+
+BACKGROUND: There are more than 25.9 million people in the U.S. who experience 
+limited English proficiency (LEP). Compared with English-speaking callers, LEP 
+individuals contacting 911 are less likely to receive and perform prearrival 
+instructions and are more likely to experience delays and adverse health 
+outcomes. While we know that using interpreters in clinics improves care 
+delivery, patient satisfaction, and health outcomes, no similar gold standard 
+has been established for overcoming language barriers in emergency 911 calls. 
+The objective of this study is to examine the relationships between the use of 
+over-the-phone interpretation (OPI) and various call characteristics, 
+communication strategies, and dispatch outcomes to better inform public safety 
+telecommunicator (PST) decision making on when and when not to connect to OPI.
+METHODS: This is an observational prospective study based on the Feldman-Stewart 
+Framework of Patient-Provider communication. Through meticulous coding, we will 
+transform linguistic data from a sample of 660 real-life LEP 911 calls collected 
+from four Emergency Communication Centers (ECCs) into quantitative data which 
+will be used to examine the relationships between caller characteristics, OPI 
+use, and associated communication and dispatch outcomes. Primary outcome 
+measures are the time to first dispatch, the time to delivering medically 
+relevant prearrival instructions, and triage errors. Primary analyses will use 
+multilevel linear and logistic regression models to examine the relationships 
+between the outcome variables and various predictors, including the use of and 
+time to accessing OPI, in addition to alternative strategies for establishing 
+language concordance (e.g., asking for a lay interpreter). Secondary analyses 
+will explore possible mediators and effect modifiers including but not limited 
+to caller emotionality, the severity and complexity of the primary complaint, 
+and other caller- and context-specific characteristics.
+DISCUSSION: The results of this study will shed light on the call 
+characteristics that are associated with the use of OPI and better dispatch 
+outcomes for LEP callers. Our findings will inform future training and policy 
+for 911 PSTs and LEP language communities, with the goal of reducing delays and 
+disparities that result from language barriers in the context of emergency 
+dispatch.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s12889-025-24538-7
+PMCID: PMC12512811
+PMID: 41068762 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: This study was approved (#18719) by the Human Subjects Division of 
+the University of Washington (Seattle, WA). Competing interests: The authors 
+declare no competing interests.
+
+
+10. Scand J Prim Health Care. 2025 Sep 22:1-14. doi:
+10.1080/02813432.2025.2563517.  Online ahead of print.
+
+Evaluating digital triage symptom checker with historical triage-related adverse 
+events.
+
+Ilicki J(1), Edman S(1), Stalfors J(1)(2), Molin CJ(1).
+
+Author information:
+(1)Platform24 Healthcare AB, Stockholm, Sweden.
+(2)Institute of Clinical Sciences, Sahlgrenska Academy at the University of 
+Gothenburg, Göteborg, Sweden.
+
+BACKGROUND: Online symptom checkers are increasingly used for diagnostic support 
+and triage. However, evidence on their performance and evaluations with 
+real-world data remains limited.
+OBJECTIVE: The aim of this study was to evaluate the performance of a digital 
+symptom checker using clinical vignettes derived from real-world cases that had 
+previously been incorrectly triaged.
+METHODS: A patient-facing, rule-based digital symptom checker used in Swedish 
+primary care was assessed in this study. Vignettes were constructed from cases 
+reported to the Swedish Health and Social Care Inspectorate due to erroneous 
+telephone triage. We hypothesized that the digital symptom checker could provide 
+appropriate triage for these cases. Seven physicians independently simulated 
+patients by entering symptoms in the symptom checker based on each vignette. 
+Triage outcomes were assessed against the Swedish National Triage Guidelines 
+(RGS), evaluating the accuracy and the safety of the triage recommendation.
+RESULTS: A total of 69 unique vignettes yielded 483 individual trials. After 
+excluding 93 trials due to significant deviations from the original vignette 
+description (adding or omitting symptoms), 390 trials were included in the 
+primary analysis. The symptom checker achieved 91% accuracy (95% CI 88-94%) and 
+94% safety (95% CI 91-96%).
+CONCLUSIONS: The symptom checker demonstrated high accuracy and safety when 
+triaging a subset of vignettes based on real-world cases that had been 
+previously erroneously triaged. This study also highlights the difficulties of 
+using vignettes when evaluating symptom checkers. To our knowledge, this is the 
+first study to evaluate such systems using vignettes based on actual patient 
+cases with known triage errors.
+
+DOI: 10.1080/02813432.2025.2563517
+PMID: 40982722
+
+
+11. PLoS One. 2025 Aug 11;20(8):e0322969. doi: 10.1371/journal.pone.0322969. 
+eCollection 2025.
+
+Exploring two-way text messages for post-discharge follow-up and quality 
+improvement in rural Uganda.
+
+Huxford C(1)(2), Hwang B(2), Dunsmuir D(1)(2), Pillay Y(1)(2), Tusingwire F(3), 
+Otim FO(4), Akello B(4), Ishebukara AIA(3), Novakowski SK(1)(2), Toliva BO(3), 
+Kenya-Mugisha N(3), Tagoola A(5), Wiens MO(1)(2)(3), Kissoon N(2)(6), Ansermino 
+JM(1)(2).
+
+Author information:
+(1)Department of Anesthesiology, Pharmacology & Therapeutics, University of 
+British Columbia, Vancouver, British Columbia.
+(2)Institute for Global Health, BC Children's Hospital and BC Women's Hospital + 
+Health Centre, Vancouver, British Columbia.
+(3)World Alliance for Lung and Intensive Care Medicine in Uganda, Kampala, 
+Uganda.
+(4)Department of Pediatrics, Gulu Regional Referral Hospital, Gulu, Uganda.
+(5)Department of Pediatrics, Jinja Regional Referral Hospital, Jinja, Uganda.
+(6)Department of Pediatrics, University of British Columbia, Vancouver, British 
+Columbia.
+
+INTRODUCTION: Automated messaging through text (SMS) and instant messaging 
+services (IMS) offers low-cost solutions for patient follow-up in 
+resource-constrained contexts. This study aims to evaluate a quality improvement 
+(QI) initiative to improve caregiver response rates to an automated messaging 
+system for post-discharge follow-up of children in rural Uganda.
+METHODS: From June 2022 to June 2024, caregivers of children triaged through the 
+Smart Triage platform at Gulu Regional Referral Hospital were invited to 
+participate in an automated follow-up program. Messages were sent seven days 
+after discharge via SMS and IMS (WhatsApp), prompting caregivers to report if 
+their child had "improved" or "not improved". Non-responders and "not improved" 
+cases were followed up with a phone call from a study nurse. From April 2023 to 
+November 2023, a QI initiative refined the messaging system to improve response 
+rates and a post-QI period then continued the intervention with no changes until 
+June 2024. Response rates were analyzed over three periods: historical (pre-QI, 
+June 2022 - March 2023), QI intervention, and post-QI. Additionally, data on 
+message delivery rates, improvement strategies, and health outcomes were 
+analyzed.
+RESULTS: Of 6826 participants, 6469 (95%) messages were successfully delivered. 
+Response rates improved from 20% in April 2023 to 40% in June 2024 and remained 
+stable between 33% and 41% during the post-QI period. Compared to the historical 
+period, post-QI response rates were significantly higher (95% CI: 12.5% to 
+18.2%, p < 0.001). This improvement reflected a statistically significant 
+positive trend during the QI period. Overall, 1856 caregivers responded: 1244 
+(67%) reported improvement and 612 (33%) reported no improvement. Follow-up 
+phone calls for those "not improved" revealed 58 (9%) sought care, 12 (2%) were 
+readmitted, and no deaths occurred. For non-responders, 206 (5%) sought care, 33 
+(0.7%) were readmitted, and 3 (0.07%) deaths occurred.
+DISCUSSION: Automated two-way text messages for post-discharge pediatric 
+follow-up yielded high delivery and moderate response rates. Iterative QI 
+efforts increased response rates, highlighting the importance of tailored 
+communication strategies. Automated messages can facilitate timely intervention 
+for high-risk children and enable efficient collection of health outcomes, 
+offering a viable alternative to in-person follow-up in resource-poor settings.
+
+Copyright: © 2025 Huxford et al. This is an open access article distributed 
+under the terms of the Creative Commons Attribution License, which permits 
+unrestricted use, distribution, and reproduction in any medium, provided the 
+original author and source are credited.
+
+DOI: 10.1371/journal.pone.0322969
+PMCID: PMC12338838
+PMID: 40788901 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.
+
+
+12. JMIR Form Res. 2025 Jul 29;9:e60943. doi: 10.2196/60943.
+
+Usefulness of Interventions Using a Smartphone Cognitive Behavior Therapy 
+Application for Children With Mental Health Disorders: Prospective, Single-Arm, 
+Uncontrolled Clinical Trial.
+
+Nagamitsu S(1), Okada A(2), Sakuta R(3), Ishii R(4), Koyanagi K(5), Habukawa 
+C(6), Katayama T(7), Ito M(8), Kanie A(8), Otani R(3), Inoue T(3), Kitajima 
+T(3), Matsubara N(3), Tanaka C(2), Fujii C(2), Shigeyasu Y(2), Matsuoka M(9), 
+Kakuma T(10), Horikoshi M(8).
+
+Author information:
+(1)Department of Pediatrics, Faculty of Medicine, Fukuoka University, 7-45-1 
+Nanakuma, Jonan-ku, Fukuoka, 814-0180, Japan, 81 92-801-1011.
+(2)Department of Pediatrics, Okayama University Graduate School of Medicine, 
+Dentistry and Pharmaceutical Sciences, Okayama, Japan.
+(3)Child Development and Psychosomatic Medicine Center, Dokkyo Medical 
+University Saitama Medical Center, Shimotsugagun, Japan.
+(4)Department of Pediatrics & Child Health, Kurume University, School of 
+Medicine, Kurume, Japan.
+(5)Nagasaki Prefectural Center of Medicine and Welfare for Children, Isahaya, 
+Japan.
+(6)Department of Pediatric Allergy, Minami Wakayama Medical Center, Tanabe, 
+Japan.
+(7)L2B Inc, Shibuya, Japan.
+(8)National Center for Cognitive Behavior Therapy and Research, National Center 
+of Neurology and Psychiatry, Kodaira, Japan.
+(9)Department of Neuropsychiatry, Kurume University School of Medicine, Kurume, 
+Japan.
+(10)Biostatistics Center, Kurume University, Kurume, Japan.
+
+BACKGROUND: The prevalence of mental health disorders among children in Japan 
+has increased rapidly, and these children often show depressive symptoms and 
+reduced quality of life (QOL). We previously developed a smartphone-based 
+self-monitoring app to deliver cognitive behavioral therapy (CBT), implemented 
+it in healthy children, and reported its effectiveness for health promotion.
+OBJECTIVE: This study aims to examine the usefulness of the CBT app for 
+improvement in depressive symptoms and QOL in children with mental health 
+disorders.
+METHODS: The participants were 115 children with mental health disorders (eg, 
+school refusal, orthostatic hypotension, eating disorders, developmental 
+disorders, among others) and aged 12-18 years. The CBT app-based program 
+comprised 1 week of psychoeducation followed by 1 week of self-monitoring. After 
+reading story-like scenarios, participants created a self-monitoring sheet with 
+5 panels: events, thoughts, feelings, body responses, and actions. All 
+participants received regular mental health care from physicians in addition to 
+the app-based program. To evaluate the participants' depressive symptoms and 
+QOL, Patient Health Questionnaire for Adolescents (PHQ-9A), Depression 
+Self-Rating Scale for Children (DSRS-C), and Pediatric Quality of Life Inventory 
+(PedsQL) were measured at the beginning of the intervention, and at 2 and 6 
+months thereafter. Questionnaire for Triage and Assessment with 30 items 
+(QTA30), and Rosenberg Self-Esteem Scale (RSES) were also used to measure their 
+health and self-esteem. Participants were divided into 4 groups on the basis of 
+the PHQ-9A score (above or below the cutoff; PHQ-9A≥5 or PHQ-9A<5) and 
+completion or noncompletion of the CBT app-based program (app [+] or app [-]). 
+The primary outcome was improvement in the DSRS-C score, and secondary outcomes 
+were improvement in other psychometric scales including PedsQL, QTA30, and RSE. 
+A paired-samples t test was used for statistical analysis. The Medical Ethics 
+Committee of Fukuoka University Faculty of Medicine (approval U22-05-002) 
+approved the study design.
+RESULTS: There were 48, 18, 18, and 7 participants in the PHQ-9A≥5 app (+), 
+PHQ-9A≥5 app (-), PHQ-9A<5 app (+), and PHQ-9A<5 app (-) groups, respectively. A 
+total of 24 participants dropped out. No improvement in the DSRS-C score was 
+observed in all groups. However, PedsQL scores improved significantly at 2 and 6 
+months in the PHQ-9A<5 app (+) group (t17=6.62; P<.001 and t17=6.11; P<.001, 
+respectively). There was a significant positive correlation between the PHQ-9A 
+scores and the number of self-monitoring sheets completed.
+CONCLUSIONS: The CBT app was useful for improving PedsQL scores of children with 
+mental health disorders. However, a higher-intensity CBT program is necessary 
+for more severely depressed children.
+
+© Shinichiro Nagamitsu, Ayumi Okada, Ryoichi Sakuta, Ryuta Ishii, Kenshi 
+Koyanagi, Chizu Habukawa, Takashi Katayama, Masaya Ito, Ayako Kanie, Ryoko 
+Otani, Takeshi Inoue, Tasuku Kitajima, Naoki Matsubara, Chie Tanaka, Chikako 
+Fujii, Yoshie Shigeyasu, Michiko Matsuoka, Tatsuyuki Kakuma, Masaru Horikoshi. 
+Originally published in JMIR Formative Research (https://formative.jmir.org).
+
+DOI: 10.2196/60943
+PMCID: PMC12307005
+PMID: 40729958 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflicts of Interest: None declared.
+
+
+13. BMC Psychiatry. 2025 Jul 1;25(1):635. doi: 10.1186/s12888-025-07023-8.
+
+Improving the time-efficiency of initial mental health assessment (triaging) 
+using an online assessment tool followed by a clinical interview via phone: a 
+randomised controlled trial.
+
+Fernando I(1)(2), Gupta R(3)(4), Simpson K(5), Szwec S(6), Carey M(7), Conrad 
+A(8)(9), Heard T(10), Lampe L(3)(9).
+
+Author information:
+(1)Hunter New England Local Health District, Newcastle, NSW, Australia. 
+Irosh.fernando@health.nsw.gov.au.
+(2)School of Medicine and Public Health, Faculty of Health and Medicine, 
+University of Newcastle, Callaghan, NSW, Australia. 
+Irosh.fernando@health.nsw.gov.au.
+(3)Hunter New England Local Health District, Newcastle, NSW, Australia.
+(4)School of Medicine and Public Health, Faculty of Health and Medicine, 
+University of Newcastle, Callaghan, NSW, Australia.
+(5)Mental Health Line (MHL) and Northern Mental Health Emergency Care-Rural 
+Access Program (NMHEC-RAP), Hunter New England Local Health District, Newcastle, 
+NSW, Australia.
+(6)Hunter Medical Research Institute, New Lambton, NSW, Australia.
+(7)School of Medicine and Public Health, College of Health, Medicine and 
+Wellbeing, University of Newcastle, Callaghan, NSW, Australia.
+(8)Mental Health -Research, Evaluation, Analysis & Dissemination (MH-READ) Unit, 
+Hunter New England Mental Health, Newcastle, NSW, Australia.
+(9)School of Medicine and Public Health, University of Newcastle, Callaghan, 
+NSW, Australia.
+(10)Youth Justice, NSW Department of Communities and Justice, Newcastle, NSW, 
+Australia.
+
+BACKGROUND: The need for time-efficient and accessible mental health assessment 
+is a priority in the face of high demand, limited resources and a progressive 
+increase in the percentage of adults experiencing high or very high levels of 
+psychological distress. Although there is broader supportive evidence for using 
+online assessment as a potential solution, there is relatively little evidence 
+from randomised controlled trials.
+OBJECTIVE: To investigate whether patient online self-reported clinical 
+information can save clinician time in subsequent mental health assessment via 
+phone.
+METHODS: Patients referred to a public mental health service by general 
+practitioners via fax during business hours between February 2020 and June 2022 
+were randomly allocated to either the intervention (self-reporting of clinical 
+information followed by clinician assessment by phone) or control (clinician 
+phone assessment as usual) arm. The time to complete the assessment (call 
+duration) was the primary outcome measure.
+RESULTS: Out of 758 referrals assessed for eligibility, 377 (49.34%) entered the 
+study and were randomised. Out of 184 referrals allocated to the intervention 
+arm, the assessment was completed in 125, but only 81 were included in the 
+analysis, mostly due to failure of clinicians to follow the protocol (completing 
+the assessment without using self-reported data, likely due to inexperience with 
+the novel process). Of 193 referrals allocated to the control arm, 135 completed 
+the assessment and were included in the analysis. Average assessment completion 
+time in the control arm was 25.19 min (standard deviation (SD) of 11.5 min) and 
+20.76 min (SD 7.49 min) in the intervention arm respectively, with a mean 
+difference of 4.43 min (17.59% time reduction). When a mixed effects linear 
+model was used to adjust for potential seasonal effect and correlation of 
+outcome within clinicians, a statistically significant reduction of 3.29 min 
+(P = 0.016, 95% CI (5.85, 0.73)) was still demonstrated by using online 
+assessment.
+CONCLUSION: The use of online self-report clinical assessment by patients can 
+save time to complete subsequent clinician assessment. Greater time-saving can 
+be expected with better integration of this tool in workflow and increased 
+clinician familiarity with using online self-reported data.
+TRIAL REGISTRATION: (registered retrospectively) Registry: Australian and New 
+Zealand Clinical Trial Registry (ACTRN).
+REGISTRATION NUMBER: anzctr.org.au ACTRN12624001293550. Date of registration: 
+24/10/2024.
+
+© 2025. Crown.
+
+DOI: 10.1186/s12888-025-07023-8
+PMCID: PMC12220592
+PMID: 40597048 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Human ethics and consent to 
+participate: This study received ethics approval from the Human Research Ethics 
+Committee of Hunter New England Local Health District (2018/ETH00546) and was 
+conducted in accordance with the Declaration of Helsinki. Informed consent was 
+obtained from all participants when they were recruited for the study. Consent 
+for publication: Not applicable. Competing interests: The authors declare no 
+competing interests.
+
+
+14. JAMA Netw Open. 2025 Jul 1;8(7):e2519020. doi: 
+10.1001/jamanetworkopen.2025.19020.
+
+Video Streaming or Telephone Communication During Emergency Medical Services 
+Dispatch Calls: A Cluster Randomized Clinical Trial.
+
+Gude MF(1)(2), Valentin JB(3), Meisner-Jensen M(1), Bohnstedt-Pedersen NH(1), 
+Dalgaard AK(1), Væggemose U(1)(2), Blauenfeldt RA(2)(4).
+
+Author information:
+(1)Department of Research & Development, Prehospital Emergency Medical Services, 
+Central Denmark Region, Denmark.
+(2)Department of Clinical Medicine, Aarhus University, Denmark.
+(3)Danish Center for Health Services Research, Department of Clinical Medicine, 
+Aalborg University, Aalborg, Denmark.
+(4)Department of Neurology & Danish Stroke Center, Aarhus University Hospital, 
+Aarhus, Denmark.
+
+IMPORTANCE: Video streaming during emergency medical calls may enhance triage 
+precision and optimize health resource allocation. However, its clinical safety 
+and effect on key outcomes remain unexplored in randomized clinical trials.
+OBJECTIVE: To assess whether video streaming during emergency calls reduces 
+highest-urgency ambulance dispatches while ensuring safety through outcomes such 
+as 24-hour hospital admissions among initially nonconveyed patients, mortality, 
+and intensive care unit (ICU) admissions.
+DESIGN, SETTING, AND PARTICIPANTS: This cluster randomized clinical trial was 
+conducted across 4 months (January 1 through April 30, 2023) at a single 
+emergency medical dispatch center serving 1.3 million residents in the Central 
+Denmark Region. Matched pairs of dispatchers were randomized to manage calls 
+using either telephone only communication (control) or video streaming 
+(intervention). Calls were routed to the next available dispatcher who had been 
+idle the longest. Data were analyzed using the intention-to-treat approach.
+INTERVENTION: Dispatchers in the intervention group used secure, 1-way 
+smartphone video streaming during emergency calls, while the control group 
+followed standard telephone protocols.
+MAIN OUTCOMES AND MEASURES: The primary outcome was the percentage of ambulances 
+dispatched at the highest urgency level. Secondary outcomes included 24-hour 
+hospital admissions among initially nonconveyed patients, ICU admission, 
+mortality rates, and dispatch call duration.
+RESULTS: Of 18 745 calls (patient median [IQR] age, 57 [31-76] years; 54.4% 
+female), 8124 were received by 10 dispatchers randomized to video streaming and 
+10 621 by 10 dispatchers randomized to telephone-only communication. Video 
+streaming was established in 3706 of the 8124 calls (45.6% [95% CI, 
+44.6%-46.7%]). Compared with the control group, the intervention group 
+demonstrated a 5.0% absolute reduction (95% CI, 0.0%-10.1%; P = .049) in 
+highest-urgency ambulance dispatches and no significant change (4.5% increase 
+[95% CI, -1.1% to 10.0%; P = .11]) in nonconveyance. Hospital admissions among 
+initially nonconveyed patients within 24 hours were reduced by 2.0% (95% CI, 
+-3.7% to -0.2%; P = .03). Mean dispatch time was 3.7 minutes (95% CI, 3.4-4.0 
+minutes) in the video streaming group vs 3.2 minutes (95% CI, 2.9-3.4 minutes) 
+in the telephone-only group, a difference of 0.5 minutes (95% CI, 0.1-0.9 
+minutes; P = .02). Mortality rates at 30 days and ICU admission rates were not 
+statistically different between the 2 groups.
+CONCLUSIONS AND RELEVANCE: In this cluster randomized clinical trial assessing 
+high-stakes emergency calls, video streaming reduced the frequency of 
+highest-urgency ambulance dispatches and lowered hospital admissions among 
+initially nonconveyed patients, but slightly increased dispatch times. These 
+findings suggest that video streaming may improve triage accuracy and reduce 
+hospital and prehospital resource use.
+TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT05742412.
+
+DOI: 10.1001/jamanetworkopen.2025.19020
+PMCID: PMC12215568
+PMID: 40591356 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of Interest Disclosures: Dr Blauenfeldt 
+reported receiving personal fees from Novo Nordisk and Pfizer outside the 
+submitted work. No other disclosures were reported.
+
+
+15. J Adv Nurs. 2025 Jul 1. doi: 10.1111/jan.70037. Online ahead of print.
+
+The Use of Triage in Primary Care in the UK: An Integrative Review and Narrative 
+Synthesis.
+
+Park HN(1), Lee K(2), Wallace C(1)(3).
+
+Author information:
+(1)University of South Wales, Pontypridd, Wales, UK.
+(2)College of Nursing, Seoul National University, Seoul, South Korea.
+(3)Wales Centre for Primary and Emergency Care Research, Cardiff, Wales, UK.
+
+AIMS: To examine the use of triage systems in primary care in the UK.
+DESIGN: Integrative literature review and narrative synthesis.
+DATA SOURCES: PubMed, EMBASE, CINAHL and Cochrane Library were searched in 
+October 2024.
+METHODS: An integrative literature review was conducted following Whittemore and 
+Knafl's (2005) five-step process. Of 1440 articles retrieved, 305 duplicates 
+were removed, and 1086 excluded after title and abstract screening. Two 
+additional articles were identified through citation and hand searches. Twenty 
+studies were quality-assessed using the Mixed Methods Appraisal Tool, and data 
+were extracted for narrative synthesis.
+RESULTS: Twenty studies were selected, including four randomised controlled 
+trials, three quasi-experimental studies, eleven descriptive studies and two 
+qualitative studies. The most common type of triage was telephone triage, most 
+frequently performed by nurses. The most common health outcomes included 
+subsequent patient re-contacts after triage, patient symptoms or complaints, 
+current health status and patient safety. The benefits of triage included high 
+patient satisfaction, workload redistribution, reduced GP workload and emergency 
+department crowding, improved resource utilisation, access to care and 
+communication. The challenges of triage included increased overall contact time, 
+mis-triage issues, recruitment and retention challenges, the unsuitability of 
+the decision support tool for the primary care setting and lower usage among 
+older and less affluent groups.
+CONCLUSIONS: This review examined the current use of triage in primary care in 
+the UK, identifying common patterns in triage processes and classifications. 
+Several benefits were identified, though some ongoing concerns about triage 
+remain.
+IMPACT: This paper provides essential evidence about the current use, 
+effectiveness and challenges of triage in UK primary care. The findings can 
+support healthcare policymakers, practitioners and researchers in planning and 
+improving triage systems.
+NO PATIENT OR PUBLIC CONTRIBUTION: Integrative review.
+
+© 2025 The Author(s). Journal of Advanced Nursing published by John Wiley & Sons 
+Ltd.
+
+DOI: 10.1111/jan.70037
+PMID: 40590353
+
+
+16. Health Soc Care Deliv Res. 2025 May;13(22):1-77. doi: 10.3310/WQFV7425.
+
+How to Implement Digital Clinical Consultations in UK Maternity Care: the ARM@DA 
+Realist Review.
+
+Evans C(1), Clancy G(1), Evans K(1), Booth A(2), Nazmeen B(3), Sunney C(4), 
+Clowes M(2), Jones NW(5), Timmons S(6), Spiby H(1).
+
+Author information:
+(1)School of Health Sciences, University of Nottingham, Nottingham, UK.
+(2)School of Health and Related Research, University of Sheffield, Sheffield, 
+UK.
+(3)School of Allied Health Professionals and Midwifery, University of Bradford, 
+Bradford, UK.
+(4)Nottingham Maternity Research Network, Nottingham, UK.
+(5)School of Medicine, University of Nottingham, Nottingham, UK.
+(6)Business School, University of Nottingham, Nottingham, UK.
+
+BACKGROUND: Digital transformation is a key component within the National Health 
+Service Maternity Transformation Programme. The COVID-19 pandemic led to an 
+acceleration of digital innovation, in particular, the use of digital clinical 
+consultations (telephone/video consultations). The ways in which digital 
+clinical consultations can be optimised and utilised alongside the traditional 
+maternity care pathway remains unclear, however, with particular concerns about 
+the potential for digital care to exacerbate inequalities.
+OBJECTIVE: To explore how digital clinical consultations can be implemented in a 
+clinically safe, appropriate and acceptable way within UK maternity services? 
+For whom? In what settings? And for what purposes?
+DESIGN: A realist synthesis combining an evidence review of diverse sources 
+(2010 to the present) from Organisation for Economic Co-operation and 
+Development countries with insights from key stakeholder groups (healthcare 
+professionals, service users and community organisations).
+DATA SOURCES: There were three main sources: (1) published primary and secondary 
+research; (2) grey literature (such as policy documents and maternity safety 
+reports); and (3) stakeholder insights.
+METHODS: A realist synthesis adopts a theory-driven approach which seeks to 
+understand how a complex programme works, for whom and under what circumstances. 
+The review had three iterative phases: (1) refining the review focus and 
+developing initial programme theories; (2) retrieval of evidence for data 
+extraction and analysis (using on a realist logic to identify key contexts, 
+mechanisms and outcomes); and (3) testing and refining the programme theories.
+RESULTS: The final synthesis included 93 evidence sources (reviews, reports and 
+77 primary studies), with priority given to UK-focused studies. Study samples 
+included a focus on healthcare professionals (n = 17), women (n = 45, of which 
+14 focused on vulnerable groups) or both (n = 15). Clinical and safety-related 
+outcomes were reported in 12 studies. Fifteen programme theories were developed. 
+A conceptual framework was produced that illustrates the inter-relationship 
+between key contexts in maternity care through which different interactions 
+activate mechanisms to produce outcomes of interest. The findings suggest that 
+digital clinical consultations can be acceptable and appropriate if 
+implementation includes personalisation and informed choice for women, as well 
+as support and autonomy for staff. The relationship and connection between women 
+and their healthcare professional are proposed as key mechanisms that support 
+safety and engagement in care.
+LIMITATIONS: Some of the evidence lacked details regarding specific settings, 
+interventions or sample characteristics. This limits the extent to which 
+findings can be applied to micro-level contexts. Stakeholder groups contributed 
+key insights to the review at all stages. In spite of efforts to achieve 
+diversity within these groups, there may have been experiences or identities 
+that were missed.
+CONCLUSIONS: Four 'CORE' implementation principles were identified to guide 
+future practice and research: C - Creating the right environment, infrastructure 
+and support for staff; O - Optimising consultations to be responsive, flexible 
+and personalised to different needs and preferences; R - Recognising the 
+importance of access and inclusion; and E - Enabling quality and safety through 
+relationship-focused connections.
+FUTURE WORK: Future research should embed equity considerations and should focus 
+on understanding digital clinical consultation within specific maternity systems 
+(like triage/helplines), services (such as specialist outpatient clinics) or 
+groups of women (e.g. with digital literacy or communication needs).
+FUNDING: This synopsis presents independent research funded by the National 
+Institute for Health and Care Research (NIHR) Health and Social Care Delivery 
+Research as award number NIHR134535.
+
+Plain Language Summary: In recent years there has been a digital transformation 
+in National Health Service maternity care, accelerated by the COVID-19 pandemic. 
+To explore these changes in the delivery of care we asked: How can digital 
+consultations (telephone and video calls) best be provided in maternity care? 
+For whom are they appropriate? And what is needed to provide good quality care? 
+The research project involved three main phases. Phase 1 included discussions 
+with groups of women and healthcare professionals as well as a brief review of 
+existing academic research to identify key ideas (theories) on using digital 
+consultations in maternity care. Phase 2 involved testing these theories by 
+looking in-depth at more evidence. In phase 3, the quality and relevance of the 
+evidence was assessed and more information gathered where necessary. The 
+theories were then finalised and validated with stakeholders. This phase also 
+included the development of recommendations for policy and practice. The review 
+highlighted 15 important considerations for providing digital consultations in 
+maternity care. These were grouped into five main areas: (1) developing systems, 
+facilities and resources; (2) training and communication; (3) access and 
+inclusion; (4) personalisation and flexibility; and (5) quality of care. There 
+is no-one-size-fits-all approach for delivering digital maternity care. It is 
+important to give women and staff support to use digital processes and choice 
+about the type of consultation that can best meet their needs. From the 
+findings, four principles emerged for developing and using digital maternity 
+consultations: Create an appropriate environment, structure and support for 
+staff. For women, consultations need to be responsive and personalised to 
+different needs and preferences. Services must recognise diverse circumstances 
+and the importance of access and inclusion for all. Support a safe and 
+high-quality service through building relationships.
+
+DOI: 10.3310/WQFV7425
+PMID: 40417997 [Indexed for MEDLINE]
+
+
+17. J Med Internet Res. 2025 Apr 25;27:e67269. doi: 10.2196/67269.
+
+Improving Safety, Efficiency, Cost, and Satisfaction Across a Musculoskeletal 
+Pathway Using the Digital Assessment Routing Tool for Triage: Quality 
+Improvement Study.
+
+Lowe C(1), Atherton L(2), Lloyd P(3), Waters A(3), Morrissey D(1)(4).
+
+Author information:
+(1)Centre for Sports and Exercise Medicine, William Harvey Research Institute, 
+Queen Mary University of London, London, United Kingdom.
+(2)Joint Health Hub, Ormskirk & District General Hospital, Mersey & West 
+Lancashire Teaching Hospitals NHS Trust, Ormskirk, United Kingdom.
+(3)Optima Health, Sheffield, United Kingdom.
+(4)Department of Physiotherapy, Barts Health NHS Trust, London, United Kingdom.
+
+BACKGROUND: Musculoskeletal (MSK) conditions are prevalent and increasing in 
+Western-style economies, associated with an aging population and reduced 
+physical activity levels. Prevention, early detection, and treatment can enable 
+people to live in good health, remain independent and socially connected, and 
+have economic advantages for society, such as reducing pressure on health and 
+social care services. Triaging patients safely and effectively to the right 
+care, for the first time improves outcomes and reduces costs, with digital 
+solutions offering potential advantages over traditional methods.
+OBJECTIVE: We evaluated the impact of introducing a digital assessment routing 
+tool (DART) on safety, efficiency, cost, and satisfaction across a National 
+Health Service (NHS) England MSK service.
+METHODS: We designed a quality improvement study using a Plan-Do-Study-Act 
+design and Integrated Knowledge Translation model, with DART as the first point 
+of contact for self-referring patients with MSK conditions. Patients completed a 
+web-based DART assessment independently, or with administrative telephone 
+support. The primary safety outcome was measured by agreement between clinician 
+judgment and safety incident surveillance. Quantitative and qualitative methods 
+were used to measure secondary outcomes of efficiency, cost, and satisfaction. 
+Analysis was completed collaboratively between researchers and the NHS service 
+team with reference to 4 months of prestudy data. Three consecutive study cycles 
+were completed over a 4-month period between February and May 2024 with 4076 
+self-referring patients between the ages of 16-104 (mean 59) years.
+RESULTS: Ninety-three percent of patients self-assessed using DART with the 
+remainder assisted by an administrator. All predefined outcome targets were met 
+for all measures. Agreement between clinicians and DART was 96%, no safety 
+incidents occurred, there was immediate stratification of 401 (9.8%) urgent 
+cases, and 203 fewer cases requiring clinical escalation following initial 
+clinician contact. Administrative time to process self-referrals was reduced by 
+51% with a cost saving of £80.16 (US $101.30) per 100 referrals. Introduction of 
+a new route to self-management for less complex conditions showed a cost 
+reduction per patient of 73%, giving a saving of £1272.90 (US $1605.56) for 100 
+referrals. Routing to a new osteoarthritis knee program would reduce costs for 
+these patients by 63%, equating to £220.35 (US $278.46), if implemented. Further 
+potential savings of £28,476 (US $37,320)/annum could be realized using DART to 
+screen for service eligibility criteria. Patient satisfaction was consistent 
+throughout the study, with a mean of 90%. Service administrators and clinicians 
+rated the new process as a positive service improvement.
+CONCLUSIONS: The introduction of DART demonstrated positive outcomes in all 
+measures and presented opportunities to improve safety and efficiency, reduce 
+cost, and improve patient and clinician satisfaction across an NHS MSK pathway. 
+In addition, the successful delivery of an Integrated Knowledge Translation 
+Approach showed the benefits of collaborative working between researchers, 
+clinicians, and other service staff.
+
+©Cabella Lowe, Laura Atherton, Peter Lloyd, Anna Waters, Dylan Morrissey. 
+Originally published in the Journal of Medical Internet Research 
+(https://www.jmir.org), 25.04.2025.
+
+DOI: 10.2196/67269
+PMCID: PMC12064960
+PMID: 40279646 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflicts of Interest: Optima Health has 
+developed the DART system and is the owner of the associated intellectual 
+property. The lead investigator (CL) is an employee of Optima Health and a PhD 
+Research Student at Queen Mary University of London.
+
+
+18. JMIR Form Res. 2025 Mar 3;9:e60465. doi: 10.2196/60465.
+
+Assessment of the Sensitivity of a Smartphone App to Assist Patients in the 
+Identification of Stroke and Myocardial Infarction: Cross-Sectional Study.
+
+Dhand A(1)(2), Mangipudi R(3), Varshney AS(4), Crowe JR(5)(6), Ford AL(7), 
+Sweitzer NK(8), Shin M(9), Tate S(9), Haddad H(3), Kelly ME(10), Muller J(11), 
+Shavadia JS(3).
+
+Author information:
+(1)Department of Neurology, Brigham and Women's Hospital, Harvard Medical 
+School, 65 Landsdowne Street, Cambridge, MA, 02139, United States, 1 617 732 
+5330.
+(2)Network Science Institute, Northeastern University, Boston, MA, United 
+States.
+(3)Division of Cardiology, Department of Medicine, Unversity of Saskatchewan, 
+Saskatoon, SK, Canada.
+(4)Division of Cardiovascular Medicine, Department of Medicine, Stanford 
+University, Palo Alto, CA, United States.
+(5)Department of Neurology, University of Virgina, Charlottesville, VA, United 
+States.
+(6)Department of Public Health Sciences, University of Virgina, Charlottesville, 
+VA, United States.
+(7)Department of Neurology, Washington University School of Medicine, St. Louis, 
+MO, United States.
+(8)Division of Cardiology, Department of Medicine, Washington University School 
+of Medicine, St. Louis, MO, United States.
+(9)Department of Computer Science, University of North Carolina at Charlotte, 
+Charlotte, NC, United States.
+(10)Division of Neurosurgery, Department of Surgery, University of Saskatchewan, 
+Saskatoon, SK, Canada.
+(11)Division of Cardiovascular Medicine, Brigham and Women's Hospital, Harvard 
+Medical School, Boston, MA, United States.
+
+BACKGROUND: Most people do not recognize symptoms of neurological and cardiac 
+emergencies in a timely manner. This leads to delays in hospital arrival and 
+reduced access to therapies that can open arteries. We created a smartphone app 
+to help patients and families evaluate if symptoms may be high risk for stroke 
+or heart attack (myocardial infarction, MI). The ECHAS (Emergency Call for Heart 
+Attack and Stroke) app guides users to assess their risk through evidence-based 
+questions and a test of weakness in one arm by evaluating finger-tapping on the 
+smartphone.
+OBJECTIVE: This study is an initial step in the accuracy evaluation of the app 
+focused on sensitivity. We evaluated whether the app provides appropriate triage 
+advice for patients with known stroke or MI symptoms in the Emergency 
+Department. We designed this study to evaluate the sensitivity of the app, since 
+the most dangerous output of the app would be failure to recognize the need for 
+emergency evaluation. Specificity is also important, but the consequences of low 
+specificity are less dangerous than those of low sensitivity.
+METHODS: In this single-center cross-sectional study, we enrolled patients 
+presenting with symptoms of possible stroke or MI. The ECHAS app assessment 
+consisted of a series of evidence-based questions regarding symptoms and a test 
+of finger-tapping speed and accuracy on the phone's screen to detect unilateral 
+arm weakness. The primary outcome was the sensitivity of the ECHAS app in 
+detecting the need for ED evaluation. The secondary outcome was the sensitivity 
+of the ECHAS app in detecting the need for hospital admission. Two independent 
+and blinded board-certified physicians reviewed the medical record and 
+adjudicated the appropriateness of the ED visit based on a 5-point score (ground 
+truth). Finally, we asked patients semistructured questions about the app's ease 
+of use, drawbacks, and benefits.
+RESULTS: We enrolled 202 patients (57 with stroke and 145 with MI). The ECHAS 
+score was strongly correlated with the ground truth appropriateness score 
+(Spearman correlation 0.41, P<.001). The ECHAS app had a sensitivity of 0.98 for 
+identifying patients in whom ED evaluation was appropriate. The app had a 
+sensitivity of 1.0 for identifying patients who were admitted to the hospital 
+because of their ED evaluation. Patients completed an app session in an average 
+of 111 (SD 60) seconds for the stroke pathway and 60 (SD 33) seconds for the MI 
+pathway. Patients reported that the app was easy to use and valuable for 
+personal emergency situations at home.
+CONCLUSIONS: The ECHAS app demonstrated a high sensitivity for the detection of 
+patients who required emergency evaluation for symptoms of stroke or MI. This 
+study supports the need for a study of specificity of the app, and then a 
+prospective trial of the app in patients at increased risk of MI and stroke.
+
+© Amar Dhand, Rama Mangipudi, Anubodh S Varshney, Jonathan R Crowe, Andria L 
+Ford, Nancy K Sweitzer, Min Shin, Samuel Tate, Haissam Haddad, Michael E Kelly, 
+James Muller, Jay S Shavadia. Originally published in JMIR Formative Research 
+(https://formative.jmir.org).
+
+DOI: 10.2196/60465
+PMCID: PMC11892415
+PMID: 40029281 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflicts of Interest: Authors AD and JM are 
+co-founders of ECHAS, LLC. AD, JM, and MS hold shares in ECHAS, LLC and declare 
+a financial interest. Authors ASV, JC, and ST have acted as paid consultants for 
+ECHAS, LLC and declare a financial interest. All other authors declare no 
+financial or non-financial competing interests.
+
+
+19. Health Serv Insights. 2025 Feb 18;18:11786329251320431. doi: 
+10.1177/11786329251320431. eCollection 2025.
+
+Privacy Matters: Experiences of Rural and Remote Emergency Department Patients - 
+A Mixed-Methods Research Conducted in Newfoundland and Labrador, Canada.
+
+Geetha Manukumar A(1), Miller M(2), Patey C(3)(4), Mariathas HH(1), Rahimipour 
+Anaraki N(1), Walsh A(1), Hurley O(1), Senior D(5), Etchegary H(2)(5), Norman 
+P(4), Wang P(6), Asghari S(1)(6).
+
+Author information:
+(1)Centre for Rural Health Studies, Faculty of Medicine, Memorial University of 
+Newfoundland, St. John's, NL, Canada.
+(2)Faculty of Medicine, Memorial University of Newfoundland, St. John's, NL, 
+Canada.
+(3)Discipline of Family Medicine, Faculty of Medicine, Memorial University of 
+Newfoundland, St. John's, NL, Canada.
+(4)Newfoundland and Labrador Health Services, Carbonear Institute for Rural 
+Research and Innovation by the Sea, Carbonear General Hospital, Carbonear, NL, 
+Canada.
+(5)NLSUPPORT, Memorial University of Newfoundland, St. John's, NL, Canada.
+(6)Division of Population Health and Applied Health Sciences, Faculty of 
+Medicine, Memorial University of Newfoundland, St. John's, NL, Canada.
+
+OBJECTIVES: This study aims to investigate patients' privacy experience when 
+receiving care in emergency departments (EDs) in Newfoundland and Labrador, 
+Canada. We aim to assess the level of satisfaction with privacy and to assess 
+for factors that improve or worsen the privacy experience, not limited to 
+patient demographics, length of stay, and hospital location.
+METHODS: This study used a mixed-methods design, gathering quantitative and 
+qualitative data using a telephone survey and semi-structured interviews. Our 
+primary outcome measure was patients' privacy experience in the ED. The 
+independent variables in our study were age, gender, ED location, 
+patient-reported wait times, reason for ED visit, and healthcare provider 
+involved in care.
+RESULTS: Among the 821 patients who participated in the interviews, 1 in 4 
+patients (24%) did not have satisfactory ED privacy experiences. Multinominal 
+logistic regression showed patients who waited 4+ hours before being examined by 
+a provider [aOR = 0.34, 95% CI: 0.17-0.69] and those who visited the urban EDs 
+[aOR = 0.17, 95% CI: 0.09-0.35] reported low levels of privacy. Furthermore, 
+those whose overall length of stay was 4 to 8 hours [aOR = 0.44, 95% CI: 
+0.23-0.84] and 8+ hours [aOR = 0.36, 95% CI: 0.17-0.78] also reported 
+dissatisfaction with ED privacy experience. Our qualitative analysis found 
+privacy concerns in waiting rooms, triage areas, and curtain rooms, with females 
+voicing more concerns than males.
+CONCLUSION: Patients with longer wait times and who have been seen in urban EDs 
+experience less privacy. Our qualitative data shows that women also raised more 
+privacy concerns than men and that waiting rooms and triage areas are the 
+locations with the most reported privacy concerns. Patient experience and 
+outcomes would benefit from improving patient privacy when receiving care in 
+EDs.
+
+© The Author(s) 2025.
+
+DOI: 10.1177/11786329251320431
+PMCID: PMC11837064
+PMID: 39974427
+
+Conflict of interest statement: The author(s) declared the following potential 
+conflicts of interest with respect to the research, authorship, and/or 
+publication of this article: CP and PN are the co-founders of SurgeCon 
+Innovations. Our team received funding for a project entitled “SurgeCon: An 
+Emergency Department Surge Management Platform” from the Canadian Institutes of 
+Health Research, Newfoundland and Labrador Provincial Government, Newfoundland 
+and Labrador Health Services, and the Trinity Conception Placentia Health 
+Foundation. PN has a royalty-sharing agreement with MOBIA Technology Innovations 
+and the Newfoundland and Labrador Health Services.
+
+
+20. Lancet. 2025 Feb 15;405(10478):571-582. doi: 10.1016/S0140-6736(25)00193-X.
+
+Efficacy and safety of intravenous nerinetide initiated by paramedics in the 
+field for acute cerebral ischaemia within 3 h of symptom onset (FRONTIER): a 
+phase 2, multicentre, randomised, double-blind, placebo-controlled study.
+
+Christenson J(1), Hill MD(2), Swartz RH(3), Adams C(4), Benavente O(5), Casaubon 
+LK(6), Cheskes S(3), Ganesh A(2), Garman JD(4), Harris C(4), Harris DR(7), Heard 
+K(4), Jenneson S(7), Kohli Y(4), Leroux M(4), Mayor-Nunez D(4), Medvedev G(8), 
+Mehdiratta M(9), Morrison LJ(3), Ospel JM(2), Pennington S(5), Perez Y(9), 
+Selchen D(10), Stebner A(2), Tallon J(7), Tkach A(11), Verbeek PR(3), Tymianski 
+M(4).
+
+Author information:
+(1)University of British Columbia, Vancouver, BC, Canada. Electronic address: 
+jim.christenson@ubc.ca.
+(2)Foothills Medical Centre, University of Calgary, Calgary, AB, Canada.
+(3)Sunnybrook Health Sciences Centre, University of Toronto, Toronto, ON, 
+Canada.
+(4)NoNO, Toronto, ON, Canada.
+(5)University of British Columbia, Vancouver, BC, Canada.
+(6)University Health Network, Toronto, ON, Canada.
+(7)BC Emergency Health Service, Vancouver, BC, Canada.
+(8)Royal Columbian Hospital, New Westminster, BC, Canada.
+(9)Trillium Health Partners, Mississauga, ON, Canada.
+(10)St Michael's Hospital/Unity Health, Toronto, ON, Canada.
+(11)Kelowna General Hospital, Kelowna, BC, Canada.
+
+Comment in
+    Lancet. 2025 Feb 15;405(10478):519-521. doi: 10.1016/S0140-6736(25)00164-3.
+
+BACKGROUND: Nerinetide is a neuroprotectant effective in preclinical models of 
+acute ischaemic stroke when administered within 3 h of onset. However, the 
+clinical evaluation of neuroprotectants in this short timeframe is challenging. 
+We sought to establish the feasibility, safety, and effectiveness of nerinetide 
+when given before hospital arrival within 3 h of symptom onset of suspected 
+stroke.
+METHODS: In this multicentre, randomised, double-blind, placebo-controlled 
+study, paramedics enrolled participants aged 40-95 years within 3 h of suspected 
+severe stroke onset, who were previously independent, and were being taken to 
+one of seven stroke centres in Ontario or British Columbia, Canada. The primary 
+hypothesis was that the administration of nerinetide would result in a higher 
+rate of good functional outcomes. Participants were randomly assigned 1:1 to 
+intravenous nerinetide (2·6 mg/kg) or placebo, each in visually identical vials. 
+Paramedics, hospital care providers, and outcome evaluators were masked to 
+treatment assignment. The primary outcome was good functional outcome on a 
+sliding dichotomy of the modified Rankin Scale at 90 days. Participants were 
+assessed on day 4, 30, and 90 by the stroke center research team, in person or 
+over the telephone. Outcomes, adjusted for age and stroke severity, were 
+evaluated in the modified intention-to-treat (mITT) population, and in the 
+target population of those with acute ischaemic stroke. The safety population 
+included all participants who received the study drug. This study is registered 
+with ClinicalTrials.gov (NCT02315443), and trial enrolment has concluded.
+FINDINGS: Between March 26, 2015, and March 27, 2023, 532 participants received 
+nerinetide (n=265) or placebo (n=267). The mITT population of suspected stroke 
+(n=507; 254 nerinetide and 253 placebo) included 321 (63%) with acute ischaemic 
+stroke, 93 (18%) with intracranial haemorrhage, 44 (9%) with transient ischaemic 
+attack, and 49 (10%) with stroke-mimicking conditions. Treatment began a median 
+of 64 min (IQR 47-100) from symptom onset. Participants randomly assigned to 
+nerinetide had more severe strokes compared with those receiving placebo (median 
+National Institutes of Health Stroke Scale (NIHSS) 12, IQR 5-19 vs 10, 4-18 in 
+mITT, and 14, 7-19 vs 10, 4-18 in the acute ischaemic stroke subgroup). Overall, 
+145 (57%) of 254 participants in the nerinetide group and 147 (58%) of 253 in 
+the placebo group had the primary outcome of a favourable functional outcome 
+using the prespecified sliding dichotomy at 90 days (adjusted odds ratio 1·05, 
+95% CI 0·73-1·51; adjusted risk ratio 1·04, 95% CI 0·85-1·25). In the 302 
+patients with ischaemic stroke, the favourable functional outcome adjusted for 
+arrival NIHSS and age favoured nerinetide (odds ratio 1·53, 0·93-2·52 and risk 
+ratio 1·21, 0·97-1·52). In those given reperfusion therapies (thrombolysis or 
+endovascular thrombectomy, or both) nerinetide was associated with improved 
+favourable functional outcomes (adjusted odds ratio 1·84, 1·03-3·28; adjusted 
+risk ratio 1·29, 1·01-1·65). There was no apparent benefit in haemorrhagic 
+stroke or acute ischaemic stroke without reperfusion. There were no safety 
+concerns.
+INTERPRETATION: Prehospital nerinetide did not improve neurological functional 
+outcomes in all patients with suspected ischaemic stroke in the mITT population. 
+Nerinetide might benefit patients with acute ischaemic stroke who are selected 
+for reperfusion therapies within 3 h of symptom onset. This finding should be 
+confirmed in a future trial.
+FUNDING: Brain Canada and NoNO.
+
+Copyright © 2025 Elsevier Ltd. All rights reserved, including those for text and 
+data mining, AI training, and similar technologies.
+
+DOI: 10.1016/S0140-6736(25)00193-X
+PMID: 39955120 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests JC reports salary 
+support from the University of British Columbia; honoraria as chairperson of the 
+Schwartz Reisman Emergency Medicine Institute International Advisory Board and 
+Emergency Care BC; research support from Canadian Institutes of Health Research 
+and Heart and Stroke Foundation; and operational support for the FRONTIER trial 
+from Brain Canada and NoNO. MDH reports grants from the Canadian Institutes for 
+Health Research and NoNO, for the conduct of the clinical trials ESCAPE-NA1 and 
+ESCAPE-NEXT, and from Medtronic, the Heart & Stroke Foundation of Canada, and 
+Boehringer Ingelheim; personal fees from Sun Pharma and Brainsgate; a patent for 
+systems and methods for assisting in decision making and triaging for patients 
+with acute stroke issued to US Patent office number 62/086,077 and 10,916,346; 
+participated on various data safety monitoring boards for the Oncovir Hiltonel 
+trial, DUMAS trial, ARTESIA trial, BRAIN-AF trial, and LAAOS-4 trial; is 
+President of the Canadian Federation of Neurological Sciences and is an unpaid 
+board member of the Canadian Stroke Consortium; and owns stock in Circle. RHS 
+reports grants from the Heart & Stroke Foundation of Canada and the Ontario 
+Brain Institute; has participated on the data safety monitoring board of 
+Hoffmann-LaRoche; and has ownership of FollowMD. LKC reports an unpaid 
+leadership role on the Canadian Stroke Consortium Board. AG reports grants from 
+Microvention; personal fees from Alexion, Biogen, and Servier Canada; and stock 
+or stock options in SnapDx and Collavidence. JMO reports fees from AbbVie and 
+Nicolab. AS reports research grants from the University of Calgary and the Swiss 
+Society of Radiology. MT is the CEO of NoNO and is the inventor of patents owned 
+by NoNO. CA, CH, KH, YK, ML, and DM-N report stock or stock options from NoNO. 
+JDG is the inventor of three patents owned by NoNO; and reports stock or stock 
+options from NoNO. All other authors declare no competing interests.
+
+
+21. J Med Internet Res. 2025 Feb 14;27:e55007. doi: 10.2196/55007.
+
+Uses of Virtual Care in Primary Care: Scoping Review.
+
+Agarwal P(1)(2), Fletcher GG(3), Ramamoorthi K(1), Yao X(3)(4), Bhattacharyya 
+O(1)(2).
+
+Author information:
+(1)Institute for Health System Solutions and Virtual Care, Women's College 
+Hospital, Toronto, ON, Canada.
+(2)Department of Family and Community Medicine, University of Toronto, Toronto, 
+ON, Canada.
+(3)Program in Evidence-Based Care, Department of Oncology, McMaster University, 
+Hamilton, ON, Canada.
+(4)Department of Health Research Methods, Evidence, and Impact, McMaster 
+University, Hamilton, ON, Canada.
+
+BACKGROUND: The COVID-19 pandemic catalyzed an uptake in virtual care. However, 
+the rapid shift left unanswered questions about the impact of virtual care on 
+the quality of primary care and its appropriateness and effectiveness. Moving 
+forward, health care providers require guidance on how best to use virtual care 
+to support high-quality primary care.
+OBJECTIVE: This study aims to identify and summarize clinical studies and 
+systematic reviews comparing virtual care and in-person care in primary care, 
+with a focus on how virtual care can support key clinical functions such as 
+triage, medical assessment and treatment, counseling, and rehabilitation in 
+addition to the management of particular conditions.
+METHODS: We conducted a scoping review following an established framework. 
+Comprehensive searches were performed across the following databases: Embase, 
+MEDLINE, PsycInfo, Emcare, and Cochrane Database of Systematic Reviews. Other 
+well-known websites were also searched. PRISMA-ScR (Preferred Reporting Items 
+for Systematic Reviews and Meta-Analyses extension for Scoping Reviews) 
+guidelines were followed. Articles were selected by considering article type, 
+language, care provided, intervention, mode of care delivery, and sample size.
+RESULTS: A total of 13,667 articles were screened, and 219 (1.6%) articles 
+representing 170 studies were included in the review. Of the 170 studies 
+included, 142 (83.5%) were primary studies, and 28 (16.5%) were systematic 
+reviews. The studies were grouped by functions of primary care, including triage 
+(16/170, 9.4%), medical assessment and treatment of particular conditions 
+(63/170, 37.1%), rehabilitation (17/170, 10%), and counseling (74/170, 43.5%). 
+The studies suggested that many primary care functions could appropriately be 
+conducted virtually. Virtual rehabilitation was comparable to in-person care and 
+virtual counseling was found to be equally effective as in-person counseling in 
+several contexts. Some of the studies indicated that many general primary care 
+issues could be resolved virtually without the need for any additional 
+follow-up, but data on diagnostic accuracy were limited. Virtual triage is 
+clinically appropriate and led to fewer in-person visits, but overall impact on 
+efficiency was unclear. Many studies found that virtual care was more convenient 
+for many patients and provided care equivalent to in-person care for a range of 
+conditions. Studies comparing appropriate antibiotic prescription between 
+virtual and in-person care found variable impact by clinical condition. Studies 
+on virtual chronic disease management observed variability in impact on overall 
+disease control and clinical outcomes.
+CONCLUSIONS: Virtual care can be safe and appropriate for triage and seems 
+equivalent to in-person care for counseling and some rehabilitation services; 
+however, further studies are needed to determine specific contexts or medical 
+conditions where virtual care is appropriate for diagnosis, management outcomes, 
+and other functions of primary care. Virtual care needs to be adapted to fit a 
+new set of patient and provider workflows to demonstrate positive impacts on 
+experience, outcomes, and costs of care.
+
+©Payal Agarwal, Glenn George Fletcher, Karishini Ramamoorthi, Xiaomei Yao, Onil 
+Bhattacharyya. Originally published in the Journal of Medical Internet Research 
+(https://www.jmir.org), 14.02.2025.
+
+DOI: 10.2196/55007
+PMCID: PMC11888022
+PMID: 39951717 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflicts of Interest: None declared.
+
+
+22. Swiss Med Wkly. 2024 Dec 20;154:4030. doi: 10.57187/s.4030.
+
+SAFEty assessment of a REdirection process after TRIage (SAFE RETRI) by a triage 
+nurse in an emergency department: a monocentric cohort study.
+
+Déglise A(1), Guechi Y(1)(2), Le Terrier C(1)(3), Ribordy V(1), Feral-Pierssens 
+AL(2)(4), Schmutz T(1).
+
+Author information:
+(1)Emergency Department, University Hospital of Fribourg, Fribourg, Switzerland.
+(2)Laboratory Health Promotion and Education (UR3412), Sorbonne Paris North 
+University, Villetaneuse, France.
+(3)Adult Intensive Care Division, Geneva University Hospitals, Geneva, 
+Switzerland.
+(4)Emergency Department, Hôpital Avicenne, Assistance Publique-Hôpitaux de 
+Paris, Paris, France.
+
+AIMS OF THE STUDY: As emergency department consultations rise across Europe, 
+patients must be guided to obtain appropriate care at the right time and 
+place.In Switzerland, the absence of a unique health number that would enable 
+the avoidance of emergency services through telephone medical advice, and the 
+shortage of general practitioners, redirecting low-severity patients from the 
+emergency department before medical consultation to other healthcare facilities 
+could help reduce emergency department overload. This study assessed the safety 
+of a newly implemented redirection process by examining the rate of unexpected 
+returns to any healthcare facility.
+METHODS: This monocentric cohort study included patients aged 18 or older who 
+presented to the emergency department of a regional hospital in Switzerland 
+between 1 January and 31 May 2023 and who accepted redirection before medical 
+consultation. Patients were identified from our electronic medical registry and 
+retrospectively enrolled after telephone interviews. The primary outcome was the 
+rate of unexpected returns to any healthcare facility within 2 days of 
+redirection. The secondary outcomes were the rate of returns within 7 days, 
+hospital admissions, and patient satisfaction.
+RESULTS: Among 16,362 patients who came to the emergency department during the 
+study period, 688 (4%) were redirected. A total of 321 patients were included in 
+the final analysis after telephone interviews. The rate of unexpected returns to 
+any healthcare facility after redirection was 4% within 2 days and 16% within 7 
+days. The rate of returns to any hospital was 1.2% within 2 days and 4.7% within 
+7 days after redirection. Six patients (2%) required hospitalisation, and no 
+fatalities were reported. The mean satisfaction score was 3.9/5 (standard 
+deviation [SD] = 1.1) for triage experience, 4.4/5 (SD = 1) for care received in 
+partner clinics, and 3.7/5 (SD = 1) for the redirection process.
+CONCLUSION: The rate of unexpected returns to any healthcare facility after 
+redirection was 4% within 2 days and 16% within 7 days. The implementation of 
+this protocol appeared to provide safe redirection to nearby clinics for 
+redirected low-acuity patients. Satisfaction with care received in partner 
+clinics was high, although it was lower for the redirection process and triage 
+experience.
+
+DOI: 10.57187/s.4030
+PMID: 39945074 [Indexed for MEDLINE]
+
+
+23. BMC Prim Care. 2025 Feb 8;26(1):32. doi: 10.1186/s12875-025-02736-x.
+
+Exploring expressed concerns and uncanny feeling in patients with shortness of 
+breath calling out-of-hours primary care.
+
+Spek M(1), Zwart DL(2), de Groot E(2), Timmerman MR(2), van Smeden M(3), 
+Erkelens DCA(2), Dobbe ASM(2), Delissen M(2), Rutten FH(2), Venekamp RP(2).
+
+Author information:
+(1)Department of General Practice & Nursing Science, Julius Centre for Health 
+Sciences and Primary Care, University Medical Centre Utrecht, Utrecht 
+University, Str. 6.131, P.O. Box 85500, Utrecht, GA, 3508, The Netherlands. 
+m.spek-3@umcutrecht.nl.
+(2)Department of General Practice & Nursing Science, Julius Centre for Health 
+Sciences and Primary Care, University Medical Centre Utrecht, Utrecht 
+University, Str. 6.131, P.O. Box 85500, Utrecht, GA, 3508, The Netherlands.
+(3)Department of Data Science & Biostatistics, Julius Center for Health Sciences 
+and Primary Care, University Medical Center Utrecht, Utrecht University, 
+Utrecht, The Netherlands.
+
+BACKGROUND: Patients contacting out-of-hours primary care (OHS-PC) with 
+shortness of breath (SOB) are often concerned. Sometimes, they also have an 
+uncanny feeling; existential anxiety that something is wrong in their body. How 
+concerns and uncanny feeling are related to critical medical conditions that 
+cause SOB is unknown. We therefore explored the relation between expressed 
+concerns and researcher's judged uncanny feeling among patients who contact 
+OHS-PC for SOB with potential life-threatening events (LTEs) as the outcome.
+METHODS: This is an explorative cross-sectional study. We analysed telephone 
+triage conversations from patients with SOB who contacted Dutch OHS-PC between 
+September 2020 and August 2021. We recorded whether patients expressed concerns 
+and we judged whether patients had an uncanny feeling. We calculated odds ratios 
+(ORs) for the association between (i) expressed concerns and (ii) uncanny 
+feeling with the outcome potential LTEs.
+RESULTS: Of the 1,843 patients with SOB, 43.6% patients expressed concerns and 
+33.0% had an uncanny feeling. Potential LTEs were similarly present among those 
+who did and did not express concerns (OR: 1.07; 95% CI 0.84-1.37, mOR: 1.07; 95% 
+CI 0.83-1.36), whereas potential LTEs were more often present among those with 
+an uncanny feeling compared to those without such feeling (OR: 1.36; 95% CI 
+1.06-1.75, mOR: 1.35; 95% CI 1.05-1.74).
+CONCLUSIONS: Among patients who contacted OHS-PC with SOB, a perceived uncanny 
+feeling of the patient was associated with a higher odd of potential LTEs, while 
+patient's expressed concerns were not. Critical reflective interpretation is 
+needed as uncanny feelings are difficult to judge. Nevertheless, our results 
+implicate that further research into uncanny feelings in telephone triage could 
+further improve the understanding of the relation with potential LTEs. 
+Furthermore, this could be used to investigate how triage nurses may become more 
+sensitive to what the patient is feeling but not explicitly saying such as by 
+paying special attention to paralanguage.
+TRIAL REGISTRATION: The Netherlands Trial Register, number: NL9682, registration 
+date: 20-08-2021.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s12875-025-02736-x
+PMCID: PMC11806686
+PMID: 39923023 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: The Medical Research Ethics Committee (MREC) Utrecht (reference 
+number 21/361) has reviewed our study protocol. The MREC concluded that this 
+study is not within the scope of the WMO and granted an exemption for this 
+study. Personal data and research data was de-identified according to the 
+European General Data Protection Regulation. Consent for publication: Not 
+applicable. Competing interests: The authors declare no competing interests.
+
+
+24. BMJ Open. 2025 Feb 5;15(2):e092368. doi: 10.1136/bmjopen-2024-092368.
+
+Are dizziness/lightheadedness helpful symptoms for telephone triage of females 
+and males calling the out-of-hours service for acute chest discomfort? A 
+cross-sectional study.
+
+Dobbe ASM(1), Zwart DL(2), van der Hem L(2), Erkelens DC(2), Wouters LTCM(2), 
+van Doorn S(2), den Ruijter HM(3), Rutten FH(2); IMPRESS Consortium.
+
+Author information:
+(1)Department of General Practice & Nursing Sciences, Julius Centre for Health 
+Sciences and Primary Care, Utrecht University, Utrecht, The Netherlands 
+a.s.m.dobbe-2@umcutrecht.nl.
+(2)Department of General Practice & Nursing Sciences, Julius Centre for Health 
+Sciences and Primary Care, Utrecht University, Utrecht, The Netherlands.
+(3)Laboratory of Experimental Cardiology, University Medical Center Utrecht, 
+Utrecht, The Netherlands.
+
+OBJECTIVES: Symptoms of dizziness/lightheadedness are more often reported by 
+females than males with an acute coronary syndrome (ACS). Therefore, we 
+investigated if these symptoms are helpful for triage and diagnosis of ACS in 
+females and males with acute chest discomfort.
+DESIGN: Cross-sectional study.
+SETTING: Nine out-of-hours service in primary care (OHS-PC) in the Netherlands 
+participated, covering both rural and urban areas, serving a total population of 
+1.5 million people.
+PARTICIPANTS: 2195 patients were selected calling the OHS-PC with acute chest 
+discomfort, 55.4% were females. Calls were selected based on International 
+Classification of Primary Care codes and keywords, that is, chest pain, heart 
+complaints, heart, myocardial infarction, heart attack, heart infarction or 
+common abbreviations of these keywords. Recordings were excluded if (1) they 
+were of poor quality, (2) the conversation was not a triage conversation, (3) 
+patients were <18 years, (4) patients did not live in the vicinity of the 
+OHS-PC, and (4) general practitioners did not want to provide follow-up 
+information including the final diagnosis.
+PRIMARY AND SECONDARY OUTCOME MEASURES: The prevalence of 
+dizziness/lightheadedness among patients calling the OHS-PC with acute chest 
+discomfort and the relation between dizziness/lightheadedness and (1) urgency 
+allocation and (2) a final diagnosis of ACS.
+RESULTS: Among 2195 patients who called the OHS-PC with acute chest discomfort, 
+251 (11.4%) had an ACS (8.3% females, 15.3% males). Females more often reported 
+concurrent dizziness/lightheadedness than males (14.7% vs 10.9%, p=0.008). 
+However, this was not observed in those with confirmed ACS (9.9% of the females 
+vs 9.3% of the males, p=0.881). Reporting of dizziness/lightheadedness was not 
+positively related to an ACS diagnosis in females (OR 0.61 (95% CI 0.31 to 
+1.21)) or in males (OR 0.82 (95% CI 0.45 to 1.47)). In contrast, both females 
+and males with concurrent dizziness/lightheadedness more often received a high 
+urgency allocation than those without these symptoms.
+CONCLUSIONS: Dizziness/lightheadedness are common symptoms but are not 
+positively related to an ACS diagnosis in both females and males with acute 
+chest discomfort. It seems not worthwhile to give females and males with acute 
+chest discomfort and concurrent dizziness/lightheadedness a higher urgency 
+allocation than those without these symptoms.
+TRIAL REGISTRATION NUMBER: NTR7331.
+
+© Author(s) (or their employer(s)) 2025. Re-use permitted under CC BY-NC. No 
+commercial re-use. See rights and permissions. Published by BMJ Group.
+
+DOI: 10.1136/bmjopen-2024-092368
+PMCID: PMC11800195
+PMID: 39909522 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: None declared.
+
+
+25. BMC Med Inform Decis Mak. 2025 Feb 3;25(1):52. doi:
+10.1186/s12911-025-02888-x.
+
+Safety and accuracy of digitally supported primary and secondary urgent care 
+telephone triage in England: an observational study using routine data.
+
+Sexton V(1), Grimley C(2), Dale J(2), Atherton H(3), Abel G(4).
+
+Author information:
+(1)Warwick Medical School, University of Warwick, Coventry, UK. 
+ash.v.s.sexton@warwick.ac.uk.
+(2)Warwick Medical School, University of Warwick, Coventry, UK.
+(3)Primary Care Research Centre, University of Southampton, Southampton, UK.
+(4)Exeter Collaboration for Academic Primary Care, University of Exeter, Exeter, 
+UK.
+
+BACKGROUND: England's urgent care telephone triage system comprises 
+non-clinician-led primary triage (NHS111) assessment followed, for approximately 
+50% patients, by clinician-led secondary triage. Digital decision support is 
+utilised by both. We explore the system's safety and accuracy relative to 
+patients' use of emergency departments (EDs) and in-patient care in the 
+subsequent 24 h.
+METHODS: Descriptive analyses were used to investigate outcomes of 98,946 calls 
+that underwent primary and secondary triage. We investigated sensitivity 
+(safety) and specificity (efficiency/accuracy) in relation to subsequent ED 
+attendance and in-patient hospital admission. Mixed effects regression models 
+were used to explore potential under-estimation of clinical risk (under-triage).
+RESULTS: Sensitivity was greater in primary triage, whilst specificity was 
+greater in secondary triage. The positive predictive value for attending ED 
+after being assigned a triage urgency level of within 2 h was 46.0% for 
+secondary triage compared to 20.7% for primary triage; for inpatient admission 
+it was 18.0% and 9.2% respectively. 1.5% (n = 1468) patients triaged to same-day 
+or less urgent care at secondary triage were subsequently admitted for 
+in-patient care. In relation to in-patient admission within 24 h, there were 
+greater odds of potential under-triage for calls made between midnight and 6am, 
+and for shorter duration calls, respectively OR = 1.71; CI:1.32-2.21 and OR: 
+1.66, CI: 1.30-2.11. The service provider (e.g., service provider 2, OR = 5.61; 
+CI:3.36-9.36) and individual clinician (OR covering the 95% midrange = 16.15) 
+conducting triage were the characteristics most greatly associated with this 
+potential under-triage; p < 0.001 for all.
+CONCLUSIONS: Clinician-led urgent care triage is more accurate in identifying 
+the likelihood of a need for ED or in-patient care than non-clinician triage. 
+Non-clinician primary triage is risk averse, reflected in its high sensitivity 
+but low specificity. Service and clinician characteristics associated with 
+potential under-triage need further investigation to inform ways of improving 
+the safety and effectiveness of urgent care telephone triage.
+CLINICAL TRIAL NUMBER: Not applicable.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s12911-025-02888-x
+PMCID: PMC11792721
+PMID: 39901275 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethical approval and consent to 
+participate: This study was approved by the London - Camden & Kings Cross 
+Research Ethics Committee (REC reference:21/LO/0184) and NHS confidentiality 
+advisory group (CAG) for data linkage involving the use of identifiable data 
+without consent. Consent for publication: Not applicable. Competing interests: 
+In addition to his university role, Jeremy Dale is Director of the Clinical 
+Knowledge Unit at Advanced Health and Care. Jeremy Dale played no part in the 
+retrieval or analysis of the data. The other authors have declared no competing 
+interests.

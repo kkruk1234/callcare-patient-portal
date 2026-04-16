@@ -1,0 +1,121 @@
+{
+  "packet_id": "1f5974e6-de76-46bc-b6e4-66516cd84aa0",
+  "created_at": "2026-02-02T14:48:07.321930+00:00",
+  "session_id": "d9dbc2af-1dc1-46be-b3c8-621d69c5f33e",
+  "chief_complaint": "acid reflux",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your acid reflux symptoms start?",
+    "intake_a1": "2 weeks ago",
+    "intake_q2": "Can you describe what symptoms you are experiencing with your acid reflux?",
+    "intake_a2": "burning in my upper abdomine",
+    "intake_q3": "Any difficulty swallowing, vomiting, or black/tarry stools?",
+    "intake_a3": "no",
+    "intake_q4": "Have you tried any treatments or medications for your acid reflux so far?",
+    "intake_a4": "antiacids OTC",
+    "intake_q5": "Any chest pain or shortness of breath with your symptoms?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of heartburn or acid reflux before these 2 weeks?",
+    "intake_a6": "no",
+    "intake_q7": "Any recent changes in your diet, alcohol use, or stress levels that might have triggered this?",
+    "intake_a7": "maybe a little more stressed than usual",
+    "intake_q8": "Any weight loss, difficulty eating, or persistent nausea?",
+    "intake_a8": "no",
+    "intake_summary": "Patient presents with 2 weeks of new-onset acid reflux characterized by upper abdominal burning without dysphagia, vomiting, or GI bleeding signs. No chest pain or weight loss. Mild stress noted as possible trigger. OTC antacids tried with no reported complications.",
+    "age_years": 34,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/lab-tests/esophageal-ph-test/",
+        "https://medlineplus.gov/gerd.html",
+        "https://www.nhs.uk/conditions/reflux-in-babies/",
+        "https://medlineplus.gov/childrenandteenagers.html",
+        "https://medlineplus.gov/refluxinchildren.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 34-year-old female presenting with a 2-week history of new-onset acid reflux characterized by a burning sensation in the upper abdomen. She denies difficulty swallowing, vomiting, black or tarry stools, chest pain, shortness of breath, weight loss, difficulty eating, or persistent nausea. She has no prior history of heartburn or acid reflux before this episode. She reports a possible increase in stress recently as a potential trigger. She has tried over-the-counter antacids without reported complications.\n\nO: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is gastroesophageal reflux disease (GERD) presenting as new-onset acid reflux with typical symptoms of upper abdominal burning. \nDifferential: \n1. Gastroesophageal reflux disease (GERD) \n2. Gastritis or peptic ulcer disease \n3. Functional dyspepsia \n4. Esophagitis (non-reflux causes) \n\nP: \n - First-line medication: Omeprazole 20 mg orally once daily for 4 weeks; avoid if known allergy to proton pump inhibitors. Dosing details were not found in retrieved evidence; prescriber should verify. \n - Alternatives: \n - Ranitidine 150 mg orally twice daily for 4 weeks; avoid if allergy to H2 blockers or severe renal impairment. \n - Famotidine 20 mg orally twice daily for 4 weeks; avoid if allergy to H2 blockers or severe renal impairment. \n - Antacids as needed for symptom relief; avoid if allergy to components. \n - Medication safety considerations: No known medication allergies, not pregnant, no renal or liver disease. Standard dosing appropriate. \n - Return precautions: Advise patient to seek in-person evaluation if symptoms worsen, new onset of difficulty swallowing, vomiting, black/tarry stools, chest pain, or if no improvement within 48–72 hours of treatment initiation. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).\nPatient is not pregnant.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Esophageal pH Test: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/esophageal-ph-test/",
+        "snippet": "stive-diseases/acid-reflux-ger-gerd-adults/definition-facts \nNational Institute of Diabetes and Digestive and Kidney Diseases [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Diagnosis of GER & GERD; [reviewed 2020 July; cited 2024 May 3]; [about 2 screens]. Available from: https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/diagnosis \nNational Institute of Diabetes and Digestive and Kidney Diseases [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Treatment for GER & GERD; [reviewed 2020 July; cited 2024 May 3]; [about 3 screens]. Available from: https://w"
+      },
+      {
+        "title": "GERD | Gastroesophageal Reflux Disease | MedlinePlus",
+        "source": "https://medlineplus.gov/gerd.html",
+        "snippet": "iabetes and Digestive and Kidney Diseases\nStart Here\nAcid Reflux (GER and GERD) in Adults \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nGastroesophageal Reflux Disease (GERD) \n(Mayo Foundation for Medical Education and Research) \nSymptoms\nIs It Really GERD? \n(Harvard Medical School) \nDiagnosis and Tests\nBarium Swallow \n(National Library of Medicine) \nAlso in Spanish \nEsophageal pH Test \n(National Library of Medicine) \nAlso in Spanish \npH Impedance Study \n(North American Society for Pediatric Gastroenterology, Hepatology and Nutrition) \n- PDF \nUpper GI -- Esophagram -- Barium Swallow \n(American College o"
+      },
+      {
+        "title": "Reflux in babies - NHS",
+        "source": "https://www.nhs.uk/conditions/reflux-in-babies/",
+        "snippet": "her things or if their reflux is severe.\nCauses of reflux \nReflux usually happens because the ring of muscle inside your baby's food pipe (oesophagus) can be weak, which allows milk to come back up easily.\nThis muscle will get stronger as your baby gets older and the reflux should stop.\nPage last reviewed: 10 June 2025\nNext review due: 10 June 2028\nSupport links \nHome \nHealth A to Z \nNHS services \nLive Well \nMental health \nCare and support \nPregnancy \nCOVID-19 \nNHS App \nFind my NHS number \nView your GP health record \nView your test results \nAbout the NHS \nHealthcare abroad \nOther NHS websites \nProfile editor login \nAbout us \nGive us feedback"
+      },
+      {
+        "title": "Children and Teenagers: MedlinePlus",
+        "source": "https://medlineplus.gov/childrenandteenagers.html",
+        "snippet": "Reflux in Children\nsee \nReflux in Children \nGastroesophageal Reflux in Infants\nsee \nReflux in Infants \nGERD in Children\nsee \nReflux in Children \nGERD in Infants\nsee \nReflux in Infants \nGerman Measles\nsee \nRubella \nGrowth Disorders \nHead Lice \nHearing Problems in Children \nHigh Cholesterol in Children and Teens \nHyperactivity\nsee \nAttention Deficit Hyperactivity Disorder \nImmunization, Childhood\nsee \nChildhood Vaccines \nInfant and Newborn Care \nInfant and Newborn Development \nInfant and Newborn Nutrition \nInsulin-Dependent Diabetes Mellitus\nsee \nDiabetes Type 1 \nJuvenile Arthritis \nJuvenile Diabetes\nsee \nDiabetes Type 1 \nJuvenile Rheumatoid A"
+      },
+      {
+        "title": "Reflux in Children: MedlinePlus",
+        "source": "https://medlineplus.gov/refluxinchildren.html",
+        "snippet": "ased pressure on the abdomen (belly) from being overweight or having obesity \nCertain medicines, such as some used to treat asthma , allergies , depression , or pain \nSmoking or exposure to secondhand smoke \nPrevious surgery on the esophagus or upper abdomen \nDevelopmental delays or certain neurological conditions , such as cerebral palsy \nLung conditions, such as cystic fibrosis \nHow common are reflux and GERD in children? \nMany children have occasional reflux, especially after large meals or physical activity. GERD is less common, and most symptoms improve with time and lifestyle changes. \nWhat are the symptoms of reflux and GERD in children? \nSymptoms may vary by age. Some children might not even notice reflux, while others may taste food or stomach acid in the back of their mouth.\nIn children, GERD can cause:\nHeartburn , a burning feeling in the chest or throat (more common in older"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Esophageal pH Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/esophageal-ph-test/",
+      "snippet": "stive-diseases/acid-reflux-ger-gerd-adults/definition-facts \nNational Institute of Diabetes and Digestive and Kidney Diseases [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Diagnosis of GER & GERD; [reviewed 2020 July; cited 2024 May 3]; [about 2 screens]. Available from: https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/diagnosis \nNational Institute of Diabetes and Digestive and Kidney Diseases [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Treatment for GER & GERD; [reviewed 2020 July; cited 2024 May 3]; [about 3 screens]. Available from: https://w"
+    },
+    {
+      "title": "GERD | Gastroesophageal Reflux Disease | MedlinePlus",
+      "source": "https://medlineplus.gov/gerd.html",
+      "snippet": "iabetes and Digestive and Kidney Diseases\nStart Here\nAcid Reflux (GER and GERD) in Adults \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nGastroesophageal Reflux Disease (GERD) \n(Mayo Foundation for Medical Education and Research) \nSymptoms\nIs It Really GERD? \n(Harvard Medical School) \nDiagnosis and Tests\nBarium Swallow \n(National Library of Medicine) \nAlso in Spanish \nEsophageal pH Test \n(National Library of Medicine) \nAlso in Spanish \npH Impedance Study \n(North American Society for Pediatric Gastroenterology, Hepatology and Nutrition) \n- PDF \nUpper GI -- Esophagram -- Barium Swallow \n(American College o"
+    },
+    {
+      "title": "Reflux in babies - NHS",
+      "source": "https://www.nhs.uk/conditions/reflux-in-babies/",
+      "snippet": "her things or if their reflux is severe.\nCauses of reflux \nReflux usually happens because the ring of muscle inside your baby's food pipe (oesophagus) can be weak, which allows milk to come back up easily.\nThis muscle will get stronger as your baby gets older and the reflux should stop.\nPage last reviewed: 10 June 2025\nNext review due: 10 June 2028\nSupport links \nHome \nHealth A to Z \nNHS services \nLive Well \nMental health \nCare and support \nPregnancy \nCOVID-19 \nNHS App \nFind my NHS number \nView your GP health record \nView your test results \nAbout the NHS \nHealthcare abroad \nOther NHS websites \nProfile editor login \nAbout us \nGive us feedback"
+    },
+    {
+      "title": "Children and Teenagers: MedlinePlus",
+      "source": "https://medlineplus.gov/childrenandteenagers.html",
+      "snippet": "Reflux in Children\nsee \nReflux in Children \nGastroesophageal Reflux in Infants\nsee \nReflux in Infants \nGERD in Children\nsee \nReflux in Children \nGERD in Infants\nsee \nReflux in Infants \nGerman Measles\nsee \nRubella \nGrowth Disorders \nHead Lice \nHearing Problems in Children \nHigh Cholesterol in Children and Teens \nHyperactivity\nsee \nAttention Deficit Hyperactivity Disorder \nImmunization, Childhood\nsee \nChildhood Vaccines \nInfant and Newborn Care \nInfant and Newborn Development \nInfant and Newborn Nutrition \nInsulin-Dependent Diabetes Mellitus\nsee \nDiabetes Type 1 \nJuvenile Arthritis \nJuvenile Diabetes\nsee \nDiabetes Type 1 \nJuvenile Rheumatoid A"
+    },
+    {
+      "title": "Reflux in Children: MedlinePlus",
+      "source": "https://medlineplus.gov/refluxinchildren.html",
+      "snippet": "ased pressure on the abdomen (belly) from being overweight or having obesity \nCertain medicines, such as some used to treat asthma , allergies , depression , or pain \nSmoking or exposure to secondhand smoke \nPrevious surgery on the esophagus or upper abdomen \nDevelopmental delays or certain neurological conditions , such as cerebral palsy \nLung conditions, such as cystic fibrosis \nHow common are reflux and GERD in children? \nMany children have occasional reflux, especially after large meals or physical activity. GERD is less common, and most symptoms improve with time and lifestyle changes. \nWhat are the symptoms of reflux and GERD in children? \nSymptoms may vary by age. Some children might not even notice reflux, while others may taste food or stomach acid in the back of their mouth.\nIn children, GERD can cause:\nHeartburn , a burning feeling in the chest or throat (more common in older"
+    }
+  ]
+}

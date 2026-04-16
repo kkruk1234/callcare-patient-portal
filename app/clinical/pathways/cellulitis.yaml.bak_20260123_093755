@@ -1,0 +1,114 @@
+id: cellulitis
+version: 0.2
+match:
+  any_keywords: ["cellulitis", "skin redness spreading", "hot red skin", "skin infection spreading", "red swollen skin"]
+
+questions:
+
+  # --- Medication gating ---
+  - id: pregnancy_possible
+    prompt: "Is there any chance you are pregnant right now? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: pregnancy_possible
+
+  - id: renal_disease
+    prompt: "Have you ever been told you have kidney disease or reduced kidney function? (yes/no/unknown)"
+    type: text
+    store_as: renal_disease
+
+  # --- Cellulitis features / severity ---
+  - id: fever
+    prompt: "Do you have a fever? (yes/no/unknown)"
+    type: text
+    store_as: fever
+
+  - id: chills
+    prompt: "Have you had chills or shaking chills? (yes/no/unknown)"
+    type: text
+    store_as: chills
+
+  - id: rapid_spread
+    prompt: "Is the redness spreading quickly over hours to a day? (yes/no/unknown)"
+    type: text
+    store_as: rapid_spread
+
+  - id: pain_out_of_proportion
+    prompt: "Is the pain severe compared with what you can see on the skin? (yes/no/unknown)"
+    type: text
+    store_as: pain_out_of_proportion
+
+  - id: skin_break_or_wound
+    prompt: "Was there any cut, scrape, crack in the skin, blister, insect bite, ulcer, or other wound before this started? (yes/no/unknown)"
+    type: text
+    store_as: skin_break_or_wound
+
+  - id: face_or_near_eye
+    prompt: "Is the redness or swelling on the face or near an eye? (yes/no/unknown)"
+    type: text
+    store_as: face_or_near_eye
+
+  - id: diabetes
+    prompt: "Do you have diabetes? (yes/no/unknown)"
+    type: text
+    store_as: diabetes
+
+  - id: immunosuppressed
+    prompt: "Do you have a weakened immune system (for example from chemotherapy, high-dose steroids, transplant medicines, HIV, or other immune problems)? (yes/no/unknown)"
+    type: text
+    store_as: immunosuppressed
+
+  # --- DVT / PE screen (phone-appropriate) ---
+  - id: unilateral_swelling
+    prompt: "Is the swelling mainly in one leg (or one limb), rather than both? (yes/no/unknown)"
+    type: text
+    store_as: unilateral_swelling
+
+  - id: calf_pain
+    prompt: "Do you have calf pain or tenderness in that leg? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: calf_pain
+
+  - id: sudden_onset
+    prompt: "Did the swelling start suddenly (within hours to one day) rather than gradually over several days? (yes/no/unknown)"
+    type: text
+    store_as: sudden_onset
+
+  - id: recent_immobilization
+    prompt: "In the past month, have you been immobilized (bedbound), in a cast/splint, or unable to walk normally for more than a day? (yes/no/unknown)"
+    type: text
+    store_as: recent_immobilization
+
+  - id: recent_surgery
+    prompt: "In the past month, have you had surgery or been hospitalized? (yes/no/unknown)"
+    type: text
+    store_as: recent_surgery
+
+  - id: long_travel
+    prompt: "In the past month, have you had long travel with limited movement (for example car/plane travel longer than 4–6 hours)? (yes/no/unknown)"
+    type: text
+    store_as: long_travel
+
+  - id: prior_dvt_pe
+    prompt: "Have you ever had a blood clot in the leg (DVT) or lungs (pulmonary embolism)? (yes/no/unknown)"
+    type: text
+    store_as: prior_dvt_pe
+
+  - id: active_cancer
+    prompt: "Do you have active cancer or are you currently receiving cancer treatment? (yes/no/unknown)"
+    type: text
+    store_as: active_cancer
+
+  - id: estrogen_therapy
+    prompt: "Are you currently taking estrogen-containing hormones (for example birth control pills, patch, ring, or hormone therapy)? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: estrogen_therapy
+
+  - id: shortness_of_breath
+    prompt: "Are you having new shortness of breath right now? (yes/no/unknown)"
+    type: text
+    store_as: shortness_of_breath
+
+  - id: chest_pain
+    prompt: "Are you having chest pain right now? (yes/no/unknown)"
+    type: text
+    store_as: chest_pain

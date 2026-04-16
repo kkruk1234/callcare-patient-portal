@@ -1,0 +1,50 @@
+{
+  "packet_id": "5ccf2531-d2a7-4dac-9746-7af80c664971",
+  "created_at": "2026-03-04T18:42:55.595859+00:00",
+  "session_id": "0cb244ba-54f1-49f3-8b29-93e859ffefb5",
+  "pathway_id": "",
+  "queries": [
+    "NSAID dosing for musculoskeletal back pain",
+    "treatment of rib cage musculoskeletal pain",
+    "differential diagnosis of unilateral lower rib cage pain",
+    "management of back pain without trauma or systemic symptoms"
+  ],
+  "evidence": [
+    {
+      "title": "Costochondritis",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/conditions/costochondritis/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Musculoskeletal Chest Wall Pain | CUH",
+      "source": "cuh.nhs.uk",
+      "url": "https://www.cuh.nhs.uk/patient-information/musculoskeletal-chest-wall-pain/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Patient information factsheet",
+      "source": "uhs.nhs.uk",
+      "url": "https://www.uhs.nhs.uk/Media/UHS-website-2019/Patientinformation/Muscles%2Cjointsandbones/Rib-fracture-aftercare-advice-3588-PIL.pdf",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "How to treat a chest wall injury | North Bristol NHS Trust",
+      "source": "nbt.nhs.uk",
+      "url": "https://www.nbt.nhs.uk/our-services/a-z-services/emergency-zone/ed-miu-patient-information/chest-wall-injury",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    },
+    {
+      "title": "Thoracic outlet syndrome",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/conditions/thoracic-outlet-syndrome/",
+      "accessed": "2026-03-04",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started approximately 3 weeks ago. She denies any recent trauma, fever, chills, weight loss, respiratory symptoms, or neurological deficits. She has no history of kidney problems, urinary symptoms, abdominal pain, osteoporosis, cancer, or recent infections. The pain has not improved with acetaminophen.\n\nO: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely related to strain or minor soft tissue injury given the localized nature and absence of systemic symptoms.\nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Herpes zoster (early stage without rash)\n4. Referred pain from visceral causes such as renal or gastrointestinal pathology (less likely given no associated symptoms)\n\nP: First-line medication: NSAIDs such as ibuprofen 400 mg orally every 6-8 hours with food for up to 7 days, monitoring for gastrointestinal tolerance (Physician must verify medication/dosing)\nAlternatives: If NSAIDs are contraindicated or not tolerated, consider topical analgesics such as diclofenac gel or acetaminophen 500-1000 mg every 6 hours as needed\nMedication safety considerations: Use NSAIDs cautiously in patients with gastrointestinal, renal, or cardiovascular risk factors; avoid exceeding maximum daily doses; monitor for side effects\nReturn precautions: Advise patient to seek immediate care if she develops fever, worsening pain, neurological symptoms (numbness, weakness), chest pain, shortness of breath, or new urinary symptoms\nTesting: Not indicated at this time given lack of red flag symptoms; consider imaging or labs if symptoms worsen or fail to improve after 2-4 weeks"
+}

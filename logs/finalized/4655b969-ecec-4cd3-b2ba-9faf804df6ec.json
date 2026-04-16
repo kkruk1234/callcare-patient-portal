@@ -1,0 +1,43 @@
+{
+  "packet_id": "4655b969-ecec-4cd3-b2ba-9faf804df6ec",
+  "created_at": "2026-04-06T15:33:55.896231+00:00",
+  "session_id": "c905ede8-34ee-41a4-b8d1-46ba78a53958",
+  "pathway_id": "",
+  "base_queries": [
+    "upper abdominal pain management guidelines adults",
+    "treatment dosing nausea abdominal pain adults mg duration contraindications",
+    "red flags abdominal pain nausea chills testing indications adults"
+  ],
+  "queries": [
+    "AAFP upper abdominal pain management guidelines adults",
+    "AAFP treatment dosing nausea abdominal pain adults mg duration contraindications",
+    "MedlinePlus upper abdominal pain management guidelines adults",
+    "MedlinePlus treatment dosing nausea abdominal pain adults mg duration contraindications",
+    "CDC upper abdominal pain management guidelines adults",
+    "CDC treatment dosing nausea abdominal pain adults mg duration contraindications",
+    "NIH upper abdominal pain management guidelines adults",
+    "NIH treatment dosing nausea abdominal pain adults mg duration contraindications",
+    "NICE upper abdominal pain management guidelines adults",
+    "NICE treatment dosing nausea abdominal pain adults mg duration contraindications",
+    "WHO upper abdominal pain management guidelines adults",
+    "WHO treatment dosing nausea abdominal pain adults mg duration contraindications"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Acute Abdominal Pain in Adults:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0600/acute-abdominal-pain-adults.pdf",
+      "accessed": "2026-04-06",
+      "snippet": ""
+    },
+    {
+      "title": "Functional Dyspepsia: Evaluation and Management | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/0115/p84.html",
+      "accessed": "2026-04-06",
+      "snippet": "A systematic review of psychotropic medications compared with placebo for the treatment of functional dyspepsia included three trials of tricyclic antidepressants (TCAs) and found a reduction in dyspepsia symptoms (NNT = 6; 95% CI, 4 to 16). 24 The dosages for these trials were 25 mg of amitriptyline per day and 50 mg of imipramine per day. Two trials compared selective serotonin reuptake inhibitors with placebo and found no significant effect for dyspepsia symptoms. Given these findings, guidelines recommend the use of TCAs, before using prokinetics, for functional dyspepsia that is not improving with treatment for H. pylori or PPI use. 2 A small placebo-controlled study found buspirone (Buspar) reduced fullness and bloating. 25"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male presenting with a 2-day history of upper abdominal pain located right below the rib cage. He reports associated nausea last night and this morning without vomiting, no changes in bowel movements, and no yellowing of the skin or eyes. He felt very warm last night with chills but no sweating. The pain is tender to palpation but does not worsen with deep breaths or movement. He drinks alcohol socially but has no known history of gallbladder or liver disease. There is no chest pain or shortness of breath.\n\nO: Phone encounter only; no vital signs or physical exam available.\n\nA: The working diagnosis is acute upper abdominal pain likely related to a gastrointestinal or hepatobiliary cause given the location and associated symptoms.\nDifferential:\n1. Acute cholecystitis or biliary colic\n2. Peptic ulcer disease or gastritis\n3. Hepatitis or other liver inflammation\n4. Pancreatitis\n\nP: - First-line medication: Omeprazole 20 mg orally once daily for 14 days (Physician must verify medication/dosing)\n- Alternatives: Ranitidine 150 mg orally twice daily for 14 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; no renal or liver disease; monitor for adverse effects\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, fever develops, vomiting occurs, or jaundice appears; seek emergency care if severe abdominal pain or signs of shock develop\n- Testing: Recommend abdominal ultrasound to evaluate gallbladder and liver; consider liver function tests and pancreatic enzymes if symptoms persist or worsen"
+}

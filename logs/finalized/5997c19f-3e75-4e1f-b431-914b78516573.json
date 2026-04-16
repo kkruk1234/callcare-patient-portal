@@ -1,0 +1,53 @@
+{
+  "packet_id": "d27c5b07-24c7-4da1-b633-a0b66fa6bfa3",
+  "created_at": "2026-01-25T20:50:20.063981+00:00",
+  "session_id": "5997c19f-3e75-4e1f-b431-914b78516573",
+  "chief_complaint": "bleach splashed in my eye and it burns",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "eye_chemical_exposure",
+  "answers": {
+    "rinse": "yes",
+    "vision": "no",
+    "contact": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "No outpatient prescriptions by phone",
+      "dosing": "N/A",
+      "sig": "N/A",
+      "route": "",
+      "frequency": "",
+      "duration": "",
+      "notes": "Primary treatment is immediate irrigation and urgent in-person evaluation. Medications (antibiotics/cycloplegics) require exam.",
+      "exclusions": "N/A",
+      "tier": "Tier 1",
+      "pathway_id": "eye_chemical_exposure",
+      "source_file": "data/protocols/meds/eye_chemical_exposure.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult who reports that bleach splashed into their eye, causing a burning sensation. They rinsed the eye promptly (within 15 minutes). There is no reported vision change or severe pain. The patient does not wear contact lenses. No medication allergies are noted.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter. No evidence of vision impairment or severe pain reported.\n\nA:\n - Working diagnosis (most likely):\n   Chemical conjunctivitis/ocular irritation due to bleach exposure.\n - Differential:\n  1. Chemical conjunctivitis/ocular irritation\n  2. Corneal abrasion or chemical keratitis (less likely without severe pain or vision changes)\n  3. Allergic conjunctivitis (unlikely given acute bleach exposure)\n  4. Infectious conjunctivitis (unlikely given acute chemical exposure)\n - Red flags considered:\n   Vision changes, severe pain, inability to rinse, contact lens use, signs of chemical burns requiring emergency care.\n\nP:\n - Disposition:\n   Manage conservatively at home with close monitoring.\n - Plan: No outpatient prescriptions by phone — N/A.\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - No outpatient prescriptions by phone — N/A\n     - Notes: Primary treatment is immediate irrigation and urgent in-person evaluation. Medications (antibiotics/cycloplegics) require exam.\n     - Exclusions: N/A\n   - Supportive care:\n   - Immediate irrigation: Begin flushing the eye immediately with clean water/saline for 15–30 minutes (longer for strong chemicals). Remove contact lenses if present.\n   - Do not delay: Do not wait for symptoms—irrigation is time-critical.\n   - Bring product info: Bring the chemical container/name to the evaluation site if possible.\n   - Follow-up and safety:\n   - Urgent evaluation: Urgent ED/eye evaluation after irrigation (same-day). Alkali exposures are particularly dangerous.\n   - Urgent/ED now: Any vision change, severe pain, inability to open eye, or exposure to strong alkali/acid.\n   Advise continued thorough eye irrigation with clean water or saline for at least 15 minutes if symptoms persist or worsen.\n   Recommend avoiding rubbing the eye.\n   If symptoms worsen or vision changes develop, seek urgent in-person evaluation.\n - Safety net:\n   Instruct patient to seek emergency care if they develop worsening eye pain, vision loss, persistent redness, or discharge.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Chemical eye exposures: immediate steps (starter)",
+        "source": "https://www.aao.org/",
+        "snippet": "Listed in pathway manifest https://www.aao.org/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Chemical eye exposures: immediate steps (starter)",
+      "source": "https://www.aao.org/",
+      "snippet": "Listed in pathway manifest https://www.aao.org/"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA0c8cea3472af85b12af75dac9107cd0c",
+  "session_id": "b6fce1fb-cdda-4763-bb1e-0cfa48d31655",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-18T17:09:57.450505+00:00",
+  "ended_at": "2026-03-18T17:15:17.735080+00:00",
+  "packet_id": "4e980bc3-2b29-4b07-9af7-65f16bda9799",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have low back pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your low back pain start?"
+    },
+    {
+      "role": "user",
+      "text": "About 3 weeks ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe where exactly in your low back the pain is located and if it radiates anywhere?"
+    },
+    {
+      "role": "user",
+      "text": "It is low around hip level. Well, a little bit above that."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or weakness in your legs or feet?"
+    },
+    {
+      "role": "user",
+      "text": "Maybe."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the numbness, tingling, or weakness you are experiencing in your legs or feet in more detail?"
+    },
+    {
+      "role": "user",
+      "text": "I'm not having any numbness, tingling or weakness."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent trauma, heavy lifting, or injury that might have triggered the low back pain?"
+    },
+    {
+      "role": "user",
+      "text": "I was helping a friend move. So heavy lifting."
+    },
+    {
+      "role": "assistant",
+      "text": "Any bladder or bowel control problems since your back pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or unexplained weight loss since your back pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for your low back pain so far?"
+    },
+    {
+      "role": "user",
+      "text": "I got a massage, but it kinda made it feel worse."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of cancer, osteoporosis, or recent infections?"
+    },
+    {
+      "role": "user",
+      "text": "I have a hash a family history of osteoporosis, but none of the above for me."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the character of your low back pain? For example, is it sharp, dull, aching, or burning?"
+    },
+    {
+      "role": "user",
+      "text": "It's sharp."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Email."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like your low back pain is most likely due to muscle strain from heavy lifting. Since this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment like naproxen or acetaminophen may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe the recommended medication. For now, you can try taking acetaminophen or ibuprofen if you can safely do so. If you notice new numbness, weakness, or bladder or bowel problems, please seek urgent in-person care the same day. If your pain worsens severely or you can’t walk, go to the emergency room immediately. A physician will review your case and guide any further steps."
+    }
+  ]
+}

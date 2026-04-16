@@ -1,0 +1,532 @@
+from __future__ import annotations
+
+import re
+from pathlib import Path
+from typing import Any, Dict, Optional, Tuple, List
+
+from app.core.models import CallState
+
+PATHWAYS_DIR = Path("app/clinical/pathways")
+
+RESP_PATHWAYS = ['asthma_wheeze', 'copd_exacerbation', 'cough_uri', 'flu_like_illness', 'sinusitis', 'uri_sinus_overlap']
+
+
+# ----------------------------
+# Helpers
+# ----------------------------
+
+def _norm(s: str) -> str:
+    return (s or "").strip().lower()
+
+
+def _yesno(s: str) -> Optional[bool]:
+    s = _norm(s)
+    if s in ["y", "yes", "yeah", "yep", "sure", "ok", "okay"]:
+        return True
+    if s in ["n", "no", "nope"]:
+        return False
+    return None
+
+
+def _parse_age_years(text: str) -> Optional[float]:
+    """
+    Accepts:
+      - "37"
+      - "1.5"
+      - "18 months" (converted)
+      - "6 weeks" (converted)
+      - "2 years"
+    """
+    t = _norm(text)
+    if not t:
+        return None
+
+    m = re.search(r"(\d+(\.\d+)?)\s*(month|months|mo)\b", t)
+    if m:
+        return float(m.group(1)) / 12.0
+
+    w = re.search(r"(\d+(\.\d+)?)\s*(week|weeks|wk|wks)\b", t)
+    if w:
+        return float(w.group(1)) / 52.0
+
+    y = re.search(r"(\d+(\.\d+)?)\s*(year|years|yr|yrs)\b", t)
+    if y:
+        return float(y.group(1))
+
+    m2 = re.search(r"(\d+(\.\d+)?)", t)
+    if m2:
+        return float(m2.group(1))
+
+    return None
+
+
+def _age_band(age_years: Optional[float]) -> str:
+    if age_years is None:
+        return "unknown"
+    if age_years < 3:
+        return "0-2"
+    if age_years < 13:
+        return "3-12"
+    if age_years < 18:
+        return "13-17"
+    if age_years < 65:
+        return "18-64"
+    return "65+"
+
+
+def _parse_weight(text: str) -> Tuple[Optional[float], Optional[str]]:
+    """
+    Returns (weight_kg, raw_unit)
+    Accepts:
+      - "28 pounds", "28 lbs"
+      - "12.5 kg", "12 kilograms"
+      - "28" (unknown unit -> None)
+    """
+    t = _norm(text)
+    if not t:
+        return None, None
+
+    mkg = re.search(r"(\d+(\.\d+)?)\s*(kg|kilogram|kilograms)\b", t)
+    if mkg:
+        return float(mkg.group(1)), "kg"
+
+    mlb = re.search(r"(\d+(\.\d+)?)\s*(lb|lbs|pound|pounds)\b", t)
+    if mlb:
+        lbs = float(mlb.group(1))
+        return lbs * 0.45359237, "lb"
+
+    return None, None
+
+
+def _load_questions_for(pathway_id: str) -> List[dict]:
+    """
+    Minimal YAML-ish parser for our simple pathway YAML shape.
+    Reads:
+      - questions:
+        - id:
+          prompt:
+          store_as:
+          type:
+    """
+    fp = PATHWAYS_DIR / f"{pathway_id}.yaml"
+    if not fp.exists():
+        return []
+
+    txt = fp.read_text(encoding="utf-8", errors="ignore").splitlines()
+
+    questions: List[dict] = []
+    in_questions = False
+    current: Optional[dict] = None
+
+    for line in txt:
+        if line.strip().startswith("questions:"):
+            in_questions = True
+            continue
+        if not in_questions:
+            continue
+
+        if line.strip().startswith("- id:"):
+            if current:
+                questions.append(current)
+            current = {"id": line.split(":", 1)[1].strip(), "prompt": "", "store_as": "", "type": "text"}
+            continue
+
+        if current is None:
+            continue
+
+        s = line.strip()
+        if s.startswith("prompt:"):
+            val = s.split(":", 1)[1].strip().strip('"').strip("'")
+            current["prompt"] = val
+        elif s.startswith("store_as:"):
+            current["store_as"] = s.split(":", 1)[1].strip()
+        elif s.startswith("type:"):
+            current["type"] = s.split(":", 1)[1].strip()
+
+    if current:
+        questions.append(current)
+
+    return questions
+
+
+# ----------------------------
+# Routing
+# ----------------------------
+
+def _pick_pathway(chief: str, state: Optional[CallState] = None) -> Dict[str, Any]:
+    """
+    Deterministic routing first, then fallback keyword scoring from YAML (very minimal).
+    """
+    chief_l = _norm(chief)
+
+    # ---------------------------------------------------------
+    # RED_SWOLLEN_LEG_SORT_ROUTING_V1
+    # If the chief complaint sounds like unilateral red/swollen leg/calf/foot,
+    # route to the sorter pathway FIRST (do NOT auto-label cellulitis).
+    # ---------------------------------------------------------
+    leg_words = ["leg", "calf", "shin", "ankle", "foot", "toe", "one leg", "unilateral"]
+    inflam_words = ["red", "redness", "swollen", "swelling", "warm", "hot", "tender", "pain", "painful"]
+
+    # Strong leg signal + inflammation signal
+    if (any(w in chief_l for w in leg_words)
+        and (("red" in chief_l) or ("redness" in chief_l))
+        and (("swollen" in chief_l) or ("swelling" in chief_l) or ("warm" in chief_l) or ("tender" in chief_l) or ("pain" in chief_l))):
+        return {"id": "red_swollen_leg_sort", "score": 999}
+
+    # If they literally say DVT/clot with leg swelling, go straight to DVT pathway
+    if any(k in chief_l for k in ["dvt", "blood clot", "clot in my leg", "deep vein thrombosis"]):
+        return {"id": "dvt_possible", "score": 999}
+
+    # ---------------------------------------------------------
+    # Existing guards (kept) — but we must NOT steal leg cases
+    # ---------------------------------------------------------
+
+    # CELLULITIS_ROUTING_GUARD_V4_RED_SWOLLEN_LIMB
+    # Catch classic SSTI/cellulitis patient phrasing that omits the word "infection":
+    # e.g., "red and swollen hand", "red swollen finger", "arm is red and swollen"
+    limb_words = [
+        "hand","finger","thumb","wrist","arm","forearm","elbow",
+        # NOTE: leg/calf/foot/etc intentionally removed so those go to the sorter
+    ]
+    pain_warm_words = ["warm","hot","tender","pain","painful","sore","aching","throbbing"]
+
+    if "cellulitis" in chief_l:
+        return {"id": "cellulitis", "score": 999}
+
+    # Strong signal: upper-limb + red + swollen
+    if any(w in chief_l for w in limb_words) and all(w in chief_l for w in ["red","swollen"]):
+        return {"id": "cellulitis", "score": 999}
+
+    # Slightly looser: upper-limb + (redness) + (swelling)
+    if any(w in chief_l for w in limb_words) and (("redness" in chief_l) or ("red" in chief_l)) and (("swelling" in chief_l) or ("swollen" in chief_l)):
+        return {"id": "cellulitis", "score": 999}
+
+    # Also allow: upper-limb + (red) + (warm/hot/tender/painful)
+    if any(w in chief_l for w in limb_words) and (("red" in chief_l) or ("redness" in chief_l)) and any(w in chief_l for w in pain_warm_words):
+        return {"id": "cellulitis", "score": 999}
+
+    # CELLULITIS_ROUTING_GUARD_V2
+    if any(k in chief_l for k in [
+        "cellulitis", "skin infection", "infected skin", "infected cut", "infected wound",
+        "spreading redness", "redness spreading", "red and warm", "warm and swollen",
+        "hot and swollen", "red swollen painful", "infected bite"
+    ]):
+        return {"id": "cellulitis", "score": 999}
+
+    # DYSURIA_TOP_GUARD_V1
+    if (("burn" in chief_l or "burning" in chief_l or "burns" in chief_l)
+        and any(k in chief_l for k in ["pee", "peeing", "urinate", "urinating", "urination", "when i pee", "when i urinate"])):
+        return {"id": "dysuria_uti", "score": 999}
+
+    # --- (rest of your existing routing file stays the same) ---
+
+    # [SNIP: everything below is unchanged from your pasted file except we removed the old
+    # generic DVT suspicion line because sorter handles leg complaints early.]
+
+    # Rib pain after fall
+    if (any(k in chief_l for k in ["rib", "ribs"])
+        and any(k in chief_l for k in ["hurt when i breathe", "hurts when i breathe", "deep breath", "take a deep breath", "breathing"])
+        and any(k in chief_l for k in ["fell", "fall", "tripped", "hit", "injury"])):
+        return {"id": "rib_pain_after_fall", "score": 999}
+
+    # Contact-lens red eye
+    if any(k in chief_l for k in ["contact lens", "contact lenses", "contacts"]) and any(k in chief_l for k in ["red eye", "red", "painful", "eye pain"]):
+        return {"id": "contact_lens_red_eye", "score": 999}
+
+    # Splinter/foreign body in skin
+    if any(k in chief_l for k in ["splinter", "thorn", "glass", "foreign body"]) and any(k in chief_l for k in ["foot", "hand", "finger", "skin"]):
+        return {"id": "skin_splinter_foreign_body", "score": 999}
+
+    # New medication causing nausea
+    if (any(k in chief_l for k in ["started a new", "new pill", "new medicine", "new medication"])
+        and any(k in chief_l for k in ["nausea", "nauseated", "feel sick", "vomit", "vomiting"])):
+        return {"id": "nausea_after_new_med", "score": 999}
+
+    # Relationship distress
+    if any(k in chief_l for k in ["partner", "husband", "wife", "boyfriend", "girlfriend", "marriage", "relationship"]) and any(k in chief_l for k in ["fighting", "argument", "breakup", "divorce", "conflict"]):
+        return {"id": "relationship_distress_noncrisis", "score": 999}
+
+    # Caregiver stress
+    if any(k in chief_l for k in ["caregiver", "caregiving", "taking care of", "caring for"]) or any(k in chief_l for k in ["dementia", "alzheim"]):
+        return {"id": "caregiver_stress_noncrisis", "score": 999}
+
+    # Work stress / burnout
+    if any(k in chief_l for k in ["burnout", "burned out", "overwhelmed at work", "work stress", "job stress", "stressed at work", "can't cope at work", "exhausted from work"]):
+        return {"id": "work_stress_burnout_noncrisis", "score": 999}
+
+    # ... keep your direct map list exactly as-is ...
+    direct = [
+        (["palpitations", "irregular heartbeat", "heart flutter", "heart racing", "skipping beats"], "atrial_fibrillation_possible"),
+        (["blood pressure is high", "bp is high", "high blood pressure", "hypertension crisis"], "hypertensive_urgency"),
+        (["sudden shortness of breath", "pain with breathing", "pleuritic", "coughing up blood", "coughing blood"], "pulmonary_embolism_possible"),
+        (["heart failure", "worse when lying flat", "waking up gasping", "swelling legs", "leg swelling"], "heart_failure_exacerbation"),
+        (["low blood sugar", "hypoglycemia", "shaky and sweaty", "sweaty and shaky"], "hypoglycemia_possible"),
+        (["missed dialysis", "high potassium", "kidney failure", "dialysis missed"], "hyperkalemia_possible"),
+        (["alcohol withdrawal", "stopping drinking", "quit drinking", "cut down alcohol", "shaky after stopping alcohol"], "alcohol_withdrawal_mild"),
+        (["opioid withdrawal", "stopping opioids", "stopped opioids", "withdrawal from fentanyl", "withdrawal from oxycodone", "stopping pain pills"], "opioid_withdrawal_mild"),
+        (["can't hold urine", "cant hold urine", "leaking urine", "urine leakage", "wetting myself", "new incontinence"], "urinary_incontinence_new"),
+        (["itching all over", "itchy all over", "itching without rash", "itching everywhere", "generalized itching"], "pruritus_generalized_no_rash"),
+        (["grief", "bereavement", "mourning", "can't cope after loss", "cant cope after loss"], "grief_adjustment_noncrisis"),
+        (["ptsd", "flashbacks", "nightmares", "hypervigilant", "triggered by trauma"], "ptsd_symptoms_noncrisis"),
+        (["can't stop using", "cant stop using", "drug use", "drinking too much", "substance problem", "alcohol problem"], "substance_use_concern_noncrisis"),
+        (["dysuria", "uti", "burning urination", "burning when i pee", "painful urination", "urinary urgency", "urinary frequency"], "dysuria_uti"),
+        (["vomit", "vomiting", "nausea", "throwing up", "emesis"], "nausea_vomiting"),
+        (["diarrhea", "loose stool", "watery stool", "gastroenteritis"], "diarrhea"),
+        (["ear pain", "earache", "otitis", "swimmer's ear"], "ear_pain"),
+        (["pink eye", "conjunctivitis", "red eye", "eye discharge"], "red_eye"),
+        (["back pain", "low back", "sciatica", "lumbar"], "low_back_pain"),
+        (["sore throat", "throat pain", "strep"], "sore_throat"),
+        (["cough", "runny nose", "congestion", "cold", ], "cough_uri"),
+        (["rash", "skin infection", "cellulitis", "impetigo"], "rash_skin_infection"),
+        (["abdominal pain", "belly pain", "stomach pain"], "abdominal_pain"),
+        (["headache", "migraine", "worst headache", "thunderclap"], "headache"),
+        (["med refill", "refill", "renew medication", "prescription renewal"], "med_refill"),
+    ]
+
+    for keys, pid in direct:
+        if any(k in chief_l for k in keys):
+            return {"id": pid, "score": 999}
+
+    # Fallback: minimal keyword scoring from YAML `match:any_keywords: [...]`
+    best = ("cough_uri", 0)
+    if PATHWAYS_DIR.exists():
+        for fp in PATHWAYS_DIR.glob("*.yaml"):
+            raw = fp.read_text(encoding="utf-8", errors="ignore")
+            pid = ""
+            kws: List[str] = []
+            for line in raw.splitlines():
+                s = line.strip()
+                if s.startswith("id:"):
+                    pid = s.split(":", 1)[1].strip()
+                if "any_keywords:" in s and "[" in s and "]" in s:
+                    inside = s.split("[", 1)[1].rsplit("]", 1)[0]
+                    parts = [p.strip().strip('"').strip("'") for p in inside.split(",") if p.strip()]
+                    kws.extend([p.lower() for p in parts if p])
+            if not pid:
+                continue
+            score = sum(1 for k in kws if k and k in chief_l)
+            if score > best[1]:
+                best = (pid, score)
+
+    return {"id": best[0], "score": best[1]}
+
+
+# ----------------------------
+# Public API
+# ----------------------------
+
+def next_prompt(state: CallState) -> str:
+    state.symptoms.setdefault("_answers", {})
+    state.symptoms.setdefault("_pathway", {})
+    state.symptoms.setdefault("_q_idx", 0)
+
+    if state.stage == "PATHWAY_Q" and state.symptoms.get("_reprompt"):
+        return state.symptoms["_reprompt"]
+
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What's your main concern?"
+
+    if state.stage == "AGE_BAND":
+        return "How old are you? Please say your age in years (for example: 37)."
+
+    if state.stage == "CONDITIONS":
+        return (
+            "Do you have any chronic lung condition like asthma or COPD/emphysema/chronic bronchitis? "
+            "Please say: asthma, COPD, neither, or unknown."
+        )
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "WEIGHT":
+        return (
+            "For dosing safety, what is the child's weight? "
+            "You can say pounds or kilograms (for example: 28 pounds)."
+        )
+
+    if state.stage == "PATHWAY_Q":
+        pathway_id = (state.symptoms.get("_pathway") or {}).get("id") or "cough_uri"
+        questions = _load_questions_for(pathway_id)
+        idx = int(state.symptoms.get("_q_idx", 0))
+
+        if idx >= len(questions):
+            state.stage = "DECIDE"
+            return ""
+
+        while idx < len(questions):
+            q = questions[idx] or {}
+            prompt = (q.get("prompt") or "").strip()
+            if prompt:
+                state.symptoms["_q_idx"] = idx
+                return prompt
+            idx += 1
+
+        state.stage = "DECIDE"
+        return ""
+
+    if state.stage == "DECIDE":
+        return ""
+
+    return "I'm sorry — I got lost. Let's start over. What's your main concern?"
+
+
+def process_answer(state: CallState, text: str) -> None:
+    state.symptoms.setdefault("_answers", {})
+    state.symptoms.setdefault("_pathway", {})
+    state.symptoms.setdefault("_q_idx", 0)
+
+    t = _norm(text)
+
+    if state.stage == "CONSENT":
+        yn = _yesno(t)
+        if yn is True:
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    if state.stage == "CHIEF":
+        state.chief_complaint = (text or "").strip()
+        state.symptoms["_pathway"] = _pick_pathway(state.chief_complaint, state)
+        state.symptoms["_q_idx"] = 0
+        state.stage = "AGE_BAND"
+        return
+
+    if state.stage == "AGE_BAND":
+        age = _parse_age_years(text)
+        if age is None:
+            state.symptoms["_reprompt_age"] = True
+            return
+        state.symptoms.pop("_reprompt_age", None)
+
+        state.symptoms["age_years"] = age
+        state.age_band = _age_band(age)
+        state.symptoms["age_band"] = state.age_band
+        state.symptoms["is_child"] = bool(age < 18.0)
+
+        pid = (state.symptoms.get("_pathway") or {}).get("id") or ""
+        if pid in set(RESP_PATHWAYS):
+            state.stage = "CONDITIONS"
+        else:
+            state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "CONDITIONS":
+        val = "unknown"
+        if "asthma" in t:
+            val = "asthma"
+        elif any(k in t for k in ["copd", "emphysema", "chronic bronchitis"]):
+            val = "copd"
+        elif any(k in t for k in ["neither", "none", "no"]):
+            val = "none"
+        elif any(k in t for k in ["unknown", "not sure", "unsure"]):
+            val = "unknown"
+        state.symptoms["chronic_lung"] = val
+        state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "ALLERGIES":
+        if t in ["no", "none", "nope", "n"]:
+            state.symptoms["med_allergies"] = "none"
+        else:
+            state.symptoms["med_allergies"] = (text or "").strip() or "unknown"
+
+        if bool(state.symptoms.get("is_child")):
+            state.stage = "WEIGHT"
+        else:
+            state.stage = "PATHWAY_Q"
+        return
+
+    if state.stage == "WEIGHT":
+        wkg, unit = _parse_weight(text)
+        if wkg is None:
+            state.symptoms["_reprompt_weight"] = True
+            return
+        state.symptoms.pop("_reprompt_weight", None)
+        state.symptoms["weight_kg"] = wkg
+        state.symptoms["weight_unit"] = unit or "unknown"
+        state.stage = "PATHWAY_Q"
+        return
+
+    if state.stage == "PATHWAY_Q":
+        pathway_id = (state.symptoms.get("_pathway") or {}).get("id") or "cough_uri"
+        questions = _load_questions_for(pathway_id)
+        idx = int(state.symptoms.get("_q_idx", 0))
+
+        if idx >= len(questions):
+            state.stage = "DECIDE"
+            return
+
+        q = questions[idx]
+        qid = q.get("id") or f"q{idx}"
+        store_as = q.get("store_as") or qid
+        qtype = q.get("type") or "text"
+
+        if qtype == "yesno":
+            yn = _yesno(t)
+            if yn is None:
+                state.symptoms["_reprompt"] = f"Please answer yes or no. {q.get('prompt','')}"
+                return
+            state.symptoms["_answers"][qid] = "yes" if yn else "no"
+            state.symptoms[store_as] = bool(yn)
+        else:
+            state.symptoms["_answers"][qid] = (text or "").strip()
+            state.symptoms[store_as] = (text or "").strip()
+
+            # ==============================
+            # RED_SWOLLEN_LEG_SORT_REROUTE_V1
+            # After the discriminator question, reroute:
+            #   - if any skin break/infection/wound/bite signal -> cellulitis
+            #   - otherwise -> dvt_possible
+            # ==============================
+            if pathway_id == "red_swollen_leg_sort" and (store_as or "") == "leg_sort_discriminator":
+                ans = _norm(text)
+
+                infection_signals = [
+                    "skin break", "break in the skin", "cut", "scratch", "scrape",
+                    "wound", "open wound", "ulcer",
+                    "insect bite", "bug bite", "bite", "sting",
+                    "infection", "infected", "pus", "drainage", "abscess"
+                ]
+
+                if any(s in ans for s in infection_signals):
+                    state.symptoms["_pathway"] = {"id": "cellulitis", "score": 999}
+                else:
+                    state.symptoms["_pathway"] = {"id": "dvt_possible", "score": 999}
+
+                state.symptoms["_q_idx"] = 0
+                state.stage = "PATHWAY_Q"
+                state.symptoms.pop("_reprompt", None)
+                return
+
+            # ==============================
+            # SEX_AT_BIRTH_UTI_REROUTE_V1
+            # ==============================
+            if (store_as or "") == "sex_at_birth":
+                raw = (text or "").strip().lower()
+                val = "unknown"
+                if raw in ("male", "m", "man"):
+                    val = "male"
+                elif raw in ("female", "f", "woman"):
+                    val = "female"
+                state.symptoms["sex_at_birth"] = val
+                state.symptoms["male"] = bool(val == "male")
+
+                if val == "male":
+                    state.symptoms["_pathway"] = {"id": "uti_male", "score": 999}
+                    state.symptoms["_q_idx"] = 0
+                    state.stage = "PATHWAY_Q"
+                    return
+
+        state.symptoms["_q_idx"] = idx + 1
+        state.symptoms.pop("_reprompt", None)
+        return
+
+    state.stage = "CONSENT"

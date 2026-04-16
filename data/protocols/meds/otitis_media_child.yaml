@@ -1,0 +1,31 @@
+# Clinician-facing medication/dosing protocol for: otitis_media_child
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: "Amoxicillin (high-dose)"
+    dosing: "80–90 mg/kg/day PO divided BID x 5–10 days (duration by age/severity; max 1,000 mg per dose)"
+    exclusions: "Immediate-type penicillin allergy; recent amoxicillin in past 30 days may favor amox-clav; renal impairment adjustment if significant"
+    notes: "First-line for uncomplicated AOM when antibiotics indicated."
+  - med: "Amoxicillin-clavulanate"
+    dosing: "90 mg/kg/day (amoxicillin component) PO divided BID x 5–10 days (use ES formulation when possible)"
+    exclusions: "Immediate-type beta-lactam allergy; renal impairment adjustment"
+    notes: "Consider if conjunctivitis-otitis syndrome, recent amoxicillin use, or failure on amoxicillin."
+  - med: "Cefdinir"
+    dosing: "14 mg/kg/day PO once daily or divided BID x 5–10 days"
+    exclusions: "Immediate-type severe beta-lactam allergy"
+    notes: "Non-anaphylactic penicillin allergy option (clinician judgment)."
+  - med: "Azithromycin"
+    dosing: "10 mg/kg PO day 1, then 5 mg/kg/day days 2–5 (or local protocol)"
+    exclusions: "QT prolongation risk; macrolide allergy"
+    notes: "For severe beta-lactam allergy; resistance patterns vary."
+
+supportive_care:
+  - item: "Pain control"
+    details: "Acetaminophen (Tylenol) or ibuprofen (Advil) dosed by weight if safe. Avoid aspirin in children."
+  - item: "Monitoring"
+    details: "Watchful waiting may be appropriate in selected cases depending on age/severity and reliable follow-up."
+
+followup_and_safety:
+  - item: "Re-evaluation"
+    details: "If not improving within 48–72 hours after antibiotics (or worsening), needs in-person reassessment."
+  - item: "ED/urgent now"
+    details: "Severe headache/neck stiffness, swelling/redness behind ear (mastoiditis concern), lethargy, persistent vomiting, or signs of dehydration."

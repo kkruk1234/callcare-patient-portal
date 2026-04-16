@@ -1,0 +1,221 @@
+from __future__ import annotations
+
+import inspect
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Callable
+
+from app.clinical.llm_intake_planner import (
+    Demographics,
+    EvidenceChunk,
+    build_question_plan,
+    IntakePlannerError,
+)
+from app.clinical.plan_validator import validate_and_normalize_plan
+from app.clinical.generic_intake_fallback import build_generic_fallback_plan
+from app.clinical.med_exclusions_parser import parse_med_exclusions, MedExclusionFlags
+
+
+@dataclass(frozen=True)
+class OrchestratorConfig:
+    top_n: int = 10
+    max_questions: int = 12
+
+
+@dataclass
+class RagIntakeArtifacts:
+    evidence: List[EvidenceChunk]
+    plan: Dict[str, Any]
+    plan_mode: str  # "rag" | "fallback"
+    validation_reason: Optional[str]
+    index_version: Optional[str] = None
+
+
+def _pick_retrieve_fn(mod) -> Callable[..., Any]:
+    """
+    Finds a likely retrieval function in app.rag.retrieve without hardcoding a name.
+    Preference order is conservative; you can later replace with an explicit import.
+    """
+    candidates = [
+        "retrieve_evidence_chunks",
+        "retrieve_chunks",
+        "retrieve_evidence",
+        "retrieve",
+        "search",
+        "query",
+    ]
+    for name in candidates:
+        fn = getattr(mod, name, None)
+        if callable(fn):
+            return fn
+
+    # If nothing matches, pick the first callable that looks like retrieval.
+    for name in dir(mod):
+        if "retriev" in name.lower() or "search" in name.lower() or "query" in name.lower():
+            fn = getattr(mod, name, None)
+            if callable(fn):
+                return fn
+
+    raise RuntimeError("Could not find a retrieval function in app.rag.retrieve")
+
+
+def _call_retrieve(fn: Callable[..., Any], chief: str, top_n: int, metadata: Dict[str, Any]) -> Any:
+    """
+    Calls retrieval function using signature inspection so we don't guess param names.
+    We support common conventions: (query=, top_n=/top_k=, k=, metadata=, filters=).
+    """
+    sig = inspect.signature(fn)
+    kwargs: Dict[str, Any] = {}
+
+    # Map query argument
+    if "query" in sig.parameters:
+        kwargs["query"] = chief
+    elif "text" in sig.parameters:
+        kwargs["text"] = chief
+    elif "q" in sig.parameters:
+        kwargs["q"] = chief
+    else:
+        # Fall back: first positional parameter if present
+        params = list(sig.parameters.values())
+        if params and params[0].kind in (inspect.Parameter.POSITIONAL_ONLY, inspect.Parameter.POSITIONAL_OR_KEYWORD):
+            return fn(chief)
+
+    # Map top-N argument
+    for kname in ["top_n", "top_k", "k", "n", "limit"]:
+        if kname in sig.parameters:
+            kwargs[kname] = top_n
+            break
+
+    # Map metadata / filters
+    for mname in ["metadata", "meta", "filters", "filter", "context"]:
+        if mname in sig.parameters:
+            kwargs[mname] = metadata
+            break
+
+    return fn(**kwargs)
+
+
+def _convert_retrieval_to_chunks(raw: Any) -> List[EvidenceChunk]:
+    """
+    Expected raw format: list[dict] with keys like:
+      - text / chunk / content
+      - title
+      - url
+      - publisher / source
+      - date (optional)
+    If your retrieve.py returns a different structure, we can adapt later.
+    """
+    if raw is None:
+        return []
+
+    if isinstance(raw, dict) and "chunks" in raw and isinstance(raw["chunks"], list):
+        raw_list = raw["chunks"]
+    elif isinstance(raw, list):
+        raw_list = raw
+    else:
+        # Unknown structure
+        return []
+
+    out: List[EvidenceChunk] = []
+    i = 1
+    for rc in raw_list:
+        if not isinstance(rc, dict):
+            continue
+        text = (rc.get("text") or rc.get("chunk") or rc.get("content") or "").strip()
+        url = (rc.get("url") or rc.get("source_url") or "").strip()
+        title = (rc.get("title") or rc.get("source_title") or "Untitled").strip()
+        publisher = (rc.get("publisher") or rc.get("source") or rc.get("host") or "Unknown").strip()
+        date = rc.get("date") or rc.get("published") or rc.get("updated") or None
+        date = str(date).strip() if date else None
+
+        if not text:
+            continue
+
+        out.append(EvidenceChunk(
+            key=f"EVID_{i}",
+            title=title,
+            url=url,
+            publisher=publisher,
+            date=date,
+            text=text,
+        ))
+        i += 1
+
+    return out
+
+
+def run_retrieval(chief: str, demographics: Demographics, top_n: int) -> List[EvidenceChunk]:
+    import app.rag.retrieve as retrieve_mod
+
+    fn = _pick_retrieve_fn(retrieve_mod)
+    raw = _call_retrieve(
+        fn=fn,
+        chief=chief,
+        top_n=top_n,
+        metadata={
+            "age_years": demographics.age_years,
+            "pregnancy_possible": demographics.pregnancy_possible,
+        },
+    )
+    return _convert_retrieval_to_chunks(raw)
+
+
+def build_plan(
+    chief: str,
+    demographics: Demographics,
+    llm_call_fn,
+    cfg: OrchestratorConfig,
+) -> RagIntakeArtifacts:
+    evidence = run_retrieval(chief, demographics, top_n=cfg.top_n)
+
+    if not evidence:
+        return RagIntakeArtifacts(
+            evidence=[],
+            plan=build_generic_fallback_plan(),
+            plan_mode="fallback",
+            validation_reason="No evidence retrieved.",
+        )
+
+    try:
+        draft = build_question_plan(
+            chief=chief,
+            demographics=demographics,
+            evidence_chunks=evidence,
+            llm_call_fn=llm_call_fn,
+            max_questions=cfg.max_questions,
+        )
+    except IntakePlannerError as e:
+        return RagIntakeArtifacts(
+            evidence=evidence,
+            plan=build_generic_fallback_plan(),
+            plan_mode="fallback",
+            validation_reason=f"Planner failed: {e}",
+        )
+
+    vr = validate_and_normalize_plan(draft, max_questions=cfg.max_questions)
+    if not vr.ok or not vr.normalized_plan:
+        return RagIntakeArtifacts(
+            evidence=evidence,
+            plan=build_generic_fallback_plan(),
+            plan_mode="fallback",
+            validation_reason=f"Plan validation failed: {vr.reason}",
+        )
+
+    return RagIntakeArtifacts(
+        evidence=evidence,
+        plan=vr.normalized_plan,
+        plan_mode="rag",
+        validation_reason=None,
+    )
+
+
+def compute_med_flags(
+    structured_answers: Dict[str, Any],
+    pregnancy_possible: str,
+    allergies_text: str,
+) -> MedExclusionFlags:
+    med_excl_text = str(structured_answers.get("med_exclusions", "") or "")
+    return parse_med_exclusions(
+        med_exclusions_text=med_excl_text,
+        pregnancy_possible=pregnancy_possible,
+        allergies_text=allergies_text,
+    )

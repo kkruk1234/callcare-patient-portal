@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAeae21c7e79bf67d98c26db93889b6dbd",
+  "session_id": "520434bb-4534-43e7-b612-da6ebc99f799",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-27T20:48:30.977392+00:00",
+  "ended_at": "2026-03-27T20:55:12.875382+00:00",
+  "packet_id": "bedd4ebe-266a-4919-ad3a-1bcdc5222360",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm feeling a lot of anxiety."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your anxiety symptoms start?"
+    },
+    {
+      "role": "user",
+      "text": "I don't know. They've kind of been on and off of, like"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what symptoms you experience when you feel anxious?"
+    },
+    {
+      "role": "user",
+      "text": "My I feel like my heart is racing. I feel sweaty. I just feel a overall feeling of doom, like, something bad is gonna happen. I just I feel very twitchy. My muscles feel twitchy. Yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any chest pain, shortness of breath, or fainting during these episodes?"
+    },
+    {
+      "role": "user",
+      "text": "No. Well, shortness of breath, maybe when I get myself really worked up, but I think that's because I'm hyperventilating. But no fainting, no tuck pain, nothing like"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent major stressors or changes in your life that might be contributing to your anxiety?"
+    },
+    {
+      "role": "user",
+      "text": "Well, I don't like my job, and my spouse has already a new job."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been diagnosed with an anxiety disorder or received treatment for anxiety before?"
+    },
+    {
+      "role": "user",
+      "text": "I did in the past. I don't remember what the medication was, but it didn't seem to help very much."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any thoughts of harming yourself or feeling hopeless recently?"
+    },
+    {
+      "role": "user",
+      "text": "Can feel a little hopeless, but no doubt harming myself."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or coping strategies recently for your anxiety?"
+    },
+    {
+      "role": "user",
+      "text": "Well, I've been trying to take some deep breath and counting backwards from 10 because I've been getting angry a lot too. And okay. What else have I tried doing? No. That's about it."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any changes in your sleep or appetite recently?"
+    },
+    {
+      "role": "user",
+      "text": "My appetite has been going up and down. Some days, I feel like eating everything that is around me, and then other days, I have no appetite, whatever."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any panic attacks where your symptoms peak suddenly and intensely?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. I have."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of heart problems or other medical conditions?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No. Because I am a man."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing symptoms consistent with generalized anxiety and panic attacks, likely related to recent stress in your life. Because this is a phone visit, I can’t examine you or run tests, but based on what you shared, medication treatment may be appropriate. A licensed physician will review this note and, if suitable, may prescribe medication like sertraline or buspirone. In the meantime, you can continue using coping strategies like deep breathing. If you notice any worsening symptoms, new or severe mood changes, or thoughts of harming yourself, please seek urgent in-person care right away. Otherwise, a clinician will review your case and guide the next steps, which may include further testing or therapy options. If you need an in-person exam or testing, please go to urgent care or your primary care clinician, as this service does not include in-person visits."
+    }
+  ]
+}

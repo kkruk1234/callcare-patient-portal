@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA48e9db4d925a6ce6c430cc0865530f1f",
+  "session_id": "76bfa19d-6940-432c-b52c-2bbc0d1e6f2f",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-29T21:20:29.557144+00:00",
+  "ended_at": "2026-03-29T21:26:51.674287+00:00",
+  "packet_id": "ce7009b1-e231-450b-b432-0d1d50929a2e",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yeah."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have extreme pain and, like, mild cramping around the belly button, and it moved to my lower right abdomen. And I also have, like, nausea and vomiting and stuff like that."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your pain start and how has it changed since then?"
+    },
+    {
+      "role": "user",
+      "text": "About 12 hours ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or difficulty passing urine?"
+    },
+    {
+      "role": "user",
+      "text": "It's gone worse. I have fever, but I don't have chills. Or difficulty passing urine."
+    },
+    {
+      "role": "assistant",
+      "text": "Any loss of appetite or changes in bowel movements like constipation or diarrhea?"
+    },
+    {
+      "role": "user",
+      "text": "I've lost my appetite."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or tenderness if you press on your lower right abdomen, or does it hurt more when you move or cough?"
+    },
+    {
+      "role": "user",
+      "text": "The pain worsens when I move and cough."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any vaginal bleeding, discharge, or unusual symptoms if you are female, or any testicular pain if you are male?"
+    },
+    {
+      "role": "user",
+      "text": "I'm female, and I have my period right now. So I can't really answer that definitively."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of similar pain episodes in the past or any known gynecological issues?"
+    },
+    {
+      "role": "user",
+      "text": "Nope."
+    },
+    {
+      "role": "assistant",
+      "text": "Any chance you could be pregnant or have had unprotected sex recently?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any vaginal discharge that smells bad or is unusual in color?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any changes in your bowel movements such as inability to pass gas or stool?"
+    },
+    {
+      "role": "user",
+      "text": "I don't think so."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "17"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your weight? You can say it in pounds or kilograms."
+    },
+    {
+      "role": "user",
+      "text": "Hundred and 62 pounds."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Not sure"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you’ve described, your symptoms are most consistent with a condition called appendicitis, which can be serious and usually needs urgent medical evaluation. Because this is a phone visit, I can’t examine you or run tests, so it’s important that you seek in-person care as soon as possible, such as going to an urgent care center or emergency department for evaluation and imaging. A licensed physician will review this note, and if appropriate, may recommend treatment. If your pain gets much worse, your fever rises, or you keep vomiting, please go to the emergency room right away. For now, you can take acetaminophen (Tylenol) or ibuprofen (Advil) if you can safely use them to help with pain. Remember, this service doesn’t include in-person visits, so getting checked out in person is important."
+    }
+  ]
+}

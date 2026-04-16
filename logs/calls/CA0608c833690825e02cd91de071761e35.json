@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA0608c833690825e02cd91de071761e35",
+  "session_id": "35d2310e-cba0-4d87-993d-552031b8a036",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-12T17:11:20.731042+00:00",
+  "ended_at": "2026-03-12T17:16:22.914081+00:00",
+  "packet_id": "cc51250e-4e00-4cb1-b399-82b308a0bc65",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have lower abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the lower abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe exactly where in your lower abdomen the pain is located?"
+    },
+    {
+      "role": "user",
+      "text": "The lower left side."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or feeling generally unwell since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. All of the above."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any changes in your bowel movements, such as diarrhea or constipation?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea or vomiting since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "A little nausea, but no vomiting."
+    },
+    {
+      "role": "assistant",
+      "text": "Any urinary symptoms like burning, frequency, or blood in the urine?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any vaginal bleeding, discharge, or unusual symptoms if applicable?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of similar pain episodes in the past or any known diverticulitis or other bowel conditions?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any changes in appetite or weight since the pain started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain when you move, cough, or press on your lower abdomen?"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Email."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Based on your symptoms, it’s most likely you have acute diverticulitis, which is an infection or inflammation in part of your lower intestine. Because this is a phone visit, I can’t examine you or run tests, but a licensed physician will review your information and may prescribe antibiotics if appropriate. For now, you should rest, stay hydrated, and you can take acetaminophen or ibuprofen for pain if you can safely do so. If your abdominal pain worsens, your fever stays high or gets worse, you develop vomiting, can’t keep fluids down, or notice any severe symptoms like very intense pain or signs of infection spreading, please seek urgent in-person care right away. A doctor will likely want to do imaging tests and blood work to confirm the diagnosis and guide treatment. If you need an in-person exam or testing, please go to an urgent care or emergency department, as this service does not include in-person visits."
+    }
+  ]
+}

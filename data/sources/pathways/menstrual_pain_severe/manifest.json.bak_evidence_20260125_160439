@@ -1,0 +1,12 @@
+{
+  "pathway_id": "menstrual_pain_severe",
+  "sources": [
+    {
+      "id": "menstrual_pain_severe_ref",
+      "source_id": "menstrual_pain_severe_ref",
+      "title": "Menstrual pain: red flags overview (starter)",
+      "url": "https://www.acog.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

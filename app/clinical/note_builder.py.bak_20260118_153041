@@ -1,0 +1,441 @@
+from __future__ import annotations
+
+import importlib
+import os
+import time
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Tuple, Optional
+
+from app.core.models import CallState, EvidenceRef, NoteDraft
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _model_field_names(model_cls) -> set:
+    if hasattr(model_cls, "model_fields"):  # pydantic v2
+        return set(model_cls.model_fields.keys())
+    if hasattr(model_cls, "__fields__"):  # pydantic v1
+        return set(model_cls.__fields__.keys())
+    return set()
+
+
+_EVID_FIELDS = _model_field_names(EvidenceRef)
+
+
+def _mk_evidence_ref(data: Dict[str, Any]) -> EvidenceRef:
+    safe = {k: v for k, v in data.items() if k in _EVID_FIELDS}
+
+    if "source" in _EVID_FIELDS and not safe.get("source"):
+        safe["source"] = "Unknown source"
+    if "snippet" in _EVID_FIELDS and safe.get("snippet") is None:
+        safe["snippet"] = ""
+    if "title" in _EVID_FIELDS and not safe.get("title"):
+        safe["title"] = safe.get("source", "Evidence")
+
+    return EvidenceRef(**safe)
+
+
+def _decision_bits(state: CallState) -> Tuple[str, List[str], List[str]]:
+    decision = getattr(state, "decision", None)
+    if not decision:
+        return ("", [], [])
+    disposition = str(getattr(decision, "disposition", "") or "")
+    plan = list(getattr(decision, "plan", []) or [])
+    safety = list(getattr(decision, "safety_net", []) or [])
+    plan = [str(x) for x in plan if str(x).strip()]
+    safety = [str(x) for x in safety if str(x).strip()]
+    return (disposition, plan, safety)
+
+
+def _is_emergent_disposition(disposition: str) -> bool:
+    d = (disposition or "").lower()
+    return any(x in d for x in ["call 911", "ems", "emergency", "ed now", "go to the er", "go to er", "er now"])
+
+
+def _avoid_otc_from_text(plan: List[str], soap_text: str) -> bool:
+    haystack = " ".join(plan) + "\n" + (soap_text or "")
+    h = haystack.lower()
+    return (
+        "avoid self-medicating" in h
+        or ("avoid" in h and "nsaid" in h)
+        or ("avoid" in h and "acetaminophen" in h)
+        or ("avoid" in h and "tylenol" in h)
+        or ("avoid" in h and "ibuprofen" in h)
+    )
+
+
+def _symptoms(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _as_int(v) -> Optional[int]:
+    try:
+        if v is None:
+            return None
+        s = str(v).strip()
+        if not s:
+            return None
+        n = float(s)
+        if n <= 0 or n > 200:
+            return None
+        return int(round(n))
+    except Exception:
+        return None
+
+
+def _tick_attachment_hours(state: CallState) -> Optional[int]:
+    sx = _symptoms(state)
+    for k in ("tick_attachment_timeframe", "tick_attached_timeframe", "tick_attachment_hours", "tick_attached_hours"):
+        if k in sx and sx.get(k):
+            raw = str(sx.get(k)).strip().lower()
+            cleaned = (
+                raw.replace("hours", "")
+                .replace("hour", "")
+                .replace("about", "")
+                .replace("approximately", "")
+                .strip()
+            )
+            iv = _as_int(cleaned)
+            if iv is not None:
+                return iv
+            for token in raw.replace("/", " ").replace(",", " ").split():
+                iv = _as_int(token)
+                if iv is not None:
+                    return iv
+    return None
+
+
+def _truthy_yes(v: Any) -> Optional[bool]:
+    if v is None:
+        return None
+    s = str(v).strip().lower()
+    if s in ("yes", "y", "true", "1"):
+        return True
+    if s in ("no", "n", "false", "0"):
+        return False
+    return None
+
+
+def _bullseye_present(state: CallState) -> Optional[bool]:
+    sx = _symptoms(state)
+    ans = sx.get("_answers", {})
+    if isinstance(ans, dict):
+        for k in ("tick_rash", "bullseye_rash", "erythema_migrans", "em_rash"):
+            if k in ans:
+                return _truthy_yes(ans.get(k))
+    for k in ("bullseye_rash", "erythema_migrans"):
+        if k in sx:
+            return _truthy_yes(sx.get(k))
+    return None
+
+
+def _exposure_location(state: CallState) -> str:
+    sx = _symptoms(state)
+    for k in ("exposure_location", "location", "state_exposure", "exposure_state", "travel_location"):
+        if sx.get(k):
+            return str(sx.get(k)).strip()
+    return ""
+
+
+def _preg_sentence(state: CallState) -> str:
+    # pregnancy_possible is currently not reliably captured in your state machine.
+    raw = getattr(state, "pregnancy_possible", None)
+    if raw is None or str(raw).strip() == "":
+        return "Pregnancy status not captured."
+    s = str(raw).strip().lower()
+    if s in ("no", "false", "0", "n", "not pregnant"):
+        return "Patient is not pregnant."
+    if s in ("yes", "true", "1", "y", "pregnant", "possible"):
+        return "Pregnancy is possible or status is uncertain."
+    if s in ("not_applicable", "na", "n/a", "male", "not applicable"):
+        return "Pregnancy not applicable."
+    return "Pregnancy status is unknown."
+
+
+def _build_query(state: CallState) -> str:
+    parts: List[str] = []
+    cc = (getattr(state, "chief_complaint", None) or "").strip()
+    if cc:
+        parts.append(cc)
+
+    pid = _pathway_id(state)
+    if pid:
+        parts.append(pid)
+
+    sx = _symptoms(state)
+    for k, v in sx.items():
+        if str(k).startswith("_"):
+            continue
+        if v is None or v == "":
+            continue
+        parts.append(f"{k}:{v}")
+
+    age_years = getattr(state, "age_years", None)
+    if age_years is not None and str(age_years).strip() != "":
+        parts.append(f"age:{age_years}")
+
+    return " ".join(parts).strip() or "general safety guidance"
+
+
+def _try_rag_search(query: str, k: int = 5):
+    candidates = [
+        ("app.rag.retriever", "search"),
+        ("app.rag.retriever", "retrieve"),
+        ("app.rag.search", "search"),
+        ("app.rag.search", "search_snippets"),
+        ("app.rag.index", "search"),
+        ("app.rag.query", "query"),
+        ("app.rag.rag", "query"),
+    ]
+    for mod_name, fn_name in candidates:
+        try:
+            mod = importlib.import_module(mod_name)
+            fn = getattr(mod, fn_name, None)
+            if not callable(fn):
+                continue
+            try:
+                res = fn(query, k=k)
+            except TypeError:
+                try:
+                    res = fn(query, top_k=k)
+                except TypeError:
+                    res = fn(query)
+
+            if res is None:
+                return []
+            if isinstance(res, dict) and "results" in res:
+                res = res["results"]
+            if isinstance(res, list):
+                out = []
+                for item in res:
+                    if isinstance(item, dict):
+                        out.append(item)
+                    else:
+                        out.append({
+                            "title": getattr(item, "title", "") or "",
+                            "source": getattr(item, "source", "") or "",
+                            "url": getattr(item, "url", "") or "",
+                            "snippet": getattr(item, "snippet", "") or getattr(item, "text", "") or "",
+                        })
+                return out
+        except Exception:
+            continue
+    return []
+
+
+def _evidence_from_decision(state: CallState) -> List[EvidenceRef]:
+    decision = getattr(state, "decision", None)
+    if not decision:
+        return []
+    dev = getattr(decision, "evidence", None)
+    if not dev:
+        return []
+
+    out: List[EvidenceRef] = []
+    for e in list(dev):
+        if isinstance(e, EvidenceRef):
+            out.append(e)
+            continue
+
+        if isinstance(e, dict):
+            title = (e.get("title") or "").strip()
+            source = (e.get("source") or "").strip()
+            url = (e.get("url") or "").strip()
+            snippet = (e.get("snippet") or e.get("text") or "").strip()
+        else:
+            title = (getattr(e, "title", "") or "").strip()
+            source = (getattr(e, "source", "") or "").strip()
+            url = (getattr(e, "url", "") or "").strip()
+            snippet = (getattr(e, "snippet", "") or getattr(e, "text", "") or "").strip()
+
+        if not (title or source or snippet):
+            continue
+
+        out.append(_mk_evidence_ref({
+            "title": title or source or "Evidence",
+            "source": source or title or "Source",
+            "url": url,
+            "snippet": snippet[:1200],
+        }))
+    return out
+
+
+def _evidence_from_rag(state: CallState, max_snips: int = 6) -> List[EvidenceRef]:
+    hits = _try_rag_search(_build_query(state), k=max_snips)
+    out: List[EvidenceRef] = []
+    for h in hits:
+        title = (h.get("title") or "").strip()
+        source = (h.get("source") or "").strip()
+        url = (h.get("url") or "").strip()
+        snippet = (h.get("snippet") or h.get("text") or "").strip()
+        if not (title or source or snippet):
+            continue
+        out.append(_mk_evidence_ref({
+            "title": title or source or "Evidence",
+            "source": source or title or "Source",
+            "url": url,
+            "snippet": snippet[:1200],
+        }))
+    return out
+
+
+def _merge_evidence(primary: List[EvidenceRef], secondary: List[EvidenceRef], max_total: int = 5) -> List[EvidenceRef]:
+    seen = set()
+    merged: List[EvidenceRef] = []
+    for ev in primary + secondary:
+        key = (
+            (getattr(ev, "title", "") or ""),
+            (getattr(ev, "source", "") or ""),
+            (getattr(ev, "url", "") or ""),
+            ((getattr(ev, "snippet", "") or "")[:120] if hasattr(ev, "snippet") else ""),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(ev)
+        if len(merged) >= max_total:
+            break
+    return merged
+
+
+def _fallback_soap(state: CallState, reason: str = "") -> str:
+    pid = _pathway_id(state)
+    age = getattr(state, "age_years", None)
+    age_txt = f"{age}-year-old patient" if age is not None and str(age).strip() else "Patient"
+    cc = (getattr(state, "chief_complaint", None) or "").strip() or "the reported concern"
+
+    lines: List[str] = []
+    if reason:
+        lines.append(f"(NOTE: LLM note generation unavailable: {reason})")
+
+    if pid == "tick_bite":
+        attach = _tick_attachment_hours(state)
+        exposure = _exposure_location(state)
+        bullseye = _bullseye_present(state)
+
+        s_parts = [f"{age_txt} reports a tick bite"]
+        if exposure:
+            s_parts.append(f"after exposure in {exposure}")
+        if attach is not None:
+            s_parts.append(f"with the tick attached for approximately {attach} hours")
+        s_sentence = " ".join(s_parts).strip() + "."
+        s2 = "Patient describes a rash with a bullseye / erythema migrans appearance." if bullseye is True else ""
+        preg = _preg_sentence(state)
+
+        lines.append("S: " + " ".join([x for x in [s_sentence, s2, preg] if x]).strip())
+
+        o_parts = ["No physical exam available due to phone-only encounter."]
+        if bullseye is True:
+            o_parts.append("Patient describes a characteristic erythema migrans-type rash (bullseye appearance).")
+        lines.append("O: " + " ".join(o_parts).strip())
+
+        lines.append("A: Phone-history consistent with tick bite; consider early Lyme disease if erythema migrans is present.")
+        lines.append("P:")
+        lines.append("- Disposition: Outpatient management with clinician review for antibiotic selection when indicated.")
+        lines.append("- Plan: Provide treatment recommendations per pathway rules; confirm pregnancy/allergy status before prescribing.")
+        lines.append("- Safety net: Seek urgent care/ED for fever, severe headache/neck stiffness, neurologic symptoms, spreading rash, or worsening illness.")
+        return "\n".join(lines).strip() + "\n"
+
+    # Generic fallback
+    lines.append(f"S: {age_txt} reports {cc}.")
+    lines.append("O: No physical exam available due to phone-only encounter.")
+    lines.append(f"A: Assessment based on phone history and pathway logic (pathway: {pid}).")
+    lines.append("P:")
+    lines.append("- Plan pending reviewer confirmation (Tier-based autonomy).")
+    return "\n".join(lines).strip() + "\n"
+
+
+def _build_patient_instructions(disposition: str, safety_net: List[str], allow_otc: bool) -> List[str]:
+    emergent = _is_emergent_disposition(disposition)
+    out: List[str] = []
+
+    if emergent:
+        out.append("Based on this phone evaluation, seek emergency in-person evaluation now.")
+        out.append("If you feel unsafe to travel, consider calling emergency services or having someone take you.")
+    else:
+        out.append("If you are not improving as expected, or if symptoms worsen, seek in-person medical care.")
+
+    for s in safety_net[:10]:
+        out.append(s)
+
+    if allow_otc:
+        out.append("Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely.")
+
+    return out
+
+
+def _generate_llm_soap_with_retry(state: CallState, evidence: List[EvidenceRef]) -> Tuple[str, str]:
+    if os.environ.get("CALLCARE_NO_LLM", "").strip() in ("1", "true", "yes", "on"):
+        return ("", "CALLCARE_NO_LLM enabled")
+
+    try:
+        llm = importlib.import_module("app.clinical.llm_note_writer")
+        build_prompt = getattr(llm, "build_prompt", None)
+        generate_note_text = getattr(llm, "generate_note_text", None)
+        if not callable(build_prompt) or not callable(generate_note_text):
+            return ("", "llm_note_writer missing required functions")
+
+        prompt = build_prompt(state=state, evidence=evidence)
+
+        for attempt in range(3):
+            try:
+                txt = generate_note_text(prompt) or ""
+                if txt.strip():
+                    return (txt, "")
+                return ("", "empty LLM output")
+            except Exception as e:
+                msg = str(e)
+                if ("RateLimitError" in type(e).__name__) or ("rate_limit" in msg.lower()) or ("429" in msg):
+                    if attempt < 2:
+                        time.sleep(2.5 * (attempt + 1))
+                        continue
+                    return ("", "rate limit (429)")
+                return ("", f"{type(e).__name__}: {msg[:160]}")
+        return ("", "rate limit (429)")
+    except Exception as e:
+        return ("", f"{type(e).__name__}: {str(e)[:160]}")
+
+
+def build_note(state: CallState) -> NoteDraft:
+    disposition, plan, safety = _decision_bits(state)
+
+    ev_dec = _evidence_from_decision(state)
+    ev_rag = _evidence_from_rag(state, max_snips=6) if len(ev_dec) < 3 else []
+    evidence = _merge_evidence(ev_dec, ev_rag, max_total=5)
+
+    soap_text, err = _generate_llm_soap_with_retry(state, evidence)
+    if not soap_text.strip():
+        soap_text = _fallback_soap(state, reason=err)
+
+    allow_otc = (not _is_emergent_disposition(disposition)) and (not _avoid_otc_from_text(plan, soap_text))
+    patient_instructions = _build_patient_instructions(disposition, safety, allow_otc)
+
+    clinician_questions: List[str] = []
+    allergies = getattr(state, "allergies", None)
+    if allergies:
+        clinician_questions.append(f"Medication allergies: {allergies}")
+
+    risk_flags: List[str] = []
+    rf = getattr(state, "red_flags", None)
+    if isinstance(rf, list):
+        risk_flags = [str(x) for x in rf if str(x).strip()]
+
+    return NoteDraft(
+        soap=soap_text,
+        patient_instructions=patient_instructions,
+        clinician_questions=clinician_questions,
+        risk_flags=risk_flags,
+        evidence=evidence,
+    )

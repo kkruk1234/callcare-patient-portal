@@ -1,0 +1,22 @@
+# Clinician-facing medication/dosing protocol for: urinary_frequency_no_pain
+# Tier 1: reviewer must approve/modify.
+
+rx_options:
+  - med: "No empiric antibiotics without dysuria or supportive UTI features"
+    dosing: "N/A"
+    exclusions: "N/A"
+    notes: "Consider noninfectious causes (bladder irritants, overactive bladder, diabetes, diuretics, pregnancy, anxiety). If UTI suspected, route to appropriate UTI pathway."
+
+supportive_care:
+  - item: "Hydration and bladder irritants"
+    details: "Maintain normal hydration; reduce caffeine/alcohol/carbonated beverages; avoid new supplements that irritate bladder."
+  - item: "Timed voiding"
+    details: "Consider scheduled voiding and bladder training if overactive bladder suspected."
+  - item: "Screening considerations"
+    details: "Consider pregnancy possibility, diabetes symptoms (polydipsia/polyuria), and medication contributors."
+
+followup_and_safety:
+  - item: "Re-evaluation"
+    details: "If new dysuria, fever, flank pain, hematuria, vaginal symptoms, or symptoms persist—needs evaluation and possibly urinalysis."
+  - item: "Urgent/ED now"
+    details: "Fever with flank pain, vomiting/dehydration, severe back pain, inability to urinate, or signs of systemic illness."

@@ -1,0 +1,64 @@
+{
+  "packet_id": "36f3732e-1916-4607-b767-12f3a1d4b7f3",
+  "created_at": "2026-03-05T23:18:08.506028+00:00",
+  "session_id": "eb38184c-8a9a-4daf-b7b2-14dd394a3c53",
+  "pathway_id": "",
+  "base_queries": [
+    "back pain management guidelines adult",
+    "adult back pain treatment dosing acetaminophen NSAIDs",
+    "red flags in adult back pain evaluation"
+  ],
+  "queries": [
+    "AAFP back pain management guidelines adult",
+    "AAFP adult back pain treatment dosing acetaminophen NSAIDs",
+    "MedlinePlus back pain management guidelines adult",
+    "MedlinePlus adult back pain treatment dosing acetaminophen NSAIDs",
+    "CDC back pain management guidelines adult",
+    "CDC adult back pain treatment dosing acetaminophen NSAIDs",
+    "NIH back pain management guidelines adult",
+    "NIH adult back pain treatment dosing acetaminophen NSAIDs",
+    "NICE back pain management guidelines adult",
+    "NICE adult back pain treatment dosing acetaminophen NSAIDs",
+    "WHO back pain management guidelines adult",
+    "WHO adult back pain treatment dosing acetaminophen NSAIDs"
+  ],
+  "selected_evidence_count": 5,
+  "evidence": [
+    {
+      "title": "Nonpharmacologic and Pharmacologic Management of Acute Pain From Non-Low Back, Musculoskeletal Injuries in Adults: A Clinical Guideline From the American College of Physicians and American Academy of Family Physicians - PubMed",
+      "source": "pubmed.ncbi.nlm.nih.gov",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32805126/",
+      "accessed": "2026-03-05",
+      "snippet": "ACP and AAFP recommend that clinicians treat patients with acute pain from non-low back, musculoskeletal injuries with topical nonsteroidal anti-inflammatory drugs (NSAIDs) with or without menthol gel as first-line therapy to reduce or relieve symptoms, including pain; improve physical function; and improve the patient's treatment satisfaction (Grade: strong recommendation; moderate-certainty evidence)."
+    },
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "accessed": "2026-03-05",
+      "snippet": "Although demonstrated to be beneficial in patients with chronic low back pain, there is not enough research to support a recommendation for or against spinal manipulation and mobilization for patients with acute low back pain."
+    },
+    {
+      "title": "Taking care of your back at home: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/002119.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Improve your posture Strengthen your back and abdomen, and improve flexibility Lose weight Avoid falls A complete exercise program should include aerobic activity such as walking, swimming, or riding a stationary bicycle. It should also include stretching and strength training. Follow the instructions of your provider or physical therapist."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.pdf",
+      "accessed": "2026-03-05",
+      "snippet": "Downloaded from the American Family Physician website at www.aafp.org/afp. Copyright © 2019 American Academy of Family Physicians. For the private, noncommercial use of one individual user of the website. All other rights reserved. Contact copyrights@aafp.org for copyright questions and/or permission requests."
+    },
+    {
+      "title": "Medicines for back pain: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/007486.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Updated by: C. Benjamin Ma, MD, Professor, Chief, Sports Medicine and Shoulder Service, UCSF Department of Orthopaedic Surgery, San Francisco, CA. Also reviewed by David C. Dugdale, MD, Medical Director, Brenda Conaway, Editorial Director, and the A.D.A.M. Editorial team."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies fever, chills, night sweats, recent injury, trauma, or heavy lifting. There is no numbness, weakness, or tingling in her legs or feet, and no pain with deep breaths or coughing. She has no history of kidney stones, urinary symptoms, or abdominal pain. She reports tenderness over the painful area. She tried acetaminophen (Tylenol) but it did not provide much relief. There is no recent unexplained weight loss or history of cancer.\n\nO: Phone-only encounter; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage area without systemic symptoms or neurological deficits.\nDifferential:\n1. Musculoskeletal strain or sprain\n2. Costochondritis or rib dysfunction\n3. Intercostal muscle strain\n4. Early presentation of thoracic radiculopathy\n\nP: - First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) (e.g., ibuprofen)\n- Alternatives: Muscle relaxants or topical analgesics\n- Medication safety considerations: No known allergies, not pregnant, no renal or liver disease\n- Follow-up recommendations: Seek in-person medical care urgently if new neurological symptoms develop, if pain worsens significantly, or if systemic symptoms such as fever or weight loss occur\n- Testing: Not indicated at this time based on current presentation"
+}

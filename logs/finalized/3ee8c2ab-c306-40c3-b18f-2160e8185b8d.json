@@ -1,0 +1,43 @@
+{
+  "packet_id": "3ee8c2ab-c306-40c3-b18f-2160e8185b8d",
+  "created_at": "2026-04-03T18:28:04.049747+00:00",
+  "session_id": "23bc162b-4782-4213-8a9f-9b7d482d48aa",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for burning stomach pain with acid reflux in elderly",
+    "adult dosing and duration of proton pump inhibitors for acid reflux",
+    "red flags and return precautions for stomach pain with sweating"
+  ],
+  "queries": [
+    "AAFP management guidelines for burning stomach pain with acid reflux in elderly",
+    "AAFP adult dosing and duration of proton pump inhibitors for acid reflux",
+    "MedlinePlus management guidelines for burning stomach pain with acid reflux in elderly",
+    "MedlinePlus adult dosing and duration of proton pump inhibitors for acid reflux",
+    "CDC management guidelines for burning stomach pain with acid reflux in elderly",
+    "CDC adult dosing and duration of proton pump inhibitors for acid reflux",
+    "NIH management guidelines for burning stomach pain with acid reflux in elderly",
+    "NIH adult dosing and duration of proton pump inhibitors for acid reflux",
+    "NICE management guidelines for burning stomach pain with acid reflux in elderly",
+    "NICE adult dosing and duration of proton pump inhibitors for acid reflux",
+    "WHO management guidelines for burning stomach pain with acid reflux in elderly",
+    "WHO adult dosing and duration of proton pump inhibitors for acid reflux"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Guideline for Management of Dyspepsia | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2006/0301/p895.html",
+      "accessed": "2026-04-03",
+      "snippet": "Synopsis: Patients with dyspepsia may have gastroesophageal reflux disease (GERD), peptic ulcer, functional (nonulcer) dyspepsia, or, rarely, malignancy. The authors reviewed the literature and based their recommendations on the results of the best available evidence. Patients with the onset of dyspepsia at 56 years or older, or those with alarm symptoms (e.g., bleeding, anemia, early satiety, unexplained weight loss, dysphagia or odynophagia, persistent vomiting, family history of gastrointestinal malignancy, previous documented peptic ulcer, abdominal mass, or lymphadenopathy) at any age should undergo immediate upper endoscopy. Patients with reflux-predominant symptoms should be treated as if they have GERD. If the prevalence of Helicobacter pylori infection in the community is less than 10 percent, a trial of a proton pump inhibitor is recommended. If that fails, a test for H. pylori"
+    },
+    {
+      "title": "Functional Dyspepsia: Evaluation and Management | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/0115/p84.html",
+      "accessed": "2026-04-03",
+      "snippet": "A systematic review of psychotropic medications compared with placebo for the treatment of functional dyspepsia included three trials of tricyclic antidepressants (TCAs) and found a reduction in dyspepsia symptoms (NNT = 6; 95% CI, 4 to 16). 24 The dosages for these trials were 25 mg of amitriptyline per day and 50 mg of imipramine per day. Two trials compared selective serotonin reuptake inhibitors with placebo and found no significant effect for dyspepsia symptoms. Given these findings, guidelines recommend the use of TCAs, before using prokinetics, for functional dyspepsia that is not improving with treatment for H. pylori or PPI use. 2 A small placebo-controlled study found buspirone (Buspar) reduced fullness and bloating. 25"
+    }
+  ],
+  "note_text": "S: The patient is a 74-year-old female presenting with a burning pain located just under the breastbone that started yesterday. The pain worsens with eating and is associated with sweating but no chest pain, nausea, vomiting, or difficulty swallowing. She has a history of acid reflux but denies recent use of NSAIDs or alcohol. There are no fevers, chills, or weight loss reported.\n\nO: Phone consultation only; no vital signs or physical exam available.\n\nA: The working diagnosis is likely gastroesophageal reflux disease (GERD) exacerbation presenting as burning epigastric pain worsened by eating.\nDifferential:\n1. Gastroesophageal reflux disease (GERD) exacerbation\n2. Peptic ulcer disease\n3. Gastritis\n4. Cardiac ischemia (atypical presentation without chest pain but with sweating)\n\nP: - First-line medication: Omeprazole 20 mg orally once daily for 4 weeks (Physician must verify medication/dosing)\n- Alternatives: Ranitidine 150 mg orally twice daily for 4 weeks (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; no renal or liver disease; female, not pregnant; no contraindications noted\n- Follow-up recommendations: Seek in-person medical care urgently if chest pain develops, shortness of breath, worsening sweating, or if symptoms do not improve after 4 weeks of treatment\n- Testing: Consider upper endoscopy if symptoms persist or worsen, or if alarm symptoms develop (e.g., weight loss, bleeding, anemia)"
+}

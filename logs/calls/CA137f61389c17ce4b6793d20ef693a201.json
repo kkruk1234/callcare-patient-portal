@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA137f61389c17ce4b6793d20ef693a201",
+  "session_id": "f4e3408c-9876-4a1d-ad13-09f776d0a31a",
+  "from_number": "+19127719103",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T13:45:58.791398+00:00",
+  "ended_at": "2026-04-03T13:52:37.683305+00:00",
+  "packet_id": "ca7f6907-0e44-4a22-a0da-aafde8588da1",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm experiencing, like, a thunderclap headache. Like, the worst headache of my life, and, like, sudden dizziness and and, like, those kind of symptoms."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the headache and dizziness start?"
+    },
+    {
+      "role": "user",
+      "text": "About 6 hours ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any weakness, numbness, difficulty speaking, or vision changes with the headache?"
+    },
+    {
+      "role": "user",
+      "text": "I've had some difficulty speaking, and I've been really dizzy."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, neck stiffness, or recent head trauma?"
+    },
+    {
+      "role": "user",
+      "text": "No. I don't think I've had any of those symptoms."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever had a similar headache before, or is this the first time you've experienced something like this?"
+    },
+    {
+      "role": "user",
+      "text": "Definitely the 4 time. I've had headaches before, but this 1 is extremely bad."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any weakness or numbness on one side of your body, or any difficulty understanding others when you speak?"
+    },
+    {
+      "role": "user",
+      "text": "I've been understanding people fine, but about the numbness, like, I'm really not well, I actually, that's a lie. I feel like on my left side, it's a little bit more numb than usual. And but I'm not really sure. I can't confidently say that, though, because I'm not really sure. You know? I think I think I would say left side, but you know how it is. It's kind of hard to tell."
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea or vomiting since the headache started?"
+    },
+    {
+      "role": "user",
+      "text": "No. I don't think I have any nausea or vomiting. No. Definitely not."
+    },
+    {
+      "role": "assistant",
+      "text": "Any sudden weakness or numbness that you can clearly identify on one side of your body?"
+    },
+    {
+      "role": "user",
+      "text": "Like I said before, I think it's my left side."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent changes in consciousness, such as passing out or confusion?"
+    },
+    {
+      "role": "user",
+      "text": "No passing out. That would be really scary. But I have been a little bit confused lately. Maybe just not comprehending as good as I used to, like, last yesterday or something. Maybe but maybe that's it because I tired. I don't know."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the difficulty speaking you are experiencing? For example, is it trouble finding words, slurred speech, or something else?"
+    },
+    {
+      "role": "user",
+      "text": "I don't think well, maybe I said I was having difficulty speaking at the beginning of this call, but I was just talking about confusion. So I feel I guess I've had a little bit of trouble difficulty speaking, but not but not like an extreme level or as much of a level as I'm confused. Like, I feel like my brain just foggy for some reason."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any sudden vision changes, such as double vision or loss of vision, since the headache started?"
+    },
+    {
+      "role": "user",
+      "text": "No. Definitely not. That would be really bad at you."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "59"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Tetracycline."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "Not sure"
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you described, your sudden, severe headache with dizziness and confusion could be a sign of a serious brain condition, such as bleeding or stroke. Because of this, it’s very important that you get urgent in-person medical care right away for tests like a head CT scan to find out what’s going on. This phone visit can’t replace an exam or imaging. If your symptoms get worse—like increased confusion, weakness, vision changes, or if you lose consciousness—please go to the emergency room immediately. A licensed physician will review this note and guide any further treatment needed. Take care and seek urgent evaluation as soon as possible."
+    }
+  ]
+}

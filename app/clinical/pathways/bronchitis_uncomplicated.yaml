@@ -1,0 +1,23 @@
+id: bronchitis_uncomplicated
+version: 0.1
+match:
+  any_keywords: ["bronchitis","cough weeks","productive cough"]
+questions:
+  - id: sob
+    prompt: "Any shortness of breath at rest? (yes/no)"
+    store_as: sob
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["possible_pneumonia"] }
+
+  - id: blood
+    prompt: "Coughing up blood? (yes/no)"
+    store_as: blood
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["hemoptysis"] }
+
+stop_rules:
+  - if_all_answered: ["sob","blood"]
+    outcome: DECIDE
+routing: { tier_default: TIER_2_REVIEW }

@@ -1,0 +1,160 @@
+1496:     # --- LLM_HTTP_EVIDENCE_ATTACH (FAISS disabled) ---
+1497:     try:
+1498:         ev_now = getattr(note, "evidence", None)
+1499:         ev_empty = (not isinstance(ev_now, list)) or (len(ev_now) == 0)
+1500:         if ev_empty:
+1501:             try:
+1502:                 import os
+1503:                 os.makedirs('logs', exist_ok=True)
+1504:                 open('logs/evidence_call_debug.txt','a').write('EVIDCALL ENTER\n')
+1505:             except Exception:
+1506:                 pass
+1507:             # diagnosis hint: use Assessment if present; otherwise fallback to chief complaint
+1508: 
+1509: 
+1510:             dx_hint = ""
+1511: 
+1512:             try:
+1513: 
+1514:                 # Prefer Assessment (A:) line from SOAP if present
+1515: 
+1516:                 soap_text = ""
+1517: 
+1518:                 try:
+1519: 
+1520:                     soap_text = str(getattr(note, "soap", "") or "")
+1521: 
+1522:                 except Exception:
+1523: 
+1524:                     soap_text = ""
+1525: 
+1526:                 note_text = ""
+1527: 
+1528:                 try:
+1529: 
+1530:                     note_text = str(getattr(note, "note", "") or "")
+1531: 
+1532:                 except Exception:
+1533: 
+1534:                     note_text = ""
+1535: 
+1536:                 text = soap_text if soap_text.strip() else note_text
+1537: 
+1538:                 if text:
+1539: 
+1540:                     for line in text.splitlines():
+1541: 
+1542:                         s = line.strip()
+1543: 
+1544:                         if s.startswith("A:"):
+1545: 
+1546:                             dx_hint = s.split("A:", 1)[1].strip()
+1547: 
+1548:                             break
+1549: 
+1550:                 # Next fallback: explicit fields if present
+1551: 
+1552:                 if not dx_hint:
+1553: 
+1554:                     try:
+1555: 
+1556:                         dx_hint = (getattr(note, "working_diagnosis", "") or getattr(note, "diagnosis", "") or "").strip()
+1557: 
+1558:                     except Exception:
+1559: 
+1560:                         dx_hint = ""
+1561: 
+1562:             except Exception:
+1563: 
+1564:                 dx_hint = ""
+1565: 
+1566:             if not dx_hint:
+1567: 
+1568:                 try:
+1569: 
+1570:                     dx_hint = str(getattr(state, "chief_complaint", "") or "").strip()
+1571: 
+1572:                 except Exception:
+1573: 
+1574:                     dx_hint = ""
+1575: 
+1576: 
+1577:             cc = ""
+1578:             try:
+1579:                 cc = str(getattr(state, "chief_complaint", "") or "").strip()
+1580:             except Exception:
+1581:                 cc = ""
+1582: 
+1583:             import time
+1584:             _ev_t0 = time.time()
+1585:             _ev_budget_s = 8.0
+1586:             try:
+1587:                 open('logs/evidence_call_debug.txt','a').write('EVIDCALL STAGE_A before_import\n')
+1588:             except Exception:
+1589:                 pass
+1590:             from app.rag.llm_http_evidence import llm_http_evidence
+1591:             try:
+1592:                 open('logs/evidence_call_debug.txt','a').write('EVIDCALL PRE dx_len=' + str(len(dx_hint or '')) + ' cc_len=' + str(len(cc or '')) + '\n')
+1593:             except Exception:
+1594:                 pass
+1595:             try:
+1596:                 open('logs/evidence_call_debug.txt','a').write('EVIDCALL STAGE_B before_call\n')
+1597:             except Exception:
+1598:                 pass
+1599:             refs = llm_http_evidence(
+1600:                 context=dx_hint,
+1601:                 diagnosis_hint=dx_hint,
+1602:                 chief_complaint=cc,
+1603:                 max_urls=6,
+1604:                 min_urls=4,
+1605:                 trace_fn=_cc_evidence_trace,
+1606:             ) or []
+1607:             # Fail-fast retry: one more attempt only if still below min_urls and within time budget
+1608:             try:
+1609:                 _need = 4
+1610:                 if (isinstance(refs, list) and len(refs) < _need) and ((time.time() - _ev_t0) < _ev_budget_s):
+1611:                     refs2 = llm_http_evidence(
+1612:                         context=(dx_hint + ' treatment dosing guideline'),
+1613:                         diagnosis_hint=dx_hint,
+1614:                         chief_complaint=cc,
+1615:                         max_urls=6,
+1616:                         min_urls=4,
+1617:                         trace_fn=_cc_evidence_trace,
+1618:                     ) or []
+1619:                     if isinstance(refs2, list) and len(refs2) > len(refs):
+1620:                         refs = refs2
+1621:             except Exception:
+1622:                 pass
+1623: 
+1624: 
+1625:             if isinstance(refs, list) and refs:
+1626:                 setattr(note, "evidence", refs)
+1627:                 try:
+1628:                     if isinstance(kwargs, dict):
+1629:                         kwargs["evidence"] = refs
+1630:                         # if schema uses evidence_used instead, also populate it opportunistically
+1631:                         if "evidence_used" in kwargs:
+1632:                             kwargs["evidence_used"] = refs
+1633:                 except Exception:
+1634:                     pass
+1635: 
+1636:             _cc_evidence_trace("llm_http_evidence_attach", attached=len(refs))
+1637:     except Exception as e:
+1638:         _cc_evidence_trace("llm_http_evidence_attach_error", err_type=type(e).__name__, err=str(e), tb=traceback.format_exc())
+1639: 
+1640: # --- EVIDTRACE_BEFORE_PACKET ---
+1641:     try:
+1642:         ev = getattr(note, 'evidence', None)
+1643:         ev_len = len(ev) if isinstance(ev, list) else (0 if ev is None else -1)
+1644:         ev_types = []
+1645:         if isinstance(ev, list):
+1646:             for e in ev[:8]:
+1647:                 ev_types.append(type(e).__name__)
+1648:         _cc_evidence_trace(
+1649:             'before_packet',
+1650:             evidence_len=ev_len,
+1651:             evidence_types=ev_types,
+1652:             kwargs_keys_sorted=sorted(list(kwargs.keys())) if isinstance(kwargs, dict) else [],
+1653:         )
+1654:     except Exception as e:
+1655:         _cc_evidence_trace('before_packet_error', err_type=type(e).__name__, err=str(e))

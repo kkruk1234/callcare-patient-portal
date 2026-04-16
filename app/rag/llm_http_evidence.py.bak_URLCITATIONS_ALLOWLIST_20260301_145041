@@ -1,0 +1,444 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Tuple, Callable
+import os
+import re
+import time
+from urllib.parse import urlparse
+
+try:
+    from openai import OpenAI
+except Exception:
+    OpenAI = None  # type: ignore
+
+
+# EvidenceRef is your project type; it does NOT include url/accessed in your current schema.
+try:
+    from app.core.models import EvidenceRef  # type: ignore
+except Exception:  # pragma: no cover
+    EvidenceRef = None  # type: ignore
+
+
+def _now_iso_date() -> str:
+    try:
+        from datetime import date
+        return date.today().isoformat()
+    except Exception:
+        return ""
+
+
+def _shorten(s: str, n: int) -> str:
+    s = str(s or "")
+    s = re.sub(r"\s+", " ", s).strip()
+    if len(s) <= n:
+        return s
+    return s[: n - 1].rstrip() + "…"
+
+
+def _host(url: str) -> str:
+    try:
+        p = urlparse(url)
+        return (p.netloc or "").lower().replace("www.", "").strip()
+    except Exception:
+        return ""
+
+
+def _publisher_from_url(url: str) -> str:
+    h = _host(url)
+    if not h:
+        return "Source"
+    # compact publisher label
+    parts = [p for p in h.split(".") if p]
+    if len(parts) >= 2:
+        core = parts[-2].upper()
+        if core == "NHS":
+            return "NHS"
+        if core == "CDC":
+            return "CDC"
+        if core == "NIH":
+            return "NIH"
+        if core == "NICE":
+            return "NICE"
+        if core == "AAFP":
+            return "AAFP"
+        if core == "BMJ":
+            return "BMJ"
+        if core == "WHO":
+            return "WHO"
+        return parts[-2]
+    return h
+
+
+def _domains_allowlist() -> List[str]:
+    # Keep authoritative; avoid being so strict that we drop everything.
+    return [
+        "aafp.org",
+        "nice.org.uk",
+        "nhs.uk",
+        "cdc.gov",
+        "medlineplus.gov",
+        "nih.gov",
+        "nlm.nih.gov",
+        "ncbi.nlm.nih.gov",
+        "pubmed.ncbi.nlm.nih.gov",
+        "pmc.ncbi.nlm.nih.gov",
+        "accessdata.fda.gov",
+        "idsociety.org",
+        "acog.org",
+        "who.int",
+        "merckmanuals.com",
+        "mayoclinic.org",
+        "clevelandclinic.org",
+    ]
+
+
+def _host_ok(url: str) -> bool:
+    u = (url or "").lower()
+    if not (u.startswith("http://") or u.startswith("https://")):
+        return False
+    h = _host(u)
+    if not h:
+        return False
+    allowed = _domains_allowlist()
+    return any(h.endswith(d) or (("." + d) in h) for d in allowed)
+
+
+def _extract_keywords(text: str) -> List[str]:
+    t = (text or "").lower()
+    t = re.sub(r"[^a-z0-9\s\-\/]", " ", t)
+    t = re.sub(r"\s{2,}", " ", t).strip()
+    stop = {
+        "the", "and", "with", "without", "for", "from", "into", "over", "under", "about",
+        "pain", "ache", "aches", "aching", "hurt", "hurts", "hurting",
+        "adult", "female", "male", "patient", "presenting", "phone", "telemedicine",
+        "weeks", "week", "days", "day", "months", "month", "years", "year",
+        "likely", "possible", "consider", "rule", "out", "given",
+    }
+    toks = [w for w in re.split(r"[^a-z0-9]+", t) if len(w) >= 5 and w not in stop]
+    seen = set()
+    out = []
+    for w in toks:
+        if w in seen:
+            continue
+        seen.add(w)
+        out.append(w)
+        if len(out) >= 10:
+            break
+    return out
+
+
+def _score_candidate(anchor_keywords: List[str], title: str, url: str, snippet: str) -> int:
+    blob = (str(title or "") + " " + str(snippet or "")).lower()
+    s = 0
+    # Prefer allowlisted authoritative sources
+    if _host_ok(url):
+        s += 30
+    # Keyword overlap
+    for k in anchor_keywords[:8]:
+        if k and k in blob:
+            s += 12
+    # Guideline-ish boosts
+    if any(x in blob for x in ["guideline", "guidelines", "best practice", "management", "treatment"]):
+        s += 8
+    # Dosing-ish boosts
+    if any(x in blob for x in ["dose", "dosing", "mg", "maximum", "contraindication"]):
+        s += 4
+    # Penalize overly generic hubs
+    if len(str(title or "").strip()) <= 4:
+        s -= 10
+    return s
+
+
+def _normalize_sources(raw: List[Dict[str, Any]], anchor: str, *, max_per_publisher: int = 2, max_urls: int = 6) -> List[Dict[str, str]]:
+    anchor_k = _extract_keywords(anchor)
+    scored: List[Tuple[int, Dict[str, str]]] = []
+
+    for r in raw:
+        if not isinstance(r, dict):
+            continue
+        url = (r.get("url") or r.get("link") or r.get("href") or "").strip()
+        title = (r.get("title") or "").strip()
+        snippet = (r.get("snippet") or r.get("text") or r.get("summary") or "").strip()
+
+        if not url:
+            continue
+
+        # We still allow a few non-allowlisted if needed, but they score lower.
+        s = _score_candidate(anchor_k, title, url, snippet)
+
+        # If title missing, make a stable placeholder
+        if not title:
+            h = _host(url)
+            tail = urlparse(url).path.strip("/").split("/")[-1] if urlparse(url).path else ""
+            tail = tail.replace("-", " ").replace("_", " ").strip()
+            title = (tail[:80] if tail else h) or url[:80]
+
+        scored.append((s, {"title": title[:200], "url": url, "snippet": _shorten(snippet, 260)}))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+
+    # Dedupe by URL and clamp per publisher
+    out: List[Dict[str, str]] = []
+    seen = set()
+    counts: Dict[str, int] = {}
+
+    for _, it in scored:
+        u = it["url"]
+        if u in seen:
+            continue
+        seen.add(u)
+
+        pub = _publisher_from_url(u)
+        counts.setdefault(pub, 0)
+        if counts[pub] >= max_per_publisher:
+            continue
+        counts[pub] += 1
+
+        out.append(it)
+        if len(out) >= max_urls:
+            break
+
+    return out
+
+
+def _responses_create_websearch(
+    client: Any,
+    *,
+    model: str,
+    query: str,
+    tool_type: str,
+    timeout_s: int,
+) -> Dict[str, Any]:
+    # Use the structured input format; some SDK versions behave better with this.
+    inp = [{"role": "user", "content": [{"type": "input_text", "text": query}]}]
+    resp = client.responses.create(
+        model=model,
+        input=inp,
+        tools=[{"type": tool_type}],
+        tool_choice={"type": tool_type},  # force tool usage
+        temperature=0.0,
+        timeout=timeout_s,
+    )
+    try:
+        return resp.model_dump()
+    except Exception:
+        return resp if isinstance(resp, dict) else {"repr": repr(resp)}
+
+
+def _parse_websearch_output(d: Dict[str, Any]) -> List[Dict[str, Any]]:
+    out = d.get("output")
+    if not isinstance(out, list):
+        return []
+
+    found: List[Dict[str, Any]] = []
+
+    for item in out:
+        if not isinstance(item, dict):
+            continue
+        t = str(item.get("type") or "")
+        # Typical: "web_search_call"
+        if "web_search" in t:
+            # Newer shapes: results=[...]
+            res = item.get("results")
+            if isinstance(res, list) and res:
+                for r in res:
+                    if isinstance(r, dict):
+                        found.append(r)
+            # Older shapes: action.sources=[...]
+            act = item.get("action")
+            if isinstance(act, dict):
+                src = act.get("sources")
+                if isinstance(src, list) and src:
+                    for s in src:
+                        if isinstance(s, dict):
+                            found.append(s)
+
+    # If the SDK returned only a message (tool not invoked), found stays empty.
+    return found
+
+
+def _openai_web_search(
+    query: str,
+    *,
+    timeout_s: int = 12,
+    debug: bool = False,
+    trace_fn: Optional[Callable[..., Any]] = None,
+) -> List[Dict[str, Any]]:
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+
+    q = (query or "").strip()
+    if not q:
+        return []
+
+    client = OpenAI()
+
+    # Model selection: try env first if set, but prefer known tool-capable defaults.
+    env_model = os.getenv("CALLCARE_WEB_MODEL", "").strip()
+    models: List[str] = []
+    # Prefer web-capable models first
+    models += [m for m in ["gpt-4o-mini", "gpt-4o"] if m]
+    if env_model and env_model not in models:
+        models.append(env_model)
+    # Last resort fallback
+    if "gpt-4.1-mini" not in models:
+        models.append("gpt-4.1-mini")
+
+    tool_types = ["web_search", "web_search_preview"]
+
+    last_err: Optional[Exception] = None
+    best_debug: Dict[str, Any] = {}
+
+    for model in models:
+        for tool_type in tool_types:
+            try:
+                d = _responses_create_websearch(
+                    client,
+                    model=model,
+                    query=q,
+                    tool_type=tool_type,
+                    timeout_s=timeout_s,
+                )
+                raw = _parse_websearch_output(d)
+                if raw:
+                    if trace_fn:
+                        try:
+                            trace_fn("web_search_ok", model=model, tool_type=tool_type, raw_n=len(raw))
+                        except Exception:
+                            pass
+                    return raw
+
+                # Tool did not run; capture for debugging
+                best_debug = {
+                    "model": model,
+                    "tool_type": tool_type,
+                    "status": d.get("status"),
+                    "output_types": [x.get("type") for x in (d.get("output") or []) if isinstance(x, dict)],
+                }
+                last_err = RuntimeError("web_search_call produced no parsable results")
+
+            except Exception as e:
+                last_err = e
+                if trace_fn:
+                    try:
+                        trace_fn("web_search_err", model=model, tool_type=tool_type, err_type=type(e).__name__, err=str(e))
+                    except Exception:
+                        pass
+                continue
+
+    if debug:
+        raise RuntimeError(f"web_search_call produced no parsable results; last_debug={best_debug} last_err={type(last_err).__name__ if last_err else None}:{str(last_err) if last_err else ''}")
+    raise RuntimeError("web_search_call produced no parsable results")
+
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    queries: Optional[List[str]] = None,
+    diagnosis_hint: Optional[str] = None,
+    context: Optional[str] = None,
+    assessment_text: Optional[str] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    timeout_s: int = 12,
+    max_queries: int = 2,
+    title_fetch_n: int = 0,  # ignored now (we rely on web_search titles)
+    debug: bool = False,
+    max_per_publisher: int = 2,
+    snippet_fetch_n: int = 2,  # ignored now (web_search provides snippet)
+    snippet_timeout_s: int = 4,  # ignored
+    trace_fn: Optional[Callable[..., Any]] = None,
+    **_ignored,
+) -> List[EvidenceRef]:
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+
+    cc = (chief_complaint or "").strip()
+    if not cc:
+        raise ValueError("chief_complaint is required")
+
+    # Anchor priority: assessment_text > diagnosis_hint/context > chief complaint
+    anchor = (assessment_text or "").strip() or (diagnosis_hint or "").strip() or (context or "").strip() or cc
+    anchor = _shorten(anchor, 240)
+
+    qs: List[str] = []
+    if isinstance(queries, list):
+        for x in queries:
+            s = str(x or "").strip()
+            if s:
+                qs.append(s)
+
+    # If no queries provided, make two stable, scalable ones (NO hard-coded conditions)
+    if not qs:
+        qs = [
+            f"{anchor} outpatient management guideline",
+            f"{anchor} treatment medication dosing contraindications",
+        ]
+
+    qs = qs[: max(1, int(max_queries or 2))]
+
+    raw_all: List[Dict[str, Any]] = []
+    t0 = time.time()
+
+    for q in qs:
+        # Keep queries tight and clinical
+        q2 = _shorten(q, 240)
+        try:
+            raw = _openai_web_search(q2, timeout_s=int(timeout_s or 12), debug=bool(debug), trace_fn=trace_fn)
+            if isinstance(raw, list):
+                raw_all.extend([r for r in raw if isinstance(r, dict)])
+        except Exception as e:
+            if trace_fn:
+                try:
+                    trace_fn("llm_http_evidence_query_err", q=q2, err_type=type(e).__name__, err=str(e))
+                except Exception:
+                    pass
+            continue
+
+        # latency guard
+        if (time.time() - t0) > float(timeout_s or 12) + 2.0:
+            break
+
+    # Normalize/scoring + publisher caps
+    picked = _normalize_sources(
+        raw_all,
+        anchor=anchor,
+        max_per_publisher=int(max_per_publisher or 2),
+        max_urls=int(max_urls or 6),
+    )
+
+    # Ensure at least min_urls if possible by relaxing allowlist scoring effect:
+    # (normalize already keeps some non-allowlisted if they score high enough)
+    if len(picked) < int(min_urls or 4):
+        # If we were too strict by publisher caps, relax once.
+        picked = _normalize_sources(
+            raw_all,
+            anchor=anchor,
+            max_per_publisher=max(3, int(max_per_publisher or 2)),
+            max_urls=int(max_urls or 6),
+        )
+
+    picked = picked[: int(max_urls or 6)]
+
+    # Convert to EvidenceRef list (schema-safe) while keeping url in 'source' field.
+    out: List[EvidenceRef] = []
+    for it in picked:
+        title = (it.get("title") or "").strip()
+        url = (it.get("url") or "").strip()
+        snippet = (it.get("snippet") or "").strip()
+        if not title or not url:
+            continue
+
+        if EvidenceRef is not None:
+            out.append(EvidenceRef(title=title, source=url, snippet=snippet))
+        else:
+            out.append({"title": title, "source": url, "snippet": snippet})  # type: ignore
+
+    if debug and trace_fn:
+        try:
+            trace_fn("llm_http_evidence_done", qn=len(qs), raw_n=len(raw_all), out_n=len(out), anchor=anchor)
+        except Exception:
+            pass
+
+    return out

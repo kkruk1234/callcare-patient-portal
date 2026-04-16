@@ -1,0 +1,12 @@
+{
+  "pathway_id": "atrial_fibrillation_possible",
+  "sources": [
+    {
+      "id": "atrial_fibrillation_possible_ref",
+      "source_id": "atrial_fibrillation_possible_ref",
+      "title": "Atrial fibrillation overview (starter)",
+      "url": "https://www.nhlbi.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "packet_id": "2c2f6dd4-25c7-46bb-8c3e-f0c5bd419277",
+  "created_at": "2026-01-21T23:11:47.439717+00:00",
+  "session_id": "c2590756-79d6-4b85-bcde-458648928ff9",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "ear_pain",
+  "answers": {
+    "duration": "5 days",
+    "fever": "yes",
+    "discharge": "yes",
+    "vertigo": "no",
+    "diabetes": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with a 5-day history of ear pain. They report associated fever and ear discharge. There is no vertigo. The patient has a known allergy to penicillin.\n\nO:\nNo physical exam or vital signs available due to phone-only evaluation.\n\nA:\n - Working diagnosis (most likely): Acute otitis media with possible tympanic membrane perforation or otitis externa given presence of discharge and fever.\n - Differential:\n  1. Acute otitis media with perforation\n  2. Otitis externa\n  3. Mastoiditis (less likely without vertigo or severe symptoms)\n  4. Foreign body or other ear canal pathology\n - Red flags considered:\n  Fever and ear discharge raise concern for complicated infection; no vertigo or neurological symptoms reported.\n\nP:\n - Disposition:\n  Patient is advised to seek in-person evaluation if symptoms worsen or do not improve within 48-72 hours.\n - Plan:\n  Given penicillin allergy, recommend empiric antibiotic therapy with a non-penicillin agent appropriate for otitis media or externa, such as:\n   - Azithromycin 500 mg on day 1, then 250 mg daily on days 2-5\n   - Alternatively, a cephalosporin such as cefdinir if no cross-reactivity concerns\n  Supportive care with analgesics (e.g., acetaminophen or ibuprofen) for pain and fever control.\n  Ear hygiene advice: keep ear dry and avoid inserting objects.\n - Safety net:\n  Instruct patient to seek urgent care if they develop worsening pain, spreading redness/swelling behind the ear, hearing loss, dizziness, or persistent high fever.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Ear Infection (Otitis Media) information",
+        "source": "https://www.cdc.gov/ear-infection/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+      },
+      {
+        "title": "MedlinePlus: Ear infections",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "source": "https://www.cdc.gov/ear-infection/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "title": "MedlinePlus: Ear infections",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

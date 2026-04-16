@@ -1,0 +1,14 @@
+rx_options:
+- med: Empiric treatment depends on likely etiology
+  dosing: Use guideline dosing after clinician assessment (BV vs yeast vs trich vs
+    cervicitis).
+  exclusions: Pregnancy considerations; allergy; STI exposure may require testing/treatment.
+  notes: If fever/pelvic pain → urgent evaluation (PID concern).
+supportive_care:
+- item: Avoid irritants
+  details: Avoid douching and irritant soaps; consider pelvic rest if painful.
+followup_and_safety:
+- item: Escalate
+  details: Fever, significant pelvic pain, pregnancy possible with pain/bleeding →
+    urgent today / ED if severe.
+requires_pregnancy_status: true

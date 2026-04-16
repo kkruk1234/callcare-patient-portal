@@ -1,0 +1,35 @@
+id: shingles
+version: 0.1
+match:
+  any_keywords: ["shingles", "zoster", "burning rash", "blistering rash", "band of pain", "one side rash", "tingling then rash"]
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+
+  - id: unilateral
+    prompt: "Is the rash mainly on one side of the body in a band-like area? (yes/no)"
+    store_as: unilateral_band
+    type: yesno
+
+  - id: blisters
+    prompt: "Are there small blisters or fluid-filled bumps? (yes/no)"
+    store_as: blisters
+    type: yesno
+
+  - id: face_eye
+    prompt: "Is it on the face, near the eye, or on the tip of the nose? (yes/no)"
+    store_as: face_or_eye_area
+    type: yesno
+
+  - id: immune
+    prompt: "Do you have a weakened immune system (for example transplant meds, chemo, advanced HIV)? (yes/no/unknown)"
+    store_as: immunocompromised
+
+stop_rules:
+  - if_all_answered: ["unilateral", "blisters", "face_eye", "immune"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

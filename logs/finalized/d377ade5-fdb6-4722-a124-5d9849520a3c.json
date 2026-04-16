@@ -1,0 +1,67 @@
+{
+  "packet_id": "37f336a2-a335-4ec3-9248-569bf399a60c",
+  "created_at": "2026-02-27T20:00:11.436705+00:00",
+  "session_id": "d377ade5-fdb6-4722-a124-5d9849520a3c",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any recent activities or movements that seemed to trigger or worsen the pain?",
+    "intake_a9": "poor posture and leaning against the area with sitting makes the pain worse.",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, weight loss, shortness of breath, cough, chest pain, numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) without significant relief. The pain worsens with poor posture and leaning against the area while sitting. She has no history of kidney problems, urinary symptoms, abdominal pain, osteoporosis, cancer, or recent steroid use. O: Phone evaluation only; no physical exam or vitals available.\n\nA: The working diagnosis is musculoskeletal back pain likely related to poor posture and mechanical strain localized to the left lower rib cage area. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib dysfunction\n3. Intercostal nerve irritation\n4. Early presentation of visceral pathology (e.g., renal or gastrointestinal), less likely given absence of systemic symptoms\n\nP:\n- Medication safety considerations: Use NSAIDs with caution if gastrointestinal issues arise; avoid NSAIDs if renal impairment develops; acetaminophen dosing should not exceed recommended limits.\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated.\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. (avoid in renal disease; especially severe CKD/dialysis)\n - Return precautions: Return if pain worsens, new neurological symptoms develop (numbness, weakness), fever or systemic symptoms appear, or if there is no improvement after 2 weeks of treatment.\n - Testing: Not indicated at this time given the absence of red flags; consider imaging or labs if symptoms evolve or fail to improve.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

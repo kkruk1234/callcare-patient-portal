@@ -1,0 +1,10 @@
+{
+  "title": "SAMS User FAQs | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/sams/sams-user-faq.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "N as long as they successfully login during a 12 month period or until their Facility Administrator deactivates them.\nIf I am in SAMS, can I still access Secure Data Network (SDN) applications that require digital certificates? \nAfter a user&rsquo;s migration to SAMS is complete, they will not have access to NHSN via SDN. Some users, such as state health department employees who require access to other CDC applications that currently operate under SDN (e.g., Epi-X) will retain access to SDN until those applications transition to SAMS in the future.\nTop of Page \nHow often will I have to change my password in SAMS? \nYou will be prompted to change your passwords every 60 days.\nTop of Page \nHow do I change my SAMS password? \nFrom the SAMS Welcome screen , click the Change My Password option. \nEnter a password in the New Password field. The password you select must meet the requirements specified on the screen. \nEnter the same password in the Confirm New Password field. \nClick Submit . A Task Confirmation message displays. \nTop of Page \nI&rsquo;ve forgotten my SAMS password. How can I reset it? \nIf you cannot log on to SAMS and you do not remember your password, go the login page and click &ldquo; Forgot your password? Click here. &rdquo; A page will display that will allow you to identify yourself by answering the security questions you configured during your registration. You will",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_sams_sams_user_faq_html_f0a62040f019",
+  "chunk_id": "chunk_007"
+}

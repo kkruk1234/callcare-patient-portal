@@ -1,0 +1,26 @@
+id: copd_exacerbation
+version: 0.1
+match:
+  any_keywords: ["copd flare", "copd exacerbation", "worsening copd", "emphysema flare", "chronic bronchitis flare"]
+questions:
+  - id: severe
+    prompt: "Any severe trouble breathing, blue lips, confusion, or can't speak full sentences? (yes/no)"
+    store_as: severe_respiratory
+    type: yesno
+
+  - id: rescue
+    prompt: "Is your rescue inhaler not helping much? (yes/no)"
+    store_as: rescue_not_helping
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever or coughing up a lot more sputum than usual? (yes/no)"
+    store_as: infection_signs
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["severe","rescue","fever"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

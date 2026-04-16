@@ -1,0 +1,19 @@
+{
+  "pathway_id": "bell_palsy_possible",
+  "sources": [
+    {
+      "id": "cdc_stroke_warning_signs",
+      "type": "web",
+      "url": "https://www.cdc.gov/stroke/signs_symptoms.htm",
+      "title": "CDC: Stroke Signs and Symptoms",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "nice_bells_palsy_overview",
+      "type": "web",
+      "url": "https://cks.nice.org.uk/topics/bells-palsy/",
+      "title": "NICE CKS: Bell's palsy",
+      "license_note": "Use short excerpts only."
+    }
+  ]
+}

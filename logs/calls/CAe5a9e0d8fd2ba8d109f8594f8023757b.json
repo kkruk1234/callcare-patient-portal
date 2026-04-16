@@ -1,0 +1,15 @@
+{
+  "call_sid": "CAe5a9e0d8fd2ba8d109f8594f8023757b",
+  "session_id": "e04fa604-d45f-489b-930f-6a3f4a201c43",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T19:57:47.523015+00:00",
+  "ended_at": "2026-04-03T19:57:59.737023+00:00",
+  "packet_id": "",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    }
+  ]
+}

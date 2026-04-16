@@ -1,0 +1,26 @@
+id: minor_laceration_cut
+version: 0.1
+match:
+  any_keywords: ["cut my finger", "cut my hand", "laceration", "open cut", "won't stop bleeding", "deep cut"]
+questions:
+  - id: bleeding
+    prompt: "Is it still bleeding after 10 minutes of firm pressure? (yes/no)"
+    store_as: persistent_bleeding
+    type: yesno
+
+  - id: gaping
+    prompt: "Is the cut gaping open or longer than about 1 inch (2.5 cm)? (yes/no)"
+    store_as: gaping_or_large
+    type: yesno
+
+  - id: numbness
+    prompt: "Any numbness, weakness, or trouble moving the area? (yes/no)"
+    store_as: neuro_deficit
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["bleeding", "gaping", "numbness"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

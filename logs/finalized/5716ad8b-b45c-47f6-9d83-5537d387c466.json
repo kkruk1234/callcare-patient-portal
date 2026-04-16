@@ -1,0 +1,135 @@
+{
+  "packet_id": "3ee97001-8f0f-43a7-abec-c1b81d01d5d5",
+  "created_at": "2026-02-08T21:58:28.013290+00:00",
+  "session_id": "5716ad8b-b45c-47f6-9d83-5537d387c466",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located?",
+    "intake_a3": "near my sternum on the right over a rib",
+    "intake_q4": "Does anything make the chest pain worse or better, such as breathing, movement, or position changes?",
+    "intake_a4": "deep breathing makes it a little worse",
+    "intake_q5": "Any fever, chills, or recent respiratory infections?",
+    "intake_a5": "no",
+    "intake_q6": "Any shortness of breath, palpitations, or dizziness?",
+    "intake_a6": "no",
+    "intake_q7": "Have you had any recent trauma or injury to your chest or ribs?",
+    "intake_a7": "Not that I remember but I was lifting heavy boxes helping a friend move right before this started",
+    "intake_q8": "Any swelling, bruising, or tenderness when you press on the painful area?",
+    "intake_a8": "tenderness",
+    "intake_q9": "Have you noticed any cough or sputum production since the chest pain started?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of heart disease, blood clots, or lung problems?",
+    "intake_a10": "no",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/pericarditis/",
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+        "https://medlineplus.gov/heartattack.html",
+        "https://medlineplus.gov/lab-tests/troponin-test/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a one-week history of sharp chest pain located near the sternum on the right side over a rib. The pain is tender to palpation and worsens slightly with deep breathing. She denies fever, chills, recent respiratory infections, shortness of breath, palpitations, dizziness, cough, or sputum production. She reports no known trauma but notes that the pain began after lifting heavy boxes while helping a friend move. There is no history of heart disease, blood clots, or lung problems. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings available beyond patient-reported tenderness and pain characteristics.\n\nA: \nThe working diagnosis is musculoskeletal chest pain likely due to rib or intercostal muscle strain from recent heavy lifting. \nDifferential: \n1. Musculoskeletal chest pain (rib or intercostal strain) \n2. Costochondritis \n3. Pleuritic chest pain from mild inflammation or irritation \n4. Less likely cardiac causes given absence of risk factors and symptoms \n\nP: \n - First-line medication: \n Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 5 to 7 days. Avoid if history of gastrointestinal ulcers or bleeding. Dosing details were not found in retrieved evidence; prescriber should verify. \n - Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, for 5 to 7 days. Avoid if liver disease or allergy. \n - Naproxen 250 mg orally twice daily as needed for pain, for 5 to 7 days. Avoid if gastrointestinal ulcers or bleeding. \n - Medication safety considerations: \n No known medication allergies. Not pregnant. No renal or liver disease. Use NSAIDs cautiously if any gastrointestinal issues arise. \n - Return precautions: \n Seek urgent care if chest pain worsens, becomes constant or pressure-like, is associated with shortness of breath, palpitations, dizziness, syncope, or if new symptoms such as fever or cough develop. \n - Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+      },
+      {
+        "title": "Broken or bruised ribs - NHS",
+        "source": "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+        "snippet": "mproved within a few weeks you're coughing up yellow or green mucus you have a very high temperature, or feel hot, cold or shivery You might need stronger painkillers or have a chest infection that needs antibiotics. You can call 111 or get help from 111 online . Immediate action required: Call 999 or go to A&E if: You have a broken or bruised rib and: your…"
+      },
+      {
+        "title": "Chest Injuries | Chest Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/chestinjuriesanddisorders.html",
+        "snippet": "so in Spanish Topic Image MEDICAL ENCYCLOPEDIA Chest CT Chest MRI Chest tube insertion Chest tube insertion - series Chest x-ray Costochondritis Mediastinal tumor Mediastinitis Mediastinoscopy with biopsy Pectus carinatum Pectus excavatum Pectus excavatum - discharge Pectus excavatum repair Pectus excavatum repair - series Pneumomediastinum Rib fracture - af…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/900fa94e5b4c0ed8/content.txt",
+        "snippet": ":2466-9. [PubMed: 7979843] - 4. - Wertli MM, Dangma TD, Müller SE, Gort LM, Klauser BS, Melzer L, Held U, Steurer J, Hasler S, Burgstaller JM. Non-cardiac chest pain patients in the emergency department: Do physicians have a plan how to diagnose and treat them? A retrospective study. PLoS One. 2019;14(2):e0211615. [PMC free article: PMC6358153] [PubMed: 3070…"
+      },
+      {
+        "title": "Pericarditis - NHS",
+        "source": "https://www.nhs.uk/conditions/pericarditis/",
+        "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/0ab356777c93e3b9/content.txt",
+        "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/0ab356777c93e3b9/content.txt",
+      "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    },
+    {
+      "title": "Broken or bruised ribs - NHS",
+      "source": "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+      "snippet": "mproved within a few weeks you're coughing up yellow or green mucus you have a very high temperature, or feel hot, cold or shivery You might need stronger painkillers or have a chest infection that needs antibiotics. You can call 111 or get help from 111 online . Immediate action required: Call 999 or go to A&E if: You have a broken or bruised rib and: your…"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    }
+  ],
+  "state": null
+}

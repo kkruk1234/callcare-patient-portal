@@ -1,0 +1,101 @@
+{
+  "packet_id": "13c8de2c-a44f-4ba1-9232-f5d215be9b4d",
+  "created_at": "2026-02-27T23:31:49.871416+00:00",
+  "session_id": "81deda28-9e17-4cde-a864-00aea2f85295",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Where exactly is your back pain located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or night sweats since your pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any swelling, bruising, or skin changes over the painful area?",
+    "intake_a7": "no",
+    "intake_q8": "What makes your back pain better or worse?",
+    "intake_a8": "Good posture makes it better and leaning against the area sitting makes it worse",
+    "intake_q9": "Any history of recent infections, such as a cold, flu, or urinary tract infection?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of chronic illnesses like osteoporosis, cancer, or recent weight loss?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain left lower rib cage management guidelines",
+      "adult back pain treatment dosing NSAIDs duration contraindications",
+      "red flags back pain fever numbness weakness testing indications"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, night sweats, difficulty breathing, coughing, chest pain, numbness, weakness, tingling in the legs or feet, swelling, bruising, or skin changes over the painful area. She reports that good posture improves the pain, while leaning against the area while sitting worsens it. There is no history of recent infections or chronic illnesses such as osteoporosis, cancer, or recent weight loss. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely related to strain or postural issues affecting the left lower rib cage area. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib cartilage inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral pathology (less likely given absence of systemic symptoms)\n\nP:\n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n- Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen (avoid in renal disease; especially severe CKD/dialysis)\n- Medication safety considerations: Avoid NSAIDs if history of gastrointestinal bleeding or renal impairment; use lowest effective dose for shortest duration\n- Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, chest pain, shortness of breath, neurological symptoms, or any new concerning symptoms\n- Testing: No testing indicated at this time given absence of red flags; consider imaging or further evaluation if symptoms persist or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Get Back Pain Treatment | Cleveland Clinic",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/services/back-pain-treatment",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Back pain - Diagnosis and treatment - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/diseases-conditions/back-pain/diagnosis-treatment/drc-20369911",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Assessment and Management of Acute Low Back Pain | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/1999/1115/p2299.html",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "535",
+        "source": "www.bmj.com",
+        "url": "https://www.bmj.com/content/326/7388/535",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

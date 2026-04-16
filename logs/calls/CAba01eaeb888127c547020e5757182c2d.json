@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAba01eaeb888127c547020e5757182c2d",
+  "session_id": "c9a96709-3cb3-4135-9ef5-6e97e4010e09",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T13:17:34.963423+00:00",
+  "ended_at": "2026-04-03T13:26:50.282182+00:00",
+  "packet_id": "40460171-b6ce-4e79-a386-91020080064d",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I am very twitchy. My calf muscles are very twitchy at night."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the twitching in your calf muscles start?"
+    },
+    {
+      "role": "user",
+      "text": "It's been going on and off for I don't know, years now. There's some sometimes it's better, other times it's worse. I I don't know."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any muscle weakness, pain, numbness, or changes in sensation in your legs?"
+    },
+    {
+      "role": "user",
+      "text": "No. Well, I have a little bit of pain in my left calf, but not not very much. Just like a little tiny ache. Other than that, there's there's no pain or change in sensation anywhere."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent changes in your activity level, new medications, or caffeine intake that might be related to the twitching?"
+    },
+    {
+      "role": "user",
+      "text": "Caffeine intake. I have 1 small cup of coffee in the morning, and I have 1 small soda throughout the day, but that's all I allow myself is caffeine. I don't drink enough water. I will say that for sure."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of neurological conditions, electrolyte problems, or recent illnesses?"
+    },
+    {
+      "role": "user",
+      "text": "Not that I am aware of."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you notice if the twitching gets worse when you are resting or at night, and does it interfere with your sleep?"
+    },
+    {
+      "role": "user",
+      "text": "It gets it starts it starts up in the evening probably about 6 or 07:00, and then it gets it gets bad when I lie down to go to bed as well. So it starts about 6, 07:00, and then it stays until I fall asleep."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cramping, stiffness, or swelling in your calves or legs?"
+    },
+    {
+      "role": "user",
+      "text": "For the last 2 days or so, I have had some muscle cramping in my calf muscles."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent changes in your weight, appetite, or energy levels?"
+    },
+    {
+      "role": "user",
+      "text": "Let's see. Weight, I am on weight loss medication. So I've lost a little bit of weight with it, but not dramatically much. My appetite has been less because of the medication and I don't remember the third thing you asked me."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling, redness, or warmth in your calves, especially on the side with cramping?"
+    },
+    {
+      "role": "user",
+      "text": "There is redness and warmth and some bruising on that left calf that has the cramping. But in the end, it's that it's been like that for about 7 years now. I had got it checked out maybe 6 months ago, and they rolled out a DVT. So that's just baseline for that calf now."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or remedies for the twitching and cramping, such as electrolyte supplements, stretching, or medications?"
+    },
+    {
+      "role": "user",
+      "text": "For the cramping, I stretch my calves by pointing the toes upward, and that breaks the cramp. But other stretching wise, no. I I don't do any stretching, and I haven't tried any medication or anything for it. Well, that's a lie. I have been taking iron and that helps with because I have very low ferritin, that has been that has helped in the past with the twitchy feeling, but that it doesn't seem to be enough anymore."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any restless sensations in your legs, or an urge to move them, especially in the evenings?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. That's exactly what I mean by the twitchy sensation. I just feel like I have to twist them. To to to stop this this sensation."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like your leg twitching and cramps are most likely related to restless legs syndrome, which often causes an urge to move your legs in the evening and can improve with movement. Based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe medication like gabapentin or pramipexole to help with your symptoms. For now, staying well hydrated and continuing to stretch your calves may help. \n\nIf you notice any new weakness, numbness, worsening pain, or increased swelling and redness in your leg, please seek in-person care the same day, as these could be signs of a more serious problem. If symptoms become severe or you have sudden changes, go to the emergency room right away. \n\nBecause this was a phone visit, no exam or tests were done today. A physician will review your case and may recommend further testing or treatment. If you need an in-person exam or testing, please visit urgent care, the emergency department, or your primary care clinician."
+    }
+  ]
+}

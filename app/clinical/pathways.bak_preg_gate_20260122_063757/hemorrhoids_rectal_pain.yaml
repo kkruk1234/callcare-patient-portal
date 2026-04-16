@@ -1,0 +1,30 @@
+id: hemorrhoids_rectal_pain
+version: 0.1
+match:
+  any_keywords: ["hemorrhoid", "rectal pain", "painful bowel movement", "bright red blood", "anal pain", "itchy anus"]
+questions:
+  - id: heavy_bleed
+    prompt: "Is there heavy bleeding, black/tarry stool, or feeling faint? (yes/no)"
+    store_as: heavy_bleed_or_melena
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever or worsening severe rectal pain with swelling? (yes/no)"
+    store_as: fever_or_severe_swelling
+    type: yesno
+
+  - id: constipation
+    prompt: "Are you constipated or straining with bowel movements? (yes/no)"
+    store_as: constipation
+    type: yesno
+
+  - id: duration
+    prompt: "How many days has this been going on?"
+    store_as: duration
+
+stop_rules:
+  - if_all_answered: ["heavy_bleed", "fever", "constipation", "duration"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

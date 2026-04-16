@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA0becaef80054e852341d4530dff577a9",
+  "session_id": "a69df0fa-48bf-4e38-91e7-643c0df4723f",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-20T15:05:50.519460+00:00",
+  "ended_at": "2026-03-20T15:11:10.001132+00:00",
+  "packet_id": "364327e8-983b-4751-a449-b1eb4a9ae15a",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm having a lot of loose stools."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your loose stools start?"
+    },
+    {
+      "role": "user",
+      "text": "About a week ago ish. I don't know."
+    },
+    {
+      "role": "assistant",
+      "text": "Any blood or mucus in your stools?"
+    },
+    {
+      "role": "user",
+      "text": "It did it it's just been more and more frequent. So I don't yeah. I would say a week ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any fever, chills, or signs of dehydration like dizziness or decreased urination?"
+    },
+    {
+      "role": "user",
+      "text": "No. But I have been making a point to drink more, and I've been having Gatorades because I know that I can and I tend to get dehydrated if I have, like, more than 1 bowel movement a day."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you traveled recently or eaten any unusual foods before your symptoms started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent use of antibiotics, new medications, or supplements before your symptoms started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any abdominal pain or cramping with the loose stools?"
+    },
+    {
+      "role": "user",
+      "text": "A little bit. Not not much. I would more for how many bowel movements I'm having a day."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any weight loss, night sweats, or fatigue since your symptoms started?"
+    },
+    {
+      "role": "user",
+      "text": "No. I wish."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any recent changes in your bowel habits before the loose stools started, such as constipation or alternating diarrhea and constipation?"
+    },
+    {
+      "role": "user",
+      "text": "But no. No. No weight loss. No fatigue. No nothing."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of inflammatory bowel disease, recent hospitalizations, or immunosuppression?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any nausea or vomiting along with the loose stools?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’ve been dealing with loose stools for about a week, likely from a mild, self-limited cause such as a viral upset or irritation in your gut. Since you don’t have fever, blood in your stool, or signs of dehydration, this is probably not serious right now. Based on what you told me, medication treatment like loperamide or bismuth subsalicylate may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe the recommended medication. For now, keep drinking fluids to stay hydrated and avoid any foods that might make symptoms worse. If you develop a fever, bloody stools, severe abdominal pain, or signs of dehydration like dizziness or very little urine, please seek in-person care the same day. If symptoms persist beyond 48 hours or worsen, you should also get evaluated in person. Since this is a phone visit, I can’t examine you or run tests, but a doctor will review your case and guide next steps. Take care and monitor your symptoms closely."
+    }
+  ]
+}

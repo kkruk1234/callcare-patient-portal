@@ -1,0 +1,297 @@
+import os
+import json
+from typing import List, Dict, Any, Optional
+
+from openai import OpenAI
+from app.core.models import EvidenceRef, CallState
+
+
+def _as_int(v) -> Optional[int]:
+    try:
+        if v is None:
+            return None
+        s = str(v).strip()
+        if not s:
+            return None
+        n = float(s)
+        if n <= 0 or n > 120:
+            return None
+        return int(round(n))
+    except Exception:
+        return None
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _preg_raw(state: CallState) -> str:
+    raw = getattr(state, "pregnancy_possible", None)
+    return ("" if raw is None else str(raw)).strip()
+
+
+def _preg_sentence_from_raw(raw: str) -> str:
+    # IMPORTANT POLICY:
+    # - If pregnancy wasn't explicitly captured (missing/blank), omit pregnancy entirely.
+    # - Do NOT auto-infer 'not applicable' (including for male). Silence is better than guessing.
+    s = (raw or "").strip().lower()
+    if s == "":
+        return ""
+    if s in ("no", "false", "0", "n", "not pregnant"):
+        return "Patient is not pregnant."
+    if s in ("yes", "true", "1", "y", "pregnant", "possible"):
+        return "Pregnancy is possible or status is uncertain."
+    if s in ("unknown", "unsure", "not sure"):
+        return ""  # silence if not explicitly captured
+    # Anything else is treated as not captured to avoid unintended phrasing.
+    return ""
+
+
+def _age_years(state: CallState) -> Optional[int]:
+    return _as_int(getattr(state, "age_years", None))
+
+
+def _tick_attachment_hours(state: CallState) -> Optional[int]:
+    sx = _symptoms_dict(state)
+    for k in ("tick_attachment_timeframe", "tick_attached_timeframe", "tick_attachment_hours", "tick_attached_hours"):
+        if k not in sx:
+            continue
+        raw = str(sx.get(k)).strip().lower()
+        if not raw:
+            continue
+        cleaned = (
+            raw.replace("hours", "")
+            .replace("hour", "")
+            .replace("about", "")
+            .replace("approximately", "")
+            .strip()
+        )
+        iv = _as_int(cleaned)
+        if iv is not None:
+            return iv
+        for token in raw.replace("/", " ").replace(",", " ").split():
+            iv = _as_int(token)
+            if iv is not None:
+                return iv
+    return None
+
+
+def _best_exposure_location(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    for k in ("exposure_location", "location", "state_exposure", "exposure_state", "travel_location"):
+        v = sx.get(k)
+        if v:
+            return str(v).strip()
+    return ""
+
+
+def _has_bullseye_rash(state: CallState) -> Optional[bool]:
+    sx = _symptoms_dict(state)
+    ans = sx.get("_answers", {})
+    if isinstance(ans, dict):
+        for k in ("tick_rash", "bullseye_rash", "erythema_migrans", "em_rash"):
+            if k in ans:
+                v = str(ans.get(k)).strip().lower()
+                if v in ("yes", "y", "true", "1"):
+                    return True
+                if v in ("no", "n", "false", "0"):
+                    return False
+    for k in ("bullseye_rash", "erythema_migrans"):
+        if k in sx:
+            v = str(sx.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+    return None
+
+
+def _systemic_symptoms_were_asked_and_answered(state: CallState) -> bool:
+    """
+    If we don't know the specific systemic symptoms asked, we must NOT list examples.
+    We'll only allow a generic sentence "No systemic symptoms reported."
+    """
+    sx = _symptoms_dict(state)
+    ans = sx.get("_answers", {})
+    if not isinstance(ans, dict):
+        return False
+    # Conservative: only treat it as asked if an explicit key exists.
+    for k in ("systemic_symptoms", "fever", "chills", "malaise", "fatigue", "myalgias"):
+        if k in ans:
+            return True
+    return False
+
+
+def _evidence_text(evidence: List[EvidenceRef]) -> str:
+    if not evidence:
+        return "(No evidence snippets retrieved.)"
+    lines = []
+    for i, e in enumerate(evidence[:8], 1):
+        src = (getattr(e, "source", "") or "").strip()
+        snip = (getattr(e, "snippet", "") or "").strip()
+        url = (getattr(e, "url", "") or "").strip()
+        if url:
+            lines.append(f"[{i}] SOURCE: {src}\nURL: {url}\nSNIPPET: {snip}")
+        else:
+            lines.append(f"[{i}] SOURCE: {src}\nSNIPPET: {snip}")
+    return "\n\n".join(lines)
+
+
+def build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    cc = (getattr(state, "chief_complaint", "") or "").strip()
+    pid = _pathway_id(state)
+    allow_listed_systemics = False  # default; only True when explicitly computed
+    exposure = ""  # default; only set for tick-bite style pathways
+
+    sx = _symptoms_dict(state)
+    answers = sx.get("_answers", {})
+    if not isinstance(answers, dict):
+        answers = {}
+
+    other_symptoms: Dict[str, Any] = {}
+    for k, v in sx.items():
+        if str(k).startswith("_"):
+            continue
+        if v is None or v == "":
+            continue
+        other_symptoms[str(k)] = v
+
+    age = _age_years(state)
+    preg_raw = _preg_raw(state)
+    preg_sentence = _preg_sentence_from_raw(preg_raw)
+
+    # ==========================================================
+    # MALE_PREGNANCY_NOT_APPLICABLE_V1
+# Pregnancy policy: Do not infer pregnancy from sex-at-birth.
+# Only mention pregnancy if it was explicitly asked and captured.
+
+
+    facts: List[str] = []
+
+    # ==========================================================
+    # UTI_MALE_NOT_UNCOMPLICATED_V1
+    # Male dysuria/UTI should NOT be labeled 'uncomplicated cystitis'.
+    # ==========================================================
+    if pid == "uti_male":
+        facts.append("IMPORTANT: This is a MALE dysuria/UTI pathway. Do NOT use the term 'uncomplicated UTI' or 'uncomplicated cystitis'.")
+        facts.append("Assessment wording: use 'UTI in male (complicated by definition)' or 'male dysuria—UTI vs urethritis vs prostatitis'.")
+        facts.append("Differential for male dysuria should include urethritis (GC/CT) and prostatitis when appropriate; recommend UA/urine culture and STI testing when indicated.")
+    if age is not None:
+        facts.append(f"Start S with age: '{age}-year-old patient ...'")
+    if preg_raw:
+        if preg_sentence:
+        facts.append(f"Pregnancy field raw value is: '{preg_raw}'. You MUST use the exact pregnancy sentence: {preg_sentence}")
+    else:
+        # Pregnancy was not asked/captured -> do not mention pregnancy anywhere.
+        preg_sentence = ""
+
+    if pid == "tick_bite" and attach_h is not None:
+        facts.append(f"Tick attachment duration: Tick was attached for approximately {attach_h} hours. (NOT time-since-bite)")
+    if exposure:
+        facts.append(f"Exposure location: {exposure}")
+
+    obj_guidance: List[str] = []
+    obj_guidance.append("O must be 2–4 sentences.")
+    obj_guidance.append('O must begin with: "No physical exam available due to phone-only encounter."')
+    if pid == "tick_bite":
+        if bullseye is True:
+            obj_guidance.append("O should include: patient-described rash with bullseye/erythema migrans appearance.")
+        else:
+            obj_guidance.append("O should include: description of patient-reported skin findings if provided.")
+
+    ev_text = _evidence_text(evidence)
+
+    # Systemic symptom instruction: prevent hallucinated lists.
+    # - If we have explicit structured answers for systemic symptoms, we may deny ONLY those asked.
+    # - Otherwise we must not list examples; use the generic sentence only.
+    if allow_listed_systemics:
+        systemic_rule = "STRICT: You may ONLY deny systemic symptoms that appear explicitly in Structured answers (_answers). Do NOT add examples like malaise, fatigue, joint pain, myalgias unless those exact items were asked and answered."
+    else:
+        systemic_rule = 'STRICT: Do NOT list any specific systemic symptom examples. If needed, write only: "No systemic symptoms reported."'
+
+    # Pregnancy rule: only include pregnancy if preg_sentence is non-empty.
+    pregnancy_rule = (
+        "If no pregnancy sentence is provided in Facts-to-include, do NOT mention pregnancy at all."
+        if not preg_sentence else
+        "Pregnancy rule: You MUST include the pregnancy sentence EXACTLY as provided in Facts-to-include."
+    )
+
+    return f"""
+You are drafting a PHONE-ONLY urgent care / primary care note (NOT nurse triage).\n- STRICT_NO_INFERENCE_V1: Do NOT infer or guess sex, pregnancy status, or symptom denials. Use ONLY provided structured answers and stored fields. If unknown, say 'not captured' rather than guessing.
+Assume an async physician will review and approve prescriptions when appropriate.
+
+Output format (plain text; headings exactly):
+S:
+O:
+A:
+  - Working diagnosis (most likely):
+  - Differential:
+  - Red flags considered:
+P:
+  - Disposition:
+  - Plan:
+  - Safety net:
+Evidence (snippets used):
+
+HARD STYLE RULES:
+- S: MUST be ONE flowing paragraph.
+- S: MUST incorporate the Facts-to-include below naturally.
+- Avoid repetition.
+- Systemic symptom safety rule: {systemic_rule}
+- Pregnancy rule: You MUST include the pregnancy sentence EXACTLY as provided in Facts-to-include. Do not restate pregnancy differently.
+- Objective rules:
+  - {chr(10)+'  - '.join(obj_guidance)}
+- Use urgent-care posture: give specific treatment recommendations when indicated (including antibiotics when guideline-consistent),
+  with contraindication-aware alternatives, and clear safety net.
+
+Encounter context:
+- Chief complaint: {cc}
+- Pathway: {pid}
+
+Facts-to-include:
+{chr(10).join("- " + f for f in facts)}
+
+Structured answers (qid -> answer):
+{json.dumps(answers, indent=2)}
+
+Other symptom fields (key -> value):
+{json.dumps(other_symptoms, indent=2)}
+
+Evidence snippets:
+{ev_text}
+""".strip()
+
+
+def generate_note_text(prompt: str) -> str:
+    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+    system = """You generate a clinical SOAP note for a phone-only encounter.
+
+Hard clinical rules:
+- Provide a clear 'Working diagnosis (most likely)'.
+- Provide a brief differential (2–4).
+- Provide disposition + plan + safety net.
+- Be clinically specific (urgent care / primary care).
+- Do NOT claim a definitive diagnosis if workup is required.
+- NEVER invent symptoms or denials not supported by the provided structured answers.
+"""
+
+    resp = client.responses.create(
+        model="gpt-4.1-mini",
+        input=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+    )
+    return (resp.output_text or "").strip()

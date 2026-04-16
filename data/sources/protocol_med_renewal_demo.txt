@@ -1,0 +1,18 @@
+TITLE: Medication Renewal Protocol (Prototype)
+
+INCLUSION:
+- Patient requests renewal/refill of an existing medication previously prescribed.
+- Patient confirms currently taking the medication as directed.
+
+EXCLUSIONS (route to clinician review):
+- New or worsening symptoms
+- Concerning side effects or adverse reaction
+- Any emergency red flags (chest pain, severe dyspnea, stroke symptoms, severe bleeding, syncope, self-harm)
+- Pregnancy risk (if relevant)
+- Controlled substances excluded in v1
+- Unclear medication name/dose or unclear adherence
+
+DISPOSITION:
+- If inclusion met and no exclusions: eligible for Tier-1 protocol auto-finalization.
+- Otherwise: Tier-2 physician review required.
+

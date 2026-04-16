@@ -1,0 +1,143 @@
+{
+  "packet_id": "175a7e05-a301-447c-89ed-0b477d427b5d",
+  "created_at": "2026-02-12T19:06:58.368399+00:00",
+  "session_id": "799117c6-622d-4346-a08c-22c5dbfa6756",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, pressure-like, burning, or something else?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "next to my sternum and it doesn't radiate",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or dizziness with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, heavy lifting, or coughing that might have triggered the chest pain?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Any history of heart disease, high blood pressure, or high cholesterol?",
+    "intake_a6": "no",
+    "intake_q7": "Any swelling, redness, or tenderness over the chest area where the pain is?",
+    "intake_a7": "tenderness with pressing on the area",
+    "intake_q8": "Any difficulty breathing or pain that worsens with deep breaths or coughing?",
+    "intake_a8": "no",
+    "intake_q9": "Any fever, chills, or recent infections?",
+    "intake_a9": "no",
+    "intake_summary": "Patient presents with one week of sharp, localized chest pain next to the sternum, tender to palpation, without radiation or associated symptoms such as shortness of breath, nausea, or fever. Pain onset followed heavy lifting. No history of cardiac risk factors or systemic symptoms.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "yes"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "liver disease status is yes/unknown (avoid hepatotoxic meds / adjust dosing)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartattack.html",
+        "https://medlineplus.gov/lab-tests/troponin-test/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 45-year-old female presenting with a one-week history of sharp chest pain localized next to the sternum. The pain is tender to palpation and does not radiate. It began after heavy lifting and is not associated with shortness of breath, sweating, nausea, dizziness, fever, chills, or recent infections. There is no history of heart disease, hypertension, or hypercholesterolemia. The patient denies pain worsening with deep breaths or coughing. O: Phone evaluation only; no vital signs or physical exam findings available beyond patient report of tenderness on pressing the chest area. A: The working diagnosis is costochondritis, an inflammation of the costal cartilage typically presenting with localized chest wall tenderness and pain exacerbated by palpation or movement. This is consistent with the patient’s history of heavy lifting and localized sharp pain without systemic symptoms. Differential: 1. Costochondritis 2. Musculoskeletal chest wall strain or injury 3. Gastroesophageal reflux disease (GERD) 4. Cardiac ischemia (less likely given absence of risk factors and symptoms). Patient is not pregnant. P: - First-line medication: Ibuprofen 400-600 mg orally every 6-8 hours as needed for pain and inflammation for 7-10 days, excluding patients with liver disease (EVID_2, EVID_3). - Alternatives: - Acetaminophen 500-1000 mg orally every 6 hours as needed for pain for 7-10 days, excluding patients with liver disease (dosing available but caution advised due to liver disease). - Naproxen 250-500 mg orally twice daily as needed for pain for 7-10 days, excluding patients with liver disease (dosing available but caution advised due to liver disease). - Medication safety considerations: Given the patient’s liver disease, NSAIDs such as ibuprofen and naproxen should be used cautiously or avoided if possible. Acetaminophen should be used at the lowest effective dose and duration due to hepatotoxicity risk. Monitor for any worsening symptoms or adverse effects. - Return precautions: Advise the patient to seek immediate care if chest pain worsens, becomes associated with shortness of breath, sweating, nausea, dizziness, or if new symptoms such as fever or swelling develop. - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "emergency department, 6 percent of patients with pain reproduced by chest wall palpation were also diagnosed with myocardial infarction, compared with 27 percent of the control group who had chest pain without pain to palpation.1 In another study of noncardiac chest pain in an emergency department, almost 3 percent of patients had adverse coronary events at…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/0ab356777c93e3b9/content.txt",
+        "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+      },
+      {
+        "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+        "source": "https://medlineplus.gov/heartattack.html",
+        "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/b41df6255a6ccd0d/content.txt",
+        "snippet": "Am Fam Physician. 2021;104(1):73-78 Patient information: See related handout on costochondritis. Author disclosure: No relevant financial affiliations. Costochondritis is a common cause of chest pain. It most commonly occurs in adults between 40 and 50 years of age, with a slight predominance in women. Although musculoskeletal and other chest wall conditions…"
+      },
+      {
+        "title": "Troponin Test: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+        "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+      },
+      {
+        "title": "Methotrexate Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a682018.html",
+        "snippet": "e method of birth control during your treatment and for 3 months after your last dose. If you or your partner become pregnant, call your doctor immediately. Methotrexate may cause harm or death to the fetus. Tell your doctor if you have or have ever had excess fluid in your stomach area or in the space around your lungs and if you have or have ever had kidne…"
+      },
+      {
+        "title": "Isotretinoin: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a681043.html",
+        "snippet": "in problems during pregnancy who can help you make choices that are best for you and your baby. Information about your health and your baby's health will be used to help doctors learn more about the effects of isotretinoin on unborn babies. For male patients: A very small amount of isotretinoin will probably be present in your semen when you take prescribed…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "emergency department, 6 percent of patients with pain reproduced by chest wall palpation were also diagnosed with myocardial infarction, compared with 27 percent of the control group who had chest pain without pain to palpation.1 In another study of noncardiac chest pain in an emergency department, almost 3 percent of patients had adverse coronary events at…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/0ab356777c93e3b9/content.txt",
+      "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/3ca85874a0800355/content.txt",
+      "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/b41df6255a6ccd0d/content.txt",
+      "snippet": "Am Fam Physician. 2021;104(1):73-78 Patient information: See related handout on costochondritis. Author disclosure: No relevant financial affiliations. Costochondritis is a common cause of chest pain. It most commonly occurs in adults between 40 and 50 years of age, with a slight predominance in women. Although musculoskeletal and other chest wall conditions…"
+    },
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    }
+  ],
+  "state": null
+}

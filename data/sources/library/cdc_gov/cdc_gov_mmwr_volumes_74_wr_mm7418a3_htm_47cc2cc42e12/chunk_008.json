@@ -1,0 +1,10 @@
+{
+  "title": "Estimated Current and Future Congenital Rubella Syndrome Incidence with and Without Rubella Vaccine Introduction â 19 Countries, 2019â2055 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7418a3.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "S Incidence \nBecause routine surveillance data underestimate CRS cases, estimates of CRS incidence (cases per 100,000 live births) and the number of annual CRS cases in 2019 for the 19 countries that had not yet introduced RCV by the end of 2023 (calculated as part of published estimates of the global and regional burden of CRS during 1996&ndash;2019) were used ( 5 ). These published estimates were calculated using 1) previously described catalytic models to estimate the age-specific prevaccination force of infection (the rate at which susceptible persons become infected) from seroprevalence data and 2) an age-structured dynamic rubella transmission model ( 5 ). For each dataset and catalytic model, 95% CIs for the force of infection, and when applicable, assay sensitivity, were derived. For each country, the transmission model was run using 1,000 values for the prevaccination force of infection, vaccine efficacy, vaccination coverage, and risk that an infant would be born with CRS if the mother was infected with rubella during pregnancy. These parameters were varied in the same range as that used previously ( 6 ). The base case value for vaccine efficacy was 95%, with a range of 85%&ndash;99%, and the assumed risk that a child born to a mother who was infected during pregnancy would have CRS was 65% (95% CI = 47%&ndash;88%), consistent with published estimates ( 5 ). The model",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7418a3_htm_47cc2cc42e12",
+  "chunk_id": "chunk_008"
+}

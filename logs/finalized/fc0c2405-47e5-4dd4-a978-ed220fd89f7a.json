@@ -1,0 +1,81 @@
+{
+  "packet_id": "e85bfc89-f5d4-4859-8578-8e62a61cc445",
+  "created_at": "2026-01-25T16:16:10.798101+00:00",
+  "session_id": "fc0c2405-47e5-4dd4-a978-ed220fd89f7a",
+  "chief_complaint": "cat bite my hand",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "cat_bite_wound",
+  "answers": {
+    "hand": "yes",
+    "swelling": "no",
+    "fever": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection",
+      "sig": "875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "5 days",
+      "notes": "First-line for cat bites (high Pasteurella risk). Consider in-person eval for deep puncture, hand bites, immunocompromise, spreading cellulitis, or systemic symptoms.",
+      "exclusions": "Immediate-type beta-lactam allergy; significant renal impairment requires adjustment; severe hepatic disease with prior cholestatic jaundice from amox-clav",
+      "tier": "Tier 1",
+      "pathway_id": "cat_bite_wound",
+      "source_file": "data/protocols/meds/cat_bite_wound.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Doxycycline + Metronidazole",
+      "dosing": "Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)",
+      "sig": "Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Alternative for severe beta-lactam allergy when polymicrobial coverage needed.",
+      "exclusions": "Pregnancy; children <8 years (doxycycline); alcohol use with metronidazole; significant liver disease; drug interactions",
+      "tier": "Tier 1",
+      "pathway_id": "cat_bite_wound",
+      "source_file": "data/protocols/meds/cat_bite_wound.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Clindamycin + Trimethoprim-sulfamethoxazole (TMP-SMX)",
+      "dosing": "Clindamycin 300–450 mg PO TID + TMP-SMX DS (160/800) PO BID x 5–7 days (or 7–10 days if infection)",
+      "sig": "Clindamycin 300–450 mg PO TID + TMP-SMX DS (160/800) PO BID x 5–7 days (or 7–10 days if infection)",
+      "route": "PO",
+      "frequency": "BID",
+      "duration": "",
+      "notes": "Alternative when MRSA risk is present or for beta-lactam allergy (clinician judgment).",
+      "exclusions": "Sulfa allergy; pregnancy considerations (avoid 1st trimester if possible and near term); C. difficile history/high CDI risk (clindamycin); infant jaundice/prematurity caution if breastfeeding with TMP-SMX",
+      "tier": "Tier 1",
+      "pathway_id": "cat_bite_wound",
+      "source_file": "data/protocols/meds/cat_bite_wound.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with a cat bite to the hand. There is no reported swelling or fever.\n\nO:\nNo physical exam or vital signs available due to phone-only history. No signs of severe or spreading infection reported.\n\nA:\n - Working diagnosis (most likely): Cat bite wound to the hand without signs of infection.\n - Differential:\n  1. Superficial cat bite wound without infection\n  2. Early localized infection (not currently evident)\n  3. Cellulitis (unlikely without swelling or fever)\n  4. Tendon or joint involvement (no symptoms reported)\n - Red flags considered:\n   No fever, no swelling, no severe or spreading symptoms reported.\n\nP:\n - Disposition: Patient can be managed outpatient with close monitoring.\n - Plan: Amoxicillin-clavulanate — 875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection. Alternative: Doxycycline + Metronidazole (Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Amoxicillin-clavulanate — 875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection\n     - Notes: First-line for cat bites (high Pasteurella risk). Consider in-person eval for deep puncture, hand bites, immunocompromise, spreading cellulitis, or systemic symptoms.\n     - Exclusions: Immediate-type beta-lactam allergy; significant renal impairment requires adjustment; severe hepatic disease with prior cholestatic jaundice from amox-clav\n   - Doxycycline + Metronidazole — Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)\n     - Notes: Alternative for severe beta-lactam allergy when polymicrobial coverage needed.\n     - Exclusions: Pregnancy; children <8 years (doxycycline); alcohol use with metronidazole; significant liver disease; drug interactions\n   - Clindamycin + Trimethoprim-sulfamethoxazole (TMP-SMX) — Clindamycin 300–450 mg PO TID + TMP-SMX DS (160/800) PO BID x 5–7 days (or 7–10 days if infection)\n     - Notes: Alternative when MRSA risk is present or for beta-lactam allergy (clinician judgment).\n     - Exclusions: Sulfa allergy; pregnancy considerations (avoid 1st trimester if possible and near term); C. difficile history/high CDI risk (clindamycin); infant jaundice/prematurity caution if breastfeeding with TMP-SMX\n   - Supportive care:\n   - Local wound care: Copious irrigation if possible; gentle cleansing; keep clean/dry; avoid occlusive dressings unless directed.\n   - Pain control: Acetaminophen (Tylenol) if safe. Ibuprofen (Advil) if safe and no contraindications.\n   - Tetanus / rabies considerations: Assess tetanus status; rabies risk assessment based on animal status/local guidance; in-person evaluation if uncertain.\n   - Follow-up and safety:\n   - In-person evaluation recommended: Hand bites, deep puncture wounds, immunocompromise, rapidly spreading redness, severe pain, fever/chills, numbness/limited motion, or concern for tendon/joint involvement.\n   - Urgent/ED now: Rapidly progressive swelling/redness, severe pain, fever/toxicity, red streaking, loss of function, or signs of systemic infection.\n   1. Educate patient on wound care: clean the bite thoroughly with soap and water.\n   2. Advise tetanus update if indicated.\n   3. Discuss signs of infection to watch for, including increasing redness, swelling, warmth, pain, or fever.\n   4. Consider prophylactic antibiotics if risk factors present or if wound is deep or on hand (typical for cat bites).\n   5. Recommended antibiotic regimen if indicated: Amoxicillin-clavulanate 875 mg/125 mg orally twice daily for 5 days. Alternatives include doxycycline or a combination of clindamycin plus a fluoroquinolone for penicillin-allergic patients.\n   6. Reviewing physician will confirm appropriateness and prescribe if indicated.\n - Safety net:\n   Instruct patient to seek urgent care if they develop increasing pain, swelling, redness, fever, or any signs of systemic illness.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Cat bites: infection risk overview (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Cat bites: infection risk overview (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    }
+  ]
+}

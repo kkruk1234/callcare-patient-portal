@@ -1,0 +1,10 @@
+{
+  "title": "Companion Guide: NSSP ED Data on Respiratory Illness | National Syndromic Surveillance Program (NSSP) | CDC",
+  "url": "https://www.cdc.gov/nssp/php/onboarding-resources/companion-guide-ed-data-respiratory-illness.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "Influenza due to other identified influenza viruses \nJ11 \nInfluenza due to unidentified influenza virus \nICD-9-CM \n487.0 \nInfluenza with pneumonia \n487.1 \nInfluenza with other respiratory manifestations \n487.8 \nInfluenza with other manifestations \n488.01 \nInfluenza due to identified avian influenza virus with pneumonia \n488.09 \nInfluenza due to identified avian influenza virus with other manifestations \n488.11 \nInfluenza due to identified 2009 H1N1 influenza virus with pneumonia \n488.19 \nInfluenza due to identified 2009 H1N1 influenza virus with other manifestations \n488.81 \nInfluenza due to identified novel influenza A virus with pneumonia \n488.89 \nInfluenza due to identified novel influenza A virus with other manifestations \nSNOMED CT \n442696006 \nInfluenza caused by influenza A virus subtype H1N1 \n442438000 \nInfluenza caused by Influenza A virus \n6142004 \nInfluenza \n195878008 \nPneumonia and influenza \nRSV \nDefinition name in the NSSP ESSENCE system: CDC Respiratory Syncytial Virus DD v1\nDefinition name in the NSSP ESSENCE system: CDC Respiratory Syncytial Virus DD v1 \nCode Type \nCodes \nCode Description \nInclusions \nICD-10-CM \nB97.4 \nRespiratory syncytial virus (RSV) as the cause of diseases classified elsewhere \nJ12.1 \nRespiratory syncytial virus pneumonia \nJ20.5 \nAcute bronchitis due to respiratory syncytial virus \nJ21.0 \nAcute bronchiolitis due to respiratory syncytial viru",
+  "source_type": "library",
+  "source_id": "cdc_gov_nssp_php_onboarding_resources_companion_guide_ed_data_respiratory_illness_html_94e900f07561",
+  "chunk_id": "chunk_006"
+}

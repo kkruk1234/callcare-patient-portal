@@ -1,0 +1,143 @@
+{
+  "call_sid": "CA68bb0ee0154140c6ab9c71c7f07c57d2",
+  "session_id": "07b7bcf9-f86a-4909-9b56-4a5b0cc3fea4",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-08T17:37:00.169921+00:00",
+  "ended_at": "2026-03-08T17:40:06.595988+00:00",
+  "packet_id": "8f6efac7-0d09-4484-8af9-5dcd78980c0c",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or difficulty swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "I have fever and chills. No difficulty swallowing."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cough, nasal congestion, or runny nose?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swollen lymph nodes or rash?"
+    },
+    {
+      "role": "user",
+      "text": "I have swollen lymph nodes, but no rash."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any white patches or pus on your tonsils or throat?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. I have."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any prior episodes of sore throat or strep throat in the past?"
+    },
+    {
+      "role": "user",
+      "text": "Not that I can remember."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing or drooling?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you taken any medications or treatments for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "I just tried tea with honey and DayQuil, but neither have helped."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have a bacterial throat infection, likely strep throat, based on your symptoms like fever, swollen lymph nodes, and white patches on your tonsils. Because this is a phone visit, I can’t examine you or do tests, but a licensed physician will review your information and may prescribe antibiotics if appropriate. For now, you can continue to rest and use acetaminophen (Tylenol) or ibuprofen (Advil) to help with pain and fever if you can take them safely. \n\nIf you develop trouble breathing, drooling, severe pain, or can’t swallow, please seek urgent in-person care the same day. If you experience airway blockage or severe symptoms, go to the emergency room immediately. A doctor may also recommend testing to confirm the infection. \n\nRemember, this service doesn’t include in-person exams, so if your symptoms worsen or don’t improve, please seek care in person."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+id: relationship_distress_noncrisis
+version: 0.1
+match:
+  any_keywords: ["relationship stress", "marriage problems", "partner conflict", "breakup", "divorce", "argument", "fighting with my partner"]
+questions:
+  - id: safety
+    prompt: "Are you having thoughts of harming yourself or someone else? (yes/no)"
+    store_as: self_harm_thoughts
+    type: yesno
+  - id: violence
+    prompt: "Do you feel physically unsafe at home right now? (yes/no)"
+    store_as: unsafe_home
+    type: yesno
+  - id: functioning
+    prompt: "Is this making it hard to function day to day (sleep, work, eating)? (yes/no)"
+    store_as: functioning_impacted
+    type: yesno
+stop_rules:
+  - if_all_answered: ["safety", "violence", "functioning"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

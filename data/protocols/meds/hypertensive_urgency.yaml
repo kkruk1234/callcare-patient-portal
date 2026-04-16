@@ -1,0 +1,19 @@
+rx_options:
+- med: No new medication initiated by protocol
+  dosing: In-person evaluation recommended
+  exclusions: —
+  notes: 'Telephone-only: BP confirmation and exam needed; reviewer may adjust chronic
+    meds if appropriate.'
+supportive_care:
+- item: Safety
+  details: Avoid decongestants/stimulants (pseudoephedrine, cocaine/amphetamines)
+    and excessive caffeine.
+- item: Bring meds list
+  details: Bring current medications and doses to evaluation.
+followup_and_safety:
+- item: Urgent evaluation
+  details: Same-day in-person evaluation is recommended to confirm BP and assess for
+    end-organ symptoms.
+- item: Urgent/ED now
+  details: Chest pain, shortness of breath, severe headache with neuro symptoms, weakness/numbness,
+    vision changes, confusion, fainting, or pregnancy with high BP.

@@ -1,0 +1,11 @@
+{
+  "id": "headache",
+  "version": "0.1",
+  "questions": {
+    "onset": "Did your headache come on suddenly or build up slowly?",
+    "neuro": "Have you noticed any new weakness, numbness, trouble speaking, confusion, or fainting?",
+    "fever_neck": "Do you have a fever or a stiff neck?",
+    "vision_eye_pain": "Are you having any vision loss or severe eye pain with your headache?",
+    "pregnancy": "Could you be pregnant right now?"
+  }
+}

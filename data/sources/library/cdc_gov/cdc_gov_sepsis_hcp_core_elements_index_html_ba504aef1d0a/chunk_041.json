@@ -1,0 +1,10 @@
+{
+  "title": "Hospital Sepsis Program Core Elements | Sepsis | CDC",
+  "url": "https://www.cdc.gov/sepsis/hcp/core-elements/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "nal \nICU admission \nNumerator: Hospitalizations in which the patient was admitted to the ICU\nDenominator: All hospitalizations meeting criteria for sepsis \nSepsis outcomes \nAdditional \nIn-hospital mortality, special populations \nNumerator: Hospitalizations meeting criteria for subgroup (e.g., neonatal, pediatric, maternal, oncologic, transplant, etc.) and with in-hospital mortality\nDenominator: All hospitalizations meeting criteria for sepsis and the special population of interest \nSepsis outcomes \nAdditional \nLength of hospitalization, survivors \nMeasure: Length of hospitalization in days\nEligibility: All hospitalizations meeting criteria for sepsis and with live discharge to a location other than an acute care hospital \nSepsis outcomes \nAdditional \nLength of hospitalization, non-survivors \nMeasure: Length of hospitalization in days\nEligibility: All hospitalizations meeting criteria for sepsis and with in-hospital mortality \nSepsis outcomes \nAdditional \nNew discharge to a healthcare or nursing facility \nNumerator: Hospitalizations in which the patient is discharge to a long-term acute care facility, skilled nursing facility, or custodial nursing facility.\nDenominator: All hospitalizations meeting criteria for sepsis, with live discharge, and in which the patient did not reside at home or in assisted living prior to hospital admission \nUsability of hospital sepsis tools \nPriori",
+  "source_type": "library",
+  "source_id": "cdc_gov_sepsis_hcp_core_elements_index_html_ba504aef1d0a",
+  "chunk_id": "chunk_041"
+}

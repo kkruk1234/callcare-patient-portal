@@ -1,0 +1,43 @@
+{
+  "packet_id": "1ebfb63e-ed51-4883-9331-86066bb15c1c",
+  "created_at": "2026-03-12T14:18:25.794216+00:00",
+  "session_id": "65b0dc14-25df-4018-b00e-1d61076293ae",
+  "pathway_id": "",
+  "base_queries": [
+    "lower abdominal pain management guidelines female adults",
+    "treatment options and dosing for lower abdominal pain adults",
+    "red flags and return precautions lower abdominal pain female adults"
+  ],
+  "queries": [
+    "AAFP lower abdominal pain management guidelines female adults",
+    "AAFP treatment options and dosing for lower abdominal pain adults",
+    "MedlinePlus lower abdominal pain management guidelines female adults",
+    "MedlinePlus treatment options and dosing for lower abdominal pain adults",
+    "CDC lower abdominal pain management guidelines female adults",
+    "CDC treatment options and dosing for lower abdominal pain adults",
+    "NIH lower abdominal pain management guidelines female adults",
+    "NIH treatment options and dosing for lower abdominal pain adults",
+    "NICE lower abdominal pain management guidelines female adults",
+    "NICE treatment options and dosing for lower abdominal pain adults",
+    "WHO lower abdominal pain management guidelines female adults",
+    "WHO treatment options and dosing for lower abdominal pain adults"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Evaluation of Acute Pelvic Pain in Women | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0800/acute-pelvic-pain.html",
+      "accessed": "2026-03-12",
+      "snippet": "Urinalysis of a midstream urine specimen should be considered to assess for urinary tract infection. Urine culture is often beneficial to confirm suspected urinary tract infection, identify specific organisms, and guide antibiotic use. If testing for gonorrhea and chlamydia, first-void urine collected without cleaning of the urethra (“dirty” catch) has historically been recommended, often requiring two urine samples for full evaluation. 26 Logistically this can be challenging. One study found that a midstream sample for chlamydia testing is still 96% accurate, and another study found a sensitivity of 86.2% for chlamydia and 94.4% for gonorrhea. This shows noninferiority to a dirty catch; therefore, one urine sample may be sufficient. 26 , 27"
+    },
+    {
+      "title": "Acute Abdominal Pain in Adults:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0600/acute-abdominal-pain-adults.pdf",
+      "accessed": "2026-03-12",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sharp, stabbing lower abdominal pain that is localized and does not radiate. She reports associated fever, chills, and nausea but denies vomiting, changes in bowel movements, urinary symptoms, vaginal discharge, or recent sexual activity. She notes a slight increase in vaginal bleeding compared to her usual menstrual cycle. There is tenderness on palpation of the lower abdomen. She is not pregnant and has no history of abdominal surgeries, chronic illnesses, or recent travel. She is allergic to penicillin.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute lower abdominal pain with systemic symptoms and abnormal vaginal bleeding, concerning for a possible pelvic inflammatory process or gynecologic pathology.\nDifferential:\n1. Pelvic inflammatory disease (PID)\n2. Acute pelvic or adnexal infection (e.g., tubo-ovarian abscess)\n3. Endometritis or other uterine pathology\n4. Early appendicitis or other intra-abdominal infection\n\nP: - First-line medication: Doxycycline 100 mg orally twice daily for 14 days (Physician must verify medication/dosing)\n- Alternatives: Azithromycin 500 mg orally on day 1, then 250 mg daily on days 2–5 (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; monitor for gastrointestinal side effects; assess for contraindications to tetracyclines or macrolides\n- Follow-up recommendations: Seek in-person medical care urgently if abdominal pain worsens, fever persists or increases, or new symptoms such as vomiting or severe bleeding develop\n- Testing: Recommend pelvic ultrasound and laboratory studies including CBC, inflammatory markers, and STI screening when feasible"
+}

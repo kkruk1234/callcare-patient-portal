@@ -1,0 +1,658 @@
+from __future__ import annotations
+
+import json
+import os
+import re
+import subprocess
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+from fastapi import FastAPI, Form, HTTPException
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
+
+app = FastAPI(title="CallCare Physician Portal")
+
+PORTAL_INBOX_DIR = Path("logs") / "portal_inbox"
+PORTAL_INBOX_DIR.mkdir(parents=True, exist_ok=True)
+
+CALL_LOG_DIR = Path("logs") / "calls"
+CALL_LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+DB_NAME = os.getenv("CALLCARE_DB_NAME", "callcare").strip() or "callcare"
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _load_json(path: Path) -> Dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _save_json(path: Path, data: Dict[str, Any]) -> None:
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _packet_files() -> List[Path]:
+    return sorted(
+        [p for p in PORTAL_INBOX_DIR.glob("*.json") if not p.name.endswith(".meta.json")],
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
+
+
+def _packet_path(packet_id: str) -> Path:
+    return PORTAL_INBOX_DIR / f"{packet_id}.json"
+
+
+def _meta_path(packet_id: str) -> Path:
+    return PORTAL_INBOX_DIR / f"{packet_id}.meta.json"
+
+
+def _default_meta(packet_id: str) -> Dict[str, Any]:
+    return {
+        "packet_id": packet_id,
+        "status": "active",
+        "prescription_status": "under review",
+        "note_sent": "to be mailed",
+        "call_sid": "",
+    }
+
+
+def _load_meta(packet_id: str) -> Dict[str, Any]:
+    mp = _meta_path(packet_id)
+    if mp.exists():
+        try:
+            d = _load_json(mp)
+            base = _default_meta(packet_id)
+            base.update(d)
+            return base
+        except Exception:
+            pass
+    return _default_meta(packet_id)
+
+
+def _save_meta(packet_id: str, meta: Dict[str, Any]) -> None:
+    base = _default_meta(packet_id)
+    base.update(meta or {})
+    _save_json(_meta_path(packet_id), base)
+
+
+def _html_escape(s: Any) -> str:
+    text = _safe_str(s)
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+
+
+def _extract_first_line_medication(note_text: str) -> str:
+    text = _safe_str(note_text)
+    if not text:
+        return ""
+
+    for ln in text.splitlines():
+        line = _safe_str(ln)
+        if not line:
+            continue
+        if "first-line medication:" in line.lower():
+            cleaned = re.sub(r"^\s*P:\s*", "", line, flags=re.I)
+            cleaned = re.sub(r"^\s*-\s*", "", cleaned)
+            cleaned = re.sub(r"^\s*First-line medication:\s*", "", cleaned, flags=re.I)
+            cleaned = re.sub(r"\s*\(Physician must verify medication/dosing\)\s*", "", cleaned, flags=re.I)
+            return cleaned.strip()
+
+    return ""
+
+
+def _load_call_transcript_for_packet(packet_id: str) -> Dict[str, Any]:
+    meta = _load_meta(packet_id)
+    call_sid = _safe_str(meta.get("call_sid"))
+    if not call_sid:
+        return {}
+
+    path = CALL_LOG_DIR / f"{call_sid}.json"
+    if not path.exists():
+        return {}
+
+    try:
+        return _load_json(path)
+    except Exception:
+        return {}
+
+
+def _run_psql(sql: str, vars_map: Optional[Dict[str, str]] = None) -> str:
+    cmd = ["psql", DB_NAME, "-X", "-q", "-At", "-v", "ON_ERROR_STOP=1"]
+    for k, v in (vars_map or {}).items():
+        cmd.extend(["-v", f"{k}={v}"])
+    proc = subprocess.run(
+        cmd,
+        input=sql,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    return proc.stdout.strip()
+
+
+def _resolve_call_sid(packet_id: str, packet: Dict[str, Any], meta: Dict[str, Any]) -> str:
+    candidates = [
+        _safe_str(meta.get("call_sid")),
+        _safe_str(packet.get("call_sid")),
+        _safe_str(packet.get("session_id")),
+    ]
+    for c in candidates:
+        if c:
+            return c
+
+    call_log = _load_call_transcript_for_packet(packet_id)
+    if isinstance(call_log, dict):
+        for k in ("call_sid", "session_id"):
+            v = _safe_str(call_log.get(k))
+            if v:
+                return v
+
+    return ""
+
+
+def _lookup_patient_context(call_sid: str) -> Dict[str, Any]:
+    if not call_sid:
+        return {}
+
+    sql = r"""
+    SELECT json_build_object(
+      'encounter_id', e.id::text,
+      'call_sid', e.call_sid,
+      'patient_id', p.id::text,
+      'chart_number', p.chart_number,
+      'patient_name', trim(concat_ws(' ', p.legal_first_name, p.legal_last_name)),
+      'date_of_birth', p.date_of_birth::text,
+      'sex_at_birth', p.sex_at_birth,
+      'phone_number', p.phone_number,
+      'email', p.email,
+      'chief_complaint', e.chief_complaint,
+      'conditions',
+        COALESCE(
+          (
+            SELECT json_agg(
+              json_build_object(
+                'condition_name', pc.condition_name,
+                'status', pc.status
+              )
+              ORDER BY pc.created_at
+            )
+            FROM callcare.patient_conditions pc
+            WHERE pc.patient_id = p.id
+          ),
+          '[]'::json
+        ),
+      'social_history',
+        COALESCE(
+          (
+            SELECT json_agg(
+              json_build_object(
+                'domain', sh.domain,
+                'value_text', sh.value_text
+              )
+              ORDER BY sh.created_at
+            )
+            FROM callcare.patient_social_history sh
+            WHERE sh.patient_id = p.id
+          ),
+          '[]'::json
+        ),
+      'allergies',
+        COALESCE(
+          (
+            SELECT json_agg(
+              json_build_object(
+                'allergen', a.allergen,
+                'reaction', a.reaction,
+                'severity', a.severity
+              )
+              ORDER BY a.created_at
+            )
+            FROM callcare.patient_allergies a
+            WHERE a.patient_id = p.id
+              AND a.is_active = true
+          ),
+          '[]'::json
+        ),
+      'preferred_pharmacy',
+        (
+          SELECT json_build_object(
+            'name', ph.name,
+            'address_line_1', ph.address_line_1,
+            'city', ph.city,
+            'state', ph.state,
+            'postal_code', ph.postal_code,
+            'phone', ph.phone,
+            'fax', ph.fax,
+            'ncpdp_id', ph.ncpdp_id
+          )
+          FROM callcare.patient_pharmacies pp
+          JOIN callcare.pharmacies ph
+            ON ph.id = pp.pharmacy_id
+          WHERE pp.patient_id = p.id
+            AND pp.is_preferred = true
+          ORDER BY ph.created_at DESC
+          LIMIT 1
+        )
+    )
+    FROM callcare.encounters e
+    JOIN callcare.patients p
+      ON p.id = e.patient_id
+    WHERE e.call_sid = NULLIF(:'CALL_SID', '')
+    ORDER BY e.started_at DESC
+    LIMIT 1;
+    """
+    try:
+        out = _run_psql(sql, {"CALL_SID": call_sid})
+        return json.loads(out) if out else {}
+    except Exception:
+        return {}
+
+
+def _patient_context_for_packet(packet_id: str, packet: Dict[str, Any], meta: Dict[str, Any]) -> Dict[str, Any]:
+    call_sid = _resolve_call_sid(packet_id, packet, meta)
+    if call_sid and not _safe_str(meta.get("call_sid")):
+        meta["call_sid"] = call_sid
+        _save_meta(packet_id, meta)
+    return _lookup_patient_context(call_sid)
+
+
+def _render_list_items(items: List[Dict[str, Any]], keys: List[str], empty_text: str) -> str:
+    if not items:
+        return f"<p>{_html_escape(empty_text)}</p>"
+
+    lines: List[str] = []
+    for item in items:
+        parts = []
+        for k in keys:
+            val = _safe_str(item.get(k))
+            if val:
+                parts.append(val)
+        text = " — ".join(parts) if parts else ""
+        if text:
+            lines.append(f"<li>{_html_escape(text)}</li>")
+
+    if not lines:
+        return f"<p>{_html_escape(empty_text)}</p>"
+
+    return "<ul>" + "".join(f"<li>{line}</li>" for line in [re.sub(r"^<li>|</li>$", "", l) for l in lines]) + "</ul>"
+
+
+def _render_pharmacy(ph: Dict[str, Any]) -> str:
+    if not ph:
+        return "<p>No preferred pharmacy on file.</p>"
+
+    parts = [
+        _safe_str(ph.get("name")),
+        _safe_str(ph.get("address_line_1")),
+        " ".join(
+            x for x in [
+                _safe_str(ph.get("city")),
+                _safe_str(ph.get("state")),
+                _safe_str(ph.get("postal_code")),
+            ] if x
+        ).strip(),
+        _safe_str(ph.get("phone")),
+        _safe_str(ph.get("fax")),
+        _safe_str(ph.get("ncpdp_id")),
+    ]
+    parts = [p for p in parts if p]
+    return "<ul>" + "".join(f"<li>{_html_escape(p)}</li>" for p in parts) + "</ul>"
+
+
+@app.get("/healthz")
+async def healthz() -> PlainTextResponse:
+    return PlainTextResponse("ok")
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home() -> str:
+    rows = []
+    for p in _packet_files():
+        try:
+            d = _load_json(p)
+        except Exception:
+            continue
+
+        pid = _safe_str(d.get("packet_id") or p.stem)
+        created = _safe_str(d.get("created_at"))
+        meta = _load_meta(pid)
+        patient_ctx = _patient_context_for_packet(pid, d, meta)
+
+        status = _safe_str(meta.get("status") or "active")
+        prescription = _safe_str(meta.get("prescription_status") or "under review")
+        note_sent = _safe_str(meta.get("note_sent") or "to be mailed")
+        patient_name = _safe_str(patient_ctx.get("patient_name")) or "Unknown patient"
+        chart_number = _safe_str(patient_ctx.get("chart_number")) or "Not linked"
+
+        rows.append(
+            f"<tr>"
+            f"<td><a href='/packet/{_html_escape(pid)}'>{_html_escape(patient_name)}</a></td>"
+            f"<td>{_html_escape(chart_number)}</td>"
+            f"<td>{_html_escape(created)}</td>"
+            f"<td>{_html_escape(status)}</td>"
+            f"<td>{_html_escape(prescription)}</td>"
+            f"<td>{_html_escape(note_sent)}</td>"
+            f"</tr>"
+        )
+
+    body = "".join(rows) or "<tr><td colspan='6'>No routed review packets yet.</td></tr>"
+
+    return f"""
+    <html>
+      <head>
+        <title>CallCare Physician Portal</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          table {{ border-collapse: collapse; width: 100%; }}
+          th, td {{ border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }}
+          th {{ background: #f5f5f5; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <h1>CallCare Physician Portal</h1>
+        <p>Routed review packets from telephone encounters.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Chart #</th>
+              <th>Created</th>
+              <th>Status</th>
+              <th>Prescription</th>
+              <th>Note Sent</th>
+            </tr>
+          </thead>
+          <tbody>
+            {body}
+          </tbody>
+        </table>
+      </body>
+    </html>
+    """
+
+
+@app.get("/packet/{packet_id}", response_class=HTMLResponse)
+async def packet_detail(packet_id: str) -> str:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    d = _load_json(path)
+    meta = _load_meta(packet_id)
+    patient_ctx = _patient_context_for_packet(packet_id, d, meta)
+
+    if _safe_str(meta.get("status")) == "active":
+        meta["status"] = "under review"
+        _save_meta(packet_id, meta)
+
+    note_text = _safe_str(d.get("note_text"))
+    evidence = d.get("evidence", []) or []
+    first_line_med = _extract_first_line_medication(note_text)
+
+    ev_html = ""
+    for i, ev in enumerate(evidence, 1):
+        title = _html_escape(ev.get("title"))
+        source = _html_escape(ev.get("source"))
+        url = _html_escape(ev.get("url"))
+        accessed = _html_escape(ev.get("accessed"))
+        ev_html += (
+            f"<h4>Evidence {i}</h4>"
+            f"<p><strong>Title:</strong> {title}<br>"
+            f"<strong>Source:</strong> {source}<br>"
+            f"<strong>Accessed:</strong> {accessed}<br>"
+            f"<strong>URL:</strong> <a href='{url}' target='_blank'>{url}</a></p>"
+        )
+
+    if not ev_html:
+        ev_html = "<p>No evidence attached.</p>"
+
+    status = _html_escape(meta.get("status"))
+    prescription_status = _html_escape(meta.get("prescription_status"))
+    note_sent = _html_escape(meta.get("note_sent"))
+
+    patient_name = _safe_str(patient_ctx.get("patient_name")) or "Unknown patient"
+    chart_number = _safe_str(patient_ctx.get("chart_number")) or "Not linked"
+    dob = _safe_str(patient_ctx.get("date_of_birth"))
+    sex_at_birth = _safe_str(patient_ctx.get("sex_at_birth"))
+    chief_complaint = _safe_str(patient_ctx.get("chief_complaint"))
+    phone_number = _safe_str(patient_ctx.get("phone_number"))
+    email = _safe_str(patient_ctx.get("email"))
+
+    conditions_html = _render_list_items(
+        patient_ctx.get("conditions") or [],
+        ["condition_name", "status"],
+        "No past medical history on file.",
+    )
+    allergies_html = _render_list_items(
+        patient_ctx.get("allergies") or [],
+        ["allergen", "reaction", "severity"],
+        "No allergy data on file.",
+    )
+    social_html = _render_list_items(
+        patient_ctx.get("social_history") or [],
+        ["domain", "value_text"],
+        "No social history on file.",
+    )
+    pharmacy_html = _render_pharmacy(patient_ctx.get("preferred_pharmacy") or {})
+
+    return f"""
+    <html>
+      <head>
+        <title>Packet {_html_escape(packet_id)}</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          pre {{ white-space: pre-wrap; border: 1px solid #ccc; padding: 12px; background: #fafafa; }}
+          textarea {{ width: 100%; min-height: 420px; font-family: monospace; font-size: 14px; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+          .meta {{ margin-bottom: 18px; }}
+          .buttons form {{ display: inline-block; margin-right: 10px; margin-bottom: 10px; }}
+          button {{ padding: 8px 12px; }}
+          .section {{ margin-top: 22px; }}
+        </style>
+      </head>
+      <body>
+        <p><a href="/">← Back to inbox</a></p>
+        <h1>{_html_escape(patient_name)}</h1>
+
+        <div class="meta">
+          <p><strong>Chart #:</strong> {_html_escape(chart_number)}</p>
+          <p><strong>Date of Birth:</strong> {_html_escape(dob)}</p>
+          <p><strong>Sex at Birth:</strong> {_html_escape(sex_at_birth)}</p>
+          <p><strong>Phone:</strong> {_html_escape(phone_number)}</p>
+          <p><strong>Email:</strong> {_html_escape(email)}</p>
+          <p><strong>Chief Complaint:</strong> {_html_escape(chief_complaint)}</p>
+          <p><strong>Created:</strong> {_html_escape(d.get('created_at'))}</p>
+          <p><strong>Session ID:</strong> {_html_escape(d.get('session_id'))}</p>
+          <p><strong>Call SID:</strong> {_html_escape(meta.get('call_sid'))}</p>
+          <p><strong>Pathway:</strong> {_html_escape(d.get('pathway_id'))}</p>
+          <p><strong>Status:</strong> {status}</p>
+          <p><strong>Prescription:</strong> {prescription_status}</p>
+          <p><strong>Note Sent:</strong> {note_sent}</p>
+          <p><strong>First-line prescription:</strong> {_html_escape(first_line_med or "Not found in note")}</p>
+        </div>
+
+        <div class="section">
+          <h2>Past Medical History</h2>
+          {conditions_html}
+        </div>
+
+        <div class="section">
+          <h2>Allergies</h2>
+          {allergies_html}
+        </div>
+
+        <div class="section">
+          <h2>Past Social History</h2>
+          {social_html}
+        </div>
+
+        <div class="section">
+          <h2>Preferred Pharmacy</h2>
+          {pharmacy_html}
+        </div>
+
+        <div class="buttons">
+          <form method="get" action="/packet/{_html_escape(packet_id)}/full-text">
+            <button type="submit">Full Text</button>
+          </form>
+        </div>
+
+        <h2>Clinical Note</h2>
+        <form method="post" action="/packet/{_html_escape(packet_id)}/update">
+          <textarea name="note_text">{_html_escape(note_text)}</textarea>
+          <p>
+            <button type="submit">Save Changes</button>
+          </p>
+        </form>
+
+        <div class="buttons">
+          <form method="post" action="/packet/{_html_escape(packet_id)}/sign">
+            <button type="submit">Sign Note</button>
+          </form>
+
+          <form method="post" action="/packet/{_html_escape(packet_id)}/prescribe">
+            <button type="submit">Send Prescription</button>
+          </form>
+
+          <form method="post" action="/packet/{_html_escape(packet_id)}/note-sent/emailed">
+            <button type="submit">Mark Note Emailed</button>
+          </form>
+
+          <form method="post" action="/packet/{_html_escape(packet_id)}/note-sent/to-be-mailed">
+            <button type="submit">Mark Note To Be Mailed</button>
+          </form>
+        </div>
+
+        <h2>Evidence</h2>
+        {ev_html}
+      </body>
+    </html>
+    """
+
+
+@app.get("/packet/{packet_id}/full-text", response_class=HTMLResponse)
+async def full_text(packet_id: str) -> str:
+    packet_path = _packet_path(packet_id)
+    if not packet_path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    call_log = _load_call_transcript_for_packet(packet_id)
+    transcript = call_log.get("transcript", []) if isinstance(call_log, dict) else []
+
+    summary = ""
+    if transcript:
+        for turn in reversed(transcript):
+            if _safe_str(turn.get("role")).lower() == "assistant":
+                summary = _safe_str(turn.get("text"))
+                break
+
+    transcript_for_display = list(transcript)
+    if summary and transcript_for_display:
+        last_turn = transcript_for_display[-1]
+        if _safe_str(last_turn.get("role")).lower() == "assistant" and _safe_str(last_turn.get("text")) == summary:
+            transcript_for_display = transcript_for_display[:-1]
+
+    transcript_html = ""
+    for turn in transcript_for_display:
+        role = _html_escape(turn.get("role"))
+        text = _html_escape(turn.get("text"))
+        transcript_html += f"<p><strong>{role}:</strong> {text}</p>"
+
+    if not transcript_html:
+        transcript_html = "<p>No call transcript available for this packet.</p>"
+
+    return f"""
+    <html>
+      <head>
+        <title>Full Text {_html_escape(packet_id)}</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <p><a href="/packet/{_html_escape(packet_id)}">← Back to packet</a></p>
+        <h1>Full Text for Packet {_html_escape(packet_id)}</h1>
+
+        <h2>Call Transcript</h2>
+        {transcript_html}
+
+        <h2>Spoken Summary to Patient</h2>
+        <p>{_html_escape(summary or "No patient summary available.")}</p>
+      </body>
+    </html>
+    """
+
+
+@app.post("/packet/{packet_id}/update")
+async def update_note(packet_id: str, note_text: str = Form(...)) -> RedirectResponse:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    d = _load_json(path)
+    d["note_text"] = _safe_str(note_text)
+    _save_json(path, d)
+
+    meta = _load_meta(packet_id)
+    if _safe_str(meta.get("status")) == "active":
+        meta["status"] = "under review"
+        _save_meta(packet_id, meta)
+
+    return RedirectResponse(url=f"/packet/{packet_id}", status_code=303)
+
+
+@app.post("/packet/{packet_id}/sign")
+async def sign_note(packet_id: str) -> RedirectResponse:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    meta = _load_meta(packet_id)
+    meta["status"] = "completed"
+    _save_meta(packet_id, meta)
+
+    return RedirectResponse(url=f"/packet/{packet_id}", status_code=303)
+
+
+@app.post("/packet/{packet_id}/prescribe")
+async def send_prescription(packet_id: str) -> RedirectResponse:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    meta = _load_meta(packet_id)
+    meta["prescription_status"] = "sent"
+    _save_meta(packet_id, meta)
+
+    return RedirectResponse(url=f"/packet/{packet_id}", status_code=303)
+
+
+@app.post("/packet/{packet_id}/note-sent/{mode}")
+async def note_sent(packet_id: str, mode: str) -> RedirectResponse:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    normalized = _safe_str(mode).lower()
+    if normalized not in {"emailed", "to-be-mailed", "to_be_mailed", "to be mailed"}:
+        raise HTTPException(status_code=400, detail="Invalid note-sent mode")
+
+    final_mode = "emailed" if normalized == "emailed" else "to be mailed"
+
+    meta = _load_meta(packet_id)
+    meta["note_sent"] = final_mode
+    _save_meta(packet_id, meta)
+
+    return RedirectResponse(url=f"/packet/{packet_id}", status_code=303)

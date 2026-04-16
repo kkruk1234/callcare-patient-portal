@@ -1,0 +1,34 @@
+# Clinician-facing medication/dosing protocol for: dental_abscess
+# Intended use: Tier 1 async physician review.
+# Antibiotics are adjunctive; definitive management is dental drainage/extraction.
+requires_pregnancy_status: true
+
+rx_options:
+  - med: "Amoxicillin-clavulanate"
+    dosing: "875/125 mg PO BID x 5–7 days"
+    exclusions: "Immediate-type beta-lactam allergy; adjust in renal impairment per clinician judgment."
+    notes: "Broad option for odontogenic infection; still requires urgent dental follow-up."
+  - med: "Amoxicillin"
+    dosing: "500 mg PO TID x 5–7 days"
+    exclusions: "Penicillin allergy."
+    notes: "Alternative when clavulanate not needed; clinician judgment based on severity."
+  - med: "Clindamycin"
+    dosing: "300 mg PO QID x 5–7 days"
+    exclusions: "History of C. difficile/high CDI risk; lincosamide allergy."
+    notes: "Common alternative for immediate-type beta-lactam allergy; generally acceptable in pregnancy."
+  - med: "Metronidazole"
+    dosing: "500 mg PO TID x 5–7 days"
+    exclusions: "Alcohol use (disulfiram-like reaction); significant liver disease; interactions."
+    notes: "Adjunct for anaerobic coverage (often combined with penicillin/amoxicillin when needed)."
+
+supportive_care:
+  - item: "Pain control"
+    details: "Acetaminophen if safe; avoid NSAIDs in late pregnancy, renal disease, ulcer/GI bleed risk."
+  - item: "Oral care"
+    details: "Warm salt-water rinses; avoid very hot/cold triggers; soft foods."
+
+followup_and_safety:
+  - item: "Definitive care"
+    details: "Needs urgent dental evaluation for drainage/root canal/extraction; antibiotics alone may not resolve."
+  - item: "Urgent/ED now"
+    details: "Facial swelling affecting eye, trismus, trouble swallowing/breathing, fever with toxicity, rapid spread, immunocompromise."

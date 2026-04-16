@@ -1,0 +1,45 @@
+# Clinician-facing medication/dosing protocol for: uti_uncomplicated
+# Sources (high-level):
+# - IDSA/ESCMID guideline: acute uncomplicated cystitis & pyelonephritis (2010 update, published 2011)
+# - AAFP summary of uncomplicated cystitis first-line options
+# Notes:
+# - Conservative default: short-course first-line agents.
+# - Escalation triggers included for physician decision-making.
+
+rx_options:
+  - med: "Nitrofurantoin (macrocrystals/monohydrate)"
+    dosing: "100 mg PO twice daily x 5 days"
+    exclusions: "Avoid if suspected pyelonephritis; avoid if CrCl significantly reduced per local policy; avoid at term pregnancy (38–42 wks) or neonate G6PD risk; allergy."
+    notes: "First-line for uncomplicated cystitis; low collateral damage."
+
+  - med: "Trimethoprim-sulfamethoxazole (TMP-SMX) DS"
+    dosing: "160/800 mg (1 DS tab) PO twice daily x 3 days"
+    exclusions: "Avoid sulfa allergy; avoid in pregnancy near term; consider local E. coli resistance—avoid empiric use if >20% or prior TMP-SMX resistant isolate."
+    notes: "First-line where local resistance acceptable and no contraindications."
+
+  - med: "Fosfomycin trometamol"
+    dosing: "3 g PO once (single dose sachet)"
+    exclusions: "Avoid if suspected pyelonephritis; limited availability; consider if adherence concerns."
+    notes: "Alternative first-line option; convenient single dose."
+
+  - med: "Cephalexin"
+    dosing: "500 mg PO every 12 hours x 5–7 days"
+    exclusions: "Avoid severe immediate beta-lactam allergy."
+    notes: "Alternative when first-line agents not appropriate; some guidelines consider beta-lactams less effective—use when needed."
+
+supportive_care:
+  - item: "Hydration"
+    details: "Encourage oral fluids as tolerated."
+
+  - item: "Symptom control"
+    details: "Phenazopyridine may be considered short-term for dysuria (e.g., up to 2 days) if safe; avoid dosing specifics by phone if you prefer."
+
+followup_and_safety:
+  - item: "When to obtain urine culture"
+    details: "Recommended if: pregnancy, recurrent UTI, recent antibiotics, immunocompromise, atypical symptoms, suspected pyelonephritis, or failure to improve within 48–72 hours."
+
+  - item: "Escalation / more aggressive path (physician decision)"
+    details: "If systemic symptoms, flank pain, vomiting, pregnancy, male sex, known urologic abnormality, catheter, immunocompromise, or failure at 48–72h → treat as complicated / evaluate for pyelonephritis; consider broader therapy and/or in-person evaluation."
+
+  - item: "Return precautions"
+    details: "Urgent evaluation for fever, rigors, flank pain, persistent vomiting, worsening symptoms, pregnancy, or concern for sepsis."

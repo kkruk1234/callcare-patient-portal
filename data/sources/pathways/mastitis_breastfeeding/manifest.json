@@ -1,0 +1,12 @@
+{
+  "pathway_id": "mastitis_breastfeeding",
+  "sources": [
+    {
+      "id": "mastitis_breastfeeding_ref",
+      "source_id": "mastitis_breastfeeding_ref",
+      "title": "Mastitis overview (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

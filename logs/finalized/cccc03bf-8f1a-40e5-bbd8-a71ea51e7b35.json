@@ -1,0 +1,57 @@
+{
+  "packet_id": "cccc03bf-8f1a-40e5-bbd8-a71ea51e7b35",
+  "created_at": "2026-03-05T23:25:48.557871+00:00",
+  "session_id": "242a66f2-43db-46ed-9a23-00dcdad17a41",
+  "pathway_id": "",
+  "base_queries": [
+    "adult otitis externa and media diagnosis and management guidelines",
+    "adult ear infection antibiotic treatment dosing duration contraindications",
+    "ear pain red flags and indications for imaging or specialist referral"
+  ],
+  "queries": [
+    "AAFP adult otitis externa and media diagnosis and management guidelines",
+    "AAFP adult ear infection antibiotic treatment dosing duration contraindications",
+    "MedlinePlus adult otitis externa and media diagnosis and management guidelines",
+    "MedlinePlus adult ear infection antibiotic treatment dosing duration contraindications",
+    "CDC adult otitis externa and media diagnosis and management guidelines",
+    "CDC adult ear infection antibiotic treatment dosing duration contraindications",
+    "NIH adult otitis externa and media diagnosis and management guidelines",
+    "NIH adult ear infection antibiotic treatment dosing duration contraindications",
+    "NICE adult otitis externa and media diagnosis and management guidelines",
+    "NICE adult ear infection antibiotic treatment dosing duration contraindications",
+    "WHO adult otitis externa and media diagnosis and management guidelines",
+    "WHO adult ear infection antibiotic treatment dosing duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Acute Otitis Externa - Clinical Practice Guideline | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/acute-otitis-externa.html",
+      "accessed": "2026-03-05",
+      "snippet": "Patients with AOE should be assessed for pain and recommended an analgesic treatment based on pain severity."
+    },
+    {
+      "title": "Oído de nadador: MedlinePlus enciclopedia médica",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/spanish/ency/article/000622.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Mantenga los oídos secos y limpios, y NO permita el ingreso del agua al oído al ducharse, echarse champú o bañarse en la tina. Seque los oídos cuidadosamente después de haberse mojado. Evite nadar en aguas contaminadas. Use tapones de oídos al nadar. Pruebe mezclando 1 gota de alcohol con 1 de vinagre blanco y coloque dicha mezcla en los oídos después de que estos se humedezcan. El alcohol y el ácido del vinagre ayudan a prevenir la proliferación de bacterias. Nombres alternativos"
+    },
+    {
+      "title": "Otitis Media: Diagnosis and Treatment | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2013/1001/p435.html",
+      "accessed": "2026-03-05",
+      "snippet": "Initial immediate or delayed antibiotic treatment Antibiotic treatment after 48–72 h of failure of initial antibiotic treatment Recommended first-line treatment Alternative treatment (if penicillin allergy) Recommended first-line treatment Alternative treatment Amoxicillin (80 to 90 mg/kg per day in 2 divided doses)"
+    },
+    {
+      "title": "Infección crónica del oído: MedlinePlus enciclopedia médica",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/spanish/ency/article/000619.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Su proveedor puede recetar antibióticos si la infección es causada por bacterias. Es posible que estos medicamentos deban tomarse por largo tiempo. Se pueden administrar por vía oral o en la vena (vía intravenosa )."
+    }
+  ],
+  "note_text": "S: The patient is a 45-year-old male presenting with a 4-day history of constant, intense ear pain accompanied by a little yellow, crusty discharge. He reports a recent cold last week but denies fever, chills, swelling, redness, tenderness around the ear or jaw, dizziness, severe headache, or facial weakness. He has a history of childhood ear infections and has tried acetaminophen (Tylenol) with minimal relief. There is no recent water exposure, swimming, or trauma to the ear.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute otitis externa given the intense ear pain, yellow crusty discharge, and recent upper respiratory infection. \nDifferential:\n1. Acute otitis externa\n2. Acute otitis media with tympanic membrane perforation\n3. Chronic suppurative otitis media\n4. Foreign body or external ear canal trauma\n\nP: - First-line medication: topical antibiotic ear drops (e.g., ciprofloxacin or ofloxacin)\n- Alternatives: topical antibiotic-steroid combination drops\n- Medication safety considerations: no known allergies, no renal or liver disease, pregnancy not applicable\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, fever develops, hearing loss increases, or facial weakness occurs; seek emergency care if severe headache or dizziness develops\n- Testing: Not indicated at this time; consider otoscopic examination if symptoms persist or worsen"
+}

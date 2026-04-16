@@ -1,0 +1,22 @@
+id: sciatica
+version: 0.1
+match:
+  any_keywords: ["shooting pain down leg", "pain down my leg", "sciatica", "radiating leg pain", "tingling down leg"]
+questions:
+  - id: weakness
+    prompt: "Any new leg weakness? (yes/no)"
+    store_as: leg_weakness
+    type: yesno
+  - id: bladder
+    prompt: "Any trouble controlling urine or can't pee? (yes/no)"
+    store_as: bladder_issue
+    type: yesno
+  - id: saddle
+    prompt: "Any numbness in the groin or saddle area? (yes/no)"
+    store_as: saddle_numb
+    type: yesno
+stop_rules:
+  - if_all_answered: ["weakness", "bladder", "saddle"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

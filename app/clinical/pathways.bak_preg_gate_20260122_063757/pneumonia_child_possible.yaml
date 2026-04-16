@@ -1,0 +1,25 @@
+id: pneumonia_child_possible
+version: 0.1
+match:
+  any_keywords: ["child cough fever", "kid cough fever", "cough fever child", "child breathing fast", "kid short of breath with fever"]
+questions:
+  - id: breathing
+    prompt: "Is your child struggling to breathe (ribs pulling in, breathing very fast, bluish lips, or can't speak/cry normally)? (yes/no)"
+    store_as: severe_breathing
+    type: yesno
+
+  - id: dehydration
+    prompt: "Is your child not drinking and peeing much less than usual? (yes/no)"
+    store_as: dehydration
+    type: yesno
+
+  - id: high_risk
+    prompt: "Is your child under 3 months, has immune problems, or a serious chronic condition? (yes/no/unknown)"
+    store_as: high_risk
+
+stop_rules:
+  - if_all_answered: ["breathing", "dehydration", "high_risk"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,60 @@
+{
+  "packet_id": "78feafa6-146b-423e-b721-2b610ef8c735",
+  "created_at": "2026-01-25T16:37:49.250749+00:00",
+  "session_id": "581849aa-acef-455d-974a-fc05f92a28e9",
+  "chief_complaint": "cat bite my hand",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "cough_uri",
+  "answers": {
+    "duration": "0",
+    "fever": "no",
+    "sob": "no",
+    "chest_pain": "no",
+    "high_risk": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\n34-year-old adult presents by phone reporting a cat bite to the hand that occurred today. No fever, no shortness of breath, no chest pain. No chronic lung disease or medication allergies. No high-risk conditions reported.\n\nO:\nNo physical exam or vitals available due to phone-only encounter.\n\nA:\n - Working diagnosis (most likely): Cat bite to the hand, acute injury.\n - Differential:\n  1. Cat bite wound infection (early or developing)\n  2. Soft tissue contusion or trauma from bite\n  3. Early cellulitis\n  4. Possible tendon or joint involvement (less likely without further symptoms)\n - Red flags considered:\n   No fever or systemic symptoms reported. No signs of respiratory distress or chest pain. No high-risk conditions.\n\nP:\n - Disposition: Patient can be managed outpatient with close monitoring.\n - Plan: \n   Advise thorough wound cleaning and monitoring for signs of infection such as increasing redness, swelling, pain, or fever. Recommend tetanus update if not current. \n   Since this is a cat bite, consider antibiotic prophylaxis to prevent infection. Typical regimen includes amoxicillin-clavulanate 875 mg/125 mg orally twice daily for 5-7 days. Alternatives for penicillin-allergic patients include doxycycline or a combination of clindamycin plus a fluoroquinolone.\n   Recommended regimen; reviewing physician will confirm appropriateness and prescribe if indicated.\n - Safety net: Instruct patient to seek urgent care if they develop fever, increased redness, swelling, pain, pus drainage, or any systemic symptoms. Also advise to return if hand function worsens or if signs of deeper infection occur.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+        "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+      },
+      {
+        "title": "NICE NG120: Cough (acute)",
+        "source": "https://www.nice.org.uk/guidance/ng120",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+      },
+      {
+        "title": "BMJ Best Practice: Acute Cough",
+        "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+        "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+      "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+    },
+    {
+      "title": "NICE NG120: Cough (acute)",
+      "source": "https://www.nice.org.uk/guidance/ng120",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+    },
+    {
+      "title": "BMJ Best Practice: Acute Cough",
+      "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+      "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+    }
+  ]
+}

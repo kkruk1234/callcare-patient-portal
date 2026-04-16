@@ -1,0 +1,18 @@
+{
+  "pack_id": "auto_da7190dd7856",
+  "description": "Auto-acquired (OpenAI web search) evidence for: tennis elbow treatment ibuprofen naproxen acetaminophen adult dosing maximum daily dose dailymed",
+  "sources": [
+    {
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3e3e3e3e-3e3e-3e3e-3e3e-3e3e3e3e3e3e"
+    },
+    {
+      "url": "https://www.aafp.org/afp/2018/0601/p741.html"
+    },
+    {
+      "url": "https://www.nice.org.uk/guidance/ng59"
+    },
+    {
+      "url": "https://www.nhs.uk/conditions/tennis-elbow/treatment/"
+    }
+  ]
+}

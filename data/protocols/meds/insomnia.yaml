@@ -1,0 +1,22 @@
+# Clinician-facing medication/dosing protocol for: insomnia
+# Tier 1: reviewer must approve/modify.
+
+rx_options:
+  - med: "No routine prescription medications initiated by phone"
+    dosing: "N/A"
+    exclusions: "N/A"
+    notes: "Focus on sleep hygiene and evaluation for contributing causes (stress, depression/anxiety, pain, substances, OSA). If short-term med is considered, clinician judgment required."
+
+supportive_care:
+  - item: "Sleep hygiene basics"
+    details: "Consistent sleep/wake time; dark/cool room; avoid screens 60 minutes before bed; avoid late caffeine/nicotine; avoid heavy meals/alcohol near bedtime."
+  - item: "Behavioral"
+    details: "Get out of bed if unable to sleep after ~20–30 min; return when sleepy; avoid long daytime naps."
+  - item: "OTC options (clinician judgment)"
+    details: "Melatonin 0.5–3 mg 1–2 hours before bedtime may help circadian issues. Doxylamine/diphenhydramine can cause next-day sedation/anticholinergic effects—use caution, especially older adults."
+
+followup_and_safety:
+  - item: "Re-evaluation"
+    details: "If insomnia persists >2–4 weeks, significant daytime impairment, or concern for mood disorder/substance use—schedule follow-up."
+  - item: "Urgent/ED now"
+    details: "Suicidal thoughts, mania/psychosis symptoms, severe withdrawal, or inability to function safely."

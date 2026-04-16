@@ -1,0 +1,238 @@
+import hashlib
+import json
+import os
+import re
+import subprocess
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Iterable, List, Optional, Tuple
+from urllib.parse import urlparse, quote_plus
+
+import requests
+
+
+# Project root (.../callcare)
+BASE_DIR = Path(__file__).resolve().parents[2]
+PACK_DIR = BASE_DIR / "data" / "packs"
+LOG_DIR = BASE_DIR / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+PACK_DIR.mkdir(parents=True, exist_ok=True)
+
+USER_AGENT = os.environ.get("CALLCARE_EVIDENCE_UA", "CallCareEvidenceBot/0.2 (+auto-acquire)")
+TIMEOUT = float(os.environ.get("CALLCARE_ACQUIRE_TIMEOUT_SECS", "20"))
+
+# Keep small to avoid runaway crawling
+MAX_URLS = int(os.environ.get("CALLCARE_ACQUIRE_MAX_URLS", "3"))
+SLEEP_SECS = float(os.environ.get("CALLCARE_ACQUIRE_SLEEP_SECS", "0.3"))
+
+# Whitelist domains only (edit here as you like)
+DEFAULT_ALLOWED_DOMAINS = [
+    "nhs.uk",
+    "nice.org.uk",
+    "aafp.org",
+    "cdc.gov",
+    "nih.gov",
+    "medlineplus.gov",
+    "mayoclinic.org",
+    "dailymed.nlm.nih.gov",
+    "fda.gov",
+]
+
+
+@dataclass
+class AcquireResult:
+    urls: List[str]
+    pack_path: Optional[str]
+    ingested: bool
+    reason: str
+
+
+def _normalize_domain(netloc: str) -> str:
+    netloc = (netloc or "").lower().strip()
+    if netloc.startswith("www."):
+        netloc = netloc[4:]
+    return netloc
+
+
+def _is_allowed(url: str, allowed_domains: Iterable[str]) -> bool:
+    try:
+        u = urlparse(url)
+        d = _normalize_domain(u.netloc)
+        if not d:
+            return False
+        for ad in allowed_domains:
+            ad = _normalize_domain(ad)
+            if d == ad or d.endswith("." + ad):
+                return True
+        return False
+    except Exception:
+        return False
+
+
+def _dedupe_keep_order(urls: List[str]) -> List[str]:
+    seen = set()
+    out = []
+    for u in urls:
+        u2 = (u or "").strip()
+        if not u2 or u2 in seen:
+            continue
+        seen.add(u2)
+        out.append(u2)
+    return out
+
+
+def _duckduckgo_html_search(query: str, *, max_results: int = 20) -> List[str]:
+    """
+    Lightweight, no-API-key web search using DuckDuckGo HTML endpoint.
+    Returns raw URLs (unfiltered).
+    """
+    q = (query or "").strip()
+    if not q:
+        return []
+
+    # DuckDuckGo HTML endpoint
+    url = "https://duckduckgo.com/html/?q=" + quote_plus(q)
+    headers = {"User-Agent": USER_AGENT}
+    resp = requests.get(url, headers=headers, timeout=TIMEOUT)
+    resp.raise_for_status()
+    html = resp.text or ""
+
+    # Extract result links (DDG uses /l/?uddg=... sometimes; also direct hrefs)
+    hrefs = re.findall(r'href="([^"]+)"', html)
+    urls = []
+    for h in hrefs:
+        if h.startswith("/l/?uddg="):
+            # decode uddg param
+            m = re.search(r"uddg=([^&]+)", h)
+            if m:
+                try:
+                    from urllib.parse import unquote
+                    urls.append(unquote(m.group(1)))
+                except Exception:
+                    pass
+        elif h.startswith("http://") or h.startswith("https://"):
+            urls.append(h)
+
+    # crude cleanup
+    urls = [u.split("#")[0] for u in urls]
+    urls = _dedupe_keep_order(urls)
+
+    # trim
+    return urls[:max_results]
+
+
+def _make_pack_id(query: str) -> str:
+    h = hashlib.sha256((query or "").encode("utf-8")).hexdigest()[:12]
+    return f"auto_{h}"
+
+
+def _write_pack(pack_id: str, description: str, urls: List[str]) -> Path:
+    pack = {
+        "pack_id": pack_id,
+        "description": description,
+        "sources": [{"url": u} for u in urls],
+    }
+    path = PACK_DIR / f"{pack_id}.json"
+    path.write_text(json.dumps(pack, indent=2), encoding="utf-8")
+    return path
+
+
+def _already_attempted(pack_id: str) -> bool:
+    stamp = LOG_DIR / "auto_acquire_attempts.json"
+    if not stamp.exists():
+        return False
+    try:
+        data = json.loads(stamp.read_text(encoding="utf-8"))
+        return bool(data.get(pack_id))
+    except Exception:
+        return False
+
+
+def _mark_attempted(pack_id: str, info: dict) -> None:
+    stamp = LOG_DIR / "auto_acquire_attempts.json"
+    data = {}
+    if stamp.exists():
+        try:
+            data = json.loads(stamp.read_text(encoding="utf-8")) or {}
+        except Exception:
+            data = {}
+    data[pack_id] = info
+    stamp.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+def _run(cmd: List[str]) -> Tuple[bool, str]:
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        out = (r.stdout or "") + "\n" + (r.stderr or "")
+        return (r.returncode == 0), out.strip()
+    except Exception as e:
+        return False, f"subprocess error: {e}"
+
+
+def acquire_ingest_reindex(
+    *,
+    query: str,
+    allowed_domains: Optional[List[str]] = None,
+    max_urls: int = MAX_URLS,
+    force: bool = False,
+) -> AcquireResult:
+    """
+    1) Search web for query
+    2) Filter to allowed domains
+    3) Write pack json
+    4) Run ingest_urls --pack
+    5) Run build_index
+    """
+    q = (query or "").strip()
+    if not q:
+        return AcquireResult(urls=[], pack_path=None, ingested=False, reason="empty query")
+
+    allowed = allowed_domains or list(DEFAULT_ALLOWED_DOMAINS)
+
+    pack_id = _make_pack_id(q)
+    if (not force) and _already_attempted(pack_id):
+        return AcquireResult(urls=[], pack_path=None, ingested=False, reason=f"already attempted: {pack_id}")
+
+    # Search
+    try:
+        raw_urls = _duckduckgo_html_search(q, max_results=25)
+    except Exception as e:
+        _mark_attempted(pack_id, {"query": q, "ok": False, "reason": f"search failed: {e}", "ts": time.time()})
+        return AcquireResult(urls=[], pack_path=None, ingested=False, reason=f"search failed: {e}")
+
+    # Filter
+    filtered = [u for u in raw_urls if _is_allowed(u, allowed)]
+    filtered = _dedupe_keep_order(filtered)[:max_urls]
+
+    if not filtered:
+        _mark_attempted(pack_id, {"query": q, "ok": False, "reason": "no allowed urls found", "ts": time.time()})
+        return AcquireResult(urls=[], pack_path=None, ingested=False, reason="no allowed urls found")
+
+    # polite delay between network actions
+    time.sleep(SLEEP_SECS)
+
+    pack_path = _write_pack(pack_id, f"Auto-acquired evidence for: {q}", filtered)
+
+    # Ingest
+    ok1, out1 = _run(["python3", "-m", "app.rag.ingest_urls", "--pack", str(pack_path)])
+    if not ok1:
+        _mark_attempted(pack_id, {"query": q, "ok": False, "reason": "ingest failed", "ts": time.time(), "pack": str(pack_path), "urls": filtered, "out": out1[-2000:]})
+        return AcquireResult(urls=filtered, pack_path=str(pack_path), ingested=False, reason=f"ingest failed: {out1[-300:]}")
+
+    # Reindex
+    ok2, out2 = _run(["python3", "-m", "app.rag.build_index"])
+    if not ok2:
+        _mark_attempted(pack_id, {"query": q, "ok": False, "reason": "index failed", "ts": time.time(), "pack": str(pack_path), "urls": filtered, "out": out2[-2000:]})
+        return AcquireResult(urls=filtered, pack_path=str(pack_path), ingested=True, reason=f"index failed: {out2[-300:]}")
+
+    
+    # IMPORTANT: retrieve.py caches the FAISS index/docs.json in-process.
+    # After rebuilding, force a reload so the current simulator run can see new sources.
+    try:
+        from app.rag.retrieve import reset_index_cache
+        reset_index_cache()
+    except Exception:
+        pass
+_mark_attempted(pack_id, {"query": q, "ok": True, "reason": "ok", "ts": time.time(), "pack": str(pack_path), "urls": filtered})
+    return AcquireResult(urls=filtered, pack_path=str(pack_path), ingested=True, reason="ok")

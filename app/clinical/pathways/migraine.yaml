@@ -1,0 +1,26 @@
+id: migraine
+version: 0.1
+match:
+  any_keywords: ["migraine", "throbbing headache", "light sensitivity headache", "aura", "headache with nausea", "photophobia"]
+questions:
+  - id: thunderclap
+    prompt: "Did the headache start suddenly and reach maximum severity within 1 minute (a thunderclap)? (yes/no)"
+    store_as: thunderclap
+    type: yesno
+
+  - id: neuro
+    prompt: "Any new weakness, numbness, confusion, fainting, or trouble speaking? (yes/no)"
+    store_as: neuro_redflags
+    type: yesno
+
+  - id: fever_stiff
+    prompt: "Any fever with stiff neck or rash? (yes/no)"
+    store_as: meningitis_redflags
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["thunderclap","neuro","fever_stiff"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

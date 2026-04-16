@@ -1,0 +1,123 @@
+{
+  "packet": {
+    "packet_id": "0f95d8b1-3d36-4f2c-acd5-c20a2d6215b3_20260118T183529Z",
+    "created_at": "2026-01-18T18:35:29.310005+00:00",
+    "session_id": "0f95d8b1-3d36-4f2c-acd5-c20a2d6215b3",
+    "chief_complaint": "",
+    "age_band": "",
+    "pregnancy_possible": "",
+    "pathway_id": "",
+    "answers": {},
+    "med_suggestions": [],
+    "note": {
+      "soap": "S:\nPatient reports tick bite. Reports a tick bite with a bullseye rash present. No systemic symptoms reported. Exposure occurred in Georgia.\nO: Unable to perform physical exam due to phone-only encounter. Patient description consistent with erythema migrans rash.\n\nA:\n  - Working diagnosis (most likely): Early localized Lyme disease, suggested by bullseye rash and tick exposure >36 hours in an endemic area.\n  - Differential:\n    1. Early Lyme disease\n    2. Tick-bite hypersensitivity reaction\n    3. Southern tick-associated rash illness (STARI)\n    4. Cellulitis or other local skin infection\n  - Red flags considered: No systemic symptoms such as fever, neck stiffness, neurological signs, or cardiorespiratory symptoms reported.\n\nP:\n  - Disposition: Urgent in-person evaluation recommended for clinical confirmation and initiation of treatment.\n  - Plan: Advise patient to seek prompt in-person care for physical examination, possible serologic testing, and initiation of antibiotic therapy as per CDC guidelines for early Lyme disease.\n  - Safety net: Instruct patient to seek emergency care if fever, worsening rash, joint pain, neurological symptoms, or cardiorespiratory symptoms develop.\n\nEvidence Used:\n- CDC: What to Do After a Tick Bite — https://www.cdc.gov/ticks/after-a-tick-bite/index.html\n- CDC: Tick Bite—What to Do (PDF) — https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf\n- CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF) — https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf\n- IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease — https://www.idsociety.org/practice-guideline/lyme-disease/\n- AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021) — https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html\n\nEvidence (snippets used): CDC guidance recommends early antibiotic treatment for erythema migrans rash following tick exposure in endemic areas.\n",
+      "patient_summary": "",
+      "patient_instructions": [
+        "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+        "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+      ],
+      "clinician_questions": [],
+      "risk_flags": [],
+      "evidence": [
+        {
+          "title": "CDC: What to Do After a Tick Bite",
+          "source": "CDC: What to Do After a Tick Bite",
+          "snippet": "URL: https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+        },
+        {
+          "title": "CDC: Tick Bite—What to Do (PDF)",
+          "source": "CDC: Tick Bite—What to Do (PDF)",
+          "snippet": "URL: https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+        },
+        {
+          "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+          "source": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+          "snippet": "URL: https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+        },
+        {
+          "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+          "source": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+          "snippet": "URL: https://www.idsociety.org/practice-guideline/lyme-disease/"
+        },
+        {
+          "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+          "source": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+          "snippet": "URL: https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+        }
+      ]
+    },
+    "evidence": []
+  },
+  "state": {
+    "session_id": "0f95d8b1-3d36-4f2c-acd5-c20a2d6215b3",
+    "transcript": [],
+    "chief_complaint": "tick bite",
+    "age_band": "18-64",
+    "age_years": null,
+    "pregnancy_possible": null,
+    "symptoms": {
+      "_answers": {
+        "systemic_symptoms": "none",
+        "bullseye_rash": "yes",
+        "tick_attachment_timeframe": "37 hours",
+        "exposure_state": "Georgia",
+        "pregnancy_possible": "no"
+      },
+      "_pathway": {
+        "id": "tick_bite",
+        "score": 999
+      },
+      "_q_idx": 5,
+      "age_years": 35.0,
+      "age_band": "18-64",
+      "is_child": false,
+      "med_allergies": "none",
+      "systemic_symptoms": "none",
+      "bullseye_rash": true,
+      "tick_attachment_timeframe": "37 hours",
+      "exposure_state": "Georgia",
+      "pregnancy_possible": "no"
+    },
+    "red_flags": [],
+    "decision": null,
+    "stage": "DECIDE",
+    "note_draft": null
+  },
+  "note": {
+    "soap": "S:\nPatient reports tick bite. Reports a tick bite with a bullseye rash present. No systemic symptoms reported. Exposure occurred in Georgia.\nO: Unable to perform physical exam due to phone-only encounter. Patient description consistent with erythema migrans rash.\n\nA:\n  - Working diagnosis (most likely): Early localized Lyme disease, suggested by bullseye rash and tick exposure >36 hours in an endemic area.\n  - Differential:\n    1. Early Lyme disease\n    2. Tick-bite hypersensitivity reaction\n    3. Southern tick-associated rash illness (STARI)\n    4. Cellulitis or other local skin infection\n  - Red flags considered: No systemic symptoms such as fever, neck stiffness, neurological signs, or cardiorespiratory symptoms reported.\n\nP:\n  - Disposition: Urgent in-person evaluation recommended for clinical confirmation and initiation of treatment.\n  - Plan: Advise patient to seek prompt in-person care for physical examination, possible serologic testing, and initiation of antibiotic therapy as per CDC guidelines for early Lyme disease.\n  - Safety net: Instruct patient to seek emergency care if fever, worsening rash, joint pain, neurological symptoms, or cardiorespiratory symptoms develop.\n\nEvidence Used:\n- CDC: What to Do After a Tick Bite — https://www.cdc.gov/ticks/after-a-tick-bite/index.html\n- CDC: Tick Bite—What to Do (PDF) — https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf\n- CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF) — https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf\n- IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease — https://www.idsociety.org/practice-guideline/lyme-disease/\n- AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021) — https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html\n\nEvidence (snippets used): CDC guidance recommends early antibiotic treatment for erythema migrans rash following tick exposure in endemic areas.\n",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "CDC: What to Do After a Tick Bite",
+        "snippet": "URL: https://www.cdc.gov/ticks/after-a-tick-bite/index.html"
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "CDC: Tick Bite—What to Do (PDF)",
+        "snippet": "URL: https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf"
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "snippet": "URL: https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf"
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "snippet": "URL: https://www.idsociety.org/practice-guideline/lyme-disease/"
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "snippet": "URL: https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html"
+      }
+    ]
+  }
+}

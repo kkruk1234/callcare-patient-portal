@@ -1,0 +1,51 @@
+{
+  "packet_id": "5711fd77-c235-4b76-96b8-8044dbd069ba",
+  "created_at": "2026-01-29T17:16:09+00:00",
+  "session_id": "569ee9b6-3752-41e2-a9f3-2140a200b440",
+  "chief_complaint": "I think I have genital warts",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "age_years": 34,
+    "allergies": "penicillin",
+    "renal_disease": "yes",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "onset": "3 weeks ago",
+    "severity": "mild",
+    "associated": "none"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old female who presents with a concern of genital warts that started approximately three weeks ago. She describes the severity as mild and reports no associated symptoms. She has a history of renal disease and a penicillin allergy. She is not pregnant.\n\nO:  \nPhone evaluation only; no physical examination or vital signs available.\n\nA:  \n- Working diagnosis (most likely): Genital warts (condyloma acuminata), likely caused by human papillomavirus (HPV).  \n- Differential:  \n  1. Molluscum contagiosum  \n  2. Herpes simplex virus infection  \n  3. Seborrheic keratosis or other benign skin lesions  \n  4. Syphilitic chancre or other sexually transmitted infections  \n- Red flags considered: No signs of systemic infection, severe pain, bleeding, or rapidly progressive lesions reported.\n\nP:  \n- Disposition: Patient is stable for outpatient management with follow-up if symptoms worsen or new symptoms develop.  \n- Plan: Educate the patient about genital warts and HPV transmission. Recommend avoidance of sexual contact until evaluation and treatment. Advise seeing a healthcare provider for physical examination and confirmation of diagnosis. Treatment options include topical agents such as imiquimod or podophyllotoxin, or procedural removal by a specialist. Given her renal disease and penicillin allergy, systemic treatments are not first-line. Recommend HPV vaccination if not previously completed.  \n- Safety net: Advise the patient to seek urgent care if she develops severe pain, bleeding, ulceration, systemic symptoms such as fever, or if lesions rapidly increase in size or number. Follow-up in 2-4 weeks or sooner if symptoms worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Genital warts - NHS",
+        "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+        "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps th…"
+      },
+      {
+        "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+        "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_002.json",
+        "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. The…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Genital warts - NHS",
+      "source": "library/nhs_uk/nhs_uk_conditions_genital_warts_ee4180929108/chunk_001.json",
+      "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps th…"
+    },
+    {
+      "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+      "source": "library/cdc_gov/cdc_gov_std_treatment_guidelines_anogenital_warts_htm_94caa2dc4c09/chunk_002.json",
+      "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. The…"
+    }
+  ]
+}

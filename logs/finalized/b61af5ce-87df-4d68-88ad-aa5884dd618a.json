@@ -1,0 +1,105 @@
+{
+  "packet_id": "a641b43c-7369-4d26-9e98-2ecaa85e151c",
+  "created_at": "2026-02-25T02:13:12.955293+00:00",
+  "session_id": "b61af5ce-87df-4d68-88ad-aa5884dd618a",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Where exactly is your back pain located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Can you describe the nature of the pain? For example, is it sharp, dull, burning, or something else?",
+    "intake_a5": "dull ache",
+    "intake_q6": "Any pain with breathing, coughing, or movement?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of recent infections, such as respiratory or urinary infections?",
+    "intake_a7": "no",
+    "intake_q8": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a8": "no",
+    "intake_q9": "Have you tried any treatments or medications for your back pain, and if so, what were they and did they help?",
+    "intake_a9": "I tried tylenol but it didn't really help very much",
+    "intake_q10": "Any history of kidney problems or urinary symptoms like pain or blood in urine?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/back-pain/",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://medlineplus.gov/backpain.html",
+        "https://medlineplus.gov/backinjuries.html",
+        "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+        "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. She denies any recent injury or trauma, fever, chills, unexplained weight loss, pain with breathing, coughing, or movement, and has no history of recent infections or urinary symptoms. She has not experienced numbness, weakness, or tingling in her legs or feet. She tried acetaminophen (Tylenol) with minimal relief.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal pain likely related to a mechanical cause given the localized dull ache without systemic symptoms or neurological deficits.\n\nDifferential:\n1. Musculoskeletal strain or minor soft tissue injury\n2. Costochondritis or rib cage inflammation\n3. Intercostal muscle strain\n4. Early presentation of a visceral cause such as referred pain from abdominal organs (less likely given absence of systemic symptoms). Patient is not pregnant.\n\nP: \n - First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; patient currently has no known renal or liver disease\n - Return precautions: Advise patient to seek care if pain worsens, new neurological symptoms develop (numbness, weakness), fever or chills occur, or if there is any new unexplained weight loss\n - Testing: No immediate testing indicated given absence of red flag symptoms; imaging or labs reserved for if symptoms worsen or fail to improve with conservative management",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [
+    {
+      "title": "Back pain - NHS",
+      "source": "https://www.nhs.uk/conditions/back-pain/",
+      "snippet": "Back pain - NHS"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "NIAMS: Living With Back Pain (patient-friendly NIH resource)"
+    },
+    {
+      "title": "Back Pain",
+      "source": "https://medlineplus.gov/backpain.html",
+      "snippet": "Back Pain"
+    },
+    {
+      "title": "Back Injuries | MedlinePlus",
+      "source": "https://medlineplus.gov/backinjuries.html",
+      "snippet": "Back Injuries | MedlinePlus"
+    },
+    {
+      "title": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)",
+      "source": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+      "snippet": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)"
+    },
+    {
+      "title": "AAFP: VA/DoD Low Back Pain Guideline Summary",
+      "source": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "snippet": "AAFP: VA/DoD Low Back Pain Guideline Summary"
+    }
+  ],
+  "state": null
+}

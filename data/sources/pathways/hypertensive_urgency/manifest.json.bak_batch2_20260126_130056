@@ -1,0 +1,12 @@
+{
+  "pathway_id": "hypertensive_urgency",
+  "sources": [
+    {
+      "id": "hypertensive_urgency_ref",
+      "source_id": "hypertensive_urgency_ref",
+      "title": "High blood pressure basics (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

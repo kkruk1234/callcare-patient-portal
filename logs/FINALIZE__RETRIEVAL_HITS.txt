@@ -1,0 +1,45 @@
+28:             'disable_faiss': os.environ.get('CALLCARE_DISABLE_FAISS'),
+91:     # Prefer pre-seeded RAG context (Pull #1/#2) if present; otherwise fall back to chief complaint.
+540: def _load_manifest_sources(pathway_id: str) -> List[dict]:
+543:     manifest_path = MANIFESTS_DIR / pathway_id / "manifest.json"
+544:     if not manifest_path.exists():
+548:         data = json.loads(manifest_path.read_text(encoding="utf-8"))
+590: def _set_note_evidence_from_manifest(note: NoteDraft, pathway_id: str) -> None:
+591:     sources = _load_manifest_sources(pathway_id)
+601:         snippet = "Listed in pathway manifest"
+679:     - Pull #1 seeding happens BEFORE any evidence attachment.
+680:     - If Pull #1 produced evidence (>=3 chunks), we prefer it for note.evidence.
+698:     # RAG Pull #1: post-intake seeding (chief complaint + intake facts + anchors)
+856:     # Prefer Pull #1 evidence for note.evidence when available
+886:     # Try attaching manifest evidence into note.evidence (best-effort)
+889:             _set_note_evidence_from_manifest(note, pid)
+998:             # Merge + de-dupe by drug/med name (keep protocol suggestions first)
+1004:                 name = str(item.get("drug") or item.get("med") or "").strip().lower()
+1444:             # Evidence: if manifest is thin / starter-only, append authoritative references
+1589:             from app.rag.llm_http_evidence import llm_http_evidence
+1598:             refs = llm_http_evidence(
+1610:                     refs2 = llm_http_evidence(
+1635:             _cc_evidence_trace("llm_http_evidence_attach", attached=len(refs))
+1637:         _cc_evidence_trace("llm_http_evidence_attach_error", err_type=type(e).__name__, err=str(e), tb=traceback.format_exc())
+1895:         "Prefer condition guidelines/management pages. Avoid irrelevant drug monographs.\n"
+1896:         "If meds are needed, include at least one dosing-capable source (FDA label or MedlinePlus drug info) ONLY for drugs actually relevant.\n"
+1901:     meds_line = "We need outpatient medication options + dosing." if need_meds else "Focus on diagnosis + outpatient management (no drug dosing required)."
+2280:         "Do NOT include unrelated diagnoses or unrelated drug monographs.\n"
+2499:     Pull #2: diagnosis-anchored refinement using the NOTE assessment (not state.pathway_id).
+2501:     # If note_builder produced Option-2 web queries, use them for Pull #2.
+2664:         # Merge: Pull #2 dominates, Pull #1 demoted (dedupe by url/source)
+2703: def _extract_drug_names(med_suggestions):
+2705:     # Only filter truly non-drug placeholder phrases.
+2715:             name = (m.get("drug") or m.get("med") or m.get("name") or "").strip()
+2738:     Heuristic: if evidence includes drug monograph sources likely to contain dosing.
+2746:         if "medlineplus.gov/druginfo/meds/" in blob:
+2757:     retrieve drug-monograph evidence and merge into note.evidence.
+2766:         drugs = _extract_drug_names(med_suggestions)
+2767:         if not drugs:
+2795:         for drug in drugs:
+2796:             q = f'{drug} adult dosing mg contraindications renal pregnancy | {" ".join(anchors)}'
+2801:             # Prefer true monograph-style URLs
+2808:                 if "medlineplus.gov/druginfo/meds/" in url:
+2814:                 elif "drug" in title and "information" in title:
+2958:     Keep a med suggestion ONLY if the drug name appears in the note text OR it's already a protocol med.
+2968:         name = str(m.get("drug") or m.get("med") or m.get("name") or "").strip()

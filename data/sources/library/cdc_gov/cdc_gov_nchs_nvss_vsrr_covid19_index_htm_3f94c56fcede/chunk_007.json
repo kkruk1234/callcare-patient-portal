@@ -1,0 +1,10 @@
+{
+  "title": "Provisional COVID-19 Mortality Surveillance",
+  "url": "https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ingle underlying cause of death for tabulation from the several diagnoses that may be reported on a single death certificate, as well as definitions, tabulation lists, the format of the death certificate, and regulations on use of the classification. Causes of death for data presented in this report were coded according to ICD guidelines described in annual issues of Part 2a of the NCHS Instruction Manual.\nCOVID-19 deaths are identified using the ICD&ndash;10 code U07.1. Deaths are coded to U07.1 when COVID-19 is reported as a cause that contributed to death on the death certificate. These can include laboratory confirmed cases, as well as cases without laboratory confirmation. If the certifier suspects COVID-19 or determines it was likely (e.g., the circumstances were compelling within a reasonable degree of certainty), they can report COVID-19 as &ldquo;probable&rdquo; or &ldquo;presumed&rdquo; on the death certificate. COVID-19 is listed as the underlying cause on the death certificate in 86% of deaths. The percent was 91% in 2020, 90% in 2021, 76% in 2022 and approximately 66% in 2023.\nEstimated completeness of data \nProvisional data are incomplete, and the level of completeness varies by jurisdiction, week, decedent&rsquo;s age, and cause of death. Until data for a calendar year are finalized, typically in December of the following year, completeness of provisional data ca",
+  "source_type": "library",
+  "source_id": "cdc_gov_nchs_nvss_vsrr_covid19_index_htm_3f94c56fcede",
+  "chunk_id": "chunk_007"
+}

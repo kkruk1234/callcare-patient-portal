@@ -1,0 +1,12 @@
+{
+  "pathway_id": "alcohol_withdrawal_mild",
+  "sources": [
+    {
+      "id": "alcohol_withdrawal_mild_ref",
+      "source_id": "alcohol_withdrawal_mild_ref",
+      "title": "Alcohol withdrawal overview (starter)",
+      "url": "https://www.niaaa.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

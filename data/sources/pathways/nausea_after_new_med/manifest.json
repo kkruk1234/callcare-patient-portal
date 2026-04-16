@@ -1,0 +1,12 @@
+{
+  "pathway_id": "nausea_after_new_med",
+  "sources": [
+    {
+      "id": "nausea_after_new_med_ref",
+      "source_id": "nausea_after_new_med_ref",
+      "title": "Medication adverse effects overview (starter)",
+      "url": "https://www.fda.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

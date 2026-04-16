@@ -1,0 +1,44 @@
+{
+  "packet_id": "54e6b756-ca29-4098-9069-659147eb3ba0",
+  "created_at": "2026-01-19T15:22:26.362714+00:00",
+  "session_id": "244ffdd7-2706-45a3-90f2-2db56121da25",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "(NOTE: LLM note generation unavailable: NameError: name 'allow_listed_systemics' is not defined)\nS: 35-year-old patient reports burning when I pee.\nO: No physical exam available due to phone-only encounter.\nA: Assessment based on phone history and pathway logic (pathway: uti_male).\nP:\n- Plan pending reviewer confirmation (Tier-based autonomy).",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.aao.org/",
+        "snippet": "Listed in pathway manifest https://www.aao.org/"
+      },
+      {
+        "title": "uti_male references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": []
+}

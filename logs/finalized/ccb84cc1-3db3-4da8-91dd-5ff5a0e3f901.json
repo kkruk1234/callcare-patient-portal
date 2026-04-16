@@ -1,0 +1,81 @@
+{
+  "packet_id": "86b50884-6a25-43cb-92b3-d43160161689",
+  "created_at": "2026-03-04T14:15:34.848436+00:00",
+  "session_id": "ccb84cc1-3db3-4da8-91dd-5ff5a0e3f901",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any difficulty breathing, coughing, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any recent activities or movements that seemed to trigger or worsen your back pain?",
+    "intake_a9": "poor posture and leaning against the area when sitting makes the pain worse",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent unexplained fractures?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "treatment of musculoskeletal back pain left lower rib",
+      "NSAID dosing for rib cage musculoskeletal pain",
+      "differential diagnosis for unilateral lower rib cage pain",
+      "indications for imaging in rib cage pain"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of left side lower rib cage back pain. She denies any recent injury or trauma, fever, chills, unexplained weight loss, difficulty breathing, coughing, chest pain, numbness, tingling, or weakness in her legs or feet. She reports that poor posture and leaning against the area when sitting worsen the pain. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, recent infections, osteoporosis, cancer, or unexplained fractures.\n\nO: Phone evaluation only; no vital signs or physical examination available.\n\nA: The working diagnosis is musculoskeletal pain likely related to poor posture and mechanical strain. Differential diagnoses include 1) intercostal muscle strain, 2) costochondritis, 3) early rib stress injury or fracture, and 4) referred pain from thoracic spine pathology.\n\nP: First-line medication: Ibuprofen 400 mg orally every 6 to 8 hours with food, not to exceed 1200 mg per day, for up to 7 days.\nAlternatives: Naproxen 250 mg orally twice daily with food, or acetaminophen 500 mg every 6 hours as needed if NSAIDs are contraindicated.\nMedication safety considerations: Use NSAIDs with caution if gastrointestinal symptoms develop; avoid NSAIDs if history of peptic ulcer disease or renal impairment (not present here). Avoid exceeding recommended doses. Monitor for any new symptoms such as worsening pain, fever, or neurological changes.\nReturn precautions: Return or seek urgent care if the pain worsens significantly, if new symptoms develop such as numbness, weakness, fever, unexplained weight loss, chest pain, or difficulty breathing.\nTesting: Not indicated at this time given absence of red flag symptoms; consider imaging if symptoms persist beyond 6 weeks or worsen despite treatment.\n",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Pharmacologic Therapy for Acute Pain",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2021/0700/p63.pdf",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      },
+      {
+        "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+        "source": "aafp.org",
+        "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+        "accessed": "2026-03-04",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Pharmacologic Therapy for Acute Pain",
+      "source": "aafp.org",
+      "snippet": ""
+    },
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

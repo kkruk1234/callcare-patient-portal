@@ -1,0 +1,10 @@
+{
+  "title": "Promoting Interoperability Program | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/cdaportal/datainteroperability.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "Program Validation Tool \nTo be considered a meaningful user and avoid a downward payment adjustment, eligible hospitals and CAHs attesting to the Medicare Promoting Interoperability Program will be required to use CEHRT that has been updated to meet 2015 Edition Cures Update criteria.\nAs part of this certification, an Electronic Health Record (EHR) or EHR Module must be capable of creating CDA documents for AUR conformant to the CDA Implementation Guides below. (You must log into the HL7 site to download an Implementation Guide)\nThe following CDA files must all be successfully generated.\nAntimicrobial Resistance Option (ARO) Report (Numerator): Use the SVAP-approved standard: R2 Implementation Guide: Healthcare Associated Infection (HAI) Reports, Release 3 &ndash; US Realm (Volume 3) \nAntimicrobial Resistance Option (ARO) Summary Report (Denominator): Use the SVAP-approved standard: R2 Implementation Guide: Healthcare Associated Infection (HAI) Reports, Release 3 &ndash; US Realm (Volume 3) \nAntimicrobial Use (AUP) Summary Report (Numerator and Denominator): Continue to use the base standard adopted at 170.205(r)(1): Release 2: Healthcare Associated Infection Reports, Release 1 &ndash; August 2013 , specific document template in Section 2.1.1.2 (pages 56-58) \nVendors may self-check their XML files for compliance to the Implementation Guides prior to sending them to the ONC Heal",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_cdaportal_datainteroperability_html_dab5c2515c9c",
+  "chunk_id": "chunk_005"
+}

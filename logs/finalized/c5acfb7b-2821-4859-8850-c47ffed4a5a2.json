@@ -1,0 +1,101 @@
+{
+  "packet_id": "85fb3ce3-1bae-4a28-9d39-97f108d59748",
+  "created_at": "2026-02-27T20:39:53.675322+00:00",
+  "session_id": "c5acfb7b-2821-4859-8850-c47ffed4a5a2",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help much",
+    "intake_q8": "Any history of kidney problems, urinary symptoms, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of lung disease, cancer, or recent travel?",
+    "intake_a9": "no",
+    "intake_q10": "Can you describe the quality of the pain and whether it changes with movement or breathing?",
+    "intake_a10": "dull ache and it improves with improved posture",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "guidelines for managing left lower rib cage back pain",
+      "adult dosing and duration of NSAIDs for back pain",
+      "red flags and return precautions for back pain with no systemic symptoms"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. The pain improves with improved posture and is not associated with any recent trauma, fever, chills, weight loss, respiratory symptoms, or neurological deficits. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, lung disease, cancer, or recent travel. O: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely related to postural strain or intercostal muscle irritation given the location, quality, and improvement with posture.\nDifferential:\n1. Musculoskeletal strain or intercostal muscle irritation\n2. Costochondritis\n3. Rib fracture (occult)\n4. Early herpes zoster (pre-eruption phase)\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief\n - Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n - Medication safety considerations: Use NSAIDs with caution if gastrointestinal or renal risk factors develop; avoid NSAIDs in patients with known renal or liver disease\n - Return precautions: Advise patient to seek care if pain worsens, new neurological symptoms develop, fever or systemic symptoms appear, or if rash develops\n - Testing: Not indicated at this time given absence of red flags; consider imaging if symptoms persist or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Evaluation and Treatment of Acute Low Back Pain | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2007/0415/p1181.html",
+        "accessed": "2026-02-27",
+        "snippet": "22 Acetaminophen in recommended dosages (i.e., up to 4 g per day in patients without liver problems) can be a helpful adjunct and avoids the renal and gastrointestinal toxicities of NSAIDs."
+      },
+      {
+        "title": "Nonspecific Low Back Pain and Return to Work | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2007/1115/p1497.html",
+        "accessed": "2026-02-27",
+        "snippet": "Nonspecific Low Back Pain and Return to Work | AAFP --> --> --> --> --> Advertisement Search search close TRANG H."
+      },
+      {
+        "title": "Assessment and Management of Acute Low Back Pain | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/1999/1115/p2299.html",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "aafp tables content0.print.html",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2021/0700/p63/jcr%3Acontent/root/aafp-article-primary-content-container/aafp_article_main_par/aafp_tables_content0.print.html",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

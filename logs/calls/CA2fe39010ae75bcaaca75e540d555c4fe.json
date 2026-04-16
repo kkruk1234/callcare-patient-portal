@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA2fe39010ae75bcaaca75e540d555c4fe",
+  "session_id": "3f1bfe08-3a40-4daf-b602-fe6c33343572",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-13T17:43:00.657033+00:00",
+  "ended_at": "2026-03-13T17:48:13.386528+00:00",
+  "packet_id": "34dd2da1-dba0-4df9-97e8-a7a01a0f98eb",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I blacked out earlier today."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what you were doing just before you blacked out and how long you were unconscious?"
+    },
+    {
+      "role": "user",
+      "text": "I was sitting on my chair and I got up."
+    },
+    {
+      "role": "assistant",
+      "text": "Did you experience any warning signs like dizziness, chest pain, palpitations, or shortness of breath before you blacked out?"
+    },
+    {
+      "role": "user",
+      "text": "And then I blacked out for, like, 10 seconds."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of heart problems, seizures, or recent head injury?"
+    },
+    {
+      "role": "user",
+      "text": "I did think I had a I my weight slot was racing."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about your heart racing—how long did it last, and did you notice any other symptoms like chest pain, shortness of breath, or sweating?"
+    },
+    {
+      "role": "user",
+      "text": "I was sweated."
+    },
+    {
+      "role": "assistant",
+      "text": "Any chest pain, shortness of breath, or weakness after you woke up from the blackout?"
+    },
+    {
+      "role": "user",
+      "text": "Even though I was inside. And but nothing else."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever experienced similar episodes of blacking out or heart racing before?"
+    },
+    {
+      "role": "user",
+      "text": "This is the fourth time and I felt very weak."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have any known medical conditions like diabetes, high blood pressure, or if you take any medications?"
+    },
+    {
+      "role": "user",
+      "text": "I take penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe any recent illnesses, dehydration, or if you stood up quickly before you blacked out?"
+    },
+    {
+      "role": "user",
+      "text": "For my infected toe."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the infection in your toe and if you have had any fever or chills recently?"
+    },
+    {
+      "role": "user",
+      "text": "I was kind of I was kinda cold 3 minutes ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have any history of heart disease, arrhythmias, or if you have ever been told you have a fast or irregular heartbeat?"
+    },
+    {
+      "role": "user",
+      "text": "That's it though."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "44."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’ve had several brief fainting episodes likely related to changes in your blood pressure or a common reflex called vasovagal syncope, especially since it happens when you stand up. Right now, no medication is recommended, but it’s important to stay well hydrated and get up slowly from sitting or lying down. Because I can’t examine you or do tests over the phone, a licensed physician will review your information and may suggest further evaluation, like heart monitoring or an ECG, to rule out any heart rhythm issues. If you have another blackout, chest pain, severe weakness, or any new neurological symptoms, please seek in-person care the same day. If you lose consciousness for a long time or have a seizure, go to the emergency room immediately. A doctor will review your case and decide if any treatment or testing is needed next."
+    }
+  ]
+}

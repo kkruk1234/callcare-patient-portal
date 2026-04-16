@@ -1,0 +1,47 @@
+pathway_id: pneumonia_possible
+version: 3
+last_updated: "2026-01-26"
+
+notes:
+  - "Phone-only encounter: no vitals, no exam, no imaging. This protocol is conservative."
+  - "Tier 1 physician review required before any prescription is issued."
+  - "If any red flags or high-risk features: recommend in-person evaluation (urgent care/ED)."
+  - "Antibiotic choice depends on local resistance patterns, comorbidities, allergy history, and recent antibiotics."
+
+exclusions:
+  - "Age < 18"
+  - "Pregnant or possibly pregnant (needs tailored antibiotic choice)"
+  - "Severe trouble breathing at rest / cannot speak full sentences / blue lips"
+  - "Confusion / altered mental status"
+  - "Persistent chest pain/pressure or severe pleuritic pain"
+  - "Hemoptysis more than streaks"
+  - "Immunocompromised (significant)"
+  - "Unable to tolerate oral fluids/meds"
+  - "Recent hospitalization or IV antibiotics in last 90 days"
+
+rx_options:
+  # Ordered to match common first-line outpatient choices in low-risk adults and to align with the primary option selection.
+  - med: "Doxycycline"
+    dosing: "100 mg by mouth twice daily for 5 days (minimum; extend to 7 days if slow improvement)"
+    exclusions: "Pregnancy/possible pregnancy; severe liver disease; allergy/intolerance"
+  - med: "Azithromycin"
+    dosing: "500 mg by mouth on day 1, then 250 mg by mouth daily on days 2–5"
+    exclusions: "QT prolongation history or on QT-prolonging meds; significant liver disease; allergy/intolerance; use only if locally appropriate"
+  - med: "Amoxicillin-clavulanate + Azithromycin"
+    dosing: "Amoxicillin-clavulanate 875/125 mg PO twice daily for 5–7 days PLUS azithromycin 500 mg day 1 then 250 mg daily days 2–5"
+    exclusions: "Severe beta-lactam anaphylaxis; QT risk (for azithro); renal dose adjustment may be needed in CKD"
+
+supportive_care:
+  - "Hydration and rest."
+  - "Acetaminophen for fever/pain if safe for the patient."
+  - "Avoid NSAIDs if kidney disease, ulcer/GI bleed history, or blood thinners."
+
+followup_and_safety:
+  - item: "Follow-up"
+    details: "Recheck within 24–48 hours if started antibiotics; sooner if worsening."
+  - item: "Expected course"
+    details: "Some improvement by 48–72 hours if bacterial and treated; cough can last longer."
+  - item: "Go to urgent care/ED now if"
+    details: "Trouble breathing, chest pain, blue lips, confusion, fainting, or rapidly worsening symptoms."
+  - item: "In-person evaluation needed if"
+    details: "No improvement by 72 hours, persistent high fever, inability to keep fluids down, or concern for dehydration."

@@ -1,0 +1,31 @@
+id: uti_male
+version: 0.1
+match:
+  any_keywords: ["burning when i pee", "burning urination", "painful urination", "male uti", "man uti", "urinary infection in man", "urinary frequency and burning male"]
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: flank
+    prompt: "Any back/flank pain near the kidneys? (yes/no)"
+    store_as: flank_pain
+    type: yesno
+
+  - id: testicular
+    prompt: "Any testicular pain or swelling? (yes/no)"
+    store_as: testicular_pain
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["fever", "flank", "testicular"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

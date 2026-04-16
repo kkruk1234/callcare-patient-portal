@@ -1,0 +1,26 @@
+id: appendicitis_possible
+version: 0.1
+match:
+  any_keywords: ["right lower belly pain", "right lower abdominal pain", "pain moved to right lower", "appendicitis", "belly pain now right side"]
+questions:
+  - id: severe
+    prompt: "Is the pain severe or getting rapidly worse? (yes/no)"
+    store_as: severe
+    type: yesno
+
+  - id: vomiting
+    prompt: "Have you been vomiting or unable to keep fluids down? (yes/no)"
+    store_as: vomiting
+    type: yesno
+
+  - id: rebound
+    prompt: "Does it hurt more with walking, coughing, or bumps in the road? (yes/no)"
+    store_as: peritoneal_like
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["severe", "vomiting", "rebound"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

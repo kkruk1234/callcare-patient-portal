@@ -1,0 +1,31 @@
+id: pyelonephritis_possible
+version: 0.1
+match:
+  any_keywords: ["uti with fever", "burning pee with fever", "flank pain and fever", "kidney infection", "back pain and burning pee"]
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: flank
+    prompt: "Any back/flank pain near the kidneys? (yes/no)"
+    store_as: flank_pain
+    type: yesno
+
+  - id: vomiting
+    prompt: "Any vomiting or unable to keep fluids down? (yes/no)"
+    store_as: vomiting
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["fever", "flank", "vomiting"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,35 @@
+id: dvt_possible
+version: 0.2
+match:
+  any_keywords: ["dvt", "deep vein thrombosis", "blood clot in leg", "one leg swollen", "unilateral leg swelling", "calf pain after travel", "leg clot"]
+questions:
+
+  - id: unilateral_swelling
+    prompt: "Is the swelling mainly on one side (one leg), rather than both legs? (yes/no/unknown)"
+    type: text
+    store_as: unilateral_swelling
+
+  - id: dvt_symptom_cluster
+    prompt: "Which of these are you having? Say all that apply (or say 'none'): swelling, warmth, redness, pain when walking."
+    type: text
+    store_as: dvt_symptom_cluster
+
+  - id: clot_risk_factors_1
+    prompt: "Any blood clot risk factors in the past month? Say all that apply (or say 'none'): recent surgery or hospitalization, long travel with little movement, immobilization (bedbound/cast)."
+    type: text
+    store_as: clot_risk_factors_1
+
+  - id: clot_risk_factors_2
+    prompt: "Any additional blood clot risk factors? Say all that apply (or say 'none'): active cancer, prior DVT/PE, estrogen hormones (birth control/HRT), pregnancy or postpartum."
+    type: text
+    store_as: clot_risk_factors_2
+
+  - id: pe_symptoms_now
+    prompt: "Right now, which are you having? Say all that apply: new shortness of breath, chest pain. Or say 'neither'."
+    type: text
+    store_as: pe_symptoms_now
+
+  - id: pain_out_of_proportion
+    prompt: "Is the pain severe compared with what you can see on the skin? (yes/no/unknown)"
+    type: text
+    store_as: pain_out_of_proportion

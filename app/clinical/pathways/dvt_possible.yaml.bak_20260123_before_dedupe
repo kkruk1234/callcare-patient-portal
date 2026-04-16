@@ -1,0 +1,29 @@
+id: dvt_possible
+version: 0.2
+match:
+  any_keywords: ["dvt", "deep vein thrombosis", "blood clot", "clot", "unilateral leg swelling", "one leg swollen", "calf pain", "swollen leg"]
+questions:
+  - id: unilateral_swelling
+    prompt: "Is the swelling mainly on one side (one leg), rather than both legs? (yes/no/unknown)"
+    type: text
+    store_as: unilateral_swelling
+
+  - id: dvt_symptoms
+    prompt: "Which of these are you having? Say all that apply (or say 'none'): calf pain or tenderness, swelling, warmth, redness, pain when walking."
+    type: text
+    store_as: dvt_symptoms
+
+  - id: dvt_risk_factors_recent
+    prompt: "Any blood clot risk factors in the past month? Say all that apply (or say 'none'): recent surgery or hospitalization, long travel with little movement, immobilization (bedbound/cast)."
+    type: text
+    store_as: dvt_risk_factors_recent
+
+  - id: dvt_risk_factors_additional
+    prompt: "Any additional blood clot risk factors? Say all that apply (or say 'none'): active cancer, prior DVT/PE, estrogen hormones (birth control/HRT), pregnancy or postpartum."
+    type: text
+    store_as: dvt_risk_factors_additional
+
+  - id: pe_symptoms
+    prompt: "Right now, which are you having? Say all that apply: new shortness of breath, chest pain. Or say 'neither'."
+    type: text
+    store_as: pe_symptoms

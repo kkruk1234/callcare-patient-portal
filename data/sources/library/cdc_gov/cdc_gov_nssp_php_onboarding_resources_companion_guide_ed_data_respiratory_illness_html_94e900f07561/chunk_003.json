@@ -1,0 +1,10 @@
+{
+  "title": "Companion Guide: NSSP ED Data on Respiratory Illness | National Syndromic Surveillance Program (NSSP) | CDC",
+  "url": "https://www.cdc.gov/nssp/php/onboarding-resources/companion-guide-ed-data-respiratory-illness.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "because the proportion of records with a discharge diagnosis is low. Jurisdiction-level data are not shown for New Hampshire, South Dakota, and Washington to ensure data use and other sharing agreements are appropriately addressed prior to public release. Guam is not shown due to small counts.\nEmergency department visits were assigned to the Morbidity and Mortality Weekly Report (MMWR) week they occurred; MMWR weeks begin on Sunday and end on the following Saturday. MMWR week #1 of an MMWR year is the first week of the year that has at least four days in the calendar year.\nConsiderations for interpretation of data \nVariability in testing practices for different viruses and in different age groups may lead to under-ascertainment of respiratory infections in electronic healthcare data, including emergency department visits. Patients who are less likely to be tested are less likely to be included. These data are based on electronic diagnostic codes transmitted automatically in near real-time, and hospital practices for assigning these codes can vary. These data are dynamic and update as codes are added and changed.\nThe weekly percent of emergency department visits with COVID-19 diagnosis on this site are not designed to match the percentages shown on the CDC COVID Data Tracker. Metrics will differ across websites due to factors such as updates on different days of the week or diff",
+  "source_type": "library",
+  "source_id": "cdc_gov_nssp_php_onboarding_resources_companion_guide_ed_data_respiratory_illness_html_94e900f07561",
+  "chunk_id": "chunk_003"
+}

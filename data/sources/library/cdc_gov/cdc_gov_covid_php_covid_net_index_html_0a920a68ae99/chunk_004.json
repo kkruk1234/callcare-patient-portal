@@ -1,0 +1,10 @@
+{
+  "title": "COVID-NET | Covid | CDC",
+  "url": "https://www.cdc.gov/covid/php/covid-net/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ck anywhere in the graph for a tabular view. Hovering your mouse over or selecting a data point or bar in the graph will display detailed information. Some graphs allow you to hide or show data from the legend for detailed analysis.\nThis dashboard is updated weekly. Data are preliminary and subject to change as more data become available. Rates for recent hospital admissions are subject to reporting delays that might increase around holidays or during periods of increased hospital utilization. As new data are received each week, previous rates are updated accordingly.\nWhy COVID-NET Data Are Important \nCOVID-19-associated hospitalization rates are used to understand trends in virus circulation, estimate disease burden, and respond to outbreaks. Demographic and detailed clinical information, including underlying conditions, allow CDC to better understand COVID-19-associated hospitalization trends and determine who is most at risk. \nKey Concept \nPopulation-based surveillance is the active collection, analysis, and interpretation of data on a population in a specified geographic area. \nCOVID-NET: Monitoring COVID-19 Hospitalizations \nCase Definition \nA case is defined as laboratory-confirmed SARS-CoV-2 in a person who: \nLives in a defined COVID-NET surveillance area AND \nTests positive for SARS-CoV-2 (using a laboratory-based molecular, antigen or serology test) within 14 days befo",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_php_covid_net_index_html_0a920a68ae99",
+  "chunk_id": "chunk_004"
+}

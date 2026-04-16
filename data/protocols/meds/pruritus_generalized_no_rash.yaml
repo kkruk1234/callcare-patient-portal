@@ -1,0 +1,24 @@
+rx_options:
+- med: Cetirizine
+  dosing: 10 mg PO daily PRN itching
+  exclusions: Allergy; sedation with other CNS depressants (clinician judgment).
+  notes: Non-sedating antihistamine option.
+- med: Hydroxyzine
+  dosing: 10–25 mg PO at night PRN itching (reviewer)
+  exclusions: Sedation, QT risk, avoid in older adults/anticholinergic sensitivity;
+    pregnancy considerations.
+  notes: Night-time itch; reviewer-directed.
+supportive_care:
+- item: Skin care
+  details: Moisturize twice daily with fragrance-free emollient; lukewarm showers;
+    gentle soaps.
+- item: Avoid triggers
+  details: Avoid new detergents/fragrances; keep nails short to reduce skin injury
+    from scratching.
+followup_and_safety:
+- item: Re-evaluation
+  details: If itching persists >1–2 weeks, is severe, or associated with weight loss,
+    jaundice, night sweats, or new meds—needs evaluation.
+- item: Urgent/ED now
+  details: Any trouble breathing, swelling of lips/tongue, fainting, or widespread
+    blistering rash.

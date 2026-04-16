@@ -1,0 +1,830 @@
+from __future__ import annotations
+
+import importlib
+import os
+import re
+import time
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Tuple, Optional
+
+from app.core.models import CallState, EvidenceRef, NoteDraft
+from app.clinical.med_protocols import load_med_protocol_for_state, format_protocol_as_plan_lines, protocol_med_names
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _model_field_names(model_cls) -> set:
+    if hasattr(model_cls, "model_fields"):  # pydantic v2
+        return set(model_cls.model_fields.keys())
+    if hasattr(model_cls, "__fields__"):  # pydantic v1
+        return set(model_cls.__fields__.keys())
+    return set()
+
+
+_EVID_FIELDS = _model_field_names(EvidenceRef)
+
+
+def _mk_evidence_ref(data: Dict[str, Any]) -> EvidenceRef:
+    safe = {k: v for k, v in data.items() if k in _EVID_FIELDS}
+
+    if "source" in _EVID_FIELDS and not safe.get("source"):
+        safe["source"] = "Unknown source"
+    if "snippet" in _EVID_FIELDS and safe.get("snippet") is None:
+        safe["snippet"] = ""
+    if "title" in _EVID_FIELDS and not safe.get("title"):
+        safe["title"] = safe.get("source", "Evidence")
+
+    return EvidenceRef(**safe)
+
+
+def _decision_bits(state: CallState) -> Tuple[str, List[str], List[str]]:
+    decision = getattr(state, "decision", None)
+    if not decision:
+        return ("", [], [])
+    disposition = str(getattr(decision, "disposition", "") or "")
+    plan = list(getattr(decision, "plan", []) or [])
+    safety = list(getattr(decision, "safety_net", []) or [])
+    plan = [str(x) for x in plan if str(x).strip()]
+    safety = [str(x) for x in safety if str(x).strip()]
+    return (disposition, plan, safety)
+
+
+def _is_emergent_disposition(disposition: str) -> bool:
+    d = (disposition or "").lower()
+    return any(x in d for x in ["call 911", "ems", "emergency", "ed now", "go to the er", "go to er", "er now"])
+
+
+def _avoid_otc_from_text(plan: List[str], soap_text: str) -> bool:
+    haystack = " ".join(plan) + "\n" + (soap_text or "")
+    h = haystack.lower()
+    return (
+        "avoid self-medicating" in h
+        or ("avoid" in h and "nsaid" in h)
+        or ("avoid" in h and "acetaminophen" in h)
+        or ("avoid" in h and "tylenol" in h)
+        or ("avoid" in h and "ibuprofen" in h)
+    )
+
+
+def _symptoms(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+# ----------------------------
+# Minimal pregnancy handling
+# ----------------------------
+
+def _normalize_preg_value(raw: Any) -> str:
+    s = ("" if raw is None else str(raw)).strip().lower()
+    if not s:
+        return ""
+    if s in ("no", "n", "false", "0", "not pregnant"):
+        return "no"
+    if s in ("yes", "y", "true", "1", "pregnant", "possible"):
+        return "yes"
+    if s in ("unknown", "unsure", "not sure", "maybe", "?"):
+        return "unknown"
+    if s in ("not_applicable", "not applicable", "na", "n/a", "male"):
+        return "not_applicable"
+    return "unknown"
+
+
+def _sync_pregnancy_from_answers(state: CallState) -> str:
+    """
+    Normalize pregnancy_possible to one of:
+      - "yes"
+      - "no"
+      - "unknown"
+      - "not_applicable"
+      - "" (missing)
+    Accepts free-text answers because some pathways use type:text.
+    """
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if not isinstance(sx, dict):
+            sx = {}
+        ans = sx.get("_answers", {}) or {}
+        if not isinstance(ans, dict):
+            ans = {}
+
+        raw = ans.get("pregnancy_possible")
+        if raw is None or str(raw).strip() == "":
+            # fallback: state attribute or symptoms direct
+            raw = getattr(state, "pregnancy_possible", None)
+        if raw is None or str(raw).strip() == "":
+            raw = sx.get("pregnancy_possible", None)
+
+        if raw is None:
+            return ""
+
+        s = str(raw).strip().lower()
+
+        # normalize common variants
+        if s in ("y", "yes", "yeah", "yep", "true", "pregnant"):
+            return "yes"
+        if s in ("n", "no", "nope", "false", "not pregnant"):
+            return "no"
+        if s in ("unknown", "unsure", "not sure", "dont know", "don't know", "maybe", "possible"):
+            return "unknown"
+        if s in ("na", "n/a", "not applicable", "not-applicable", "not_applicable"):
+            return "not_applicable"
+
+        # If the user typed something else, be conservative and mark unknown
+        return "unknown"
+    except Exception:
+        return ""
+
+def _preg_sentence_from_norm(preg_norm: str) -> str:
+    """
+    Turn normalized pregnancy value into a clear declarative sentence for Subjective.
+    """
+    try:
+        s = (preg_norm or "").strip().lower()
+        if s == "yes":
+            return "Patient is pregnant."
+        if s == "no":
+            return "Patient is not pregnant."
+        if s == "unknown":
+            return "Pregnancy status is unknown."
+        if s == "not_applicable":
+            return "Pregnancy is not applicable."
+        return ""
+    except Exception:
+        return ""
+
+def _inject_preg_sentence_into_subjective(soap_text: str, preg_sentence: str) -> str:
+    """
+    Insert a pregnancy sentence into the Subjective section if not already present.
+    - If the note has a 'S:' line, insert right after it.
+    - If the note has a 'Subjective:' header, insert right after it.
+    - Never duplicates if any 'pregnan' text already exists anywhere in the SOAP.
+    """
+    try:
+        if not soap_text or not preg_sentence:
+            return soap_text
+        if "pregnan" in soap_text.lower():
+            return soap_text
+
+        lines = soap_text.splitlines()
+
+        # Prefer S: header
+        for i, ln in enumerate(lines):
+            if re.match(r"^\s*S\s*:\s*$", ln):
+                lines.insert(i + 1, f"- {preg_sentence}")
+                return "\n".join(lines)
+
+        # Or Subjective: header
+        for i, ln in enumerate(lines):
+            if re.match(r"^\s*Subjective\s*:\s*$", ln, flags=re.IGNORECASE):
+                lines.insert(i + 1, f"- {preg_sentence}")
+                return "\n".join(lines)
+
+        # Fallback: prepend to top
+        return (preg_sentence + "\n" + soap_text).rstrip() + "\n"
+    except Exception:
+        return soap_text
+
+
+def _fix_tick_attachment_wording_in_subjective(soap_text: str) -> str:
+    try:
+        if not soap_text:
+            return soap_text
+
+        lines = soap_text.splitlines()
+
+        s_idx = None
+        for i, line in enumerate(lines):
+            if line.strip() == "S:" or line.strip().startswith("S:"):
+                s_idx = i
+                break
+        if s_idx is None:
+            return soap_text
+
+        start = s_idx + 1 if lines[s_idx].strip() == "S:" else s_idx
+
+        for j in range(start, len(lines)):
+            txt = lines[j]
+
+            if j != s_idx and txt.strip() == "":
+                break
+            if txt.strip().startswith(("O:", "A:", "P:")):
+                break
+
+            if re.search(r"\btick\b.*\battached\b.*\bhours?\b", txt, flags=re.IGNORECASE):
+                continue
+
+            m = re.search(
+                r"(tick bite)\s+sustained(?:\s+in\s+([A-Za-z][A-Za-z .'-]{1,40}))?\s+approximately\s+(\d{1,3})\s*hours?\s+ago",
+                txt,
+                flags=re.IGNORECASE,
+            )
+            if not m:
+                continue
+
+            loc = (m.group(2) or "").strip()
+            hours = int(m.group(3))
+
+            if loc:
+                replacement = f"tick bite after exposure in {loc} with the tick attached for approximately {hours} hours"
+            else:
+                replacement = f"tick bite with the tick attached for approximately {hours} hours"
+
+            lines[j] = re.sub(
+                r"(tick bite)\s+sustained(?:\s+in\s+[A-Za-z][A-Za-z .'-]{1,40})?\s+approximately\s+\d{1,3}\s*hours?\s+ago",
+                replacement,
+                txt,
+                flags=re.IGNORECASE,
+            )
+
+        return "\n".join(lines)
+    except Exception:
+        return soap_text
+
+
+# ----------------------------
+# Med protocol injection into Plan (no duplicate meds)
+# ----------------------------
+
+def _strip_llm_med_regimen_from_plan_line(plan_line: str, med_names: List[str]) -> str:
+    """
+    If the LLM already wrote a med regimen in the same Plan line, strip it so the protocol block is the single source of truth.
+    Keeps the prefix "- Plan:" (and any whitespace).
+    """
+    try:
+        if not plan_line:
+            return plan_line
+        lower = plan_line.lower()
+        if not any((m or "").lower() in lower for m in med_names):
+            return plan_line
+
+        # Reduce to just the Plan label.
+        # Example: "  - Plan: blah blah doxycycline..." -> "  - Plan:"
+        m = re.match(r"^(\s*-\s*Plan\s*:)\s*(.*)$", plan_line)
+        if m:
+            return m.group(1)
+        m2 = re.match(r"^(\s*Plan\s*:)\s*(.*)$", plan_line)
+        if m2:
+            return m2.group(1)
+        return plan_line
+    except Exception:
+        return plan_line
+
+
+def _inject_med_protocol_into_plan(soap_text: str, state: CallState) -> str:
+    try:
+        if not soap_text:
+            return soap_text
+
+        protocol, _reason = load_med_protocol_for_state(state)
+        if not isinstance(protocol, dict) or not protocol:
+            return soap_text
+
+        # Pull answers from state.symptoms
+        sx = getattr(state, "symptoms", None) or {}
+        if not isinstance(sx, dict):
+            sx = {}
+
+        renal_raw = str(sx.get("renal_disease", "") or "").strip().lower()
+        renal_yes = renal_raw in ("yes", "y", "true")
+
+        preg_raw = str(sx.get("pregnancy_possible", "") or "").strip().lower()
+        preg_yes = preg_raw in ("yes", "y", "true", "pregnant")
+        preg_unknown = ("unknown" in preg_raw) or ("not sure" in preg_raw) or ("unsure" in preg_raw) or ("maybe" in preg_raw) or ("possible" in preg_raw) or (preg_raw == "")
+
+        # ---- Deterministic ordering preferences (only affects display order in protocol block) ----
+        # renal_yes: fosfomycin first (your rule), then nitro, then TMP-SMX
+        # preg yes/unknown (renal no): cephalexin first, then amox-clav; keep the rest after
+        pref = []
+        if renal_yes:
+            pref = ["fosfomycin", "nitrofurantoin", "trimethoprim-sulfamethoxazole"]
+        elif preg_yes or preg_unknown:
+            pref = ["cephalexin", "amoxicillin-clavulanate"]
+
+        rx = protocol.get("rx_options") or []
+        if isinstance(rx, list) and rx and pref:
+            def rank(r):
+                try:
+                    med = (r.get("med") or "").strip().lower()
+                except Exception:
+                    med = ""
+                for i, p in enumerate(pref):
+                    if med.startswith(p):
+                        return (0, i)
+                return (1, 999)
+
+            rx2 = []
+            for idx, r in enumerate(rx):
+                if isinstance(r, dict):
+                    rx2.append((rank(r), idx, r))
+            rx2.sort(key=lambda t: (t[0], t[1]))
+
+            protocol = dict(protocol)
+            protocol["rx_options"] = [t[2] for t in rx2]
+
+        # ---- Build protocol block lines DIRECTLY (preserve rx_options order exactly) ----
+        def _render_protocol_lines(p: dict) -> list:
+            out = []
+            out.append("Medication recommendations (Tier 1):")
+            out.append("Reviewing physician will confirm appropriateness and prescribe if indicated.")
+
+            rx2 = p.get("rx_options") or []
+            if isinstance(rx2, list):
+                for r in rx2:
+                    if not isinstance(r, dict):
+                        continue
+                    med = (r.get("med") or "").strip()
+                    dosing = (r.get("dosing") or "").strip()
+                    if not med:
+                        continue
+                    line = med + (f" — {dosing}" if dosing else "")
+                    out.append(line)
+                    notes = (r.get("notes") or "").strip()
+                    excl = (r.get("exclusions") or "").strip()
+                    if notes:
+                        out.append("Notes: " + notes)
+                    if excl:
+                        out.append("Exclusions: " + excl)
+
+            sc = p.get("supportive_care") or []
+            if isinstance(sc, list) and sc:
+                out.append("Supportive care:")
+                for it in sc:
+                    if isinstance(it, dict):
+                        item = (it.get("item") or "").strip()
+                        det = (it.get("details") or "").strip()
+                        if item and det:
+                            out.append(f"{item}: {det}")
+                        elif item:
+                            out.append(item)
+                    elif isinstance(it, str) and it.strip():
+                        out.append(it.strip())
+
+            fu = p.get("followup_and_safety") or []
+            if isinstance(fu, list) and fu:
+                out.append("Follow-up and safety:")
+                for it in fu:
+                    if isinstance(it, dict):
+                        item = (it.get("item") or "").strip()
+                        det = (it.get("details") or "").strip()
+                        if item and det:
+                            out.append(f"{item}: {det}")
+                        elif item:
+                            out.append(item)
+                    elif isinstance(it, str) and it.strip():
+                        out.append(it.strip())
+
+            return out
+
+        block = _render_protocol_lines(protocol)
+        if not block:
+            return soap_text
+
+        # Med names list for stripping duplicate LLM dosing from the Plan line
+        med_names = protocol_med_names(protocol)
+
+        lines = soap_text.splitlines()
+
+        plan_idx = None
+        for i, ln in enumerate(lines):
+            if re.match(r"^\s*-\s*Plan\s*:", ln):
+                plan_idx = i
+                break
+            if re.match(r"^\s*Plan\s*:", ln):
+                plan_idx = i
+                break
+
+        if plan_idx is None:
+            return soap_text
+
+        # If already injected, don't do it again
+        for j in range(plan_idx + 1, min(plan_idx + 80, len(lines))):
+            if "Medication protocol (from data/protocols/meds):" in lines[j]:
+                return soap_text
+
+        # Strip duplicate med regimen from the LLM plan line if meds are present there
+        if med_names:
+            lines[plan_idx] = _strip_llm_med_regimen_from_plan_line(lines[plan_idx], med_names)
+
+        base_indent = re.match(r"^(\s*)", lines[plan_idx]).group(1)  # type: ignore
+        child = base_indent + "  "
+        grand = child + "  "
+
+        injected: List[str] = []
+        injected.append(child + "Medication protocol (from data/protocols/meds):")
+
+        for item in block:
+            s = (item or "").strip()
+            if not s:
+                continue
+            if s.endswith(":"):
+                injected.append(child + f"- {s}")
+            elif s.startswith(("Notes:", "Exclusions:")):
+                injected.append(grand + f"- {s}")
+            else:
+                injected.append(child + f"- {s}")
+
+        new_lines = lines[: plan_idx + 1] + injected + lines[plan_idx + 1 :]
+
+        # ---- Targeted cleanup: remove known LLM boilerplate lines near Plan when protocol block exists ----
+        boiler = ("local resistance", "empiric antibiotic", "urine analysis", "urinalysis", "culture if possible", "guided by local")
+        start = plan_idx + 1 + len(injected)
+        end = min(plan_idx + 140, len(new_lines))
+        cleaned = []
+        for k, ln in enumerate(new_lines):
+            if k >= start and k < end:
+                s2 = ln.strip().lower()
+                if s2 and (not s2.startswith("-")) and any(b in s2 for b in boiler):
+                    continue
+            cleaned.append(ln)
+
+        return "\n".join(cleaned)
+    except Exception:
+        return soap_text
+
+
+def _rewrite_plan_with_primary_protocol_rx(soap_text: str, state: CallState) -> str:
+    """Rewrite the Plan line to read like a clinician plan:
+    Primary selection rules (deterministic):
+      1) If renal_disease == yes -> prefer Fosfomycin (safe w/o CrCl calculation; single dose).
+         Alternatives (in order when present): Nitrofurantoin, then TMP-SMX.
+      2) Else (no renal disease reported):
+         - If pregnancy yes/unknown -> prefer Cephalexin.
+         - If pregnancy no/not-applicable -> prefer Nitrofurantoin.
+    Keeps detailed protocol block below for reviewer/UI.
+    """
+    try:
+        if not soap_text:
+            return soap_text
+
+        protocol, _reason = load_med_protocol_for_state(state)
+        if not isinstance(protocol, dict):
+            return soap_text
+
+        rx = protocol.get("rx_options") or []
+        if not isinstance(rx, list):
+            return soap_text
+
+        meds = []
+        for r in rx:
+            if not isinstance(r, dict):
+                continue
+            med = (r.get("med") or "").strip()
+            dosing = (r.get("dosing") or "").strip()
+            if not med:
+                continue
+            meds.append((med, dosing))
+
+        if not meds:
+            return soap_text
+
+        # Pull answers from state.symptoms (where pathway store_as lands)
+        sx = getattr(state, "symptoms", None) or {}
+        if not isinstance(sx, dict):
+            sx = {}
+
+        renal_raw = str(sx.get("renal_disease", "") or "").strip().lower()
+        renal_yes = renal_raw in ("yes", "y", "true")
+
+        preg_raw = str(sx.get("pregnancy_possible", "") or "").strip().lower()
+
+        def _preg_bucket(v: str) -> str:
+            v = (v or "").strip().lower()
+            if v in ("yes", "y", "true", "pregnant"):
+                return "yes"
+            if v in ("no", "n", "false"):
+                return "no"
+            if "not sure" in v or "unsure" in v or v in ("unknown", "maybe", "possible"):
+                return "unknown"
+            if "not applicable" in v or v in ("na", "n/a"):
+                return "na"
+            return "unknown" if v else "unknown"
+
+        preg = _preg_bucket(preg_raw)
+
+        def _find_med(prefix: str):
+            pfx = prefix.lower()
+            for med, dose in meds:
+                if med.lower().startswith(pfx):
+                    return (med, dose)
+            return None
+
+        # Choose primary regimen
+        if renal_yes:
+            chosen = _find_med("fosfomycin") or meds[0]
+            primary_med, primary_dose = chosen
+
+            # Alternatives in requested order: nitrofurantoin then TMP-SMX
+            alt_pref = ["nitrofurantoin", "trimethoprim-sulfamethoxazole"]
+        else:
+            if preg in ("yes", "unknown"):
+                chosen = _find_med("cephalexin") or meds[0]
+            else:
+                chosen = _find_med("nitrofurantoin") or meds[0]
+            primary_med, primary_dose = chosen
+
+            # Default alternative: first other med in protocol
+            alt_pref = []
+
+        primary_txt = primary_med + (f" — {primary_dose}" if primary_dose else "")
+
+        # ONE brief alternative clause
+        alt_clause = ""
+        alt = None
+
+        if alt_pref:
+            for pfx in alt_pref:
+                cand = _find_med(pfx)
+                if cand and cand[0] != primary_med:
+                    alt = cand
+                    break
+
+        if alt is None and len(meds) > 1:
+            for med, dose in meds:
+                if med == primary_med:
+                    continue
+                alt = (med, dose)
+                break
+
+        if alt:
+            alt_med, alt_dose = alt
+            alt_txt = alt_med + (f" ({alt_dose})" if alt_dose else "")
+            alt_clause = f" Alternative: {alt_txt}."
+
+        lines = soap_text.splitlines()
+
+        plan_idx = None
+        for i, ln in enumerate(lines):
+            if re.match(r"^\s*-\s*Plan\s*:", ln):
+                plan_idx = i
+                break
+            if re.match(r"^\s*Plan\s*:", ln):
+                plan_idx = i
+                break
+        if plan_idx is None:
+            return soap_text
+
+        m1 = re.match(r"^(\s*-\s*Plan\s*:)(.*)$", lines[plan_idx])
+        if m1:
+            prefix = m1.group(1)
+            lines[plan_idx] = f"{prefix} {primary_txt}.{alt_clause}".rstrip()
+        else:
+            m2 = re.match(r"^(\s*Plan\s*:)(.*)$", lines[plan_idx])
+            if m2:
+                prefix = m2.group(1)
+                lines[plan_idx] = f"{prefix} {primary_txt}.{alt_clause}".rstrip()
+
+        return "\n".join(lines)
+    except Exception:
+        return soap_text
+
+
+def _build_query(state: CallState) -> str:
+    parts: List[str] = []
+    cc = (getattr(state, "chief_complaint", None) or "").strip()
+    if cc:
+        parts.append(cc)
+
+    pid = _pathway_id(state)
+    if pid:
+        parts.append(pid)
+
+    sx = _symptoms(state)
+    for k, v in sx.items():
+        if str(k).startswith("_"):
+            continue
+        if v is None or v == "":
+            continue
+        parts.append(f"{k}:{v}")
+
+    age_years = getattr(state, "age_years", None)
+    if age_years is not None and str(age_years).strip() != "":
+        parts.append(f"age:{age_years}")
+
+    return " ".join(parts).strip() or "general safety guidance"
+
+
+def _try_rag_search(query: str, k: int = 5):
+    candidates = [
+        ("app.rag.retriever", "search"),
+        ("app.rag.retriever", "retrieve"),
+        ("app.rag.search", "search"),
+        ("app.rag.search", "search_snippets"),
+        ("app.rag.index", "search"),
+        ("app.rag.query", "query"),
+        ("app.rag.rag", "query"),
+    ]
+    for mod_name, fn_name in candidates:
+        try:
+            mod = importlib.import_module(mod_name)
+            fn = getattr(mod, fn_name, None)
+            if not callable(fn):
+                continue
+            try:
+                res = fn(query, k=k)
+            except TypeError:
+                try:
+                    res = fn(query, top_k=k)
+                except TypeError:
+                    res = fn(query)
+
+            if res is None:
+                return []
+            if isinstance(res, dict) and "results" in res:
+                res = res["results"]
+            if isinstance(res, list):
+                out = []
+                for item in res:
+                    if isinstance(item, dict):
+                        out.append(item)
+                    else:
+                        out.append({
+                            "title": getattr(item, "title", "") or "",
+                            "source": getattr(item, "source", "") or "",
+                            "url": getattr(item, "url", "") or "",
+                            "snippet": getattr(item, "snippet", "") or getattr(item, "text", "") or "",
+                        })
+                return out
+        except Exception:
+            continue
+    return []
+
+
+def _evidence_from_decision(state: CallState) -> List[EvidenceRef]:
+    decision = getattr(state, "decision", None)
+    if not decision:
+        return []
+    dev = getattr(decision, "evidence", None)
+    if not dev:
+        return []
+
+    out: List[EvidenceRef] = []
+    for e in list(dev):
+        if isinstance(e, EvidenceRef):
+            out.append(e)
+            continue
+
+        if isinstance(e, dict):
+            title = (e.get("title") or "").strip()
+            source = (e.get("source") or "").strip()
+            url = (e.get("url") or "").strip()
+            snippet = (e.get("snippet") or e.get("text") or "").strip()
+        else:
+            title = (getattr(e, "title", "") or "").strip()
+            source = (getattr(e, "source", "") or "").strip()
+            url = (getattr(e, "url", "") or "").strip()
+            snippet = (getattr(e, "snippet", "") or getattr(e, "text", "") or "").strip()
+
+        if not (title or source or snippet):
+            continue
+
+        out.append(_mk_evidence_ref({
+            "title": title or source or "Evidence",
+            "source": source or title or "Source",
+            "url": url,
+            "snippet": snippet[:1200],
+        }))
+    return out
+
+
+def _evidence_from_rag(state: CallState, max_snips: int = 6) -> List[EvidenceRef]:
+    hits = _try_rag_search(_build_query(state), k=max_snips)
+    out: List[EvidenceRef] = []
+    for h in hits:
+        title = (h.get("title") or "").strip()
+        source = (h.get("source") or "").strip()
+        url = (h.get("url") or "").strip()
+        snippet = (h.get("snippet") or h.get("text") or "").strip()
+        if not (title or source or snippet):
+            continue
+        out.append(_mk_evidence_ref({
+            "title": title or source or "Evidence",
+            "source": source or title or "Source",
+            "url": url,
+            "snippet": snippet[:1200],
+        }))
+    return out
+
+
+def _merge_evidence(primary: List[EvidenceRef], secondary: List[EvidenceRef], max_total: int = 5) -> List[EvidenceRef]:
+    seen = set()
+    merged: List[EvidenceRef] = []
+    for ev in primary + secondary:
+        key = (
+            (getattr(ev, "title", "") or ""),
+            (getattr(ev, "source", "") or ""),
+            (getattr(ev, "url", "") or ""),
+            ((getattr(ev, "snippet", "") or "")[:120] if hasattr(ev, "snippet") else ""),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(ev)
+        if len(merged) >= max_total:
+            break
+    return merged
+
+
+def _build_patient_instructions(disposition: str, safety_net: List[str], allow_otc: bool) -> List[str]:
+    emergent = _is_emergent_disposition(disposition)
+    out: List[str] = []
+
+    if emergent:
+        out.append("Based on this phone evaluation, seek emergency in-person evaluation now.")
+        out.append("If you feel unsafe to travel, consider calling emergency services or having someone take you.")
+    else:
+        out.append("If you are not improving as expected, or if symptoms worsen, seek in-person medical care.")
+
+    for s in safety_net[:10]:
+        out.append(s)
+
+    if allow_otc:
+        out.append("Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely.")
+
+    return out
+
+
+def _generate_llm_soap_with_retry(state: CallState, evidence: List[EvidenceRef]) -> Tuple[str, str]:
+    if os.environ.get("CALLCARE_NO_LLM", "").strip() in ("1", "true", "yes", "on"):
+        return ("", "CALLCARE_NO_LLM enabled")
+
+    try:
+        llm = importlib.import_module("app.clinical.llm_note_writer")
+        build_prompt = getattr(llm, "build_prompt", None)
+        generate_note_text = getattr(llm, "generate_note_text", None)
+        if not callable(build_prompt) or not callable(generate_note_text):
+            return ("", "llm_note_writer missing required functions")
+
+        prompt = build_prompt(state=state, evidence=evidence)
+
+        for attempt in range(3):
+            try:
+                txt = generate_note_text(prompt) or ""
+                if txt.strip():
+                    return (txt, "")
+                return ("", "empty LLM output")
+            except Exception as e:
+                msg = str(e)
+                if ("RateLimitError" in type(e).__name__) or ("rate_limit" in msg.lower()) or ("429" in msg):
+                    if attempt < 2:
+                        time.sleep(2.5 * (attempt + 1))
+                        continue
+                    return ("", "rate limit (429)")
+                return ("", f"{type(e).__name__}: {msg[:160]}")
+        return ("", "rate limit (429)")
+    except Exception as e:
+        return ("", f"{type(e).__name__}: {str(e)[:160]}")
+
+
+def build_note(state: CallState) -> NoteDraft:
+    disposition, plan, safety = _decision_bits(state)
+
+    ev_dec = _evidence_from_decision(state)
+    ev_rag = _evidence_from_rag(state, max_snips=6) if len(ev_dec) < 3 else []
+    evidence = _merge_evidence(ev_dec, ev_rag, max_total=5)
+
+    preg_norm = _sync_pregnancy_from_answers(state)
+    preg_sentence = _preg_sentence_from_norm(preg_norm)
+
+    soap_text, err = _generate_llm_soap_with_retry(state, evidence)
+    if not soap_text.strip():
+        soap_text = f"(NOTE: LLM note generation unavailable: {err})\n"
+
+    soap_text = _inject_preg_sentence_into_subjective(soap_text, preg_sentence)
+    soap_text = _fix_tick_attachment_wording_in_subjective(soap_text)
+
+    # Deterministic meds injection (and strip duplicate LLM dosing in Plan if present)
+    soap_text = _inject_med_protocol_into_plan(soap_text, state)
+    soap_text = _rewrite_plan_with_primary_protocol_rx(soap_text, state)
+
+    allow_otc = (not _is_emergent_disposition(disposition)) and (not _avoid_otc_from_text(plan, soap_text))
+    patient_instructions = _build_patient_instructions(disposition, safety, allow_otc)
+
+    clinician_questions: List[str] = []
+    allergies = getattr(state, "allergies", None)
+    if allergies:
+        clinician_questions.append(f"Medication allergies: {allergies}")
+
+    risk_flags: List[str] = []
+    rf = getattr(state, "red_flags", None)
+    if isinstance(rf, list):
+        risk_flags = [str(x) for x in rf if str(x).strip()]
+
+    return NoteDraft(
+        soap=soap_text,
+        patient_instructions=patient_instructions,
+        clinician_questions=clinician_questions,
+        risk_flags=risk_flags,
+        evidence=evidence,
+    )

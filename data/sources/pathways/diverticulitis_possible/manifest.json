@@ -1,0 +1,20 @@
+{
+  "pathway_id": "diverticulitis_possible",
+  "sources": [
+    {
+      "title": "Diverticulosis and diverticulitis",
+      "source": "NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/diverticulosis-diverticulitis"
+    },
+    {
+      "title": "Diverticular disease (clinical overview)",
+      "source": "NHS",
+      "url": "https://www.nhs.uk/conditions/diverticular-disease-and-diverticulitis/"
+    },
+    {
+      "title": "Acute diverticulitis (guideline)",
+      "source": "American College of Gastroenterology (ACG)",
+      "url": "https://gi.org/"
+    }
+  ]
+}

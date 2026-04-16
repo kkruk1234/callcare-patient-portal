@@ -1,0 +1,35 @@
+id: red_eye
+version: 0.1
+match:
+  any_keywords: ["red eye", "pink eye", "conjunctivitis", "eye pain", "photophobia", "foreign body", "blurred vision"]
+questions:
+  - id: vision_loss
+    prompt: "Any sudden vision loss or major change in vision? (yes/no)"
+    store_as: vision_loss
+    type: yesno
+
+  - id: severe_pain_photophobia
+    prompt: "Is there severe eye pain or strong light sensitivity (photophobia)? (yes/no)"
+    store_as: severe_pain_photophobia
+    type: yesno
+
+  - id: contact_lens
+    prompt: "Do you wear contact lenses? (yes/no)"
+    store_as: contact_lens
+    type: yesno
+
+  - id: discharge
+    prompt: "Is there discharge (watery vs thick/pus)? (watery/thick/none)"
+    store_as: discharge
+
+  - id: trauma_chemical
+    prompt: "Any eye injury or chemical exposure? (yes/no)"
+    store_as: trauma_chemical
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["vision_loss","severe_pain_photophobia","contact_lens","discharge","trauma_chemical"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

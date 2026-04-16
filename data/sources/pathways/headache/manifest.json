@@ -1,0 +1,26 @@
+{
+  "pathway_id": "headache",
+  "sources": [
+    {
+      "id": "aafp_acute_headache_diagnostic_approach_2022",
+      "type": "web",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0900/acute-headache-adults.html",
+      "title": "AAFP: Acute Headache in Adults — Diagnostic Approach",
+      "license_note": "Educational article; excerpt briefly."
+    },
+    {
+      "id": "nice_cg150_headaches_over_12_recommendations",
+      "type": "web",
+      "url": "https://www.nice.org.uk/guidance/cg150/chapter/recommendations",
+      "title": "NICE CG150: Headaches in over 12s — Recommendations",
+      "license_note": "Use short excerpts only."
+    },
+    {
+      "id": "ahs_red_flags_snoop4",
+      "type": "web",
+      "url": "https://americanheadachesociety.org/research/library/red-flags-in-headache-what-if-it-isnt-migraine",
+      "title": "American Headache Society: Red Flags in Headache (SNOOP4)",
+      "license_note": "Educational; excerpt briefly."
+    }
+  ]
+}

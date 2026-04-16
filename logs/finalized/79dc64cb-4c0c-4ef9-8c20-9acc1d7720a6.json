@@ -1,0 +1,43 @@
+{
+  "packet_id": "79dc64cb-4c0c-4ef9-8c20-9acc1d7720a6",
+  "created_at": "2026-03-29T17:07:18.287789+00:00",
+  "session_id": "3b8ad304-b73c-4758-8170-60384c8b13d7",
+  "pathway_id": "",
+  "base_queries": [
+    "diabetes diagnosis and management guidelines adults",
+    "adult diabetes treatment dosing contraindications metformin insulin",
+    "red flags dizziness confusion diabetes complications testing"
+  ],
+  "queries": [
+    "AAFP diabetes diagnosis and management guidelines adults",
+    "AAFP adult diabetes treatment dosing contraindications metformin insulin",
+    "MedlinePlus diabetes diagnosis and management guidelines adults",
+    "MedlinePlus adult diabetes treatment dosing contraindications metformin insulin",
+    "CDC diabetes diagnosis and management guidelines adults",
+    "CDC adult diabetes treatment dosing contraindications metformin insulin",
+    "NIH diabetes diagnosis and management guidelines adults",
+    "NIH adult diabetes treatment dosing contraindications metformin insulin",
+    "NICE diabetes diagnosis and management guidelines adults",
+    "NICE adult diabetes treatment dosing contraindications metformin insulin",
+    "WHO diabetes diagnosis and management guidelines adults",
+    "WHO adult diabetes treatment dosing contraindications metformin insulin"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Diabetes Screening, Adults - Clinical Preventive Service Recommendation | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/diabetes-screening-adults.html",
+      "accessed": "2026-03-29",
+      "snippet": "The AAFP has also reviewed the US Preventive Services Task Force evidence report and agrees that nonpregnant adults aged 40 to 70 who have obesity or overweight be screened for type 2 diabetes as part of risk assessment for cardiovascular disease. 2 Screening in this setting refers to measuring fasting plasma glucose, HbA 1c  level, or using an oral glucose tolerance test. A fasting plasma glucose level of 126 mg/dL (6.99 mmol/L) or greater, an HbA 1c  level of 6.5% or greater, or a 2-hour post-load glucose level of 200 mg/dL (11.1 mmol/L) or greater are considered to be consistent with the diagnosis of type 2 diabetes."
+    },
+    {
+      "title": "ADA Releases Updated Recommendations on Standards of Medical Care in Diabetes | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2010/0715/p206.html",
+      "accessed": "2026-03-29",
+      "snippet": "Aspirin (75 to 162 mg per day) should be considered as a primary prevention strategy in persons with type 1 or 2 diabetes and an increased cardiovascular risk (10-year risk greater than 10 percent), including most men older than 50 years and most women older than 60 years with at least one additional major risk factor (i.e., family history of cardiovascular disease, hypertension, smoking, dyslipidemia, or albuminuria). There is insufficient evidence to recommend aspirin therapy as a primary prevention strategy in persons with lower risk, including men younger than 50 years or women younger than 60 years without major risk factors. Clinical judgment should be used when patients in these age groups have multiple other risk factors."
+    }
+  ],
+  "note_text": "S: The patient is a 42-year-old female who reports experiencing unexplained weight loss and extreme thirst for about one month. She notes increased frequency of urination, approximately three times more than usual, along with nausea and increased hunger. She denies recent infections, blurry vision, vomiting, abdominal pain, chest pain, or rapid breathing. She reports some mild confusion and severe weakness, especially when climbing stairs. There is a family history of diabetes in her mother and grandmother. She has an allergy to tetracyclines and is not pregnant. She is unsure about liver disease but has a family history of hepatitis. No known renal disease.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is new-onset diabetes mellitus, likely type 2, given the classic symptoms of polyuria, polydipsia, weight loss, and family history.\nDifferential:\n1. Type 1 diabetes mellitus\n2. Type 2 diabetes mellitus\n3. Diabetes insipidus\n4. Hyperthyroidism\n\nP: - First-line medication: Metformin 500 mg orally twice daily (Physician must verify medication/dosing)\n- Alternatives: Glipizide 5 mg orally once daily (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid tetracycline antibiotics due to allergy; monitor for gastrointestinal side effects with metformin; assess liver function given family history of hepatitis\n- Follow-up recommendations: Seek in-person medical care urgently if experiencing severe weakness, confusion, difficulty breathing, or signs of diabetic ketoacidosis such as vomiting or abdominal pain\n- Testing: Obtain fasting blood glucose, HbA1c, basic metabolic panel including renal function, liver function tests, and urinalysis to confirm diagnosis and assess complications"
+}

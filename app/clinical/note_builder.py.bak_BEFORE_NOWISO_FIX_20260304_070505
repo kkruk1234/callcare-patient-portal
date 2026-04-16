@@ -1,0 +1,235 @@
+from __future__ import annotations
+
+import os
+import json
+from typing import Any, Dict, List, Tuple
+
+from app.clinical.evidence_utils import ensure_evidence_dict
+from app.core.models import CallState, NoteDraft
+
+
+# -----------------------------------------
+# CallCare: WEB-ONLY thin note builder
+# -----------------------------------------
+# Design goals:
+# - NO YAML pathways
+# - NO manifest/library scraping
+# - NO protocol-driven medication/dosing injection
+# - NO diagnosis/location hardcoding
+# - Just generate SOAP text (LLM) and pass evidence through if already attached elsewhere
+#
+# Evidence retrieval/attachment should happen in finalize.py (web retrieval), not here.
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _get_answers_dict(state: Any) -> Dict[str, Any]:
+    """Best-effort: pull answers dict from state without assuming a schema."""
+    if state is None:
+        return {}
+    try:
+        a = getattr(state, "answers", None)
+        if isinstance(a, dict):
+            return a
+    except Exception:
+        pass
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            a = sx.get("_answers")
+            if isinstance(a, dict):
+                return a
+    except Exception:
+        pass
+    return {}
+
+
+def _get_existing_evidence_from_state(state: Any, max_items: int = 10) -> List[Dict[str, Any]]:
+    """
+    If some upstream stage already attached evidence, pass it through.
+    We do NOT retrieve evidence here.
+    """
+    candidates: List[Any] = []
+
+    # 1) state.evidence_used (common)
+    try:
+        ev = getattr(state, "evidence_used", None)
+        if isinstance(ev, list):
+            candidates = ev
+    except Exception:
+        pass
+
+    # 2) answers dict might hold it
+    if not candidates:
+        ans = _get_answers_dict(state)
+        ev2 = ans.get("evidence") or ans.get("evidence_used")
+        if isinstance(ev2, list):
+            candidates = ev2
+
+    out: List[Dict[str, Any]] = []
+    for e in candidates[: max_items * 2]:
+        if e is None:
+            continue
+        try:
+            d = ensure_evidence_dict(e)
+            # Keep only citeable-ish entries
+            title = _safe_str(d.get("title"))
+            url = _safe_str(d.get("url") or d.get("source"))
+            if not title and not url:
+                continue
+            out.append(
+                {
+                    "title": title or (url[:160] if url else "Source"),
+                    "source": _safe_str(d.get("source") or ""),
+                    "url": url,
+                    "snippet": _safe_str(d.get("snippet") or d.get("text") or ""),
+                    "accessed": _safe_str(d.get("accessed") or ""),
+                }
+            )
+        except Exception:
+            continue
+
+        if len(out) >= max_items:
+            break
+
+    return out
+
+
+def _fallback_soap_from_state(state: Any) -> str:
+    """Deterministic fallback if LLM is disabled/unavailable."""
+    cc = ""
+    try:
+        cc = _safe_str(getattr(state, "chief_complaint", "") or getattr(state, "chief", "") or "")
+    except Exception:
+        cc = ""
+
+    age = ""
+    try:
+        age = _safe_str(getattr(state, "age_years", "") or "")
+    except Exception:
+        age = ""
+
+    lines = []
+    lines.append("S: " + (cc or "Chief complaint not provided."))
+    lines.append("")
+    lines.append("O: (Phone visit; no vitals/exam documented.)")
+    lines.append("")
+    lines.append("A: (Assessment pending.)")
+    lines.append("")
+    lines.append("P:")
+    lines.append("- (Plan pending.)")
+
+    if age:
+        lines.append("")
+        lines.append(f"(Age: {age})")
+
+    return "\n".join(lines).strip() + "\n"
+
+
+def _generate_llm_soap(state: CallState, evidence: List[Dict[str, Any]]) -> Tuple[str, str]:
+    """
+    Returns (soap_text, err_string).
+    This builder is intentionally thin: it delegates to app.clinical.llm_note_writer.
+    """
+    # Hard off-switch
+    if os.environ.get("CALLCARE_NO_LLM", "").strip().lower() in ("1", "true", "yes", "on"):
+        return ("", "CALLCARE_NO_LLM enabled")
+
+    try:
+        import importlib
+
+        llm = importlib.import_module("app.clinical.llm_note_writer")
+        build_prompt = getattr(llm, "build_prompt", None)
+        generate_note_text = getattr(llm, "generate_note_text", None)
+
+        if not callable(build_prompt) or not callable(generate_note_text):
+            return ("", "llm_note_writer missing build_prompt/generate_note_text")
+
+        prompt = build_prompt(state=state, evidence=evidence)
+
+        txt = generate_note_text(prompt) or ""
+        txt = _safe_str(txt)
+        if not txt:
+            return ("", "empty LLM output")
+
+        # In case some versions return JSON (soap_text + queries), extract soap_text only.
+        if txt.startswith("{") and txt.endswith("}"):
+            try:
+                obj = json.loads(txt)
+                if isinstance(obj, dict):
+                    soap = _safe_str(obj.get("soap_text") or obj.get("soap") or "")
+                    if soap:
+                        txt = soap
+                    # If the LLM also produced evidence_search_queries, store them for finalize.py
+                    qs = obj.get("evidence_search_queries")
+                    if isinstance(qs, list):
+                        qs2 = [_safe_str(q) for q in qs if _safe_str(q)]
+                        if qs2:
+                            ans = _get_answers_dict(state)
+                            ans["evidence_search_queries"] = qs2[:4]
+                            try:
+                                if hasattr(state, "answers"):
+                                    state.answers = ans
+                            except Exception:
+                                pass
+                            try:
+                                sx = getattr(state, "symptoms", None)
+                                if isinstance(sx, dict):
+                                    a = sx.get("_answers")
+                                    if isinstance(a, dict):
+                                        a["evidence_search_queries"] = qs2[:4]
+                                        sx["_answers"] = a
+                            except Exception:
+                                pass
+            except Exception:
+                pass
+
+        # Ensure it looks like SOAP-ish output; if not, still return as-is (don’t guess).
+        return (txt.strip() + "\n", "")
+    except Exception as e:
+        return ("", f"{type(e).__name__}: {_safe_str(e)[:200]}")
+
+
+def build_note(state: CallState) -> NoteDraft:
+    """
+    Primary entrypoint.
+    Evidence retrieval should be done elsewhere (finalize.py web retrieval).
+    """
+    evidence = _get_existing_evidence_from_state(state, max_items=10)
+
+    soap_text, err = _generate_llm_soap(state, evidence)
+
+    if not soap_text.strip():
+        soap_text = _fallback_soap_from_state(state)
+        if err:
+            soap_text = f"(NOTE: LLM note generation unavailable: {err})\n" + soap_text
+
+    return NoteDraft(
+        soap=soap_text,
+        patient_instructions=[],
+        clinician_questions=[],
+        risk_flags=[],
+        evidence=evidence,
+    )
+
+
+# finalize.py expects these helpers in some versions:
+
+def build_note_with_reason(state: CallState, *args, **kwargs):
+    note = build_note(state)
+    return note, None
+
+
+def fallback_note_from_state(state: CallState) -> NoteDraft:
+    return NoteDraft(
+        soap=_fallback_soap_from_state(state),
+        patient_instructions=[],
+        clinician_questions=[],
+        risk_flags=[],
+        evidence=_get_existing_evidence_from_state(state, max_items=10),
+    )

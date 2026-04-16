@@ -1,0 +1,21 @@
+{
+  "id": "auto_1772053514468",
+  "query": "Musculoskeletal strain or myofascial pain guideline treatment management",
+  "sources": [
+    {
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/musculoskeletal-pain.html",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/nbk535344/",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://medlineplus.gov/ency/article/000042.htm",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

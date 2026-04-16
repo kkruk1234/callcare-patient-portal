@@ -1,0 +1,26 @@
+id: food_poisoning
+version: 0.1
+match:
+  any_keywords: ["food poisoning", "ate bad food", "sick after eating", "vomiting and diarrhea", "stomach bug after restaurant", "sudden vomiting"]
+questions:
+  - id: gi_bleed
+    prompt: "Any blood in vomit or stool, or black/tarry stool? (yes/no)"
+    store_as: gi_bleed
+    type: yesno
+
+  - id: dehydration
+    prompt: "Are you unable to keep fluids down or not peeing much? (yes/no)"
+    store_as: dehydration
+    type: yesno
+
+  - id: severe_redflags
+    prompt: "Any severe belly pain, confusion, or trouble breathing? (yes/no)"
+    store_as: severe_redflags
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["gi_bleed", "dehydration", "severe_redflags"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

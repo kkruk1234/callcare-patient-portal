@@ -1,0 +1,12 @@
+{
+  "pathway_id": "uti_pregnancy_possible",
+  "sources": [
+    {
+      "id": "uti_pregnancy_possible_ref",
+      "source_id": "uti_pregnancy_possible_ref",
+      "title": "UTI in pregnancy overview (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

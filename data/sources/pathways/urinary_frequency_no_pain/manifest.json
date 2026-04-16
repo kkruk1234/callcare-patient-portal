@@ -1,0 +1,12 @@
+{
+  "pathway_id": "urinary_frequency_no_pain",
+  "sources": [
+    {
+      "id": "urinary_frequency_no_pain_ref",
+      "source_id": "urinary_frequency_no_pain_ref",
+      "title": "Frequent urination: causes overview (starter)",
+      "url": "https://www.niddk.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

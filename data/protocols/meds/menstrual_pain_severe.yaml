@@ -1,0 +1,34 @@
+rx_options:
+- med: Ibuprofen
+  dosing: 400–600 mg PO q6–8h PRN with food (max per labeling; short course)
+  exclusions: Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk;
+    anticoagulation; NSAID allergy.
+  notes: NSAIDs are first-line for dysmenorrhea if no contraindications.
+- med: Naproxen
+  dosing: 500 mg PO once, then 250 mg PO q6–8h PRN (max per labeling; short course)
+  exclusions: Pregnancy (avoid esp 3rd trimester); renal disease; ulcer/GI bleed risk;
+    anticoagulation; NSAID allergy.
+  notes: Alternative NSAID option.
+- med: Acetaminophen
+  dosing: 650–1000 mg PO q6–8h PRN (max per labeling)
+  exclusions: Severe liver disease; heavy alcohol use; allergy.
+  notes: Use when NSAIDs contraindicated; may be less effective alone.
+supportive_care:
+- item: Non-pharmacologic
+  details: Heat pack to the lower abdomen, gentle activity/stretching as tolerated,
+    hydration, and rest.
+- item: Medication safety
+  details: If you have kidney disease/reduced kidney function, stomach ulcers/GI bleeding,
+    or take blood thinners, avoid NSAIDs like ibuprofen/naproxen unless a clinician
+    specifically says it is safe for you.
+- item: Pregnancy safety
+  details: If there is any chance of pregnancy or your bleeding/pain is unusual for
+    you, you may need pregnancy testing rather than assuming typical period cramps.
+followup_and_safety:
+- item: Re-evaluation
+  details: If severe pain is new, progressively worsening, associated with heavy bleeding,
+    syncope, fever, pelvic pain between cycles, or concern for secondary dysmenorrhea—needs
+    evaluation.
+- item: Urgent/ED now
+  details: Fainting, severe one-sided pelvic pain, suspected pregnancy/ectopic, soaking
+    >1 pad/hour, severe weakness, or signs of shock.

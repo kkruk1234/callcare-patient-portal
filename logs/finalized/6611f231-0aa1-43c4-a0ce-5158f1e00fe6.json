@@ -1,0 +1,42 @@
+{
+  "packet_id": "6611f231-0aa1-43c4-a0ce-5158f1e00fe6",
+  "created_at": "2026-03-05T18:34:42.914108+00:00",
+  "session_id": "de300f2d-a54d-4f63-8260-ae552e60fff3",
+  "pathway_id": "",
+  "base_queries": [
+    "first-line treatment for musculoskeletal back pain",
+    "NSAIDs for localized back pain without red flags"
+  ],
+  "queries": [
+    "AAFP first-line treatment for musculoskeletal back pain",
+    "AAFP NSAIDs for localized back pain without red flags",
+    "MedlinePlus first-line treatment for musculoskeletal back pain",
+    "MedlinePlus NSAIDs for localized back pain without red flags",
+    "CDC first-line treatment for musculoskeletal back pain",
+    "CDC NSAIDs for localized back pain without red flags",
+    "NIH first-line treatment for musculoskeletal back pain",
+    "NIH NSAIDs for localized back pain without red flags",
+    "NICE first-line treatment for musculoskeletal back pain",
+    "NICE NSAIDs for localized back pain without red flags",
+    "WHO first-line treatment for musculoskeletal back pain",
+    "WHO NSAIDs for localized back pain without red flags"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Taking care of your back at home: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/002119.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Improve your posture Strengthen your back and abdomen, and improve flexibility Lose weight Avoid falls A complete exercise program should include aerobic activity such as walking, swimming, or riding a stationary bicycle. It should also include stretching and strength training. Follow the instructions of your provider or physical therapist."
+    },
+    {
+      "title": "Low back pain - acute: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/007425.htm",
+      "accessed": "2026-03-05",
+      "snippet": "Stop or reduce normal physical activity for the first few days. This will help relieve your symptoms and reduce any swelling in the area of the pain. Apply heat or ice to the painful area. One good method is to use ice for the first 48 to 72 hours and then use heat. Take over-the-counter pain relievers such as ibuprofen (Advil, Motrin) or acetaminophen (Tylenol). Follow package instructions on how much to take. Do not take more than the recommended amount. While sleeping, try lying in a curled-up, fetal position with a pillow between your legs. If you usually sleep on your back, place a pillow or rolled towel under your knees to relieve pressure."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started 3 weeks ago. The pain does not radiate and there is no history of trauma, fever, chills, weight loss, respiratory symptoms, urinary symptoms, numbness, weakness, or skin changes. She has tried acetaminophen (Tylenol) with minimal relief. There is no history of chronic illnesses such as osteoporosis or cancer.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage area without red flag symptoms.\nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib dysfunction\n3. Early intercostal neuralgia\n4. Less likely visceral causes such as referred pain from abdominal organs or pleuritic pain\n\nP: First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) (per evidence) such as ibuprofen or naproxen\nAlternatives: Muscle relaxants if NSAIDs are contraindicated or ineffective\nMedication safety considerations: Assess for gastrointestinal, renal, or cardiovascular risk factors before NSAID use; confirm no allergies; pregnancy not applicable\nFollow-up recommendations: Seek immediate in-person care if the patient develops fever, worsening pain, neurological symptoms such as numbness or weakness, or new respiratory or urinary symptoms\nTesting: Not indicated at this time given absence of red flags and localized musculoskeletal presentation"
+}

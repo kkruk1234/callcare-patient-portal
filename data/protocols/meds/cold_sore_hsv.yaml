@@ -1,0 +1,16 @@
+# Clinician-facing medication/dosing protocol for: cold_sore_hsv
+# Tier 1 reviewer approval required.
+
+rx_options:
+  - med: "Oral antiviral (if appropriate) or topical options"
+    dosing: "Use guideline dosing for episodic therapy; greatest benefit early."
+    exclusions: "Renal adjustment as needed; immunocompromised may need different approach."
+    notes: "Eye symptoms → urgent same-day evaluation (concern for ocular HSV)."
+
+supportive_care:
+  - item: "Comfort care"
+    details: "Topical barrier ointment; avoid picking; hand hygiene."
+
+followup_and_safety:
+  - item: "Escalate"
+    details: "Eye pain/redness/light sensitivity/vision change → urgent today."

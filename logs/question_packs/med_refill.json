@@ -1,0 +1,10 @@
+{
+  "id": "med_refill",
+  "version": "0.1",
+  "questions": {
+    "med_name": "What medication do you want to refill?",
+    "previously_prescribed": "Did a doctor already prescribe this medication to you?",
+    "side_effects": "Have you had any bad side effects from it?",
+    "new_worse": "Have you noticed any new or worse symptoms since your last refill?"
+  }
+}

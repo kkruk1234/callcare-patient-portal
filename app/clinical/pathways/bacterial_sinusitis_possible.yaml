@@ -1,0 +1,42 @@
+id: bacterial_sinusitis_possible
+version: 0.1
+match:
+  any_keywords: ["sinus pressure", "facial pressure", "green mucus", "thick mucus", "postnasal drip", "sinus pain"]
+questions:
+
+  - id: pregnancy_possible
+    prompt: "Is there any chance you are pregnant right now? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: pregnancy_possible
+
+  - id: renal_disease
+    prompt: "Have you ever been told you have kidney disease or reduced kidney function? (yes/no/unknown)"
+    type: text
+    store_as: renal_disease
+
+  - id: duration
+    prompt: "How long have symptoms been going on? (days)"
+    store_as: duration_days
+  - id: severe_facial_pain
+    prompt: "Do you have severe facial pain? (yes/no)"
+    type: yesno
+    store_as: severe_facial_pain
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    type: yesno
+    store_as: fever
+
+  - id: worse_after_better
+    prompt: "Did it improve and then get worse again? (yes/no)"
+    store_as: double_worsening
+    type: yesno
+  - id: eye_swelling
+    prompt: "Any swelling around the eye, severe headache, or confusion? (yes/no)"
+    store_as: orbital_or_neuro
+    type: yesno
+stop_rules:
+  - if_all_answered: ["duration", "severe", "worse_after_better", "eye_swelling"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

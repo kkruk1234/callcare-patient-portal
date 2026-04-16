@@ -1,0 +1,21 @@
+# Clinician-facing medication/dosing protocol for: hordeolum_stye
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: "Erythromycin ophthalmic ointment"
+    dosing: "Apply ~1 cm ribbon to affected lid margin/eye BID–QID x 5–7 days (if secondary conjunctivitis or significant discharge)"
+    exclusions: "Hypersensitivity"
+    notes: "Primary therapy is warm compresses; ointment is optional adjunct."
+
+supportive_care:
+  - item: "Warm compresses"
+    details: "10–15 minutes, 3–5 times/day; gentle lid massage after compress."
+  - item: "Lid hygiene"
+    details: "Gentle cleansing (dilute baby shampoo or lid wipes). Avoid makeup until resolved."
+  - item: "Pain control"
+    details: "Acetaminophen (Tylenol) or ibuprofen (Advil) if safe."
+
+followup_and_safety:
+  - item: "In-person evaluation"
+    details: "No improvement within 1–2 weeks, recurrent lesions, significant eyelid swelling spreading, or concern for preseptal/orbital cellulitis."
+  - item: "ED now"
+    details: "Eye pain with fever, impaired eye movements, proptosis, vision changes, or severe systemic symptoms."

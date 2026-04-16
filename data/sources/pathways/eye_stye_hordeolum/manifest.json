@@ -1,0 +1,33 @@
+{
+  "pathway_id": "eye_stye_hordeolum",
+  "sources": [
+    {
+      "id": "eye_stye_hordeolum_src_1",
+      "source_id": "eye_stye_hordeolum_src_1",
+      "title": "eye_stye_hordeolum references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "eye_stye_hordeolum_src_2",
+      "source_id": "eye_stye_hordeolum_src_2",
+      "title": "eye_stye_hordeolum references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "eye_stye_hordeolum_src_3",
+      "source_id": "eye_stye_hordeolum_src_3",
+      "title": "eye_stye_hordeolum references (starter)",
+      "url": "https://www.aao.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "eye_stye_hordeolum_src_4",
+      "source_id": "eye_stye_hordeolum_src_4",
+      "title": "eye_stye_hordeolum references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

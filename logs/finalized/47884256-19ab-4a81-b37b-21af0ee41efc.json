@@ -1,0 +1,57 @@
+{
+  "packet_id": "47884256-19ab-4a81-b37b-21af0ee41efc",
+  "created_at": "2026-03-06T18:30:27.593004+00:00",
+  "session_id": "1bc1fe6e-ef60-48be-b368-1599f0b1c2f9",
+  "pathway_id": "",
+  "base_queries": [
+    "adult sore throat management guidelines pregnancy",
+    "penicillin dosing adult strep throat pregnancy contraindications",
+    "sore throat red flags difficulty breathing or swallowing"
+  ],
+  "queries": [
+    "AAFP adult sore throat management guidelines pregnancy",
+    "AAFP penicillin dosing adult strep throat pregnancy contraindications",
+    "MedlinePlus adult sore throat management guidelines pregnancy",
+    "MedlinePlus penicillin dosing adult strep throat pregnancy contraindications",
+    "CDC adult sore throat management guidelines pregnancy",
+    "CDC penicillin dosing adult strep throat pregnancy contraindications",
+    "NIH adult sore throat management guidelines pregnancy",
+    "NIH penicillin dosing adult strep throat pregnancy contraindications",
+    "NICE adult sore throat management guidelines pregnancy",
+    "NICE penicillin dosing adult strep throat pregnancy contraindications",
+    "WHO adult sore throat management guidelines pregnancy",
+    "WHO penicillin dosing adult strep throat pregnancy contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "NHS 111 Wales - Living and Feeling Well : Caring For Yourself",
+      "source": "111.wales.nhs.uk",
+      "url": "https://111.wales.nhs.uk/livewell/caringforyourself/",
+      "accessed": "2026-03-06",
+      "snippet": "Most sore throats are not serious and pass within 3-7 days without the need for medical treatment. Over-the-counter (OTC) painkillers, such as paracetamol, can usually be used to relieve the symptoms of a sore throat."
+    },
+    {
+      "title": "Diagnosis and Management of Group A Streptococcal Pharyngitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2003/0215/p880.html",
+      "accessed": "2026-03-06",
+      "snippet": "Antimicrobial agent Dosage Duration of therapy* Rating of evidence † Penicillin V‡ Children: 250 mg orally two or three times daily 10 days A-II Adolescents and adults: 250 mg orally three or four times daily 10 days A-II Adolescents and adults: 500 mg orally twice daily 10 days C-III Penicillin G benzathine 1.2 × 10 6 U IM One dose A-II§ 6.0 × 10 5 U IM One dose‖ A-II Mixture of penicillin G benzathine and penicillin G procaine Varies with formulation ¶ given IM One dose B-II For penicillin-allergic patients Erythromycin Varies with formulation#; given orally 10 days A-II First-generation cephalosporin** Varies with agent; given orally 10 days A-II"
+    },
+    {
+      "title": "Mycophenolate: MedlinePlus Drug Information",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/druginfo/meds/a601081.html",
+      "accessed": "2026-03-06",
+      "snippet": "You should not take mycophenolate if you are pregnant or if you may become pregnant. You must have a negative pregnancy test before starting your treatment with mycophenolate, again 8 to 10 days later, and at routine follow-up appointments. You must use acceptable birth control during your treatment, and for 6 weeks after you stop taking mycophenolate. Your doctor will tell you which forms of birth control are acceptable for you to use. Mycophenolate may decrease the effectiveness of oral contraceptives (birth control pills), so it is especially important to use a second form of birth control along with this type of contraceptive."
+    },
+    {
+      "title": "This Patient Group Direction (PGD) must only be used by registered healthcare",
+      "source": "nhsbsa.nhs.uk",
+      "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2025-06/5c.%20Sore%20Throat%20Erythromycin%20PGD-%20Pharmacy%20First%20mhw.pdf",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 45-year-old pregnant female presenting with a sore throat that started 2 days ago. She reports fever and chills since the onset of symptoms, pain with swallowing but no difficulty swallowing or breathing. She has noticed swollen glands in her neck and white patches or pus on her tonsils. There is no cough, runny nose, or nasal congestion. She has no history of rheumatic fever or heart valve problems. She denies difficulty opening her mouth or severe throat pain limiting saliva swallowing. Her son had strep throat last week, suggesting recent exposure. She has no rash or joint pain.\n\nO: Phone-only evaluation; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis, given the presence of fever, tonsillar exudates, tender cervical lymphadenopathy, and known exposure to strep throat.\nDifferential:\n1. Acute streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Peritonsillar abscess (less likely given no severe pain or difficulty swallowing saliva)\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient is pregnant; penicillin and amoxicillin are generally considered safe in pregnancy. Monitor for allergic reactions. Other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe throat pain, inability to swallow saliva, or worsening symptoms develop. Seek emergency care if signs of airway obstruction or severe allergic reaction occur.\n- Testing: Arrange for rapid antigen detection test or throat culture for group A streptococcus to confirm diagnosis if possible."
+}

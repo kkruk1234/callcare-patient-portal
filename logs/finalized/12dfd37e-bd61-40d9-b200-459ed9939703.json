@@ -1,0 +1,51 @@
+{
+  "packet_id": "12dfd37e-bd61-40d9-b200-459ed9939703",
+  "created_at": "2026-03-11T15:12:09.504708+00:00",
+  "session_id": "8c7261ea-60d8-48da-9a5d-67e955dd9c4b",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for chemical eye exposure from detergent",
+    "adult treatment for chemical eye exposure eye drops dosing duration",
+    "red flags and return precautions for chemical eye injury",
+    "recommended testing after detergent eye exposure"
+  ],
+  "queries": [
+    "AAFP management guidelines for chemical eye exposure from detergent",
+    "AAFP adult treatment for chemical eye exposure eye drops dosing duration",
+    "MedlinePlus management guidelines for chemical eye exposure from detergent",
+    "MedlinePlus adult treatment for chemical eye exposure eye drops dosing duration",
+    "CDC management guidelines for chemical eye exposure from detergent",
+    "CDC adult treatment for chemical eye exposure eye drops dosing duration",
+    "NIH management guidelines for chemical eye exposure from detergent",
+    "NIH adult treatment for chemical eye exposure eye drops dosing duration",
+    "NICE management guidelines for chemical eye exposure from detergent",
+    "NICE adult treatment for chemical eye exposure eye drops dosing duration",
+    "WHO management guidelines for chemical eye exposure from detergent",
+    "WHO adult treatment for chemical eye exposure eye drops dosing duration"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Eye Emergencies | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1101/p539.html",
+      "accessed": "2026-03-11",
+      "snippet": "Posttraumatic endophthalmitis, attributed commonly to Bacillus , Streptococcus , and the coagulase-negative Staphylococcus species, may occur in up to 8% of cases when an associated intraocular foreign body is present. 23 Prophylactic systemic antibiotics are recommended to reduce the risk of endophthalmitis after a mechanical globe rupture or laceration. 9 , 10 Levofloxacin (Levaquin; 500 mg orally every 12 hours) is an appropriate first-line medication; however, intravenous vancomycin (1 g every 12 hours) or ceftazidime (Fortaz; 1 g every eight hours) is an acceptable alternative. 9 , 10 Antifungal therapy with voriconazole (Vfend; 200 mg orally every 12 hours) or fluconazole (Diflucan; 200 mg orally every 12 hours) may be considered if plant or organic matter is involved. 9 A tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis (Tdap) vaccine booster should also be admin"
+    },
+    {
+      "title": "Corneal injury: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/001017.htm",
+      "accessed": "2026-03-11",
+      "snippet": "Most of the time, injuries that affect only the surface of the cornea heal very quickly with treatment. The eye should be back to normal within 2 to 3 days. For more serious injuries or when there may be delayed healing, placement of an amniotic membrane (from purified placental tissue) can be very helpful."
+    },
+    {
+      "title": "Poisoning first aid: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/007579.htm",
+      "accessed": "2026-03-11",
+      "snippet": "This is a free and confidential service. All local poison control centers in the United States use this national number. You should call if you have any questions about poisoning or poison prevention. It does NOT need to be an emergency. You can call for any reason, 24 hours a day, 7 days a week."
+    }
+  ],
+  "note_text": "S: The patient is a 73-year-old female who reports getting laundry detergent in both eyes about 3 hours ago. She rinsed her eyes thoroughly with water for 20 minutes shortly after exposure. Currently, she experiences mild redness and a scratchy sensation in her eyes but denies pain, blurred vision, sensitivity to light, or any worsening symptoms such as severe pain, inability to open the eyes, or vision loss.\n\nO: Phone-only encounter; no vital signs or physical examination available.\n\nA: The working diagnosis is mild chemical conjunctivitis secondary to laundry detergent exposure. \nDifferential:\n1. Chemical conjunctivitis from detergent exposure\n2. Mild corneal abrasion\n3. Allergic conjunctivitis\n4. Infectious conjunctivitis\n\nP: - First-line medication: Artificial tears eye drops, 1-2 drops in each eye every 4-6 hours as needed for comfort (Physician must verify medication/dosing)\n- Alternatives: Topical antibiotic ointment such as erythromycin ophthalmic ointment 0.5%, apply to affected eye(s) 3-4 times daily for 5 days if signs of infection develop (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies; monitor for any signs of worsening irritation or allergic reaction; renal and liver disease do not contraindicate topical ocular treatments\n- Follow-up recommendations: Seek in-person medical care urgently if eye pain worsens, vision changes, inability to open eyes, or increased redness and discharge develop; seek emergency care if severe symptoms occur\n- Testing: Not indicated at this time unless symptoms worsen or fail to improve within 24-48 hours"
+}

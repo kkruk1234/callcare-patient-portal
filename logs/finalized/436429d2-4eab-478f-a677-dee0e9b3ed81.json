@@ -1,0 +1,68 @@
+{
+  "packet_id": "436429d2-4eab-478f-a677-dee0e9b3ed81",
+  "created_at": "2026-03-05T13:24:33.017732+00:00",
+  "session_id": "18b423c7-fd9a-4f4b-860b-4517e6c3152d",
+  "pathway_id": "",
+  "base_queries": [
+    "management of musculoskeletal back pain lower rib cage",
+    "NSAID dosing for musculoskeletal pain"
+  ],
+  "queries": [
+    "AAFP management of musculoskeletal back pain lower rib cage",
+    "AAFP NSAID dosing for musculoskeletal pain",
+    "MedlinePlus management of musculoskeletal back pain lower rib cage",
+    "MedlinePlus NSAID dosing for musculoskeletal pain",
+    "CDC management of musculoskeletal back pain lower rib cage",
+    "CDC NSAID dosing for musculoskeletal pain",
+    "NIH management of musculoskeletal back pain lower rib cage",
+    "NIH NSAID dosing for musculoskeletal pain",
+    "NICE management of musculoskeletal back pain lower rib cage",
+    "NICE NSAID dosing for musculoskeletal pain",
+    "WHO management of musculoskeletal back pain lower rib cage",
+    "WHO NSAID dosing for musculoskeletal pain"
+  ],
+  "raw_evidence_count": 6,
+  "raw_domain_counts": {
+    "nhs.uk": 4,
+    "aafp.org": 1,
+    "medlineplus.gov": 1
+  },
+  "selected_evidence_count": 4,
+  "selected_domains": [
+    "aafp.org",
+    "nhs.uk",
+    "medlineplus.gov",
+    "nhs.uk"
+  ],
+  "evidence": [
+    {
+      "title": "Management of Acute Pain from Non–Low Back Musculoskeletal Injuries: Guidelines from AAFP and ACP | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2020/1201/p697.html",
+      "accessed": "2026-03-05",
+      "snippet": ""
+    },
+    {
+      "title": "Back pain",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/live-well/exercise/lower-back-pain-exercises/",
+      "accessed": "2026-03-05",
+      "snippet": ""
+    },
+    {
+      "title": "Low back pain - chronic: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/007422.htm",
+      "accessed": "2026-03-05",
+      "snippet": ""
+    },
+    {
+      "title": "Back pain | CUH",
+      "source": "cuh.nhs.uk",
+      "url": "https://www.cuh.nhs.uk/patient-information/back-pain/",
+      "accessed": "2026-03-05",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent trauma, fever, chills, night sweats, shortness of breath, cough, chest pain, numbness, weakness, tingling, abdominal pain, changes in bowel or bladder function, or unexplained weight loss. She reports tenderness over the area of pain. She has tried acetaminophen (Tylenol) without significant relief.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal pain likely related to muscle strain or soft tissue injury in the left lower rib cage area. \nDifferential:\n1. Musculoskeletal strain or soft tissue injury\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral pathology such as pleuritis or referred pain from abdominal organs\n\nP: First-line medication: Naproxen 500 mg PO twice daily with food for 7 days\nAlternatives: Diclofenac 50 mg PO three times daily with food for 7 days (Physician must verify medication/dosing), Meloxicam 15 mg PO once daily for 7 days (Physician must verify medication/dosing)\nMedication safety considerations: Use with caution in patients with gastrointestinal risk factors; advise taking with food to minimize GI upset. Avoid in patients with known NSAID allergy or active peptic ulcer disease.\nReturn precautions: Return if pain worsens, new neurological symptoms develop (numbness, weakness), fever or systemic symptoms appear, or if no improvement after 7 days of treatment.\nTesting: Not indicated at this time given absence of red flag symptoms; consider imaging if symptoms persist or worsen."
+}

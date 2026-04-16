@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: How It Works",
+  "url": "https://medlineplus.gov/medlineplus-connect/how-it-works/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "t portal submits a code request, MedlinePlus Connect returns a response that includes links to relevant health information. MedlinePlus Connect can accept only one code per request.\nMedlinePlus Connect is available as a\nWeb application or a\nWeb service . MedlinePlus Connect can respond in English or Spanish.\nCode Types \nIf you send: \nMedlinePlus Connect responds with: \nDiagnosis (problem) codes: \nICD-9-CM \nICD-10-CM \nSNOMED CT Â® [1] \nMedlinePlus Health Topic Pages , Genetics Pages \nNCI pages, \nNEI pages, \nNIA pages, \nNIAMS pages,\nNIDCR pages,\nNIDDK pages\nMedication Codes: \nRxCUI (RxNorm Concept Unique Identifier)\nNDC (National Drug Code)\nMedlinePlus Drug Pages (ASHP)\nMedlinePlus Supplement Pages (NMCD, NCCIH , ODS )\nLaboratory Test Codes: \nLOINCÂ® (Logical Observation Identifiers Names and Codes)\nMedlinePlus Medical Test Pages \nProcedure Codes: \nCPTÂ® (Current Procedural Terminology) \nSNOMED CT Â® [1] \nMedlinePlus Health Topic Pages , Medical Test Pages \n[1] MedlinePlus Connect coverage of SNOMED CT focuses on CORE Problem List Subset codes (Clinical Observations Recording and Encoding) and their descendants.\nWhat is available to patients or providers within systems using MedlinePlus Connect? \nThe Web application and Web service provide responses in different formats. How it looks depends on how it is implemented.\nWeb Application \nThe Web application returns a formatted respon",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_how_it_works_3ece149ff72f",
+  "chunk_id": "chunk_002"
+}

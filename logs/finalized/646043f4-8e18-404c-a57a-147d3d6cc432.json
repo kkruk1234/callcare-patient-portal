@@ -1,0 +1,124 @@
+{
+  "packet_id": "5ff0c931-a8c0-417a-95eb-3ece1321a100",
+  "created_at": "2026-02-05T14:39:24.612585+00:00",
+  "session_id": "646043f4-8e18-404c-a57a-147d3d6cc432",
+  "chief_complaint": "I feel sad",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "How long have you been feeling sad?",
+    "intake_a1": "2 weeks",
+    "intake_q2": "Have you had any thoughts of harming yourself or ending your life?",
+    "intake_a2": "no",
+    "intake_q3": "Have you noticed any changes in your sleep or appetite recently?",
+    "intake_a3": "difficulty falling and staying asleep no change in appetite",
+    "intake_q4": "Have you experienced any loss of interest or pleasure in activities you usually enjoy?",
+    "intake_a4": "yes",
+    "intake_q5": "Have you noticed any changes in your energy level or concentration?",
+    "intake_a5": "yes both",
+    "intake_q6": "Have you experienced any recent stressful events or changes in your life?",
+    "intake_a6": "yes",
+    "intake_q7": "Can you describe the recent stressful events or changes in your life?",
+    "intake_a7": "I got rejected from a fellowship program and my work is stressfull",
+    "intake_q8": "Have you noticed any feelings of hopelessness or worthlessness recently?",
+    "intake_a8": "yes",
+    "intake_q9": "Have you tried any treatments or coping strategies for your sadness or sleep difficulties?",
+    "intake_a9": "no",
+    "intake_q10": "Have you noticed any physical symptoms such as weight changes, fatigue, or changes in psychomotor activity?",
+    "intake_a10": "I've lost a little weight but I'm on Zepbound so I should be losing more weight than this",
+    "age_years": 48,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/depression.html",
+        "https://medlineplus.gov/lab-tests/postpartum-depression-screening/",
+        "https://medlineplus.gov/seasonalaffectivedisorder.html",
+        "https://medlineplus.gov/lab-tests/suicide-risk-screening/",
+        "https://medlineplus.gov/postpartumdepression.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 48-year-old female presenting with a 2-week history of feeling sad. She reports difficulty falling and staying asleep, loss of interest or pleasure in usual activities, decreased energy and concentration, feelings of hopelessness and worthlessness, and a small amount of weight loss. She denies any suicidal ideation. She identifies recent stressful life events including rejection from a fellowship program and ongoing work-related stress. She has not tried any treatments or coping strategies for her symptoms. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe patient’s symptoms are consistent with a moderate depressive episode likely triggered or exacerbated by recent psychosocial stressors. The presence of anhedonia, sleep disturbance, concentration difficulties, and feelings of hopelessness support this working diagnosis.\n\nDifferential: \n1. Major depressive disorder, moderate episode \n2. Adjustment disorder with depressed mood \n3. Anxiety disorder with depressive symptoms \n4. Medication-related mood changes (noted she is on Zepbound, which may influence weight and mood)\n\nP: \n- First-line medication: Sertraline 50 mg orally once daily for 6–8 weeks, avoid if history of allergy to SSRIs or concurrent use of MAO inhibitors. Dosing details were not found in retrieved evidence; prescriber should verify. \n- Alternatives: \n - Fluoxetine 20 mg orally once daily for 6–8 weeks, avoid if allergy to SSRIs or concurrent MAOI use \n - Bupropion SR 150 mg orally once daily, titrate as tolerated, avoid in seizure disorder or eating disorders \n - Psychotherapy referral (e.g., cognitive behavioral therapy) if medication not preferred or as adjunct \n- Medication safety considerations: No known medication allergies, not pregnant, no renal or liver disease. Monitor for side effects and worsening mood. \n- Return precautions: Return or seek urgent care if suicidal ideation develops, worsening depression, inability to function, or new concerning symptoms. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Depression: MedlinePlus",
+        "source": "https://medlineplus.gov/depression.html",
+        "snippet": "ife. They can include:\nFeeling sad or \"empty\" \nLosing interest in favorite activities \nOvereating, or not wanting to eat at all \nSleeping too much, or not enough \nFeeling very tired \nFeeling hopeless, irritable, anxious, or guilty \nHaving aches and pains, headaches, cramps, or digestive problems \nHaving thoughts of death or suicide \nChanging moods or behaviors \nIncreasing use of alcohol or drugs \nIsolating from family and friends \nHow is depression diagnosed? \nIf you think you have depression, talk to your health care provider or a mental health provider. To be diagnosed with depression, your provider may use many tools:\nA medical history wil"
+      },
+      {
+        "title": "Postpartum Depression Screening: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/postpartum-depression-screening/",
+        "snippet": "ssion or bipolar disorder Â or a family health history that includes these conditions. \nDon't have support from family or friends. \nHad a multiple birth Â (twins, triplets, or more). \nGave birth while in your teens . \nHad health problems during pregnancy . \nWent into preterm labor Â or had any other birth problems. \nHave a baby with special needs. \nHave ever experienced domestic violence. \nExperience financial difficulties. \nHad an unplanned pregnancy. \nYou may also be screened if you have depressive symptoms during pregnancy. This is called perinatal depression, and it has many of the same symptoms as depression after birth. If left untreate"
+      },
+      {
+        "title": "Seasonal Affective Disorder: MedlinePlus",
+        "source": "https://medlineplus.gov/seasonalaffectivedisorder.html",
+        "snippet": "pisodes of depression that start in the spring or summer, but that is a lot less common. Symptoms of SAD may include:\nSadness \nGloomy outlook \nFeeling hopeless, worthless, and irritable \nLoss of interest or pleasure in activities you used to enjoy \nLow energy \nDifficulty sleeping or oversleeping \nCarbohydrate cravings and weight gain \nThoughts of death or suicide \nSAD is more common in women, young people, and those who live far from the equator. You are also more likely to have SAD if you or your family members have depression.\nThe exact causes of SAD are unknown. Researchers have found that people with SAD may have an imbalance of serotonin, a brain chemical that affects your mood. Their bodies also make too much melatonin, a hormone that regulates sleep, and not enough vitamin D.\nThe main treatment for SAD is light therapy. The idea behind light therapy is to replace the sunshine that"
+      },
+      {
+        "title": "Suicide Risk Screening: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/suicide-risk-screening/",
+        "snippet": "ression \nMental Health \nMood Disorders \nSuicide \nRelated Medical Tests \nDepression Screening \nMental Health Screening \nPostpartum Depression Screening \nThe information on this site should not be used as a substitute for professional medical care or advice. Contact a health care provider if you have questions about your health.\nLearn how to cite this page \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nSubscribe to RSS \nConnect with NLM \nNLM Web Policies \nCopyright \nAccessibility \nGuidelines for Links \nViewers & Players \nHHS Vulnerability Disclosure \nMedlinePlus Connect for EHRs \nFor Developers \nNational Library of Medicine \n8600 Rockville Pike, Bethesda, MD 20894 \nU.S. Department of Health and Human Services \nNational Institutes of Health \nLast updated March 19, 2024"
+      },
+      {
+        "title": "Postpartum Depression: MedlinePlus",
+        "source": "https://medlineplus.gov/postpartumdepression.html",
+        "snippet": "ave a history of depression , bipolar disorder , or a family health history of these conditions \nHad a multiple birth (twins, triplets, or more) \nGave birth while in your teens \nHad health problems during pregnancy \nHad preterm labor or other complications during childbirth \nHave a baby with special needs \nHave ever experienced domestic violence \nAre dealing with financial stress \nHad an unplanned pregnancy \nWhat are the symptoms of postpartum depression? \nPostpartum depression symptoms are more intense and last longer than the baby blues.\nSymptoms may include:\nFeeling sad or empty most of the time \nEating too much or too little \nSleeping too much or too little \nCrying more than usual or for no clear reason \nFeeling unusually angry \nPulling away from family and friends \nFeeling worried or anxious often \nFeeling little or no interest in your baby \nConstant doubts about your ability to car"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Depression: MedlinePlus",
+      "source": "https://medlineplus.gov/depression.html",
+      "snippet": "ife. They can include:\nFeeling sad or \"empty\" \nLosing interest in favorite activities \nOvereating, or not wanting to eat at all \nSleeping too much, or not enough \nFeeling very tired \nFeeling hopeless, irritable, anxious, or guilty \nHaving aches and pains, headaches, cramps, or digestive problems \nHaving thoughts of death or suicide \nChanging moods or behaviors \nIncreasing use of alcohol or drugs \nIsolating from family and friends \nHow is depression diagnosed? \nIf you think you have depression, talk to your health care provider or a mental health provider. To be diagnosed with depression, your provider may use many tools:\nA medical history wil"
+    },
+    {
+      "title": "Postpartum Depression Screening: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/postpartum-depression-screening/",
+      "snippet": "ssion or bipolar disorder Â or a family health history that includes these conditions. \nDon't have support from family or friends. \nHad a multiple birth Â (twins, triplets, or more). \nGave birth while in your teens . \nHad health problems during pregnancy . \nWent into preterm labor Â or had any other birth problems. \nHave a baby with special needs. \nHave ever experienced domestic violence. \nExperience financial difficulties. \nHad an unplanned pregnancy. \nYou may also be screened if you have depressive symptoms during pregnancy. This is called perinatal depression, and it has many of the same symptoms as depression after birth. If left untreate"
+    },
+    {
+      "title": "Seasonal Affective Disorder: MedlinePlus",
+      "source": "https://medlineplus.gov/seasonalaffectivedisorder.html",
+      "snippet": "pisodes of depression that start in the spring or summer, but that is a lot less common. Symptoms of SAD may include:\nSadness \nGloomy outlook \nFeeling hopeless, worthless, and irritable \nLoss of interest or pleasure in activities you used to enjoy \nLow energy \nDifficulty sleeping or oversleeping \nCarbohydrate cravings and weight gain \nThoughts of death or suicide \nSAD is more common in women, young people, and those who live far from the equator. You are also more likely to have SAD if you or your family members have depression.\nThe exact causes of SAD are unknown. Researchers have found that people with SAD may have an imbalance of serotonin, a brain chemical that affects your mood. Their bodies also make too much melatonin, a hormone that regulates sleep, and not enough vitamin D.\nThe main treatment for SAD is light therapy. The idea behind light therapy is to replace the sunshine that"
+    },
+    {
+      "title": "Suicide Risk Screening: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/suicide-risk-screening/",
+      "snippet": "ression \nMental Health \nMood Disorders \nSuicide \nRelated Medical Tests \nDepression Screening \nMental Health Screening \nPostpartum Depression Screening \nThe information on this site should not be used as a substitute for professional medical care or advice. Contact a health care provider if you have questions about your health.\nLearn how to cite this page \nAbout MedlinePlus \nWhat's New \nSite Map \nCustomer Support \nSubscribe to RSS \nConnect with NLM \nNLM Web Policies \nCopyright \nAccessibility \nGuidelines for Links \nViewers & Players \nHHS Vulnerability Disclosure \nMedlinePlus Connect for EHRs \nFor Developers \nNational Library of Medicine \n8600 Rockville Pike, Bethesda, MD 20894 \nU.S. Department of Health and Human Services \nNational Institutes of Health \nLast updated March 19, 2024"
+    },
+    {
+      "title": "Postpartum Depression: MedlinePlus",
+      "source": "https://medlineplus.gov/postpartumdepression.html",
+      "snippet": "ave a history of depression , bipolar disorder , or a family health history of these conditions \nHad a multiple birth (twins, triplets, or more) \nGave birth while in your teens \nHad health problems during pregnancy \nHad preterm labor or other complications during childbirth \nHave a baby with special needs \nHave ever experienced domestic violence \nAre dealing with financial stress \nHad an unplanned pregnancy \nWhat are the symptoms of postpartum depression? \nPostpartum depression symptoms are more intense and last longer than the baby blues.\nSymptoms may include:\nFeeling sad or empty most of the time \nEating too much or too little \nSleeping too much or too little \nCrying more than usual or for no clear reason \nFeeling unusually angry \nPulling away from family and friends \nFeeling worried or anxious often \nFeeling little or no interest in your baby \nConstant doubts about your ability to car"
+    }
+  ]
+}

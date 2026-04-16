@@ -1,0 +1,26 @@
+{
+  "pathway_id": "tick_borne_illness_possible",
+  "sources": [
+    {
+      "id": "cdc_lyme_disease",
+      "type": "web",
+      "url": "https://www.cdc.gov/lyme/",
+      "title": "CDC: Lyme Disease",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "cdc_rmsf",
+      "type": "web",
+      "url": "https://www.cdc.gov/rmsf/",
+      "title": "CDC: Rocky Mountain Spotted Fever",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "cdc_tickborne_diseases",
+      "type": "web",
+      "url": "https://www.cdc.gov/ticks/diseases/index.html",
+      "title": "CDC: Tickborne Diseases",
+      "license_note": "CDC public guidance."
+    }
+  ]
+}

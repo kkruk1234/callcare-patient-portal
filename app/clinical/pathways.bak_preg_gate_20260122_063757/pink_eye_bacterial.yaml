@@ -1,0 +1,26 @@
+id: pink_eye_bacterial
+version: 0.1
+match:
+  any_keywords: ["pink eye", "conjunctivitis", "eye discharge", "goopy eye", "sticky eyelids", "eye crusting"]
+questions:
+  - id: contact_lens
+    prompt: "Do you wear contact lenses? (yes/no)"
+    store_as: contact_lens
+    type: yesno
+
+  - id: vision_pain
+    prompt: "Any vision change, severe pain, or significant light sensitivity? (yes/no)"
+    store_as: vision_or_pain
+    type: yesno
+
+  - id: one_eye
+    prompt: "Is it mainly one eye? (yes/no)"
+    store_as: one_eye
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["contact_lens", "vision_pain", "one_eye"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

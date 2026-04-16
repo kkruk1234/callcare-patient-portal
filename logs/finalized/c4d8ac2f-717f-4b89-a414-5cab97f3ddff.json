@@ -1,0 +1,120 @@
+{
+  "packet_id": "ba8d2eb6-c03d-41d4-b524-1be46238c878",
+  "created_at": "2026-02-05T02:26:48.218213+00:00",
+  "session_id": "c4d8ac2f-717f-4b89-a414-5cab97f3ddff",
+  "chief_complaint": "headache",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your headache start?",
+    "intake_a1": "2 days ago",
+    "intake_q2": "Can you describe where your headache is located?",
+    "intake_a2": "bridge of my nose",
+    "intake_q3": "Any nasal congestion, runny nose, or facial pressure?",
+    "intake_a3": "runny nose and facial pressure",
+    "intake_q4": "Any fever or chills since the headache started?",
+    "intake_a4": "no",
+    "intake_q5": "Any vision changes, weakness, numbness, or difficulty speaking?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of sinus infections or allergies?",
+    "intake_a6": "allergies",
+    "intake_q7": "Have you tried any treatments or medications for your headache or nasal symptoms?",
+    "intake_a7": "I take Zyrtec daily",
+    "intake_q8": "Any recent exposure to sick contacts or travel?",
+    "intake_a8": "My children were both sick last week.",
+    "intake_q9": "Any worsening of facial swelling, redness, or severe pain around the nose or eyes?",
+    "intake_a9": "no",
+    "intake_summary": "Patient presents with a 2-day history of headache localized to the bridge of the nose, associated with runny nose and facial pressure. No fever, chills, vision changes, neurological symptoms, or worsening facial swelling/redness. History of allergies and exposure to sick contacts. Currently taking Zyrtec daily.",
+    "age_years": 34,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/symptoms/headaches/",
+        "https://www.nhs.uk/conditions/tension-headaches/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nPatient is not pregnant.\nThe patient is a 34-year-old female presenting with a 2-day history of headache localized to the bridge of her nose. She reports associated runny nose and facial pressure but denies fever, chills, vision changes, weakness, numbness, difficulty speaking, or worsening facial swelling or redness. She has a history of allergies and is currently taking Zyrtec daily. There is recent exposure to sick contacts, as her children were ill last week. No signs of neurological deficits or systemic infection are reported.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is acute rhinosinusitis likely related to allergic inflammation or a viral upper respiratory infection given the nasal symptoms, facial pressure, and headache localized to the nasal bridge. The absence of fever and severe symptoms lowers suspicion for bacterial sinusitis or more serious intracranial pathology.\n\nDifferential: \n1. Allergic rhinosinusitis \n2. Viral upper respiratory infection with sinus involvement \n3. Tension-type headache secondary to sinus congestion \n4. Less likely: early bacterial sinusitis or other causes of facial pain (e.g., migraine, cluster headache)\n\nP: \n - First-line medication: \n Consider an oral antihistamine or nasal corticosteroid spray to reduce allergic inflammation. Since the patient is already on Zyrtec (cetirizine), adding a nasal corticosteroid such as fluticasone nasal spray 1-2 sprays per nostril once daily for 7-14 days is appropriate. Dosing details were not found in retrieved evidence—prescriber should verify.\n\n - Alternatives: \n - Saline nasal irrigation to relieve nasal congestion and facial pressure \n - Oral decongestants (e.g., pseudoephedrine) for short-term use if no contraindications \n - Analgesics such as acetaminophen or NSAIDs for headache relief\n\n - Medication safety considerations: \n No known medication allergies. Patient is not pregnant. No renal or liver disease. Avoid oral decongestants if hypertension or cardiovascular disease is present (not assessed here). Nasal corticosteroids are generally safe with minimal systemic absorption.\n\n - Return precautions: \n Seek urgent care if fever develops, facial swelling or redness worsens, vision changes occur, severe pain develops, or neurological symptoms such as weakness, numbness, or difficulty speaking arise.\n\n - Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "American Headache Society: Red Flags in Headache (SNOOP4)",
+        "source": "pathways/headache/ahs_red_flags_snoop4.json",
+        "snippet": "art when people are younger in age. Progression Secondary headache is typically marked by a clear progression of becoming more severe or more frequent. In comparison, primary headache is usually episodic or fluctuating over time. Papilledema Any signs of papilledema—that is, swelling of the optic nerve—on a fundoscopic exam is a red flag and can be an indication of increased pressure in and around the brain. Positional or Precipitated by Valsalva If the headache changes in intensity in different positions, like standing to lying, or is triggered by the Valsalva maneuver, such as coughing or straining, it can be concerning. These signs could point to a pressure issue or a problem related to some type of mass. Pregnancy When a woman experiences new-onset headache during or after pregnancy, she should be evaluated for secondary conditions, such as pituitary or vascular abnormalities. When s"
+      },
+      {
+        "title": "NICE CG150: Acute narrow-angle glaucoma mention in headache guidance",
+        "source": "pathways/red_eye/nice_cg150_acute_glaucoma_note.json",
+        "snippet": "ye nasal congestion and/or runny nose swollen eyelid forehead and facial sweating constricted pupil and/or drooping eyelid Duration of headache 30 minutes to continuous 4 to 72 hours in adults 1 to 72 hours in young people aged 12 to 17 years 15 to 180 minutes Frequency Episodic tension-type headache On fewer than 15 days per month Chronic tension-type headache On 15 or more days per month for more than 3 months Episodic migraine (with or without aura) On fewer than 15 days per month Chronic migraine (with or without aura) On 15 or more days per month, with at least 8 days having features of migraine, for more than 3 months Episodic cluster headache From once every other day to 8 times a day with a pain-free period of more than 1 month Chronic cluster headache From once every other day to 8 times a day with a continuous pain-free period of less than 1 month in a 12-month period Migraine"
+      },
+      {
+        "title": "AAFP: Acute Headache in Adults — Diagnostic Approach",
+        "source": "pathways/headache/aafp_acute_headache_diagnostic_approach_2022.json",
+        "snippet": "Acute Headache in Adults: A Diagnostic Approach | AAFP --> --> --> --> Advertisement Search search close We upgraded AAFP.org security on Dec. 7. Account holders must create a new password. Previous passwords will no longer work. PREV Sep 2022 NEXT ANTHONY J. VIERA, MD, MPH, AND BRIAN ANTONO, MD, MPH Am Fam Physician. 2022;106(3):260-268 Author disclosure: No relevant financial relationships. Article Sections A detailed history and physical examination can distinguish between key features of a benign primary headache and concerning symptoms that warrant further evaluation for a secondary headache. Most headaches that are diagnosed in the primary care setting are benign. Among primary headache disorders, tension-type headache is the most common, although a migraine headache is more debilitating and likely to present in the primary care setting. Signs such as predictable timing, sensitivit"
+      },
+      {
+        "title": "Headaches - NHS",
+        "source": "https://www.nhs.uk/symptoms/headaches/",
+        "snippet": "our child is under 12 and has any 1 of the following:\na headache with vision problems or difficulty speaking, swallowing, balancing or walking a headache with drowsiness or a persistent lack of energy a headache that starts within 5 days of a head injury \nInformation: \nDo not drive to A&E. Ask someone to drive you or call 999 and ask for an ambulance.\nBring any medicines you take with you.\nWhat can cause headaches \nCommon causes of headaches include:\nhaving a cold or flu stress drinking too much alcohol bad posture eyesight problems not eating regular meals not drinking enough fluids (dehydration) taking too many painkillers having your period or during menopause (hormone headache) Keeping a headache diary might help you work out what triggers your headaches.\nThe Migraine Trust has advice about what to record in a headache diary \nPage last reviewed: 17 April 2024\nNext review due: 17 Apri"
+      },
+      {
+        "title": "Tension headaches - NHS",
+        "source": "https://www.nhs.uk/conditions/tension-headaches/",
+        "snippet": "﻿ \nTension headaches\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nTension headaches \nTension headaches are very common and many people get them. You can treat them yourself with painkillers but see a GP if you have several headaches a week or they&#x27;re severe.\nSymptoms of a tension headache \nCommon symptoms of tension headaches include:\npain on both sides of your head, face or neck feeling like something is pressing on your head or being tightened around it the affected area may feel tender and your head may hurt more when touched You should be able to continue doing daily activities without making the headache worse.\nTension headaches last at least 30 minutes but they can last much longer, sometimes for seve"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "American Headache Society: Red Flags in Headache (SNOOP4)",
+      "source": "pathways/headache/ahs_red_flags_snoop4.json",
+      "snippet": "art when people are younger in age. Progression Secondary headache is typically marked by a clear progression of becoming more severe or more frequent. In comparison, primary headache is usually episodic or fluctuating over time. Papilledema Any signs of papilledema—that is, swelling of the optic nerve—on a fundoscopic exam is a red flag and can be an indication of increased pressure in and around the brain. Positional or Precipitated by Valsalva If the headache changes in intensity in different positions, like standing to lying, or is triggered by the Valsalva maneuver, such as coughing or straining, it can be concerning. These signs could point to a pressure issue or a problem related to some type of mass. Pregnancy When a woman experiences new-onset headache during or after pregnancy, she should be evaluated for secondary conditions, such as pituitary or vascular abnormalities. When s"
+    },
+    {
+      "title": "NICE CG150: Acute narrow-angle glaucoma mention in headache guidance",
+      "source": "pathways/red_eye/nice_cg150_acute_glaucoma_note.json",
+      "snippet": "ye nasal congestion and/or runny nose swollen eyelid forehead and facial sweating constricted pupil and/or drooping eyelid Duration of headache 30 minutes to continuous 4 to 72 hours in adults 1 to 72 hours in young people aged 12 to 17 years 15 to 180 minutes Frequency Episodic tension-type headache On fewer than 15 days per month Chronic tension-type headache On 15 or more days per month for more than 3 months Episodic migraine (with or without aura) On fewer than 15 days per month Chronic migraine (with or without aura) On 15 or more days per month, with at least 8 days having features of migraine, for more than 3 months Episodic cluster headache From once every other day to 8 times a day with a pain-free period of more than 1 month Chronic cluster headache From once every other day to 8 times a day with a continuous pain-free period of less than 1 month in a 12-month period Migraine"
+    },
+    {
+      "title": "AAFP: Acute Headache in Adults — Diagnostic Approach",
+      "source": "pathways/headache/aafp_acute_headache_diagnostic_approach_2022.json",
+      "snippet": "Acute Headache in Adults: A Diagnostic Approach | AAFP --> --> --> --> Advertisement Search search close We upgraded AAFP.org security on Dec. 7. Account holders must create a new password. Previous passwords will no longer work. PREV Sep 2022 NEXT ANTHONY J. VIERA, MD, MPH, AND BRIAN ANTONO, MD, MPH Am Fam Physician. 2022;106(3):260-268 Author disclosure: No relevant financial relationships. Article Sections A detailed history and physical examination can distinguish between key features of a benign primary headache and concerning symptoms that warrant further evaluation for a secondary headache. Most headaches that are diagnosed in the primary care setting are benign. Among primary headache disorders, tension-type headache is the most common, although a migraine headache is more debilitating and likely to present in the primary care setting. Signs such as predictable timing, sensitivit"
+    },
+    {
+      "title": "Headaches - NHS",
+      "source": "https://www.nhs.uk/symptoms/headaches/",
+      "snippet": "our child is under 12 and has any 1 of the following:\na headache with vision problems or difficulty speaking, swallowing, balancing or walking a headache with drowsiness or a persistent lack of energy a headache that starts within 5 days of a head injury \nInformation: \nDo not drive to A&E. Ask someone to drive you or call 999 and ask for an ambulance.\nBring any medicines you take with you.\nWhat can cause headaches \nCommon causes of headaches include:\nhaving a cold or flu stress drinking too much alcohol bad posture eyesight problems not eating regular meals not drinking enough fluids (dehydration) taking too many painkillers having your period or during menopause (hormone headache) Keeping a headache diary might help you work out what triggers your headaches.\nThe Migraine Trust has advice about what to record in a headache diary \nPage last reviewed: 17 April 2024\nNext review due: 17 Apri"
+    },
+    {
+      "title": "Tension headaches - NHS",
+      "source": "https://www.nhs.uk/conditions/tension-headaches/",
+      "snippet": "﻿ \nTension headaches\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nTension headaches \nTension headaches are very common and many people get them. You can treat them yourself with painkillers but see a GP if you have several headaches a week or they&#x27;re severe.\nSymptoms of a tension headache \nCommon symptoms of tension headaches include:\npain on both sides of your head, face or neck feeling like something is pressing on your head or being tightened around it the affected area may feel tender and your head may hurt more when touched You should be able to continue doing daily activities without making the headache worse.\nTension headaches last at least 30 minutes but they can last much longer, sometimes for seve"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+id: eczema_flare
+version: 0.1
+match:
+  any_keywords: ["eczema flare", "itchy dry patches", "atopic dermatitis", "dry itchy rash", "flare up of eczema"]
+questions:
+  - id: infection
+    prompt: "Any fever, spreading redness, pus, or honey-colored crusting? (yes/no)"
+    store_as: infection_signs
+    type: yesno
+
+  - id: face_eye
+    prompt: "Is the rash around the eyes or causing eye swelling? (yes/no)"
+    store_as: periocular
+    type: yesno
+
+  - id: severe
+    prompt: "Is the itching severe enough that sleep is disrupted? (yes/no)"
+    store_as: severe_itch
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["infection", "face_eye", "severe"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

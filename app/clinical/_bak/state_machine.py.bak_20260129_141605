@@ -1,0 +1,207 @@
+"""
+CallCare RAG Intake State Machine (deterministic)
+
+Key design:
+- HPI (mnemonic-style) questions are asked immediately after CHIEF.
+- Medication safety context (age/allergies/sex/pregnancy/renal/liver) is collected AFTER HPI.
+- RAG_Q is currently a deterministic HPI scaffold; future work will allow evidence-driven probes.
+"""
+
+from typing import Dict, List, Any
+
+# CallState is expected to exist in this module scope (as in your current build)
+# It is imported/defined elsewhere in your project; we keep the same pattern.
+# If you later move CallState, update the import accordingly.
+from app.core.models import CallState  # type: ignore
+
+
+def _sx(state: CallState) -> Dict[str, Any]:
+    """Session context dict."""
+    sx = getattr(state, "symptoms", None)
+    if not isinstance(sx, dict):
+        state.symptoms = {"_answers": {}}
+        sx = state.symptoms
+    return sx
+
+
+def _ans(state: CallState) -> Dict[str, Any]:
+    """Answer store under state.symptoms['_answers']."""
+    sx = _sx(state)
+    if "_answers" not in sx or not isinstance(sx.get("_answers"), dict):
+        sx["_answers"] = {}
+    return sx["_answers"]
+
+
+def _is_yes(t: str) -> bool:
+    return (t or "").strip().lower().startswith("y")
+
+
+def _seed_domain_questions(state: CallState) -> None:
+    """
+    Deterministically seed HPI questions using an OLD CARTS-style scaffold.
+    This is complaint-agnostic and scalable (no per-condition packs).
+    """
+    sx = _sx(state)
+
+    # OLD CARTS-style HPI scaffold (tight, clinician-like order)
+    # Keep IDs stable because answers are stored by qid.
+    qspec = [
+        ("onset", "When did this start?"),
+        ("location", "Where on your body is the problem located? (free text)"),
+        ("course", "Is it getting better, worse, or staying the same? (better/worse/same/not sure)"),
+        ("characteristics", "Describe what it looks or feels like. (free text)"),
+        ("aggravating", "Anything make it better or worse? (free text)"),
+        ("associated", "What other symptoms are you having? (free text)"),
+        ("treatments_tried", "Have you tried anything so far? If yes, what? If no, say no. (free text)"),
+        ("severity", "How severe is it right now (mild/moderate/severe)?"),
+    ]
+
+    qlist: List[Dict[str, str]] = []
+    for k, p in qspec:
+        qlist.append({"id": k, "prompt": p})
+
+    sx["_rag_domain"] = "general"
+    sx["_rag_questions"] = qlist
+    sx["_rag_q_idx"] = 0
+
+
+def next_prompt(state: CallState) -> str:
+    sx = _sx(state)
+
+    if not getattr(state, "stage", None):
+        state.stage = "CONSENT"
+
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What is your main medical concern today?"
+
+    # HPI block happens immediately after CHIEF
+    if state.stage == "RAG_Q":
+        qlist = sx.get("_rag_questions") or []
+        idx = int(sx.get("_rag_q_idx", 0))
+        if isinstance(qlist, list) and idx < len(qlist):
+            q = qlist[idx]
+            if isinstance(q, dict):
+                return str(q.get("prompt") or "")
+        return ""
+
+    # Medication safety context AFTER HPI
+    if state.stage == "AGE":
+        return "How old are you? Please say your age in years."
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "SEX_AT_BIRTH":
+        return "What sex were you assigned at birth? Please say male or female."
+
+    if state.stage == "PREGNANCY":
+        return "Is pregnancy possible? (yes/no/unknown)"
+
+    if state.stage == "RENAL":
+        return "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+
+    if state.stage == "LIVER":
+        return "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+
+    return ""
+
+
+def process_answer(state: CallState, text: str) -> None:
+    t = (text or "").strip()
+    sx = _sx(state)
+    ans = _ans(state)
+
+    if not getattr(state, "stage", None):
+        state.stage = "CONSENT"
+
+    if state.stage == "CONSENT":
+        if _is_yes(t):
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    if state.stage == "CHIEF":
+        state.chief_complaint = t
+        # Seed HPI questions ONCE, immediately after chief complaint
+        _seed_domain_questions(state)
+        state.stage = "RAG_Q"
+        return
+
+    # HPI answers
+    if state.stage == "RAG_Q":
+        qlist = sx.get("_rag_questions") or []
+        idx = int(sx.get("_rag_q_idx", 0))
+
+        # If there are no questions, end safely
+        if not isinstance(qlist, list) or idx >= len(qlist):
+            state.stage = "AGE"
+            return
+
+        q = qlist[idx]
+        qid = q.get("id") if isinstance(q, dict) else None
+        if qid:
+            ans[str(qid)] = t
+
+        sx["_rag_q_idx"] = idx + 1
+
+        # If that was the last question, advance to medication safety context
+        if int(sx.get("_rag_q_idx", 0)) >= len(qlist):
+            state.stage = "AGE"
+        return
+
+    # Medication safety context AFTER HPI
+    if state.stage == "AGE":
+        try:
+            age = int(float(t))
+        except Exception:
+            return
+        ans["age_years"] = age
+        state.age_band = "child" if age < 18 else "adult"
+        sx["age_years"] = age
+        sx["age_band"] = state.age_band
+        state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "ALLERGIES":
+        if t.lower() in ("no", "none", "nope", "n"):
+            ans["allergies"] = "none"
+        else:
+            ans["allergies"] = t
+        state.stage = "SEX_AT_BIRTH"
+        return
+
+    if state.stage == "SEX_AT_BIRTH":
+        ans["sex_at_birth"] = t.lower()
+        state.stage = "PREGNANCY"
+        return
+
+    if state.stage == "PREGNANCY":
+        ans["pregnancy"] = t.lower()
+        state.pregnancy_possible = t.lower()
+        state.stage = "RENAL"
+        return
+
+    if state.stage == "RENAL":
+        ans["renal_disease"] = t.lower()
+        state.stage = "LIVER"
+        return
+
+    if state.stage == "LIVER":
+        ans["liver_disease"] = t.lower()
+        state.stage = "DECIDE"
+        return
+
+
+def start_call() -> CallState:
+    state = CallState()
+    state.stage = "CONSENT"
+    state.symptoms = {"_answers": {}}
+    return state

@@ -1,0 +1,139 @@
+{
+  "packet_id": "eead24d3-4368-47dc-ae8a-c9e37d599ee5",
+  "created_at": "2026-02-12T00:21:07.016623+00:00",
+  "session_id": "f2a2f7ef-0ece-4dc1-808f-5ddcc7c96419",
+  "chief_complaint": "loss of taste of spicy foods",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did you first notice the loss of taste for spicy foods?",
+    "intake_a1": "tonight",
+    "intake_q2": "Any other changes in taste or smell besides spicy foods?",
+    "intake_a2": "No",
+    "intake_q3": "Any recent upper respiratory symptoms like congestion, runny nose, or sore throat?",
+    "intake_a3": "yes",
+    "intake_q4": "Can you describe the upper respiratory symptoms you have been experiencing?",
+    "intake_a4": "cough with phlegm, runny nose, but my cold symptoms pretty much resolved last week",
+    "intake_q5": "Any fever or chills with your recent illness?",
+    "intake_a5": "Yes - during my cold last week",
+    "intake_q6": "Any current difficulty breathing, chest pain, or swallowing problems?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of allergies, sinus issues, or recent nasal trauma?",
+    "intake_a7": "yes - allergies and sinus issues",
+    "intake_q8": "Have you noticed any nasal congestion, nasal discharge, or facial pain/pressure currently?",
+    "intake_a8": "yes - all",
+    "intake_q9": "Have you tried any treatments or medications for your current nasal symptoms?",
+    "intake_a9": "Yes - OTC allergy medications and prescription steroid nasal spray",
+    "intake_q10": "Have you noticed any swelling around your eyes or face, or any changes in vision?",
+    "intake_a10": "no",
+    "age_years": 14,
+    "weight_raw": "151",
+    "weight_units": "lb",
+    "weight_kg": 68.5,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/hives/",
+        "https://medlineplus.gov/druginfo/meds/a601010.html",
+        "https://www.nhs.uk/conditions/rosacea/",
+        "https://www.nhs.uk/conditions/food-intolerance/",
+        "https://medlineplus.gov/tasteandsmelldisorders.html",
+        "https://www.cdc.gov/listeria/outbreaks/chicken-fettuccine-alfredo-06-25/index.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 14-year-old female who reports a sudden loss of taste specifically for spicy foods that began tonight. She denies any other changes in taste or smell. She recently experienced an upper respiratory illness characterized by cough with phlegm and runny nose, which mostly resolved last week. During that illness, she had fever and chills. She currently has nasal congestion, nasal discharge, and facial pain/pressure, consistent with ongoing sinus issues. She has a history of allergies and sinus problems and has been using over-the-counter allergy medications and a prescription steroid nasal spray. She denies any swelling around the eyes or face and no changes in vision. There are no current breathing difficulties, chest pain, or swallowing problems.\n\nO: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is transient loss of taste for spicy foods likely related to recent upper respiratory infection and ongoing sinus inflammation in the context of allergic rhinosinusitis. This is consistent with localized inflammation affecting taste perception.\n\nDifferential:\n1. Post-viral taste disturbance secondary to recent upper respiratory infection\n2. Allergic rhinosinusitis with mucosal inflammation impairing taste sensation\n3. Early sinus infection or sinusitis exacerbation\n4. Food intolerance or altered taste perception unrelated to infection or allergy. Patient is not pregnant.\n\nP: \n - First-line medication: Continue current prescription steroid nasal spray as directed; consider adding a short course of oral antihistamines such as cetirizine 10 mg once daily for 7 days to reduce allergic inflammation. Dosing details were not found in retrieved evidence; prescriber should verify. \n - Alternatives: \n - Nasal saline irrigation to help clear nasal passages and reduce congestion \n - Oral decongestants if no contraindications, for short-term use only \n - Referral to ENT specialist if symptoms persist or worsen \n - Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease. Avoid oral decongestants if hypertension or cardiac issues develop. \n - Return precautions: Return for in-person evaluation if loss of taste worsens, if new symptoms such as facial swelling, vision changes, or severe facial pain develop, or if no improvement within 48–72 hours. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Rosacea - NHS",
+        "source": "https://www.nhs.uk/conditions/rosacea/",
+        "snippet": "spicy food makes symptoms worse, try to avoid it as much as possible. Do wear a high SPF sunscreen of at least SPF 30 every day try to avoid heat, sunlight or humid conditions if possible try to cover your face in cold weather use gentle skincare products for sensitive skin clean your eyelids at least once a day if you have blepharitis take steps to manage s…"
+      },
+      {
+        "title": "Hives - NHS",
+        "source": "https://www.nhs.uk/conditions/hives/",
+        "snippet": "spicy food a reaction to a medicine, insect bite or sting scratching or pressing on your skin, such as wearing itchy or tight clothing an infection a problem with your immune system water or sunlight, but this is rare Try to find out what triggers hives for you, so you can avoid those triggers, if possible. This may help prevent an episode of hives. Page las…"
+      },
+      {
+        "title": "Food intolerance - NHS",
+        "source": "https://www.nhs.uk/conditions/food-intolerance/",
+        "snippet": "﻿ Food intolerance - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Food intolerance A food intolerance is when you have difficulty digesting certain foods or ingredients in food. It's not usual…"
+      },
+      {
+        "title": "Food allergy - NHS",
+        "source": "https://www.nhs.uk/conditions/food-allergy/",
+        "snippet": "﻿ Food allergy - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Food allergy A food allergy is where your body reacts to certain foods. It's often mild, but can be very serious for some people.…"
+      },
+      {
+        "title": "Acitretin: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a601010.html",
+        "snippet": "ked, blistered, sticky or infected skin brittle or weak fingernails and toenails dandruff sunburn abnormal skin odor excessive sweating hair loss changes in hair texture dry eyes loss of eyebrows or eyelashes hot flashes or flushing chapped or swollen lips swollen or bleeding gums excessive saliva tongue pain, swelling, or blistering mouth swelling or bliste…"
+      },
+      {
+        "title": "Loss of Smell | Loss of Taste | Ageusia | MedlinePlus",
+        "source": "https://medlineplus.gov/tasteandsmelldisorders.html",
+        "snippet": "Medical Tests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Taste and Smell Disorders URL of this page: https://medlineplus.gov/tasteandsmelldisorders.html Taste and Smell Disorders On this page Basics Summary Start Here Learn More Specifics Genetics See, Play and Learn Videos and Tutorials Research Statistics and Research Clin…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Hives - NHS",
+      "source": "https://www.nhs.uk/conditions/hives/",
+      "snippet": "spicy food a reaction to a medicine, insect bite or sting scratching or pressing on your skin, such as wearing itchy or tight clothing an infection a problem with your immune system water or sunlight, but this is rare Try to find out what triggers hives for you, so you can avoid those triggers, if possible. This may help prevent an episode of hives. Page las…"
+    },
+    {
+      "title": "Acitretin: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a601010.html",
+      "snippet": "ked, blistered, sticky or infected skin brittle or weak fingernails and toenails dandruff sunburn abnormal skin odor excessive sweating hair loss changes in hair texture dry eyes loss of eyebrows or eyelashes hot flashes or flushing chapped or swollen lips swollen or bleeding gums excessive saliva tongue pain, swelling, or blistering mouth swelling or bliste…"
+    },
+    {
+      "title": "Rosacea - NHS",
+      "source": "https://www.nhs.uk/conditions/rosacea/",
+      "snippet": "spicy food makes symptoms worse, try to avoid it as much as possible. Do wear a high SPF sunscreen of at least SPF 30 every day try to avoid heat, sunlight or humid conditions if possible try to cover your face in cold weather use gentle skincare products for sensitive skin clean your eyelids at least once a day if you have blepharitis take steps to manage s…"
+    },
+    {
+      "title": "Food intolerance - NHS",
+      "source": "https://www.nhs.uk/conditions/food-intolerance/",
+      "snippet": "﻿ Food intolerance - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Food intolerance A food intolerance is when you have difficulty digesting certain foods or ingredients in food. It's not usual…"
+    },
+    {
+      "title": "Loss of Smell | Loss of Taste | Ageusia | MedlinePlus",
+      "source": "https://medlineplus.gov/tasteandsmelldisorders.html",
+      "snippet": "Medical Tests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Taste and Smell Disorders URL of this page: https://medlineplus.gov/tasteandsmelldisorders.html Taste and Smell Disorders On this page Basics Summary Start Here Learn More Specifics Genetics See, Play and Learn Videos and Tutorials Research Statistics and Research Clin…"
+    },
+    {
+      "title": "Listeria Outbreak Linked to Prepared Pasta Meals | Listeria Infection | CDC",
+      "source": "https://www.cdc.gov/listeria/outbreaks/chicken-fettuccine-alfredo-06-25/index.html",
+      "snippet": "redness. Your illness may be mild, but Listeria can cause pregnancy loss or premature birth. It can also cause serious illness or death in newborns. Other people may have: Headache, stiff neck, confusion, loss of balance, and convulsions, in addition to fever, muscle aches, and tiredness. See also CDC: People at Risk for Listeria Infection USDA FSIS: Outbrea…"
+    }
+  ],
+  "state": null
+}

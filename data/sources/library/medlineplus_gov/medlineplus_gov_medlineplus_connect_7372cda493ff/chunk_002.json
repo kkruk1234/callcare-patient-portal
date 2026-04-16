@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect",
+  "url": "https://medlineplus.gov/medlineplus-connect/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "th record (EHR) systems to MedlinePlus, an authoritative up-to-date health information resource for patients, families, and health care providers.\nHow It Works \nMedlinePlus Connect accepts and responds to requests for information based on diagnosis (problem) codes, medication codes, laboratory test codes, and medical procedure codes. When an EHR, patient portal or other system submits a code-based request, MedlinePlus Connect returns a response that includes links to patient education information relevant to the code. MedlinePlus Connect is available as a Web application or a Web service . It is available in English and Spanish.\nUpon receiving a problem code request, MedlinePlus Connect returns relevant MedlinePlus health topics , genetic condition information , or information from other NIH Institutes and Centers.\nFor problem code requests, MedlinePlus Connect supports:\nICD-9-CM (International Classification of Diseases, 9th edition, Clinical Modification) \nICD-10-CM (International Classification of Diseases, 10th edition, Clinical Modification) \nSNOMED CTÂ® (Systematized Nomenclature of Medicine, Clinical Terms). Note: MedlinePlus Connect coverage of SNOMED CT focuses on CORE Problem List Subset codes (Clinical Observations Recording and Encoding) and their descendants. \nMedlinePlus Connect News \nFor some problem code requests in English, M+ Connect also returns information p",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_7372cda493ff",
+  "chunk_id": "chunk_002"
+}

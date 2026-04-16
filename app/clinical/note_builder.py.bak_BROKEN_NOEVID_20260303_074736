@@ -1,0 +1,392 @@
+from __future__ import annotations
+
+import importlib
+import json
+import os
+import re
+import time
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional, Tuple
+
+from app.clinical.evidence_utils import ensure_evidence_dict
+from app.clinical.med_protocols import load_med_protocol_for_state, protocol_med_names
+from app.core.models import CallState, EvidenceRef, NoteDraft
+
+
+def _opt2_debug_log(msg: str):
+    try:
+        os.makedirs("logs", exist_ok=True)
+        open("logs/opt2_debug.txt", "a", encoding="utf-8").write(msg + "\n")
+    except Exception:
+        pass
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _model_field_names(model_cls) -> set:
+    if hasattr(model_cls, "model_fields"):  # pydantic v2
+        return set(model_cls.model_fields.keys())
+    if hasattr(model_cls, "__fields__"):  # pydantic v1
+        return set(model_cls.__fields__.keys())
+    return set()
+
+
+_EVID_FIELDS = _model_field_names(EvidenceRef)
+
+
+def _mk_evidence_ref(data: Dict[str, Any]) -> EvidenceRef:
+    """
+    Normalize web evidence dict -> EvidenceRef.
+    We prefer URL-backed sources (auditable) and sanitize titles for Evidence Used.
+    """
+    if isinstance(data, dict):
+        src = (data.get("source") or "").strip()
+        url = (data.get("url") or data.get("source_url") or data.get("link") or "").strip()
+        if url and (src.startswith("library/") or src == ""):
+            data = dict(data)
+            data["source"] = url
+        if url and "url" in _EVID_FIELDS:
+            data = dict(data)
+            data["url"] = url
+
+    safe = {k: v for k, v in (data or {}).items() if k in _EVID_FIELDS}
+
+    if "source" in _EVID_FIELDS and not safe.get("source"):
+        safe["source"] = "Unknown source"
+    if "snippet" in _EVID_FIELDS and safe.get("snippet") is None:
+        safe["snippet"] = ""
+    if "title" in _EVID_FIELDS and not safe.get("title"):
+        safe["title"] = safe.get("source", "Evidence")
+
+    ev = EvidenceRef(**safe)
+
+    # Single-line title, collapse whitespace, cap length
+    try:
+        t = "" if ev.title is None else str(ev.title)
+        parts = [x.strip() for x in t.splitlines() if x.strip()]
+        t = parts[0] if parts else t.strip()
+        t = re.sub(r"\s+", " ", t).strip()
+        if len(t) > 160:
+            t = t[:157].rstrip() + "..."
+        ev.title = t
+    except Exception:
+        pass
+
+    return ev
+
+
+def _symptoms(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _get_answers_dict(state: CallState) -> Dict[str, Any]:
+    sx = _symptoms(state)
+    a = sx.get("_answers")
+    return a if isinstance(a, dict) else {}
+
+
+def _get_cc(state: CallState) -> str:
+    try:
+        cc = (getattr(state, "chief_complaint", None) or "").strip()
+        if cc:
+            return cc
+    except Exception:
+        pass
+    sx = _symptoms(state)
+    for k in ("chief_complaint", "chief", "cc", "complaint"):
+        v = sx.get(k)
+        if isinstance(v, str) and v.strip():
+            return v.strip()
+    return ""
+
+
+def _get_dx_cue(state: CallState) -> str:
+    """
+    Best-effort dx cue. NO hard-coded diagnoses. NO title-gating.
+    """
+    for k in ("working_diagnosis", "pathway_label", "pathway_id"):
+        try:
+            v = getattr(state, k, None)
+            if isinstance(v, str) and v.strip():
+                return v.strip().replace("_", " ")
+        except Exception:
+            pass
+
+    sx = _symptoms(state)
+    for k in ("_dx_inferred", "working_diagnosis", "diagnosis", "dx", "final_dx"):
+        v = sx.get(k)
+        if isinstance(v, str) and v.strip():
+            return v.strip().replace("_", " ")
+
+    raw = sx.get("_llm_intake_extract")
+    if isinstance(raw, dict):
+        for k in ("working_diagnosis", "diagnosis", "primary_diagnosis", "impression", "assessment"):
+            v = raw.get(k)
+            if isinstance(v, str) and v.strip():
+                return v.strip()
+
+    # fallback to CC
+    return _get_cc(state)
+
+
+# ----------------------------
+# Pregnancy: enforce single placement in S: (minimal)
+# ----------------------------
+
+def _preg_norm(state: CallState) -> str:
+    ans = _get_answers_dict(state)
+    raw = ans.get("pregnancy_possible")
+    if raw is None or str(raw).strip() == "":
+        raw = getattr(state, "pregnancy_possible", None)
+    s = ("" if raw is None else str(raw)).strip().lower()
+    if not s:
+        return ""
+    if s in ("y", "yes", "true", "pregnant"):
+        return "yes"
+    if s in ("n", "no", "false", "not pregnant"):
+        return "no"
+    if s in ("na", "n/a", "not applicable", "not_applicable", "male"):
+        return "not_applicable"
+    return "unknown"
+
+
+def _preg_sentence(norm: str) -> str:
+    v = (norm or "").strip().lower()
+    if v in ("not_applicable", "na", "n/a"):
+        return ""
+    if v == "yes":
+        return "Patient is pregnant."
+    if v == "no":
+        return "Patient is not pregnant."
+    if v in ("unknown", ""):
+        return "Patient is unsure about pregnancy status."
+    return "Patient is unsure about pregnancy status."
+
+
+def _strip_preg_sentences(text: str) -> str:
+    if not text:
+        return text
+    text = re.sub(r"\bPatient is pregnant\.\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bPatient is not pregnant\.\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bPatient is unsure about pregnancy status\.\s*", "", text, flags=re.IGNORECASE)
+    return text
+
+
+def _insert_preg_last_sentence_S(soap_text: str, preg_sentence: str) -> str:
+    txt = (soap_text or "").strip()
+    txt = _strip_preg_sentences(txt).strip()
+    if not preg_sentence:
+        return txt + ("\n" if txt and not txt.endswith("\n") else "")
+
+    m = re.search(r"(?s)^\s*S:\s*(.*?)\n\s*O:\s*(.*?)\n\s*A:\s*(.*?)\n\s*P:\s*(.*)\s*$", txt)
+    if not m:
+        return txt + ("\n" if txt and not txt.endswith("\n") else "")
+
+    s, o, a, p = [x.strip() for x in m.groups()]
+    if s and not s.endswith((".", "!", "?")):
+        s += "."
+    s = (s + " " + preg_sentence).strip()
+
+    out = f"S: {s}\n\nO: {o}\n\nA: {a}\n\nP:\n{p}".strip() + "\n"
+    return out
+
+
+# ----------------------------
+# Web evidence ONLY (no YAML/manifest/library/reindex/title-gates)
+# ----------------------------
+
+def _dedupe_by_url_or_title(items: List[Dict[str, Any]], max_total: int) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    seen = set()
+    for e in items or []:
+        if not isinstance(e, dict):
+            continue
+        url = str(e.get("url") or e.get("source_url") or e.get("source") or "").strip()
+        title = str(e.get("title") or "").strip()
+        key = (url or title).lower()
+        if not key:
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(e)
+        if len(out) >= max_total:
+            break
+    return out
+
+
+def _web_evidence(state: CallState, min_items: int = 4, max_items: int = 8) -> Tuple[List[EvidenceRef], List[Dict[str, Any]]]:
+    """
+    Returns:
+      - evidence_refs: List[EvidenceRef] for LLM prompting
+      - evidence_print: List[dict] for finalize.py / ReviewPacket
+    """
+    cc = _get_cc(state)
+    dx = _get_dx_cue(state)
+
+    # Queries: use query-only generator if it exists, else deterministic.
+    queries: List[str] = []
+    try:
+        qmod = importlib.import_module("app.clinical.query_llm")
+        fn = getattr(qmod, "generate_evidence_queries", None)
+        if callable(fn):
+            queries = fn(state, max_queries=4) or []
+    except Exception:
+        queries = []
+
+    queries = [str(q).strip() for q in (queries or []) if str(q).strip()]
+    if not queries:
+        anchor = dx or cc or "outpatient condition"
+        queries = [
+            f"{anchor} outpatient evaluation guideline",
+            f"{anchor} treatment medication dosing duration contraindications",
+            f"{anchor} red flags return precautions testing",
+        ]
+
+    # Fetch via llm_http_evidence (web retrieval tool)
+    raw: List[Dict[str, Any]] = []
+    try:
+        from app.rag.llm_http_evidence import llm_http_evidence  # type: ignore
+        raw = llm_http_evidence(
+            chief_complaint=cc or "chief complaint",
+            assessment_text=dx or None,
+            queries=queries[:4],
+            min_urls=max(min_items, 4),
+            max_urls=max_items,
+            max_queries=min(4, len(queries)),
+            max_per_publisher=1,
+            debug=False,
+        ) or []
+    except Exception:
+        raw = []
+
+    raw = [r for r in raw if isinstance(r, dict)]
+    raw = _dedupe_by_url_or_title(raw, max_total=max_items)
+
+    # Convert to EvidenceRef for prompt
+    refs: List[EvidenceRef] = []
+    for r in raw:
+        # require URL-ish somewhere for auditability
+        url = str(r.get("url") or r.get("source_url") or r.get("source") or "").strip()
+        if not (url.startswith("http://") or url.startswith("https://")):
+            continue
+        try:
+            refs.append(_mk_evidence_ref(ensure_evidence_dict(r)))
+        except Exception:
+            continue
+
+    # Printable dicts for finalize/review packet
+    today = datetime.now(timezone.utc).date().isoformat()
+    ev_print: List[Dict[str, Any]] = []
+    for r in raw:
+        try:
+            r2 = dict(r)
+            if not r2.get("accessed"):
+                r2["accessed"] = today
+            # normalize url/source fields
+            url = str(r2.get("url") or r2.get("source_url") or "").strip()
+            if url and not r2.get("source"):
+                r2["source"] = url
+            ev_print.append(r2)
+        except Exception:
+            continue
+
+    # Ensure minimum evidence count target if possible (without strict gating)
+    if len(ev_print) < min_items:
+        _opt2_debug_log(f"[web_evidence] WARNING: ev_print={len(ev_print)} (<{min_items}) cc={cc!r} dx={dx!r}")
+
+    return refs, ev_print
+
+
+# ----------------------------
+# Note generation (preserve formatting via llm_note_writer)
+# ----------------------------
+
+def _generate_llm_soap(state: CallState, evidence_refs: List[EvidenceRef]) -> Tuple[str, str]:
+    try:
+        llm = importlib.import_module("app.clinical.llm_note_writer")
+        build_prompt = getattr(llm, "build_prompt", None)
+        generate_note_text = getattr(llm, "generate_note_text", None)
+        if not callable(build_prompt) or not callable(generate_note_text):
+            return ("", "llm_note_writer missing build_prompt/generate_note_text")
+
+        prompt = build_prompt(state=state, evidence=evidence_refs)
+
+        for attempt in range(3):
+            try:
+                txt = generate_note_text(prompt) or ""
+
+                # If writer returns JSON, extract soap_text ONLY. Do NOT leak queries into the note.
+                try:
+                    raw = (txt or "").strip()
+                    if raw.startswith("{") and raw.endswith("}"):
+                        obj = json.loads(raw)
+                        if isinstance(obj, dict):
+                            soap = str(obj.get("soap_text") or "").strip()
+                            if soap:
+                                txt = soap
+                except Exception:
+                    pass
+
+                if isinstance(txt, str) and txt.strip():
+                    return (txt, "")
+                return ("", "empty LLM output")
+            except Exception as e:
+                msg = str(e)
+                # basic retry for 429
+                if ("429" in msg) or ("rate" in msg.lower()):
+                    if attempt < 2:
+                        time.sleep(2.5 * (attempt + 1))
+                        continue
+                    return ("", "rate limit (429)")
+                return ("", f"{type(e).__name__}: {msg[:160]}")
+        return ("", "LLM failure")
+    except Exception as e:
+        return ("", f"{type(e).__name__}: {str(e)[:160]}")
+
+
+def build_note(state: CallState) -> NoteDraft:
+    """
+    FINALIZE-ALIGNED behavior:
+      - build SOAP via llm_note_writer (preserves your formatting rules there)
+      - retrieve evidence via web only (4–8 sources)
+      - attach printable dict evidence to NoteDraft.evidence (so finalize/review packet sees it)
+      - no YAML/manifests/local library/reindex/title gates
+      - no diagnosis-specific hard-coding
+    """
+    # Evidence first so it can guide the plan/assessment phrasing
+    evidence_refs, evidence_print = _web_evidence(state, min_items=4, max_items=8)
+
+    soap_text, err = _generate_llm_soap(state, evidence_refs)
+    if not soap_text.strip():
+        soap_text = f"(Warn) Could not build note: {err}\n"
+
+    # Pregnancy sentence single placement (keep, but minimal)
+    soap_text = _insert_preg_last_sentence_S(soap_text, _preg_sentence(_preg_norm(state)))
+
+    # Med protocol loading can remain (no hard-coded dosing here)
+    try:
+        _ = load_med_protocol_for_state(state)
+        _ = protocol_med_names(state)
+    except Exception:
+        pass
+
+    return NoteDraft(
+        soap=soap_text,
+        patient_instructions=[],
+        clinician_questions=[],
+        risk_flags=[],
+        evidence=evidence_print,  # IMPORTANT: dicts so finalize/_set_packet_evidence works
+    )
+
+
+def build_note_with_reason(state: CallState, *args, **kwargs):
+    note = build_note(state)
+    return note, None
+
+
+def fallback_note_from_state(state: CallState) -> NoteDraft:
+    return build_note(state)

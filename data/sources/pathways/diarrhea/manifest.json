@@ -1,0 +1,15 @@
+{
+  "pathway_id": "diarrhea",
+  "sources": [
+    {
+      "source_id": "cdc_travelers_diarrhea",
+      "title": "CDC Yellow Book: Travelers' Diarrhea",
+      "url": "https://wwwnc.cdc.gov/travel/yellowbook/2024/preparing/travelers-diarrhea"
+    },
+    {
+      "source_id": "nih_medlineplus_diarrhea",
+      "title": "MedlinePlus: Diarrhea",
+      "url": "https://medlineplus.gov/diarrhea.html"
+    }
+  ]
+}

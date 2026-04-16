@@ -1,0 +1,12 @@
+{
+  "pathway_id": "heat_illness",
+  "sources": [
+    {
+      "id": "heat_illness_ref",
+      "source_id": "heat_illness_ref",
+      "title": "Heat illness basics (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

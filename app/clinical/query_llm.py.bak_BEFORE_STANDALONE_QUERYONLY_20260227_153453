@@ -1,0 +1,209 @@
+import json
+import os
+import re
+from typing import Any, Dict, List, Optional, Tuple
+
+DEFAULT_QUERY_MODEL = os.getenv("CALLCARE_QUERY_MODEL", "").strip() or None
+
+_WORD_RE = re.compile(r"[^\w\s\-/]", re.UNICODE)
+
+def _as_dict(x: Any) -> Dict[str, Any]:
+    if isinstance(x, dict):
+        return x
+    return {}
+
+def _get_symptoms_dict(state: Any) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None)
+    if isinstance(sx, dict):
+        return sx
+    try:
+        if sx is None:
+            return {}
+        d = dict(sx)
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+def _clip_words(q: str, max_words: int = 12) -> str:
+    q = (q or "").strip()
+    q = q.replace("\n", " ").replace("\t", " ")
+    q = re.sub(r"\s+", " ", q).strip()
+    q = re.sub(r"https?://\S+", "", q).strip()
+    q = re.sub(r"\bsite:\S+\b", "", q).strip()
+    q = _WORD_RE.sub("", q).strip()
+    q = re.sub(r"\s+", " ", q).strip()
+    if not q:
+        return ""
+    words = q.split(" ")
+    if len(words) > max_words:
+        q = " ".join(words[:max_words]).strip()
+    return q
+
+def _dedupe_keep_order(items: List[str]) -> List[str]:
+    seen = set()
+    out: List[str] = []
+    for s in items:
+        k = s.lower().strip()
+        if not k or k in seen:
+            continue
+        seen.add(k)
+        out.append(s)
+    return out
+
+def _extract_context(state: Any) -> Tuple[str, Dict[str, Any], Dict[str, Any], str]:
+    cc = (getattr(state, "chief_complaint", None) or "").strip()
+    answers = getattr(state, "answers", None)
+    answers_d = _as_dict(answers)
+    sx = _get_symptoms_dict(state)
+
+    intake_extract = ""
+    for k in ("_llm_intake_extract", "_llm_intake_summary"):
+        v = sx.get(k)
+        if isinstance(v, str) and v.strip():
+            intake_extract = v.strip()
+            break
+
+    dx_hint = ""
+    for k in ("working_diagnosis", "diagnosis", "assessment", "decision"):
+        v = getattr(state, k, None)
+        if isinstance(v, str) and v.strip():
+            dx_hint = v.strip()
+            break
+    if not dx_hint:
+        v = sx.get("working_diagnosis") or sx.get("diagnosis") or sx.get("assessment")
+        if isinstance(v, str) and v.strip():
+            dx_hint = v.strip()
+
+    return cc, answers_d, sx, (intake_extract[:1200] if intake_extract else "")
+
+def _build_prompt(cc: str, answers_d: Dict[str, Any], sx: Dict[str, Any], intake_extract: str, dx_hint: str, max_queries: int) -> str:
+    core_answers = {}
+    for k, v in answers_d.items():
+        if k in ("evidence_search_queries",):
+            continue
+        if isinstance(v, (str, int, float, bool)) or v is None:
+            core_answers[k] = v
+        elif isinstance(v, list) and len(v) <= 30:
+            core_answers[k] = v
+        elif isinstance(v, dict) and len(v) <= 50:
+            core_answers[k] = v
+
+    guards = {
+        "no_urls": True,
+        "no_site_operator": True,
+        "max_words_per_query": 12,
+        "return_json_array_only": True,
+        "max_queries": max_queries,
+        "min_queries": 2,
+    }
+
+    payload = {
+        "chief_complaint": cc,
+        "dx_hint_if_any": dx_hint,
+        "intake_extract_if_any": intake_extract,
+        "answers": core_answers,
+        "symptoms_keys": sorted([k for k in sx.keys() if isinstance(k, str) and not k.startswith("_")])[:40],
+        "requirements": {
+            "must_include": [
+                "condition management guideline query",
+                "treatment/medication/dosing query (adult dosing mg duration contraindications renal hepatic)",
+                "testing or red flags / return precautions query",
+            ],
+            "avoid": [
+                "URLs",
+                "site: operators",
+                "anatomy-specific hardcoding rules",
+                "very long queries",
+            ],
+        },
+    }
+
+    return (
+        "You write web search queries for evidence retrieval in a telemedicine note.\n"
+        "Return ONLY a JSON array of strings. No other text.\n"
+        f"Constraints: {json.dumps(guards)}\n"
+        "Make each query concise and targeted.\n"
+        "Always output 2 to 4 queries.\n"
+        "Context:\n"
+        f"{json.dumps(payload, ensure_ascii=False)}\n"
+    )
+
+def _parse_queries(raw: str) -> List[str]:
+    raw = (raw or "").strip()
+    if not raw:
+        return []
+    try:
+        obj = json.loads(raw)
+        if isinstance(obj, list):
+            out = []
+            for x in obj:
+                if isinstance(x, str):
+                    out.append(x)
+            return out
+    except Exception:
+        pass
+    lines = [ln.strip(" -\t\r\n") for ln in raw.splitlines()]
+    lines = [ln for ln in lines if ln]
+    return lines
+
+def generate_evidence_queries(
+    state: Any,
+    llm_generate_fn,
+    model: Optional[str] = None,
+    max_queries: int = 4,
+    max_output_tokens: int = 200,
+    temperature: float = 0.2,
+    trace_fn=None,
+) -> List[str]:
+    cc, answers_d, sx, intake_extract = _extract_context(state)
+    dx_hint = ""
+    for k in ("working_diagnosis", "diagnosis", "assessment", "decision"):
+        v = getattr(state, k, None)
+        if isinstance(v, str) and v.strip():
+            dx_hint = v.strip()
+            break
+    if not dx_hint:
+        v = sx.get("working_diagnosis") or sx.get("diagnosis") or sx.get("assessment")
+        if isinstance(v, str) and v.strip():
+            dx_hint = v.strip()
+
+    prompt = _build_prompt(cc, answers_d, sx, intake_extract, dx_hint, max_queries=max_queries)
+    use_model = (model or DEFAULT_QUERY_MODEL)
+
+    raw = ""
+    try:
+        raw = llm_generate_fn(
+            prompt,
+            model=use_model,
+            max_output_tokens=max_output_tokens,
+            temperature=temperature,
+            trace_fn=trace_fn,
+        )
+    except TypeError:
+        raw = llm_generate_fn(
+            prompt,
+            model=use_model,
+            max_output_tokens=max_output_tokens,
+            temperature=temperature,
+        )
+    except Exception:
+        raw = ""
+
+    qs = _parse_queries(raw)
+    qs = [_clip_words(q, 12) for q in qs]
+    qs = [q for q in qs if q]
+    qs = _dedupe_keep_order(qs)
+
+    if len(qs) < 2:
+        base = dx_hint.strip() or cc.strip() or "acute complaint"
+        qs = [
+            _clip_words(f"{base} management guideline adult", 12),
+            _clip_words(f"{base} adult dosing mg duration contraindications renal hepatic", 12),
+            _clip_words(f"{base} red flags return precautions testing", 12),
+        ]
+        qs = _dedupe_keep_order([q for q in qs if q])
+
+    if len(qs) > max_queries:
+        qs = qs[:max_queries]
+
+    return qs

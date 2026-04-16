@@ -1,0 +1,298 @@
+"""
+CallCare RAG Intake State Machine (deterministic)
+
+Design:
+- HPI (mnemonic-style) questions are asked immediately after CHIEF.
+- Medication safety context (age/allergies/sex/pregnancy/renal/liver) is collected AFTER HPI.
+- RAG_Q seeds a deterministic OLD CARTS scaffold + small evidence-concept probes (no per-condition packs).
+"""
+
+from typing import Dict, List, Any, Tuple
+import os
+import re
+
+from app.core.models import CallState  # type: ignore
+
+
+def _sx(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None)
+    if not isinstance(sx, dict):
+        state.symptoms = {"_answers": {}}
+        sx = state.symptoms
+    return sx
+
+
+def _ans(state: CallState) -> Dict[str, Any]:
+    sx = _sx(state)
+    if "_answers" not in sx or not isinstance(sx.get("_answers"), dict):
+        sx["_answers"] = {}
+    return sx["_answers"]
+
+
+def _is_yes(t: str) -> bool:
+    return (t or "").strip().lower().startswith("y")
+
+
+def _rag_active() -> bool:
+    return (os.getenv("CALLCARE_RAG_INTAKE_DEFAULT", "0") == "1") and (os.getenv("CALLCARE_RAG_DISABLED", "0") != "1")
+
+
+def _best_effort_retrieve(chief: str, k: int = 10) -> List[Dict[str, Any]]:
+    """
+    Retrieve top chunks for the chief complaint. Never raises.
+    Returns list of dicts with keys like: title, url, text, source, score.
+    """
+    if not _rag_active():
+        return []
+    chief = (chief or "").strip()
+    if not chief:
+        return []
+    try:
+        from app.rag.retrieve import retrieve
+        try:
+            return retrieve(chief, k=k) or []
+        except TypeError:
+            return retrieve(chief) or []
+    except Exception:
+        return []
+
+
+def _concept_probes_from_evidence(chief: str, chunks: List[Dict[str, Any]], max_q: int = 6) -> List[Tuple[str, str]]:
+    """
+    Deterministic, scalable probes based on concepts present in retrieved evidence.
+    NOT per-condition packs. Uses broad buckets like lesion morphology, STI exposure, red flags, immunosuppression.
+    """
+    text_blob = " ".join([
+        str(c.get("title") or "") + " " + str(c.get("text") or "")
+        for c in (chunks or [])[:12]
+    ]).lower()
+    chief_l = (chief or "").lower()
+
+    def has_any(words: List[str]) -> bool:
+        return any(w in text_blob or w in chief_l for w in words)
+
+    probes: List[Tuple[str, str]] = []
+
+    # Bucket 1: Lesion / bump / rash morphology (common across many complaints)
+    if has_any(["wart", "warts", "bump", "bumps", "lesion", "rash", "ulcer", "blister", "growth", "lump", "skin"]):
+        probes += [
+            ("morph_type", "Do the spots look more like bumps, blisters, or open sores/ulcers? (bumps/blisters/ulcers/not sure)"),
+            ("morph_color", "What color are they (skin-colored/pink/red/white/other)? (choose one)"),
+            ("morph_bleed", "Any bleeding, crusting, or discharge from the area? (yes/no)"),
+            ("morph_pain_itch", "Any pain, burning, or itching at the site? (yes/no)"),
+        ]
+
+    # Bucket 2: STI / sexual exposure (applies to HPV, herpes, gonorrhea, chlamydia, etc.)
+    # Triggered by evidence concepts, not only by chief text.
+    if has_any(["sexually transmitted", "sti", "std", "hpv", "genital", "partner", "sexual", "condyloma"]):
+        probes += [
+            ("sex_new_partner", "Any new sexual partner in the last 6 months? (yes/no)"),
+            ("sex_unprotected", "Any unprotected vaginal/anal/oral sex recently? (yes/no)"),
+            ("sex_known_contact", "Do you know of a partner with genital warts/HPV or similar symptoms? (yes/no/not sure)"),
+        ]
+
+    # Bucket 3: Immunosuppression (changes risk, persistence, and management for many infections/lesions)
+    if has_any(["immunocompromised", "immunosupp", "hiv", "transplant", "chemo", "steroids", "cd4"]):
+        probes += [
+            ("immuno", "Do you have a condition or medication that weakens your immune system (e.g., HIV, transplant meds, chemotherapy, chronic steroids)? (yes/no/not sure)"),
+        ]
+
+    # Bucket 4: Safety/red-flag escalation for skin/genital lesions (broad, not diagnosis-specific)
+    if has_any(["cancer", "malign", "rapidly", "severe", "bleeding", "painful", "ulcer", "systemic"]):
+        probes += [
+            ("rf_rapid", "Are the lesions rapidly enlarging or spreading quickly? (yes/no)"),
+            ("rf_severe_pain", "Is there severe pain, significant bleeding, or trouble urinating? (yes/no)"),
+            ("rf_fever", "Any fever or feeling very ill with this? (yes/no)"),
+        ]
+
+    # De-duplicate by id while preserving order, then cap.
+    seen = set()
+    out: List[Tuple[str, str]] = []
+    for qid, prompt in probes:
+        if qid in seen:
+            continue
+        seen.add(qid)
+        out.append((qid, prompt))
+        if len(out) >= max_q:
+            break
+
+    return out
+
+
+def _seed_domain_questions(state: CallState) -> None:
+    """
+    Seed HPI questions using an OLD CARTS-style scaffold, then insert evidence-concept probes
+    immediately after 'characteristics' so the flow feels doctor-like.
+    """
+    sx = _sx(state)
+    chief = (getattr(state, "chief_complaint", "") or "").strip()
+
+    # Retrieve evidence chunks (best effort) to drive concept probes
+    chunks = _best_effort_retrieve(chief, k=10)
+    sx["_rag_chunks_preview"] = [{"title": c.get("title"), "source": c.get("source")} for c in (chunks or [])[:6]]
+
+    # OLD CARTS scaffold
+    base: List[Tuple[str, str]] = [
+        ("onset", "When did this start?"),
+        ("location", "Where on your body is the problem located? (free text)"),
+        ("course", "Is it getting better, worse, or staying the same? (better/worse/same/not sure)"),
+        ("characteristics", "Describe what it looks or feels like. (free text)"),
+        ("aggravating", "Anything make it better or worse? (free text)"),
+        ("associated", "What other symptoms are you having? (free text)"),
+        ("treatments_tried", "Have you tried anything so far? If yes, what? If no, say no. (free text)"),
+        ("severity", "How severe is it right now (mild/moderate/severe)?"),
+    ]
+
+    probes = _concept_probes_from_evidence(chief, chunks, max_q=6)
+
+    # Insert probes right after 'characteristics'
+    qspec: List[Tuple[str, str]] = []
+    for qid, prompt in base:
+        qspec.append((qid, prompt))
+        if qid == "characteristics" and probes:
+            qspec.extend(probes)
+
+    qlist: List[Dict[str, str]] = [{"id": k, "prompt": p} for (k, p) in qspec]
+
+    sx["_rag_domain"] = "general"
+    sx["_rag_questions"] = qlist
+    sx["_rag_q_idx"] = 0
+
+
+def next_prompt(state: CallState) -> str:
+    sx = _sx(state)
+
+    if not getattr(state, "stage", None):
+        state.stage = "CONSENT"
+
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What is your main medical concern today?"
+
+    # HPI block happens immediately after CHIEF
+    if state.stage == "RAG_Q":
+        qlist = sx.get("_rag_questions") or []
+        idx = int(sx.get("_rag_q_idx", 0))
+        if isinstance(qlist, list) and idx < len(qlist):
+            q = qlist[idx]
+            if isinstance(q, dict):
+                return str(q.get("prompt") or "")
+        return ""
+
+    # Medication safety context AFTER HPI
+    if state.stage == "AGE":
+        return "How old are you? Please say your age in years."
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "SEX_AT_BIRTH":
+        return "What sex were you assigned at birth? Please say male or female."
+
+    if state.stage == "PREGNANCY":
+        return "Is pregnancy possible? (yes/no/unknown)"
+
+    if state.stage == "RENAL":
+        return "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+
+    if state.stage == "LIVER":
+        return "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+
+    return ""
+
+
+def process_answer(state: CallState, text: str) -> None:
+    t = (text or "").strip()
+    sx = _sx(state)
+    ans = _ans(state)
+
+    if not getattr(state, "stage", None):
+        state.stage = "CONSENT"
+
+    if state.stage == "CONSENT":
+        if _is_yes(t):
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    if state.stage == "CHIEF":
+        state.chief_complaint = t
+        _seed_domain_questions(state)
+        state.stage = "RAG_Q"
+        return
+
+    # HPI answers
+    if state.stage == "RAG_Q":
+        qlist = sx.get("_rag_questions") or []
+        idx = int(sx.get("_rag_q_idx", 0))
+
+        if not isinstance(qlist, list) or idx >= len(qlist):
+            state.stage = "AGE"
+            return
+
+        q = qlist[idx]
+        qid = q.get("id") if isinstance(q, dict) else None
+        if qid:
+            ans[str(qid)] = t
+
+        sx["_rag_q_idx"] = idx + 1
+
+        if int(sx.get("_rag_q_idx", 0)) >= len(qlist):
+            state.stage = "AGE"
+        return
+
+    # Medication safety context AFTER HPI
+    if state.stage == "AGE":
+        try:
+            age = int(float(t))
+        except Exception:
+            return
+        ans["age_years"] = age
+        state.age_band = "child" if age < 18 else "adult"
+        sx["age_years"] = age
+        sx["age_band"] = state.age_band
+        state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "ALLERGIES":
+        if t.lower() in ("no", "none", "nope", "n"):
+            ans["allergies"] = "none"
+        else:
+            ans["allergies"] = t
+        state.stage = "SEX_AT_BIRTH"
+        return
+
+    if state.stage == "SEX_AT_BIRTH":
+        ans["sex_at_birth"] = t.lower()
+        state.stage = "PREGNANCY"
+        return
+
+    if state.stage == "PREGNANCY":
+        ans["pregnancy"] = t.lower()
+        state.pregnancy_possible = t.lower()
+        state.stage = "RENAL"
+        return
+
+    if state.stage == "RENAL":
+        ans["renal_disease"] = t.lower()
+        state.stage = "LIVER"
+        return
+
+    if state.stage == "LIVER":
+        ans["liver_disease"] = t.lower()
+        state.stage = "DECIDE"
+        return
+
+
+def start_call() -> CallState:
+    state = CallState()
+    state.stage = "CONSENT"
+    state.symptoms = {"_answers": {}}
+    return state

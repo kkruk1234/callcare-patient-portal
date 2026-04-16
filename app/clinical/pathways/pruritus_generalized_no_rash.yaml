@@ -1,0 +1,22 @@
+id: pruritus_generalized_no_rash
+version: 0.1
+match:
+  any_keywords: ["itching all over", "itchy all over", "generalized itching", "itching without rash"]
+questions:
+  - id: jaundice
+    prompt: "Any yellowing of the eyes/skin or dark urine? (yes/no)"
+    store_as: jaundice
+    type: yesno
+  - id: kidney
+    prompt: "Do you have kidney failure or dialysis? (yes/no)"
+    store_as: kidney_failure
+    type: yesno
+  - id: breathing
+    prompt: "Any trouble breathing, swelling of lips/tongue, or wheezing? (yes/no)"
+    store_as: allergic_airway
+    type: yesno
+stop_rules:
+  - if_all_answered: ["jaundice", "kidney", "breathing"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

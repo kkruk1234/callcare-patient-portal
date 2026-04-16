@@ -1,0 +1,25 @@
+id: vaginal_yeast
+version: 0.1
+match:
+  any_keywords: ["vaginal itching", "itchy vagina", "thick white discharge", "cottage cheese discharge", "yeast infection", "vaginal burning"]
+questions:
+  - id: pregnancy
+    prompt: "Is pregnancy possible? (yes/no/unknown)"
+    store_as: pregnancy_possible
+
+  - id: fever_pain
+    prompt: "Any fever, significant pelvic pain, or feeling very unwell? (yes/no)"
+    store_as: fever_or_pelvic_pain
+    type: yesno
+
+  - id: new_partner
+    prompt: "Any new sexual partner or concern for STI? (yes/no)"
+    store_as: sti_risk
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["pregnancy", "fever_pain", "new_partner"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

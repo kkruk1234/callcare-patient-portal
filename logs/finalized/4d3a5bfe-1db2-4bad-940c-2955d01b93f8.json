@@ -1,0 +1,51 @@
+{
+  "packet_id": "fd0f01ba-fcd3-4c8c-ba90-32c204bd8e25",
+  "created_at": "2026-01-21T22:33:51.501814+00:00",
+  "session_id": "4d3a5bfe-1db2-4bad-940c-2955d01b93f8",
+  "chief_complaint": "ear pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "ear_pain",
+  "answers": {
+    "duration": "5 days",
+    "fever": "yes",
+    "discharge": "yes",
+    "vertigo": "no",
+    "diabetes": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with a 5-day history of ear pain. The patient reports associated fever and ear discharge. There is no vertigo. No known medication allergies.\n\nO:\nNo physical exam or vital signs available due to phone-only evaluation.\n\nA:\n - Working diagnosis (most likely): Acute otitis media with tympanic membrane perforation or otitis externa with secondary infection, given ear pain, fever, and discharge.\n - Differential:\n  1. Acute otitis media with perforation\n  2. Otitis externa (infectious)\n  3. Mastoiditis (less likely without vertigo or severe symptoms)\n  4. Foreign body or trauma-related otitis\n - Red flags considered:\n   Fever and ear discharge raise concern for possible tympanic membrane perforation or complicated infection requiring prompt treatment.\n\nP:\n - Disposition: Urgent care or primary care follow-up recommended if symptoms worsen or do not improve within 48-72 hours.\n - Plan: Empiric antibiotic therapy may be indicated given fever and purulent ear discharge. Recommend evaluation by a clinician for otoscopic exam and confirmation of diagnosis. Symptomatic treatment with analgesics advised.\n - Safety net: Advise patient to seek immediate care if worsening pain, hearing loss, vertigo, facial weakness, or spreading redness/swelling around the ear develops.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Ear Infection (Otitis Media) information",
+        "source": "https://www.cdc.gov/ear-infection/about/index.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+      },
+      {
+        "title": "MedlinePlus: Ear infections",
+        "source": "https://medlineplus.gov/earinfections.html",
+        "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Ear Infection (Otitis Media) information",
+      "source": "https://www.cdc.gov/ear-infection/about/index.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/ear-infection/about/index.html"
+    },
+    {
+      "title": "MedlinePlus: Ear infections",
+      "source": "https://medlineplus.gov/earinfections.html",
+      "snippet": "Listed in pathway manifest https://medlineplus.gov/earinfections.html"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "session_id": "09e23ad8-d1c0-4ed3-b378-51c541584e91",
+  "timestamp_iso": "2026-01-14T02:39:55.064758+00:00",
+  "note": {
+    "soap": "SOAP Note Draft:\n\nS: Patient reports a runny nose for 3 days. Denies cough, fever, shortness of breath, chest pain, and any major medical conditions or high-risk factors.\n\nO: No physical exam or diagnostic data available from telephone interview.\n\nA: Evidence insufficient for diagnosis. Likely viral upper respiratory symptoms given runny nose and absence of other concerning symptoms.\n\nP: Supportive care advised. Monitor symptoms closely. Seek medical attention if fever develops, breathing difficulty occurs, chest pain arises, or symptoms worsen or persist beyond 10 days.\n\nPatient Instructions:\n- Use saline nasal spray or nasal irrigation to relieve nasal congestion.\n- Stay well hydrated and rest as needed.\n- Avoid irritants such as smoke or strong odors.\n- Monitor for new or worsening symptoms including fever, shortness of breath, chest pain, or severe headache.\n- Contact your healthcare provider if symptoms worsen or do not improve within 10 days.\n\nEvidence used:\n- pubmed_telephone_care.txt",
+    "patient_instructions": [],
+    "clinician_questions": [
+      "Physician: review, edit if needed, and approve/sign this encounter."
+    ],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "arris C(4), Harris DR(7), Heard \nK(4), Jenneson S(7), Kohli Y(4), Leroux M(4), Mayor-Nunez D(4), Medvedev G(8), \nMehdiratta M(9), Morrison LJ(3), Ospel JM(2), Pennington S(5), Perez Y(9), \nSelchen D(10), Stebner A(2), Tallon J(7), Tkach A(11), Verbeek PR(3), Tymianski \nM(4).\n\nAuthor information:\n(1)University of British Columbia, Vancouver, BC, Can"
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "o H(1), Eklund A(2), Soininen L(3), Castrén M(4), Torkki P(5).\n\nAuthor information:\n(1)Department of Emergency Medicine and Services, University of Helsinki and \nHelsinki University Hospital, Haartmaninkatu 8, University of Helsinki, 00014, \nFinland. hanna.m.vainio@helsinki.fi.\n(2)Department of Industrial Engineering and Management, Department of A"
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": " BMJ Open. 2025 Feb 5;15(2):e092368. doi: 10.1136/bmjopen-2024-092368.\n\nAre dizziness/lightheadedness helpful symptoms for telephone triage of females \nand males calling the out-of-hours service for acute chest discomfort? A \ncross-sectional study.\n\nDobbe ASM(1), Zwart DL(2), van der Hem L(2), Erkelens DC(2), Wouters LTCM(2), \nvan Doorn S(2), den R"
+      }
+    ]
+  },
+  "recommended_disposition": "PHYSICIAN_REVIEW_REQUIRED",
+  "status": "PENDING",
+  "reviewer_id": null,
+  "reviewer_comments": null
+}

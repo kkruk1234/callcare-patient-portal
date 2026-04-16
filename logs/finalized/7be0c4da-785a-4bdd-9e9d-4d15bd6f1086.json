@@ -1,0 +1,129 @@
+{
+  "packet_id": "49feaab3-9bb5-42fa-b60d-b6850c781b7f",
+  "created_at": "2026-02-08T23:30:49.277676+00:00",
+  "session_id": "7be0c4da-785a-4bdd-9e9d-4d15bd6f1086",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Where exactly is the chest pain located, and does it radiate anywhere?",
+    "intake_a3": "next to my sternum",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or pain spreading to your arm or jaw?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, heavy lifting, or coughing that might have triggered the chest pain?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Does the chest pain change with movement, breathing, or position?",
+    "intake_a6": "yes",
+    "intake_q7": "Any fever, chills, or recent infections?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a8": "no",
+    "intake_summary": "A patient with 1 week of sharp chest pain localized next to the sternum, worsened by movement and position changes, triggered by heavy lifting, with no associated symptoms such as shortness of breath, sweating, nausea, or radiation, and no history of heart or lung disease. No fever or recent infections reported.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://medlineplus.gov/heartattack.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 45-year-old female presenting with a one-week history of sharp chest pain localized next to the sternum. The pain began after heavy lifting and worsens with movement and changes in position. She denies any shortness of breath, sweating, nausea, radiation of pain to the arm or jaw, fever, chills, or recent infections. She has no known history of heart disease, lung problems, or blood clots.\n\nO: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal chest pain likely related to strain from heavy lifting. \nDifferential: \n1. Costochondritis or musculoskeletal strain \n2. Gastroesophageal reflux disease (GERD) \n3. Cardiac ischemia (less likely given absence of typical symptoms) \n4. Pulmonary causes such as pleuritis (less likely without respiratory symptoms). Patient is not pregnant.\n\nP: \n - First-line medication: Ibuprofen 400 mg orally every 6–8 hours as needed for pain, for 5–7 days. Avoid if history of NSAID allergy, active gastrointestinal bleeding, or severe renal impairment. \n - Alternatives: \n - Acetaminophen 500–1000 mg orally every 6 hours as needed for pain, for 5–7 days; avoid in severe liver disease. \n - Naproxen 250–500 mg orally twice daily as needed for pain, for 5–7 days; avoid if NSAID allergy or severe renal impairment. \n - Medication safety considerations: No known medication allergies. Not pregnant. No renal or liver disease reported. Use NSAIDs cautiously if any future renal or gastrointestinal issues arise. \n - Return precautions: Advise patient to seek immediate care if chest pain worsens, becomes pressure-like or radiates to arm/jaw, or if new symptoms such as shortness of breath, sweating, or nausea develop. \n - Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "www.nhs.uk Costochondritis - NHS authoritative_patient_clinician NHS: practical outpatient management language msk_chest_wall_pain 2026-02-08T14:37:23.207462+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "musculoskeletal causes in 20 percent of episodes of care, with costochondritis responsible for 13 percent.14 These data are similar to a study of patients with noncardiac chest pain that found reproducible chest wall tenderness (although not specifically defined as costochondritis) in 16 percent of patients.3 A European study found a higher prevalence of mus…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/900fa94e5b4c0ed8/content.txt",
+        "snippet": ":2466-9. [PubMed: 7979843] - 4. - Wertli MM, Dangma TD, Müller SE, Gort LM, Klauser BS, Melzer L, Held U, Steurer J, Hasler S, Burgstaller JM. Non-cardiac chest pain patients in the emergency department: Do physicians have a plan how to diagnose and treat them? A retrospective study. PLoS One. 2019;14(2):e0211615. [PMC free article: PMC6358153] [PubMed: 3070…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/0ab356777c93e3b9/content.txt",
+        "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+      },
+      {
+        "title": "Methotrexate Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a682018.html",
+        "snippet": "e method of birth control during your treatment and for 3 months after your last dose. If you or your partner become pregnant, call your doctor immediately. Methotrexate may cause harm or death to the fetus. Tell your doctor if you have or have ever had excess fluid in your stomach area or in the space around your lungs and if you have or have ever had kidne…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "content.txt",
+      "source": "library/0ab356777c93e3b9/content.txt",
+      "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/3ca85874a0800355/content.txt",
+      "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/900fa94e5b4c0ed8/content.txt",
+      "snippet": "illness, past medical history, social history, family history, and a review of systems are very important to understand the risk for more common but serious chest pain presentations. The timing, onset, severity, location, radiation, and associated symptoms that can point to an alternative diagnosis should be noted. Costochondritis can mimic acute coronary sy…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "musculoskeletal causes in 20 percent of episodes of care, with costochondritis responsible for 13 percent.14 These data are similar to a study of patients with noncardiac chest pain that found reproducible chest wall tenderness (although not specifically defined as costochondritis) in 16 percent of patients.3 A European study found a higher prevalence of mus…"
+    }
+  ],
+  "state": null
+}

@@ -1,0 +1,167 @@
+{
+  "call_sid": "CA954626efc5b1b41db0bb1dc1e84c0af8",
+  "session_id": "9dd70006-84a9-48c2-89b7-950ca4bf11f2",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-20T17:29:52.040779+00:00",
+  "ended_at": "2026-03-20T17:37:16.630293+00:00",
+  "packet_id": "bc3b59f0-4794-4e9d-819d-8369696cd8f0",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm having a lot of diarrhea."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your diarrhea start?"
+    },
+    {
+      "role": "user",
+      "text": "About a week ago. It's it's been getting gradually kind of worse. The first day, it was, like, maybe 1 bout."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you having any blood or mucus in your diarrhea?"
+    },
+    {
+      "role": "user",
+      "text": "I am having maybe a little bit of mucus but I have not noticed any blood. But I'm assuming I've been noticing on the toilet paper if I was having blood in my diarrhea. I don't see any in the bowl itself. I will say that."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or night sweats since your diarrhea started?"
+    },
+    {
+      "role": "user",
+      "text": "No. I don't think so."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent travel, new foods, or sick contacts before your diarrhea started?"
+    },
+    {
+      "role": "user",
+      "text": "Actually, I was around my father who had recently been diagnosed something called C. Diff. I don't I don't know what it is, but he was telling me I need to wash my hands a lot around him."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you taken any antibiotics or other medications recently?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any abdominal pain or cramping with your diarrhea?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. I am getting a little bit of abdominal pain and maybe a little bit of cramping with the the my doctor's diarrhea. I'm also having a little bit of bloating too, which I thought was my period, but actually, I don't think it is anymore. I think it has to do with these episodes."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any signs of dehydration such as dizziness, decreased urination, or dry mouth?"
+    },
+    {
+      "role": "user",
+      "text": "You know, I was feeling a little dehydrated, so I've started drinking Gatorade. And the headaches I was getting from, like, the dehydration headaches that I was getting that has pretty much gone away with with using Gatorade. So that's good, I guess."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any recent weight loss or changes in appetite since your diarrhea started?"
+    },
+    {
+      "role": "user",
+      "text": "No. Actually, I you know, I'm trying to lose weight, but I haven't actually lost anything with the diarrhea, which is odd. But my appetite is the same too."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of inflammatory bowel disease, immunosuppression, or recent hospitalization?"
+    },
+    {
+      "role": "user",
+      "text": "Nope. No. I mean, I this my father in the hospital, but I was never hospitalized. Nothing recently."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any blood in your stool or on the toilet paper at all, even a small amount?"
+    },
+    {
+      "role": "user",
+      "text": "So you did ask me this already, and I said no then, and I'm going to stick with that answer. I have not noticed any blood."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "In the toilet bowl or on toilet paper."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you’ve told me, your symptoms most likely point to an infection called C. difficile, especially since you were exposed to someone with it. Because this is a phone visit, I can’t examine you or run tests, but a licensed physician will review your information and may prescribe medication if appropriate. For now, keep staying hydrated and watch for any worsening symptoms like severe belly pain, blood in your stool, fever, or signs of dehydration. If any of those happen, please seek urgent in-person care the same day. Otherwise, a doctor will review your case and decide on the best treatment. If you need an in-person exam or testing, please go to urgent care or the emergency department, as this service does not include in-person visits."
+    }
+  ]
+}

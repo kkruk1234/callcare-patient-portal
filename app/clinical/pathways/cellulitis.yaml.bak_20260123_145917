@@ -1,0 +1,43 @@
+id: cellulitis
+version: 0.5
+match:
+  any_keywords: ["cellulitis", "skin redness spreading", "hot red skin", "skin infection spreading", "red swollen skin", "red swollen leg", "red swollen foot"]
+
+questions:
+
+  # --- Core cellulitis symptom cluster ---
+  - id: limb_infection_signs
+    prompt: "Which of these are you having? Say all that apply (or say 'none'): redness, warmth, swelling, tenderness to touch."
+    type: text
+    store_as: limb_infection_signs
+
+  - id: skin_break_or_bite
+    prompt: "Is there a skin break, wound, insect bite, or another obvious entry point in that area? (yes/no/unknown)"
+    type: text
+    store_as: skin_break_or_bite
+
+  - id: systemic_symptoms
+    prompt: "Are you having fever or chills? (yes/no/unknown)"
+    type: text
+    store_as: systemic_symptoms
+
+  - id: rapid_spread
+    prompt: "Has the redness or swelling been spreading quickly over hours to a day? (yes/no/unknown)"
+    type: text
+    store_as: rapid_spread
+
+  # --- High-risk / emergency screens ---
+  - id: pain_out_of_proportion
+    prompt: "Is the pain severe compared with what you can see on the skin? (yes/no/unknown)"
+    type: text
+    store_as: pain_out_of_proportion
+
+  - id: nec_fasc_red_flags
+    prompt: "Right now, do you have any of these: numbness in the area, skin turning purple/black, blisters, or feeling very ill? (yes/no/unknown)"
+    type: text
+    store_as: nec_fasc_red_flags
+
+  - id: immunocompromise
+    prompt: "Do you have a weakened immune system (for example: chemotherapy, transplant meds, long-term steroids, uncontrolled diabetes, or HIV)? (yes/no/unknown)"
+    type: text
+    store_as: immunocompromise

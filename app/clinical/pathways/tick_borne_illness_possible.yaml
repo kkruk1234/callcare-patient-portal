@@ -1,0 +1,34 @@
+id: tick_borne_illness_possible
+version: 0.2
+match:
+  any_keywords: ["tick bite", "tick", "bullseye rash", "erythema migrans", "lyme", "rocky mountain spotted fever", "rmsf", "fever after tick", "rash after tick"]
+questions:
+  - id: tick_exposure
+    prompt: "Did you have a tick bite or likely tick exposure within the last 30 days? (yes/no)"
+    store_as: tick_exposure
+    type: yesno
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: rash
+    prompt: "Any new rash (including a bullseye rash or spotted rash)? (yes/no)"
+    store_as: rash
+    type: yesno
+  - id: severe_headache
+    prompt: "Any severe headache? (yes/no)"
+    store_as: severe_headache
+    type: yesno
+  - id: neck_stiffness
+    prompt: "Any stiff neck? (yes/no)"
+    store_as: neck_stiffness
+    type: yesno
+  - id: neurologic
+    prompt: "Any new confusion, weakness, trouble walking, or facial droop? (yes/no)"
+    store_as: neurologic
+    type: yesno
+stop_rules:
+  - if_all_answered: ["tick_exposure", "fever", "rash", "severe_headache", "neck_stiffness", "neurologic"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

@@ -1,0 +1,136 @@
+{
+  "packet_id": "82d9ec6f-d84e-42a1-acde-940fe9bfc5a1",
+  "created_at": "2026-02-20T21:43:18.303792+00:00",
+  "session_id": "52f95d9d-be45-4b79-af01-8fc144462351",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent trauma or injury to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath or chest pain associated with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a7": "I tried tylenol but it really didn't help much",
+    "intake_q8": "Any history of kidney stones, urinary symptoms, or abdominal issues?",
+    "intake_a8": "no",
+    "intake_q9": "Have you noticed any swelling, bruising, or tenderness over the area of your back pain?",
+    "intake_a9": "tenderness",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/back-pain/",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://medlineplus.gov/backpain.html",
+        "https://medlineplus.gov/backinjuries.html",
+        "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+        "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She denies any recent trauma or injury, fever, chills, unexplained weight loss, shortness of breath, chest pain, numbness, weakness, or tingling in her legs or feet. She reports tenderness over the affected area. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney stones, urinary symptoms, abdominal issues, osteoporosis, cancer, or recent infections. Patient is not pregnant., and she has no known medication allergies. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is mechanical back pain localized to the left lower rib cage area, likely musculoskeletal in origin given the absence of systemic symptoms or neurological deficits. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Costovertebral joint dysfunction \n3. Intercostal muscle strain \n4. Early presentation of a rib fracture or contusion (less likely without trauma) \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. \n- Alternatives: Acetaminophen may be continued if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with renal or liver disease, gastrointestinal ulcers, or bleeding disorders; none of which are present in this patient. Avoid NSAIDs if pregnancy is possible, which is not the case here. \n- Return precautions: Advise the patient to seek immediate care if she develops new symptoms such as fever, chills, unexplained weight loss, worsening pain, neurological symptoms (numbness, weakness, tingling), or chest pain and shortness of breath. \n- Testing: No imaging or laboratory testing is indicated at this time given the absence of red flag symptoms. Reassess if symptoms persist beyond 6 weeks or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "﻿ Back pain - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Back pain Back pain, particularly lower back pain, is very common. It usually improves within a few weeks but can sometimes last longer or…"
+      },
+      {
+        "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+        "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "snippet": "Acute back pain happens suddenly and usually lasts a few days to a few weeks. Back pain that lasts longer than 12 weeks is called chronic back pain. &nbsp; Who Gets Back Pain? Image Anyone can have back pain. You may be more likely to have back pain because of the following: Age: Back pain is more common as you age. Fitness level: Back pain is more common if…"
+      },
+      {
+        "title": "Back Pain",
+        "source": "https://medlineplus.gov/backpain.html",
+        "snippet": "l You Are Here: Home &rarr; Health Topics &rarr; Back Pain URL of this page: https://medlineplus.gov/backpain.html Back Pain Also called: Backache, Lumbago On this page Basics Summary Start Here Diagnosis and Tests Prevention and Risk Factors Treatments and Therapies Learn More Living With Related Issues See, Play and Learn Videos and Tutorials Test Your Kno…"
+      },
+      {
+        "title": "Back Injuries | MedlinePlus",
+        "source": "https://medlineplus.gov/backinjuries.html",
+        "snippet": "extending from your neck to your pelvis. Back injuries can result from sports injuries, work around the house or in the garden, or a sudden jolt such as a car accident. The lower back is the most common site of back injuries and back pain . Common back injuries include : Sprains and strains Herniated disks Fractured (broken) vertebrae These injuries can caus…"
+      },
+      {
+        "title": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)",
+        "source": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+        "snippet": "Information Low back pain is one of the most common reasons for an outpatient visit. The evaluation for low back pain should include a complete, focused medical history looking for red flags, which include, but are not limited to: severe or progressive neurologic deficits (e.g., bowel or bladder function), fever, sudden back pain with spinal tenderness, trau…"
+      },
+      {
+        "title": "AAFP: VA/DoD Low Back Pain Guideline Summary",
+        "source": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+        "snippet": "alculated by the author based on raw data provided in the original guideline. Despite the ubiquity of low back pain in clinical practice, there are few recent guidelines that review treatment, and none are as extensive as this guideline. Unfortunately, the primary message is that no medication or intervention is very effective. Yet, this frees us to allow ou…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back pain - NHS",
+      "source": "https://www.nhs.uk/conditions/back-pain/",
+      "snippet": "﻿ Back pain - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Back pain Back pain, particularly lower back pain, is very common. It usually improves within a few weeks but can sometimes last longer or…"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "Acute back pain happens suddenly and usually lasts a few days to a few weeks. Back pain that lasts longer than 12 weeks is called chronic back pain. &nbsp; Who Gets Back Pain? Image Anyone can have back pain. You may be more likely to have back pain because of the following: Age: Back pain is more common as you age. Fitness level: Back pain is more common if…"
+    },
+    {
+      "title": "Back Pain",
+      "source": "https://medlineplus.gov/backpain.html",
+      "snippet": "l You Are Here: Home &rarr; Health Topics &rarr; Back Pain URL of this page: https://medlineplus.gov/backpain.html Back Pain Also called: Backache, Lumbago On this page Basics Summary Start Here Diagnosis and Tests Prevention and Risk Factors Treatments and Therapies Learn More Living With Related Issues See, Play and Learn Videos and Tutorials Test Your Kno…"
+    },
+    {
+      "title": "Back Injuries | MedlinePlus",
+      "source": "https://medlineplus.gov/backinjuries.html",
+      "snippet": "extending from your neck to your pelvis. Back injuries can result from sports injuries, work around the house or in the garden, or a sudden jolt such as a car accident. The lower back is the most common site of back injuries and back pain . Common back injuries include : Sprains and strains Herniated disks Fractured (broken) vertebrae These injuries can caus…"
+    },
+    {
+      "title": "AAFP Choosing Wisely: Imaging for Low Back Pain (Red Flags)",
+      "source": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/cw-back-pain.html",
+      "snippet": "Information Low back pain is one of the most common reasons for an outpatient visit. The evaluation for low back pain should include a complete, focused medical history looking for red flags, which include, but are not limited to: severe or progressive neurologic deficits (e.g., bowel or bladder function), fever, sudden back pain with spinal tenderness, trau…"
+    },
+    {
+      "title": "AAFP: VA/DoD Low Back Pain Guideline Summary",
+      "source": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "snippet": "alculated by the author based on raw data provided in the original guideline. Despite the ubiquity of low back pain in clinical practice, there are few recent guidelines that review treatment, and none are as extensive as this guideline. Unfortunately, the primary message is that no medication or intervention is very effective. Yet, this frees us to allow ou…"
+    }
+  ],
+  "state": null
+}

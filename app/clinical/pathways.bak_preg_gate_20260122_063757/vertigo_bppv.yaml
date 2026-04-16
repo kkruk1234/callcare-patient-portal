@@ -1,0 +1,26 @@
+id: vertigo_bppv
+version: 0.1
+match:
+  any_keywords: ["vertigo", "room spinning", "dizzy room spinning", "bppv", "positional vertigo", "dizzy when turning head"]
+questions:
+  - id: neuro
+    prompt: "Any new weakness, numbness, trouble speaking, double vision, or severe trouble walking? (yes/no)"
+    store_as: neuro_redflags
+    type: yesno
+
+  - id: faint
+    prompt: "Any fainting, chest pain, or severe shortness of breath? (yes/no)"
+    store_as: cardiopulmonary_redflags
+    type: yesno
+
+  - id: positional
+    prompt: "Is the dizziness triggered by turning in bed or moving your head, and lasts under 1 minute? (yes/no)"
+    store_as: positional_short
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["neuro","faint","positional"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,12 @@
+{
+  "pathway_id": "pruritus_generalized_no_rash",
+  "sources": [
+    {
+      "id": "pruritus_generalized_no_rash_ref",
+      "source_id": "pruritus_generalized_no_rash_ref",
+      "title": "Itching/pruritus overview (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

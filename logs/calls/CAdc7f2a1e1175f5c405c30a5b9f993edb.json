@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAdc7f2a1e1175f5c405c30a5b9f993edb",
+  "session_id": "875cc1b0-447a-48e0-b0ad-b2f7d18c6041",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-15T22:03:29.672946+00:00",
+  "ended_at": "2026-03-15T22:08:49.674255+00:00",
+  "packet_id": "c894d7ae-295a-47ff-93a5-3d40b801ec12",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm having some chest pain."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?"
+    },
+    {
+      "role": "user",
+      "text": "It's sharp."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the chest pain start?"
+    },
+    {
+      "role": "user",
+      "text": "It started probably about 3 weeks ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Where exactly is the chest pain located, and does it radiate anywhere?"
+    },
+    {
+      "role": "user",
+      "text": "It's on my right part of my chest right next to my sternum."
+    },
+    {
+      "role": "assistant",
+      "text": "Any shortness of breath, sweating, nausea, or dizziness with the chest pain?"
+    },
+    {
+      "role": "user",
+      "text": "And it doesn't radiate anywhere. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent trauma, heavy lifting, or injury to your chest area?"
+    },
+    {
+      "role": "user",
+      "text": "No to the first question, although I wish you would have asked it separately."
+    },
+    {
+      "role": "assistant",
+      "text": "Any cough, fever, or recent respiratory infections?"
+    },
+    {
+      "role": "user",
+      "text": "And I don't even remember what the second question was."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling, redness, or tenderness over the area where you feel the chest pain?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or medications for the chest pain, and did they help?"
+    },
+    {
+      "role": "user",
+      "text": "Tenderness and I tried some Tylenol, but it it really didn't do much."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of heart disease, lung problems, or blood clots?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any recent or current episodes of palpitations, rapid heartbeat, or feeling your heart skip beats?"
+    },
+    {
+      "role": "user",
+      "text": "None of the above."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Based on what you described, your chest pain most likely comes from a musculoskeletal cause, such as costochondritis, which is inflammation near the breastbone. Because this is a phone visit, I can’t examine you or run tests, but medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe ibuprofen or naproxen to help with your pain. \n\nIf your chest pain worsens, becomes constant, spreads to other areas, or if you develop shortness of breath, sweating, nausea, or dizziness, please seek in-person care the same day. If you experience severe chest pain or other serious symptoms, go to the emergency room immediately. \n\nFor now, you can use acetaminophen or ibuprofen if you can take them safely. If symptoms don’t improve or get worse, an in-person evaluation may be needed. A physician will review your case and follow up as needed."
+    }
+  ]
+}

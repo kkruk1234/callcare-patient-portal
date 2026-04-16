@@ -1,0 +1,86 @@
+{
+  "packet_id": "b46828fa-55dd-4a0a-9ce6-341a524a024d",
+  "created_at": "2026-01-22T22:39:39.180971+00:00",
+  "session_id": "1759476d-7603-425d-a9f8-56eb4bd06100",
+  "chief_complaint": "sinus pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "bacterial_sinusitis_possible",
+  "answers": {
+    "pregnancy_possible": "no",
+    "renal_disease": "no",
+    "duration": "5 days",
+    "severe_facial_pain": "yes",
+    "fever": "no",
+    "worse_after_better": "yes",
+    "eye_swelling": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "Amoxicillin-clavulanate",
+      "dosing": "875/125 mg PO twice daily x 5–7 days (adults) OR weight-based pediatric dosing per clinician judgment",
+      "sig": "875/125 mg PO twice daily x 5–7 days (adults) OR weight-based pediatric dosing per clinician judgment",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "First-line antibiotic when acute bacterial rhinosinusitis (ABRS) criteria met.",
+      "exclusions": "Severe immediate beta-lactam allergy; significant liver disease history with amox-clav; review drug interactions.",
+      "tier": "Tier 1",
+      "pathway_id": "bacterial_sinusitis_possible",
+      "source_file": "data/protocols/meds/bacterial_sinusitis_possible.yaml"
+    },
+    {
+      "rank": 2,
+      "med": "Doxycycline",
+      "dosing": "100 mg PO twice daily x 5–7 days (adults)",
+      "sig": "100 mg PO twice daily x 5–7 days (adults)",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "",
+      "notes": "Alternative for adults with beta-lactam allergy or intolerance.",
+      "exclusions": "Pregnancy; children < 8 years; tetracycline allergy.",
+      "tier": "Tier 1",
+      "pathway_id": "bacterial_sinusitis_possible",
+      "source_file": "data/protocols/meds/bacterial_sinusitis_possible.yaml"
+    },
+    {
+      "rank": 3,
+      "med": "Levofloxacin",
+      "dosing": "500 mg PO once daily x 5 days (adults)",
+      "sig": "500 mg PO once daily x 5 days (adults)",
+      "route": "PO",
+      "frequency": "daily",
+      "duration": "5 days",
+      "notes": "More aggressive path: reserve for severe beta-lactam allergy or treatment failure when benefits outweigh risks.",
+      "exclusions": "Reserve due to adverse-effect profile; QT/tendon/neuropathy/aortic risk counseling; significant interactions; pregnancy generally avoid.",
+      "tier": "Tier 1",
+      "pathway_id": "bacterial_sinusitis_possible",
+      "source_file": "data/protocols/meds/bacterial_sinusitis_possible.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old adult presenting with sinus pain of 5 days duration. The pain is described as severe facial pain. The symptoms initially improved but then worsened again (double worsening). There is no fever reported. There is no eye swelling or other orbital or neurological symptoms. The patient has no known medication allergies and no renal disease. Patient is not pregnant.\n\nO:  \nNo physical exam or vital signs available due to phone-only encounter.\n\nA:  \n - Working diagnosis (most likely):  \n   Bacterial sinusitis, possible given duration >10 days or worsening after initial improvement, severe facial pain, and double worsening pattern.  \n - Differential:  \n  1. Viral sinusitis (less likely due to worsening after initial improvement and severe pain)  \n  2. Allergic rhinosinusitis  \n  3. Dental infection  \n  4. Migraine or other headache disorder  \n - Red flags considered:  \n   No fever, no orbital swelling, no neurological symptoms, no signs of systemic infection or complications.\n\nP:  \n - Disposition:  \n   Manage as outpatient with close follow-up.  \n - Plan: Amoxicillin-clavulanate — 875/125 mg PO twice daily x 5–7 days (adults) OR weight-based pediatric dosing per clinician judgment. Alternative: Doxycycline (100 mg PO twice daily x 5–7 days (adults)).\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - Amoxicillin-clavulanate — 875/125 mg PO twice daily x 5–7 days (adults) OR weight-based pediatric dosing per clinician judgment\n     - Notes: First-line antibiotic when acute bacterial rhinosinusitis (ABRS) criteria met.\n     - Exclusions: Severe immediate beta-lactam allergy; significant liver disease history with amox-clav; review drug interactions.\n   - Doxycycline — 100 mg PO twice daily x 5–7 days (adults)\n     - Notes: Alternative for adults with beta-lactam allergy or intolerance.\n     - Exclusions: Pregnancy; children < 8 years; tetracycline allergy.\n   - Levofloxacin — 500 mg PO once daily x 5 days (adults)\n     - Notes: More aggressive path: reserve for severe beta-lactam allergy or treatment failure when benefits outweigh risks.\n     - Exclusions: Reserve due to adverse-effect profile; QT/tendon/neuropathy/aortic risk counseling; significant interactions; pregnancy generally avoid.\n   - Supportive care:\n   - Nasal saline irrigation: May help symptoms; avoid forceful irrigation if severe pain/ear symptoms.\n   - Intranasal corticosteroid: Helpful especially if allergic rhinitis component; clinician to choose agent/dose.\n   - Analgesics/antipyretics: OTC options if safe (avoid dosing instructions by phone).\n   - Follow-up and safety:\n   - When antibiotics are indicated (ABRS criteria): Consider antibiotics if: persistent symptoms >10 days without improvement, severe symptoms (high fever + purulent discharge/facial pain) for ≥3–4 days, or 'double-worsening' after initial improvement.\n   - Escalation / more aggressive path: If severe illness, immunocompromise, orbital symptoms, neurologic symptoms, or failure to improve after 48–72 hours on appropriate antibiotics → urgent in-person evaluation; consider imaging and specialist input.\n   - Return precautions: Urgent evaluation for vision changes, periorbital swelling/erythema, severe headache/neck stiffness, altered mental status, high fever, or worsening facial swelling/pain.\n   Given the clinical picture consistent with possible bacterial sinusitis with severe facial pain and worsening symptoms after initial improvement, antibiotic therapy is reasonable.  \n   Recommended regimen; reviewing physician will confirm appropriateness and prescribe if indicated:  \n   - Amoxicillin-clavulanate 875 mg/125 mg orally twice daily for 7 days.  \n   Alternatives include doxycycline 100 mg orally twice daily or a respiratory fluoroquinolone if penicillin allergy or intolerance.  \n   Supportive care with analgesics and nasal saline irrigation advised.  \n - Safety net:  \n   Advise patient to seek urgent care if symptoms worsen significantly, develop fever, eye swelling, vision changes, or neurological symptoms. Follow-up if no improvement within 48-72 hours or sooner if symptoms worsen.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Sinus infection guidance (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Sinus infection guidance (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    }
+  ]
+}

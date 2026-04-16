@@ -1,0 +1,190 @@
+from typing import List
+from app.core.models import Decision, EvidenceRef, CallState
+from app.rag.retrieve import retrieve
+
+
+def decide(state: CallState) -> Decision:
+    """
+    Produce an evidence-grounded clinical decision.
+    This version is deterministic + retrieval-based (no LLM yet).
+    """
+
+    # Build a simple clinical query
+    query_parts: List[str] = []
+    if state.chief_complaint:
+        query_parts.append(state.chief_complaint)
+    if "duration" in state.symptoms:
+        query_parts.append(f"duration {state.symptoms['duration']}")
+    if "fever" in state.symptoms:
+        query_parts.append(f"fever {state.symptoms['fever']}")
+
+    query = " ".join(query_parts).strip()
+
+    results = retrieve(query, k=3)
+
+    evidence = [
+        EvidenceRef(
+            source=r["source"],
+            title="Guideline excerpt",
+            snippet=r["text"][:300],
+        )
+        for r in results
+    ]
+
+    # Very conservative prototype logic
+    disposition = "SELF_CARE"
+    plan = [
+        "Supportive care based on guideline recommendations.",
+        "Monitor symptoms and seek care if worsening.",
+    ]
+    safety_net = [
+        "Seek urgent care if breathing worsens, fever is high or persistent, or symptoms rapidly worsen."
+    ]
+
+    return Decision(
+        disposition=disposition,
+        differential=[state.chief_complaint or "undifferentiated complaint"],
+        plan=plan,
+        safety_net=safety_net,
+        evidence=evidence,
+        uncertainty="Prototype decision logic without clinician override",
+    )
+
+
+
+# ----------------------------
+# NEW_PATHWAY_RULES_V1
+# Deterministic disposition rules for newer pathways (phone-only triage)
+# ----------------------------
+
+def _bool(v):
+    if isinstance(v, bool):
+        return v
+    if v is None:
+        return False
+    s = str(v).strip().lower()
+    return s in ("yes", "true", "y", "1")
+
+def apply_new_pathway_rules(pathway_id: str, symptoms: dict, flags: dict) -> None:
+    """
+    Mutates flags dict:
+      flags["ed_now"], flags["urgent_today"], flags["routine"], flags["cannot_rule_out"]
+    """
+    pid = (pathway_id or "").strip()
+
+    def ed(code): flags["ed_now"].append(code)
+    def urgent(code): flags["urgent_today"].append(code)
+    def routine(code): flags["routine"].append(code)
+
+    # Chest pain
+    if pid == "chest_pain":
+        severe_breathing = _bool(symptoms.get("severe_breathing"))
+        syncope = _bool(symptoms.get("syncope"))
+        high_risk = _bool(symptoms.get("high_risk_associated"))
+        radiation = _bool(symptoms.get("radiation"))
+        exertional = _bool(symptoms.get("exertional"))
+        if severe_breathing or syncope:
+            ed("chest_pain_severe_breathing_or_syncope")
+        elif high_risk and (radiation or exertional):
+            ed("chest_pain_high_risk_features")
+        else:
+            urgent("chest_pain_needs_same_day_eval")
+
+    # Stroke/neuro
+    if pid == "stroke_neuro":
+        face = _bool(symptoms.get("face_droop"))
+        arm = _bool(symptoms.get("one_sided_weakness"))
+        speech = _bool(symptoms.get("speech_change"))
+        onset = _bool(symptoms.get("sudden_recent_onset"))
+        if onset and (face or arm or speech):
+            ed("possible_stroke_fast_positive")
+        else:
+            urgent("neuro_symptoms_need_eval")
+
+    # Asthma/wheeze
+    if pid == "asthma_wheeze":
+        severe = _bool(symptoms.get("severe_work_of_breathing"))
+        cyanosis = _bool(symptoms.get("cyanosis"))
+        not_helping = str(symptoms.get("rescue_not_helping","")).strip().lower() in ("yes","true","y")
+        prior_severe = str(symptoms.get("prior_severe_asthma","")).strip().lower() in ("yes","true","y")
+        if severe or cyanosis or not_helping:
+            ed("asthma_severe_or_not_responding")
+        elif prior_severe:
+            urgent("asthma_history_severe_needs_same_day")
+        else:
+            urgent("asthma_symptoms_need_eval")
+
+    # Flu-like illness
+    if pid == "flu_like_illness":
+        severe = _bool(symptoms.get("severe_breathing_or_confusion"))
+        dehydration = _bool(symptoms.get("dehydration_risk"))
+        high_risk = str(symptoms.get("high_risk_group","")).strip().lower() in ("yes","true","y")
+        if severe:
+            ed("flu_like_severe_breathing_or_confusion")
+        elif dehydration or high_risk:
+            urgent("flu_like_high_risk_or_dehydration")
+        else:
+            routine("flu_like_home_care_ok_if_stable")
+
+    # Vaginal discharge
+    if pid == "vaginal_discharge":
+        fever_pain = _bool(symptoms.get("fever_or_pelvic_pain"))
+        if fever_pain:
+            urgent("vaginal_discharge_fever_or_pelvic_pain")
+        else:
+            routine("vaginal_discharge_non_emergent")
+
+    # Pelvic pain
+    if pid == "pelvic_pain":
+        preg = str(symptoms.get("pregnancy_possible","")).strip().lower() in ("yes","true","y","unknown")
+        severe = _bool(symptoms.get("severe_pain"))
+        bleed_syncope = _bool(symptoms.get("heavy_bleeding_or_syncope"))
+        fever = _bool(symptoms.get("fever"))
+        if (preg and (bleed_syncope or severe)) or bleed_syncope:
+            ed("pelvic_pain_possible_ectopic_or_heavy_bleed")
+        elif fever or severe or preg:
+            urgent("pelvic_pain_needs_same_day_eval")
+        else:
+            urgent("pelvic_pain_needs_eval")
+
+    # Hemorrhoids/rectal pain
+    if pid == "hemorrhoids_rectal_pain":
+        heavy = _bool(symptoms.get("heavy_bleed_or_melena"))
+        fever = _bool(symptoms.get("fever_or_severe_swelling"))
+        if heavy:
+            ed("rectal_bleeding_heavy_or_melena")
+        elif fever:
+            urgent("rectal_pain_fever_or_swelling")
+        else:
+            routine("rectal_pain_likely_benign_if_mild")
+
+    # Shingles
+    if pid == "shingles":
+        face_eye = _bool(symptoms.get("face_or_eye_area"))
+        immune = str(symptoms.get("immunocompromised","")).strip().lower() in ("yes","true","y")
+        if face_eye or immune:
+            urgent("shingles_eye_or_immunocompromised")
+        else:
+            routine("shingles_non_urgent_if_stable")
+
+    # Cold sore HSV
+    if pid == "cold_sore_hsv":
+        eye = _bool(symptoms.get("eye_symptoms"))
+        if eye:
+            urgent("hsv_eye_symptoms_same_day")
+        else:
+            routine("cold_sore_supportive")
+
+    # GERD + nausea
+    if pid == "gerd_nausea":
+        cardiac = _bool(symptoms.get("cardiac_redflags"))
+        bleed = _bool(symptoms.get("gi_bleed_redflags"))
+        dysphagia = _bool(symptoms.get("dysphagia"))
+        if cardiac:
+            ed("possible_cardiac_chest_symptoms")
+        elif bleed:
+            ed("possible_gi_bleed")
+        elif dysphagia:
+            urgent("dysphagia_needs_eval")
+        else:
+            routine("gerd_like_symptoms_stable")

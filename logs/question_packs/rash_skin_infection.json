@@ -1,0 +1,11 @@
+{
+  "id": "rash_skin_infection",
+  "version": "0.1",
+  "questions": {
+    "anaphylaxis": "Are your lips or tongue swollen, or are you wheezing or having trouble breathing?",
+    "fever": "Do you have a fever?",
+    "pain_out_of_proportion": "Is your pain worse than the rash looks?",
+    "shingles_pattern": "Is your rash a painful blistering stripe on one side of your body?",
+    "face_eye": "Is the rash on your face or near or affecting your eye?"
+  }
+}

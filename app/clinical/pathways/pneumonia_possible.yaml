@@ -1,0 +1,88 @@
+id: pneumonia_possible
+version: 0.4
+
+match:
+  any_keywords:
+    - pneumonia
+    - fever and cough
+    - cough with fever
+    - chills and cough
+    - chest infection
+    - lower respiratory infection
+    - coughing up phlegm
+    - cough and short of breath
+
+questions:
+  - id: fever
+    prompt: "Have you had a fever or chills? (yes/no/unknown)"
+    store_as: fever
+    type: yesno_unknown
+
+  - id: cough
+    prompt: "Do you have a cough? (yes/no)"
+    store_as: cough
+    type: yesno
+
+  - id: sputum
+    prompt: "Are you coughing up mucus/phlegm? If yes, what color (clear/white, yellow-green, rust-colored, bloody)? If none, say none."
+    store_as: sputum
+    type: free_text
+
+  - id: breathing_severity
+    prompt: "Are you short of breath at rest, only with walking/exertion, or not at all? (rest/exertion/none)"
+    store_as: breathing_severity
+    type: free_text
+
+  - id: pleuritic_pain
+    prompt: "Do you have chest pain that is worse with a deep breath or coughing? (yes/no)"
+    store_as: pleuritic_pain
+    type: yesno
+
+  - id: symptom_duration
+    prompt: "How many days have you had these symptoms?"
+    store_as: symptom_duration
+    type: free_text
+
+  - id: confusion
+    prompt: "Any new confusion, extreme sleepiness, or trouble staying awake? (yes/no)"
+    store_as: confusion
+    type: yesno
+
+  - id: oral_intake
+    prompt: "Are you able to keep fluids down and stay hydrated? (yes/no)"
+    store_as: oral_intake
+    type: yesno
+
+  - id: exposure_known
+    prompt: "Were you recently exposed to someone diagnosed with pneumonia, or have you been told you might have pneumonia by a clinician? (yes/no/unknown)"
+    store_as: exposure_known
+    type: yesno_unknown
+
+  - id: high_risk
+    prompt: "Are you age 65+, pregnant, or do you have significant heart/lung disease or immune suppression? (yes/no/unknown)"
+    store_as: high_risk
+    type: yesno_unknown
+
+  - id: med_exclusions
+    prompt: "Medication safety check: List any that apply — kidney/renal disease (low GFR, dialysis), liver disease/cirrhosis, QT prolongation/arrhythmia or QT-prolonging meds. If none, say: none."
+    store_as: med_exclusions
+    type: free_text
+    required: true
+
+stop_rules:
+  - if_all_answered:
+      - fever
+      - cough
+      - sputum
+      - breathing_severity
+      - pleuritic_pain
+      - symptom_duration
+      - confusion
+      - oral_intake
+      - exposure_known
+      - high_risk
+      - med_exclusions
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,75 @@
+id: cat_bite_wound
+version: 0.2
+match:
+  any_keywords:
+    [
+      "cat bite",
+      "cat bit me",
+      "bit by a cat",
+      "cat bite hand",
+      "cat bite finger",
+      "cat bite wrist",
+      "cat bite puncture",
+      "cat scratch bite",
+      "kitten bite"
+    ]
+
+questions:
+  # --- Medication gating (required for prescribing pathways) ---
+  - id: pregnancy_possible
+    prompt: "Is there any chance you are pregnant right now? (yes/no/unknown/not applicable)"
+    type: text
+    store_as: pregnancy_possible
+
+  - id: renal_disease
+    prompt: "Have you ever been told you have kidney disease or reduced kidney function? (yes/no/unknown)"
+    type: text
+    store_as: renal_disease
+
+  # --- Bite location (spoken-friendly) ---
+  - id: bite_location
+    prompt: "Where is the bite? Say: hand or wrist, finger, arm, leg, face, or other."
+    type: text
+    store_as: bite_location
+
+  - id: deep_puncture_or_crush
+    prompt: "Was it a deep puncture, crush injury, or is there a lot of bleeding? (yes/no/unknown)"
+    type: text
+    store_as: deep_puncture_or_crush
+
+  - id: severe_or_spreading
+    prompt: "Is there fast swelling, spreading redness, pus/drainage, or severe pain? (yes/no/unknown)"
+    type: text
+    store_as: severe_or_spreading
+
+  - id: fever_chills
+    prompt: "Any fever or chills? (yes/no/unknown)"
+    type: text
+    store_as: fever_chills
+
+  - id: immunocompromised
+    prompt: "Do you have a weakened immune system (for example chemotherapy, transplant meds, HIV with low CD4, or long-term steroids)? (yes/no/unknown)"
+    type: text
+    store_as: immunocompromised
+
+  - id: tetanus_status
+    prompt: "Do you remember having a tetanus shot in the past 5 to 10 years? (yes/no/unknown)"
+    type: text
+    store_as: tetanus_status
+
+stop_rules:
+  - if_all_answered:
+      [
+        "pregnancy_possible",
+        "renal_disease",
+        "bite_location",
+        "deep_puncture_or_crush",
+        "severe_or_spreading",
+        "fever_chills",
+        "immunocompromised",
+        "tetanus_status"
+      ]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

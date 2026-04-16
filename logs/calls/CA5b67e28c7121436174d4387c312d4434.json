@@ -1,0 +1,151 @@
+{
+  "call_sid": "CA5b67e28c7121436174d4387c312d4434",
+  "session_id": "354c515e-0ce5-459b-9ebf-6b4dca753e32",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-07T15:25:03.505954+00:00",
+  "ended_at": "2026-03-07T15:28:12.541603+00:00",
+  "packet_id": "578f2fc0-a7a7-42b3-a542-bd5295ec3861",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "Sore throat."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your sore throat start?"
+    },
+    {
+      "role": "user",
+      "text": "It started 2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or difficulty swallowing?"
+    },
+    {
+      "role": "user",
+      "text": "I have had a fever, some chills, but just pain with swallowing, not difficulty."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swollen lymph nodes or rash?"
+    },
+    {
+      "role": "user",
+      "text": "Swollen lymph nodes, but no rash."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any cough, nasal congestion, or hoarseness?"
+    },
+    {
+      "role": "user",
+      "text": "No cough. No nasal congestion, but I have noticed some hoarseness."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any exposure to anyone with strep throat or COVID-19 recently?"
+    },
+    {
+      "role": "user",
+      "text": "Yes. My son had"
+    },
+    {
+      "role": "assistant",
+      "text": "Has your son tested positive for strep throat or COVID-19, and if so, when was he diagnosed?"
+    },
+    {
+      "role": "user",
+      "text": "strep throat last week."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty breathing or drooling?"
+    },
+    {
+      "role": "user",
+      "text": "He tested hot"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any difficulty breathing, drooling, or severe throat pain that limits opening your mouth?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you taken any medications or treatments for your sore throat so far?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Gmail."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have symptoms consistent with strep throat, especially since you've been exposed to someone with strep recently. Because this is a phone visit, I can’t examine you or do any tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe antibiotics to help you feel better and prevent complications. In the meantime, you can use acetaminophen (Tylenol) or ibuprofen (Advil) for pain and fever if you can take them safely. If you develop trouble breathing, drooling, severe throat pain, or can’t swallow, please seek urgent in-person care the same day. If you have signs of airway blockage, go to the emergency room immediately. A doctor will also want to confirm the diagnosis with a throat test when possible. Take care, and if your symptoms worsen or you have concerns, please seek in-person care."
+    }
+  ]
+}

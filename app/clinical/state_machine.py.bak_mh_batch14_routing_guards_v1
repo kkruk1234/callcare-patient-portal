@@ -1,0 +1,804 @@
+from __future__ import annotations
+
+import re
+from pathlib import Path
+from typing import Any, Dict, Optional, Tuple, List
+
+from app.core.models import CallState
+
+PATHWAYS_DIR = Path("app/clinical/pathways")
+
+RESP_PATHWAYS = ['asthma_wheeze', 'copd_exacerbation', 'cough_uri', 'flu_like_illness', 'sinusitis', 'uri_sinus_overlap']
+
+
+# ----------------------------
+# Helpers
+# ----------------------------
+
+def _norm(s: str) -> str:
+    return (s or "").strip().lower()
+
+
+def _yesno(s: str) -> Optional[bool]:
+    s = _norm(s)
+    if s in ["y", "yes", "yeah", "yep", "sure", "ok", "okay"]:
+        return True
+    if s in ["n", "no", "nope"]:
+        return False
+    return None
+
+
+def _parse_age_years(text: str) -> Optional[float]:
+    """
+    Accepts:
+      - "37"
+      - "1.5"
+      - "18 months" (converted)
+      - "6 weeks" (converted)
+      - "2 years"
+    """
+    t = _norm(text)
+    if not t:
+        return None
+
+    # months / weeks handling
+    m = re.search(r"(\d+(\.\d+)?)\s*(month|months|mo)\b", t)
+    if m:
+        return float(m.group(1)) / 12.0
+
+    w = re.search(r"(\d+(\.\d+)?)\s*(week|weeks|wk|wks)\b", t)
+    if w:
+        return float(w.group(1)) / 52.0
+
+    y = re.search(r"(\d+(\.\d+)?)\s*(year|years|yr|yrs)\b", t)
+    if y:
+        return float(y.group(1))
+
+    # bare number
+    m2 = re.search(r"(\d+(\.\d+)?)", t)
+    if m2:
+        return float(m2.group(1))
+
+    return None
+
+
+def _age_band(age_years: Optional[float]) -> str:
+    if age_years is None:
+        return "unknown"
+    if age_years < 3:
+        return "0-2"
+    if age_years < 13:
+        return "3-12"
+    if age_years < 18:
+        return "13-17"
+    if age_years < 65:
+        return "18-64"
+    return "65+"
+
+
+def _parse_weight(text: str) -> Tuple[Optional[float], Optional[str]]:
+    """
+    Returns (weight_kg, raw_unit)
+    Accepts:
+      - "28 pounds", "28 lbs"
+      - "12.5 kg", "12 kilograms"
+      - "28" (unknown unit -> None)
+    """
+    t = _norm(text)
+    if not t:
+        return None, None
+
+    mkg = re.search(r"(\d+(\.\d+)?)\s*(kg|kilogram|kilograms)\b", t)
+    if mkg:
+        return float(mkg.group(1)), "kg"
+
+    mlb = re.search(r"(\d+(\.\d+)?)\s*(lb|lbs|pound|pounds)\b", t)
+    if mlb:
+        lbs = float(mlb.group(1))
+        return lbs * 0.45359237, "lb"
+
+    return None, None
+
+
+def _load_questions_for(pathway_id: str) -> List[dict]:
+    """
+    Minimal YAML-ish parser for our simple pathway YAML shape.
+    Reads:
+      - questions:
+        - id:
+          prompt:
+          store_as:
+          type:
+    """
+    fp = PATHWAYS_DIR / f"{pathway_id}.yaml"
+    if not fp.exists():
+        return []
+
+    txt = fp.read_text(encoding="utf-8", errors="ignore").splitlines()
+
+    questions: List[dict] = []
+    in_questions = False
+    current: Optional[dict] = None
+
+    for line in txt:
+        if line.strip().startswith("questions:"):
+            in_questions = True
+            continue
+        if not in_questions:
+            continue
+
+        if line.strip().startswith("- id:"):
+            if current:
+                questions.append(current)
+            current = {"id": line.split(":", 1)[1].strip(), "prompt": "", "store_as": "", "type": "text"}
+            continue
+
+        if current is None:
+            continue
+
+        s = line.strip()
+        if s.startswith("prompt:"):
+            val = s.split(":", 1)[1].strip().strip('"').strip("'")
+            current["prompt"] = val
+        elif s.startswith("store_as:"):
+            current["store_as"] = s.split(":", 1)[1].strip()
+        elif s.startswith("type:"):
+            current["type"] = s.split(":", 1)[1].strip()
+
+    if current:
+        questions.append(current)
+
+    return questions
+
+
+# ----------------------------
+# Routing
+# ----------------------------
+
+def _pick_pathway(chief: str, state: Optional[CallState] = None) -> Dict[str, Any]:
+    """
+    Deterministic routing first, then fallback keyword scoring from YAML (very minimal).
+    """
+    chief_l = _norm(chief)
+
+    # BATCH10_ROUTING_GUARDS_V1
+    # BATCH12_ROUTER_GUARDS_V3
+    # BATCH13_ROUTING_GUARDS_V1
+    # Guard routing for Batch 13 so it beats older generic pathways.
+
+    # Syncope/fainting
+    if any(k in chief_l for k in ["fainted", "passed out", "blacked out", "blackout", "nearly fainted", "almost passed out", "syncope"]):
+        return {"id": "syncope_fainting", "score": 999}
+
+    # Seizure-like event
+    if any(k in chief_l for k in ["seizure", "convulsion", "shaking episode", "shook", "bit my tongue", "bit their tongue", "tongue bite", "bitten tongue", "postictal", "confused after shaking"]):
+        return {"id": "seizure_new_onset", "score": 999}
+
+    # Pancreatitis pattern (upper abdominal pain radiating to back + vomiting)
+    if (any(k in chief_l for k in ["upper belly pain", "upper abdominal pain", "epigastric", "pain to my back", "radiates to my back", "through to my back", "to the back", "to my back"])
+        and any(k in chief_l for k in ["vomit", "vomiting", "throwing up", "nausea"])):
+        return {"id": "pancreatitis_possible", "score": 999}
+
+    # Diverticulitis pattern (LLQ pain + fever/chills)
+    if (any(k in chief_l for k in ["left lower belly pain", "left lower abdominal pain", "lower left stomach pain", "llq pain", "pain in my lower left"])
+        and any(k in chief_l for k in ["fever", "chills", "shaking chills"])):
+        return {"id": "diverticulitis_possible", "score": 999}
+
+    # Ulcer/gastritis (burning/gnawing stomach pain, hunger-related)
+    if any(k in chief_l for k in ["burning stomach pain", "gnawing stomach pain", "ulcer", "gastritis", "worse when hungry", "better with food", "worse when i’m hungry", "worse when i'm hungry"]):
+        return {"id": "peptic_ulcer_gastritis", "score": 999}
+
+    # UTI with pregnancy possibility: route away from generic dysuria_uti
+    if (any(k in chief_l for k in ["burning when i pee", "burning urination", "burning when i urinate", "uti", "urinary infection", "peeing burns"])
+        and any(k in chief_l for k in ["pregnant", "might be pregnant", "could be pregnant", "possible pregnancy"])):
+        return {"id": "uti_pregnancy_possible", "score": 999}
+
+    # Mastitis (breastfeeding + breast redness/pain + fever/chills)
+    if (any(k in chief_l for k in ["breastfeeding", "nursing"])
+        and any(k in chief_l for k in ["breast is red", "breast redness", "breast is painful", "breast pain", "mastitis", "breast lump"])
+        and any(k in chief_l for k in ["fever", "chills"])):
+        return {"id": "mastitis_breastfeeding", "score": 999}
+
+    # Heat illness
+    if any(k in chief_l for k in ["heat exhaustion", "heat stroke", "overheated", "worked in the heat", "outside in the heat", "too hot"]):
+        return {"id": "heat_illness", "score": 999}
+
+
+    # CO combo guard: multiple people + symptoms + combustion source should beat migraine/headache
+    if (any(k in chief_l for k in ["everyone", "multiple people", "both of us", "all of us", "whole family", "in the house"])
+        and any(k in chief_l for k in ["headache", "nausea", "dizzy", "dizziness", "vomit", "sick"])
+        and any(k in chief_l for k in ["heater", "furnace", "generator", "gas", "fireplace", "stove"])):
+        return {"id": "carbon_monoxide_possible", "score": 999}
+    # Carbon monoxide exposure pattern
+    if any(k in chief_l for k in ["carbon monoxide", "co exposure", "gas leak", "generator", "furnace", "heater running", "everyone feels sick at home", "everyone in the house feels sick"]):
+        return {"id": "carbon_monoxide_possible", "score": 999}
+
+    # Possible AKI / very low urine output
+    if any(k in chief_l for k in ["barely peeing", "not peeing", "not urinating", "very little urine", "hardly peeing", "anuria", "oliguria"]):
+        return {"id": "acute_kidney_injury_possible", "score": 999}
+
+    # IMPORTANT: Run these BEFORE older direct mappings to avoid fall-through and substring collisions (e.g., 'uri' in 'urine').
+
+    # --- Prevent 'uri' substring collisions ---
+    if "urine" in chief_l or "urinary" in chief_l:
+        # Keep urinary complaints out of cough/URI routing
+        if any(k in chief_l for k in ["can't hold", "cant hold", "leaking", "leakage", "wetting myself", "incontinence"]):
+            return {"id": "urinary_incontinence_new", "score": 999}
+
+    # Palpitations / irregular heartbeat
+    if any(k in chief_l for k in ["palpitations", "irregular heartbeat", "heart flutter", "fluttering", "skipping beats", "heart racing"]):
+        return {"id": "atrial_fibrillation_possible", "score": 999}
+
+    # Alcohol withdrawal
+    if any(k in chief_l for k in ["alcohol withdrawal", "stopping drinking", "quit drinking", "cut down alcohol", "stopped drinking", "shaking and sweating after stopping"]):
+        return {"id": "alcohol_withdrawal_mild", "score": 999}
+
+    # Opioid withdrawal
+    if any(k in chief_l for k in ["opioid withdrawal", "stopping opioids", "stopped opioids", "withdrawal from fentanyl", "withdrawal from oxycodone", "stopping pain pills"]):
+        return {"id": "opioid_withdrawal_mild", "score": 999}
+
+    # Hypertensive urgency should beat generic headache
+    if any(k in chief_l for k in ["high blood pressure", "blood pressure is high", "bp is high", "hypertension crisis"]):
+        return {"id": "hypertensive_urgency", "score": 999}
+
+    # Improved BP guard: catch common phrasing like "blood pressure is very high"
+    if ("blood pressure" in chief_l or re.search(r"\bbp\b", chief_l)) and any(w in chief_l for w in ["high", "very high", "elevated", "sky high"]):
+        return {"id": "hypertensive_urgency", "score": 999}
+
+
+    # BATCH11_ROUTING_GUARDS_V1
+    # BATCH12_ROUTING_GUARDS_V2
+    # These are phrasing guards to prevent keyword-score fallthrough.
+
+    # Afib/palpitations
+    if any(k in chief_l for k in ["palpitations", "irregular heartbeat", "heart flutter", "heart racing", "skipping beats"]):
+        return {"id": "atrial_fibrillation_possible", "score": 999}
+
+    # Heart failure fluid overload
+    if any(k in chief_l for k in ["heart failure", "worse when lying flat", "orthopnea", "waking up gasping", "leg swelling"]):
+        return {"id": "heart_failure_exacerbation", "score": 999}
+
+    # PE possible (use broad phrasing)
+    if ("short of breath" in chief_l or "sudden shortness of breath" in chief_l) and any(k in chief_l for k in ["pain with breathing", "pleuritic", "coughing blood", "coughing up blood", "one leg swelling", "calf pain"]):
+        return {"id": "pulmonary_embolism_possible", "score": 999}
+
+    # Hypertensive urgency (patient-stated high BP)
+    if any(k in chief_l for k in ["high blood pressure", "bp is high", "blood pressure is high", "hypertension crisis"]):
+        return {"id": "hypertensive_urgency", "score": 999}
+
+    # Hypoglycemia (shaky/sweaty/confused)
+    if any(k in chief_l for k in ["low blood sugar", "hypoglycemia", "shaky and sweaty", "sweaty and shaky"]):
+        return {"id": "hypoglycemia_possible", "score": 999}
+
+    # Hyperkalemia context
+    if any(k in chief_l for k in ["missed dialysis", "kidney failure", "high potassium"]) or ("dialysis" in chief_l and "missed" in chief_l):
+        return {"id": "hyperkalemia_possible", "score": 999}
+
+    # Alcohol withdrawal
+    if any(k in chief_l for k in ["alcohol withdrawal", "stopping drinking", "quit drinking", "cut down alcohol", "shaky after stopping alcohol"]):
+        return {"id": "alcohol_withdrawal_mild", "score": 999}
+
+    # Opioid withdrawal
+    if any(k in chief_l for k in ["opioid withdrawal", "stopping opioids", "stopped opioids", "withdrawal from fentanyl", "withdrawal from oxycodone", "stopping pain pills"]):
+        return {"id": "opioid_withdrawal_mild", "score": 999}
+
+    # New urinary incontinence (avoid fall-through to cough_uri)
+    if any(k in chief_l for k in ["leaking urine", "urine leakage", "can't hold urine", "wetting myself", "new incontinence"]):
+        return {"id": "urinary_incontinence_new", "score": 999}
+
+    # Generalized itch without rash
+    if ("itch" in chief_l or "itchy" in chief_l) and any(k in chief_l for k in ["all over", "without rash", "no rash", "everywhere"]):
+        return {"id": "pruritus_generalized_no_rash", "score": 999}
+
+    # MH non-crisis routing words (keep non-crisis separate from crisis pathways)
+    if any(k in chief_l for k in ["grief", "bereavement", "mourning", "can't cope after loss"]):
+        return {"id": "grief_adjustment_noncrisis", "score": 999}
+
+    if any(k in chief_l for k in ["ptsd", "flashbacks", "nightmares", "hypervigilant", "triggered by trauma"]):
+        return {"id": "ptsd_symptoms_noncrisis", "score": 999}
+
+    if any(k in chief_l for k in ["can't stop using", "drug use", "drinking too much", "substance problem", "alcohol problem"]):
+        return {"id": "substance_use_concern_noncrisis", "score": 999}
+
+
+    # MENTAL_HEALTH_GUARDS_V1
+    if any(k in chief_l for k in ['panic', 'panic attack', 'feeling panicky', 'anxiety']):
+        return {"id": "anxiety_panic_noncrisis", "score": 999}
+    if any(k in chief_l for k in ["can't sleep", 'insomnia', 'trouble sleeping', 'awake all night']):
+        return {"id": "insomnia", "score": 999}
+    if any(k in chief_l for k in ['depressed', 'depression', 'hopeless', 'low mood', 'sad all the time']):
+        return {"id": "depression_noncrisis", "score": 999}
+    # Deterministic guards for new pathways
+    if 'nosebleed' in chief_l or 'epistaxis' in chief_l or ('nose' in chief_l and 'bleed' in chief_l):
+        return {"id": "epistaxis_nosebleed", "score": 999}
+    if ('tooth' in chief_l or 'gum' in chief_l) and any(k in chief_l for k in ['swollen', 'swelling', 'pus', 'abscess']):
+        return {"id": "dental_abscess", "score": 999}
+    if ('eyelid' in chief_l or 'lid' in chief_l or 'stye' in chief_l) and any(k in chief_l for k in ['bump', 'pimple', 'tender']):
+        return {"id": "hordeolum_stye", "score": 999}
+    if any(k in chief_l for k in ['can\'t pee', 'cannot pee', 'unable to pee', 'urinary retention']) or ('bladder feels full' in chief_l and 'pee' in chief_l):
+        return {"id": "urinary_retention", "score": 999}
+    if ('cough' in chief_l and any(k in chief_l for k in ['fever','chills']) and any(k in chief_l for k in ['short of breath','breathing worse','more short of breath'])):
+        return {"id": "pneumonia_adult_possible", "score": 999}
+    if ('sinus' in chief_l or 'facial pressure' in chief_l) and any(k in chief_l for k in ['green','thick mucus','postnasal']):
+        return {"id": "bacterial_sinusitis_possible", "score": 999}
+    if any(k in chief_l for k in ['black stool','tarry','vomit blood','coffee ground','maroon stool','bright red blood in stool']):
+        return {"id": "gi_bleed_possible", "score": 999}
+    if any(k in chief_l for k in ['hives','welts','itchy rash','allergic reaction']) and not any(k in chief_l for k in ['throat tight','wheezing','trouble breathing']):
+        return {"id": "allergic_reaction_non_anaphylaxis", "score": 999}
+    if ('headache' in chief_l or 'migraine' in chief_l) and any(k in chief_l for k in ['nausea','light sensitivity','throbbing']):
+        return {"id": "migraine_headache", "score": 999}
+    if any(k in chief_l for k in ['shooting pain down my leg','shooting pain down my leg from my back','radiating leg pain','tingling down leg','pain down my leg']):
+        return {"id": "sciatica", "score": 999}
+    # BATCH10_CLEANUP_V1
+    # Cleanup: catch common real-patient phrasing misses
+
+    # Angioedema: plural phrasing ("lips and tongue are swelling")
+    if (('lip' in chief_l or 'lips' in chief_l) and ('tongue' in chief_l) and ('swelling' in chief_l or 'swollen' in chief_l)):
+        return {"id": "angioedema_lip_tongue", "score": 999}
+
+    # Pneumonia-like: cough + fever/chills + worsening shortness of breath
+    if ('cough' in chief_l) and any(k in chief_l for k in ['fever', 'chills']) and any(k in chief_l for k in ['more short of breath', 'short of breath today', 'hard to breathe', 'breathing worse', 'worse today']):
+        # Prefer pneumonia_possible if present in your pathways list; otherwise keep cough_uri
+        return {"id": "pneumonia_possible", "score": 999}
+
+    # Eye discharge/crusting: goopy, stuck shut, crusting (avoid misrouting)
+    if ('eye' in chief_l) and any(k in chief_l for k in ['goopy', 'crusting', 'stuck shut', 'stuck shut in the morning', 'yellow discharge', 'pus', 'matting']):
+        # If you have conjunctivitis_bacterial pathway, route there; else route to red_eye
+        return {"id": "conjunctivitis_bacterial", "score": 999}
+
+    # Male dysuria + systemic symptoms: chills/fever suggests complicated UTI / kidney infection
+    if any(k in chief_l for k in ['man', 'male']) and any(k in chief_l for k in ['burning', 'burns when i pee', 'painful urination', 'dysuria']) and any(k in chief_l for k in ['chills', 'fever']):
+        return {"id": "uti_complicated", "score": 999}
+
+    # ANGIOEDEMA_GUARD_V2
+    # Catch plural phrasing: 'lips and tongue are swelling'
+    if (('lip' in chief_l or 'lips' in chief_l) and ('tongue' in chief_l) and ('swelling' in chief_l or 'swollen' in chief_l)):
+        return {"id": "angioedema_lip_tongue", "score": 999}
+
+    # Child pneumonia suspicion: child + cough + fever + more short of breath
+    if any(k in chief_l for k in ["child", "kid", "toddler"]) and ("cough" in chief_l) and any(k in chief_l for k in ["fever", "chills"]) and any(k in chief_l for k in ["short of breath", "breathing fast", "hard to breathe"]):
+        return {"id": "pneumonia_child_possible", "score": 999}
+
+    # Sepsis-like: fever + confusion/very weak
+    if any(k in chief_l for k in ["fever", "chills"]) and any(k in chief_l for k in ["confused", "confusion", "hard to wake", "very weak", "dangerously ill"]):
+        return {"id": "sepsis_possible", "score": 999}
+
+    # Meningitis-like: fever + stiff neck + severe headache
+    if any(k in chief_l for k in ["fever"]) and any(k in chief_l for k in ["stiff neck", "neck stiffness"]) and any(k in chief_l for k in ["headache", "severe headache"]):
+        return {"id": "meningitis_possible", "score": 999}
+
+    # Anaphylaxis: hives + trouble breathing/throat/tongue
+    if any(k in chief_l for k in ["hives", "itchy welts", "rash"]) and any(k in chief_l for k in ["throat", "tongue", "can't breathe", "wheezing", "trouble breathing"]):
+        return {"id": "anaphylaxis_possible", "score": 999}
+
+    # Angioedema: lip/tongue swelling
+    if any(k in chief_l for k in ["lip swelling", "swollen lips", "tongue swelling", "face swelling"]):
+        return {"id": "angioedema_lip_tongue", "score": 999}
+
+    # Back pain cauda red flags
+    if ("back pain" in chief_l or "back" in chief_l) and any(k in chief_l for k in ["can't pee", "unable to pee", "loss of bladder", "saddle numb", "numb groin", "leg weakness"]):
+        return {"id": "acute_back_pain_redflags", "score": 999}
+
+    # Abdominal pain red flags
+    if any(k in chief_l for k in ["severe belly", "severe abdominal", "belly pain"]) and any(k in chief_l for k in ["faint", "passed out", "black stool", "vomiting blood"]):
+        return {"id": "acute_abd_pain_redflags", "score": 999}
+
+    # Headache red flags
+    if any(k in chief_l for k in ["worst headache", "thunderclap", "sudden severe headache"]) or (("headache" in chief_l) and any(k in chief_l for k in ["weakness", "trouble speaking", "confusion"])):
+        return {"id": "headache_redflags", "score": 999}
+
+    # Eye pain + vision change
+    if ("eye" in chief_l) and any(k in chief_l for k in ["severe pain", "eye pain", "blurry vision", "vision loss", "halo around lights", "light sensitivity"]):
+        return {"id": "eye_pain_vision_change", "score": 999}
+
+    # Wound infection
+    if any(k in chief_l for k in ["cut", "wound", "scrape"]) and any(k in chief_l for k in ["red", "warm", "swollen", "pus", "spreading"]):
+        return {"id": "wound_infection_possible", "score": 999}
+
+    # BATCH9_ROUTING_GUARDS_V1
+    # MED_ADVERSE_REACTION_GUARD_V2
+    # Catch 'new pill' phrasing
+    if any(k in chief_l for k in ["new pill", "started a new pill", "started a new tablet", "new prescription", "after taking a new", "reaction to a new"]):
+        return {"id": "med_adverse_reaction", "score": 999}
+
+    # New medication reaction / side effects
+    if any(k in chief_l for k in ["started a new medication", "new medicine", "new medication", "side effect", "med reaction", "after taking a pill"]):
+        return {"id": "med_adverse_reaction", "score": 999}
+
+    # Testicular/scrotal pain
+    if any(k in chief_l for k in ["testicle", "testicular", "scrotum", "scrotal", "one testicle"]):
+        return {"id": "testicular_pain_torsion_possible", "score": 999}
+
+    # Pregnancy bleeding early
+    if ("bleed" in chief_l or "spotting" in chief_l) and any(k in chief_l for k in ["pregnant", "pregnancy", "positive pregnancy test", "first trimester"]):
+        return {"id": "pregnancy_bleeding_early", "score": 999}
+
+    # DVT suspicion
+    if any(k in chief_l for k in ["one leg", "calf", "leg"]) and any(k in chief_l for k in ["swollen", "swelling", "warm", "tender"]):
+        return {"id": "dvt_possible", "score": 999}
+
+    # Child wheeze / asthma flare
+    if any(k in chief_l for k in ["child", "kid", "toddler"]) and any(k in chief_l for k in ["wheeze", "wheezing", "tight chest", "inhaler"]):
+        return {"id": "asthma_child_wheeze", "score": 999}
+
+    # Infant bronchiolitis-like
+    if any(k in chief_l for k in ["baby", "infant"]) and any(k in chief_l for k in ["fast breathing", "ribs pulling", "wheez", "struggling to breathe"]):
+        return {"id": "bronchiolitis_infant", "score": 999}
+
+    # Eczema flare
+    if any(k in chief_l for k in ["eczema", "atopic", "dry itchy", "itchy dry patches"]):
+        return {"id": "eczema_flare", "score": 999}
+
+    # Contact dermatitis / poison ivy / new soap
+    if any(k in chief_l for k in ["poison ivy", "contact dermatitis", "new soap", "new detergent", "rash after touching", "rash after new"]):
+        return {"id": "contact_dermatitis", "score": 999}
+
+    # Kidney infection possible (back/flank + fever +/- urinary)
+    if any(k in chief_l for k in ["flank", "kidney", "back pain"]) and any(k in chief_l for k in ["fever", "chills"]) and any(k in chief_l for k in ["burning", "uti", "urinary", "pee"]):
+        return {"id": "kidney_infection_possible", "score": 999}
+
+    # Dehydration child
+    if any(k in chief_l for k in ["child", "kid", "toddler", "baby"]) and any(k in chief_l for k in ["dehydrated", "not peeing", "no wet diaper", "dry mouth"]):
+        return {"id": "dehydration_child", "score": 999}
+
+    # BATCH8_ROUTING_GUARDS_V1
+    # Appendicitis suspicion: RLQ/right lower + worsening/severe words
+    if ("right lower" in chief_l or "rlq" in chief_l) and any(k in chief_l for k in ["pain", "tender", "worse", "worsening"]):
+        return {"id": "appendicitis_possible", "score": 999}
+
+    # Pyelonephritis suspicion: urinary + fever/chills + flank/back
+    if any(k in chief_l for k in ["burning when i pee", "burning urination", "uti", "urinary"]) and (("fever" in chief_l) or ("chills" in chief_l)) and any(k in chief_l for k in ["flank", "back pain", "kidney"]):
+        return {"id": "pyelonephritis_possible", "score": 999}
+
+    # GI bleed: blood/black stool/vomit blood
+    if any(k in chief_l for k in ["black stool", "tarry", "vomiting blood", "coffee ground", "blood in stool", "maroon stool", "rectal bleeding"]):
+        return {"id": "gi_bleed_possible", "score": 999}
+
+    # Hyperglycemia/new diabetes: very thirsty + peeing a lot + weight loss/blurry
+    if (("thirsty" in chief_l) or ("very thirsty" in chief_l)) and any(k in chief_l for k in ["peeing a lot", "urinating a lot", "weight loss", "blurry vision", "high blood sugar"]):
+        return {"id": "new_onset_diabetes_hyperglycemia", "score": 999}
+
+    # Depression crisis/self-harm
+    if any(k in chief_l for k in ["suicidal", "want to die", "hurt myself", "self harm", "end my life", "not safe"]):
+        return {"id": "depression_crisis", "score": 999}
+
+    # BATCH7_ROUTING_GUARDS_V2
+    # Pneumonia suspicion: cough + fever/chills + shortness of breath
+    if ("cough" in chief_l) and (("fever" in chief_l) or ("chills" in chief_l)) and (("short of breath" in chief_l) or ("more short of breath" in chief_l) or ("sob" in chief_l) or ("hard to breathe" in chief_l)):
+        return {"id": "pneumonia_possible", "score": 999}
+
+    # Pink eye: goopy/discharge/crusting/stuck shut
+    if ("eye" in chief_l) and any(k in chief_l for k in ["goopy", "discharge", "crusting", "stuck shut", "sticky", "pink eye", "conjunctivitis"]):
+        return {"id": "pink_eye_bacterial", "score": 999}
+
+    # Male UTI: male cue + dysuria
+    if any(k in chief_l for k in ["i am a man", "i\'m a man", "male", "guy", "for a man"]) and any(k in chief_l for k in ["burning when i pee", "burning urination", "painful urination", "burns when i pee"]):
+        return {"id": "uti_male", "score": 999}
+
+    # Dental abscess: tooth/gum + swelling/pus
+    if (("tooth" in chief_l) or ("gum" in chief_l)) and any(k in chief_l for k in ["swollen", "swelling", "pus", "abscess", "face swelling"]):
+        return {"id": "dental_abscess", "score": 999}
+
+    # Acute allergic reaction bucket
+    if any(k in chief_l for k in ["allergic reaction", "broke out in hives", "hives after", "itchy welts after", "swollen lips"]):
+        return {"id": "acute_allergic_reaction_nonanaphylaxis", "score": 999}
+
+    # Hordeolum/stye guard: patient-like eyelid bump phrasing
+    if ("eyelid" in chief_l) and any(k in chief_l for k in ["bump", "lump", "pimple", "tender", "swollen"]):
+        return {"id": "eye_stye_hordeolum", "score": 999}
+
+    # Batch6 guards for patient-like phrasing
+    if any(k in chief_l for k in ["stye", "sty", "eyelid bump", "pimple on eyelid", "tender eyelid"]):
+        return {"id": "eye_stye_hordeolum", "score": 999}
+    if ("ear" in chief_l) and any(k in chief_l for k in ["swimmer", "after swimming", "hurts when i pull", "ear canal", "itchy ear canal"]):
+        return {"id": "otitis_externa", "score": 999}
+    if ("vagin" in chief_l or "vulv" in chief_l) and any(k in chief_l for k in ["itch", "itching", "thick white", "cottage cheese", "yeast"]):
+        return {"id": "vaginal_yeast", "score": 999}
+    if any(k in chief_l for k in ["cut my", "laceration", "open cut", "won\'t stop bleeding", "wont stop bleeding", "deep cut"]):
+        return {"id": "minor_laceration_cut", "score": 999}
+    if any(k in chief_l for k in ["hand foot mouth", "mouth sores", "sores in mouth", "rash on hands", "rash on feet", "blisters on hands", "blisters on feet"]):
+        return {"id": "hand_foot_mouth_child", "score": 999}
+
+    # Nosebleed guard: patient-like phrasing often says "nose is bleeding"
+    if ("nose" in chief_l) and (("bleed" in chief_l) or ("bloody" in chief_l)):
+        return {"id": "nosebleed_epistaxis", "score": 999}
+
+    # vomiting+diarrhea food trigger -> food_poisoning (patient-like phrasing)
+    if ("vomit" in chief_l or "vomiting" in chief_l or "throwing up" in chief_l) and ("diarrhea" in chief_l or "loose stool" in chief_l or "watery stool" in chief_l):
+        if any(k in chief_l for k in ["after eating", "after i ate", "restaurant", "takeout", "food", "ate", "meal"]):
+            return {"id": "food_poisoning", "score": 999}
+
+
+    # COPD guard: if caller explicitly mentions COPD/emphysema/chronic bronchitis, force COPD pathway.
+    if any(k in chief_l for k in ["copd", "emphysema", "chronic bronchitis"]):
+        return {"id": "copd_exacerbation", "score": 999}
+
+    direct = [
+        # BATCH12_DIRECTMAP_FIX_V1
+        # Batch 12 high-priority phrases BEFORE older generic routes (headache/cough_uri/etc)
+        (["palpitations", "irregular heartbeat", "heart flutter", "heart racing", "skipping beats"], "atrial_fibrillation_possible"),
+        (["blood pressure is high", "bp is high", "high blood pressure", "hypertension crisis"], "hypertensive_urgency"),
+        (["sudden shortness of breath", "pain with breathing", "pleuritic", "coughing up blood", "coughing blood"], "pulmonary_embolism_possible"),
+        (["heart failure", "worse when lying flat", "waking up gasping", "swelling legs", "leg swelling"], "heart_failure_exacerbation"),
+        (["low blood sugar", "hypoglycemia", "shaky and sweaty", "sweaty and shaky"], "hypoglycemia_possible"),
+        (["missed dialysis", "high potassium", "kidney failure", "dialysis missed"], "hyperkalemia_possible"),
+        (["alcohol withdrawal", "stopping drinking", "quit drinking", "cut down alcohol", "shaky after stopping alcohol"], "alcohol_withdrawal_mild"),
+        (["opioid withdrawal", "stopping opioids", "stopped opioids", "withdrawal from fentanyl", "withdrawal from oxycodone", "stopping pain pills"], "opioid_withdrawal_mild"),
+        (["can't hold urine", "cant hold urine", "leaking urine", "urine leakage", "wetting myself", "new incontinence"], "urinary_incontinence_new"),
+        (["itching all over", "itchy all over", "itching without rash", "itching everywhere", "generalized itching"], "pruritus_generalized_no_rash"),
+        (["grief", "bereavement", "mourning", "can't cope after loss", "cant cope after loss"], "grief_adjustment_noncrisis"),
+        (["ptsd", "flashbacks", "nightmares", "hypervigilant", "triggered by trauma"], "ptsd_symptoms_noncrisis"),
+        (["can't stop using", "cant stop using", "drug use", "drinking too much", "substance problem", "alcohol problem"], "substance_use_concern_noncrisis"),
+        # Core original
+        (["dysuria", "uti", "burning urination", "burning when i pee", "painful urination", "urinary urgency", "urinary frequency"], "dysuria_uti"),
+        (["vomit", "vomiting", "nausea", "throwing up", "emesis"], "nausea_vomiting"),
+        (["diarrhea", "loose stool", "watery stool", "gastroenteritis"], "diarrhea"),
+        (["ear pain", "earache", "otitis", "swimmer's ear"], "ear_pain"),
+        (["pink eye", "conjunctivitis", "red eye", "eye discharge"], "red_eye"),
+        (["back pain", "low back", "sciatica", "lumbar"], "low_back_pain"),
+        (["sore throat", "throat pain", "strep"], "sore_throat"),
+        (["cough", "runny nose", "congestion", "cold", ], "cough_uri"),
+        (["rash", "skin infection", "cellulitis", "impetigo"], "rash_skin_infection"),
+        (["abdominal pain", "belly pain", "stomach pain"], "abdominal_pain"),
+        (["headache", "migraine", "worst headache", "thunderclap"], "headache"),
+        (["med refill", "refill", "renew medication", "prescription renewal"], "med_refill"),
+
+        # Added batches (routing phrases are intentionally patient-like)
+        (["constipated", "no bowel movement", "can't poop", "hard stool"], "constipation"),
+        (["toothache", "gum swollen", "dental pain", "tooth pain"], "dental_pain"),
+        (["acid reflux", "heartburn", "burning in chest after eating"], "heartburn_gerd"),
+        (["sinus pressure", "facial pressure", "postnasal drip", "green mucus"], "sinusitis"),
+        (["twisted my ankle", "sprained my ankle", "ankle injury", "sprain", "strain"], "sprain_strain"),
+
+        (["hay fever", "seasonal allergies", "itchy nose", "sneezing a lot"], "allergic_rhinitis"),
+        (["panic attack", "anxiety attack", "sudden panic"], "anxiety_panic"),
+        (["toddler constipated", "child constipated", "kid constipated"], "constipation_child"),
+        (["bee sting", "wasp sting", "insect sting", "bug bite"], "insect_bite_sting"),
+        (["minor burn", "burned my hand", "small burn"], "minor_burn"),
+
+        (["child fever", "kid fever", "baby fever", "toddler fever"], "fever_child"),
+
+        (["chest pressure", "pressure in chest", "chest pain with sweating"], "chest_pain"),
+        (["face drooped", "slurred speech", "stroke symptoms", "can't speak"], "stroke_neuro"),
+
+        (["burning blistering rash on one side", "painful blistering rash one side"], "shingles"),
+        (["cold sore", "blister on lip"], "cold_sore_hsv"),
+
+        (["asthma", "asthma attack", "wheezing", "wheezy", "chest tightness", "inhaler not helping", "rescue inhaler not helping", "albuterol not helping"], "asthma_wheeze"),
+        (["fever chills body aches", "flu like", "body aches with fever"], "flu_like_illness"),
+        (["fishy smell discharge", "vaginal discharge"], "vaginal_discharge"),
+        (["severe pelvic pain", "pelvic pain and dizziness"], "pelvic_pain"),
+        (["rectal pain", "bright red blood when wiping"], "hemorrhoids_rectal_pain"),
+        (["heartburn and nausea", "acid reflux and nausea"], "gerd_nausea"),
+
+        (["itchy watery eyes", "my eyes are watery", "eyes are watery", "eye itching with watery tears"], "conjunctivitis_allergic"),
+
+        (["child ear pain with fever", "kid ear pain with fever"], "otitis_media"),
+        (["sinus pressure and congestion", "facial pressure and congestion"], "uri_sinus_overlap"),
+        (["hives", "itchy welts"], "urticaria_hives"),
+        (["hit my head", "head injury", "concussion"], "minor_head_injury"),
+
+        (["flank pain and blood in urine", "kidney stone", "stone in kidney"], "kidney_stone"),
+        (["dehydrated", "not peeing much", "dry mouth and dizzy"], "dehydration"),
+        (["started a new medication", "new medication", "side effect", "adverse drug reaction"], "med_side_effect"),
+        (["tick bite", "bullseye rash"], "tick_bite"),
+        (["complicated uti", "uti with fever and flank pain"], "uti_complicated"),
+
+        (["shooting pain down my leg", "pain down my leg", "radiating leg pain", "pinched nerve"], "sciatica_radiculopathy"),
+        (["big toe red hot swollen", "gout attack", "podagra"], "gout_flare"),
+        (["throbbing headache with light sensitivity", "aura", "migraine"], "migraine"),
+        (["room spinning", "positional vertigo", "dizzy when turning in bed"], "vertigo_bppv"),
+        (["boil", "abscess", "pus pocket", "painful lump with pus"], "skin_abscess"),
+
+        (["copd flare", "copd acting up", "more sputum than usual", "change in sputum color"], "copd_exacerbation"),
+        (["skin redness spreading", "hot red skin", "red swollen skin"], "cellulitis"),
+        (["burning when i pee and frequency", "uti symptoms"], "uti_uncomplicated"),
+        (["watery diarrhea and dehydrated", "acute diarrhea"], "acute_diarrhea"),
+
+        (["flashes of light", "new floaters", "curtain over vision", "shadow in vision"], "eye_floaters_flashes"),
+        (["something in my eye", "grit in my eye", "metal in my eye", "eye scratch", "dust in my eye", "gritty feeling in my eye", "something stuck in my eye", "eye feels scratched", "after sanding", "after grinding"], "eye_foreign_body"),
+        (["nosebleed", "bloody nose", "bleeding from nose", "nose is bleeding", "my nose is bleeding", "bleeding from my nose"], "nosebleed_epistaxis"),
+        (["can't pee", "unable to urinate", "bladder feels full but can't pee", "urinary retention"], "urinary_retention"),
+        (["sick after eating", "vomiting and diarrhea after restaurant", "food poisoning"], "food_poisoning"),
+    ]
+
+    for keys, pid in direct:
+        if any(k in chief_l for k in keys):
+            return {"id": pid, "score": 999}
+
+    # Fallback: minimal keyword scoring from YAML `match:any_keywords: [...]`
+    best = ("cough_uri", 0)
+    if PATHWAYS_DIR.exists():
+        for fp in PATHWAYS_DIR.glob("*.yaml"):
+            raw = fp.read_text(encoding="utf-8", errors="ignore")
+            pid = ""
+            kws: List[str] = []
+            for line in raw.splitlines():
+                s = line.strip()
+                if s.startswith("id:"):
+                    pid = s.split(":", 1)[1].strip()
+                if "any_keywords:" in s and "[" in s and "]" in s:
+                    inside = s.split("[", 1)[1].rsplit("]", 1)[0]
+                    parts = [p.strip().strip('"').strip("'") for p in inside.split(",") if p.strip()]
+                    kws.extend([p.lower() for p in parts if p])
+            if not pid:
+                continue
+            score = sum(1 for k in kws if k and k in chief_l)
+            if score > best[1]:
+                best = (pid, score)
+
+    return {"id": best[0], "score": best[1]}
+
+
+# ----------------------------
+# Public API
+# ----------------------------
+
+def next_prompt(state: CallState) -> str:
+    state.symptoms.setdefault("_answers", {})
+    state.symptoms.setdefault("_pathway", {})
+    state.symptoms.setdefault("_q_idx", 0)
+
+    # Reprompt for yes/no inside pathway questions
+    if state.stage == "PATHWAY_Q" and state.symptoms.get("_reprompt"):
+        return state.symptoms["_reprompt"]
+
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What's your main concern?"
+
+    # Keep stage name AGE_BAND for compatibility, but we ask for actual age.
+    if state.stage == "AGE_BAND":
+        return "How old are you? Please say your age in years (for example: 37)."
+
+    if state.stage == "CONDITIONS":
+        return (
+            "Do you have any chronic lung condition like asthma or COPD/emphysema/chronic bronchitis? "
+            "Please say: asthma, COPD, neither, or unknown."
+        )
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "WEIGHT":
+        return (
+            "For dosing safety, what is the child's weight? "
+            "You can say pounds or kilograms (for example: 28 pounds)."
+        )
+
+    if state.stage == "PATHWAY_Q":
+        pathway_id = (state.symptoms.get("_pathway") or {}).get("id") or "cough_uri"
+        questions = _load_questions_for(pathway_id)
+        idx = int(state.symptoms.get("_q_idx", 0))
+
+        if idx >= len(questions):
+            state.stage = "DECIDE"
+            return ""
+
+        q = questions[idx]
+        return q.get("prompt") or "Please tell me more."
+
+    if state.stage == "DECIDE":
+        return ""
+
+    return "I'm sorry — I got lost. Let's start over. What's your main concern?"
+
+
+def process_answer(state: CallState, text: str) -> None:
+    state.symptoms.setdefault("_answers", {})
+    state.symptoms.setdefault("_pathway", {})
+    state.symptoms.setdefault("_q_idx", 0)
+
+    t = _norm(text)
+
+    if state.stage == "CONSENT":
+        yn = _yesno(t)
+        if yn is True:
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    if state.stage == "CHIEF":
+        state.chief_complaint = (text or "").strip()
+        state.symptoms["_pathway"] = _pick_pathway(state.chief_complaint, state)
+        state.symptoms["_q_idx"] = 0
+        state.stage = "AGE_BAND"
+        return
+
+    if state.stage == "AGE_BAND":
+        age = _parse_age_years(text)
+        if age is None:
+            # Do not advance, ask again
+            state.symptoms["_reprompt_age"] = True
+            return
+        state.symptoms.pop("_reprompt_age", None)
+
+        state.symptoms["age_years"] = age
+        state.age_band = _age_band(age)
+        state.symptoms["age_band"] = state.age_band
+        state.symptoms["is_child"] = bool(age < 18.0)
+
+        # Ask chronic lung history only when relevant (respiratory-related pathways)
+        pid = (state.symptoms.get("_pathway") or {}).get("id") or ""
+        if pid in set(RESP_PATHWAYS):
+            state.stage = "CONDITIONS"
+        else:
+            state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "CONDITIONS":
+        val = "unknown"
+        if "asthma" in t:
+            val = "asthma"
+        elif any(k in t for k in ["copd", "emphysema", "chronic bronchitis"]):
+            val = "copd"
+        elif any(k in t for k in ["neither", "none", "no"]):
+            val = "none"
+        elif any(k in t for k in ["unknown", "not sure", "unsure"]):
+            val = "unknown"
+        state.symptoms["chronic_lung"] = val
+        state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "ALLERGIES":
+        if t in ["no", "none", "nope", "n"]:
+            state.symptoms["med_allergies"] = "none"
+        else:
+            state.symptoms["med_allergies"] = (text or "").strip() or "unknown"
+
+        if bool(state.symptoms.get("is_child")):
+            state.stage = "WEIGHT"
+        else:
+            state.stage = "PATHWAY_Q"
+        return
+
+    if state.stage == "WEIGHT":
+        wkg, unit = _parse_weight(text)
+        if wkg is None:
+            # Do not advance; ask again
+            state.symptoms["_reprompt_weight"] = True
+            return
+        state.symptoms.pop("_reprompt_weight", None)
+        state.symptoms["weight_kg"] = wkg
+        state.symptoms["weight_unit"] = unit or "unknown"
+        state.stage = "PATHWAY_Q"
+        return
+
+    if state.stage == "PATHWAY_Q":
+        pathway_id = (state.symptoms.get("_pathway") or {}).get("id") or "cough_uri"
+        questions = _load_questions_for(pathway_id)
+        idx = int(state.symptoms.get("_q_idx", 0))
+
+        if idx >= len(questions):
+            state.stage = "DECIDE"
+            return
+
+        q = questions[idx]
+        qid = q.get("id") or f"q{idx}"
+        store_as = q.get("store_as") or qid
+        qtype = q.get("type") or "text"
+
+        if qtype == "yesno":
+            yn = _yesno(t)
+            if yn is None:
+                state.symptoms["_reprompt"] = f"Please answer yes or no. {q.get('prompt','')}"
+                return
+            state.symptoms["_answers"][qid] = "yes" if yn else "no"
+            state.symptoms[store_as] = bool(yn)
+        else:
+            state.symptoms["_answers"][qid] = (text or "").strip()
+            state.symptoms[store_as] = (text or "").strip()
+
+        state.symptoms["_q_idx"] = idx + 1
+        state.symptoms.pop("_reprompt", None)
+        return
+
+    # Fallback reset
+    state.stage = "CONSENT"

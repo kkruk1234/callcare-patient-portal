@@ -1,0 +1,25 @@
+id: asthma_child_wheeze
+version: 0.1
+match:
+  any_keywords: ["child wheezing", "kid wheezing", "wheezing child", "child tight chest", "child asthma flare", "kid inhaler not helping"]
+questions:
+  - id: breathing_trouble
+    prompt: "Is your child struggling to breathe (can’t speak/cry normally, ribs pulling in, or bluish lips)? (yes/no)"
+    store_as: severe_breathing
+    type: yesno
+
+  - id: not_helping
+    prompt: "Is the rescue inhaler not helping at all? (yes/no/unknown)"
+    store_as: inhaler_not_helping
+
+  - id: sleepy
+    prompt: "Is your child unusually sleepy, hard to wake, or not acting like themselves? (yes/no)"
+    store_as: lethargy
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["breathing_trouble", "not_helping", "sleepy"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

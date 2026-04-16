@@ -1,0 +1,49 @@
+{
+  "packet_id": "be64d5e1-6c86-4de3-9bd1-4f2ba3df1ef0",
+  "created_at": "2026-01-17T22:29:42.397165+00:00",
+  "session_id": "8fdcaebd-9c38-4542-a8df-ba4d5ace9eb6",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \n13-17-year-old patient reports a recent tick bite in Georgia with associated fever and chills lasting between 24-72 hours. No rash noted. Patient is not pregnant.\n\nO:  \nNo physical exam findings available due to phone-only encounter.\n\nA:  \n- Working diagnosis (most likely): Early tick-borne illness (e.g., early Lyme disease or other tick-borne infection) given tick exposure and systemic symptoms.  \n- Differential:  \n  1. Early Lyme disease  \n  2. Other tick-borne infections (e.g., ehrlichiosis, anaplasmosis)  \n  3. Viral illness unrelated to tick bite  \n  4. Bacterial infection unrelated to tick bite  \n- Red flags considered: Persistent high fever, severe systemic symptoms, neurological symptoms, rash (absent), signs of sepsis.\n\nP:  \n- Disposition: Urgent in-person evaluation recommended due to fever and systemic symptoms after tick bite.  \n- Plan: Advise patient/guardian to seek prompt medical evaluation for physical examination, possible laboratory testing (CBC, blood smears, serologies), and initiation of empiric treatment if indicated. Educate on signs of worsening illness.  \n- Safety net: Instruct to seek emergency care immediately if symptoms worsen rapidly, develop rash, severe headache, neck stiffness, difficulty breathing, or altered mental status.\n\nEvidence (snippets used):  \nNo specific guidelines retrieved; management based on standard clinical practice for tick-borne illness with systemic symptoms.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: What to Do After a Tick Bite",
+        "source": "https://www.cdc.gov/ticks/after-a-tick-bite/index.html",
+        "snippet": ""
+      },
+      {
+        "title": "CDC: Tick Bite—What to Do (PDF)",
+        "source": "https://www.cdc.gov/ticks/pdfs/FS_TickBite-508.pdf",
+        "snippet": ""
+      },
+      {
+        "title": "CDC: Guidance for Clinicians—Caring for Patients after a Tick Bite (PDF)",
+        "source": "https://www.cdc.gov/lyme/media/pdfs/Caring-for-Patients-after-a-Tick-Bite.pdf",
+        "snippet": ""
+      },
+      {
+        "title": "IDSA/AAN/ACR: 2020 Guidelines for Prevention, Diagnosis, and Treatment of Lyme Disease",
+        "source": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+        "snippet": ""
+      },
+      {
+        "title": "AAFP: Lyme Disease—Updated Recommendations from IDSA/AAN/ACR (2021)",
+        "source": "https://www.aafp.org/pubs/afp/issues/2021/1200/p652.html",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": []
+}

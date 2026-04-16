@@ -1,0 +1,10 @@
+{
+  "title": "Drugs@FDA Data Files | FDA",
+  "url": "https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files",
+  "publisher": "fda.gov",
+  "date": "2026-01-28",
+  "text": "wnload File (ZIP - 5.80KB)\nData Last Updated: January 27th, 2026 Data Definitions and ERD for Drugs@FDA (as of January 10, 2025) Entity Relationship Diagram \nDrugs@FDA consists of 12 tables: \nActionTypes_Lookup \n[ActionTypes_LookupID] [int] IDENTITY(1,1) NOT NULL [ActionTypes_LookupDescription] [varchar](100) NOT NULL [SupplCategoryLevel1Code] [varchar](100) NULL [SupplCategoryLevel2Code] [varchar](100) NULL ApplicationDocs \n[ApplicationDocsID] [int] IDENTITY(1,1) NOT NULL [ApplicationDocsTypeID] [int] NOT NULL [ApplNo] [char](6) NOT NULL [SubmissionType] [char](10) NOT NULL [SubmissionNo] [int] NOT NULL [ApplicationDocsTitle] [varchar](100) NULL [ApplicationDocsURL] [varchar](200) NULL [ApplicationDocsDate] [datetime] NULL Applications \n[ApplNo] [char](6) NOT NULL [ApplType] [char](5) NOT NULL [ApplPublicNotes] [text] NULL [SponsorName] [char](500) NULL ApplicationsDocsType_Lookup \n[ApplicationDocsType_Lookup_ID] [int] IDENTITY(1,1) NOT NULL [ApplicationDocsType_Lookup_Description] [varchar](200) NOT NULL Join_Submission_ActionType_Lookup \n[J_SubmissionActionTypeID] [int] IDENTITY(1,1) NOT NULL [SubmissionNo] [int] NOT NULL [SubmissionType] [char](10) NOT NULL [ApplNo] [char](6) NOT NULL [ActionTypes_LookupID] [int] NOT NULL MarketingStatus \n[ApplNo] [char](6) NOT NULL, [ProductNo] [char](3) NOT NULL, [MarketingStatusID] [int] NOT NULL MarketingStatus_Lookup \n[MarketingStatusI",
+  "source_type": "library",
+  "source_id": "fda_gov_drugs_drug_approvals_and_databases_drugsfda_data_files_1ea5eab4016f",
+  "chunk_id": "chunk_003"
+}

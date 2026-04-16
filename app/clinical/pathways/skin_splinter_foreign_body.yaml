@@ -1,0 +1,22 @@
+id: skin_splinter_foreign_body
+version: 0.1
+match:
+  any_keywords: ["splinter", "thorn", "foreign body in skin", "wood stuck in", "glass in my skin"]
+questions:
+  - id: deep
+    prompt: "Is it deeply embedded, near the eye, or you can't remove it? (yes/no)"
+    store_as: deep_or_cannot_remove
+    type: yesno
+  - id: infection
+    prompt: "Any spreading redness, warmth, pus, or fever? (yes/no)"
+    store_as: infection
+    type: yesno
+  - id: numb
+    prompt: "Any numbness or trouble moving the area? (yes/no)"
+    store_as: neuro_issue
+    type: yesno
+stop_rules:
+  - if_all_answered: ["deep", "infection", "numb"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

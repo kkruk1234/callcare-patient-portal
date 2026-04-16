@@ -1,0 +1,559 @@
+from __future__ import annotations
+
+import re
+
+
+import json
+from pathlib import Path
+from typing import Any, Dict, Optional, Tuple
+
+from app.core.models import CallState, RedFlag
+
+PATHWAYS_DIR = Path("app/clinical/pathways")
+PACKS_DIR = Path("data/sources/pathways")  # manifests live here, but packs are built elsewhere
+QUESTION_PACKS_DIR = Path("data/index/question_packs")  # created by build_question_packs
+
+
+def _norm(s: str) -> str:
+    return (s or "").strip().lower()
+
+
+def _yesno(s: str) -> Optional[bool]:
+    s = _norm(s)
+    if s in ["y", "yes", "yeah", "yep", "sure", "ok", "okay"]:
+        return True
+    if s in ["n", "no", "nope"]:
+        return False
+    return None
+
+
+def _parse_age_years(s: str):
+    """
+    Parse age from common spoken forms:
+    - "37" -> 37
+    - "6 months" -> 0.5
+    - "18 months" -> 1.5
+    - "2 years" -> 2
+    Returns float years or None.
+    """
+    t = _norm(s)
+    if not t:
+        return None
+    # Extract number
+    m = re.search(r"(\d+(\.\d+)?)", t)
+    if not m:
+        return None
+    num = float(m.group(1))
+    # Unit handling
+    if "month" in t:
+        return round(num / 12.0, 3)
+    if "year" in t or "yr" in t:
+        return num
+    # If no unit, assume years
+    return num
+
+
+def _age_band_from_years(age_years: float) -> str:
+    if age_years is None:
+        return "unknown"
+    if age_years < 3:
+        return "0-2"
+    if age_years < 13:
+        return "3-12"
+    if age_years < 18:
+        return "13-17"
+    if age_years < 65:
+        return "18-64"
+    return "65+"
+
+def _ensure_flags(state: CallState) -> None:
+    """
+    Ensure flags buckets exist. Stored in state.symptoms so we do not have to change CallState model.
+    """
+    state.symptoms.setdefault(
+        "_flags",
+        {"ed_now": [], "urgent_today": [], "routine": [], "cannot_rule_out": []},
+    )
+
+
+def _add_flag(state: CallState, bucket: str, code: str) -> None:
+    _ensure_flags(state)
+    bucket = (bucket or "").strip()
+    code = (code or "").strip()
+    if not bucket or not code:
+        return
+    if bucket not in state.symptoms["_flags"]:
+        return
+    if code not in state.symptoms["_flags"][bucket]:
+        state.symptoms["_flags"][bucket].append(code)
+
+
+def _derive_disposition(state: CallState) -> Tuple[str, list]:
+    """
+    Deterministic disposition based on flags.
+    Priority: ed_now > urgent_today > routine (default)
+    """
+    _ensure_flags(state)
+    flags = state.symptoms["_flags"]
+    if flags.get("ed_now"):
+        return "ed_now", list(flags["ed_now"])
+    if flags.get("urgent_today"):
+        return "urgent_today", list(flags["urgent_today"])
+    return "routine", list(flags.get("routine", []))
+
+
+def _load_pathways() -> Dict[str, dict]:
+    out: Dict[str, dict] = {}
+    if PATHWAYS_DIR.exists():
+        for fp in PATHWAYS_DIR.glob("*.yaml"):
+            txt = fp.read_text(encoding="utf-8", errors="ignore")
+            out[fp.stem] = {"_raw": txt}
+    return out
+
+
+def _extract_keywords(yaml_text: str) -> Tuple[str, list]:
+    """
+    Extract pathway id and keywords from our simple YAML shape.
+    We rely on the structure you created (match:any_keywords).
+    """
+    pid = ""
+    keywords = []
+    for line in yaml_text.splitlines():
+        line_stripped = line.strip()
+        if line_stripped.startswith("id:"):
+            pid = line_stripped.split(":", 1)[1].strip()
+        if "any_keywords:" in line_stripped:
+            if "[" in line_stripped and "]" in line_stripped:
+                inside = line_stripped.split("[", 1)[1].rsplit("]", 1)[0]
+                parts = [p.strip().strip('"').strip("'") for p in inside.split(",") if p.strip()]
+                keywords.extend(parts)
+    return pid, [k.lower() for k in keywords if k]
+
+
+def _pick_pathway(chief: str) -> Dict[str, Any]:
+    """
+    Deterministic routing first, then fallback keyword scoring.
+    This prevents obvious misroutes (e.g., dysuria -> cough_uri).
+    """
+    chief_l = _norm(chief)
+
+    direct = [
+        # High-specificity direct mappings (must come before generic ones)
+        (["itchy eyes", "watery eyes", "eye itching", "allergic conjunctivitis"], "conjunctivitis_allergic"),
+        (["ear infection", "otitis media", "earache fever", "ear pain with fever"], "otitis_media"),
+        (["sinus pressure", "facial pressure", "postnasal drip", "green mucus", "sinus congestion"], "uri_sinus_overlap"),
+        (["hives", "urticaria", "itchy welts", "raised itchy rash"], "urticaria_hives"),
+        (["hit my head", "head injury", "concussion", "fell and hit head", "head trauma"], "minor_head_injury"),
+        (["face drooped", "face droop", "slurred speech", "can\'t speak", "trouble speaking", "one-sided weakness", "one sided weakness", "sudden weakness", "sudden numbness"], "stroke_neuro"),
+        (["wheezing", "wheeze", "asthma", "tight chest", "short of breath", "shortness of breath", "rescue inhaler", "albuterol"], "asthma_wheeze"),
+        (["fever and body aches", "body aches", "chills", "flu", "influenza", "covid", "covid-19"], "flu_like_illness"),
+        (["vaginal discharge", "fishy smell", "yeast infection", "bv", "bacterial vaginosis", "vaginal itching"], "vaginal_discharge"),
+        (["pelvic pain", "lower abdominal pain", "ovary pain", "severe cramps", "ectopic"], "pelvic_pain"),
+        (["hemorrhoid", "hemorrhoids", "rectal pain", "anal pain", "bright red blood", "blood on toilet paper"], "hemorrhoids_rectal_pain"),
+        (["cold sore", "fever blister", "hsv", "herpes lip", "lip blister"], "cold_sore_hsv"),
+        (["shingles", "zoster", "blistering rash", "burning rash", "tingling then rash"], "shingles"),
+        (["heartburn", "acid reflux", "gerd", "regurgitation", "sour taste", "indigestion"], "gerd_nausea"),
+        (["chest pain", "chest pressure", "tightness", "squeezing", "chest discomfort", "angina"], "chest_pain"),
+        (["dysuria", "uti", "burning urination", "burning when i pee", "painful urination", "urinary"], "dysuria_uti"),
+        (["vomit", "vomiting", "nausea", "throwing up", "emesis"], "nausea_vomiting"),
+        (["diarrhea", "loose stool", "watery stool", "gastroenteritis"], "diarrhea"),
+        (["ear pain", "earache", "otitis", "swimmer's ear"], "ear_pain"),
+        (["pink eye", "conjunctivitis", "red eye", "eye discharge"], "red_eye"),
+        (["back pain", "low back", "sciatica", "lumbar"], "low_back_pain"),
+        (["sore throat", "throat pain", "strep"], "sore_throat"),
+        (["sinus", "sinusitis", "facial pressure", "postnasal", "green mucus"], "sinusitis"),
+        (["kid fever", "toddler fever", "baby fever", "child fever", "fever in child", "fever in my child", "child has a fever", "my child has a fever", "my toddler has a fever", "my baby has a fever"], "fever_child"),
+        (["child ear pain", "kid earache", "ear infection child", "toddler ear pain", "pulling ear"], "ear_pain_child"),
+        (["child vomiting", "kid vomiting", "throwing up child", "toddler vomiting", "baby vomiting"], "vomiting_child"),
+        (["hives", "urticaria", "welts"], "hives_urticaria"),
+        (["contact dermatitis", "poison ivy", "rash after", "new detergent", "new soap"], "contact_dermatitis"),
+        (["nosebleed", "epistaxis", "blood from nose"], "epistaxis_nosebleed"),
+        (["neck pain", "stiff neck", "neck strain", "torticollis"], "neck_pain_nontraumatic"),
+        (["shoulder pain", "rotator cuff", "shoulder strain", "impingement"], "shoulder_pain_overuse"),
+        (["cough", "runny nose", "congestion", "uri"], "cough_uri"),
+        (["skin infection", "cellulitis", "impetigo", "spreading redness", "warm red skin"], "rash_skin_infection"),
+        (["abdominal pain", "belly pain", "stomach pain"], "abdominal_pain"),
+        (["headache", "migraine", "worst headache", "thunderclap"], "headache"),
+        (["med refill", "refill", "renew medication", "prescription renewal"], "med_refill"),
+        (["constipation", "constipated", "no bowel movement", "hard stool", "straining"], "constipation"),
+        (["heartburn", "reflux", "gerd", "acid", "indigestion"], "heartburn_gerd"),
+        (["toothache", "tooth pain", "dental", "gum swelling", "jaw pain", "abscess"], "dental_pain"),
+        (["sprain", "strain", "twisted", "ankle", "wrist", "knee injury", "pulled muscle"], "sprain_strain"),
+
+
+    ]
+
+    for keys, pid in direct:
+        if any(k in chief_l for k in keys):
+            return {"id": pid, "score": 999}
+
+    best = ("cough_uri", 0)
+    for _, meta in _load_pathways().items():
+        raw = meta.get("_raw", "")
+        pid, kws = _extract_keywords(raw)
+        if not pid:
+            continue
+        score = sum(1 for k in kws if k and k in chief_l)
+        if score > best[1]:
+            best = (pid, score)
+
+    return {"id": best[0], "score": best[1]}
+
+
+def _parse_flag_list(val: str) -> list:
+    """
+    Parse a YAML-ish list on one line, like:
+      urgent_today: ["code1","code2"]
+    Returns list of codes.
+    """
+    val = (val or "").strip()
+    if "[" in val and "]" in val:
+        inside = val.split("[", 1)[1].rsplit("]", 1)[0]
+        parts = [p.strip().strip('"').strip("'") for p in inside.split(",") if p.strip()]
+        return [p for p in parts if p]
+    return []
+
+
+def _load_questions_for(pathway_id: str) -> list:
+    """
+    Load questions from YAML minimally (prompt + id + store_as + type),
+    plus optional yes/no flag logic:
+
+      if_yes:
+        add_flags:
+          urgent_today: ["fever_possible_infection"]
+
+    Parsed into:
+      question["if_yes_add_flags"] = {"urgent_today": ["fever_possible_infection"]}
+    """
+    fp = PATHWAYS_DIR / f"{pathway_id}.yaml"
+    if not fp.exists():
+        return []
+
+    lines = fp.read_text(encoding="utf-8", errors="ignore").splitlines()
+
+    questions = []
+    in_questions = False
+    current = None
+
+    in_if = None  # "yes" or "no" or None
+    in_add_flags = False
+
+    for line in lines:
+        if line.strip().startswith("questions:"):
+            in_questions = True
+            continue
+        if not in_questions:
+            continue
+
+        if line.strip().startswith("- id:"):
+            if current:
+                questions.append(current)
+            current = {
+                "id": line.split(":", 1)[1].strip(),
+                "prompt": "",
+                "store_as": "",
+                "type": "text",
+                "if_yes_add_flags": {},
+                "if_no_add_flags": {},
+            }
+            in_if = None
+            in_add_flags = False
+            continue
+
+        if current is None:
+            continue
+
+        s = line.strip()
+
+        if s.startswith("prompt:"):
+            val = s.split(":", 1)[1].strip()
+            val = val.strip('"').strip("'")
+            current["prompt"] = val
+            continue
+
+        if s.startswith("store_as:"):
+            current["store_as"] = s.split(":", 1)[1].strip()
+            continue
+
+        if s.startswith("type:"):
+            current["type"] = s.split(":", 1)[1].strip()
+            continue
+
+        if s.startswith("if_yes:"):
+            in_if = "yes"
+            in_add_flags = False
+            continue
+
+        if s.startswith("if_no:"):
+            in_if = "no"
+            in_add_flags = False
+            continue
+
+        if s.startswith("add_flags:"):
+            if in_if in ("yes", "no"):
+                in_add_flags = True
+            continue
+
+        if in_add_flags and in_if in ("yes", "no") and ":" in s:
+            bucket, rest = s.split(":", 1)
+            bucket = bucket.strip()
+            codes = _parse_flag_list(rest)
+            if codes:
+                key = "if_yes_add_flags" if in_if == "yes" else "if_no_add_flags"
+                current.setdefault(key, {})
+                current[key].setdefault(bucket, [])
+                for c in codes:
+                    if c not in current[key][bucket]:
+                        current[key][bucket].append(c)
+
+    if current:
+        questions.append(current)
+
+    return questions
+
+
+def _next_prompt_orig(state: CallState) -> str:
+    state.symptoms.setdefault("_answers", {})
+    state.symptoms.setdefault("_pathway", {})
+    _ensure_flags(state)
+
+    if state.stage == "PATHWAY_Q" and state.symptoms.get("_reprompt"):
+        return state.symptoms["_reprompt"]
+
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What's your main concern?"
+
+    if state.stage == "AGE_BAND":
+        return "How old are you? Please say your age in years (for example: 37)."
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "WEIGHT":
+        return "For dosing safety, what is the child's weight? You can say pounds or kilograms (for example: 28 pounds)."
+
+    if state.stage == "PATHWAY_Q":
+        pathway_id = state.symptoms.get("_pathway", {}).get("id") or "cough_uri"
+        questions = _load_questions_for(pathway_id)
+        idx = int(state.symptoms.get("_q_idx", 0))
+
+        if idx >= len(questions):
+            disp, reasons = _derive_disposition(state)
+            state.symptoms["_disposition"] = disp
+            state.symptoms["_disposition_reasons"] = reasons
+            state.stage = "DECIDE"
+            return ""
+
+        q = questions[idx]
+        return q.get("prompt") or "Please tell me more."
+
+    if state.stage == "DECIDE":
+        return ""
+
+    return "I'm sorry — I got lost. Let's start over. What's your main concern?"
+
+
+def _process_answer_orig(state: CallState, text: str) -> None:
+    state.symptoms.setdefault("_answers", {})
+    state.symptoms.setdefault("_pathway", {})
+    _ensure_flags(state)
+
+    t = _norm(text)
+
+    if state.stage == "CONSENT":
+        yn = _yesno(t)
+        if yn is True:
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    if state.stage == "CHIEF":
+        state.chief_complaint = text.strip()
+        state.symptoms["_pathway"] = _pick_pathway(state.chief_complaint)
+        state.symptoms["_q_idx"] = 0
+        state.stage = "AGE_BAND"
+        return
+
+    if state.stage == "AGE_BAND":
+        age_years = _parse_age_years(text)
+        state.age_years = age_years
+        state.age_band = _age_band_from_years(age_years) if age_years is not None else "unknown"
+        state.stage = "PATHWAY_Q"
+        return
+
+    if state.stage == "PATHWAY_Q":
+        pathway_id = state.symptoms.get("_pathway", {}).get("id") or "cough_uri"
+        questions = _load_questions_for(pathway_id)
+        idx = int(state.symptoms.get("_q_idx", 0))
+
+        if idx >= len(questions):
+            disp, reasons = _derive_disposition(state)
+            state.symptoms["_disposition"] = disp
+            state.symptoms["_disposition_reasons"] = reasons
+            state.stage = "DECIDE"
+            return
+
+        q = questions[idx]
+        qid = q.get("id") or f"q{idx}"
+        store_as = q.get("store_as") or qid
+        qtype = q.get("type") or "text"
+
+        if qtype == "yesno":
+            yn = _yesno(t)
+            if yn is None:
+                state.symptoms["_reprompt"] = f"Please answer yes or no. {q.get('prompt','')}"
+                return
+
+            state.symptoms["_answers"][qid] = "yes" if yn else "no"
+            state.symptoms[store_as] = yn
+
+            flag_map = q.get("if_yes_add_flags", {}) if yn else q.get("if_no_add_flags", {})
+            if isinstance(flag_map, dict):
+                for bucket, codes in flag_map.items():
+                    if isinstance(codes, list):
+                        for code in codes:
+                            _add_flag(state, str(bucket), str(code))
+
+        else:
+            state.symptoms["_answers"][qid] = text.strip()
+            state.symptoms[store_as] = text.strip()
+
+        state.symptoms["_q_idx"] = idx + 1
+        state.symptoms.pop("_reprompt", None)
+
+        if state.symptoms["_q_idx"] >= len(questions):
+            disp, reasons = _derive_disposition(state)
+            state.symptoms["_disposition"] = disp
+            state.symptoms["_disposition_reasons"] = reasons
+            state.stage = "DECIDE"
+
+        return
+
+    state.stage = "CONSENT"
+
+
+
+# ----------------------------
+# SAFE WRAPPERS (Tier-1 upgrades)
+# - Actual age capture
+# - Allergies and pediatric weight capture
+# - Auto-skip redundant pathway age question if age already known
+# ----------------------------
+
+import re
+
+def _parse_age_years_wrapper(s: str):
+    t = (s or "").strip().lower()
+    if not t:
+        return None
+    m = re.search(r"(\d+(\.\d+)?)", t)
+    if not m:
+        return None
+    num = float(m.group(1))
+    if "month" in t:
+        return round(num / 12.0, 3)
+    if "year" in t or "yr" in t:
+        return num
+    return num
+
+def _age_band_from_years_wrapper(age_years: float) -> str:
+    if age_years is None:
+        return "unknown"
+    if age_years < 3:
+        return "0-2"
+    if age_years < 13:
+        return "3-12"
+    if age_years < 18:
+        return "13-17"
+    if age_years < 65:
+        return "18-64"
+    return "65+"
+
+def next_prompt(state: CallState) -> str:
+    """
+    Wrapper around _next_prompt_orig:
+    - prompts actual age (not bands)
+    - prompts allergies and pediatric weight stages
+    - auto-skips redundant pathway age question when age_years known
+    """
+    # Our added stages
+    if state.stage == "AGE_BAND":
+        return "How old are you? Please say your age in years (for example: 37)."
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "WEIGHT":
+        return "For dosing safety, what is the child's weight? You can say pounds or kilograms (for example: 28 pounds)."
+
+    # Let the original state machine produce its prompt
+    prompt = _next_prompt_orig(state)
+
+    # Auto-skip pathway question like "How old is the child?" if we already have age_years
+    if state.stage == "PATHWAY_Q" and getattr(state, "age_years", None) is not None:
+        pl = (prompt or "").strip().lower()
+        if "how old is the child" in pl or pl.startswith("how old is the child"):
+            # Mark something in answers, advance q index, and ask again
+            state.symptoms.setdefault("_answers", {})
+            state.symptoms.setdefault("_q_idx", 0)
+            idx = int(state.symptoms.get("_q_idx", 0))
+            state.symptoms["_answers"]["pathway_child_age"] = str(state.age_years)
+            state.symptoms["_q_idx"] = idx + 1
+            # Get next prompt from original
+            return _next_prompt_orig(state)
+
+    return prompt
+
+def process_answer(state: CallState, text: str) -> None:
+    """
+    Wrapper around _process_answer_orig:
+    - AGE_BAND now captures numeric age_years and then routes to ALLERGIES
+    - ALLERGIES stores drug allergies; routes to WEIGHT if pediatric, else PATHWAY_Q
+    - WEIGHT stores weight then routes to PATHWAY_Q
+    Everything else delegates to the original process handler.
+    """
+    # AGE_BAND: capture actual age, then go to ALLERGIES
+    if state.stage == "AGE_BAND":
+        age_years = _parse_age_years_wrapper(text)
+        try:
+            state.age_years = age_years
+        except Exception:
+            # If model doesn't have age_years yet, store in symptoms as fallback
+            state.symptoms["age_years"] = age_years
+        state.age_band = _age_band_from_years_wrapper(age_years) if age_years is not None else "unknown"
+        state.stage = "ALLERGIES"
+        return
+
+    # ALLERGIES: store then route
+    if state.stage == "ALLERGIES":
+        state.symptoms["drug_allergies"] = (text or "").strip()
+        ay = getattr(state, "age_years", None)
+        if ay is None:
+            ay = state.symptoms.get("age_years", None)
+        if ay is not None and ay < 18:
+            state.stage = "WEIGHT"
+        else:
+            state.stage = "PATHWAY_Q"
+        return
+
+    # WEIGHT: store then route to pathway questions
+    if state.stage == "WEIGHT":
+        state.symptoms["weight"] = (text or "").strip()
+        state.stage = "PATHWAY_Q"
+        return
+
+    # Delegate everything else to original handler
+    _process_answer_orig(state, text)
+
+# ----------------------------
+# END SAFE WRAPPERS
+# ----------------------------

@@ -1,0 +1,10 @@
+{
+  "title": "Interim Estimates of 2024â2025 COVID-19 Vaccine Effectiveness Among Adults Aged â¥18 Years â VISION and IVY Networks, September 2024âJanuary 2025 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7406a1.htm?s_cid=mm7406a1_e&amp;ACSTrackingID=USCDC_921-DM145368&amp;ACSTrackingLabel=This%20Week%20in%20MMWR%3A%20Vol.%2074%2C%20February%2027%2C%202025&amp;deliveryName=USCDC_921-DM145368",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "using R software (version 4.3.2; R Foundation) for the VISION analysis and R software (version 4.4.0; R Foundation) for the IVY network analysis. This activity was reviewed by CDC, deemed not research, and was conducted consistent with applicable federal law and CDC policy.****\nTop \nResults \n2024&ndash;2025 COVID-19 VE Against COVID-19&ndash;associated ED/UC Visits, VISION \nAmong adults aged &ge;18 years in VISION, 137,543 ED/UC encounters met criteria for inclusion in the analyses, including 10,459 (8%) case-patients and 127,084 (92%) control patients ( Table 1 ). Effectiveness of a 2024&ndash;2025 COVID-19 vaccination against a COVID-19&ndash;associated ED/UC visit was 33% (95% CI = 28%&ndash;38%) during the first 7&ndash;119 days after vaccination, 36% (95% CI = 29%&ndash;42%) during the first 7&ndash;59 days after vaccination, and 30% (95% CI = 22%&ndash;37%) during the 60&ndash;119 days after vaccination ( Table 2 ).\n2024&ndash;2025 COVID-19 VE Against COVID-19&ndash;associated Hospitalization, VISION and IVY Networks Among Older Adults \nAmong adults aged &ge;65 years without immunocompromising conditions in VISION, 26,219 hospitalizations met criteria for inclusion in analyses, including 2,248 (9%) case-patients and 23,971 (91%) control patients. VE of a 2024&ndash;2025 COVID-19 vaccine dose against COVID-19&ndash;associated hospitalization was 45% (95% CI = 36%&ndash;53%",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7406a1_htm_61d2b864f161",
+  "chunk_id": "chunk_011"
+}

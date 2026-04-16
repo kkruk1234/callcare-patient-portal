@@ -1,0 +1,36 @@
+{
+  "session_id": "942dc8f6-f9cd-4f82-8e96-32fa2ec63f61",
+  "timestamp_iso": "2026-01-14T02:06:56.661550+00:00",
+  "note": {
+    "soap": "SOAP Note Draft:\n\nS: Patient reports a chief complaint of a runny nose. Denies abdominal pain, fever, vomiting, or blood in vomit or stool. Notes a little blood with the runny nose if blowing it a lot. No pain reported.\n\nO: No physical exam data available. No vital signs or other objective findings documented.\n\nA: Evidence insufficient for diagnosis. Symptoms consistent with upper respiratory tract irritation or minor nasal mucosal bleeding due to frequent nose blowing.\n\nP: Conservative management advised. Monitor symptoms. If bleeding worsens, or if new symptoms such as fever, abdominal pain, vomiting, or gastrointestinal bleeding develop, seek medical evaluation promptly.\n\nPatient Instructions:\n- Avoid frequent or forceful nose blowing to reduce nasal mucosal irritation and bleeding.\n- Use saline nasal sprays or humidifiers to keep nasal passages moist.\n- Monitor for any worsening symptoms such as increased bleeding, fever, abdominal pain, vomiting, or black/tarry stools.\n- Seek medical care if symptoms worsen or new concerning symptoms develop.\n\nEvidence used:\n- pubmed_telephone_care.txt",
+    "patient_instructions": [],
+    "clinician_questions": [
+      "Physician: review, edit if needed, and approve/sign this encounter."
+    ],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "arris C(4), Harris DR(7), Heard \nK(4), Jenneson S(7), Kohli Y(4), Leroux M(4), Mayor-Nunez D(4), Medvedev G(8), \nMehdiratta M(9), Morrison LJ(3), Ospel JM(2), Pennington S(5), Perez Y(9), \nSelchen D(10), Stebner A(2), Tallon J(7), Tkach A(11), Verbeek PR(3), Tymianski \nM(4).\n\nAuthor information:\n(1)University of British Columbia, Vancouver, BC, Can"
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": " BMJ Open. 2025 Feb 5;15(2):e092368. doi: 10.1136/bmjopen-2024-092368.\n\nAre dizziness/lightheadedness helpful symptoms for telephone triage of females \nand males calling the out-of-hours service for acute chest discomfort? A \ncross-sectional study.\n\nDobbe ASM(1), Zwart DL(2), van der Hem L(2), Erkelens DC(2), Wouters LTCM(2), \nvan Doorn S(2), den R"
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": ", Wiens MO(1)(2)(3), Kissoon N(2)(6), Ansermino \nJM(1)(2).\n\nAuthor information:\n(1)Department of Anesthesiology, Pharmacology & Therapeutics, University of \nBritish Columbia, Vancouver, British Columbia.\n(2)Institute for Global Health, BC Children's Hospital and BC Women's Hospital + \nHealth Centre, Vancouver, British Columbia.\n(3)World Alliance fo"
+      }
+    ]
+  },
+  "recommended_disposition": "PHYSICIAN_REVIEW_REQUIRED",
+  "status": "PENDING",
+  "reviewer_id": null,
+  "reviewer_comments": null
+}

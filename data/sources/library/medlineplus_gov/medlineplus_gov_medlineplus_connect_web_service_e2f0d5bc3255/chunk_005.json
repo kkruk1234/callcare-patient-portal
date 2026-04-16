@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Service",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-service/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "at you are trying to look up:\nmainSearchCriteria.v.c=250.33 \nOptional Parameters \nCode Title \nYou may also identify the name/title of the problem code. However, this information does not impact the response (unlike the MedlinePlus Connect Web application where the name/title information may be used).\nmainSearchCriteria.v.dn=Diabetes mellitus with other coma type 1 uncontrolled See the above section on Output Parameters for details on language and output formats.\nDescription of Selected Atom Elements (or JSON objects) in Response to Problem Code Requests \nElement \nClass node \nDescription \ntitle \nÂ  \nTitle of matched MedlinePlus health topic page or GHR page \nlink \nÂ  \nURL for matched MedlinePlus health topic page or GHR page \nsummary \nÂ  \nThe full summary for the health topic. This includes embedded links to other relevant health topics, and all formatting, including bullets and paragraph spacing. The summary is in HTML. \nsummary \nclass= \"NLMalsoCalled\" \nSynonyms for the topic. These are referred to as \"Also called\" on a health topic page. Not all topics have \"Also called\" terms. \nsummary \nclass= \"NLMattribution\" \nAttribution acknowledgement for summary text if the majority of the summary was from another federal agency. Not all summaries have an attribution. Unattributed text is original to MedlinePlus. \nsummary \nclass= \"NLMrelatedLinks\" \nSelected links associated with the topi",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_service_e2f0d5bc3255",
+  "chunk_id": "chunk_005"
+}

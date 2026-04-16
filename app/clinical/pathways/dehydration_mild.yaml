@@ -1,0 +1,16 @@
+id: dehydration_mild
+version: 0.1
+match:
+  any_keywords: ["dehydrated","not drinking","dry mouth","dark urine"]
+questions:
+  - id: confusion
+    prompt: "Any confusion or inability to keep fluids down? (yes/no)"
+    store_as: confusion
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["severe_dehydration"] }
+
+stop_rules:
+  - if_all_answered: ["confusion"]
+    outcome: DECIDE
+routing: { tier_default: TIER_2_REVIEW }

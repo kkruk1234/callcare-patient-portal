@@ -1,0 +1,36 @@
+{
+  "session_id": "7dc927e8-e080-4749-87e7-0dfcb5849b93",
+  "timestamp_iso": "2026-01-14T14:56:51.797958+00:00",
+  "note": {
+    "soap": "SOAP Note Draft:\n\nS: Patient reports experiencing the \"worst headache of my life\" with sudden onset. Denies neurological symptoms. Reports stiff neck. Denies vision changes or eye pain. Pregnancy is not possible at this time.\n\nO: No physical exam findings available. No imaging or vital signs provided.\n\nA: Evidence insufficient for definitive diagnosis. The sudden onset of the worst headache of life with stiff neck is concerning and may indicate a serious condition such as subarachnoid hemorrhage or meningitis. No neurological deficits reported.\n\nP: Recommend urgent in-person evaluation in an emergency setting to rule out life-threatening causes of headache, including subarachnoid hemorrhage and meningitis. Advise patient to seek immediate care if symptoms worsen or new neurological symptoms develop.\n\nPatient Instructions:\n- Seek emergency medical care immediately if headache worsens, or if you develop neurological symptoms such as weakness, numbness, difficulty speaking, or loss of consciousness.\n- Go to the nearest emergency department for urgent evaluation given the sudden severe headache and stiff neck.\n- Avoid driving yourself; have someone accompany you if possible.\n- Inform the healthcare providers about the sudden onset and severity of your headache and the presence of stiff neck.\n\nEvidence used:\n- pubmed_telephone_care.txt\n- pubmed_refill_telemedicine.txt",
+    "patient_instructions": [],
+    "clinician_questions": [
+      "Physician: review, edit if needed, and approve/sign this encounter."
+    ],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": " Neurology, Brigham and Women's Hospital, Harvard Medical \nSchool, 65 Landsdowne Street, Cambridge, MA, 02139, United States, 1 617 732 \n5330.\n(2)Network Science Institute, Northeastern University, Boston, MA, United \nStates.\n(3)Division of Cardiology, Department of Medicine, Unversity of Saskatchewan, \nSaskatoon, SK, Canada.\n(4)Division of Cardiov"
+      },
+      {
+        "source": "pubmed_refill_telemedicine.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": "\nAuthority, Hong Kong SAR, China.\n(3)Family Medicine & Primary Healthcare, Queen Mary Hospital, Hospital \nAuthority, Hong Kong SAR, China.\n(4)Department of Family Medicine and Primary Care, Li Ka Shing Faculty of \nMedicine, The University of Hong Kong, Hong Kong SAR, China.\n(5)The Bau Institute of Medical and Health Sciences Education, Li Ka Shing "
+      },
+      {
+        "source": "pubmed_telephone_care.txt",
+        "title": "Evidence excerpt",
+        "url": null,
+        "snippet": " BMJ Open. 2025 Feb 5;15(2):e092368. doi: 10.1136/bmjopen-2024-092368.\n\nAre dizziness/lightheadedness helpful symptoms for telephone triage of females \nand males calling the out-of-hours service for acute chest discomfort? A \ncross-sectional study.\n\nDobbe ASM(1), Zwart DL(2), van der Hem L(2), Erkelens DC(2), Wouters LTCM(2), \nvan Doorn S(2), den R"
+      }
+    ]
+  },
+  "recommended_disposition": "PHYSICIAN_REVIEW_REQUIRED",
+  "status": "PENDING",
+  "reviewer_id": null,
+  "reviewer_comments": null
+}

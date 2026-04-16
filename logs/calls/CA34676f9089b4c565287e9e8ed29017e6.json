@@ -1,0 +1,183 @@
+{
+  "call_sid": "CA34676f9089b4c565287e9e8ed29017e6",
+  "session_id": "db51e2b8-30fe-4368-a3b6-07895044d319",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-29T14:15:24.820193+00:00",
+  "ended_at": "2026-03-29T14:21:19.176376+00:00",
+  "packet_id": "640a0520-50c5-4668-9448-e32cd642a44e",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I am feeling nauseous."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your nausea start?"
+    },
+    {
+      "role": "user",
+      "text": "It started overnight."
+    },
+    {
+      "role": "assistant",
+      "text": "Any vomiting or abdominal pain along with the nausea?"
+    },
+    {
+      "role": "user",
+      "text": "No. I thought I was gonna vomit last night, And, actually, I did have some abdominal pain last night, and I thought I was gonna vomit last night. And I was really nauseous but I did not vomit at all. So"
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or recent changes in bowel movements?"
+    },
+    {
+      "role": "user",
+      "text": "but the the nausea has been residual since last night."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the abdominal pain you had last night? Where exactly was it, and how did it feel?"
+    },
+    {
+      "role": "user",
+      "text": "And I was having chills, but I no fever."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the location and character of the abdominal pain you experienced last night?"
+    },
+    {
+      "role": "user",
+      "text": "It's kind of a dull ache."
+    },
+    {
+      "role": "assistant",
+      "text": "Where exactly was the abdominal pain located?"
+    },
+    {
+      "role": "user",
+      "text": "I wish to do that, and then you interrupted me and you also"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you please describe exactly where the abdominal pain was located?"
+    },
+    {
+      "role": "user",
+      "text": "yep. You just keep interrupting me over and over. You just keep interrupting me. So"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me exactly where the abdominal pain was located last night?"
+    },
+    {
+      "role": "user",
+      "text": "the abdominal pain is lower abdominal"
+    },
+    {
+      "role": "assistant",
+      "text": "Any urinary symptoms like burning, frequency, or urgency?"
+    },
+    {
+      "role": "user",
+      "text": "and it"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you finish telling me about any urinary symptoms you might have, such as burning, frequency, or urgency?"
+    },
+    {
+      "role": "user",
+      "text": "I just said it was lower"
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "no. Due to that question, I said no."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "More than this,"
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "Give me a chance."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "7"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your weight? You can say it in pounds or kilograms."
+    },
+    {
+      "role": "user",
+      "text": "I'm not going to tell you my weight because I'm 47 years old, and you're only supposed to ask my weight if I am a child. And you registered me as a 7 year old instead of 47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re dealing with nausea and some lower abdominal discomfort that started recently. This is most likely a mild stomach or urinary issue, like a viral stomach bug or early urinary infection. Based on what you told me, medication treatment may be appropriate, and a licensed physician will review this note and may prescribe something to help with your nausea. For now, you can try acetaminophen or ibuprofen if you need pain relief and can take them safely. If you develop vomiting, worsening abdominal pain, fever, or can’t keep fluids down, please seek in-person care the same day. If symptoms get much worse or you have severe pain or confusion, go to the emergency room right away. Because this is a phone visit, no tests or exams were done, and a doctor will review your information to decide on next steps."
+    }
+  ]
+}

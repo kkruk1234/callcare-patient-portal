@@ -1,0 +1,22 @@
+id: dog_bite_wound
+version: 0.1
+match:
+  any_keywords: ["dog bite", "bit by a dog", "dog bit me", "dog attack"]
+questions:
+  - id: deep
+    prompt: "Is it a deep bite, uncontrolled bleeding, or you can see fat/tissue? (yes/no)"
+    store_as: deep_or_bleeding
+    type: yesno
+  - id: hand_face
+    prompt: "Is the bite on the face, hand, or near a joint? (yes/no)"
+    store_as: high_risk_location
+    type: yesno
+  - id: infection
+    prompt: "Is it getting more red, warm, swollen, or draining pus? (yes/no)"
+    store_as: infection_signs
+    type: yesno
+stop_rules:
+  - if_all_answered: ["deep", "hand_face", "infection"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,1285 @@
+A practical approach to joint pain in primary care - PMC
+ 
+
+ Skip to main content
+ 
+
+ An official website of the United States government
+ 
+
+Here's how you know
+
+Here's how you know
+
+Official websites use .gov
+
+ A
+ 
+.gov
+ website belongs to an official
+ government organization in the United States.
+ 
+
+Secure .gov websites use HTTPS
+
+ A 
+lock
+ (
+ 
+
+Lock
+
+ Locked padlock icon
+ 
+
+) or 
+https://
+ means you've safely
+ connected to the .gov website. Share sensitive
+ information only on official, secure websites.
+ 
+
+ Search
+ 
+
+ 
+ 
+ 
+ 
+
+Log in
+
+ 
+
+ 
+ Dashboard
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Publications
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Account settings
+ 
+
+ 
+ 
+
+ 
+ 
+
+ Log out
+
+ 
+ 
+ 
+ 
+
+ Search…
+ 
+
+ Search NCBI
+ 
+
+ Primary site navigation
+ 
+
+ Search
+ 
+
+ Logged in as:
+ 
+
+ 
+
+ 
+ Dashboard
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Publications
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Account settings
+ 
+
+ 
+ 
+
+ 
+ 
+
+ Log in
+
+ 
+ 
+ 
+ 
+
+Search PMC Full-Text Archive
+
+Search in PMC
+
+ Journal List
+ 
+
+ User Guide
+ 
+
+PERMALINK
+
+Copy
+
+ As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+ the contents by NLM or the National Institutes of Health.
+
+ Learn more:
+ 
+PMC Disclaimer
+
+ |
+ 
+
+ PMC Copyright Notice
+ 
+
+Singapore Med J
+. 2025 Nov 24;66(11):618–624. doi: 
+10.4103/singaporemedj.SMJ-2025-084
+
+Search in PMC
+
+Search in PubMed
+
+View in NLM Catalog
+
+Add to search
+
+A practical approach to joint pain in primary care
+
+Julian Wen Wei Lim
+
+Julian Wen Wei Lim
+, 
+MBBS, MRCP
+
+1
+Division of Rheumatology, Department of Medicine, National University Hospital, Singapore
+
+Find articles by 
+Julian Wen Wei Lim
+
+1,
+*,
+✉
+, 
+Isaac Kah Siang Ng
+
+Isaac Kah Siang Ng
+, 
+MBBS, MRCP
+
+1
+Division of Rheumatology, Department of Medicine, National University Hospital, Singapore
+
+Find articles by 
+Isaac Kah Siang Ng
+
+1,
+*
+, 
+Lay Hoon Goh
+
+Lay Hoon Goh
+, 
+MMed (FM), PhD
+
+2
+National University Polyclinics, Singapore
+
+Find articles by 
+Lay Hoon Goh
+
+2
+, 
+Tang Ching Lau
+
+Tang Ching Lau
+, 
+MRCP, FAMS (Rheumatology)
+
+1
+Division of Rheumatology, Department of Medicine, National University Hospital, Singapore
+
+Find articles by 
+Tang Ching Lau
+
+1
+, 
+Manjari Lahiri
+
+Manjari Lahiri
+, 
+MRCP, FAMS (Rheumatology)
+
+1
+Division of Rheumatology, Department of Medicine, National University Hospital, Singapore
+
+Find articles by 
+Manjari Lahiri
+
+1
+
+Author information
+
+Article notes
+
+Copyright and License information
+
+1
+Division of Rheumatology, Department of Medicine, National University Hospital, Singapore
+
+2
+National University Polyclinics, Singapore
+
+*
+These authors contributed equally as first authors.
+
+✉
+
+Correspondence:
+ Dr. Julian Wen Wei Lim, Associate Consultant, Division of Rheumatology, Department of Medicine, National University Hospital, 5 Lower Kent Ridge Road, 119074, Singapore. E-mail: 
+Julian_lim@nuhs.edu.sg
+
+Received 2025 Apr 1; Accepted 2025 Jun 9; Collection date 2025 Nov.
+
+Copyright: © 2025 Singapore Medical Journal
+
+This is an open access article distributed under the terms of the Creative Commons Attribution-Non Commercial-No Derivatives License 4.0 (CCBY-NC-ND), where it is permissible to download and share the work provided it is properly cited. The work cannot be changed in any way or used commercially without permission from the journal.
+
+PMC Copyright notice
+
+PMCID: PMC12680288  PMID: 
+41524462
+
+Opening Vignette
+
+A 45-year-old woman presents to your clinic for bilateral hand and wrist pain of 3 months’ duration, associated with early morning stiffness lasting more than an hour and generalised fatigue. On examination, she has tenderness and swelling over both wrists and all the metacarpophalangeal and proximal interphalangeal joints of the fingers
+.
+WHAT IS JOINT PAIN?
+
+Joint pain (arthralgia) refers to pain or discomfort experienced at a joint space, which may or may not be associated with joint inflammation (arthritis). Importantly, pain at a particular musculoskeletal region may not necessarily arise from the joint itself, but may stem from periarticular structures (e.g., ligaments, tendons and muscles), surrounding neurovascular structures, or may even be referred from a different site (e.g., shoulder pain from cholecystitis, hip/knee pain from lumbar spinal pathology).
+HOW COMMON IS THIS IN MY PRACTICE?
+
+Musculoskeletal symptoms are highly prevalent, reported in more than one-third of adults in the community.[
+1
+] Many patients with joint pain present first to their family physicians, accounting for >10% of primary care visits.[
+2
+]
+HOW RELEVANT IS THIS TO MY PRACTICE?
+
+A systematic approach is essential to distinguish between simple musculoskeletal disorders that may be managed in the primary care setting and more complex conditions that warrant referral to a musculoskeletal specialist (i.e., rheumatologist or orthopaedic surgeon). Missed or delayed diagnosis of serious pathologies such as rheumatoid arthritis (RA) has the potential to cause significant adverse effects on patients’ quality of life and physical function. Conversely, patients should be given reassurance when their condition (e.g., mild osteoarthritis) can be managed in primary care with analgesia, activity modification and physiotherapy.
+WHAT CAN I DO IN MY PRACTICE?
+
+In the clinical assessment of joint complaints, a simple ‘ABCDE’ approach can be adopted [
+Figure 1
+].
+
+Figure 1.
+
+Open in a new tab
+
+Chart shows a practical ‘ABCDE’ approach to joint pain.
+
+A: Articular, peri-articular, or non-articular (site of symptom origin)
+
+First, consider the anatomical structures in the affected region (e.g., bone, joint, muscle, tendon, ligament, bursa, fascia, skin, nerves, vessels or referred pain). Careful history-taking and targeted physical examination are necessary to delineate the exact site of pain/tenderness and/or swelling. For example, focal tenderness at the radial aspect of the wrist may suggest De Quervain’s tenosynovitis, whereas generalised tenderness on light palpation may suggest fibromyalgia. Other accompanying symptoms such as numbness or tingling may point to nerve entrapment syndromes such as carpal tunnel syndrome.
+
+When assessing joint range of motion, determine whether there are differences between active and passive movements, and identify the planes of movement that are affected [
+Table 1
+]. Intra-articular pathologies (e.g., frozen shoulder, inflammatory arthritis) typically affect both active and passive movements equally with global loss of range of motion in all directions, whereas extra-articular pathologies (e.g., rotator cuff pathology, tendinopathies) typically affect active movements and specific planes of movements.
+
+B: ‘Blazing’ or ‘broken down’ (inflammatory vs. mechanical/degenerative causes)
+
+Conventionally, inflammatory arthritis results in joint pain that gets worse with prolonged inactivity. The pain improves with movement and is associated with early morning stiffness (typically >1 h) and other inflammatory features such as joint swelling and warmth.[
+3
+] Mechanical joint pain is typically worse on movement, relieved by rest, with minimal early morning stiffness (typically <30 min) and absence of other inflammatory features.[
+3
+]
+
+The caveat to this ‘textbook’ description is that it usually describes chronic inflammatory arthritis. Acute severe joint inflammation, such as in septic arthritis, gout or pseudogout, would result in constant pain, which is exacerbated by any movement. Inflammation is evidenced by a red, warm and acutely tender joint.
+
+On inspection, diffuse joint swelling may be obvious on direct visualisation. In subtler cases, a useful tip is to look for loss of the usual contours of the joint and compare one side to the other. Palpate carefully and deliberately to feel the joint space, comparing one side to the other and one joint to the next. Subtle differences in the ability to feel the joint space may indicate the presence of a small effusion and/or synovial inflammation.
+
+C: Chronology of symptoms
+
+The onset and time course of the joint symptom is an important aspect of the assessment and is usually paired with the distribution of joint involvement (see point 4). In general, joint pain may be classified as acute (<6 weeks) or chronic (>6 weeks).[
+4
+] The pain can also be intermittent/episodic, or daily/persistent. In cases of intermittent joint pain, it is important to ask if the patient feels completely well between episodes (as in crystal arthropathies) or experiences a basal level of pain and stiffness that waxes and wanes (as in RA). Acute pain that reaches maximal intensity within a day (and often within a few hours) is characteristic of crystal arthropathy.
+
+It is important to ask about triggers at the onset of or preceding the joint pain, such as an alcoholic binge or a sudden increased intake of high-purine foods (gout), upper respiratory tract infection symptoms (post-viral polyarthritis), or an episode of gastroenteritis or genitourinary tract infection a few weeks before (reactive arthritis). For acute monoarthritis, remember to elicit a history of prior trauma or fall, the presence of which raises the possibility of traumatic effusion, fracture and/or haemarthrosis.
+
+D: Distribution/pattern of joint involvement
+
+Determining the distribution of joint involvement helps in pattern recognition, as certain aetiologies of joint pain are associated with classic patterns[
+5
+] [
+Figure 2
+ and 
+Table S1
+, Supplemental Digital Appendix]. The key aspects to consider are: (a) number of joints involved — mono (1), oligo (2–4) or poly (≥5), (b) symmetrical versus asymmetrical involvement, and (c) size of joints involved (e.g., small joints, such as the metacarpophalangeal joints of hands and metatarsophalangeal joints of feet, versus large joints, such as shoulders/elbows/hips/knees/ankles).
+
+Besides peripheral joints, patients should also be specifically asked about back pain and stiffness, as they may not perceive the back as a joint. Inflammatory low back pain and stiffness, especially in younger individuals (aged <40 years[
+6
+]), raises suspicion for axial spondyloarthritis. Specific sites of inflammation may also point to an underlying diagnosis. For example, podagra (acute pain and swelling of the first metatarsophalangeal joint) significantly increases the likelihood of gout. Enthesitis (nflammation at the sites where tendons or ligaments insert into bone) — classically at the Achilles tendon or plantar fascia — is seen in spondyloarthritides. Dactylitis refers to uniform, ‘sausage-like’ swelling of digits (fingers and/or toes) and is a classic feature of psoriatic arthritis.
+
+Clinicians should take time to summarise the key presenting features using the concepts outlined above. Chronic symmetric inflammatory polyarthritis of the small joints of hands raises the possibility of RA, psoriatic arthritis, systemic lupus erythematosus (SLE) and other connective tissue diseases (CTDs). However, acute inflammatory monoarthritis of the knee may suggest septic arthritis, crystal arthropathy or reactive arthritis. 
+Table 2
+ describes the classic joint pain aetiologies based on chronology and distribution.
+
+E: Extra-articular manifestations
+
+It is important to assess for other systemic features outside of the musculoskeletal system that may point towards an underlying diagnosis [
+Table 3
+]. Inflammatory arthritis may be accompanied by constitutional symptoms such as fatigue and malaise, which are not typical for mechanical joint pain. Classic cutaneous/soft tissue manifestations that point to an underlying cause include psoriatic rashes/nail changes and gouty tophi. In a patient with chronic symmetric inflammatory polyarthritis of the small joints of hands, the concomitant symptom constellation of malar rash, alopecia and oral ulcers may raise suspicion of SLE. Fine bibasal inspiratory crepitations on lung auscultation would be in keeping with interstitial lung disease, a known complication of RA and other CTDs.
+
+Table 1.
+
+Key clinical features distinguishing articular, peri-articular and non-articular pain.
+
+Feature
+
+Articular
+
+Peri-articular
+
+Non-articular
+
+Location of maximal pain
+
+Along the joint line
+
+Focal regions/structures at or near the joint
+
+Generalised/diffuse tenderness affecting larger soft tissue structures, not confined to the joint line
+
+Planes of movement
+
+Affects all planes of joint movement
+
+Affects specific planes of joint movement only
+
+Not typically exacerbated by joint movements
+
+Active versus passive movement
+
+Active and passive movements equally painful
+
+Active movement more painful than passive movement
+
+Open in a new tab
+Figure 2.
+
+Open in a new tab
+
+Homunculus of classical joint distributions in common joint disorders.
+Table 2.
+
+Key differential diagnoses for joint pain based on chronology and distribution.
+
+Cause
+
+Acute monoarticular
+
+Acute oligo/polyarticular
+
+Chronic monoarticular
+
+Chronic oligo/polyarticular
+a
+
+Mechanical
+
+• Joint trauma or haemarthrosis
+
+• Unlikely
+
+• Osteoarthritis
+• Tendon/ligamentous injuries
+
+• Osteoarthritis
+
+Inflammatory (rheumatic)
+
+• Crystal arthritis (gout, pseudogout)
+• Start of chronic inflammatory arthritis (to monitor longitudinally for disease evolution)
+
+• Crystal arthritis (gout, pseudogout)
+• Reactive arthritis (usually a few weeks after gastrointestinal or genitourinary tract infections)
+• Start of chronic inflammatory arthritis (to monitor longitudinally for disease evolution)
+
+• Inflammatory arthritis (atypical presentation)
+
+• Rheumatoid arthritis
+• Connective tissue disorders: systemic lupus erythematosus, systemic sclerosis, Sjogren’s syndrome, inflammatory myositis
+• Spondyloarthritides: psoriatic arthritis, ankylosing spondylitis, reactive arthritis, enteropathic arthritis
+• Still’s disease
+• Polymyalgia rheumatica
+
+Infection
+
+• Septic arthritis
+
+• Disseminated joint infections
+b
+• Viral arthritis
+c
+
+• Tuberculous arthritis
+• Fungal arthritis
+• Chronic Lyme disease
+
+• Tuberculous arthritis
+• Fungal arthritis
+• Chronic Lyme disease
+
+Neoplastic/paraneoplastic
+
+• Unlikely
+
+• Unlikely
+
+• Pigmented villonodular synovitis
+
+• Paraneoplastic arthritis
+• Haematological malignancies: leukemia, lymphoma, multiple myeloma
+
+Open in a new tab
+
+a
+Other causes: drug-induced: immune-checkpoint inhibitors; metabolic/endocrine: diabetes mellitus (e.g. Charcot’s arthropathy), acromegaly (secondary osteoarthritis), haemochromatosis-related arthropathy; infiltrative: sarcoidosis, amyloidosis. 
+b
+Examples: disseminated gonococcal infection and staphylococcal/streptococcal bacteraemias. 
+c
+Examples: hepatitis B/C, HIV, parvovirus B19, influenza, COVID-19, dengue, Chikungunya, Zika virus, measles, mumps and rubella.
+Table 3.
+
+Common extra-articular manifestations in rheumatic diseases.
+
+System
+
+Examples
+
+Skin and soft tissue
+
+• Psoriatic plaques, nail changes (PsA)
+• Tophi (gout)
+• Rheumatoid nodules (RA)
+• Malar rash, alopecia, oral ulcers (SLE)
+• Gottron’s papules, Gottron’s sign, heliotrope rash, V-sign, shawl sign (IIM)
+• Sclerodactyly, microstomia, telangiectasia, calcinosis, digital pitting (SSc)
+• Periungual erythema (CTD)
+• Visible dilated nailfold capillaries (CTD, SSc, IIM)
+• Palpable purpura, nailfold infarcts (AAV)
+
+Head/face
+
+• Anterior uveitis (SpA, AS)
+• Scleritis, episcleritis (RA, CTD, AAV)
+• Xerostomia/dry mouth, xerophthalmia/dry eyes, parotidomegaly (Sjogren’s)
+• Epistaxis, otitis media (AAV)
+
+Vascular
+
+• Raynaud’s phenomenon (SSc, CTD)
+• Digital ischaemia (SSc, vasculitis)
+
+Cardiac
+
+• Pericarditis, myocarditis (SLE, CTD)
+• Pulmonary hypertension (SSc)
+
+Respiratory
+
+• Interstitial lung disease (RA, CTD, SSc, IIM)
+• Pleuritis, pleural effusion (SLE, RA)
+
+Abdominal
+
+• Dysphagia, gastro-oesophageal reflux disease (SSc)
+• Inflammatory bowel disease (SpA)
+
+Renal
+
+• Glomerulonephritis (SLE, AAV)
+
+Neurological
+
+• Proximal myopathy (IIM)
+• Carpal tunnel syndrome (RA)
+• Mononeuritis multiplex (AAV)
+
+Haematological
+
+• Leucocytosis, thrombocytosis (RA and other inflammatory arthritides)
+• Cytopenias (SLE)
+
+Open in a new tab
+
+AAV: Anti-neutrophil cytoplasmic antibody-associated vasculitis, AS: ankylosing spondylitis, CTD: connective tissue disease, IIM: idiopathic inflammatory myopathies, PsA: psoriatic arthritis, RA: rheumatoid arthritis, SLE: systemic lupus erythematosus, SpA: spondyloarthritis, SSc: systemic sclerosis or scleroderma
+Other important aspects of clinical assessment
+
+Other important aspects to consider include the patient’s demographics, medical comorbidities, medications, and social and family history, and how they influence the differential diagnosis and subsequent management strategy. The causes of back pain in a 30-year-old man often differ from those of an 80-year-old woman. Ankle pain in a young professional ballet dancer raises suspicion for ligamentous injury or overuse tendinopathies. Importantly, assess the degree of functional impairment caused by joint symptoms, including impact on activities of daily living, mobility, occupation and hobbies. Ask patients whether there are any activities they used to do but can no longer perform because of their joint problem.
+Investigations
+
+For most musculoskeletal complaints in primary care, a reasonable diagnosis can be reached via history-taking and physical examination. Indiscriminate ordering of investigations leads to unnecessary specialist referrals, higher costs of medical care and patient anxiety. However, investigations should be done in cases of diagnostic uncertainty or if the results would inform management or prognosis.
+
+Basic laboratory tests include full blood count and serum creatinine. Raised leucocyte count and thrombocytosis generally suggest an inflammatory process, whereas leucopenia and thrombocytopenia are classically seen in SLE. Normocytic normochromic anaemia may suggest anaemia of chronic disease observed in most inflammatory joint conditions. Baseline serum creatinine should be assessed before medications such as nonsteroidal anti-inflammatory drugs (NSAIDs) are started.
+
+Inflammatory markers such as C-reactive protein and erythrocyte sedimentation rate may be ordered when inflammation is suspected. However, both markers are non-specific indicators that may also be raised in common infections. In addition, erythrocyte sedimentation rate is elevated in non-inflammatory conditions such as anaemia and multiple myeloma, obesity, older age and pregnancy.
+
+In patients with suspected gout, serum uric acid levels are neither specific nor sensitive for diagnosis, as asymptomatic hyperuricaemia without clinical gout is common and the levels taken during an acute gout flare may be lower than its true level or falsely ‘normal’ due to the uricosuric effects of inflammatory cytokines.[
+7
+,
+8
+] Instead, serum uric acid should be checked at least 2 weeks after the resolution of an acute gout flare and is best used as a treatment target for titration of urate-lowering therapy (ULT).
+
+The decision to order autoantibodies testing (e.g., rheumatoid factor, anti-cyclic citrullinated peptide, antinuclear antibodies) should be based on a reasonable degree of clinical suspicion for underlying rheumatic disease, and these are best performed in a specialist clinic. Antinuclear antibodies can be detected at low titres (<1:160) in 13%–31% of the normal population,[
+9
+] while rheumatoid factor titres increase with age and may be positive in up to 25% of the healthy adult population.[
+10
+] Both of these autoantibodies can be positive in many other non-rheumatic conditions (e.g., chronic hepatitis B). Autoantibodies should never be used as ‘screening’ tools for rheumatic disease.
+
+Plain radiography of joints should be performed judiciously. A patient with classic mechanical knee pain and crepitus on movement does not need to undergo an X-ray to confirm a diagnosis of osteoarthritis. Conversely, radiographic findings of chondrocalcinosis may be supportive of a diagnosis of pseudogout in patients with recurrent bouts of inflammatory mono- or oligoarthritis.
+Management of common joint disorders
+
+Osteoarthritis
+
+Initial conservative measures include activity modification, weight loss for obese patients and physiotherapy for muscle strengthening to off-load affected joints. Low-impact, aerobic or mind–body exercises (e.g., yoga, 
+Tai Chi
+) have also been shown to be beneficial.[
+11
+] Analgesics such as NSAIDs may be prescribed as needed [
+Table 4
+].
+
+Table 4.
+
+Common analgesic/anti-inflammatory regimens for joint pain in primary care.
+
+Medication
+
+Dosage (in adults)
+
+Precautions/contraindications
+
+Paracetamol (acetaminophen) (PO)
+
+In adults <50 kg: maximum 15 mg/kg QDS (usually either
+1 g TDS or 500 mg QDS)
+In adults >50 kg: maximum 1 g QDS
+
+• Caution in mild liver impairment, contraindicated in severe liver impairment
+
+NSAIDs (PO)
+
+Naproxen: start at 250–500 mg BD (naproxen)/275–550 mg BD (naproxen sodium), up to maximum dose of 1500 mg/day
+Indomethacin: start at 25 mg BD/TDS, up to maximum dose of 200 mg/day
+Diclofenac: start at 25–50 mg TDS (diclofenac sodium enteric coated and delayed release or diclofenac potassium immediate release), or 100 mg OD (diclofenac sodium extended release), up to maximum dose of 150 mg/day Ibuprofen: start at 200 mg Q4–6 h, up to maximum dose of 1200–3200 mg/day
+
+• Cover with proton-pump inhibitor in patients with higher risk of gastrointestinal bleeding
+• Avoid in patients with history of complicated gastrointestinal disease, especially peptic ulcer disease (although COX-2 selective inhibitors have a lower risk of gastrointestinal side effects)
+• Avoid in patients with high cardiovascular risk (e.g., within 3–6 months of acute cardiovascular events such as myocardial infarction, heart failure, stroke)
+• Avoid in patients with renal impairment (eGFR <30 mL/min/1.73 m
+2
+)
+• Cautious use in patients with asthma, specifically avoid in those with known history of aspirin-exacerbated respiratory disease
+
+COX-2 inhibitors (PO)
+
+Celecoxib: start at 100 mg BD, up to maximum dose of 400 mg/day
+Etoricoxib: start at 60 mg OD, up to maximum dose of 120 mg OD
+
+Topical NSAIDs
+
+Ketoprofen/diclofenac plaster: one plaster BD PRN
+Ketoprofen/diclofenac gel: one application BD/TDS PRN
+
+• Usually safe with no/minimal systemic side effects
+
+Opioids
+
+Tramadol: start at 25 mg TDS PRN, up to maximum dose of 400 mg/day
+
+• Cautious use in older adults (may predispose to delirium, acute urinary retention and constipation)
+• Cautious use in renal impairment
+
+Prednisolone (PO)
+
+Low dose: 5–10 mg/day
+Moderate dose: >10–20 mg/day
+High dose: 0.5–1 mg/kg/day
+
+• Risk of corticosteroid-related side effects depends on dosing and duration of use. Consider relevant comorbidities and risks, e.g., diabetes mellitus, gastritis, infections and infective risks, when prescribing corticosteroids
+
+Open in a new tab
+
+Adapted from Drugs.com
+[12]
+ and Crofford.
+[13]
+ NB: The above doses are based on an adult patient. COX-2: Cyclooxygenase-2, eGFR: estimated glomerular filtration rate, NSAIDs: nonsteroidal anti-inflammatory drugs
+Compared to other forms of intra-articular preparations, corticosteroid injections have stronger supporting evidence and are more widely recommended by most major professional bodies.[
+14
+] Intra-articular triamcinolone 50 mg can be administered to the knee, 20–40 mg to the shoulder or ankle, 10–20 mg to the wrist and up to 10 mg to small finger joints.[
+15
+] However, they provide only short-term symptomatic relief (usually up to 4–6 weeks).[
+14
+] As intra-articular corticosteroid injections carry risks such as damage to joint cartilage[
+16
+] and joint infections with repeated use,[
+14
+] they should not be repeated more frequently than 3–6 month intervals[
+16
+] (we recommend limiting them to twice a year). Other intra-articular injections such as hyaluronic acid, platelet-rich plasma and stem cell injection are not routinely recommended.[
+14
+] Supplements such as glucosamine, chondroitin sulfate, curcumin and omega-3 have unclear clinical benefit,[
+17
+,
+18
+] though some patients have reported symptomatic relief.
+Crystal arthropathies
+
+Acute management of both gout and pseudogout typically involves the use of colchicine as the first-line treatment [
+Table S2
+, Supplemental Digital Appendix], ideally started within 12–24 h of symptom onset for maximal effect. Alternative anti-inflammatory treatments include NSAIDs [
+Table 4
+] or corticosteroids (e.g., prednisolone 20–30 mg/day) for approximately 3–7 days.[
+19
+]
+
+Urate-lowering therapy is available for gout and indicated if one or more of the following criteria are met: (a) recurrent gout flares (≥2 per year), (b) presence of gouty tophi, (c) radiographic evidence of gouty arthritis, (d) history of urolithiasis, and (e) stage 3 or higher chronic kidney disease.[
+19
+] Target serum uric acid levels are as follows: <360 μmol/L (6 mg/dL) for non-tophaceous gout and <300 μmol/L (5 mg/dL) for tophaceous gout.[
+19
+,
+20
+] The most common choice of ULT is allopurinol, usually starting at 100 mg/day, with dose uptitration in 100 mg increments every 4–8 weeks to achieve target serum uric acid levels. In patients with renal impairment, a lower starting dose is recommended with more gradual dose increments[
+19
+] [
+Table S2
+, Supplemental Digital Appendix]. Colchicine prophylaxis is recommended when initiating ULT, with doses adjusted for renal impairment [
+Table S2
+, Supplemental Digital Appendix]. Alternative ULT options include another xanthine oxidase inhibitor (i.e., febuxostat) or a uricosuric agent (e.g., probenecid, benzbromarone).[
+19
+] Uricosuric agents are contraindicated in those with a history of urolithiasis and may be less effective or unsuitable in renal impairment (estimated glomerular filtration rate [eGFR] <30 mL/min/1.73 m
+2
+).[
+19
+]
+
+Allopurinol hypersensitivity syndrome and allopurinol-induced severe cutaneous adverse reactions are rare but serious potential side effects, occurring in about 3 in 1000 patients, and therefore, all patients should be counselled appropriately on these risks before allopurinol initiation.[
+19
+] Side effects usually occur within the first few weeks to months of drug initiation. For higher-risk patients, such as older adults (>60 years) or those with renal impairment (eGFR <30 mL/min/1.73 m
+2
+), pretreatment HLA-B*5801 genotyping may be discussed, taking into account the cost of pharmacogenomic testing.[
+19
+] Routine population-level HLA-B*5801 genotyping is not currently recommended due to a low positive predictive value of 2%.[
+19
+]
+WHEN SHOULD I REFER TO A SPECIALIST?
+
+Failure of conservative management for common degenerative musculoskeletal pathologies would warrant referral to specialists, who can offer more advanced interventions such as shockwave therapy for tendinopathies (sports medicine) or hip/knee replacements for advanced osteoarthritis (orthopaedic surgery). For patients with gout, a rheumatology referral would be appropriate in the following scenarios: (a) inability to meet serum uric acid target or achieve clinical control despite high doses of ULT; (b) advanced chronic kidney disease (eGFR <30 mL/min/1.73 m
+2
+) is present; or (c) serious adverse effects (e.g., allopurinol hypersensitivity reaction) from ULT.[
+19
+] For patients with suspected RA or CTD, a rheumatologist should be consulted in a timely fashion. Early access to specialised care to facilitate prompt initiation of disease-modifying treatments is associated with superior long-term clinical outcomes, preventing joint damage and loss of function.[
+21
+]
+TAKE HOME MESSAGES
+
+Careful history-taking and targeted physical examination are essential in the evaluation of musculoskeletal complaints.
+
+A systematic approach in the clinical reasoning process should yield a reasonable diagnosis in most cases, even without the use of investigations.
+
+Investigations for musculoskeletal symptoms, particularly autoantibodies tests, should be performed judiciously and interpreted in light of the pretest probability of disease.
+
+Most cases of musculoskeletal disorders can be managed in the community. Specialist referrals should be made after failure of initial conservative measures or in view of a high probability of more serious pathologies.
+
+An accurate diagnosis and timely institution of appropriate management can make a significant difference to a patient’s quality of life.
+
+Closing Vignette
+
+You diagnose the patient with chronic symmetric inflammatory arthritis of the wrists and small joints of the hands. Further assessment reveals no extra-articular involvement. Erythrocyte sedimentation rate and C-reactive protein are both significantly elevated. Given the high suspicion for rheumatoid arthritis, an early referral to rheumatology is made. You start her on prednisolone 10 mg/day until the specialist review. A rheumatologist subsequently reviews her through fast-track referral and initiates disease-modifying antirheumatic therapy with methotrexate and folic acid. Four months later, she has been completely weaned off prednisolone, tolerates methotrexate well and is symptom-free. She returns to your clinic and thanks you for your prompt and appropriate diagnosis, which has led to a significant improvement in her quality of life
+.
+Conflicts of interest
+
+Goh LH is a member of the SMJ Editorial Board and was thus not involved in the peer review and publication decisions of this article.
+Supplemental digital content
+
+Appendix at 
+http://links.lww.com/SGMJ/A252
+Acknowledgement
+
+We thank Dr Elaine Lo, Principal Clinical Pharmacist, National University Hospital, for her review of the medication dosages outlined in this article.
+SMC CATEGORY 3B CME PROGRAMME
+
+Online Quiz: 
+https://www.sma.org.sg/cme-programme
+
+Deadline for submission: 6 pm, 22 December 2025
+
+Question: Answer True or False
+
+1. Musculoskeletal symptoms such as joint pain are common presentations in primary care.
+
+2. All patients who complain of joint pain have arthritis.
+
+3. History-taking and physical examination rarely establish a definitive diagnosis in patients with joint complaints.
+
+4. A young woman who often carries her newborn and complains of focal tenderness over the radial wrist likely has De Quervain’s tenosynovitis.
+
+5. A patient with global loss of range of motion, equally limited on both active and passive movements, more likely has rotator cuff tear than frozen shoulder.
+
+6. A patient likely has inflammatory arthritis if he presents with bilateral knee joint pain that worsens with movement but improves with rest, and is associated with early morning stiffness lasting about 10 minutes.
+
+7. Physical examination findings suggestive of an inflamed joint include redness, warmth, swelling and tenderness.
+
+8. The chronicity of joint symptoms significantly influences the type of aetiologies considered.
+
+9. Patients with reactive arthritis typically present with inflammatory joint pain and a recent history of gastrointestinal or genitourinary infections.
+
+10. Patients with rheumatoid arthritis of the hands typically have distal interphalangeal joint involvement.
+
+11. Gout flares classically present as acute pain and swelling of the first metatarsophalangeal joint (podagra).
+
+12. A patient with inflammatory arthritis and fine lung crepitations may have interstitial lung disease associated with connective tissue disease.
+
+13. A patient’s age and past medical history have little bearing on the likely underlying aetiology of joint complaints.
+
+14. Inflammatory markers such as C-reactive protein and erythrocyte sedimentation rate are highly specific for autoimmune diseases in patients who complain of joint symptoms.
+
+15. In a patient with suspected gout flare, ordering a serum uric acid test is important to reach the diagnosis.
+
+16. A positive antinuclear antibodies test always signifies that the patient has an autoimmune disease.
+
+17. A patient with pseudogout may have radiological findings of chondrocalcinosis in the relevant affected joint.
+
+18. Intra-articular corticosteroid injections are effective for patients with osteoarthritis and can be repeated every 2 weeks until symptoms resolve.
+
+19. In patients with suspected rheumatoid arthritis awaiting rheumatologist review, it is reasonable to start on low-dose corticosteroids in primary care.
+
+20. Recurrent gout attacks despite being on allopurinol is an indication for specialist referral, even if the serum uric acid target is not met.
+
+Open in a new tab
+APPENDIX
+
+Table S1.
+
+Pattern of Joint and/or Soft Tissue involvement and Relevant Differential Diagnoses (Adapted from Alharbi and Almoallim 2021
+5
+)
+
+Pattern of joint and/or soft tissue involvement
+
+Common aetiologies
+
+Bilateral, symmetrical polyarthritis predominantly affecting small joints of the hands (MCPJs, PIPJs) and wrists
+
+Rheumatoid arthritis, psoriatic arthritis, connective tissue disease (e.g. systemic lupus erythematosus, Sjogren's syndrome, systemic sclerosis, undifferentiated connective tissue disease/mixed connective tissue disease/overlap syndromes)
+
+Asymmetric, oligo/polyarthritis
+
+Crystal arthropathies, connective tissue disease (e.g. systemic lupus erythematosus, Sjogren's syndrome, systemic sclerosis, undifferentiated connective tissue disease/mixed connective tissue disease/overlap syndromes), peripheral-predominant spondyloarthritis (e.g. psoriatic arthritis, ankylosing spondylitis, reactive arthritis, enteropathic arthritis), parainfectious arthritis, adult-onset Still's disease
+
+DIPJ-predominant arthritis
+
+Osteoarthritis, psoriatic arthritis
+
+Monoarthritis
+
+Osteoarthritis (chronic), septic arthritis (acute), crystal arthropathies (acute flare), tuberculosis (chronic infection)
+
+Proximal girdle joint involvement (especially in older individuals)
+
+Polymyalgia rheumatica, elderly-onset rheumatoid arthritis, paraneoplastic arthritis
+
+Vertebral column
+
+Spondyloarthritis (especially ankylosing spondylitis and psoriatic arthritis), cervical/lumbar spondylosis
+*Atlantoaxial joint inflammation – rheumatoid arthritis, calcium pyrophosphate deposition disease
+
+Dactylitis, enthesitis
+
+Spondyloarthritis (ankylosing spondylitis, psoriatic arthritis, reactive arthritis, enteropathic arthritis)
+
+Myositis
+
+Idiopathic inflammatory myopathies, overlap syndromes
+
+Raynaud's phenomenon
+
+Connective tissue disease (e.g. systemic sclerosis, systemic lupus erythematosus, undifferentiated connective tissue disease/mixed connective tissue disease/overlap syndromes)
+
+Open in a new tab
+Table S2.
+
+Suggested Colchicine and Allopurinol Dosing for Gout Management based on Renal Function 
+(NB: Colchicine doses are adapted from National University Hospital Singapore's Pharmacy Guidance)
+
+Renal function
+
+Colchicine dose (treatment)
+
+Colchicine dose (prophylaxis)
+
+eGFR > 60 mL/min
+
+0.5 mg TDS for 3 days
+
+0.5 mg/day
+
+eGFR 30-60 mL/min
+
+0.5 mg BD for 3 days
+
+0.5 mg/day (eGFR 40-60 mL/min), 0.5 mg EOD (eGFR 30-39 mL/min)
+
+eGFR < 30 mL/min
+
+0.5 mg OD for 3 days (eGFR 15-29 mL/min), avoid if eGFR < 15 mL/min
+
+0.5 mg 2x/week (eGFR 11-29 mL/min), avoid if eGFR < 10 mL/min
+
+Renal function
+
+Allopurinol starting dose
+
+Allopurinol dose increment
+
+eGFR > 45 mL/min
+
+100 mg/day
+
+100 mg every 4-6 weeks
+
+eGFR 30-45 mL/min
+
+50 mg/day
+
+50 mg every 4-8 weeks
+
+eGFR < 30 mL/min
+
+50 mg every other day
+
+50 mg every other day, every 4-8 weeks
+
+Open in a new tab
+REFERENCES
+
+1.
+Jafarzadeh SR, Felson DT. Updated estimates suggest a much higher prevalence of arthritis in United States adults than previous ones. Arthritis Rheumatol. 2018;70:185–92. doi: 10.1002/art.40355.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+2.
+Palmer T, Toombs JD. Managing joint pain in primary care. J Am Board Fam Pract. 2004;17:S32–42. doi: 10.3122/jabfm.17.suppl_1.s32.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+3.
+Lau T. Approach to symmetrical polyarthritis with focus on rheumatoid arthritis. Singapore Fam Physician. 2017;43:6–10.
+ [
+Google Scholar
+]
+
+4.
+Alpay Kanitez N, Celik S, Bes C. Polyarthritis and its differential diagnosis. Eur J Rheumatol. 2019;6:167–73. doi: 10.5152/eurjrheum.2019.19145.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+5.
+Almoallim H, Cheikh M, editors. Skills in Rheumatology. Singapore: Springer Nature; 2021. doi: 10.1007/978-981-15-8323-0.
+ [
+PubMed
+] [
+Google Scholar
+]
+
+6.
+Poddubnyy D, Van Tubergen A, Landewé R, Sieper J, van der Heijde D. Assessment of SpondyloArthritis international Society (ASAS). Development of an ASAS-endorsed recommendation for the early referral of patients with a suspicion of axial spondyloarthritis. Ann Rheum Dis. 2015;74:1483–7. doi: 10.1136/annrheumdis-2014-207151.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+7.
+Richette P, Doherty M, Pascual E, Barskova V, Becce F, Castaneda J, et al. 2018 updated European League against Rheumatism evidence-based recommendations for the diagnosis of gout. Ann Rheum Dis. 2020;79:31–8. doi: 10.1136/annrheumdis-2019-215315.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+8.
+West S, Kolfenbach J. Rheumatology Secrets. 4th ed. Philadelphia (United States): Elsevier; 2020. 
+ [
+Google Scholar
+]
+
+9.
+Didier K, Bolko L, Giusti D, Toquet S, Robbins A, Antonicelli F, et al. Autoantibodies associated with connective tissue diseases: What meaning for clinicians? Front Immunol. 2018;9:541. doi: 10.3389/fimmu.2018.00541.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+10.
+Ingegnoli F, Castelli R, Gualtierotti R. Rheumatoid factors: Clinical applications. Dis Markers. 2013;35:727–34. doi: 10.1155/2013/726598.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+11.
+Dantas LO, Salvini T de F, McAlindon TE. Knee osteoarthritis: Key treatments and implications for physical therapy. Braz J Phys Ther. 2021;25:135–46. doi: 10.1016/j.bjpt.2020.08.004.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+12.
+Drugs.com. [[Last accessed on 2025 Feb 27]]. Available from: 
+https://www.drugs.com/
+ 
+
+13.
+Crofford L. Use of NSAIDs in treating patients with arthritis. Arthritis Res Ther. 2013;15((Suppl 3)):S2. doi: 10.1186/ar4174.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+14.
+Oo WM, Hunter J. Intra-articular therapies for knee osteoarthritis: Current update. Curr Treatm Opt Rheumatol. 2023;9:99–119.
+ [
+Google Scholar
+]
+
+15.
+Reichman E, Waddell R. Arthrocentesis. In: Reichman E, Simon R, editors. Emergency Medicine Procedures. New York, Chicago, Sydney, Toronto: McGraw-Hill Medical Publishing Division; 2004. pp. 559–84.
+ [
+Google Scholar
+]
+
+16.
+Super JT, Makaram NS, LaPrade RF, Murray IR. Intra-articular injections for the management of knee osteoarthritis. Orthop Trauma. 2025;39:2–8.
+ [
+Google Scholar
+]
+
+17.
+Liu X, Machado GC, Eyles JP, Ravi V, Hunter DJ. Dietary supplements for treating osteoarthritis: A systematic review and meta-analysis. Br J Sports Med. 2018;52:167–75. doi: 10.1136/bjsports-2016-097333.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+18.
+Mathieu S, Soubrier M, Peirs C, Monfoulet LE, Boirie Y, Tournadre A. A meta-analysis of the impact of nutritional supplementation on osteoarthritis symptoms. Nutrients. 2022;14:1607. doi: 10.3390/nu14081607.
+ [
+DOI
+] [
+PMC free article
+] [
+PubMed
+] [
+Google Scholar
+]
+
+19.
+ACE Clinical Guidance. Gout. 2023. [[Last accessed on 2025 Feb 27]]. Available from: 
+https://www.ace-hta.gov.sg/docs/default-source/acgs/gout-achieving-the-management-goal-dec2023.pdf
+ .
+
+20.
+Teng G, Tong C, How C, Goh LH. The unwelcome visitor. Singapore Med J. 2012;53:508–11.
+ [
+PubMed
+] [
+Google Scholar
+]
+
+21.
+Albuquerque CP, Reis APMG, Vargas Santos AB, Bértolo MB, Júnior PL, Neubarth Giorgi RD, et al. Do it fast!Early access to specialized care improved long-term outcomes in rheumatoid arthritis: Data from the REAL multicenter observational study. Adv Rheumatol. 2023;63:17. doi: 10.1186/s42358-023-00301-7.
+ [
+DOI
+] [
+PubMed
+] [
+Google Scholar
+]
+
+Articles from Singapore Medical Journal are provided here courtesy of 
+Wolters Kluwer -- Medknow Publications
+
+ACTIONS
+
+View on publisher site
+
+PDF (1.4 MB)
+
+Cite
+
+Collections
+
+Permalink
+
+PERMALINK
+
+Copy
+
+RESOURCES
+
+ Similar articles
+ 
+
+ Cited by other articles
+ 
+
+ Links to NCBI Databases
+ 
+
+Cite
+
+Copy
+
+Download .nbib
+
+.nbib
+
+Format:
+
+ AMA
+ 
+
+ APA
+ 
+
+ MLA
+ 
+
+ NLM
+ 
+
+Add to Collections
+
+Create a new collection
+
+Add to an existing collection
+
+ Name your collection
+ 
+*
+
+ Choose a collection
+ 
+
+ Unable to load your collection due to an error
+
+Please try again
+
+ Add
+ 
+
+ Cancel
+ 
+
+ Follow NCBI
+ 
+
+NCBI on X (formerly known as Twitter)
+
+NCBI on Facebook
+
+NCBI on LinkedIn
+
+NCBI on GitHub
+
+NCBI RSS feed
+
+ Connect with NLM
+ 
+
+NLM on X (formerly known as Twitter)
+
+NLM on Facebook
+
+NLM on YouTube
+
+National Library of Medicine
+ 
+ 8600 Rockville Pike
+ Bethesda, MD 20894
+
+ 
+
+ 
+ Web Policies
+ 
+
+ 
+ 
+
+ 
+
+ 
+ FOIA
+ 
+
+ 
+ 
+
+ 
+
+ 
+ HHS Vulnerability Disclosure
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Help
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Accessibility
+ 
+
+ 
+ 
+
+ 
+
+ 
+ Careers
+ 
+
+ 
+ 
+
+ 
+
+ 
+ NLM
+ 
+
+ 
+ 
+
+ 
+
+ 
+ NIH
+ 
+
+ 
+ 
+
+ 
+
+ 
+ HHS
+ 
+
+ 
+ 
+
+ 
+
+ 
+ USA.gov
+ 
+
+ 
+ 
+
+Back to Top

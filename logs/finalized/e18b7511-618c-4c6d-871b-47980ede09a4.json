@@ -1,0 +1,65 @@
+{
+  "packet_id": "0fee6817-6759-4a45-9b66-35c6f6dc367a",
+  "created_at": "2026-01-23T16:38:06.739480+00:00",
+  "session_id": "e18b7511-618c-4c6d-871b-47980ede09a4",
+  "chief_complaint": "red and swollen leg",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "dvt_possible",
+  "answers": {
+    "pregnancy_possible": "no",
+    "renal_disease": "no",
+    "leg_sort_discriminator": "calf pain/tenderness",
+    "unilateral_swelling": "yes",
+    "dvt_symptom_cluster": "all",
+    "clot_risk_factors_1": "long travel with little movement",
+    "clot_risk_factors_2": "none",
+    "pe_symptoms_now": "neither",
+    "pain_out_of_proportion": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 51-year-old adult presenting with a red and swollen leg. They report unilateral swelling and calf pain/tenderness. The symptom cluster is consistent with deep vein thrombosis (DVT). The patient has a risk factor of recent long travel with little movement. There are no symptoms suggestive of pulmonary embolism at this time. No skin break or infection is reported. No history of renal disease or medication allergies. Patient is not pregnant.\n\nO:  \nPhone history only; no physical exam or vital signs available.\n\nA:  \n- Working diagnosis (most likely):  \n  Suspected deep vein thrombosis (DVT) of the leg.\n\n- Differential:  \n  1. Deep vein thrombosis (most likely given symptom cluster and risk factor)  \n  2. Cellulitis (less likely given no skin break or infection reported)  \n  3. Muscle strain or injury  \n  4. Chronic venous insufficiency or lymphedema\n\n- Red flags considered:  \n  No signs or symptoms of pulmonary embolism (no chest pain, dyspnea, or hemoptysis reported). No pain out of proportion. No systemic signs of infection.\n\nP:  \n- Disposition:  \n  Urgent evaluation recommended for physical examination, diagnostic testing (e.g., Doppler ultrasound), and initiation of treatment if DVT confirmed.\n\n- Plan:  \n  Advise the patient to seek immediate in-person medical evaluation for leg swelling and pain given high suspicion for DVT. Avoid prolonged immobility and keep the leg elevated if possible. No antibiotics indicated at this time. No anticoagulation prescribed over the phone; reviewing physician to confirm diagnosis and prescribe treatment if indicated.\n\n- Safety net:  \n  Instruct the patient to seek emergency care immediately if they develop chest pain, shortness of breath, sudden worsening leg pain or swelling, or signs of bleeding.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.cdc.gov/",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+      },
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.aafp.org/",
+        "snippet": "Listed in pathway manifest https://www.aafp.org/"
+      },
+      {
+        "title": "dvt_possible references (starter)",
+        "source": "https://www.nih.gov/",
+        "snippet": "Listed in pathway manifest https://www.nih.gov/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.cdc.gov/",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/"
+    },
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.aafp.org/",
+      "snippet": "Listed in pathway manifest https://www.aafp.org/"
+    },
+    {
+      "title": "dvt_possible references (starter)",
+      "source": "https://www.nih.gov/",
+      "snippet": "Listed in pathway manifest https://www.nih.gov/"
+    }
+  ]
+}

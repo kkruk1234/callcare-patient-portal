@@ -1,0 +1,103 @@
+{
+  "packet_id": "faa8c0ec-f281-4a25-bfac-19f33d25d270",
+  "created_at": "2026-01-29T21:44:00+00:00",
+  "session_id": "a3d547e4-9373-4360-be88-6b7565b6dd27",
+  "chief_complaint": "I think I have genital warts",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "onset": "3 weeks ago",
+    "location": "my privates",
+    "course": "same",
+    "characteristics": "bumps and feels lumpy",
+    "morph_type": "bumps and some ulcers",
+    "morph_color": "skin-colored",
+    "morph_bleed": "no",
+    "morph_pain_itch": "mild pain and itching",
+    "sex_new_partner": "yes",
+    "sex_unprotected": "yes",
+    "aggravating": "no",
+    "associated": "none",
+    "treatments_tried": "no",
+    "severity": "mild",
+    "age_years": 34,
+    "allergies": "penicillin",
+    "sex_at_birth": "female",
+    "pregnancy": "no",
+    "renal_disease": "yes",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nThe patient is a 34-year-old female presenting with a three-week history of skin-colored bumps and some ulcers localized to her genital area. She describes the lesions as lumpy with mild pain and itching but no bleeding. The symptoms have remained stable since onset. She reports a new sexual partner and unprotected intercourse. She has not tried any treatments so far. She has a history of renal disease and is allergic to penicillin. She is not pregnant.\n\nO:  \nPhone evaluation only; no physical exam or vital signs available.\n\nA:  \n- Working diagnosis (most likely): Genital warts (condyloma acuminata) caused by human papillomavirus (HPV) infection. The presence of skin-colored bumps with mild itching and pain in the genital area, along with risk factors of new and unprotected sexual contact, supports this diagnosis.  \n- Differential:  \n  1. Herpes simplex virus infection (ulcerative lesions could suggest this, but the presence of bumps and mild symptoms over weeks favors warts)  \n  2. Molluscum contagiosum (can present as skin-colored bumps but usually without ulcers)  \n  3. Syphilis (primary chancre can ulcerate but usually solitary and painless)  \n  4. Other sexually transmitted infections causing genital lesions (e.g., chancroid)  \n- Red flags considered: No systemic symptoms, no severe pain, no bleeding, no signs of secondary infection, no constitutional symptoms.\n\nP:  \n- Disposition: Outpatient management with follow-up if symptoms worsen or new symptoms develop.  \n- Plan: Educate the patient about the likely diagnosis of genital warts and the natural history of HPV infection. Recommend referral to a healthcare provider for physical examination and confirmation of diagnosis. Discuss safe sexual practices and the importance of condom use to reduce transmission risk. Given the penicillin allergy and renal disease, treatment options should be carefully selected by the prescribing clinician after examination. Topical treatments such as imiquimod or podophyllotoxin may be considered. If diagnosis is uncertain or lesions are extensive, referral to dermatology or infectious disease specialist may be warranted. Testing for other STIs including herpes simplex virus and syphilis should be offered.  \n- Safety net: Advise the patient to seek urgent care if she develops worsening pain, bleeding, signs of infection (increased redness, swelling, discharge), systemic symptoms such as fever, or if lesions rapidly increase in size or number.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+        "source": "https://medlineplus.gov/genitalwarts.html",
+        "snippet": "ics Medical Tests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Genital Warts URL of this page: https://medlineplus.gov/genitalwarts.html Genital Warts Also called: Condylomata acuminata, Venereal warts On this page Basics Summary Start Here Prevention and Risk Factors Learn More No links available See, Play and Learn Images Te…"
+      },
+      {
+        "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+        "source": "https://medlineplus.gov/genitalwarts.html",
+        "snippet": "outs Summary What are genital warts? Genital warts are a sexually transmitted infection ( STI ) caused by the human papillomavirus ( HPV ). There are many types of HPV. Some types of HPV can cause genital warts. Other types of HPV can cause cancer . There is no treatment for HPV, but your health care provider can treat genital warts. HPV vaccines may help pr…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "https://www.nhs.uk/conditions/genital-warts/",
+        "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps that can appear around the vagina, penis or anus. They're a common sexually transmi…"
+      },
+      {
+        "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+        "source": "https://www.cdc.gov/std/treatment-guidelines/anogenital-warts.htm",
+        "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. They are usually flat, papular, or pedunculated growths on the genital mucosa. Anoge…"
+      },
+      {
+        "title": "Genital warts - NHS",
+        "source": "https://www.nhs.uk/conditions/genital-warts/",
+        "snippet": "rmacy because they&#x27;re not made for genital warts do not smoke – many treatments for genital warts work better if you do not smoke do not have vaginal, anal or oral sex until the warts have gone (but if you do have sex, always use a condom) How genital warts are passed on Genital warts are caused by the human papillomavirus (HPV) . The virus can be passe…"
+      },
+      {
+        "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+        "source": "https://www.cdc.gov/std/treatment-guidelines/anogenital-warts.htm",
+        "snippet": "dulating therapies (e.g., imiquimod cream). Depressed or hypertrophic scars are uncommon but can occur, especially if patients have insufficient time to heal between treatments. Rarely, treatment can result in chronic pain syndromes (e.g., vulvodynia and hyperesthesia of the treatment site) or, in the case of anal warts, painful defecation or fistulas. Couns…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+      "source": "https://medlineplus.gov/genitalwarts.html",
+      "snippet": "ics Medical Tests Medical Encyclopedia EspaÃ±ol You Are Here: Home &rarr; Health Topics &rarr; Genital Warts URL of this page: https://medlineplus.gov/genitalwarts.html Genital Warts Also called: Condylomata acuminata, Venereal warts On this page Basics Summary Start Here Prevention and Risk Factors Learn More No links available See, Play and Learn Images Te…"
+    },
+    {
+      "title": "Genital Warts | HPV | Human Papillomavirus | MedlinePlus",
+      "source": "https://medlineplus.gov/genitalwarts.html",
+      "snippet": "outs Summary What are genital warts? Genital warts are a sexually transmitted infection ( STI ) caused by the human papillomavirus ( HPV ). There are many types of HPV. Some types of HPV can cause genital warts. Other types of HPV can cause cancer . There is no treatment for HPV, but your health care provider can treat genital warts. HPV vaccines may help pr…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "https://www.nhs.uk/conditions/genital-warts/",
+      "snippet": "﻿ Genital warts - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Genital warts Genital warts are small, rough lumps that can appear around the vagina, penis or anus. They're a common sexually transmi…"
+    },
+    {
+      "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+      "source": "https://www.cdc.gov/std/treatment-guidelines/anogenital-warts.htm",
+      "snippet": "have HIV infection. In addition to anogenital warts, HPV types 6 and 11 have been associated with conjunctival, nasal, oral, and laryngeal warts. Anogenital warts are usually asymptomatic; however, depending on the size and anatomic location, they can be painful or pruritic. They are usually flat, papular, or pedunculated growths on the genital mucosa. Anoge…"
+    },
+    {
+      "title": "Genital warts - NHS",
+      "source": "https://www.nhs.uk/conditions/genital-warts/",
+      "snippet": "rmacy because they&#x27;re not made for genital warts do not smoke – many treatments for genital warts work better if you do not smoke do not have vaginal, anal or oral sex until the warts have gone (but if you do have sex, always use a condom) How genital warts are passed on Genital warts are caused by the human papillomavirus (HPV) . The virus can be passe…"
+    },
+    {
+      "title": "Human Papillomavirus (HPV) Infection - STI Treatment Guidelines",
+      "source": "https://www.cdc.gov/std/treatment-guidelines/anogenital-warts.htm",
+      "snippet": "dulating therapies (e.g., imiquimod cream). Depressed or hypertrophic scars are uncommon but can occur, especially if patients have insufficient time to heal between treatments. Rarely, treatment can result in chronic pain syndromes (e.g., vulvodynia and hyperesthesia of the treatment site) or, in the case of anal warts, painful defecation or fistulas. Couns…"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "packet_id": "d889c29a-5a29-4824-b60a-d0b4f046a8d7",
+  "created_at": "2026-03-03T19:55:07.546173+00:00",
+  "session_id": "d2f0fe24-10b9-446a-866a-d826328d1393",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly in your back the pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury, heavy lifting, or trauma to your back?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Can you describe the type of pain you are experiencing and if anything makes it better or worse?",
+    "intake_a5": "dull ache that is worse with leaning against it when sitting and better with good posture",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Any pain or discomfort when taking deep breaths or coughing?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and if so, what were they and did they help?",
+    "intake_a8": "I tried tylenol but it didn't help very much",
+    "intake_q9": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "management guidelines for non-specific back pain in adults",
+      "adult dosing and duration of NSAIDs for back pain treatment",
+      "red flags and indications for imaging in back pain patients"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. The pain worsens when leaning against it while sitting and improves with maintaining good posture. There is no history of recent injury, heavy lifting, trauma, fever, chills, unexplained weight loss, numbness, tingling, weakness, or respiratory symptoms such as pain with deep breaths or coughing. She has tried acetaminophen with minimal relief. There is no history of kidney problems, urinary symptoms, abdominal pain, cancer, osteoporosis, or steroid use. O: Phone consultation; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely due to strain or postural causes affecting the left lower rib cage area. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral causes such as renal or splenic pathology (less likely given absence of systemic symptoms)\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen, dosed appropriately for adult use.\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated.\n - Medication safety considerations: Avoid NSAIDs if there is any history of renal or liver disease; monitor for gastrointestinal side effects.\n - Return precautions: Advise patient to seek prompt care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, or any new systemic symptoms.\n - Testing: No immediate imaging or laboratory testing indicated given absence of red flag symptoms; consider further evaluation if symptoms persist beyond 6 weeks or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "WHO guideline for non-surgical management of chronic primary low back pain in adults in primary and community care settings",
+        "source": "WHO",
+        "url": "https://www.who.int/publications/i/item/9789240081789",
+        "accessed": "2026-03-03",
+        "snippet": "The purpose of the guideline is to provide evidence-based recommendations on nonsurgical interventions for chronic primary LBP (CPLBP) in adults, including older people, that can be delivered in primary and community care settings to improve CPLBP-related health and well-being outcomes. For this reason, the guideline does not consider interventions typically delivered in secondary or tertiary care settings (e.g. surgical or other invasive procedures) or workplace interventions."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "WHO guideline for non-surgical management of chronic primary low back pain in adults in primary and community care settings",
+      "source": "WHO",
+      "snippet": "The purpose of the guideline is to provide evidence-based recommendations on nonsurgical interventions for chronic primary LBP (CPLBP) in adults, including older people, that can be delivered in primary and community care settings to improve CPLBP-related health and well-being outcomes. For this reason, the guideline does not consider interventions typically delivered in secondary or tertiary care settings (e.g. surgical or other invasive procedures) or workplace interventions."
+    }
+  ],
+  "state": null
+}

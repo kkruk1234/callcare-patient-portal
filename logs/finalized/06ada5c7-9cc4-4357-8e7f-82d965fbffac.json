@@ -1,0 +1,57 @@
+{
+  "packet_id": "06ada5c7-9cc4-4357-8e7f-82d965fbffac",
+  "created_at": "2026-03-06T14:11:41.562740+00:00",
+  "session_id": "9b6574b5-5193-4843-9b75-3c7a7f40392d",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat diagnosis and management guidelines adults",
+    "adult sore throat treatment antibiotic dosing duration contraindications",
+    "red flags sore throat difficulty breathing stridor drooling testing"
+  ],
+  "queries": [
+    "AAFP sore throat diagnosis and management guidelines adults",
+    "AAFP adult sore throat treatment antibiotic dosing duration contraindications",
+    "MedlinePlus sore throat diagnosis and management guidelines adults",
+    "MedlinePlus adult sore throat treatment antibiotic dosing duration contraindications",
+    "CDC sore throat diagnosis and management guidelines adults",
+    "CDC adult sore throat treatment antibiotic dosing duration contraindications",
+    "NIH sore throat diagnosis and management guidelines adults",
+    "NIH adult sore throat treatment antibiotic dosing duration contraindications",
+    "NICE sore throat diagnosis and management guidelines adults",
+    "NICE adult sore throat treatment antibiotic dosing duration contraindications",
+    "WHO sore throat diagnosis and management guidelines adults",
+    "WHO adult sore throat treatment antibiotic dosing duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Sore Throat: Time to Update | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/editorial-sore-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": "Because rheumatic heart disease is so rare in the United States, the primary benefit of using antibiotics is symptom reduction, with a number needed to treat of 6 for improvement by day 3, and possibly the reduction of spread to others (although most close contacts have likely already been exposed by the time the patient is evaluated). 15 , 16 In 2023, an international group of experts in primary care respiratory infections published the first international guideline for the management of sore throat . 3 The guideline focuses on avoiding testing and antibiotic use for patients with uncomplicated sore throat (i.e., mild to moderate sore throat accompanied by cough with no red flags), reserving evaluation, testing, and possibly antibiotic use for those at risk of complicated or severe disease. 3 Using rapid antigen testing for streptococcus, followed by prescribing antibiotics, is not reco"
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": "Follow recommended guidelines when caring for patients with group A streptococcal pharyngitis."
+    },
+    {
+      "title": "Recommendations | Sore throat (acute): antimicrobial prescribing | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng84/chapter/Recommendations",
+      "accessed": "2026-03-06",
+      "snippet": "Recommendations | Sore throat (acute): antimicrobial prescribing | Guidance | NICE"
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/0615/p821.pdf",
+      "accessed": "2026-03-06",
+      "snippet": "Downloaded from the American Family Physician website at www.aafp.org/afp. Copyright © 2018 American Academy of Family Physicians. For the private, noncommercial use of one individual user of the website. All other rights reserved. Contact copyrights@aafp.org for copyright questions and/or permission requests."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a sore throat that started 2 days ago. She reports associated fever and chills, painful swallowing, swollen glands in the neck, and visible white patches or pus on her tonsils. She is also experiencing voice loss but denies difficulty breathing at rest, stridor, drooling, or trouble opening her mouth. There is no history of similar throat infections or tonsillitis. No cough, runny nose, or nasal congestion is reported.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute bacterial tonsillitis, likely streptococcal pharyngitis given the presence of fever, tonsillar exudate, swollen cervical lymph nodes, and absence of cough.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis (e.g., infectious mononucleosis)\n3. Peritonsillar abscess (early stage without airway compromise)\n4. Other bacterial pharyngitis (e.g., group C or G streptococcus)\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, no renal or liver disease; monitor for allergic reactions or gastrointestinal upset\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, drooling, inability to swallow saliva, worsening throat pain, or high fever develops; seek emergency care if airway obstruction signs occur\n- Testing: Arrange throat swab for rapid antigen detection test and/or throat culture if available to confirm streptococcal infection"
+}

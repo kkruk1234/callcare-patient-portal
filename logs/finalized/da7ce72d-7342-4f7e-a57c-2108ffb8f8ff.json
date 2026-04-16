@@ -1,0 +1,57 @@
+{
+  "packet_id": "da7ce72d-7342-4f7e-a57c-2108ffb8f8ff",
+  "created_at": "2026-03-06T15:47:41.284826+00:00",
+  "session_id": "ee12e355-f2fa-415c-a062-237057bc4210",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "red flags and return precautions for adult sore throat with fever and"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin dosing for adult strep throat treatment mg duration contraindications",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin dosing for adult strep throat treatment mg duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-06",
+      "snippet": "Benefits of antibiotics Using a recommended antibiotic regimen to treat group A strep pharyngitis: Shortens the duration of symptoms Reduces the likelihood of transmission to close contacts Decreases the development of complications Recommended antibiotics Penicillin or amoxicillin is the antibiotic of choice to treat group A strep pharyngitis. Penicillin V, oral Children : 250 mg twice daily or 3 times daily for 10 days Adolescents and adults : 250 mg 4 times daily or 500 mg twice daily, for 10 days Amoxicillin, oral 50 mg/kg once daily (maximum = 1000 mg) for 10 days Alternate : 25 mg/kg (maximum = 500 mg) twice daily for 10 days Benzathine penicillin G, intramuscular Weight less than 27 kg : 1 dose (600,000 U) Weight 27 kg or more : 1 dose (1,200,000 U) Other options for patients with a penicillin allergy Prescribe one of multiple recommended regimens for patients with a penicillin allergy."
+    },
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.pdf",
+      "accessed": "2026-03-06",
+      "snippet": "Accessed July 3, 2023. https://www.cdc.gov/drugresistance/Biggest-Threats.html Skoog Ståhlgren G, Tyrstrup M, Edlund C, et al. Penicillin V four times daily for five days versus three times daily for 10 days in patients with pharyngotonsillitis caused by group A streptococci: randomised controlled, open label, non-inferiority study."
+    },
+    {
+      "title": "Health Information for You: MedlinePlus Connect",
+      "source": "connect.medlineplus.gov",
+      "url": "https://connect.medlineplus.gov/application",
+      "accessed": "2026-03-06",
+      "snippet": ""
+    },
+    {
+      "title": "Management of Group A Beta-Hemolytic Streptococcal Pharyngitis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2001/0415/p1557.html",
+      "accessed": "2026-03-06",
+      "snippet": "400) Child: 40 mg per kg per day Two to four divided doses 10 days 8.50 (11.00 to 12.25)‡ Adult: 400 mg Four times daily 10 days 9.25 (11.00 to 12.50) Erythromycin estolate Child: 20 to 40 mg per kg per day Two to four divided doses 10 days (15.00to31.50)§ Adult: not recommended — — — Azithromycin (Zithromax) Child: 12 mg per kg for 5 days [ corrected] Once daily 5 days 28.50∥ Adult: 500 mg on day 1; 250 mg on days 2 through 5 Once daily 5 days 40.50 Amoxicillin-clavulanate potassium (Augmentin) Child: 40 mg per kg per day Two or three divided doses 10 days 45.75¶ Adult: 500 to 875 mg Two times daily 10 days 71.25 Cefadroxil (Duricef) Child: 30 mg per kg per day Two divided doses 10 days 32.00† Adult: 1 g Once daily 10 days 162.50 (73.50 to 143.00) Cephalexin (Keflex) (Keftab) Child: 25 to 50 mg per kg per day Two to four divided doses 10 days 35.00 (11.25 to 26.00)† Adult: 500 mg Two times daily 10 days 65.50 (9.25 to 23.50) Patient with a Sore Throat \" description=\" Suggested algorithm for the diagnosis and treatment of sore throat. Adapted with permission from Sloane PD, et al., eds."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sore throat accompanied by fever and painful swallowing. She reports swollen glands in her neck and white patches in her throat. There is a known exposure to strep throat from her son one week ago. She denies cough, difficulty breathing, rash, or joint pain.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is streptococcal pharyngitis given the acute onset of sore throat, fever, painful swallowing, cervical lymphadenopathy, white patches in the throat, and known exposure to a confirmed case.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Other bacterial pharyngitis\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, no renal or liver disease; monitor for allergic reactions\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe swelling, inability to swallow saliva, or worsening symptoms occur; otherwise, follow up if symptoms persist beyond 3-5 days\n- Testing: Recommend rapid antigen detection test or throat culture to confirm streptococcal infection if available"
+}

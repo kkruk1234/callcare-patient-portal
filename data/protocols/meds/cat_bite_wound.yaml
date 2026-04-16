@@ -1,0 +1,29 @@
+# Clinician-facing medication/dosing protocol for: cat_bite_wound
+# Tier 1: reviewer must approve/modify.
+rx_options:
+  - med: "Amoxicillin-clavulanate"
+    dosing: "875/125 mg PO BID x 5 days (prophylaxis) OR 7–10 days if established infection"
+    exclusions: "Immediate-type beta-lactam allergy; significant renal impairment requires adjustment; severe hepatic disease with prior cholestatic jaundice from amox-clav"
+    notes: "First-line for cat bites (high Pasteurella risk). Consider in-person eval for deep puncture, hand bites, immunocompromise, spreading cellulitis, or systemic symptoms."
+  - med: "Doxycycline + Metronidazole"
+    dosing: "Doxycycline 100 mg PO BID + Metronidazole 500 mg PO TID x 5–7 days (or 7–10 days if infection)"
+    exclusions: "Pregnancy; children <8 years (doxycycline); alcohol use with metronidazole; significant liver disease; drug interactions"
+    notes: "Alternative for severe beta-lactam allergy when polymicrobial coverage needed."
+  - med: "Clindamycin + Trimethoprim-sulfamethoxazole (TMP-SMX)"
+    dosing: "Clindamycin 300–450 mg PO TID + TMP-SMX DS (160/800) PO BID x 5–7 days (or 7–10 days if infection)"
+    exclusions: "Sulfa allergy; pregnancy considerations (avoid 1st trimester if possible and near term); C. difficile history/high CDI risk (clindamycin); infant jaundice/prematurity caution if breastfeeding with TMP-SMX"
+    notes: "Alternative when MRSA risk is present or for beta-lactam allergy (clinician judgment)."
+
+supportive_care:
+  - item: "Local wound care"
+    details: "Copious irrigation if possible; gentle cleansing; keep clean/dry; avoid occlusive dressings unless directed."
+  - item: "Pain control"
+    details: "Acetaminophen (Tylenol) if safe. Ibuprofen (Advil) if safe and no contraindications."
+  - item: "Tetanus / rabies considerations"
+    details: "Assess tetanus status; rabies risk assessment based on animal status/local guidance; in-person evaluation if uncertain."
+
+followup_and_safety:
+  - item: "In-person evaluation recommended"
+    details: "Hand bites, deep puncture wounds, immunocompromise, rapidly spreading redness, severe pain, fever/chills, numbness/limited motion, or concern for tendon/joint involvement."
+  - item: "Urgent/ED now"
+    details: "Rapidly progressive swelling/redness, severe pain, fever/toxicity, red streaking, loss of function, or signs of systemic infection."

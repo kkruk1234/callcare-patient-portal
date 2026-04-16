@@ -1,0 +1,33 @@
+{
+  "pathway_id": "vaginal_yeast",
+  "sources": [
+    {
+      "id": "vaginal_yeast_src_1",
+      "source_id": "vaginal_yeast_src_1",
+      "title": "vaginal_yeast references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "vaginal_yeast_src_2",
+      "source_id": "vaginal_yeast_src_2",
+      "title": "vaginal_yeast references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "vaginal_yeast_src_3",
+      "source_id": "vaginal_yeast_src_3",
+      "title": "vaginal_yeast references (starter)",
+      "url": "https://www.aao.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "vaginal_yeast_src_4",
+      "source_id": "vaginal_yeast_src_4",
+      "title": "vaginal_yeast references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

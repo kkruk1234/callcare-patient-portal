@@ -1,0 +1,11 @@
+{
+  "id": "cough_uri",
+  "version": "0.1",
+  "questions": {
+    "duration": "How long have you been coughing or had these symptoms?",
+    "fever": "Do you have a fever?",
+    "sob": "Are you short of breath at rest or having trouble speaking in full sentences?",
+    "chest_pain": "Are you having any chest pain?",
+    "high_risk": "Do you have major health issues like heart or lung disease, a weak immune system, or are you over 65?"
+  }
+}

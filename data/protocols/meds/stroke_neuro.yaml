@@ -1,0 +1,16 @@
+# Clinician-facing medication/dosing protocol for: stroke_neuro
+# Tier 1 triage pathway. No outpatient treatment suggestions.
+
+rx_options:
+  - med: "None (ED evaluation)"
+    dosing: "N/A"
+    exclusions: "N/A"
+    notes: "FAST-positive symptoms with sudden onset → activate emergency pathway."
+
+supportive_care:
+  - item: "N/A"
+    details: "Do not suggest home meds that could delay ED evaluation."
+
+followup_and_safety:
+  - item: "Escalate immediately"
+    details: "Face/arm/speech change with sudden onset → ED now / 911 if severe."

@@ -1,0 +1,22 @@
+# Clinician-facing medication/dosing protocol for: eye_chemical_exposure
+# Tier 1: reviewer must approve/modify.
+
+rx_options:
+  - med: "No outpatient prescriptions by phone"
+    dosing: "N/A"
+    exclusions: "N/A"
+    notes: "Primary treatment is immediate irrigation and urgent in-person evaluation. Medications (antibiotics/cycloplegics) require exam."
+
+supportive_care:
+  - item: "Immediate irrigation"
+    details: "Begin flushing the eye immediately with clean water/saline for 15–30 minutes (longer for strong chemicals). Remove contact lenses if present."
+  - item: "Do not delay"
+    details: "Do not wait for symptoms—irrigation is time-critical."
+  - item: "Bring product info"
+    details: "Bring the chemical container/name to the evaluation site if possible."
+
+followup_and_safety:
+  - item: "Urgent evaluation"
+    details: "Urgent ED/eye evaluation after irrigation (same-day). Alkali exposures are particularly dangerous."
+  - item: "Urgent/ED now"
+    details: "Any vision change, severe pain, inability to open eye, or exposure to strong alkali/acid."

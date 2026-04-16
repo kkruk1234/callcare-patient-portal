@@ -1,0 +1,96 @@
+{
+  "packet_id": "012776b1-9ae2-473c-9b81-ead40b1f9c46",
+  "created_at": "2026-02-26T01:18:58.371853+00:00",
+  "session_id": "ec17627b-d4b2-46ab-882a-88a181dfe8f3",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back hurts?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain with breathing, coughing, or movement?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney problems, urinary symptoms, or abdominal pain?",
+    "intake_a6": "no",
+    "intake_q7": "Any recent weight loss, fatigue, or other systemic symptoms?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain so far?",
+    "intake_a8": "no",
+    "intake_q9": "Any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage pain that started 3 weeks ago. She denies any recent trauma or injury, fever, chills, night sweats, pain with breathing or movement, urinary symptoms, abdominal pain, weight loss, fatigue, numbness, weakness, or tingling in her legs or feet. She has not tried any treatments or medications for this pain. There is no history of cancer, osteoporosis, or recent steroid use. She is not pregnant and has no known medication allergies. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain localized to the left lower rib cage, likely due to a strain or minor soft tissue injury given the absence of systemic symptoms or trauma. \nDifferential:\n1. Musculoskeletal strain or sprain\n2. Costochondritis\n3. Intercostal nerve irritation\n4. Early presentation of rib fracture or occult injury\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated\n - Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; acetaminophen dosing should not exceed recommended maximum daily dose\n - Return precautions: Advise patient to seek care if she develops fever, worsening pain, respiratory symptoms, neurological symptoms, or any new systemic signs\n - Testing: Not indicated at this time given lack of red flags or systemic symptoms; imaging only if symptoms persist or worsen",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "soft tissue injury advice",
+        "source": "www.nhsinform.scot",
+        "url": "https://www.nhsinform.scot/illnesses-and-conditions/muscle-bone-and-joints/soft-tissue-injury-advice/",
+        "accessed": "2026-02-25",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal Pain: What It Is, Symptoms, Treatment & Types",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-pain",
+        "accessed": "2026-02-25",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain",
+        "accessed": "2026-02-25",
+        "snippet": ""
+      },
+      {
+        "title": "How to Cope with an Intercostal Muscle Strain",
+        "source": "Cleveland Clinic",
+        "url": "https://health.clevelandclinic.org/how-to-cope-with-an-intercostal-muscle-strain",
+        "accessed": "2026-02-25",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

@@ -1,0 +1,101 @@
+{
+  "packet_id": "59846bae-760b-4cff-8319-0473925e8daa",
+  "created_at": "2026-02-28T15:10:00.393370+00:00",
+  "session_id": "ba7ee415-8d0a-4a8f-8d72-75150ee05279",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of cancer, osteoporosis, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any recent activities or movements that seem to worsen or trigger the pain?",
+    "intake_a9": "no",
+    "intake_q10": "Any difficulty breathing or pain when taking a deep breath?",
+    "intake_a10": "no, but for the last question I remembered poor posture and leaning against the area when sitting makes the pain worse",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "guidelines for managing left lower rib cage back pain adults",
+      "adult dosing and duration of NSAIDs for musculoskeletal back pain",
+      "red flags and indications for imaging in back pain with rib involvement"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, numbness, tingling, or weakness in her legs or feet. She has not tried any treatments or medications for the pain. She notes that poor posture and leaning against the area when sitting worsens the pain. There is no history of cancer, osteoporosis, or recent infections. O: Phone evaluation only; no physical exam or vitals available.\n\nA: The working diagnosis is musculoskeletal pain likely related to poor posture affecting the left lower rib cage area. \nDifferential:\n1. Musculoskeletal strain or postural pain\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of rib fracture or other structural rib pathology\n\nP:\n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n- Alternatives: Acetaminophen 500 mg orally every 6 hours as needed if NSAIDs are contraindicated or not tolerated.\n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, not exceeding 1200 mg per day without medical supervision. (avoid in renal disease; especially severe CKD/dialysis)\n- Medication safety considerations: Avoid NSAIDs if there is a history of gastrointestinal bleeding, renal impairment, or liver disease; monitor for side effects such as gastrointestinal upset.\n- Return precautions: Advise patient to seek immediate care if she develops fever, worsening pain, numbness or weakness in legs, chest pain, difficulty breathing, or unexplained weight loss.\n- Testing: Not indicated at this time given absence of red flags; consider imaging if symptoms persist beyond 6 weeks or worsen despite treatment.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - Diagnosis & treatment - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis: What It Is, Causes, FAQs & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/diseases/22167-costochondritis?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Musculoskeletal Chest Pain: Definition, Causes & Treatment",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-chest-pain?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      },
+      {
+        "title": "Costochondritis - Symptoms & causes - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://mayoclinic.org/diseases-conditions/costochondritis/symptoms-causes/syc-20371175?utm_source=openai",
+        "accessed": "2026-02-28",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

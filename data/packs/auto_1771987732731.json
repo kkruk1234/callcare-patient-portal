@@ -1,0 +1,26 @@
+{
+  "id": "auto_1771987732731",
+  "query": " guideline treatment management",
+  "sources": [
+    {
+      "url": "https://www.who.int/publications/i/item/9789241501583",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://npin.cdc.gov/publication/treatment-tuberculosis-guidelines-national-programmes-0",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.who.int/publications-detail-redirect/9789240046764",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.who.int/news/item/10-08-2011-guidelines-for-programmatic-management-of-drug-resistant-tuberculosis",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

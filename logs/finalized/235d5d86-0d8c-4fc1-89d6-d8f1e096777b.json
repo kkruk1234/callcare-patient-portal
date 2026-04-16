@@ -1,0 +1,67 @@
+{
+  "packet_id": "932a52be-19e1-47ee-a090-3f7069ac1609",
+  "created_at": "2026-02-22T14:13:45.424971+00:00",
+  "session_id": "235d5d86-0d8c-4fc1-89d6-d8f1e096777b",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a4": "no",
+    "intake_q5": "Have you had any recent injuries, heavy lifting, or trauma to your back or chest area?",
+    "intake_a5": "no",
+    "intake_q6": "Any pain with breathing or coughing?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a7": "I tried tylenol and it didn't really help very much",
+    "intake_q8": "Do you have any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of cancer, osteoporosis, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Any difficulty with bowel or bladder control, or any new problems with walking?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that began approximately three weeks ago. She denies any fever, chills, unexplained weight loss, numbness, weakness, tingling in the legs or feet, recent injuries, heavy lifting, trauma, pain with breathing or coughing, urinary symptoms, abdominal pain, history of cancer, osteoporosis, or recent infections. She has tried acetaminophen (Tylenol) with minimal relief. There are no bowel or bladder control issues or new problems with walking. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage area, likely of benign etiology given the absence of systemic symptoms or neurological deficits. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Costovertebral joint dysfunction \n3. Intercostal muscle strain \n4. Early presentation of a visceral cause such as renal or gastrointestinal pathology (less likely given lack of symptoms) \n\nP: \n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen can be continued if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen, if no contraindications. (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs if there is a history of renal disease, liver disease, or gastrointestinal bleeding; monitor for side effects such as gastrointestinal upset. \n - Return precautions: Advise the patient to seek immediate care if she develops fever, chills, unexplained weight loss, new numbness, weakness, tingling in the legs or feet, bowel or bladder dysfunction, worsening pain, or pain with breathing or coughing. \n - Testing: Not indicated at this time given the absence of red flag symptoms. If symptoms worsen or fail to improve, consider imaging or further evaluation.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

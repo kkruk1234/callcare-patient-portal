@@ -1,0 +1,368 @@
+from __future__ import annotations
+
+import os
+import re
+import time
+from datetime import date
+from typing import Any, Callable, Dict, List, Optional
+
+try:
+    from openai import OpenAI  # type: ignore
+except Exception:
+    OpenAI = None  # type: ignore
+
+EvidenceRef = Dict[str, Any]
+
+_ALLOW_HOSTS = (
+    "aafp.org",
+    "nice.org.uk",
+    "nhs.uk",
+    "who.int",
+    "cdc.gov",
+    "medlineplus.gov",
+    "ncbi.nlm.nih.gov",
+    "pubmed.ncbi.nlm.nih.gov",
+    "pmc.ncbi.nlm.nih.gov",
+    "accessdata.fda.gov",
+    "idsociety.org",
+    "merckmanuals.com",
+    "mayoclinic.org",
+    "clevelandclinic.org",
+)
+
+_STOPWORDS = {
+    "the","a","an","and","or","but","if","then","else","when","while","with","without",
+    "to","of","in","on","at","for","from","by","as","is","are","was","were","be","been",
+    "this","that","these","those","it","its","they","their","them","you","your",
+    "patient","adult","female","male","year","years","week","weeks","day","days",
+    "evaluation","management","guideline","guidelines","treatment","therapy",
+    "pain","ache","aches","aching","sore","tender","tenderness",
+}
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+def _today_iso() -> str:
+    try:
+        return date.today().isoformat()
+    except Exception:
+        return ""
+
+def _host_ok(url: str) -> bool:
+    u = _safe_str(url).lower()
+    if not u.startswith("http"):
+        return False
+    return any(h in u for h in _ALLOW_HOSTS)
+
+def _publisher_from_url(url: str) -> str:
+    u = _safe_str(url).lower()
+    u = re.sub(r"^https?://", "", u)
+    host = (u.split("/", 1)[0] or "").replace("www.", "").strip()
+    if not host:
+        return "Source"
+    parts = host.split(".")
+    if len(parts) >= 2:
+        core = parts[-2]
+        if core.upper() in ("NHS", "CDC", "NIH", "WHO", "FDA"):
+            return core.upper()
+        return core.upper() if len(core) <= 6 else core.capitalize()
+    return host
+
+def _tokenize(text: str, *, min_len: int = 4, max_n: int = 12) -> List[str]:
+    t = _safe_str(text).lower()
+    if not t:
+        return []
+    t = re.sub(r"\s*\(.*?\)\s*", " ", t)
+    t = re.sub(r"[^a-z0-9\s\-\/]", " ", t)
+    t = re.sub(r"\s{2,}", " ", t).strip()
+    toks = [w for w in re.split(r"[^a-z0-9]+", t) if len(w) >= min_len and w not in _STOPWORDS]
+    out: List[str] = []
+    seen = set()
+    for w in toks:
+        if w in seen:
+            continue
+        seen.add(w)
+        out.append(w)
+        if len(out) >= max_n:
+            break
+    return out
+
+def _anchor_text(
+    chief_complaint: str,
+    *,
+    assessment_text: Optional[str],
+    diagnosis_hint: Optional[str],
+    context: Optional[str],
+) -> str:
+    return _safe_str(assessment_text) or _safe_str(diagnosis_hint) or _safe_str(context) or _safe_str(chief_complaint)
+
+def _relevance_score(
+    *,
+    anchor_tokens: List[str],
+    query_tokens: List[str],
+    url: str,
+    title: str,
+    snippet: str,
+) -> int:
+    blob = f"{_safe_str(title)} {_safe_str(url)} {_safe_str(snippet)}".lower()
+    score = 0
+
+    for t in anchor_tokens[:12]:
+        if t and t in blob:
+            score += 22
+
+    for t in query_tokens[:10]:
+        if t and t in blob:
+            score += 9
+
+    if "guideline" in blob or "practice" in blob or "recommend" in blob:
+        score += 6
+    if "nice.org.uk" in blob or "nhs.uk/conditions" in blob:
+        score += 10
+
+    if "/news/item/" in _safe_str(url).lower():
+        score -= 4
+
+    return score
+
+def _dedupe_keep_order(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    seen = set()
+    for it in items:
+        u = _safe_str(it.get("url") or it.get("source") or "")
+        k = u or _safe_str(it.get("title") or "")
+        if not k or k in seen:
+            continue
+        seen.add(k)
+        out.append(it)
+    return out
+
+def _cap_per_publisher(items: List[Dict[str, Any]], max_per_publisher: int) -> List[Dict[str, Any]]:
+    if max_per_publisher <= 0:
+        return items
+    counts: Dict[str, int] = {}
+    out: List[Dict[str, Any]] = []
+    for it in items:
+        src = _safe_str(it.get("source") or "")
+        counts[src] = counts.get(src, 0)
+        if counts[src] >= max_per_publisher:
+            continue
+        counts[src] += 1
+        out.append(it)
+    return out
+
+def _openai_web_search(query: str, *, timeout_s: int = 12) -> List[Dict[str, Any]]:
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+
+    client = OpenAI()
+
+    tools_variants = [
+        [{"type": "web_search"}],
+        [{"type": "web_search_preview"}],
+    ]
+
+    last_err: Optional[Exception] = None
+    for tools in tools_variants:
+        try:
+            t0 = time.time()
+            resp = client.responses.create(
+                model=os.getenv("CALLCARE_WEB_MODEL", "gpt-4.1-mini"),
+                input=query,
+                tools=tools,
+                temperature=0.0,
+            )
+
+            results: List[Dict[str, Any]] = []
+
+            out_items = getattr(resp, "output", None)
+            if out_items is None:
+                out_items = resp.get("output") if isinstance(resp, dict) else None
+
+            if isinstance(out_items, list):
+                for item in out_items:
+                    itype = getattr(item, "type", None) if not isinstance(item, dict) else item.get("type")
+                    if itype != "web_search_call":
+                        continue
+
+                    cand = None
+                    for path in (
+                        ("results",),
+                        ("action", "results"),
+                        ("action", "sources"),
+                        ("sources",),
+                    ):
+                        cur = item
+                        ok = True
+                        for k in path:
+                            if isinstance(cur, dict):
+                                cur = cur.get(k)
+                            else:
+                                cur = getattr(cur, k, None)
+                            if cur is None:
+                                ok = False
+                                break
+                        if ok and isinstance(cur, list) and cur:
+                            cand = cur
+                            break
+
+                    if isinstance(cand, list):
+                        for r in cand:
+                            if not isinstance(r, dict):
+                                try:
+                                    r = dict(getattr(r, "__dict__", {}) or {})
+                                except Exception:
+                                    continue
+                            url = _safe_str(r.get("url") or r.get("link") or "")
+                            title = _safe_str(r.get("title") or r.get("name") or "")
+                            snippet = _safe_str(r.get("snippet") or r.get("text") or r.get("content") or "")
+                            if url:
+                                results.append(
+                                    {
+                                        "title": title or url[:160],
+                                        "url": url,
+                                        "snippet": snippet,
+                                        "source": _publisher_from_url(url),
+                                    }
+                                )
+
+            if results:
+                return results
+
+            last_err = RuntimeError("web_search_call produced no parsable results")
+        except Exception as e:
+            last_err = e
+            if timeout_s and (time.time() - t0) > float(timeout_s):
+                break
+            continue
+
+    if last_err:
+        raise last_err
+    raise RuntimeError("web search failed")
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    queries: Optional[List[str]] = None,
+    diagnosis_hint: Optional[str] = None,
+    context: Optional[str] = None,
+    assessment_text: Optional[str] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    timeout_s: int = 12,
+    max_queries: int = 2,
+    title_fetch_n: int = 0,
+    debug: bool = False,
+    max_per_publisher: int = 1,
+    snippet_fetch_n: int = 0,
+    snippet_timeout_s: int = 4,
+    trace_fn: Optional[Callable[..., Any]] = None,
+    **_ignored,
+) -> List[EvidenceRef]:
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+
+    cc = _safe_str(chief_complaint)
+    if not cc:
+        raise ValueError("chief_complaint is required")
+
+    anchor = _anchor_text(cc, assessment_text=assessment_text, diagnosis_hint=diagnosis_hint, context=context)
+    anchor_tokens = _tokenize(anchor, min_len=4, max_n=12)
+
+    q_list: List[str] = []
+    if isinstance(queries, list) and queries:
+        for q in queries:
+            q2 = " ".join(_safe_str(q).split())
+            if q2:
+                q_list.append(q2)
+    else:
+        q_list = [cc]
+
+    q_list = q_list[: max(1, int(max_queries or 1))]
+
+    collected: List[Dict[str, Any]] = []
+    t0 = time.time()
+
+    for q in q_list:
+        if timeout_s and (time.time() - t0) > float(timeout_s):
+            break
+
+        q_low = q.lower()
+        tail = ""
+        if anchor_tokens:
+            missing = [t for t in anchor_tokens[:6] if t not in q_low]
+            if missing:
+                tail = " " + " ".join(missing[:4])
+        search_query = (q + tail).strip()
+
+        try:
+            raw = _openai_web_search(search_query, timeout_s=timeout_s)
+        except Exception as e:
+            if trace_fn:
+                try:
+                    trace_fn("llm_http_evidence_search_error", err_type=type(e).__name__, err=str(e), q=search_query)
+                except Exception:
+                    pass
+            continue
+
+        q_tokens = _tokenize(q, min_len=4, max_n=10)
+
+        for r in raw:
+            url = _safe_str(r.get("url") or "")
+            title = _safe_str(r.get("title") or "")
+            snippet = _safe_str(r.get("snippet") or "")
+            if not url:
+                continue
+            if not _host_ok(url):
+                continue
+
+            s = _relevance_score(
+                anchor_tokens=anchor_tokens,
+                query_tokens=q_tokens,
+                url=url,
+                title=title,
+                snippet=snippet,
+            )
+
+            min_score = 26 if len(anchor_tokens) >= 4 else 14
+            if s < min_score:
+                continue
+
+            collected.append(
+                {
+                    "title": title or url[:160],
+                    "source": _publisher_from_url(url),
+                    "url": url,
+                    "snippet": snippet,
+                    "accessed": _today_iso(),
+                    "_score": s,
+                }
+            )
+
+    collected.sort(key=lambda x: int(x.get("_score") or 0), reverse=True)
+    collected = _dedupe_keep_order(collected)
+    collected = _cap_per_publisher(collected, int(max_per_publisher or 1))
+
+    out: List[EvidenceRef] = []
+    for it in collected:
+        it.pop("_score", None)
+        out.append(it)
+
+    out = out[: int(max_urls or 6)]
+
+    if debug and trace_fn:
+        try:
+            trace_fn(
+                "llm_http_evidence_done",
+                anchor=anchor[:220],
+                anchor_tokens=anchor_tokens[:10],
+                queries_used=q_list,
+                returned_n=len(out),
+            )
+        except Exception:
+            pass
+
+    return out

@@ -1,0 +1,17 @@
+{
+  "title": "eye_pain_vision_change (AAO evidence sources)",
+  "items": [
+    {
+      "source": "American Academy of Ophthalmology Preferred Practice Pattern: Primary Angle-Closure Disease",
+      "url": "https://www.aao.org/education/preferred-practice-pattern/primary-angle-closure-disease-ppp",
+      "summary": "Acute angle-closure glaucoma is vision-threatening and requires urgent evaluation. Severe eye pain with nausea/vomiting and halos is a classic emergency presentation.",
+      "license_note": "Link only; store limited excerpts if needed."
+    },
+    {
+      "source": "American Academy of Ophthalmology – Eye Health: Eye Pain and Vision Changes",
+      "url": "https://www.aao.org/eye-health/symptoms",
+      "summary": "AAO guidance identifies severe eye pain, vision changes, halos, and systemic symptoms as red flags requiring urgent ophthalmic or emergency evaluation.",
+      "license_note": "Link only; store limited excerpts if needed."
+    }
+  ]
+}

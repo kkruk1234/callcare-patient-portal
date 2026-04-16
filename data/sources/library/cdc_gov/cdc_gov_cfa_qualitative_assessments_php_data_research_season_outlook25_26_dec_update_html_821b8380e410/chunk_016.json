@@ -1,0 +1,10 @@
+{
+  "title": "2025-2026 Respiratory Disease Season Outlook - December Update | CFA: Qualitative Assessments | CDC",
+  "url": "https://www.cdc.gov/cfa-qualitative-assessments/php/data-research/season-outlook25-26-dec-update.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "n methods \nTo project the proportion of RSV hospitalizations that may be averted through immunization, we use a modeling approach that allows for estimating the effect that available RSV prevention products (infant immunization, maternal vaccination, and adult vaccination) could have on hospitalizations in this coming respiratory season. This approach is similar to ones that have been used by CDC to retrospectively estimate flu and COVID-19 hospitalizations prevented by vaccination (Reed et al. EID 2009; Steele et al., 2022, Tokars et al., 2018, Rolfes et al., 2019, Wiegand et al., 2025).\nThe model assumes that immunization protects a proportion of those who have been immunized against severe outcomes but does not prevent disease transmission. Although this simplification may slightly underestimate the value of immunization, it uses fewer parameters and requires fewer data inputs than the dynamic transmission models described above. \nProjecting hospitalizations averted among infants \nIn estimating the projected hospitalizations averted among young children, we look only at hospitalizations among infants under 12 months because RSV infant immunization is provided primarily to infants under 8 months old during the RSV season and maternal vaccination only protects infants. To develop a baseline projection of next season's burden, we used RSV hospitalization data from last season (",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_qualitative_assessments_php_data_research_season_outlook25_26_dec_update_html_821b8380e410",
+  "chunk_id": "chunk_016"
+}

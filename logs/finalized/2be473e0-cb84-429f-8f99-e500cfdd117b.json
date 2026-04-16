@@ -1,0 +1,125 @@
+{
+  "packet_id": "3c7ac4b3-ce5b-4ed0-b27b-a1ed04bf845c",
+  "created_at": "2026-01-31T20:24:21.202368+00:00",
+  "session_id": "2be473e0-cb84-429f-8f99-e500cfdd117b",
+  "chief_complaint": "my upper chest is experiencing a burning sensation",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the burning sensation in your upper chest start?",
+    "intake_a1": "3 hours ago",
+    "intake_q2": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a2": "shortness of breath",
+    "intake_q3": "Any history of heart disease, high blood pressure, or diabetes?",
+    "intake_a3": "no",
+    "intake_q4": "Any sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent trauma, injury, or heavy lifting before the chest burning started?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Can you describe the burning sensation—does it get worse with breathing or movement?",
+    "intake_a6": "worse with moving",
+    "intake_q7": "Any fever or chills since the symptoms started?",
+    "intake_a7": "no",
+    "intake_q8": "Any cough or recent respiratory infections?",
+    "intake_a8": "cough",
+    "intake_q9": "Can you describe the shortness of breath—does it occur at rest, with exertion, or when lying down?",
+    "intake_a9": "with exertion",
+    "intake_q10": "Any swelling, redness, or tenderness in your chest or nearby areas?",
+    "intake_a10": "redness",
+    "age_years": 14,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "yes",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "renal disease status is yes/unknown (dose adjustment / avoid certain meds)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/gerd.html",
+        "https://medlineplus.gov/heartburn.html",
+        "https://medlineplus.gov/heartattack.html",
+        "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 14-year-old female presenting with a burning sensation in the upper chest that started approximately 3 hours ago. The burning worsens with movement and is associated with exertional shortness of breath. There is no history of heart disease, high blood pressure, or diabetes. The patient reports recent heavy lifting prior to symptom onset and notes redness in the chest area. She denies sweating, nausea, pain radiating to the arm or jaw, fever, or chills. There is also a cough present but no recent respiratory infections reported. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nThe working diagnosis is musculoskeletal chest pain likely related to recent heavy lifting causing chest wall strain or inflammation. The burning quality and worsening with movement support this etiology. The exertional shortness of breath may be secondary to discomfort or anxiety rather than primary cardiopulmonary pathology given the absence of other ischemic symptoms and young age.\n\nDifferential: \n1. Musculoskeletal chest pain (costochondritis or muscle strain) \n2. Gastroesophageal reflux disease (GERD) causing burning chest discomfort \n3. Early respiratory infection or bronchitis given cough and redness \n4. Less likely cardiac etiology given age and symptom profile but should be monitored \n\nP: \n- First-line medication: Ibuprofen 200 mg orally every 6–8 hours as needed for pain and inflammation for 5 days; avoid if severe renal impairment (eGFR <30) or dialysis; confirm dosing with renal function (EVID_2). \n- Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain for 5 days; avoid exceeding 3 g/day; safe in renal disease but monitor liver function. \n - Topical analgesic creams (e.g., diclofenac gel) applied to the chest area 3–4 times daily for 5 days; avoid if skin broken or allergic reaction. \n- Medication safety considerations: No known medication allergies. Avoid NSAIDs if severe renal impairment. Not pregnant. No liver disease. \n- Return precautions: Seek immediate care if chest pain worsens, becomes constant, or is accompanied by new symptoms such as sweating, nausea, pain radiating to arm or jaw, syncope, or worsening shortness of breath at rest. Also return if fever develops or redness spreads. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "GERD | Gastroesophageal Reflux Disease | MedlinePlus",
+        "source": "https://medlineplus.gov/gerd.html",
+        "snippet": "and children .\nWhat causes GERD? \nGERD can happen when the muscle at the bottom of your esophagus becomes weak or relaxes at the wrong time. You are more likely to have GERD if you:\nAre overweight or have obesity \nAre pregnant \nSmoke or are around secondhand smoke \nHave a hiatal hernia (when part of the stomach pushes up into the chest) \nCertain foods, drinks, or medicines can also make GERD worse.\nWhat are common symptoms of GERD? \nThe most common symptom of GERD is heartburn . This is a burning feeling in your chest or throat. You can also have GERD without having heartburn. Other symptoms may include:\nTasting acid or food in the back of yo"
+      },
+      {
+        "title": "GERD/Heartburn (starter evidence summary)",
+        "source": "pathways/heartburn_gerd/starter_1.json",
+        "snippet": "Heartburn/GERD commonly presents as burning discomfort behind the breastbone, often after meals or when lying down.\nTelephone triage must prioritize ruling out cardiac causes of chest pain.\n\nEmergency red flags (ER now):\n- Chest pressure/heaviness, especially with exertion\n- Shortness of breath, sweating, nausea, or pain radiating to arm/jaw\n- Vomiting blood or black/tarry stools\n\nUrgent evaluation (same-day):\n- Trouble swallowing, pain with swallowing, or food sticking (possible esophageal complication)\n- Unintentional weight loss, persistent vomiting, or severe persistent pain\n\nSupportive measures (if low risk):\n- Avoid trigger foods, avoid lying down after meals, smaller meals.\n- OTC acid reducers may help if safe; do not provide dosing.\n- Seek in-person care if symptoms worsen or red flags develop."
+      },
+      {
+        "title": "Heartburn | Pyrosis | MedlinePlus",
+        "source": "https://medlineplus.gov/heartburn.html",
+        "snippet": "rning feeling in your chest or throat. It happens when stomach acid backs up into your esophagus, the tube that carries food from your mouth to your stomach.\nIf you have heartburn more than twice a week, you may have GERD . But you can have GERD without having heartburn.\nPregnancy, certain foods, alcohol, and some medications can bring on heartburn. Treating heartburn is important because over time reflux can damage the esophagus.\nOver-the-counter medicines may help. If the heartburn continues, you may need prescription medicines or surgery. \nIf you have other symptoms such as crushing chest pain, it could be a heart attack . Get help immediately.\nStart Here\nAcid Reflux (GER and GERD) in Adults \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nHeartburn \n(American Academy of Family Physicians) \nHeartburn \n(Mayo Foundation for Medical Education and Rese"
+      },
+      {
+        "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+        "source": "https://medlineplus.gov/heartattack.html",
+        "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. \nShortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of physical activity. \nDiscomfort in the upper body. You may feel pain or discomfort in one or both arms, the back, shoulders, neck, jaw, or upper part of the stomach. \nYou may also have other symptoms, such as nausea, vomiting, dizziness, and lightheadedness. You may break out in a cold swe"
+      },
+      {
+        "title": "Heartburn and acid reflux - NHS",
+        "source": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+        "snippet": "﻿ \nHeartburn and acid reflux\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nHeartburn and acid reflux \nHeartburn is a burning feeling in the chest caused by stomach acid travelling up towards the throat (acid reflux). If it keeps happening, it may be called gastro-oesophageal reflux disease (GORD). \nSymptoms of acid reflux \nThe main symptoms of acid reflux are:\nheartburn – a burning sensation in the middle of your chest an unpleasant sour taste in your mouth, caused by stomach acid You may also have:\na cough or hiccups that keep coming back a hoarse voice bad breath bloating and feeling sick Symptoms are often worse after eating, when lying down and when bending over.\nCauses of heartburn and acid reflux \nLots of people"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "GERD | Gastroesophageal Reflux Disease | MedlinePlus",
+      "source": "https://medlineplus.gov/gerd.html",
+      "snippet": "and children .\nWhat causes GERD? \nGERD can happen when the muscle at the bottom of your esophagus becomes weak or relaxes at the wrong time. You are more likely to have GERD if you:\nAre overweight or have obesity \nAre pregnant \nSmoke or are around secondhand smoke \nHave a hiatal hernia (when part of the stomach pushes up into the chest) \nCertain foods, drinks, or medicines can also make GERD worse.\nWhat are common symptoms of GERD? \nThe most common symptom of GERD is heartburn . This is a burning feeling in your chest or throat. You can also have GERD without having heartburn. Other symptoms may include:\nTasting acid or food in the back of yo"
+    },
+    {
+      "title": "GERD/Heartburn (starter evidence summary)",
+      "source": "pathways/heartburn_gerd/starter_1.json",
+      "snippet": "Heartburn/GERD commonly presents as burning discomfort behind the breastbone, often after meals or when lying down.\nTelephone triage must prioritize ruling out cardiac causes of chest pain.\n\nEmergency red flags (ER now):\n- Chest pressure/heaviness, especially with exertion\n- Shortness of breath, sweating, nausea, or pain radiating to arm/jaw\n- Vomiting blood or black/tarry stools\n\nUrgent evaluation (same-day):\n- Trouble swallowing, pain with swallowing, or food sticking (possible esophageal complication)\n- Unintentional weight loss, persistent vomiting, or severe persistent pain\n\nSupportive measures (if low risk):\n- Avoid trigger foods, avoid lying down after meals, smaller meals.\n- OTC acid reducers may help if safe; do not provide dosing.\n- Seek in-person care if symptoms worsen or red flags develop."
+    },
+    {
+      "title": "Heartburn | Pyrosis | MedlinePlus",
+      "source": "https://medlineplus.gov/heartburn.html",
+      "snippet": "rning feeling in your chest or throat. It happens when stomach acid backs up into your esophagus, the tube that carries food from your mouth to your stomach.\nIf you have heartburn more than twice a week, you may have GERD . But you can have GERD without having heartburn.\nPregnancy, certain foods, alcohol, and some medications can bring on heartburn. Treating heartburn is important because over time reflux can damage the esophagus.\nOver-the-counter medicines may help. If the heartburn continues, you may need prescription medicines or surgery. \nIf you have other symptoms such as crushing chest pain, it could be a heart attack . Get help immediately.\nStart Here\nAcid Reflux (GER and GERD) in Adults \n(National Institute of Diabetes and Digestive and Kidney Diseases) \nAlso in Spanish \nHeartburn \n(American Academy of Family Physicians) \nHeartburn \n(Mayo Foundation for Medical Education and Rese"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. \nShortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of physical activity. \nDiscomfort in the upper body. You may feel pain or discomfort in one or both arms, the back, shoulders, neck, jaw, or upper part of the stomach. \nYou may also have other symptoms, such as nausea, vomiting, dizziness, and lightheadedness. You may break out in a cold swe"
+    },
+    {
+      "title": "Heartburn and acid reflux - NHS",
+      "source": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+      "snippet": "﻿ \nHeartburn and acid reflux\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nHeartburn and acid reflux \nHeartburn is a burning feeling in the chest caused by stomach acid travelling up towards the throat (acid reflux). If it keeps happening, it may be called gastro-oesophageal reflux disease (GORD). \nSymptoms of acid reflux \nThe main symptoms of acid reflux are:\nheartburn – a burning sensation in the middle of your chest an unpleasant sour taste in your mouth, caused by stomach acid You may also have:\na cough or hiccups that keep coming back a hoarse voice bad breath bloating and feeling sick Symptoms are often worse after eating, when lying down and when bending over.\nCauses of heartburn and acid reflux \nLots of people"
+    }
+  ]
+}

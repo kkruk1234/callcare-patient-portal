@@ -1,0 +1,66 @@
+from __future__ import annotations
+from typing import Dict, List, Optional, Any
+from pydantic import BaseModel, Field
+
+
+class EvidenceRef(BaseModel):
+    title: str = ""
+    source: str
+    snippet: str
+
+
+class RedFlag(BaseModel):
+    code: str = ""
+    label: str = ""
+    severity: str = ""
+
+
+class Decision(BaseModel):
+    disposition: str
+    plan: List[str] = Field(default_factory=list)
+    safety_net: List[str] = Field(default_factory=list)
+    evidence: List[EvidenceRef] = Field(default_factory=list)
+
+
+class NoteDraft(BaseModel):
+    soap: str
+    patient_summary: str = ""  # spoken closing script
+    patient_instructions: List[str] = Field(default_factory=list)
+    clinician_questions: List[str] = Field(default_factory=list)
+    risk_flags: List[str] = Field(default_factory=list)
+    evidence: List[EvidenceRef] = Field(default_factory=list)
+
+
+class ReviewPacket(BaseModel):
+    """
+    Represents what gets queued for asynchronous physician review/approval.
+    Keep this minimal and audit-friendly.
+    """
+    packet_id: str
+    created_at: str
+    session_id: str
+    chief_complaint: str = ""
+    age_band: str = ""
+    pregnancy_possible: str = ""
+    pathway_id: str = ""
+    answers: Dict[str, Any] = Field(default_factory=dict)
+    med_suggestions: List[Dict[str, Any]] = Field(default_factory=list)
+    note: NoteDraft
+    evidence: List[EvidenceRef] = Field(default_factory=list)
+    state: Optional["CallState"] = None
+
+
+class CallState(BaseModel):
+    session_id: str
+    transcript: List[Dict[str, str]] = Field(default_factory=list)
+    chief_complaint: Optional[str] = None
+    age_band: Optional[str] = None
+    age_years: Optional[float] = None
+    pregnancy_possible: Optional[str] = None
+    symptoms: Dict[str, Any] = Field(default_factory=dict)
+    red_flags: List[str] = Field(default_factory=list)
+    decision: Optional[Decision] = None
+    stage: str = "CONSENT"
+    note_draft: Optional[NoteDraft] = None
+
+# CALLCARE_ADD_STATE_DX_FIELDS_V1

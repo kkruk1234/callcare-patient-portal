@@ -1,0 +1,487 @@
+[Table, Treatment Planning]. - StatPearls - NCBI Bookshelf
+
+An official website of the United States government
+
+Here's how you know
+
+The .gov means it's official.
+
+ Federal government websites often end in .gov or .mil. Before
+ sharing sensitive information, make sure you're on a federal
+ government site.
+ 
+
+The site is secure.
+
+ The 
+https://
+ ensures that you are connecting to the
+ official website and that any information you provide is encrypted
+ and transmitted securely.
+ 
+
+Log in
+
+Show account info
+
+Close
+
+Account
+
+ Logged in as:
+
+username
+
+Dashboard
+
+Publications
+
+Account settings
+
+Log out
+
+Access keys
+
+NCBI Homepage
+
+MyNCBI Homepage
+
+Main Content
+
+Main Navigation
+
+Bookshelf
+
+Search database
+Books
+All Databases
+Assembly
+Biocollections
+BioProject
+BioSample
+Books
+ClinVar
+Conserved Domains
+dbGaP
+dbVar
+Gene
+Genome
+GEO DataSets
+GEO Profiles
+GTR
+Identical Protein Groups
+MedGen
+MeSH
+NLM Catalog
+Nucleotide
+OMIM
+PMC
+Protein
+Protein Clusters
+Protein Family Models
+PubChem BioAssay
+PubChem Compound
+PubChem Substance
+PubMed
+SNP
+SRA
+Structure
+Taxonomy
+ToolKit
+ToolKitAll
+ToolKitBookgh
+Search term
+Search
+
+Browse Titles
+
+Advanced
+
+Help
+
+Disclaimer
+
+NCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.
+StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2025 Jan-. 
+StatPearls [Internet].
+Show details
+Treasure Island (FL): 
+StatPearls Publishing
+; 2025 Jan-.
+Search term
+ 
+
+View in own window
+
+Drug Class/Drug
+
+Drug
+
+Dose Range
+
+Notes
+
+Nonsteroidal anti-inflammatory drugs 
+[41]
+
+Aspirin 
+[23]
+Ibuprofen
+Naproxen sodium
+Diclofenac
+Tolfemanic acid
+Celecoxib 
+[42]
+
+325 to 1000 mg every 4 to 6 hours (maximum dose 4000 mg/d)
+400 mg every 4 to 6 hours or 600 to 800 mg every 6 to 8 hours
+275 to 550 mg every 12 hours 
+50 mg every 8 to 12 hours
+200 mg may repeat once after 2 hours
+200 mg daily or 100 mg every 12 hours
+
+All NSAIDs have similar efficacy 
+Nonopioid analgesic
+
+Acetaminophen 
+[43]
+
+1000 mg every 6 hours
+
+Acute-life threatening hepatotoxicity at > 4 g/d
+
+Serotonin 1b/1d agonists (triptans)
+
+(Sumatriptan) 
+[43]
+*
+
+Sumatriptan (oral)
+
+Sumatriptan (intranasal solution)
+
+Sumatriptan (intranasal powder)
+
+Sumatriptan (spray)
+
+Sumatriptan (subcutaneous)
+
+50 to 100 mg as a single oral dose
+May repeat the dose after 2 hours
+maximum dose of 200 mg/d 
+[44]
+
+20 mg as a single dose in 1 nostril
+May repeat dose after ≥2 hours,
+Maximum dose 40 mg/d
+
+22 mg as a single dose
+May repeat dose after ≥2 hours 
+Maximum dose 44 mg/d
+
+10 mg as a single dose in 1 nostril
+May repeat dose after ≥1 hour  Maximum dose 30 mg/d
+
+6 mg as a single subcutaneous dose
+May repeat dose  same or smaller dose after ≥1 hour 
+Maximum dose 6 mg/dose and 12 mg/d 
+[45]
+
+The unpleasant taste is lower with intranasal zolmitriptan than with intranasal sumatriptan.
+
+Patients who do not respond to one triptan may respond to another.
+
+Naratriptan and frovatriptan have a slower onset and lower efficacy.
+
+Subcutaneous is more efficacious than the oral route.
+
+Serotonin 1b/1d agonists (triptans)
+
+(Naratriptan) 
+
+ 
+
+Naratriptan 
+[46]
+
+2.5 mg as a single dose
+May repeat dose after ≥4 hours
+Maximum dose 2.5 mg/dose and 5 mg/d
+
+Slower onset and longer duration of effect than other triptans.
+
+Likely has lower efficacy but may be better tolerated than other triptans.
+
+Repeat the dose after 4 hours.
+
+Contraindicated with severe renal impairment (CrCl <15 mL/min).
+
+Serotonin 1b/1d agonists (triptans)
+
+(Zolmitriptan) 
+[47]
+
+ Zolmitriptan (oral)
+
+Zolmitriptan (intranasal)
+
+ 2.5 mg as a single dose
+May repeat dose after ≥2 hours
+Maximum dose 5 mg/dose and 10 mg/d
+
+2.5 to 5 mg as a single intranasal dose
+May repeat dose after ≥2 hours
+Maximum dose 5 mg/dose and 10 mg/d
+
+The oral tablet but not ODT may be split.
+
+Serotonin 1b/1d agonists (triptans)
+
+(Frovatriptan)
+
+Frovatriptan 
+
+2.5 mg as a single dose
+May repeat dose after ≥2 hours
+Maximum dose 2.5 mg/dose and 5 mg/d  
+
+Slower onset and longer duration of effect than many other triptans.
+
+May have lower efficacy than other triptans but be better tolerated.
+
+Serotonin 1b/1d agonists (triptans)
+
+(Almotriptan) 
+
+Almotriptan 
+
+12.5 mg as a single dose
+May repeat dose after ≥2 hours 
+Maximum dose 12.5 mg/dose and 25 mg/d 
+
+Reduce dose by half in patients with hepatic impairment. 
+
+Possibly better tolerated than other triptans.
+
+Serotonin 1b/1d agonists (triptans)
+
+(Rizatriptan)
+
+Rizatriptan 
+[48]
+
+5 to 10 mg as a single dose
+May repeat dose after ≥2 hours 
+maximum dose 20-30 mg/d
+
+Propranolol increases rizatriptan levels by 70%. The dose of rizatriptan must be adjusted downward in these patients.
+
+10 mg film cannot be split.
+
+Serotonin 1b/1d agonists (triptans)
+
+(Eletriptan)
+
+Eletriptan
+
+40 mg as a single dose
+May repeat dose after ≥2 hours
+maximum dose 40 mg/dose and 80 mg/d 
+[49]
+
+40 mg dose is more efficacious, but 20 mg may be better tolerated.
+
+Primarily metabolized by cytochrome P-450 enzyme CYP3A4. Not advised within at least 72 hours of treatment with other potent CYP3A4 inhibitors like itraconazole, ketoconazole, clarithromycin, nefazodone, troleandomycin, ritonavir, and nelfinavir.
+
+ Antiemetics
+
+Metoclopramide (IV, IM, oral) 
+[50]
+
+Prochlorperazine (IV, IM)
+
+10 to 20 mg as a single dose
+
+10 mg as a single dose
+
+The intravenous route is preferred for metoclopramide. Pretreat with diphenhydramine to prevent akathisia and other acute dystonic reactions.
+Calcitonin-gene-related peptide antagonists
+
+Rimegepant 
+[51]
+
+Ubrogepant 
+[26]
+
+Atogepant 
+[52]
+[53]
+[52]
+
+75 mg every other day
+maximum dose 75 mg/d
+
+50 to 100 mg as a single dose
+may repeat dose after ≥2 hours
+maximum dose 200 mg/d
+
+10 to 60 mg once daily; maximum dose: 60 mg/d
+
+Administration early in the course of a migraine attack may improve response to treatment.
+
+Second-line therapy when triptans are contraindicated, poorly tolerated, or ineffective.
+
+Atogepant is avoided in patients with recent cardiovascular or cerebrovascular ischemic events. 
+
+Use is generally avoided with hepatic impairment, except for ubrogepant, which can be given 50 mg as a single dose.
+
+Renal impairment requires adjustment for all.
+
+Serotonin 5-HT1F receptor agonist
+
+Lasmiditan
+
+50 to 100 mg as a single dose
+May increase to 100 or 200 mg as a single dose 
+Repeat doses have not established efficacy 
+[54]
+
+Administration early in the course of a migraine attack may improve response to treatment.
+
+Second-line therapy when triptans are contraindicated, poorly tolerated, or ineffective.
+
+A significant side effect is dizziness (9% to 17%). Wait at least 8 hours between dosing and driving or operating heavy machinery.
+
+Lasmiditan may enhance the CNS depressant effect of alcohol.
+
+ Ergot derivative 
+[55]
+
+ Dihydroergotamine
+
+IM: 1 mg as a single dose
+May repeat hourly as required
+Maximum dose 3 mg/d and 6 mg/wk
+
+IV: 1 mg as a single dose
+May repeat hourly as required
+Maximum dose 2 mg/d and 6 mg/wk
+
+Subcutaneous: 1 mg as a single dose
+May repeat after 2 hours 
+Maximum dose 3 mg/d and 6 mg/wk
+
+Intranasal: 0.5 mg per spray: 1 spray into each nostril
+Repeat after 15 minutes for a total of 4 sprays per dose
+maximum dose 4 sprays/d
+
+Avoid use with potent inhibitors of CYP3A4, including azole antifungals, protease inhibitors, and some macrolide antibiotics.
+
+From: 
+Migraine With Aura
+Copyright
+ © 2025, StatPearls Publishing LLC.
+
+This book is distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+(
+
+http://creativecommons.org/licenses/by-nc-nd/4.0/
+
+), which permits others to distribute the work, provided that the article is not altered or used commercially. You are not required to obtain permission to distribute this article, provided that you credit the author and journal.
+
+Views
+Cite this Page
+Shankar Kikkeri N, Nagalli S. Migraine With Aura. [Updated 2024 Feb 29]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2025 Jan-. [Table, Treatment Planning].
+Related information
+PMC
+PubMed Central citations
+PubMed
+Links to PubMed
+Similar articles in PubMed
+[Migrainous aura subtypes in hospitalized children].
+[Przegl Lek. 2009]
+[Migrainous aura subtypes in hospitalized children].
+Biedroń A, Steczkowska M, Zajac A, Stolarska U, Kroczka S. 
+Przegl Lek. 2009; 66(11):952-7. 
+Migraine Headache.
+[StatPearls. 2025]
+Migraine Headache.
+Pescador Ruschel MA, De Jesus O. 
+StatPearls. 2025 Jan
+Anti-Calcitonin Gene-Related Peptide Monoclonal Antibody Is Effective for Preventing Migraine Aura Without Headache.
+[Neurol Int. 2024]
+Anti-Calcitonin Gene-Related Peptide Monoclonal Antibody Is Effective for Preventing Migraine Aura Without Headache.
+Shibata Y. 
+Neurol Int. 2024 Oct 29; 16(6):1279-1284. Epub 2024 Oct 29.
+Review
+ Pathophysiology of migraine aura.
+[Handb Clin Neurol. 2023]
+Review
+ Pathophysiology of migraine aura.
+Sanchez Del Rio M, Cutrer FM. 
+Handb Clin Neurol. 2023; 198:71-83. 
+Review
+ History of migraine with aura and cortical spreading depression from 1941 and onwards.
+[Cephalalgia. 2010]
+Review
+ History of migraine with aura and cortical spreading depression from 1941 and onwards.
+Tfelt-Hansen PC. 
+Cephalalgia. 2010 Jul; 30(7):780-92. 
+See reviews...
+See all...
+Recent Activity
+Clear
+Turn Off
+Turn On
+[Table, Treatment Planning]. - StatPearls
+[Table, Treatment Planning]. - StatPearls
+Your browsing activity is empty.
+Activity recording is turned off.
+Turn recording back on
+See more...
+
+Follow NCBI
+
+Twitter
+
+Facebook
+
+LinkedIn
+
+GitHub
+
+NCBI Insights Blog
+
+Connect with NLM
+
+Twitter
+
+Facebook
+
+Youtube
+
+National Library of Medicine
+
+8600 Rockville Pike
+
+ Bethesda, MD 20894
+
+Web Policies
+
+FOIA
+
+HHS Vulnerability Disclosure
+
+Help
+
+Accessibility
+
+Careers
+
+NLM
+
+NIH
+
+HHS
+
+USA.gov

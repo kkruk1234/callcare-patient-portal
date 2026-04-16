@@ -1,0 +1,26 @@
+id: dehydration_child
+version: 0.1
+match:
+  any_keywords: ["child dehydrated", "kid dehydrated", "not peeing much child", "dry mouth child", "child vomiting and not peeing", "few wet diapers"]
+questions:
+  - id: very_sleepy
+    prompt: "Is your child unusually sleepy, hard to wake, or very weak? (yes/no)"
+    store_as: lethargy
+    type: yesno
+
+  - id: not_peeing
+    prompt: "Has your child had very little urine (no wet diaper for 8 hours, or barely peeing)? (yes/no)"
+    store_as: low_urine
+    type: yesno
+
+  - id: cannot_keep
+    prompt: "Is your child unable to keep fluids down due to vomiting? (yes/no)"
+    store_as: cannot_keep_fluids
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["very_sleepy", "not_peeing", "cannot_keep"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

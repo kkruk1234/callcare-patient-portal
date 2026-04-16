@@ -1,0 +1,167 @@
+{
+  "call_sid": "CAc6f592c25760dfc6d2fcdc36e20ab432",
+  "session_id": "0b1d8177-fefe-44d9-9c4b-aa1e16715580",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-23T16:48:22.492500+00:00",
+  "ended_at": "2026-03-23T16:52:07.508432+00:00",
+  "packet_id": "b34af8ef-6b2d-49f8-a066-5aa29e3c8f50",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a rash on my arms."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you first notice the rash on your arms?"
+    },
+    {
+      "role": "user",
+      "text": "About 2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe what the rash looks like and if it is itchy, painful, or spreading?"
+    },
+    {
+      "role": "user",
+      "text": "The rash is on both arms both forearms from my wrist to my elbows on both arms, and it's red and rough. And it has these little um, they look like little tiny blisters."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or feeling unwell since the rash started?"
+    },
+    {
+      "role": "user",
+      "text": "And they it is extremely itchy."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you recently started using any new soaps, lotions, detergents, or been exposed to plants, chemicals, or animals?"
+    },
+    {
+      "role": "user",
+      "text": "And, um, if I"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me more about any new products or exposures you might have had recently, like soaps, lotions, detergents, plants, chemicals, or animals?"
+    },
+    {
+      "role": "user",
+      "text": "it I itch it,"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed if the rash is spreading beyond your forearms or if you have any swelling or difficulty breathing?"
+    },
+    {
+      "role": "user",
+      "text": "Wow. You just asked me 3 questions in a row."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or remedies for the rash so far?"
+    },
+    {
+      "role": "user",
+      "text": "No. I don't have a fever."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any similar rashes in the past or any known allergies to plants, chemicals, or medications?"
+    },
+    {
+      "role": "user",
+      "text": "Alright."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have noticed any swelling, blistering, or oozing from the rash?"
+    },
+    {
+      "role": "user",
+      "text": "You now ask me another question, interrupting me yet again."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any swelling, blistering, or oozing from the rash?"
+    },
+    {
+      "role": "user",
+      "text": "And also and he interrupted me again. And you didn't say anything again. Okay. Swelling. That's all Okay. I give up."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "You didn't say you actually didn't say the line that this may be repetitive. I see in the logs, it says that you were asking me that, and you didn't ask me that at all."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "C as though I answered mail. No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have a rash on your forearms that’s likely allergic contact dermatitis, which is causing redness, tiny blisters, and itching. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe a topical steroid cream or an oral antihistamine to help with the itching and inflammation. \n\nFor now, avoid scratching and keep the area clean and dry. If the rash spreads quickly, develops swelling, oozing, or signs of infection, or if you start feeling feverish or unwell, please seek in-person care the same day. If symptoms become severe or you have trouble breathing or swelling of your face or throat, go to the emergency room immediately. \n\nA physician will review your case soon and decide on the best treatment. If you need an in-person exam or testing, please visit urgent care or your primary care clinician."
+    }
+  ]
+}

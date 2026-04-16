@@ -1,0 +1,56 @@
+id: ear_pain
+label: Ear pain
+
+match:
+  any_keywords: ["ear pain", "earache"]
+
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+
+  - id: duration
+    prompt: "How long has the ear pain been present? (today, 1–3 days, 4–7 days, >1 week)"
+    type: text
+    store_as: ear_duration
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    type: yesno
+    store_as: fever
+
+  - id: discharge
+    prompt: "Any drainage or pus from the ear? (yes/no)"
+    type: yesno
+    store_as: ear_discharge
+
+  - id: tragus
+    prompt: "Does it hurt more when you press on the small flap in front of the ear (tragus) or pull on the outer ear? (yes/no)"
+    type: yesno
+    store_as: ear_tragus_tender
+
+  - id: swimming
+    prompt: "Have you been swimming recently or had water trapped in the ear? (yes/no)"
+    type: yesno
+    store_as: recent_swimming
+
+  - id: itching
+    prompt: "Is the ear canal itchy? (yes/no)"
+    type: yesno
+    store_as: ear_itching
+
+  - id: uri
+    prompt: "Have you had a recent cold or sinus symptoms? (yes/no)"
+    type: yesno
+    store_as: uri_symptoms
+
+  - id: vertigo
+    prompt: "Any severe dizziness or balance problems? (yes/no)"
+    type: yesno
+    store_as: vertigo
+
+  - id: diabetes
+    prompt: "Do you have diabetes or a weakened immune system? (yes/no)"
+    type: yesno
+    store_as: immune_risk

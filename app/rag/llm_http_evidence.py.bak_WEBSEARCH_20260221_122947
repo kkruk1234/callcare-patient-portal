@@ -1,0 +1,427 @@
+import os, json, time, re
+from urllib.parse import urlparse
+
+DEFAULT_MODEL = os.getenv("CALLCARE_LLM_EVIDENCE_MODEL", "gpt-4o-mini")
+
+# Authoritative allowlist (including subdomains)
+ALLOWLIST_DOMAINS = {
+    "nih.gov",
+    "ncbi.nlm.nih.gov",
+    "medlineplus.gov",
+    "nice.org.uk",
+    "nhs.uk",
+    "who.int",
+    "merckmanuals.com",
+    "idsociety.org",
+    "acog.org",
+    "acep.org",
+    "aaos.org",
+    "aafp.org",
+}
+
+BAD_TITLE_SIGNALS = [
+    "page not found",
+    "not found",
+    "error",
+    "access denied",
+    "forbidden",
+    "unauthorized",
+    "oops",
+    "we can’t find",
+    "we can't find",
+]
+
+STOPWORDS = {
+    "the","a","an","and","or","of","to","in","on","for","with","without","is","are",
+    "this","that","it","as","by","from","at","be","been","was","were","can","may",
+    "your","you","patient","patients","adult","adults","child","children",
+}
+
+def _normalize_url(u: str) -> str:
+    try:
+        u = (u or "").strip()
+        u = u.replace("://www.", "://")
+        if u.endswith("/"):
+            u = u[:-1]
+        return u
+    except Exception:
+        return (u or "").strip()
+
+def _domain_allowed(url: str) -> bool:
+    try:
+        host = urlparse(url).netloc.lower().split(":")[0]
+        if host.startswith("www."):
+            host = host[4:]
+        for d in ALLOWLIST_DOMAINS:
+            if host == d or host.endswith("." + d):
+                return True
+        return False
+    except Exception:
+        return False
+
+def _norm(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip()).lower()
+
+def _tokenize_query(q: str) -> list[str]:
+    q = _norm(q)
+    toks = re.findall(r"[a-z0-9]+", q)
+    toks = [t for t in toks if t and t not in STOPWORDS and len(t) >= 3]
+    return toks[:10]
+
+def _extract_title_and_snippet(html: str) -> tuple[str, str]:
+    title = ""
+    snippet = ""
+    try:
+        m = re.search(r"<title[^>]*>(.*?)</title>", html, flags=re.I | re.S)
+        if m:
+            title = re.sub(r"\s+", " ", re.sub(r"<.*?>", "", m.group(1))).strip()
+    except Exception:
+        title = ""
+    try:
+        m = re.search(
+            r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']',
+            html,
+            flags=re.I | re.S,
+        )
+        if m:
+            snippet = re.sub(r"\s+", " ", m.group(1)).strip()
+    except Exception:
+        snippet = ""
+    return title, snippet
+
+def _http_get_validate(url: str, timeout: float = 6.0) -> dict:
+    """
+    Returns dict: { ok, status, title, snippet, reason }
+    Never raises.
+    """
+    try:
+        import requests
+        r = requests.get(url, timeout=timeout, allow_redirects=True, headers={"User-Agent": "CallCare/1.0"})
+        status = getattr(r, "status_code", None)
+        text = (r.text or "")
+        title, snippet = _extract_title_and_snippet(text[:200000])
+
+        tnorm = _norm(title)
+        if status is None:
+            return {"ok": False, "status": None, "title": title, "snippet": snippet, "reason": "no_status"}
+        if status >= 400:
+            return {"ok": False, "status": status, "title": title, "snippet": snippet, "reason": f"http_{status}"}
+        if any(sig in tnorm for sig in BAD_TITLE_SIGNALS):
+            return {"ok": False, "status": status, "title": title, "snippet": snippet, "reason": "bad_title"}
+
+        return {"ok": True, "status": status, "title": title, "snippet": snippet, "reason": "ok"}
+    except Exception as e:
+        return {"ok": False, "status": None, "title": "", "snippet": "", "reason": f"exception:{type(e).__name__}"}
+
+def _openai_chat_json(prompt: str, model: str) -> dict:
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        raise RuntimeError("OPENAI_API_KEY not set")
+
+    import requests
+    payload = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": "Return ONLY valid JSON. No prose. No markdown."},
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": 0.2,
+    }
+    t0 = time.time()
+    resp = requests.post(
+        "https://api.openai.com/v1/chat/completions",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json=payload,
+        timeout=20,
+    )
+    dt = time.time() - t0
+    if resp.status_code >= 400:
+        raise RuntimeError(f"OpenAI HTTP {resp.status_code}: {resp.text[:300]}")
+    data = resp.json()
+    content = data["choices"][0]["message"]["content"]
+    obj = json.loads(content)
+    obj["_latency_s"] = dt
+    return obj
+
+def _make_evidence_ref(EvidenceRef, title: str, url: str, snippet: str):
+    candidates = [
+        {"title": title, "source": url, "snippet": snippet},
+        {"title": title, "url": url, "snippet": snippet},
+        {"title": title, "source": url},
+        {"title": title, "url": url},
+        {"source": url, "snippet": snippet},
+        {"url": url, "snippet": snippet},
+        {"source": url},
+        {"url": url},
+    ]
+    last = None
+    for d in candidates:
+        try:
+            return EvidenceRef(**d)
+        except Exception as e:
+            last = e
+    raise last or RuntimeError("Could not construct EvidenceRef")
+
+def _construct_url(item: dict) -> str:
+    kind = (item.get("kind") or "").strip().lower()
+    if kind == "url":
+        return str(item.get("url") or "").strip()
+
+    if kind == "nhs_condition":
+        slug = str(item.get("slug") or "").strip().strip("/")
+        return f"https://www.nhs.uk/conditions/{slug}/" if slug else ""
+
+    if kind == "nice_guidance":
+        gid = str(item.get("id") or "").strip().lower().replace(" ", "")
+        return f"https://www.nice.org.uk/guidance/{gid}" if gid else ""
+
+    if kind == "medlineplus_topic":
+        slug = str(item.get("slug") or "").strip().strip("/")
+        if not slug:
+            return ""
+        if slug.endswith(".html"):
+            return f"https://medlineplus.gov/{slug}"
+        return f"https://medlineplus.gov/{slug}.html"
+
+    return ""
+
+def _prompt_items(dx: str, cc: str, min_urls: int, max_urls: int, bad: list[dict], keep: list[str]) -> str:
+    bad_lines = [f"- {b.get('url')} ({b.get('reason')})" for b in bad[:12]]
+    keep_lines = [f"- {u}" for u in keep]
+    return f"""
+Return JSON exactly:
+{{
+  "items": [
+    {{"kind":"nhs_condition","slug":"..."}},
+    {{"kind":"medlineplus_topic","slug":"..."}},
+    {{"kind":"nice_guidance","id":"NG59"}},
+    {{"kind":"url","url":"https://..."}}
+  ]
+}}
+
+You must provide enough candidates so that after HTTP validation we can reach at least {min_urls} sources (ideally {max_urls}).
+
+KEEP these URLs unchanged:
+{chr(10).join(keep_lines) if keep_lines else "(none)"}
+
+REPLACE anything that failed:
+{chr(10).join(bad_lines) if bad_lines else "(none)"}
+
+Rules:
+- Prefer structured items (nhs_condition / medlineplus_topic / nice_guidance) to avoid broken URLs.
+- If using kind="url", it MUST be from these domains (including subdomains): {sorted(ALLOWLIST_DOMAINS)}
+- Avoid internal site search results pages.
+- Avoid 404 / “Page Not Found” / “Error” pages.
+- Must be relevant to: {cc} (dx hint: {dx})
+- No duplicates.
+""".strip()
+
+def _llm_relevance_filter(context: str, candidates: list[dict], trace_fn=None) -> list[dict]:
+    """
+    context: Assessment (A:) line/string.
+    candidates: [{url,title,snippet}]
+    Returns subset to KEEP based on relevance to the context.
+    No anatomy tables; purely semantic filtering against the assessment narrative.
+    """
+    try:
+        ctx = (context or "").strip()
+        if not ctx:
+            return candidates
+
+        payload = []
+        for c in candidates[:10]:
+            payload.append({
+                "url": c.get("url",""),
+                "title": (c.get("title") or "")[:180],
+                "snippet": (c.get("snippet") or "")[:300],
+            })
+
+        prompt = f"""
+Return JSON only:
+{{
+  "keep_urls": ["https://...","https://..."]
+}}
+
+Task:
+Filter references for a telephone triage note. KEEP only sources clinically relevant to the patient's working assessment.
+DROP sources that clearly describe a different syndrome or mismatch the context.
+
+Working assessment (from note A:):
+{ctx}
+
+Candidates:
+{json.dumps(payload, ensure_ascii=False)}
+
+Rules:
+- If a source focuses on a different syndrome than the assessment (example: radicular pain/sciatica when assessment is localized non-radicular strain), DROP it.
+- If unclear, DROP.
+""".strip()
+
+        obj = _openai_chat_json(prompt, DEFAULT_MODEL)
+        keep_urls = obj.get("keep_urls") or []
+        keep = set()
+        if isinstance(keep_urls, list):
+            for u in keep_urls:
+                if isinstance(u, str):
+                    keep.add(_normalize_url(u))
+
+        kept = [c for c in candidates if _normalize_url(c.get("url","")) in keep]
+
+        if trace_fn:
+            trace_fn("llm_relevance_filter", in_n=len(candidates), out_n=len(kept))
+        return kept
+    except Exception as e:
+        if trace_fn:
+            trace_fn("llm_relevance_filter_error", err_type=type(e).__name__, err=str(e))
+        return candidates  # fail-open
+
+def _ncbi_topup(query: str, needed: int, trace_fn=None) -> list[str]:
+    """
+    Deterministic fallback: PubMed reviews, free full text, last 10 years.
+    Returns PubMed URLs (authoritative, stable).
+    """
+    if needed <= 0:
+        return []
+    try:
+        import requests
+        term = (query or "").strip() or "back pain"
+        q = f'({term}) AND review[pt] AND humans[mesh] AND english[lang] AND "last 10 years"[pdat] AND free full text[sb]'
+        esearch = requests.get(
+            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+            params={"db": "pubmed", "retmode": "json", "retmax": max(needed * 4, 12), "term": q},
+            timeout=10,
+        )
+        ids = (esearch.json().get("esearchresult", {}).get("idlist") or [])
+        if trace_fn:
+            trace_fn("ncbi_topup_esearch", found=len(ids))
+        urls = []
+        for pid in ids:
+            urls.append(f"https://pubmed.ncbi.nlm.nih.gov/{pid}/")
+            if len(urls) >= needed:
+                break
+        if trace_fn:
+            trace_fn("ncbi_topup_done", added=len(urls))
+        return urls
+    except Exception as e:
+        if trace_fn:
+            trace_fn("ncbi_topup_error", err_type=type(e).__name__, err=str(e))
+        return []
+
+def llm_http_evidence(
+    *,
+    diagnosis_hint: str,
+    chief_complaint: str,
+    context: str = "",
+    max_urls: int = 6,
+    min_urls: int = 4,
+    trace_fn=None,
+    max_rounds: int = 3,
+):
+    if trace_fn:
+        trace_fn("llm_http_evidence_start", dx=diagnosis_hint, cc=chief_complaint, model=DEFAULT_MODEL)
+
+    from app.core.models import EvidenceRef
+
+    dx = (diagnosis_hint or "").strip()
+    cc = (chief_complaint or "").strip()
+    query = dx or cc
+
+    good: list[dict] = []
+    bad_info: list[dict] = []
+    good_seen = set()
+
+    # LLM propose + HTTP validate
+    for round_idx in range(max_rounds):
+        prompt = _prompt_items(dx, cc, min_urls, max_urls, bad_info, [g["url"] for g in good])
+        obj = _openai_chat_json(prompt, DEFAULT_MODEL)
+        items = obj.get("items") or []
+        if not isinstance(items, list):
+            items = []
+
+        candidates = []
+        seen = set([g["url"] for g in good]) | {b.get("url") for b in bad_info if b.get("url")}
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            u = _construct_url(it)
+            u = _normalize_url(u)
+            if not u or not (u.startswith("http://") or u.startswith("https://")):
+                continue
+            if not _domain_allowed(u):
+                continue
+            if u in seen:
+                continue
+            seen.add(u)
+            candidates.append(u)
+            if len(good) + len(candidates) >= max_urls:
+                break
+
+        if trace_fn:
+            trace_fn("llm_http_evidence_urls", round=round_idx + 1, candidate_urls=len(candidates), kept_good=len(good), latency_s=obj.get("_latency_s"))
+
+        new_bad = []
+        for u in candidates:
+            v = _http_get_validate(u, timeout=6.0)
+            if not v["ok"]:
+                new_bad.append({"url": u, "reason": v["reason"], "status": v.get("status"), "title": (v.get("title") or "")[:120]})
+                continue
+
+            title = (v.get("title") or u).strip()
+            snippet = (v.get("snippet") or "Authoritative clinical reference (see source).").strip()
+
+            # quick lexical relevance to avoid total nonsense
+            toks = _tokenize_query(query)
+            hay = _norm(" ".join([u, title, snippet]))
+            if toks and not any(t in hay for t in toks):
+                new_bad.append({"url": u, "reason": "low_relevance_lex", "status": v.get("status"), "title": title[:120]})
+                continue
+
+            if u in good_seen:
+                continue
+            good_seen.add(u)
+            good.append({"url": u, "title": title, "snippet": snippet})
+
+        bad_info = (bad_info + new_bad)[:25]
+
+        # Context relevance gate (Assessment-based)
+        good = _llm_relevance_filter(context=context, candidates=good, trace_fn=trace_fn)
+
+        if len(good) >= min_urls:
+            break
+
+    # Enforce minimum: PubMed top-up, then same relevance gate
+    if len(good) < min_urls:
+        need = min_urls - len(good)
+        top = _ncbi_topup(query=query, needed=need + 2, trace_fn=trace_fn)  # grab a couple extra then filter
+        for u in top:
+            u = _normalize_url(u)
+            if u in good_seen:
+                continue
+            if not _domain_allowed(u):
+                continue
+            v = _http_get_validate(u, timeout=6.0)
+            if not v["ok"]:
+                continue
+            title = (v.get("title") or u).strip()
+            snippet = (v.get("snippet") or "Authoritative clinical reference (see source).").strip()
+            good.append({"url": u, "title": title, "snippet": snippet})
+            good_seen.add(u)
+
+        good = _llm_relevance_filter(context=context, candidates=good, trace_fn=trace_fn)
+
+    # If still short, return what we have (but trace it)
+    if trace_fn and len(good) < min_urls:
+        trace_fn("evidence_shortfall", have=len(good), need=min_urls)
+
+    refs = []
+    for c in good[:max_urls]:
+        try:
+            refs.append(_make_evidence_ref(EvidenceRef, title=c["title"], url=c["url"], snippet=c["snippet"]))
+        except Exception as e:
+            if trace_fn:
+                trace_fn("llm_http_evidence_ref_error", url=c.get("url"), err_type=type(e).__name__, err=str(e))
+
+    if trace_fn:
+        trace_fn("llm_http_evidence_done", refs=len(refs), good_urls=len(good), bad_urls=len(bad_info), last_bad=bad_info[:5])
+
+    return refs

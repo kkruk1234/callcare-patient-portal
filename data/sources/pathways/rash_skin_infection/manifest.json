@@ -1,0 +1,26 @@
+{
+  "pathway_id": "rash_skin_infection",
+  "sources": [
+    {
+      "id": "aafp_skin_soft_tissue_infections_2015",
+      "type": "web",
+      "url": "https://www.aafp.org/pubs/afp/issues/2015/0915/p474.html",
+      "title": "AAFP: Skin and Soft Tissue Infections",
+      "license_note": "Educational article; excerpt briefly."
+    },
+    {
+      "id": "cdc_shingles_clinical_overview",
+      "type": "web",
+      "url": "https://www.cdc.gov/shingles/hcp/clinical-overview/index.html",
+      "title": "CDC: Clinical Overview of Shingles (Herpes Zoster)",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "nice_ng153_impetigo",
+      "type": "web",
+      "url": "https://www.nice.org.uk/guidance/ng153",
+      "title": "NICE NG153: Impetigo — Antimicrobial Prescribing",
+      "license_note": "Use short excerpts only."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+id: sprain_strain
+version: 0.1
+match:
+  any_keywords: ["sprain", "strain", "twisted", "ankle", "wrist", "knee injury", "pulled muscle"]
+questions:
+  - id: injury_time
+    prompt: "When did the injury happen? (today, yesterday, 3 days ago)"
+    store_as: injury_time
+
+  - id: deformity
+    prompt: "Is there obvious deformity, the bone looks out of place, or severe swelling right away? (yes/no)"
+    store_as: deformity
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_fracture_or_dislocation"]
+
+  - id: weight_bearing
+    prompt: "Can you bear weight or use the limb at all? (yes/no)"
+    store_as: can_bear_weight
+    type: yesno
+    if_yes:
+      add_flags:
+        routine: ["weight_bearing_possible_sprain"]
+
+  - id: numbness
+    prompt: "Any numbness, weakness, or the limb feels cold/pale compared to the other side? (yes/no)"
+    store_as: neurovascular
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["neurovascular_compromise"]
+
+  - id: open_wound
+    prompt: "Is there an open wound with the injury or uncontrolled bleeding? (yes/no)"
+    store_as: open_wound
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["open_wound_injury"]
+
+stop_rules:
+  - if_all_answered: ["injury_time", "deformity", "weight_bearing", "numbness", "open_wound"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

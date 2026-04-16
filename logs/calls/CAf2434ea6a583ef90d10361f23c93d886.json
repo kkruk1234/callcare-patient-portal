@@ -1,0 +1,175 @@
+{
+  "call_sid": "CAf2434ea6a583ef90d10361f23c93d886",
+  "session_id": "a3b3b006-22d3-4b41-b209-5344c2ba390f",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-04T14:34:35.604876+00:00",
+  "ended_at": "2026-04-04T14:41:25.779665+00:00",
+  "packet_id": "c4602cfd-e03a-4b9a-b734-3e06a555b34b",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have a lot of acne."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your acne start and has it changed recently?"
+    },
+    {
+      "role": "user",
+      "text": "I feel like I've always had acne, but over the last probably year, it has gone gotten worse."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments for your acne, and if so, what were they and did they help?"
+    },
+    {
+      "role": "user",
+      "text": "I tried I went to a dermatologist, and I had tried the medications that they gave me, 1 of which was a topical clindamycin."
+    },
+    {
+      "role": "assistant",
+      "text": "Besides the topical clindamycin, did you try any other acne treatments, and how well did they work?"
+    },
+    {
+      "role": "user",
+      "text": "The other 1 was, I think, their own over the counter marketed ones. But why do you keep interrupting me? I don't understand why you just interrupted me. I tried over the counter stuff as well. It doesn't really help."
+    },
+    {
+      "role": "assistant",
+      "text": "Besides the topical clindamycin, did you try any other acne treatments, and how well did they work?"
+    },
+    {
+      "role": "user",
+      "text": "I literally just was asked back question and just answered it again."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any painful, large, or cystic acne lesions, or any scarring from your acne?"
+    },
+    {
+      "role": "user",
+      "text": "No. But you were starting to get glitchy and staticky, your voice."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any other symptoms like fever, weight loss, or changes in your menstrual cycle?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any new medications, supplements, or changes in your skincare routine in the past year?"
+    },
+    {
+      "role": "user",
+      "text": "Have I noticed is an incorrect way to put this sentence, but no."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you experienced any side effects or issues with the topical clindamycin or other treatments you tried?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever used or been prescribed oral acne medications like antibiotics or isotretinoin?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you currently using any other skincare products or cosmetics regularly?"
+    },
+    {
+      "role": "user",
+      "text": "I'm using Cover Up and I'm using Cetaphil face wash. Foaming face wash cream."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any impact of your acne on your mood, daily activities, or social interactions?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. They make me feel very self conscious. This is crazy. That's a stupid question."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "14"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your weight? You can say it in pounds or kilograms."
+    },
+    {
+      "role": "user",
+      "text": "120."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female"
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re dealing with moderate acne that has been getting worse over the past year. Because this is a phone visit, I can’t examine your skin or run tests, but based on what you shared, medication treatment may be appropriate. A licensed physician will review this note and, if suitable, may prescribe a topical retinoid or possibly an oral antibiotic. In the meantime, you can continue gentle skin care and avoid picking at your acne. If your acne suddenly worsens, becomes painful, or shows signs of infection, please seek in-person care the same day. Otherwise, a doctor will review your case and decide on the best treatment plan. If you have any new or severe symptoms like fever, spreading redness, or intense pain, go to the emergency room right away."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "packet_id": "c6382783-f3e4-4660-9503-06c18ed9ed2a",
+  "created_at": "2026-03-24T13:30:43.019395+00:00",
+  "session_id": "6d7eeddf-6890-4dac-b332-f035b124383f",
+  "pathway_id": "",
+  "base_queries": [
+    "low back pain management guidelines adults",
+    "adult low back pain treatment dosing acetaminophen mg duration",
+    "red flags in low back pain indicating urgent imaging or referral",
+    "return precautions for low back pain with radiating buttock pain"
+  ],
+  "queries": [
+    "AAFP low back pain management guidelines adults",
+    "AAFP adult low back pain treatment dosing acetaminophen mg duration",
+    "MedlinePlus low back pain management guidelines adults",
+    "MedlinePlus adult low back pain treatment dosing acetaminophen mg duration",
+    "CDC low back pain management guidelines adults",
+    "CDC adult low back pain treatment dosing acetaminophen mg duration",
+    "NIH low back pain management guidelines adults",
+    "NIH adult low back pain treatment dosing acetaminophen mg duration",
+    "NICE low back pain management guidelines adults",
+    "NICE adult low back pain treatment dosing acetaminophen mg duration",
+    "WHO low back pain management guidelines adults",
+    "WHO adult low back pain treatment dosing acetaminophen mg duration"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+      "accessed": "2026-03-24",
+      "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+    },
+    {
+      "title": "Results - Noninvasive Treatments for Low Back Pain - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK350281/",
+      "accessed": "2026-03-24",
+      "snippet": "Benzodiazepines Key Points For acute low back pain, there was insufficient evidence from two trials with inconsistent results to determine effectiveness of benzodiazepines versus placebo (SOE: insufficient). For chronic low back pain, a systematic review included two trials that found tetrazepam associated with lower likelihood of no improvement in pain at 5-7 days (RR 0.82, 95% CI 0.72 to 0.94) and at 10 to 14 days (RR 0.71, 95% CI 0.54 to 0.93) versus placebo, and lower likelihood of no overall improvement at 10 to 14 days (RR 0.63, 95% CI 0.42 to 0.97) (SOE: low). For acute or subacute radicular pain, one trial found no difference between diazepam 5 mg twice daily for 5 days versus placebo in function at 1 week through 1 year, or other outcomes including analgesic use, return to work, or likelihood of surgery through 1 year of followup. Diazepam was associated with lower likelihood of"
+    },
+    {
+      "title": "Chronic Low Back Pain in Adults: Evaluation and Management | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0300/chronic-low-back-pain.html",
+      "accessed": "2026-03-24",
+      "snippet": "Chronic low back pain, defined as lumbar pain persisting for 12 weeks or more, occurs in about 13% of U.S. adults. Patients with chronic low back pain should have a history and physical examination to identify red flags that may indicate serious conditions that warrant immediate intervention or yellow flags (i.e., psychological, environmental, and social factors) that indicate risk of disability. The examination should include an evaluation for radicular symptoms. Routine imaging is not recommended but is indicated when red flags are present, there is a neuromuscular deficit, or if pain does not resolve with conservative therapy. Patients should avoid bed rest. Nonpharmacologic treatment is first-line management and may include therapies with varying evidence of support, such as counseling, exercise therapy, spinal manipulation, massage, heat, dry needling, acupuncture, transcutaneous el"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 3-day history of sharp, stabbing low back pain that radiates to the right buttocks. The pain began after heavy lifting while helping a friend move a pool table. She reports some difficulty walking due to the pain radiating as she moves but denies numbness, weakness, tingling, bladder or bowel dysfunction, fever, chills, or unexplained weight loss. She has no history of cancer, osteoporosis, or recent infections. She has not tried any treatments or medications for this pain prior to this call except for some icing initially and Tylenol, which was not effective. She notes that holding onto something briefly can help alleviate the pain.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is acute mechanical low back pain likely due to musculoskeletal strain from heavy lifting.\nDifferential:\n1. Lumbar muscle strain or ligamentous injury\n2. Lumbar radiculopathy (early or mild sciatica)\n3. Lumbar disc herniation\n4. Less likely serious pathology such as infection or malignancy given absence of systemic symptoms\n\nP: - First-line medication: Naproxen 500 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Acetaminophen 500 mg orally every 6 hours as needed for pain for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no renal or liver disease, not pregnant; monitor for gastrointestinal side effects with NSAIDs\n- Follow-up recommendations: Seek in-person medical care urgently if new onset numbness, weakness, bowel or bladder dysfunction, worsening pain, or inability to walk develops; otherwise follow up if symptoms persist beyond 2 weeks or worsen\n- Testing: Not indicated at this time given absence of red flags and typical presentation of mechanical low back pain"
+}

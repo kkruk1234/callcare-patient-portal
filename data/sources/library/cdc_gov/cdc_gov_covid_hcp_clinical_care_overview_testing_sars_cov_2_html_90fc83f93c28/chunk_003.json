@@ -1,0 +1,10 @@
+{
+  "title": "Overview of Testing for SARS-CoV-2 | COVID-19 | CDC",
+  "url": "https://www.cdc.gov/covid/hcp/clinical-care/overview-testing-sars-cov-2.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ion for the general public on COVID-19 testing is also available .\nViral tests , including nucleic acid amplification tests (NAATs) and PCR tests, as well as antigen tests, are used as diagnostic tests to detect current infection with SARS-CoV-2, determine the need for prevention measures, and inform a person's medical care.\nViral tests \nNucleic acid amplification tests (NAATs) are highly sensitive and highly specific tests that detect one or more viral ribonucleic acid (RNA) genes. PCR tests are the most common type of NAAT used for COVID-19 testing. Viral RNA may stay in a person's body for up to 90 days after they test positive. Therefore, NAATs should not be used to test someone who has tested positive in the last 90 days. Most NAATs need to be performed in a laboratory, although some are performed at the point-of-care. Most NAATs produce qualitative (positive/negative) results. \nAntigen tests are immunoassays that detect the presence of specific viral proteins, called antigens. A positive test indicates current infection. Antigen tests generally have high specificity, similar to NAATs, but are less sensitive than most NAATs. Because antigen tests have lower sensitivity, FDA recommends that negative antigen tests be repeated up to three times, with each test 48 hours apart to confirm a negative result. Most antigen tests are less expensive than NAATs and can provide results",
+  "source_type": "library",
+  "source_id": "cdc_gov_covid_hcp_clinical_care_overview_testing_sars_cov_2_html_90fc83f93c28",
+  "chunk_id": "chunk_003"
+}

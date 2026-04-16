@@ -1,0 +1,129 @@
+{
+  "packet_id": "a052689e-344d-4684-a33c-f1158182ae85",
+  "created_at": "2026-02-21T17:49:10.341621+00:00",
+  "session_id": "5cc40789-d149-4dac-a18e-0c6df5e977b5",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any pain with breathing, coughing, or movement?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help much",
+    "intake_q8": "Any history of cancer, osteoporosis, or recent infections?",
+    "intake_a8": "no",
+    "intake_q9": "Any recent activities or movements that seemed to trigger or worsen the pain?",
+    "intake_a9": "leaning against it when sitting and poor posture",
+    "intake_q10": "Any swelling, bruising, or visible deformity around the painful area?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that began approximately three weeks ago. She denies any recent trauma or injury, fever, chills, weight loss, pain with breathing, coughing, or movement, and reports no numbness, tingling, or weakness in her legs or feet. She has tried acetaminophen (Tylenol) with minimal relief. The pain seems to worsen with leaning against the area when sitting and poor posture. There is no swelling, bruising, or visible deformity. She has no history of cancer, osteoporosis, or recent infections. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nThe working diagnosis is musculoskeletal back pain likely related to poor posture and mechanical strain. This is supported by the absence of systemic symptoms, neurological deficits, or trauma.\n\nDifferential: \n1. Musculoskeletal strain or myofascial pain \n2. Costochondritis or rib dysfunction \n3. Early degenerative changes in the thoracic spine \n4. Referred pain from abdominal or thoracic structures \n\nP: \n- Medication safety considerations: Avoid NSAIDs if there is a history of gastrointestinal bleeding, renal impairment, or allergy. Use acetaminophen cautiously to avoid hepatotoxicity.\n - Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n - Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain relief and inflammation reduction. (avoid in renal disease; especially severe CKD/dialysis)\n - Return precautions: Advise the patient to seek care if she develops fever, chills, unexplained weight loss, worsening pain, neurological symptoms such as numbness or weakness, or if the pain becomes severe and unrelenting. \n - Testing: No immediate testing indicated given the absence of red flag symptoms; imaging or further workup if symptoms persist or worsen.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "https://pubmed.ncbi.nlm.nih.gov/29971708/?utm_source=openai",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/29971708/?utm_source=openai",
+        "snippet": "Authoritative clinical reference (see source)."
+      },
+      {
+        "title": "https://pubmed.ncbi.nlm.nih.gov/34719940/?utm_source=openai",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/34719940/?utm_source=openai",
+        "snippet": "Authoritative clinical reference (see source)."
+      },
+      {
+        "title": "https://pubmed.ncbi.nlm.nih.gov/34051387/?utm_source=openai",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/34051387/?utm_source=openai",
+        "snippet": "Authoritative clinical reference (see source)."
+      },
+      {
+        "title": "https://pubmed.ncbi.nlm.nih.gov/29103554/?utm_source=openai",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/29103554/?utm_source=openai",
+        "snippet": "Authoritative clinical reference (see source)."
+      },
+      {
+        "title": "https://pubmed.ncbi.nlm.nih.gov/28429142/?utm_source=openai",
+        "source": "https://pubmed.ncbi.nlm.nih.gov/28429142/?utm_source=openai",
+        "snippet": "Authoritative clinical reference (see source)."
+      },
+      {
+        "title": "https://ncbi.nlm.nih.gov/books/NBK599212/?utm_source=openai",
+        "source": "https://ncbi.nlm.nih.gov/books/NBK599212/?utm_source=openai",
+        "snippet": "Authoritative clinical reference (see source)."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "https://pubmed.ncbi.nlm.nih.gov/29971708/?utm_source=openai",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/29971708/?utm_source=openai",
+      "snippet": "Authoritative clinical reference (see source)."
+    },
+    {
+      "title": "https://pubmed.ncbi.nlm.nih.gov/34719940/?utm_source=openai",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/34719940/?utm_source=openai",
+      "snippet": "Authoritative clinical reference (see source)."
+    },
+    {
+      "title": "https://pubmed.ncbi.nlm.nih.gov/34051387/?utm_source=openai",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/34051387/?utm_source=openai",
+      "snippet": "Authoritative clinical reference (see source)."
+    },
+    {
+      "title": "https://pubmed.ncbi.nlm.nih.gov/29103554/?utm_source=openai",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/29103554/?utm_source=openai",
+      "snippet": "Authoritative clinical reference (see source)."
+    },
+    {
+      "title": "https://pubmed.ncbi.nlm.nih.gov/28429142/?utm_source=openai",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/28429142/?utm_source=openai",
+      "snippet": "Authoritative clinical reference (see source)."
+    },
+    {
+      "title": "https://ncbi.nlm.nih.gov/books/NBK599212/?utm_source=openai",
+      "source": "https://ncbi.nlm.nih.gov/books/NBK599212/?utm_source=openai",
+      "snippet": "Authoritative clinical reference (see source)."
+    }
+  ],
+  "state": null
+}

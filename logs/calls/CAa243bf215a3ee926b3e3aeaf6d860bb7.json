@@ -1,0 +1,151 @@
+{
+  "call_sid": "CAa243bf215a3ee926b3e3aeaf6d860bb7",
+  "session_id": "c905ede8-34ee-41a4-b8d1-46ba78a53958",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-06T15:27:45.742402+00:00",
+  "ended_at": "2026-04-06T15:35:03.550612+00:00",
+  "packet_id": "4655b969-ecec-4cd3-b2ba-9faf804df6ec",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I have abdominal pain."
+    },
+    {
+      "role": "assistant",
+      "text": "When did your abdominal pain start?"
+    },
+    {
+      "role": "user",
+      "text": "It started probably about 2 days ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe where exactly in your abdomen the pain is located?"
+    },
+    {
+      "role": "user",
+      "text": "Upper abdomen right below my rib cage."
+    },
+    {
+      "role": "assistant",
+      "text": "Any nausea, vomiting, or changes in bowel movements?"
+    },
+    {
+      "role": "user",
+      "text": "Last night, I was extremely nauseous. I felt like I was going to vomit, but I did not vomit. But I definitely felt like I was going to. And as to changes in bowel movements now, I my bowel movements are pretty much exactly the same as they've been for years now. Absolutely no change there. Just some nausea last night and some nausea this morning too."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or sweating?"
+    },
+    {
+      "role": "user",
+      "text": "Last night, I felt I felt very warm. I didn't take my temperature, but I felt very warm. And then I went to go to the bathroom in the middle of the night, and then I felt chills when I came back, but no sweating."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of liver disease, gallstones, or alcohol use?"
+    },
+    {
+      "role": "user",
+      "text": "I drink socially, I drink alcohol socially, but I don't I don't have a problem as far as I know with my gallbladder."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain with eating or after meals, or any changes in appetite?"
+    },
+    {
+      "role": "user",
+      "text": "I haven't felt hungry, but I do get I I guess it I don't know if it's connected to meals, but I thought eating breakfast this morning would make it go away, but it didn't make it go away. It's still I still have this abdominal pain. So it's really no change. It's absolutely no change with the eating."
+    },
+    {
+      "role": "assistant",
+      "text": "Any yellowing of your skin or eyes, dark urine, or pale stools?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of similar abdominal pain episodes in the past?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. I I have noticed some episodes of abdominal pain before, but nothing nothing consistent. It's just, like, comes and goes."
+    },
+    {
+      "role": "assistant",
+      "text": "Any chest pain, shortness of breath, or sweating with the abdominal pain?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any tenderness or pain when you press on your abdomen, or any worsening of pain with movement or deep breaths?"
+    },
+    {
+      "role": "user",
+      "text": "It hurts when I press on my abdomen. It doesn't hurt when I take any deep breaths. So yeah, I guess there is some tenderness when I brush."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47"
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Male"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing upper abdominal pain that could be related to your stomach or gallbladder. Based on what you told me, medication treatment like omeprazole may be appropriate. A licensed physician will review this note and, if appropriate, may prescribe the recommended medication. Because this is a phone visit, I can’t examine you or run tests, so if your pain worsens, you develop a fever, start vomiting, or notice yellowing of your skin or eyes, please seek in-person care the same day. If you have severe pain or signs of shock, go to the emergency room immediately. Next steps include a physician review and possibly an ultrasound or blood tests if symptoms continue or get worse. For now, you can use acetaminophen or ibuprofen for pain relief if you can take them safely."
+    }
+  ]
+}

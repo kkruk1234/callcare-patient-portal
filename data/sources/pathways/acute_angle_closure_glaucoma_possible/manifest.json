@@ -1,0 +1,27 @@
+{
+  "pathway_id": "acute_angle_closure_glaucoma_possible",
+  "evidence_summary": "Guidance based on American Academy of Ophthalmology Preferred Practice Patterns and peer-reviewed ophthalmology literature on acute angle-closure glaucoma as a vision-threatening emergency.",
+  "sources": [
+    {
+      "id": "aao_primary_angle_closure_ppp",
+      "type": "web",
+      "url": "https://www.aao.org/education/preferred-practice-pattern/primary-angle-closure-disease-ppp",
+      "title": "American Academy of Ophthalmology Preferred Practice Pattern: Primary Angle-Closure Disease",
+      "license_note": "Use link + store limited excerpted text for retrieval."
+    },
+    {
+      "id": "ophthalmology_journal_pacd_ppp",
+      "type": "web",
+      "url": "https://www.aaojournal.org/article/S0161-6420(20)31023-X/fulltext",
+      "title": "Primary Angle-Closure Disease Preferred Practice Pattern (Ophthalmology journal)",
+      "license_note": "Link and store short excerpts; avoid bulk copying if restricted."
+    },
+    {
+      "id": "aao_eyenet_angle_closure",
+      "type": "web",
+      "url": "https://www.aao.org/eyenet/article/angle-closure-glaucoma",
+      "title": "AAO EyeNet: Angle-Closure Glaucoma Overview",
+      "license_note": "Use link + store limited excerpted text for retrieval."
+    }
+  ]
+}

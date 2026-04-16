@@ -1,0 +1,38 @@
+id: alcohol_withdrawal_mild
+version: 0.1
+match:
+  any_keywords:
+  - alcohol withdrawal
+  - stopping drinking
+  - shaky after stopping alcohol
+  - sweats after quitting alcohol
+  - withdrawal
+  - stopped drinking
+  - quit drinking
+  - detox
+  - shaky
+  - tremor
+  - sweaty
+  - anxious after stopping alcohol
+questions:
+- id: severe
+  prompt: Any seizures, hallucinations, severe confusion, or fainting? (yes/no)
+  store_as: severe
+  type: yesno
+- id: autonomic
+  prompt: Do you have heavy sweating, shaking, or a racing heart? (yes/no)
+  store_as: autonomic
+  type: yesno
+- id: time
+  prompt: Did this start within the last 1–3 days after cutting down or stopping alcohol?
+    (yes/no)
+  store_as: timing_consistent
+  type: yesno
+stop_rules:
+- if_all_answered:
+  - severe
+  - autonomic
+  - time
+  outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,21 @@
+{
+  "id": "auto_75583a1d1c5a15f3",
+  "created_at": "2026-02-16T03:18:45Z",
+  "query": "Lateral epicondylitis (tennis elbow) guideline treatment management",
+  "urls": [
+    "https://www.aafp.org/pubs/afp/issues/2007/0915/p843.html"
+  ],
+  "allowed_domains": [
+    "nhs.uk",
+    "nice.org.uk",
+    "aafp.org",
+    "cdc.gov",
+    "nih.gov",
+    "medlineplus.gov",
+    "dailymed.nlm.nih.gov",
+    "fda.gov",
+    "who.int",
+    "ncbi.nlm.nih.gov",
+    "pubmed.ncbi.nlm.nih.gov"
+  ]
+}

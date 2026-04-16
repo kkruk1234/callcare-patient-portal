@@ -1,0 +1,196 @@
+import os
+import json
+from typing import List, Dict, Any, Optional
+
+from openai import OpenAI
+from app.core.models import EvidenceRef, CallState
+
+
+def _as_int(v) -> Optional[int]:
+    try:
+        if v is None:
+            return None
+        s = str(v).strip()
+        if not s:
+            return None
+        n = float(s)
+        if n <= 0 or n > 120:
+            return None
+        return int(round(n))
+    except Exception:
+        return None
+
+
+def _age_years(state: CallState) -> Optional[int]:
+    return _as_int(getattr(state, "age_years", None))
+
+
+def _preg_sentence(state: CallState) -> str:
+    pp = getattr(state, "pregnancy_possible", None)
+    if pp is False:
+        return "Patient is not pregnant."
+    if pp is True:
+        return "Pregnancy is possible or status is uncertain."
+    return "Pregnancy status is unknown."
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _tick_attachment_hours(state: CallState) -> Optional[int]:
+    sx = _symptoms_dict(state)
+    # common keys we've seen used in your project
+    for k in ("tick_attachment_timeframe", "tick_attached_timeframe", "tick_attachment_hours", "tick_attached_hours"):
+        if k in sx:
+            raw = str(sx.get(k)).strip().lower()
+            if not raw:
+                continue
+            # accept "37", "37 hours", "about 37 hours"
+            # first try numeric parse
+            iv = _as_int(raw.replace("hours", "").replace("hour", "").replace("about", "").replace("approximately", "").strip())
+            if iv is not None:
+                return iv
+            # regex-free fallback: find first integer token
+            for token in raw.replace("/", " ").replace(",", " ").split():
+                iv = _as_int(token)
+                if iv is not None:
+                    return iv
+    return None
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _evidence_text(evidence: List[EvidenceRef]) -> str:
+    if not evidence:
+        return "(No evidence snippets retrieved.)"
+    lines = []
+    for i, e in enumerate(evidence[:8], 1):
+        src = (getattr(e, "source", "") or "").strip()
+        snip = (getattr(e, "snippet", "") or "").strip()
+        url = (getattr(e, "url", "") or "").strip()
+        if url:
+            lines.append(f"[{i}] SOURCE: {src}\nURL: {url}\nSNIPPET: {snip}")
+        else:
+            lines.append(f"[{i}] SOURCE: {src}\nSNIPPET: {snip}")
+    return "\n\n".join(lines)
+
+
+def build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    cc = (getattr(state, "chief_complaint", "") or "").strip()
+    age = _age_years(state)
+    preg = _preg_sentence(state)
+    pid = _pathway_id(state)
+
+    sx = _symptoms_dict(state)
+    answers = sx.get("_answers", {})
+    if not isinstance(answers, dict):
+        answers = {}
+
+    # Provide a clean “facts to include” block so S becomes a single narrative paragraph.
+    attach_h = _tick_attachment_hours(state)
+    facts: List[str] = []
+    if age is not None:
+        facts.append(f"Age: {age} years")
+    facts.append(f"Pregnancy: {preg}")
+
+    if pid == "tick_bite" and attach_h is not None:
+        facts.append(f"Tick attachment duration: approximately {attach_h} hours (THIS IS ATTACHMENT DURATION, NOT TIME-SINCE-BITE)")
+
+    # Add location if present under common keys (best effort, no guessing)
+    for k in ("exposure_location", "location", "state_exposure", "exposure_state", "travel_location"):
+        v = sx.get(k)
+        if v:
+            facts.append(f"Exposure location: {v}")
+            break
+
+    # Keep “other symptom fields” for LLM context (excluding internal keys)
+    other_symptoms: Dict[str, Any] = {}
+    for k, v in sx.items():
+        if str(k).startswith("_"):
+            continue
+        if v is None or v == "":
+            continue
+        other_symptoms[str(k)] = v
+
+    ev_text = _evidence_text(evidence)
+
+    # URGENT CARE posture: treat when indicated, avoid nurse-triage tone.
+    return f"""
+You are drafting a PHONE-ONLY urgent care / primary care note (NOT nurse triage).
+Assume asynchronous physician review will approve prescriptions when appropriate.
+
+Output format (plain text; headings exactly):
+S:
+O:
+A:
+  - Working diagnosis (most likely):
+  - Differential:
+  - Red flags considered:
+P:
+  - Disposition:
+  - Plan:
+  - Safety net:
+Evidence (snippets used):
+
+HARD STYLE RULES:
+- S: must be ONE flowing paragraph (no bullet points).
+- Start S with age if available: "35-year-old patient reports ..."
+- Include pregnancy phrasing exactly as provided in Facts-to-include.
+- For tick bites: if attachment duration is provided, phrase it as "Tick was attached for approximately X hours."
+  Do NOT phrase it as "X hours ago" unless explicitly time-since-bite.
+- Avoid repetition (do not say "Patient reports ... Reports ...").
+- O: MUST start with: "No physical exam available due to phone-only encounter."
+  Do NOT write "Not applicable for phone encounter."
+- Use urgent-care posture: give specific treatment recommendations when indicated (including antibiotics when guideline-consistent),
+  with contraindication-aware alternatives (e.g., pregnancy) and safety net.
+- Do not over-refer to ED/PCP unless red flags or severity require.
+
+Encounter context:
+- Chief complaint: {cc}
+- Pathway: {pid}
+
+Facts-to-include (must be incorporated naturally in S when applicable):
+{chr(10).join("- " + f for f in facts)}
+
+Structured answers (qid -> answer):
+{json.dumps(answers, indent=2)}
+
+Other symptom fields (key -> value):
+{json.dumps(other_symptoms, indent=2)}
+
+Evidence snippets:
+{ev_text}
+""".strip()
+
+
+def generate_note_text(prompt: str) -> str:
+    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+    system = """You generate a clinical SOAP note for a phone-only encounter.
+
+Hard clinical rules:
+- Provide a clear 'Working diagnosis (most likely)'.
+- Provide a brief differential (2–4).
+- Provide disposition + plan + safety net.
+- Be clinically specific (urgent care / primary care).
+- Do NOT claim a definitive diagnosis if workup is required.
+"""
+
+    resp = client.responses.create(
+        model="gpt-4.1-mini",
+        input=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+    )
+    return (resp.output_text or "").strip()

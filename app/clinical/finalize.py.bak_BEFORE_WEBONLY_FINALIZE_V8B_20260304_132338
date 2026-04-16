@@ -1,0 +1,295 @@
+from __future__ import annotations
+
+import json
+import re
+import uuid
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Tuple
+
+try:
+    from app.core.models import ReviewPacket, NoteDraft  # type: ignore
+except Exception:
+    ReviewPacket = None  # type: ignore
+    NoteDraft = None  # type: ignore
+
+FINAL_DIR = Path("logs") / "finalized"
+FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+CALLCARE_FINALIZE = "WEBONLY_FINALIZE_V8"
+
+
+def now_iso() -> str:
+    try:
+        return datetime.now(timezone.utc).isoformat()
+    except Exception:
+        return datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _publisher_from_url(url: str) -> str:
+    u = _safe_str(url).lower()
+    if not u:
+        return "Source"
+    try:
+        host = re.sub(r"^https?://", "", u).split("/")[0]
+        host = host.replace("www.", "").strip()
+        if not host:
+            return "Source"
+        # Collapse to registrable-ish domain label for grouping (simple, robust)
+        parts = host.split(".")
+        if len(parts) >= 2:
+            return ".".join(parts[-2:])
+        return host
+    except Exception:
+        return "Source"
+
+
+def _answers_dict(state: Any) -> Dict[str, Any]:
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            a = sx.get("_answers", {})
+            return a if isinstance(a, dict) else {}
+    except Exception:
+        pass
+    return {}
+
+
+def _get_queries_from_state(state: Any) -> List[str]:
+    """
+    Single source of truth: state.symptoms["_answers"]["evidence_search_queries"]
+    OR state.evidence_search_queries
+    """
+    qs: List[str] = []
+    ans = _answers_dict(state)
+
+    v = ans.get("evidence_search_queries")
+    if isinstance(v, list):
+        qs = [str(x).strip() for x in v if str(x).strip()]
+
+    if not qs:
+        try:
+            v2 = getattr(state, "evidence_search_queries", None)
+            if isinstance(v2, list):
+                qs = [str(x).strip() for x in v2 if str(x).strip()]
+        except Exception:
+            pass
+
+    # Cap 4
+    out: List[str] = []
+    for q in qs:
+        if q and q not in out:
+            out.append(q)
+        if len(out) >= 4:
+            break
+    return out
+
+
+def _build_minimal_queries_if_missing(state: Any) -> List[str]:
+    """
+    Fallback only when query_llm didn't populate queries.
+    Avoid anatomy/med heuristics; use CC + any working dx string if present.
+    """
+    cc = _safe_str(getattr(state, "chief_complaint", None) or getattr(state, "chief", None) or "")
+    dx = _safe_str(getattr(state, "working_diagnosis", None) or getattr(state, "diagnosis", None) or "")
+    base = dx or cc or "acute musculoskeletal pain"
+    base = re.sub(r"\s+", " ", base).strip()
+
+    # Simple, non-cheaty queries
+    q1 = f"{base} diagnosis treatment"
+    q2 = f"{base} NSAID dosing contraindications"
+    q3 = f"{base} acetaminophen dosing safety"
+    q4 = f"{base} return precautions red flags"
+
+    return [q1[:80], q2[:80], q3[:80], q4[:80]]
+
+
+def _call_llm_http_evidence(queries: List[str], max_urls: int, max_per_publisher: int) -> List[Dict[str, Any]]:
+    """
+    Web-only evidence retrieval via app.rag.llm_http_evidence
+    Returns list of dicts: {"title","source","url","accessed","snippet"}
+    """
+    from app.rag.llm_http_evidence import llm_http_evidence  # type: ignore
+
+    try:
+        items = llm_http_evidence(
+            queries=queries,
+            max_urls=max_urls,
+            max_per_publisher=max_per_publisher,
+            no_preview=True,   # enforce "NO PREVIEW"
+        )
+    except TypeError:
+        # Back-compat if signature differs
+        items = llm_http_evidence(queries=queries, max_urls=max_urls, max_per_publisher=max_per_publisher)
+
+    out: List[Dict[str, Any]] = []
+    if isinstance(items, list):
+        for it in items:
+            if isinstance(it, dict):
+                out.append(dict(it))
+            else:
+                # object-ish
+                out.append(
+                    {
+                        "title": _safe_str(getattr(it, "title", "")),
+                        "source": _safe_str(getattr(it, "source", "") or getattr(it, "publisher", "")),
+                        "url": _safe_str(getattr(it, "url", "")),
+                        "accessed": _safe_str(getattr(it, "accessed", "") or getattr(it, "date", "")),
+                        "snippet": _safe_str(getattr(it, "snippet", "") or getattr(it, "text", "")),
+                    }
+                )
+    return out
+
+
+def _select_diverse_evidence(items: List[Dict[str, Any]], target_n: int = 5, min_publishers: int = 3) -> List[Dict[str, Any]]:
+    """
+    Single-pass selection:
+    - Prefer diversity of publishers early
+    - Allow up to 2 per publisher overall (controlled by retrieval too)
+    - Stop once we have target_n and min_publishers
+    """
+    out: List[Dict[str, Any]] = []
+    counts: Dict[str, int] = {}
+    pubs: List[str] = []
+
+    def pubkey(it: Dict[str, Any]) -> str:
+        url = _safe_str(it.get("url"))
+        src = _safe_str(it.get("source"))
+        if src:
+            return src.strip()
+        return _publisher_from_url(url)
+
+    for it in items:
+        title = _safe_str(it.get("title"))
+        url = _safe_str(it.get("url"))
+        if not title and not url:
+            continue
+
+        p = pubkey(it) or "Source"
+        counts[p] = counts.get(p, 0)
+        # Soft cap here too (extra safety)
+        if counts[p] >= 2:
+            continue
+
+        counts[p] += 1
+        if p not in pubs:
+            pubs.append(p)
+
+        out.append(it)
+
+        if len(out) >= target_n and len(pubs) >= min_publishers:
+            break
+
+    # If still short, just fill (still respecting soft cap)
+    if len(out) < target_n:
+        for it in items:
+            if it in out:
+                continue
+            p = pubkey(it) or "Source"
+            counts[p] = counts.get(p, 0)
+            if counts[p] >= 2:
+                continue
+            counts[p] += 1
+            if p not in pubs:
+                pubs.append(p)
+            out.append(it)
+            if len(out) >= target_n:
+                break
+
+    return out
+
+
+def _set_packet_evidence(packet_kwargs: Dict[str, Any], evidence_items: List[Dict[str, Any]]) -> None:
+    """
+    Preserve url + accessed (non-negotiable).
+    """
+    ev_payload: List[Dict[str, Any]] = []
+    for it in evidence_items or []:
+        ev_payload.append(
+            {
+                "title": _safe_str(it.get("title")),
+                "source": _safe_str(it.get("source")) or _publisher_from_url(_safe_str(it.get("url"))),
+                "url": _safe_str(it.get("url")),
+                "accessed": _safe_str(it.get("accessed")) or now_iso(),
+                "snippet": _safe_str(it.get("snippet")),
+            }
+        )
+    packet_kwargs["evidence"] = ev_payload
+
+
+def finalize(state: Any, note: Any) -> Any:
+    """
+    Tier-1 finalization: retrieve web evidence once, attach to packet, write finalized JSON.
+    """
+    session_id = _safe_str(getattr(state, "session_id", None)) or str(uuid.uuid4())
+    packet_id = str(uuid.uuid4())
+
+    # Queries: prefer query_llm outputs
+    queries = _get_queries_from_state(state)
+    if not queries:
+        queries = _build_minimal_queries_if_missing(state)
+
+    # Retrieval settings (latency-safe)
+    max_urls = 8
+    max_per_publisher = 2
+
+    raw_items = _call_llm_http_evidence(queries=queries, max_urls=max_urls, max_per_publisher=max_per_publisher)
+    evidence_items = _select_diverse_evidence(raw_items, target_n=5, min_publishers=3)
+
+    # Attach evidence onto note/state if they accept it (best-effort)
+    try:
+        if hasattr(note, "evidence"):
+            setattr(note, "evidence", evidence_items)
+    except Exception:
+        pass
+    try:
+        setattr(state, "evidence", evidence_items)
+    except Exception:
+        pass
+
+    # Build ReviewPacket kwargs (schema varies)
+    kwargs: Dict[str, Any] = {
+        "packet_id": packet_id,
+        "created_at": now_iso(),
+        "session_id": session_id,
+        "state": state,
+        "note": note,
+        "pathway_id": _safe_str(getattr(state, "pathway_id", None) or ""),
+    }
+    _set_packet_evidence(kwargs, evidence_items)
+
+    packet_obj = None
+    if ReviewPacket is not None:
+        try:
+            packet_obj = ReviewPacket(**kwargs)  # type: ignore
+        except Exception:
+            # If model rejects url/accessed fields in evidence, store evidence as raw dict on kwargs
+            # and let downstream handle it (we still persist JSON below).
+            packet_obj = None
+
+    # Persist JSON for physician review regardless of Pydantic success
+    out_path = FINAL_DIR / f"{packet_id}.json"
+    try:
+        # Try best serialization
+        payload = {
+            "packet_id": packet_id,
+            "created_at": kwargs["created_at"],
+            "session_id": session_id,
+            "pathway_id": kwargs.get("pathway_id", ""),
+            "queries": queries,
+            "evidence": kwargs.get("evidence", []),
+        }
+        # Note and state may not be jsonable; store lightweight versions
+        payload["note_text"] = _safe_str(getattr(note, "text", None) or getattr(note, "soap", None) or "")
+        out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        pass
+
+    return packet_obj if packet_obj is not None else kwargs

@@ -1,0 +1,26 @@
+{
+  "pathway_id": "dysuria",
+  "sources": [
+    {
+      "id": "idsa_uti_guideline",
+      "type": "web",
+      "url": "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/",
+      "title": "IDSA Guideline: Uncomplicated Cystitis and Pyelonephritis",
+      "license_note": "Use short excerpts only."
+    },
+    {
+      "id": "cdc_uti_basics",
+      "type": "web",
+      "url": "https://www.cdc.gov/uti/about/index.html",
+      "title": "CDC: Urinary Tract Infection Basics",
+      "license_note": "CDC public guidance."
+    },
+    {
+      "id": "nice_ng109_uti",
+      "type": "web",
+      "url": "https://www.nice.org.uk/guidance/ng109",
+      "title": "NICE NG109: Urinary Tract Infection (Lower)",
+      "license_note": "Excerpt summaries only."
+    }
+  ]
+}

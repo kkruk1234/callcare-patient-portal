@@ -1,0 +1,80 @@
+{
+  "packet_id": "85f29ebd-2e1c-4133-a3c5-45fcebd005af",
+  "created_at": "2026-03-03T21:55:48.607517+00:00",
+  "session_id": "a97e9f21-1766-4240-83bf-1b49a22fe170",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what were they and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much.",
+    "intake_q8": "Any history of kidney problems or urinary symptoms like pain or blood in urine?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of lung or heart disease, or recent travel or exposure to sick contacts?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adults",
+      "adult back pain treatment dosing acetaminophen mg duration contraindications",
+      "back pain red flags and return precautions"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) without significant relief. There is no history of kidney problems, urinary symptoms, lung or heart disease, recent travel, exposure to sick contacts, osteoporosis, cancer, or recent steroid use. O: Phone evaluation only; no vital signs or physical exam available.\n\nA: The working diagnosis is musculoskeletal back pain localized to the left lower rib cage without red flag symptoms. Differential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral causes such as renal or pulmonary pathology (less likely given absence of systemic symptoms)\n\nP:\n- Acetaminophen 500–1000 mg orally every 6 hours as needed for pain; max 3 grams/day (adjust for liver disease).\n - Alternatives: Acetaminophen 500-1000 mg orally every 6 hours as needed, not to exceed 3000 mg/day.\n - NSAIDs such as ibuprofen 400 mg orally every 6-8 hours as needed for pain, not to exceed 1200 mg/day without medical supervision. (avoid in renal disease; especially severe CKD/dialysis)\n - Medication safety considerations: Avoid NSAIDs if gastrointestinal bleeding risk or renal impairment develops; monitor for side effects such as gastrointestinal upset or allergic reactions.\n - Return precautions: Return or seek urgent care if patient develops fever, worsening pain, neurological symptoms (numbness, weakness), urinary symptoms, chest pain, or shortness of breath.\n - Testing: Not indicated at this time given absence of red flag symptoms; consider imaging or labs if symptoms worsen or fail to improve after conservative management.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "WHO",
+        "source": "WHO",
+        "url": "https://www.who.int/news/item/07-12-2023-who-releases-guidelines-on-chronic-low-back-pain?utm_source=openai",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      },
+      {
+        "title": "NIH",
+        "source": "NIH",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38574213/?utm_source=openai",
+        "accessed": "2026-03-03",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "WHO",
+      "source": "WHO",
+      "snippet": ""
+    },
+    {
+      "title": "NIH",
+      "source": "NIH",
+      "snippet": ""
+    }
+  ],
+  "state": null
+}

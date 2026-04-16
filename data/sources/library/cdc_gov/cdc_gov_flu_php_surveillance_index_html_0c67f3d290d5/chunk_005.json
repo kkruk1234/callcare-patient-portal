@@ -1,0 +1,10 @@
+{
+  "title": "How CDC Classifies Flu Severity each Season in the United States | Influenza (Flu) | CDC",
+  "url": "https://www.cdc.gov/flu/php/surveillance/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "INet sites that collect age-specific data on the number of influenza-like illness visits and total number of outpatient visits are used for the severity assessment.\nInfluenza Hospitalization Surveillance Network (FluSurv-NET): Adjusted rate of flu-related hospitalizations per 100,000 people by week. Hospitalization rates are adjusted using data from past seasons on testing practices and the sensitivity of diagnostic tests.\nNational Center for Health Statistics (NCHS) Mortality Surveillance Data: Percent of flu-coded deaths out of all reported deaths by week.\nThe data used to assess severity are available for download through the weekly FluView report. \nIntensity thresholds and why they are important \nAn intensity threshold is a statistical value developed using data from past flu seasons that is used to assess how severe a flu season is considered to be by comparing current season data with the IT value from past seasons. In this instance, intensity thresholds are important because they help researchers classify flu severity based on the level of flu activity at the peak of the season. ITs were developed for the overall population and further separated into three age groups: children, adults, and older adults. The ITs used correspond to a 50% (1 in 2), 10% (1 in 10) and 2% (1 in 50) chance of exceedance during a flu season. These threshold values were used to classify flu sever",
+  "source_type": "library",
+  "source_id": "cdc_gov_flu_php_surveillance_index_html_0c67f3d290d5",
+  "chunk_id": "chunk_005"
+}

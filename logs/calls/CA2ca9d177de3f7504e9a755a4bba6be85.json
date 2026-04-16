@@ -1,0 +1,47 @@
+{
+  "call_sid": "CA2ca9d177de3f7504e9a755a4bba6be85",
+  "session_id": "1a53eb3d-f63d-4f1d-93d3-42cbd4106bff",
+  "from_number": "+19413500332",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-03T16:54:40.338251+00:00",
+  "ended_at": "2026-04-03T17:12:43.260671+00:00",
+  "packet_id": "",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "No"
+    },
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "It's not an emergency. I would like to call"
+    },
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes"
+    },
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    }
+  ]
+}

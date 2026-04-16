@@ -1,0 +1,18 @@
+{
+  "packet_id": "4655b969-ecec-4cd3-b2ba-9faf804df6ec",
+  "status": "completed",
+  "prescription_status": "sent",
+  "note_sent": "emailed",
+  "call_sid": "CAa243bf215a3ee926b3e3aeaf6d860bb7",
+  "signed": true,
+  "signed_at": "2026-04-12T13:05:09.182429+00:00",
+  "signed_by": "Asynchronous Physician",
+  "addenda": [],
+  "spoken_summary_comments": "",
+  "email_last_queued_at": "2026-04-12T18:44:08.611439+00:00",
+  "session_id": "c905ede8-34ee-41a4-b8d1-46ba78a53958",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-04-06T15:27:45.742402+00:00",
+  "routed_at": "2026-04-06T15:34:00.438368+00:00"
+}

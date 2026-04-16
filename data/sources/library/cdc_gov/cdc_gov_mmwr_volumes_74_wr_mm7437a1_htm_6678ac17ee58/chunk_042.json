@@ -1,0 +1,10 @@
+{
+  "title": "Nirsevimab Effectiveness Against Intensive Care Unit Admission for Respiratory Syncytial Virus in Infants â 24 States, December 2024âApril 2025 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7437a1.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "d respiratory support received at baseline. This analysis included case-patients with respiratory failure and all ICU-admitted control patients to reflect the source population of ICU-admitted patients from which acute respiratory failure may arise.\n&sect; This analysis included only case-patients and control patients who were matched on hospital site, age group, date of hospital admission (within 30 days) and excluded any unmatched patients.\n&para; This reflects an unconditional multivariable logistic regression model adjusted for age (continuous, in months), biweekly date of hospital admission, the presence of one or more underlying medical condition, social vulnerability index, and U.S. Census Bureau regions. Hospital site was included as a repeated measure.\n** Because of the high correlation (&rho; = 0.68; p<0.001) between age (in months) and time (in days) between receipt of nirsevimab dose to symptom onset, age (in months) was removed from these stratified adjusted models.\n&dagger;&dagger; Using conditional multivariable logistic regression, matched analyses were performed on 226 matched pairs to compare results to the primary analysis, to account for potential imbalance on matching variables when including all eligible enrolled infants.\nView Larger Close Download Image [PNG] \nTop \nSuggested citation for this article: Zambrano LD, Simeone RM, Newhams MM, et al. Nirsevimab",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7437a1_htm_6678ac17ee58",
+  "chunk_id": "chunk_042"
+}

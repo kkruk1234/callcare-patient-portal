@@ -1,0 +1,10 @@
+{
+  "title": "Effectiveness of 2024â2025 COVID-19 Vaccines in Children in the United States â VISION, August 29, 2024âSeptember 2, 2025 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7440a1.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "OVID-19 vaccine dose. Sensitivity analyses in both the 9 months&ndash;4 years and 5&ndash;17 years age groups examined VE during the 7&ndash;299 days since receipt of a 2024&ndash;2025 COVID-19 vaccine dose.\nAnalyses were conducted using R software (version 4.3.2; R Foundation). This activity was reviewed by CDC, deemed not research, and was conducted consistent with applicable federal law and CDC policy. &para;&para;&para; \nTop \nResults \n2024&ndash;2025 COVID-19 VE Against COVID-19&ndash;Associated ED/UC Visits in Children Aged 9 Months&ndash;4 Years \nAmong children aged 9 months&ndash;4 years, 44,541 ED/UC encounters met criteria for inclusion in the analyses, including 1,292 (3%) case-patients and 43,249 (97%) control patients ( Table 1 ). Twelve (<1%) case-patients and 1,847 (4%) control patients had received a 2024&ndash;2025 COVID-19 vaccine dose. Effectiveness of a 2024&ndash;2025 COVID-19 vaccination against a COVID-19&ndash;associated ED/UC visit was 76% (95% CI = 58%&ndash;87%) during the first 7&ndash;179 days after vaccination and 77% (95% CI = 62%&ndash;86%) during the first 7&ndash;299 days after vaccination ( Table 2 ). VE point estimates were lower at 66% when the comparator group was expanded to include children with an incomplete initial COVID-19 vaccination series, but CIs overlapped with those in the primary analysis (95% CI = 51%&ndash;76%).\n2024&ndash;2025",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7440a1_htm_21f04c69c4a7",
+  "chunk_id": "chunk_010"
+}

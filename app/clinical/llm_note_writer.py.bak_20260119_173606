@@ -1,0 +1,276 @@
+import os
+from typing import List, Dict, Any, Optional
+
+from openai import OpenAI
+from app.core.models import EvidenceRef, CallState
+
+
+# ----------------------------
+# Safe helpers
+# ----------------------------
+
+def _as_int(v) -> Optional[int]:
+    try:
+        if v is None:
+            return None
+        s = str(v).strip()
+        if not s:
+            return None
+        n = float(s)
+        if n <= 0 or n > 130:
+            return None
+        return int(round(n))
+    except Exception:
+        return None
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _answers_dict(state: CallState) -> Dict[str, Any]:
+    sx = _symptoms_dict(state)
+    ans = sx.get("_answers") or {}
+    return ans if isinstance(ans, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _age_years(state: CallState) -> Optional[int]:
+    return _as_int(getattr(state, "age_years", None))
+
+
+def _tick_attachment_hours(state: CallState) -> Optional[int]:
+    """
+    Reads common keys and extracts a number of hours if present.
+    Never throws.
+    """
+    sx = _symptoms_dict(state)
+    for k in ("tick_attachment_hours", "tick_attached_hours", "tick_attachment_timeframe", "tick_attached_timeframe"):
+        if k not in sx:
+            continue
+        raw = str(sx.get(k) or "").strip().lower()
+        if not raw:
+            continue
+        cleaned = (
+            raw.replace("hours", "")
+            .replace("hour", "")
+            .replace("about", "")
+            .replace("approximately", "")
+            .strip()
+        )
+        iv = _as_int(cleaned)
+        if iv is not None:
+            return iv
+        # try token scan
+        for token in raw.replace("/", " ").replace(",", " ").split():
+            iv = _as_int(token)
+            if iv is not None:
+                return iv
+    return None
+
+
+def _best_exposure_location(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    for k in ("exposure_location", "exposure_state", "state_exposure", "location", "travel_location"):
+        v = sx.get(k)
+        if v not in (None, ""):
+            return str(v).strip()
+    return ""
+
+
+def _has_bullseye_rash(state: CallState) -> Optional[bool]:
+    sx = _symptoms_dict(state)
+    ans = _answers_dict(state)
+
+    for k in ("bullseye_rash", "erythema_migrans", "em_rash", "tick_rash"):
+        if k in ans:
+            v = str(ans.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+
+    for k in ("bullseye_rash", "erythema_migrans", "expanding_rash"):
+        if k in sx:
+            v = str(sx.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+
+    return None
+
+
+def _systemic_rule(state: CallState) -> str:
+    """
+    You explicitly do NOT want hallucinated symptom lists.
+    We enforce: only deny symptoms that were actually asked/answered in _answers.
+    """
+    ans = _answers_dict(state)
+    if not ans:
+        return 'Do NOT list specific systemic symptom examples. If needed, write only: "No systemic symptoms reported."'
+
+    # If there are explicit yes/no answers, allow denial ONLY for those exact keys.
+    return (
+        "STRICT: You may ONLY deny symptoms that appear explicitly in Structured answers (_answers). "
+        "Do NOT add examples like malaise/fatigue/joint pain unless those were explicitly asked and answered."
+    )
+
+
+def _evidence_text(evidence: List[EvidenceRef]) -> str:
+    if not evidence:
+        return "(No evidence snippets retrieved.)"
+
+    lines: List[str] = []
+    for i, e in enumerate(evidence[:8], 1):
+        src = (getattr(e, "source", "") or "").strip()
+        title = (getattr(e, "title", "") or "Guideline excerpt").strip()
+        url = (getattr(e, "url", "") or "").strip()
+        snip = (getattr(e, "snippet", "") or "").strip()
+
+        header = f"[{i}] {title} — {src}".strip()
+        if url:
+            header += f"\nURL: {url}"
+        if snip:
+            header += f"\nSNIPPET: {snip[:450]}"
+        lines.append(header)
+
+    return "\n\n".join(lines)
+
+
+# ----------------------------
+# Prompt builder (robust, clinician-style)
+# ----------------------------
+
+def build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    pid = _pathway_id(state)
+    cc = (getattr(state, "chief_complaint", "") or "").strip()
+    sx = _symptoms_dict(state)
+    ans = _answers_dict(state)
+
+    age = _age_years(state)
+    attach_h = _tick_attachment_hours(state)  # <-- FIX: always defined
+    exposure = _best_exposure_location(state)  # <-- FIX: always defined
+    bullseye = _has_bullseye_rash(state)       # <-- FIX: always defined
+    systemic_rule = _systemic_rule(state)      # <-- FIX: always defined
+    ev_text = _evidence_text(evidence)
+
+    # Facts to include (kept short + deterministic)
+    facts: List[str] = []
+    if age is not None:
+        facts.append(f"Age: {age} years.")
+    if cc:
+        facts.append(f"Chief complaint (patient words): {cc}")
+
+    # Tick bite specific facts
+    if pid in ("tick_bite", "tick_borne_illness_possible"):
+        if attach_h is not None:
+            facts.append(f"Tick attachment duration: ~{attach_h} hours (attachment time, not time since bite).")
+        if exposure:
+            facts.append(f"Exposure location: {exposure}")
+        if bullseye is True:
+            facts.append("Rash description: bullseye / erythema migrans appearance was reported.")
+        elif bullseye is False:
+            facts.append("Rash description: no bullseye / erythema migrans reported (if asked).")
+
+    # A/P quality requirements (your request: PCP/UC physician tone)
+    assessment_requirements = [
+        "A must include:",
+        "- Working diagnosis (most likely): 1 clear diagnosis phrase",
+        "- Differential: 3–6 items (clinician-realistic)",
+        "- Red flags considered: 1–2 sentences (do NOT hallucinate symptoms not asked)",
+        "",
+        "P must include:",
+        "- Disposition aligned with decision/disposition level (ED now / urgent today / routine / self-care)",
+        "- Testing / in-person needs when appropriate (e.g., UA/culture, STI testing for male dysuria)",
+        "- Treatment phrased for async physician review (e.g., 'Antibiotic therapy may be appropriate; the reviewing physician will decide and prescribe if indicated')",
+        "- Clear safety net",
+    ]
+
+    # Build a compact “structured answers” view (for grounding)
+    structured_lines: List[str] = []
+    if ans:
+        for k in sorted(ans.keys()):
+            v = ans.get(k)
+            if v in (None, ""):
+                continue
+            structured_lines.append(f"- {k}: {v}")
+    else:
+        structured_lines.append("(none)")
+
+    # Keep note concise by design
+    return f"""
+You are writing a PHONE-ONLY urgent care / primary care clinician note (NOT nurse triage).
+This system uses ASYNC PHYSICIAN REVIEW: you may recommend therapies, but phrase them as conditional pending physician review.
+
+STYLE:
+- Clinician tone, concise, actionable.
+- Do NOT invent negatives (no extra symptom denials).
+- {systemic_rule}
+
+OUTPUT FORMAT (plain text; headings exactly):
+S:
+O:
+A:
+  - Working diagnosis (most likely):
+  - Differential:
+  - Red flags considered:
+P:
+  - Disposition:
+  - Plan:
+  - Safety net:
+
+FACTS TO INCLUDE (use if present; do not add extra facts):
+{chr(10).join("- " + f for f in facts) if facts else "- (none provided)"}
+
+STRUCTURED ANSWERS (_answers):
+{chr(10).join(structured_lines)}
+
+EVIDENCE SNIPPETS (use to support A/P; do not quote more than 1 short phrase):
+{ev_text}
+
+REQUIREMENTS:
+{chr(10).join(assessment_requirements)}
+""".strip()
+
+
+# ----------------------------
+# LLM runner
+# ----------------------------
+
+def generate_note(state: CallState, evidence: List[EvidenceRef], disposition: Optional[str] = None) -> str:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+
+    client = OpenAI()
+
+    system = "You are a careful medical documentation assistant."
+    user = build_prompt(state, evidence)
+
+    # Include disposition if provided (keeps note consistent with routing)
+    if disposition:
+        user += f"\n\nDISPOSITION (must match): {disposition}"
+
+    resp = client.chat.completions.create(
+        model=os.getenv("OPENAI_NOTE_MODEL", "gpt-4.1-mini"),
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        temperature=0.2,
+    )
+
+    txt = (resp.choices[0].message.content or "").strip()
+    if not txt:
+        raise RuntimeError("Empty LLM note output.")
+    return txt

@@ -1,0 +1,10 @@
+{
+  "title": "Mobile Privacy Policy | Other | CDC",
+  "url": "https://www.cdc.gov/other/mobileprivacypolicy.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "(Apps), certain information will be gathered and stored about your usage of that App. This information does not identify you personally. We collect and store information as follows:\nCDC receives aggregate data about the use of our Apps, such as the number of times the applications have been opened or the interactions or actions completed in the application. This is gathered via a third-party provider ( please refer to the tools list ). We also receive aggregate data from the platforms that distribute our Apps to various app stores ( please refer to the tools list ), such as the number of people who download the App and mobile set-up information (e.g., device model, App version, country, language, and mobile carrier). We do not, however, receive information unique to you or your use of our Apps. \nYou may sign up to receive &ldquo;push notification&rdquo; messages via a third-party provider ( please refer to our tools list ). To make sure messages reach the correct devices, our third-party provider relies on a device token unique to your mobile device. A device token is a unique identifier issued to the app by the operating system of your mobile device. While we may be able to access a list of the tokens, neither the App nor the tokens will reveal your identity, your unique device ID, or your contact information to us. The third-party provider may collect the following: the time",
+  "source_type": "library",
+  "source_id": "cdc_gov_other_mobileprivacypolicy_html_d33d2f302fec",
+  "chunk_id": "chunk_006"
+}

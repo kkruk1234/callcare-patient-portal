@@ -1,0 +1,57 @@
+{
+  "packet_id": "2a1673a7-aaed-44a7-8896-d016e2b71981",
+  "created_at": "2026-03-12T18:26:36.774101+00:00",
+  "session_id": "a1acb1a5-7361-41ec-863e-7533728edd93",
+  "pathway_id": "",
+  "base_queries": [
+    "lower abdominal pain management guidelines adults",
+    "treatment dosing for lower abdominal pain adults mg duration contraindications",
+    "red flags and return precautions for lower abdominal pain with fever chills"
+  ],
+  "queries": [
+    "AAFP lower abdominal pain management guidelines adults",
+    "AAFP treatment dosing for lower abdominal pain adults mg duration contraindications",
+    "MedlinePlus lower abdominal pain management guidelines adults",
+    "MedlinePlus treatment dosing for lower abdominal pain adults mg duration contraindications",
+    "CDC lower abdominal pain management guidelines adults",
+    "CDC treatment dosing for lower abdominal pain adults mg duration contraindications",
+    "NIH lower abdominal pain management guidelines adults",
+    "NIH treatment dosing for lower abdominal pain adults mg duration contraindications",
+    "NICE lower abdominal pain management guidelines adults",
+    "NICE treatment dosing for lower abdominal pain adults mg duration contraindications",
+    "WHO lower abdominal pain management guidelines adults",
+    "WHO treatment dosing for lower abdominal pain adults mg duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Acute Abdominal Pain in Adults:​",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0600/acute-abdominal-pain-adults.pdf",
+      "accessed": "2026-03-12",
+      "snippet": ""
+    },
+    {
+      "title": "Living with endometriosis: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000714.htm",
+      "accessed": "2026-03-12",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Evaluation of Acute Abdominal Pain in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2008/0401/p971.html",
+      "accessed": "2026-03-12",
+      "snippet": "Computed tomography (CT) with intravenous contrast media is recommended for evaluating adults with acute right lower quadrant pain; CT with oral and intravenous contrast media is recommended for patients with left lower quadrant pain. 15 , 16 Sigmoid diverticulitis is the most common cause of left lower quadrant pain in adults, and CT has a reported sensitivity of 79 to 99 percent for detecting the condition. 15 CT is better than ultrasonography for diagnosing appendicitis and can detect extracolonic causes of abdominal pain."
+    },
+    {
+      "title": "Palliative care - managing pain: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000532.htm",
+      "accessed": "2026-03-12",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old adult presenting with a 3-day history of lower abdominal pain described as sharp and stabbing. The pain is accompanied by fever and chills but without vaginal bleeding, discharge, or urinary symptoms. The patient is sexually active but denies any possibility of pregnancy.\n\nO: Phone consultation only; no physical examination or vital signs available.\n\nA: The working diagnosis is acute lower abdominal pain with systemic symptoms suggestive of an infectious or inflammatory process.\nDifferential:\n1. Pelvic inflammatory disease (PID)\n2. Acute appendicitis\n3. Diverticulitis\n4. Urinary tract infection without urinary symptoms\n\nP: - First-line medication: Doxycycline 100 mg orally twice daily for 14 days (Physician must verify medication/dosing)\n- Alternatives: Azithromycin 500 mg orally on day 1, then 250 mg orally daily for 4 days (Physician must verify medication/dosing)\n- Medication safety considerations: Allergy to Edison noted; no renal or liver disease; pregnancy excluded; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if abdominal pain worsens, fever persists or increases, or new symptoms such as vaginal bleeding or urinary symptoms develop. Seek emergency care if severe abdominal pain, vomiting, or signs of sepsis occur.\n- Testing: Recommend pelvic ultrasound and laboratory studies including CBC, inflammatory markers, and STI screening to clarify diagnosis and guide treatment."
+}

@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA849930eef3e1050c84eb3636199ddf36",
+  "session_id": "0d58a3d1-0e94-4a2d-991e-d6bba1ba83da",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-20T13:34:23.728281+00:00",
+  "ended_at": "2026-03-20T13:40:48.790014+00:00",
+  "packet_id": "500e6ade-b8fc-44a8-9724-2c79d9f362d8",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I'm having this burning since sensation in my, like, upper stomach chest area."
+    },
+    {
+      "role": "assistant",
+      "text": "When did the burning sensation start?"
+    },
+    {
+      "role": "user",
+      "text": "It started last night."
+    },
+    {
+      "role": "assistant",
+      "text": "Any associated symptoms like difficulty swallowing, vomiting, or chest pain radiating to your arm or jaw?"
+    },
+    {
+      "role": "user",
+      "text": "No. But I I am having"
+    },
+    {
+      "role": "assistant",
+      "text": "What other symptoms are you having?"
+    },
+    {
+      "role": "user",
+      "text": "I have some nausea, and I have burning. And I vomited into my mouth a little bit."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or sweating?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of heartburn, acid reflux, or ulcers?"
+    },
+    {
+      "role": "user",
+      "text": "I believe you asked me this before, but"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you tell me if you have any history of heartburn, acid reflux, or ulcers?"
+    },
+    {
+      "role": "user",
+      "text": "you just asked me that this like, the third time you're asking me this."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any blood in your vomit or black, tarry stools?"
+    },
+    {
+      "role": "user",
+      "text": "First of it's Tari, not Terry. But no. I have not."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you taken any medications or tried any treatments for this burning sensation since it started?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any history of heart disease, high blood pressure, or diabetes?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you recently eaten any spicy or unusual foods, or taken any new medications or supplements?"
+    },
+    {
+      "role": "user",
+      "text": "I have been having more spicy food than I usually do."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you’re experiencing a burning sensation in your upper stomach and chest area, likely due to acid reflux or irritation from eating more spicy foods recently. Because this is a phone visit, I can’t examine you or run tests, but based on what you told me, medication treatment may be appropriate. A licensed physician will review this note and, if suitable, may prescribe a medication to help reduce stomach acid. In the meantime, you can try avoiding spicy foods and taking acetaminophen or ibuprofen if you need pain relief and can take them safely. If you notice any worsening chest pain, especially if it spreads to your arm or jaw, or if you start vomiting blood or have severe vomiting, please seek urgent in-person care right away. Otherwise, a doctor will review your case and guide next steps. If you need an exam or testing, please go to urgent care or the emergency room, as this service does not include in-person visits."
+    }
+  ]
+}

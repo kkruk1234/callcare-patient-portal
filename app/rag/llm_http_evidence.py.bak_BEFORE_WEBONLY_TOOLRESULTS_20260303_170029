@@ -1,0 +1,427 @@
+from __future__ import annotations
+
+from datetime import date
+from typing import Optional, List, Dict, Any, Callable, Tuple
+from urllib.parse import urlparse
+import json
+import re
+
+try:
+    from openai import OpenAI  # type: ignore
+except Exception:
+    OpenAI = None  # type: ignore
+
+
+def _today_iso() -> str:
+    try:
+        return date.today().isoformat()
+    except Exception:
+        return ""
+
+
+def _shorten(s: str, n: int) -> str:
+    s = str(s or "")
+    s = re.sub(r"\s+", " ", s).strip()
+    if len(s) <= n:
+        return s
+    return s[:n].rstrip() + "…"
+
+
+def _host(url: str) -> str:
+    try:
+        return (urlparse(url).netloc or "").lower().replace("www.", "")
+    except Exception:
+        return ""
+
+
+def _publisher_from_url(url: str) -> str:
+    h = _host(url)
+    if not h:
+        return "Source"
+    if "nhs.uk" in h or "nhs" in h:
+        return "NHS"
+    if "nice.org.uk" in h:
+        return "NICE"
+    if "aafp.org" in h:
+        return "AAFP"
+    if "cdc.gov" in h:
+        return "CDC"
+    if "medlineplus.gov" in h:
+        return "MEDLINEPLUS"
+    if "nih.gov" in h or "ncbi.nlm.nih.gov" in h or "pubmed.ncbi.nlm.nih.gov" in h:
+        return "NIH"
+    if "who.int" in h:
+        return "WHO"
+    if "mayoclinic.org" in h:
+        return "MAYOCLINIC"
+    if "merckmanuals.com" in h:
+        return "MERCK"
+    if "idsociety.org" in h:
+        return "IDSA"
+    if "acog.org" in h:
+        return "ACOG"
+    return h.split(".")[0].upper() if "." in h else h.upper()
+
+
+def _allow_hosts() -> Tuple[str, ...]:
+    # Keep your allowlist exactly as-is (web-only, authoritative domains)
+    return (
+        "nhs.uk",
+        "nice.org.uk",
+        "aafp.org",
+        "cdc.gov",
+        "medlineplus.gov",
+        "nih.gov",
+        "ncbi.nlm.nih.gov",
+        "pubmed.ncbi.nlm.nih.gov",
+        "who.int",
+        "mayoclinic.org",
+        "merckmanuals.com",
+        "idsociety.org",
+        "acog.org",
+        "accessdata.fda.gov",
+    )
+
+
+def _is_allowed(url: str) -> bool:
+    u = (url or "").strip()
+    if not (u.startswith("http://") or u.startswith("https://")):
+        return False
+    h = _host(u)
+    if not h:
+        return False
+    # allow subdomains too
+    return any((h == ah) or h.endswith("." + ah) or (ah in h) for ah in _allow_hosts())
+
+
+def _unique_keep_order(urls: List[str]) -> List[str]:
+    seen = set()
+    out: List[str] = []
+    for u in urls:
+        u = (u or "").strip()
+        if not u:
+            continue
+        if u in seen:
+            continue
+        seen.add(u)
+        out.append(u)
+    return out
+
+
+def _extract_urls_from_openai_message(message_item: Any) -> List[str]:
+    """
+    Fallback: parse url_citation annotations if they exist.
+    Your previous implementation depended ONLY on this, which is why you got LEN=0 frequently.
+    """
+    urls: List[str] = []
+    try:
+        content = getattr(message_item, "content", None)
+        if content is None and isinstance(message_item, dict):
+            content = message_item.get("content")
+        if not isinstance(content, list):
+            return []
+        for part in content:
+            if isinstance(part, dict):
+                ann = part.get("annotations")
+            else:
+                ann = getattr(part, "annotations", None)
+            if not isinstance(ann, list):
+                continue
+            for a in ann:
+                if isinstance(a, dict):
+                    atype = a.get("type")
+                    u = a.get("url")
+                else:
+                    atype = getattr(a, "type", None)
+                    u = getattr(a, "url", None)
+                if atype != "url_citation":
+                    continue
+                u = (u or "").strip()
+                if u:
+                    urls.append(u)
+    except Exception:
+        return []
+    return urls
+
+
+def _extract_tool_results(resp: Any) -> List[Dict[str, Any]]:
+    """
+    Primary extraction: parse tool output items produced by the Responses API web_search tool.
+    We accept dict-shaped and object-shaped outputs.
+    Expected: output items include something like type == 'web_search_call' with a 'results' list.
+    """
+    out_items = getattr(resp, "output", None)
+    if out_items is None and isinstance(resp, dict):
+        out_items = resp.get("output")
+
+    if not isinstance(out_items, list):
+        return []
+
+    results: List[Dict[str, Any]] = []
+
+    for it in out_items:
+        t = None
+        if isinstance(it, dict):
+            t = it.get("type")
+        else:
+            t = getattr(it, "type", None)
+
+        # Tool output items
+        if t and "web_search" in str(t):
+            # common: it["results"]
+            r = None
+            if isinstance(it, dict):
+                r = it.get("results")
+            else:
+                r = getattr(it, "results", None)
+
+            if isinstance(r, list):
+                for x in r:
+                    if isinstance(x, dict):
+                        results.append(x)
+                    else:
+                        d = getattr(x, "__dict__", None)
+                        if isinstance(d, dict):
+                            results.append(d)
+
+        # Some SDK variants put tool results inside message content blocks
+        if t == "message":
+            # Look for embedded results blocks
+            content = it.get("content") if isinstance(it, dict) else getattr(it, "content", None)
+            if isinstance(content, list):
+                for part in content:
+                    pd = part if isinstance(part, dict) else getattr(part, "__dict__", None)
+                    if not isinstance(pd, dict):
+                        continue
+                    r2 = pd.get("results")
+                    if isinstance(r2, list):
+                        for x in r2:
+                            if isinstance(x, dict):
+                                results.append(x)
+
+    return results
+
+
+def _normalize_result_dict(r: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """
+    Normalize a raw web_search result dict to our evidence shape:
+      {"title","source","url","accessed","snippet"}
+    """
+    if not isinstance(r, dict):
+        return None
+
+    url = (r.get("url") or r.get("link") or r.get("source_url") or "").strip()
+    if not (url.startswith("http://") or url.startswith("https://")):
+        return None
+    if not _is_allowed(url):
+        return None
+
+    title = (r.get("title") or r.get("name") or "").strip()
+    snippet = (r.get("snippet") or r.get("description") or r.get("summary") or r.get("text") or "").strip()
+
+    src = (r.get("source") or r.get("publisher") or "").strip()
+    if not src:
+        src = _publisher_from_url(url)
+
+    if not title:
+        # best-effort title from URL path
+        try:
+            p = urlparse(url)
+            host = (p.netloc or "").replace("www.", "")
+            tail = (p.path or "").strip("/").split("/")[-1]
+            tail = tail.replace("-", " ").replace("_", " ").strip()
+            title = f"{host}: {tail[:80]}" if tail else host
+        except Exception:
+            title = url[:120]
+
+    title = re.sub(r"\s+", " ", title).strip()
+    if len(title) > 180:
+        title = title[:177].rstrip() + "..."
+
+    return {
+        "title": title,
+        "source": src or "Source",
+        "url": url,
+        "accessed": _today_iso(),
+        "snippet": snippet[:800] if snippet else "",
+    }
+
+
+def _openai_web_search(query: str, *, timeout_s: int = 12, debug: bool = False) -> List[Dict[str, Any]]:
+    """
+    WEB ONLY. NO PREVIEW.
+    Returns normalized evidence dicts (url-bearing).
+    """
+    if OpenAI is None:
+        raise RuntimeError("openai SDK not available; cannot run web_search evidence retrieval")
+
+    q = (query or "").strip()
+    if not q:
+        return []
+
+    client = OpenAI()
+    model = "gpt-4.1-mini"
+
+    resp = client.responses.create(
+        model=model,
+        input=q,
+        tools=[{"type": "web_search"}],
+        timeout=timeout_s,
+    )
+
+    # Primary: tool results
+    raw_results = _extract_tool_results(resp)
+    normalized: List[Dict[str, Any]] = []
+    for r in raw_results:
+        n = _normalize_result_dict(r)
+        if n:
+            normalized.append(n)
+
+    # Fallback: url_citation annotations if tool schema is different
+    if not normalized:
+        out_items = getattr(resp, "output", None)
+        if out_items is None and isinstance(resp, dict):
+            out_items = resp.get("output")
+        urls_all: List[str] = []
+        out_types: List[str] = []
+        if isinstance(out_items, list):
+            for it in out_items:
+                t = getattr(it, "type", None) if not isinstance(it, dict) else it.get("type")
+                out_types.append(str(t))
+                if t == "message":
+                    urls_all.extend(_extract_urls_from_openai_message(it))
+        urls_all = _unique_keep_order(urls_all)
+        urls_allowed = [u for u in urls_all if _is_allowed(u)]
+        for u in urls_allowed:
+            normalized.append(
+                {
+                    "title": _publisher_from_url(u),
+                    "source": _publisher_from_url(u),
+                    "url": u,
+                    "accessed": _today_iso(),
+                    "snippet": "",
+                }
+            )
+        if debug:
+            print("WEB_SEARCH_FALLBACK_url_citation_used =", True)
+            print("output_types =", out_types)
+
+    if debug:
+        print("WEB_SEARCH_QUERY =", _shorten(q, 140))
+        print("WEB_SEARCH_N =", len(normalized))
+        if normalized:
+            print("WEB_SEARCH_FIRST_URL =", normalized[0].get("url"))
+
+    return normalized
+
+
+def llm_http_evidence(
+    *,
+    chief_complaint: str,
+    queries: Optional[List[str]] = None,
+    diagnosis_hint: Optional[str] = None,
+    context: Optional[str] = None,
+    assessment_text: Optional[str] = None,
+    min_urls: int = 4,
+    max_urls: int = 6,
+    timeout_s: int = 12,
+    max_queries: int = 2,
+    title_fetch_n: int = 6,         # kept for API compatibility; unused (no HTTP fetch)
+    debug: bool = False,
+    max_per_publisher: int = 2,
+    snippet_fetch_n: int = 2,       # kept for API compatibility; unused (no HTTP fetch)
+    snippet_timeout_s: int = 4,     # kept for API compatibility; unused (no HTTP fetch)
+    trace_fn: Optional[Callable[..., None]] = None,
+    **_ignored,
+) -> List[Dict[str, Any]]:
+    """
+    WEB ONLY evidence retrieval. Returns URL-bearing dict evidence items:
+      {"title","source","url","accessed","snippet"}
+
+    - Uses OpenAI web_search tool output as the primary source of URLs.
+    - Applies allowlist filtering.
+    - Dedupes by URL.
+    - Caps per publisher + max_urls.
+    """
+    cc = (chief_complaint or "").strip()
+    if not cc:
+        raise ValueError("chief_complaint is required")
+
+    anchor = (assessment_text or "").strip() or (diagnosis_hint or "").strip() or (context or "").strip() or cc
+    anchor = _shorten(anchor, 200)
+
+    qs: List[str] = []
+    if isinstance(queries, list) and queries:
+        qs = [str(x).strip() for x in queries if str(x).strip()]
+    if not qs:
+        qs = [
+            f"{anchor} outpatient management guideline",
+            f"{anchor} treatment medication dosing contraindications",
+        ]
+    qs = qs[: max(1, int(max_queries or 1))]
+
+    all_items: List[Dict[str, Any]] = []
+
+    for q in qs:
+        try:
+            items = _openai_web_search(q, timeout_s=timeout_s, debug=debug)
+        except Exception as e:
+            if trace_fn:
+                try:
+                    trace_fn(marker="llm_http_evidence.web_search_error", error=str(e), query=q)
+                except Exception:
+                    pass
+            items = []
+
+        if items:
+            all_items.extend(items)
+
+        # If we already hit min, we can stop early to save latency
+        if len({(x.get("url") or "") for x in all_items if isinstance(x, dict)}) >= min_urls:
+            break
+
+    # Dedup by URL, keep order
+    seen = set()
+    deduped: List[Dict[str, Any]] = []
+    for x in all_items:
+        if not isinstance(x, dict):
+            continue
+        u = (x.get("url") or "").strip()
+        if not u:
+            continue
+        if u in seen:
+            continue
+        seen.add(u)
+        deduped.append(x)
+
+    # Cap per publisher/source and overall max_urls
+    counts: Dict[str, int] = {}
+    final: List[Dict[str, Any]] = []
+    for x in deduped:
+        src = (x.get("source") or "").strip().lower() or "source"
+        counts[src] = counts.get(src, 0)
+        if counts[src] >= int(max_per_publisher or 1):
+            continue
+        counts[src] += 1
+        final.append(x)
+        if len(final) >= int(max_urls or 6):
+            break
+
+    if debug:
+        print("EVID_FINAL_LEN =", len(final))
+        if final:
+            print("EVID_FIRST =", final[0].get("title"), "|", final[0].get("url"))
+
+    # Optional trace
+    if trace_fn:
+        try:
+            trace_fn(
+                marker="llm_http_evidence.done",
+                qs_n=len(qs),
+                out_n=len(final),
+                have_urls=any((x.get("url") or "").startswith("http") for x in final if isinstance(x, dict)),
+            )
+        except Exception:
+            pass
+
+    return final

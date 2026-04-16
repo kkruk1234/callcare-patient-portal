@@ -1,0 +1,10 @@
+{
+  "title": "Emergency Department Survey of Vaccination Knowledge, Vaccination Coverage, and Willingness to Receive Vaccines in an Emergency Department Among Underserved Populations â Eight U",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7429a1.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "ethnicity, non-English primary language, no source of primary health care, and lack of health insurance) ( 4 ). Model results are reported as adjusted odds ratios (aORs) with 95% CIs, and two-tailed p-values; p-values <0.05 and aORs with 95% CIs that excluded 1 were considered statistically significant. Analyses were conducted using RStudio (version 2023.12.1; RStudio, Inc.).\nTop \nResults \nParticipant Characteristics \nAmong 4,326 non&ndash;critically ill patients approached in the 10 participating EDs, 3,285 (75.9%) agreed to participate. Among these, 54.6% were female; 29.6% were Black, 27.0% were non-Hispanic White, and 31.5% were Hispanic; 7.8% had marginal or unstable housing; 21.0% lacked primary health care; and for 17.9%, Spanish was the primary language ( Table 1 ).\nParticipant Knowledge About Vaccines \nApproximately one half (49.4%; 95% CI = 47.7%&ndash;54.1%) of participants had not heard of one or more recommended vaccines ( Table 2 ). In adjusted models, the following characteristics were associated with not having heard of one or more vaccines: male sex (aOR = 2.01; 95% CI = 1.71&ndash;2.34), Black race (aOR = 2.01; 95% CI = 1.62&ndash;2.48), Hispanic ethnicity (aOR = 1.94; 95% CI = 1.51&ndash;2.48), non-English primary language (aOR = 2.42; 95% CI = 1.82&ndash;3.22), lack of primary health care (aOR = 1.68; 95% CI = 1.35&ndash;2.08), and being uninsured (aOR = 1.",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7429a1_htm_3fb3d62a8953",
+  "chunk_id": "chunk_009"
+}

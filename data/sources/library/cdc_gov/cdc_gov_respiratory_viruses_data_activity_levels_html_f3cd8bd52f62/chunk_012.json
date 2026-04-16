@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Activity Levels | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/activity-levels.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "usible outlier values are excluded. \nR t is not estimated for states in the following cases: \nJurisdictions with low emergency department facility participation or where diagnosis information is incomplete; \nIn each of the prior 2 weeks, fewer than 10 (for COVID-19 and Influenza) or 5 (for RSV) emergency department visits were reported; \nThere were detected anomalies in reported values; \nThe model did not pass checks for reliability. \nFor additional methods: Behind the Model: CDC's Tools to Assess Epidemic Trends | CFA: Behind the Model | CDC \nPercent of Tests Positive for Viral Respiratory Pathogens \nSources : COVID-19 and RSV: National Respiratory and Enteric Virus Surveillance System (NREVSS), a sentinel network of laboratories located through the US, includes clinical, public health and commercial laboratories; additional information available at: https://www.cdc.gov/surveillance/nrevss/index.html . Influenza: Clinical laboratory test results from NREVSS and influenza collaborating laboratories; more details about influenza virologic surveillance are available here: https://www.cdc.gov/flu/weekly/overview.htm . \nData for recent weeks in gray may be incomplete due to delays in reporting. These data are preliminary and may change as more data become available. \nData represent laboratory tests performed, not individual people. \nThe data are from across the country in all regio",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_activity_levels_html_f3cd8bd52f62",
+  "chunk_id": "chunk_012"
+}

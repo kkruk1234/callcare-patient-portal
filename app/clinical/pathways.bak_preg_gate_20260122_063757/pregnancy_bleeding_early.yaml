@@ -1,0 +1,26 @@
+id: pregnancy_bleeding_early
+version: 0.1
+match:
+  any_keywords: ["pregnant and bleeding", "bleeding during pregnancy", "positive pregnancy test and bleeding", "first trimester bleeding", "spotting and pregnant"]
+questions:
+  - id: heavy
+    prompt: "Is the bleeding heavy (soaking a pad an hour) or passing large clots? (yes/no)"
+    store_as: heavy_bleeding
+    type: yesno
+
+  - id: pain
+    prompt: "Do you have severe one-sided pelvic pain or shoulder pain? (yes/no)"
+    store_as: ectopic_like_pain
+    type: yesno
+
+  - id: dizzy
+    prompt: "Do you feel faint, dizzy, or like you might pass out? (yes/no)"
+    store_as: faint
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["heavy", "pain", "dizzy"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

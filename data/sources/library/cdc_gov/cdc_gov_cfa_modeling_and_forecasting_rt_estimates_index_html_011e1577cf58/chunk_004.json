@@ -1,0 +1,10 @@
+{
+  "title": "Current Epidemic Trends (Based on Rt) for States | CFA: Modeling and Forecasting | CDC",
+  "url": "https://www.cdc.gov/cfa-modeling-and-forecasting/rt-estimates/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "t R t cannot tell us: R t cannot tell us about the underlying burden of disease, just the trend of transmission. An R t < 1 does not mean that transmission is low, just that infections are declining. It is useful to look at respiratory disease activity in conjunction with R t .\nR t is a data-driven measure of disease transmission. R t is an estimate on date t of the average number of new infections caused by each infectious person. R t accounts for current population susceptibility, public health interventions, and behavior. \nR t > 1 indicates that infections are growing because, on average, each infected person is causing more than one new infection while R t < 1 indicates that infections are declining. \nR t can be a leading indicator (see definition) of increases or decreases in cases, hospitalizations, or deaths, because transmission occurs before case confirmation, hospitalization, or death. \nThe uncertainty range for each R t estimate determines the probability that infections are growing. For example, if 75% of the uncertainty range falls above 1, then there is a 75% chance that the infections are growing in that location. \nWhen the data are sparse, the model used to generate R t estimates will tend to generate estimates nearer to 1 with wide credible intervals, which reflects uncertainty in the true epidemic trend during these time periods. \nCaveats and limitations \nR t",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_modeling_and_forecasting_rt_estimates_index_html_011e1577cf58",
+  "chunk_id": "chunk_004"
+}

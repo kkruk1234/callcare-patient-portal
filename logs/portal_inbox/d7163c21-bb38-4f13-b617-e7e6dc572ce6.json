@@ -1,0 +1,57 @@
+{
+  "packet_id": "d7163c21-bb38-4f13-b617-e7e6dc572ce6",
+  "created_at": "2026-03-15T21:54:20.180314+00:00",
+  "session_id": "fe658f7c-af07-4b2c-85ec-9e2bfb0f1b5f",
+  "pathway_id": "",
+  "base_queries": [
+    "shoulder pain management guidelines adults",
+    "shoulder pain treatment adult dosing contraindications",
+    "red flags shoulder pain infection or neurovascular compromise"
+  ],
+  "queries": [
+    "AAFP shoulder pain management guidelines adults",
+    "AAFP shoulder pain treatment adult dosing contraindications",
+    "MedlinePlus shoulder pain management guidelines adults",
+    "MedlinePlus shoulder pain treatment adult dosing contraindications",
+    "CDC shoulder pain management guidelines adults",
+    "CDC shoulder pain treatment adult dosing contraindications",
+    "NIH shoulder pain management guidelines adults",
+    "NIH shoulder pain treatment adult dosing contraindications",
+    "NICE shoulder pain management guidelines adults",
+    "NICE shoulder pain treatment adult dosing contraindications",
+    "WHO shoulder pain management guidelines adults",
+    "WHO shoulder pain treatment adult dosing contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Acute Musculoskeletal Pain - Clinical Practice Guideline | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/family-physician/patient-care/clinical-recommendations/all-clinical-recommendations/musculoskeletal-pain.html",
+      "accessed": "2026-03-15",
+      "snippet": "Key Recommendations Topical NSAIDs, with or without menthol gel, should be used as first line therapy for adults with acute pain from non-low back, musculoskeletal injuries."
+    },
+    {
+      "title": "Shoulder pain",
+      "source": "nhs.uk",
+      "url": "https://www.nhs.uk/conditions/shoulder-pain/",
+      "accessed": "2026-03-15",
+      "snippet": "stronger medicine or injections to ease pain and swelling physiotherapy or exercises to do at home things to avoid to stop the pain getting worse or returning seeing a specialist for tests or treatment Physiotherapy for shoulder pain The number of physiotherapy sessions you may have depends on the cause of your shoulder pain."
+    },
+    {
+      "title": "General Principles",
+      "source": "rms.cornwall.nhs.uk",
+      "url": "https://rms.cornwall.nhs.uk/rms/primary_care_clinical_referral_criteria/orthopaedics/shoulder_and_elbow/general_principles",
+      "accessed": "2026-03-15",
+      "snippet": "If time allows, injection of the shoulder provides valuable diagnostic information. Consider using 10mls 0.5% marcain with steroid (e.g. 1ml/40mg of Kenalog) for sub acromial or glenohumeral injection and re-examining after 5-10 minutes: An immediate response is strong supportive evidence for the relevant diagnosis"
+    },
+    {
+      "title": "Shoulder Osteoarthritis:",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2008/0901/p605.pdf",
+      "accessed": "2026-03-15",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 51-year-old female who reports chronic shoulder pain and limited range of motion that began after a fall from a horse 15 years ago. She currently experiences pain and difficulty raising the shoulder fully. There is no recent trauma, swelling, or warmth, but she notes some mild redness. She denies numbness, tingling, weakness, fever, or chills. She has not had any recent imaging or treatment since physical therapy 15 years ago.\n\nO: Phone encounter only; no vital signs or physical exam available.\n\nA: The working diagnosis is chronic shoulder pain likely due to rotator cuff injury or degenerative changes from the remote trauma.\nDifferential:\n1. Rotator cuff tear or tendinopathy\n2. Glenohumeral osteoarthritis\n3. Adhesive capsulitis\n4. Subacromial bursitis\n\nP: \n- First-line medication: Naproxen 500 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Acetaminophen 500 mg orally every 6 hours as needed for pain (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no renal or liver disease, not pregnant; monitor for gastrointestinal side effects with NSAIDs\n- Follow-up recommendations: Seek in-person medical care urgently if there is worsening pain, new weakness, numbness, fever, or inability to use the arm\n- Testing: Recommend shoulder imaging such as X-ray and possibly MRI to evaluate for rotator cuff pathology and degenerative changes"
+}

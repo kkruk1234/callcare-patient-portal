@@ -1,0 +1,137 @@
+{
+  "packet_id": "3d0ca737-eb68-47be-ae38-70a564bebd86",
+  "created_at": "2026-02-12T18:16:21.624470+00:00",
+  "session_id": "8ef94bc1-6af9-47e8-8d17-db2ac25f18b9",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain? For example, is it sharp, dull, pressure-like, or burning?",
+    "intake_a1": "sharp",
+    "intake_q2": "When did the chest pain start?",
+    "intake_a2": "1 week ago",
+    "intake_q3": "Can you tell me if the chest pain changes with breathing, movement, or position?",
+    "intake_a3": "it gets a little worse with deep breaths",
+    "intake_q4": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a4": "no",
+    "intake_q5": "Any recent illnesses, cough, or fever?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of trauma or injury to your chest recently?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of heart disease, blood clots, or risk factors like smoking or high blood pressure?",
+    "intake_a7": "no",
+    "intake_q8": "Any swelling, redness, or tenderness in your legs recently?",
+    "intake_a8": "no",
+    "intake_q9": "Have you noticed any recent episodes of dizziness, fainting, or palpitations?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent episodes of coughing up blood or unexplained weight loss?",
+    "intake_a10": "no",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "yes"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "liver disease status is yes/unknown (avoid hepatotoxic meds / adjust dosing)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartattack.html",
+        "https://medlineplus.gov/lab-tests/troponin-test/",
+        "https://medlineplus.gov/heartdiseaseinwomen.html",
+        "https://www.nhs.uk/conditions/pericarditis/",
+        "https://www.nhs.uk/conditions/heart-attack/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with sharp chest pain that started one week ago. The pain worsens slightly with deep breaths but is not associated with shortness of breath, sweating, nausea, or radiation to the arm or jaw. She denies recent illness, cough, fever, trauma, or injury to the chest. There is no history of heart disease, blood clots, smoking, or hypertension. She has no leg swelling, redness, tenderness, dizziness, fainting, palpitations, coughing up blood, or unexplained weight loss. She has known liver disease but no renal disease and no medication allergies. Patient is not pregnant. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nThe working diagnosis is costochondritis, given the sharp chest pain localized to the chest wall that worsens with deep breathing and absence of systemic or cardiac symptoms. \n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal chest pain (e.g., muscle strain) \n3. Gastroesophageal reflux disease (GERD) \n4. Less likely cardiac causes (given no risk factors or associated symptoms) \n\nP: \n - First-line medication: \n- Acetaminophen 500 mg to 1000 mg orally every 6 hours as needed for pain, not to exceed 3000 mg/day; use with caution in liver disease.\n - Alternatives: \n - Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 7 to 14 days. Avoid if severe liver impairment; confirm safety given liver disease. Dosing details were not found in retrieved evidence; prescriber should verify. (avoid in renal disease; especially severe CKD/dialysis)\n - Naproxen 250 mg to 500 mg orally twice daily as needed for pain, for 7 to 14 days; avoid if severe liver impairment. \n - Medication safety considerations: \n Given the patient’s liver disease, NSAIDs and acetaminophen should be used cautiously. Avoid or verify dosing if severe hepatic impairment. No renal disease or pregnancy concerns. No known medication allergies. \n - Return precautions: \n Advise the patient to seek urgent care if she develops worsening chest pain, shortness of breath, sweating, nausea, pain radiating to the arm or jaw, dizziness, fainting, or any new concerning symptoms. \n - Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "www.nhs.uk Costochondritis - NHS authoritative_patient_clinician NHS: practical outpatient management language msk_chest_wall_pain 2026-02-08T14:37:23.207462+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "Costochondritis - Mayo Clinic",
+        "source": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+        "snippet": "www.mayoclinic.org Costochondritis - Mayo Clinic authoritative_patient_clinician Mayo Clinic: diagnosis + treatment overview msk_chest_wall_pain 2026-02-08T14:37:22.062924+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "Costochondritis - AAPM&R KnowledgeNow",
+        "source": "https://now.aapmr.org/costochondritis/",
+        "snippet": "now.aapmr.org Costochondritis - AAPM&R KnowledgeNow professional_reference AAPM&R KnowledgeNow: clinician-oriented summary msk_chest_wall_pain 2026-02-08T14:37:26.520699+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "pain by promoting activity modification, proper body mechanics, ergonomics, and postural training. Patient & family education Patients should be reassured that costochondritis is benign with a full recovery expected. Further evaluation is warranted if over 35 or with cardiac risk factors.1 Mild analgesics, ice/heat, activity modification, and complementary t…"
+      },
+      {
+        "title": "Pericarditis - NHS",
+        "source": "https://www.nhs.uk/conditions/pericarditis/",
+        "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+      },
+      {
+        "title": "Methotrexate Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a682018.html",
+        "snippet": "e method of birth control during your treatment and for 3 months after your last dose. If you or your partner become pregnant, call your doctor immediately. Methotrexate may cause harm or death to the fetus. Tell your doctor if you have or have ever had excess fluid in your stomach area or in the space around your lungs and if you have or have ever had kidne…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "mild or intense, and they can come and go over several hours. They include: Chest pain, heaviness, or discomfort in the center or left side of the chest Pain or discomfort in one or both arms, your back, shoulders, neck, jaw, or above your belly button Trouble breathing when resting or doing light physical activity Nausea and vomiting Feeling unusually tired…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/3ca85874a0800355/content.txt",
+      "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+    },
+    {
+      "title": "Heart Disease in Women | MedlinePlus",
+      "source": "https://medlineplus.gov/heartdiseaseinwomen.html",
+      "snippet": "ull and heavy or sharp Pain in the neck, jaw, throat, upper belly, or back Nausea or vomiting Unusual fatigue Shortness of breath (feeling like you can't get enough air) during physical activity Women who have coronary artery disease are more likely than men to have chest pain when resting or doing daily activities, rather than during exercise. They're also…"
+    },
+    {
+      "title": "Pericarditis - NHS",
+      "source": "https://www.nhs.uk/conditions/pericarditis/",
+      "snippet": "﻿ Pericarditis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Pericarditis Pericarditis is inflammation of the lining around your heart, which causes chest pain. It's not usually serious, but…"
+    },
+    {
+      "title": "Heart attack - NHS",
+      "source": "https://www.nhs.uk/conditions/heart-attack/",
+      "snippet": "ack Symptoms of a heart attack can include: chest pain – a feeling of pressure, heaviness, tightness or squeezing across your chest pain in other parts of the body – it can feel as if the pain is spreading from your chest to your arms (usually the left arm, but it can affect both arms), jaw, neck, back and tummy feeling lightheaded or dizzy sweating shortnes…"
+    }
+  ],
+  "state": null
+}

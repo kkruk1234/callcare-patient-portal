@@ -1,0 +1,12 @@
+{
+  "pathway_id": "acute_kidney_injury_possible",
+  "sources": [
+    {
+      "id": "acute_kidney_injury_possible_ref",
+      "source_id": "acute_kidney_injury_possible_ref",
+      "title": "Acute kidney injury overview (starter)",
+      "url": "https://www.niddk.nih.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

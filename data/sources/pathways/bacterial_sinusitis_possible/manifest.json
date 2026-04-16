@@ -1,0 +1,12 @@
+{
+  "pathway_id": "bacterial_sinusitis_possible",
+  "sources": [
+    {
+      "id": "bacterial_sinusitis_possible_cdc",
+      "source_id": "bacterial_sinusitis_possible_cdc",
+      "title": "Sinus infection guidance (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

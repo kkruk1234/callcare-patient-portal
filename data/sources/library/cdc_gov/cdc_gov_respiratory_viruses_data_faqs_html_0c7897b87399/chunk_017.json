@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "date #1 \nWhat: A combo box has been implemented for county and state filtering on the Your Community Snapshot page. \nWhy: User feedback indicated confusion when attempting to look up county-specific results without first selecting a state. The new design addresses this issue by providing a more intuitive interface. \nUpdate #2 \nWhat: Charts and maps moved to a new tab style for filters instead of dropdowns. The new tabs display on all devices larger than 385px in width and show dropdowns on devices smaller than that. \nWhy: The transition to a tabbed interface for chart filters on larger devices optimizes screen real estate and enhances navigation.&#8239; \nUpdate #3 \nWhat: Legends have been repositioned to the top of most charts.&#8239; \nWhy: By moving legends to the top of most charts, we've made it easier for users to quickly identify what each chart represents. This adjustment ensures that key information is immediately visible, facilitating better comprehension of the data presented. \nUpdate #4 \nWhat: Added subtle, scroll-triggered animations to the Your Community Snapshot . \nWhy: The purpose of adding these animations is to create a more dynamic and engaging user experience. By incorporating motion that activates as users scroll, the aim is to guide their journey through the content, subtly encouraging exploration and interaction with all of the available information. \nFebru",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_017"
+}

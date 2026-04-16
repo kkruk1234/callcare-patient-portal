@@ -1,0 +1,39 @@
+# Clinician-facing medication/dosing protocol for: uti_complicated
+# Sources (high-level):
+# - IDSA complicated UTI guidance (2025) emphasizing duration based on clinical response and subgroup factors
+# Notes:
+# - This protocol is intentionally conservative: culture-guided, consider in-person evaluation for systemic features.
+# - Provide oral options for stable patients; IV decisions remain clinician judgment.
+
+rx_options:
+  - med: "Trimethoprim-sulfamethoxazole (TMP-SMX) DS"
+    dosing: "160/800 mg (1 DS tab) PO twice daily x 7–10 days (based on response and culture)"
+    exclusions: "Sulfa allergy; renal dosing needs; interactions."
+    notes: "Use when susceptible; culture strongly preferred."
+
+  - med: "Amoxicillin-clavulanate"
+    dosing: "875/125 mg PO twice daily x 7–10 days (based on response and culture)"
+    exclusions: "Avoid severe beta-lactam allergy."
+    notes: "Option when organism susceptible; may be less effective than FQ/TMP-SMX in some settings—use guided by susceptibility."
+
+  - med: "Ciprofloxacin"
+    dosing: "500 mg PO twice daily x 5–7 days (physician discretion; based on response and susceptibility)"
+    exclusions: "Reserve due to adverse-effect profile; QT/tendon/neuropathy/aortic risk counseling; interactions."
+    notes: "Consider when benefits outweigh risks and susceptibility supports."
+
+supportive_care:
+  - item: "Hydration"
+    details: "Encourage oral fluids as tolerated."
+
+followup_and_safety:
+  - item: "Culture"
+    details: "Urine culture recommended for complicated UTI (ideally before antibiotics)."
+
+  - item: "Escalation / more aggressive path"
+    details: "If fever/systemic illness, flank pain, vomiting, pregnancy, obstruction/retention, catheter, immunocompromise, or no improvement within 48–72h → evaluate for pyelonephritis/obstruction; consider IV therapy or urgent in-person evaluation."
+
+  - item: "Duration note"
+    details: "Total duration depends on response and subgroup (e.g., suspected prostatitis often longer)."
+
+  - item: "Return precautions"
+    details: "Urgent evaluation for fever, rigors, flank pain, vomiting, confusion, hypotension, or worsening symptoms."

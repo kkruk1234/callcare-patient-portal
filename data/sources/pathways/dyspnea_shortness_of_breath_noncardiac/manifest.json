@@ -1,0 +1,19 @@
+{
+  "pathway_id": "dyspnea_shortness_of_breath_noncardiac",
+  "sources": [
+    {
+      "id": "nih_nhlbi_asthma_overview",
+      "type": "web",
+      "url": "https://www.nhlbi.nih.gov/health-topics/asthma",
+      "title": "NHLBI: Asthma (overview and warning sign concepts)",
+      "license_note": "Summarize concepts; do not reproduce full text."
+    },
+    {
+      "id": "cdc_copd_overview",
+      "type": "web",
+      "url": "https://www.cdc.gov/copd/",
+      "title": "CDC: COPD",
+      "license_note": "CDC public guidance."
+    }
+  ]
+}

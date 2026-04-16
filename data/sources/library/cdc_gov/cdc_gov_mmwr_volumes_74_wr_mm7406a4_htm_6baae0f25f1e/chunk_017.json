@@ -1,0 +1,10 @@
+{
+  "title": "Trends in Cervical Precancers Identified Through Population-Based Surveillance â Human Papillomavirus Vaccine Impact Monitoring Project, Five Sites, United States, 2008â2022 | ",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7406a4.htm?s_cid=mm7406a4_e&amp;ACSTrackingID=USCDC_921-DM145368&amp;ACSTrackingLabel=This%20Week%20in%20MMWR%3A%20Vol.%2074%2C%20February%2027%2C%202025&amp;deliveryName=USCDC_921-DM145368",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "The age-specific proportions of uninsured women who were screened were estimated by applying a multiplier to the proportions screened among all insured women, as estimated from claims data. The ratio of proportion screened among uninsured to insured was estimated by region, using data from the Behavioral Risk Factor Surveillance System, averaged across years 2008&ndash;2020 ( https://www.cdc.gov/brfss/index.html ). This ratio was then multiplied by the annual proportions screened for insured females.\n&dagger;&dagger;&dagger; https://surveillance.cancer.gov/joinpoint \n&sect;&sect;&sect; Joinpoint models were selected using weighted Bayesian information criterion. Up to two joinpoints were allowed; at least two observations were required between joinpoints or from a joinpoint to either end. If joinpoints were identified, segment-specific trends (APC) were reported. Trends were considered to increase when AAPC or APC >0 or decrease when AAPC or APC <0 and if the empirical quantile 95% CI did not include 0; otherwise, trends were considered stable.\n&para;&para;&para; Analyses were also performed with 2020 data included.\n**** 45 C.F.R. part 46.102(l)(2), 21 C.F.R. part 56; 42 U.S.C. Sect. 241(d); 5 U.S.C. Sect. 552a; 44 U.S.C. Sect. 3501 et seq.\n&dagger;&dagger;&dagger;&dagger; https://www.cdc.gov/mmwr/preview/mmwrhtml/su6004a9.htm \n&sect;&sect;&sect;&sect; https://www.cdc.gov/hpv/",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7406a4_htm_6baae0f25f1e",
+  "chunk_id": "chunk_017"
+}

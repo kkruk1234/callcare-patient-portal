@@ -1,0 +1,11 @@
+{
+  "pathway_id": "minor_wound_care",
+  "sources": [
+    {
+      "source_id": "cdc_wound",
+      "type": "url",
+      "title": "CDC: Wound Care",
+      "url": "https://www.cdc.gov/infectioncontrol/guidelines/healthcare-personnel/wound-care.html"
+    }
+  ]
+}

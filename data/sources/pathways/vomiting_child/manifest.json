@@ -1,0 +1,11 @@
+{
+  "pathway_id": "vomiting_child",
+  "sources": [
+    {
+      "source_id": "medline_vomiting",
+      "type": "url",
+      "title": "MedlinePlus: Nausea and Vomiting",
+      "url": "https://medlineplus.gov/nauseaandvomiting.html"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Release Notes & Frequently Asked Questions | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/faqs.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "-axis labels on charts, so they appear at the top of the axis instead of along the left side. \nWhy: Horizontal y-axis labels are more readable and interpretable as they don't require users to read vertical text. \nUpdate #3 \nWhat: We improved the layout and design of gradient map legends and moved them above each map on the Activity Levels page. \nWhy: The improved design makes the legend easier to interpret, and when legends are placed above maps, users don't have to scroll past the map to understand the colors used. \nOctober 4, 2024 release \nMajor updates: \n1. Enhancing 'Your community snapshot&rsquo; for greater insight and usability.\nWhat: \nThe community snapshot now includes explanatory text for each indicator that outlines \"what it is\" and \"why it matters\" giving users a clearer understanding of the data presented. \nAdditional links allow users to access detailed data and learn more about each indicator. \nWhy: \nThese enhancements are designed to provide users with essential context and background. \nBy expanding the snapshot with descriptive text and further resources, we aim to increase transparency around the data. \n2. Adding new Acute Respiratory Illness (ARI) metric to capture a broader range of respiratory illnesses requiring medical care.\nWhat: We utilize the ARI metric to categorize the level of respiratory illnesses as Minimal, Low, Moderate, High, or Very High in tw",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_faqs_html_0c7897b87399",
+  "chunk_id": "chunk_021"
+}

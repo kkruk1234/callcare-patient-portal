@@ -1,0 +1,50 @@
+{
+  "packet_id": "974df90a-ae65-4212-91a1-4f3c9d1ff74a",
+  "created_at": "2026-03-13T13:59:28.300736+00:00",
+  "session_id": "d7a03834-2fec-4c2a-9a5c-36f0c3303bb2",
+  "pathway_id": "",
+  "base_queries": [
+    "management guidelines for acute severe headache with neck stiffness in elderly",
+    "adult dosing and treatment options for severe headache with vomiting",
+    "red flags and urgent testing for headache with numbness and blurry vision"
+  ],
+  "queries": [
+    "AAFP management guidelines for acute severe headache with neck stiffness in elderly",
+    "AAFP adult dosing and treatment options for severe headache with vomiting",
+    "MedlinePlus management guidelines for acute severe headache with neck stiffness in elderly",
+    "MedlinePlus adult dosing and treatment options for severe headache with vomiting",
+    "CDC management guidelines for acute severe headache with neck stiffness in elderly",
+    "CDC adult dosing and treatment options for severe headache with vomiting",
+    "NIH management guidelines for acute severe headache with neck stiffness in elderly",
+    "NIH adult dosing and treatment options for severe headache with vomiting",
+    "NICE management guidelines for acute severe headache with neck stiffness in elderly",
+    "NICE adult dosing and treatment options for severe headache with vomiting",
+    "WHO management guidelines for acute severe headache with neck stiffness in elderly",
+    "WHO adult dosing and treatment options for severe headache with vomiting"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Approach to Acute Headache in Adults",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2013/0515/p682.pdf",
+      "accessed": "2026-03-13",
+      "snippet": ""
+    },
+    {
+      "title": "Migraine – SW London Integrated Medicines Optimisation Committee",
+      "source": "swlimo.southwestlondon.icb.nhs.uk",
+      "url": "https://swlimo.southwestlondon.icb.nhs.uk/clinical-guidance/central-nervous-system/neurology/migraine/",
+      "accessed": "2026-03-13",
+      "snippet": "If increased nausea with oral sumatriptan, consider zolmitriptan orodispersible tablet 2.5 to 5 mg (maximum 10 mg per 24 hours)."
+    },
+    {
+      "title": "2. Acute treatment of migraine in primary care | Right Decisions",
+      "source": "rightdecisions.scot.nhs.uk",
+      "url": "https://rightdecisions.scot.nhs.uk/shared-content/cfsd-modernising-patient-pathways/neurology/headache/2-acute-treatment-of-migraine-in-primary-care/",
+      "accessed": "2026-03-13",
+      "snippet": "Mild to moderate attacks Consider NSAID such as Aspirin 900mg or Ibuprofen 400mg to 600mg Alternatives include naproxen 500mg or diclofenac 75mg If NSAIDs are contra-indicated, or not tolerated, consider paracetamol 1000mg orally (doses may need to be adjusted in patients weighing For patients with an inadequate response and /or nausea / vomiting consider:"
+    }
+  ],
+  "note_text": "S: The patient is a 73-year-old female presenting with a very bad headache that started yesterday. She describes the headache as located behind her eyes and reports associated vomiting, neck stiffness, blurry vision, numbness in her left hand, and dizziness. She denies fever or recent head trauma but has a history of migraines. There are concerning neurological symptoms including numbness and dizziness.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is a possible serious secondary headache given the acute onset, neurological symptoms, and neck stiffness, which raises concern for conditions such as subarachnoid hemorrhage, meningitis, or stroke.\nDifferential:\n1. Subarachnoid hemorrhage\n2. Meningitis or other central nervous system infection\n3. Ischemic or hemorrhagic stroke\n4. Migraine with aura or complicated migraine\n\nP: - First-line medication: None prescribed at this time due to need for urgent in-person evaluation\n- Alternatives: None prescribed until further evaluation\n- Medication safety considerations: Not applicable until diagnosis confirmed\n- Follow-up recommendations: Seek in-person medical care urgently for neurological evaluation and imaging to rule out life-threatening causes\n- Testing: Urgent neuroimaging (CT head without contrast) and possible lumbar puncture after imaging"
+}

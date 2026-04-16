@@ -1,0 +1,38 @@
+id: ear_pain_child
+version: 0.1
+match:
+  any_keywords: ["child ear pain", "kid earache", "toddler ear pain", "ear infection child", "pulling ear"]
+questions:
+  - id: age
+    prompt: "How old is the child? (under 6 months, 6-23 months, 2-12 years, 13-17)"
+    store_as: age_group
+
+  - id: severe
+    prompt: "Severe pain, swelling behind the ear, or the ear sticking out more than usual? (yes/no)"
+    store_as: mastoid_signs
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_mastoiditis"]
+
+  - id: fever
+    prompt: "High fever or very ill appearance? (yes/no)"
+    store_as: fever
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["severe_ear_infection_child"]
+
+  - id: discharge
+    prompt: "Drainage from the ear? (yes/no)"
+    store_as: discharge
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_tm_perforation_or_infection"]
+
+stop_rules:
+  - if_all_answered: ["age","severe","fever","discharge"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

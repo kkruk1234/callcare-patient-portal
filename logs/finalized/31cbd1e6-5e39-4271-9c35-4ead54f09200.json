@@ -1,0 +1,57 @@
+{
+  "packet_id": "31cbd1e6-5e39-4271-9c35-4ead54f09200",
+  "created_at": "2026-03-27T20:31:15.443843+00:00",
+  "session_id": "95c283a7-ad76-4122-9615-bc2732caab73",
+  "pathway_id": "",
+  "base_queries": [
+    "acute diarrhea management guidelines adults",
+    "adult diarrhea treatment dosing and contraindications",
+    "red flags and return precautions diarrhea adults"
+  ],
+  "queries": [
+    "AAFP acute diarrhea management guidelines adults",
+    "AAFP adult diarrhea treatment dosing and contraindications",
+    "MedlinePlus acute diarrhea management guidelines adults",
+    "MedlinePlus adult diarrhea treatment dosing and contraindications",
+    "CDC acute diarrhea management guidelines adults",
+    "CDC adult diarrhea treatment dosing and contraindications",
+    "NIH acute diarrhea management guidelines adults",
+    "NIH adult diarrhea treatment dosing and contraindications",
+    "NICE acute diarrhea management guidelines adults",
+    "NICE adult diarrhea treatment dosing and contraindications",
+    "WHO acute diarrhea management guidelines adults",
+    "WHO adult diarrhea treatment dosing and contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Acute Diarrhea in Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2022/0700/acute-diarrhea.html",
+      "accessed": "2026-03-27",
+      "snippet": "Antibiotic Single dose (orally) Three-day dose (orally) Azithromycin (Zithromax) 1,000 mg 500 mg per day * Ciprofloxacin 750 mg 500 mg per day Levofloxacin (Levaquin) 500 mg 500 mg per day Ofloxacin 400 mg 400 mg per day Rifaximin (Xifaxan) † None 200 mg three times per day"
+    },
+    {
+      "title": "Loperamide - StatPearls - NCBI Bookshelf",
+      "source": "ncbi.nlm.nih.gov",
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK557885/",
+      "accessed": "2026-03-27",
+      "snippet": "The usual initial recommended dose for acute diarrhea, such as traveler’s diarrhea, is a 4 mg starting dose, followed by 2 mg after each unformed stool. The total dose is not to exceed 8 mg daily for over-the-counter use and 16 mg daily for prescription use. For chronic use, the suggested dose is 2 mg twice daily. Consider administering loperamide 30 minutes before food 4 times daily for patients with chemotherapy-induced diarrhea to slow colic reflex."
+    },
+    {
+      "title": "Food poisoning: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/001652.htm",
+      "accessed": "2026-03-27",
+      "snippet": "Blood or pus in your stools Diarrhea and are unable to drink fluids due to nausea and vomiting A fever above 101°F (38.3°C), or your child has a fever above 100.4°F (38°C) along with diarrhea Signs of dehydration (thirst, dizziness, lightheadedness) Recently traveled to a foreign country and developed diarrhea Diarrhea that has not gotten better in 5 days (2 days for an infant or child), or has gotten worse A child who has been vomiting for more than 12 hours (in a newborn under 3 months you should call as soon as vomiting or diarrhea begins) Food poisoning that is from mushrooms (potentially fatal), fish or other seafood, or botulism (also potentially fatal) Prevention"
+    },
+    {
+      "title": "Bacterial gastroenteritis: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000254.htm",
+      "accessed": "2026-03-27",
+      "snippet": "The diarrhea gets worse or does not get better in 2 days for an infant or child, or 5 days for adults A child over 3 months old has been vomiting for more than 12 hours; in younger babies, call as soon as vomiting or diarrhea begins Prevention"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male who presents with a 2-day history of diarrhea. He reports no fever, blood in stool, or severe abdominal pain, only mild abdominal discomfort. There is no nausea, vomiting, or signs of dehydration, and he has been increasing his fluid intake. The diarrhea began after consuming extremely spicy leftovers, which he has since stopped eating. He has no recent antibiotic use or chronic gastrointestinal conditions.\n\nO: Phone consultation only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute diarrhea likely secondary to dietary irritation from spicy food.\nDifferential:\n1. Dietary-induced acute diarrhea\n2. Infectious gastroenteritis (less likely without fever or systemic symptoms)\n3. Irritable bowel syndrome exacerbation\n4. Medication or toxin-induced diarrhea (none reported)\n\nP: - First-line medication: Loperamide 2 mg orally after first loose stool, then 1 mg after each subsequent loose stool, not to exceed 8 mg/day, for up to 2 days (Physician must verify medication/dosing)\n- Alternatives: Bismuth subsalicylate 524 mg orally every 30 to 60 minutes as needed, up to 8 doses per day, for up to 2 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid loperamide if signs of invasive diarrhea develop (e.g., fever, bloody stools); patient allergic to penicillin, no renal or liver disease reported\n- Follow-up recommendations: Seek in-person medical care urgently if diarrhea persists beyond 48 hours, if fever or bloody stools develop, or if signs of dehydration occur; seek emergency care if severe abdominal pain or altered mental status develops\n- Testing: Not indicated at this time given mild symptoms and clear dietary trigger"
+}

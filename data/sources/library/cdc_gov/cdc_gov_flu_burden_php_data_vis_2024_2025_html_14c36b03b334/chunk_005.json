@@ -1,0 +1,10 @@
+{
+  "title": "Preliminary Estimated Flu Disease Burden 2024-2025 Flu Season | Flu Burden | CDC",
+  "url": "https://www.cdc.gov/flu-burden/php/data-vis/2024-2025.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "lays the estimated disease burden of flu during the 2024-2025 flu season by describing the number of cumulative flu-related hospitalizations. This is a way to understand the impact of flu on the population and the healthcare system. The plot displays the range of flu-related hospitalizations from the lowest possible number to the highest possible number of people that were hospitalized for flu. The estimates are presented in a range instead of a point value since flu circulation is ongoing during this period and some of the data that contribute to the model may be limited, especially early in the season. This range is updated each week during the flu season to reflect the most up to date information.\nAdditionally, CDC assesses the current season's severity each week compared to past seasons' and provides information about this season's severity assessment. \nKeep Reading \n2024-2025 United States Flu Season: Preliminary In-Season Severity Assessment \nLimitations \nThe estimates of the preliminary, cumulative burden of seasonal influenza are subject to several limitations:\nThe cumulative rate of lab-confirmed flu-related hospitalizations reported during the season may be an underestimate of the rate at the end of the season because of identification and reporting delays. \nRates of lab-confirmed flu-related hospitalizations are adjusted for the frequency of flu testing and the sensi",
+  "source_type": "library",
+  "source_id": "cdc_gov_flu_burden_php_data_vis_2024_2025_html_14c36b03b334",
+  "chunk_id": "chunk_005"
+}

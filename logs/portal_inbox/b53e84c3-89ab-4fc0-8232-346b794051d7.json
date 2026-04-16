@@ -1,0 +1,57 @@
+{
+  "packet_id": "b53e84c3-89ab-4fc0-8232-346b794051d7",
+  "created_at": "2026-03-12T14:03:18.526520+00:00",
+  "session_id": "54f303b3-384c-42d7-81d2-8c0ce48562a1",
+  "pathway_id": "",
+  "base_queries": [
+    "lower abdominal pain management guidelines female adults",
+    "treatment dosing for lower abdominal pain adults contraindications penicillin allergy",
+    "red flags and return precautions lower abdominal pain female adults"
+  ],
+  "queries": [
+    "AAFP lower abdominal pain management guidelines female adults",
+    "AAFP treatment dosing for lower abdominal pain adults contraindications penicillin allergy",
+    "MedlinePlus lower abdominal pain management guidelines female adults",
+    "MedlinePlus treatment dosing for lower abdominal pain adults contraindications penicillin allergy",
+    "CDC lower abdominal pain management guidelines female adults",
+    "CDC treatment dosing for lower abdominal pain adults contraindications penicillin allergy",
+    "NIH lower abdominal pain management guidelines female adults",
+    "NIH treatment dosing for lower abdominal pain adults contraindications penicillin allergy",
+    "NICE lower abdominal pain management guidelines female adults",
+    "NICE treatment dosing for lower abdominal pain adults contraindications penicillin allergy",
+    "WHO lower abdominal pain management guidelines female adults",
+    "WHO treatment dosing for lower abdominal pain adults contraindications penicillin allergy"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Evaluation of Acute Pelvic Pain in Women | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0800/acute-pelvic-pain.html",
+      "accessed": "2026-03-12",
+      "snippet": "Urinalysis of a midstream urine specimen should be considered to assess for urinary tract infection. Urine culture is often beneficial to confirm suspected urinary tract infection, identify specific organisms, and guide antibiotic use. If testing for gonorrhea and chlamydia, first-void urine collected without cleaning of the urethra (“dirty” catch) has historically been recommended, often requiring two urine samples for full evaluation. 26 Logistically this can be challenging. One study found that a midstream sample for chlamydia testing is still 96% accurate, and another study found a sensitivity of 86.2% for chlamydia and 94.4% for gonorrhea. This shows noninferiority to a dirty catch; therefore, one urine sample may be sufficient. 26 , 27"
+    },
+    {
+      "title": "Overview | Irritable bowel syndrome in adults: diagnosis and management | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/cg61",
+      "accessed": "2026-03-12",
+      "snippet": "Local commissioners and providers of healthcare have a responsibility to enable the guideline to be applied when individual professionals and people using services wish to use it. They should do so in the context of local and national priorities for funding and developing services, and in light of their duties to have due regard to the need to eliminate unlawful discrimination, to advance equality of opportunity and to reduce health inequalities. Nothing in this guideline should be interpreted in a way that would be inconsistent with complying with those duties."
+    },
+    {
+      "title": "Period Pain | Menstrual Cramps | MedlinePlus",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/periodpain.html",
+      "accessed": "2026-03-12",
+      "snippet": "If your period pain is primary dysmenorrhea and you need medical treatment, your health care provider might suggest using hormonal birth control, such as the pill, patch, ring, or IUD. Another treatment option might be prescription pain relievers."
+    },
+    {
+      "title": "Chlamydia infections in women: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000660.htm",
+      "accessed": "2026-03-12",
+      "snippet": "Finish all of them, even if you feel better and still have some left. All of your sexual partners should be treated. Have them take the medicines even if they do not have symptoms. This will prevent you from passing the STIs back and forth. You and your partner are asked to abstain from sexual intercourse during the time of treatment."
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sharp, stabbing lower abdominal pain. She reports associated mild fever, chills, and nausea but denies vaginal bleeding, discharge, urinary symptoms, or changes in bowel habits. She notes tenderness on palpation of the lower abdomen and states that sometimes the pain coincides with her menstrual period. There is no history of recent sexual activity or pregnancy.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute lower abdominal pain likely due to a gynecologic or infectious etiology given the tenderness, fever, and associated symptoms.\nDifferential:\n1. Pelvic inflammatory disease (PID)\n2. Acute appendicitis\n3. Ovarian cyst rupture or torsion\n4. Urinary tract infection (less likely without urinary symptoms)\n\nP: - First-line medication: Ibuprofen 400 mg orally every 6 hours as needed for pain for 5 days (Physician must verify medication/dosing)\n- Alternatives: Acetaminophen 500 mg orally every 6 hours as needed for pain for 5 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin due to allergy; monitor for gastrointestinal side effects with NSAIDs; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if pain worsens, fever increases, develops vaginal bleeding, or new urinary symptoms occur. Seek emergency care if severe abdominal pain or signs of sepsis develop.\n- Testing: Recommend in-person evaluation with pelvic exam, abdominal ultrasound, and laboratory studies including CBC, urinalysis, and STI screening as indicated."
+}

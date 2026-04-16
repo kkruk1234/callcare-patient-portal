@@ -1,0 +1,12 @@
+{
+  "pathway_id": "carbon_monoxide_possible",
+  "sources": [
+    {
+      "id": "carbon_monoxide_possible_ref",
+      "source_id": "carbon_monoxide_possible_ref",
+      "title": "Carbon monoxide poisoning basics (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

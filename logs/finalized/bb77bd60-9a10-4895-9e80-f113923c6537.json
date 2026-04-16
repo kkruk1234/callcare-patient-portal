@@ -1,0 +1,61 @@
+{
+  "packet_id": "1c48cb14-b791-4cd6-8069-f3afa543b587",
+  "created_at": "2026-01-22T23:02:25.149397+00:00",
+  "session_id": "bb77bd60-9a10-4895-9e80-f113923c6537",
+  "chief_complaint": "red and swollen hand",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "cough_uri",
+  "answers": {
+    "duration": "0 days",
+    "fever": "yes",
+    "sob": "no",
+    "chest_pain": "no",
+    "high_risk": "no"
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult presenting with a red and swollen hand of acute onset (0 days). The patient reports fever but denies shortness of breath and chest pain. There are no known medication allergies. No chronic lung disease or other high-risk conditions are reported.\n\nO:\nNo physical exam or vital signs available due to phone-only evaluation.\n\nA:\n - Working diagnosis (most likely): Acute hand cellulitis\n - Differential:\n  1. Bacterial cellulitis of the hand\n  2. Early abscess formation\n  3. Inflammatory arthritis or gout flare\n  4. Contact dermatitis or allergic reaction\n - Red flags considered:\n  Fever with acute swelling and redness raises concern for spreading infection or systemic involvement.\n\nP:\n - Disposition:\n  Patient advised to seek in-person evaluation promptly if symptoms worsen or systemic signs develop.\n - Plan:\n  Given the presentation of acute red, swollen, and febrile hand, bacterial cellulitis is suspected. Empiric antibiotic therapy may be indicated after clinical evaluation. Since this is a phone-only encounter, recommend urgent in-person assessment for physical examination and possible initiation of antibiotics.\n - Safety net:\n  Instruct patient to seek emergency care if they develop increasing pain, spreading redness, fever persists or worsens, difficulty moving the hand, or signs of systemic illness such as confusion or rapid heart rate.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care.",
+      "Medication options you may consider if safe (no dosing by phone): acetaminophen (Tylenol) if you can take it safely; ibuprofen (Advil) if you can take it safely."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+        "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+      },
+      {
+        "title": "NICE NG120: Cough (acute)",
+        "source": "https://www.nice.org.uk/guidance/ng120",
+        "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+      },
+      {
+        "title": "BMJ Best Practice: Acute Cough",
+        "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+        "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "CDC: Outpatient Clinical Care for Adults (Antibiotic Prescribing Guidance)",
+      "source": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+      "snippet": "Listed in pathway manifest https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html"
+    },
+    {
+      "title": "NICE NG120: Cough (acute)",
+      "source": "https://www.nice.org.uk/guidance/ng120",
+      "snippet": "Listed in pathway manifest https://www.nice.org.uk/guidance/ng120"
+    },
+    {
+      "title": "BMJ Best Practice: Acute Cough",
+      "source": "https://bestpractice.bmj.com/topics/en-us/3000116",
+      "snippet": "Listed in pathway manifest https://bestpractice.bmj.com/topics/en-us/3000116"
+    }
+  ]
+}

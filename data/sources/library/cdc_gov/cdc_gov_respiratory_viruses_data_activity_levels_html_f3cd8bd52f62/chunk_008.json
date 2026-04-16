@@ -1,0 +1,10 @@
+{
+  "title": "Respiratory Virus Activity Levels | Respiratory Illnesses | CDC",
+  "url": "https://www.cdc.gov/respiratory-viruses/data/activity-levels.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "cessed here:&#8239; Health Service Areas (HSA) - SEER Datasets (cancer.gov) \nDisplay criteria for sub-state levels (categories): \nJurisdictions may elect not to display sub-state ED visit data for a variety of reasons. \nData from HSAs with fewer than 30% of hospitals participating in NSSP are suppressed to ensure a minimum level of representativeness. \nSub-state display of levels (categories) is further limited to ensure that calculations are stable and based on having a sufficient number of total ED visits. For each state, a minimum number of total ED visits (V) is defined as V = 1/D, where D = maximum number of standard deviations above the mean for any observed week divided by 4 (see above). This value of V is determined separately for COVID-19, influenza, RSV, and ARI overall for each state. \nTo assess if an HSA meets the criteria for classification based on sufficient data, data weeks from Week 1 to Week 26 of 2025 were considered. If the total number of ED visits in an HSA during these weeks was equal to or greater than the corresponding V value, it indicated sufficient data. However, if the total number of weeks meeting this minimum count fell below 80% (21 out of 26 weeks), the level (category) was not displayed for that HSA in any week. The percentage of ED visits for COVID-19, influenza, or RSV may still be displayed even if the level (category) is not displayed. \nWas",
+  "source_type": "library",
+  "source_id": "cdc_gov_respiratory_viruses_data_activity_levels_html_f3cd8bd52f62",
+  "chunk_id": "chunk_008"
+}

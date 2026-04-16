@@ -1,0 +1,73 @@
+{
+  "packet_id": "0da5e59f-cd35-415d-9ac2-3c550316c3aa",
+  "created_at": "2026-01-25T21:06:06.646746+00:00",
+  "session_id": "2b5ec0d8-55e9-46ef-bf7d-c3499f780460",
+  "chief_complaint": "bleach splashed in my eye and it burns",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "eye_chemical_exposure",
+  "answers": {
+    "rinse": "yes",
+    "vision": "no",
+    "contact": "no"
+  },
+  "med_suggestions": [
+    {
+      "rank": 1,
+      "med": "No outpatient prescriptions by phone",
+      "dosing": "N/A",
+      "sig": "N/A",
+      "route": "",
+      "frequency": "",
+      "duration": "",
+      "notes": "Primary treatment is immediate irrigation and urgent in-person evaluation. Medications (antibiotics/cycloplegics) require exam.",
+      "exclusions": "N/A",
+      "tier": "Tier 1",
+      "pathway_id": "eye_chemical_exposure",
+      "source_file": "data/protocols/meds/eye_chemical_exposure.yaml"
+    }
+  ],
+  "note": {
+    "soap": "S:\nThe patient is a 34-year-old adult who reports that bleach splashed into their eye, causing a burning sensation. They rinsed the eye promptly (within 15 minutes). There is no reported vision change or severe pain. The patient does not wear contact lenses and has no medication allergies.\n\nO:\nNo physical exam or vital signs available due to phone-only encounter. Patient confirms rinsing the eye immediately after exposure.\n\nA:\n - Working diagnosis (most likely): Chemical conjunctivitis/ocular irritation due to bleach exposure.\n - Differential:\n  1. Chemical conjunctivitis\n  2. Corneal abrasion or chemical keratitis\n  3. Allergic conjunctivitis (less likely given acute exposure)\n  4. Infectious conjunctivitis (less likely given acute chemical exposure)\n - Red flags considered:\n  - Vision changes (none reported)\n  - Severe pain (none reported)\n  - Contact lens use (none)\n  - Persistent symptoms or worsening after rinsing\n\nP:\n - Disposition: Patient can be managed at home with supportive care given no vision changes or severe pain.\n - Plan: No outpatient prescriptions by phone — N/A.\n   Medication protocol (from data/protocols/meds):\n   - Medication recommendations (Tier 1):\n   - Reviewing physician will confirm appropriateness and prescribe if indicated.\n   - No outpatient prescriptions by phone — N/A\n     - Notes: Primary treatment is immediate irrigation and urgent in-person evaluation. Medications (antibiotics/cycloplegics) require exam.\n     - Exclusions: N/A\n   - Supportive care:\n   - Immediate irrigation: Begin flushing the eye immediately with clean water/saline for 15–30 minutes (longer for strong chemicals). Remove contact lenses if present.\n   - Do not delay: Do not wait for symptoms—irrigation is time-critical.\n   - Bring product info: Bring the chemical container/name to the evaluation site if possible.\n   - Follow-up and safety:\n   - Urgent evaluation: Urgent ED/eye evaluation after irrigation (same-day). Alkali exposures are particularly dangerous.\n   - Urgent/ED now: Any vision change, severe pain, inability to open eye, or exposure to strong alkali/acid.\n   - Continue thorough eye irrigation with clean water or saline for at least 15 minutes if symptoms persist.\n   - Avoid rubbing the eye.\n   - Use lubricating artificial tears if available to soothe irritation.\n   - Avoid contact lens use until symptoms resolve.\n   - If symptoms worsen, vision changes develop, or severe pain occurs, seek urgent in-person evaluation.\n - Safety net:\n   - Instruct patient to seek emergency care if they develop worsening eye pain, vision loss, increased redness, or discharge.\n   - Advise follow-up with primary care or ophthalmology if symptoms do not improve within 24-48 hours.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "AAO EyeNet: Treating Acute Chemical Injuries of the Cornea",
+        "source": "https://www.aao.org/eyenet/article/treating-acute-chemical-injuries-of-cornea",
+        "snippet": "Listed in pathway manifest https://www.aao.org/eyenet/article/treating-acute-chemical-injuries-of-cornea"
+      },
+      {
+        "title": "Chemical injuries of the eye (2019 review, PMC)",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6751045/",
+        "snippet": "Listed in pathway manifest https://pmc.ncbi.nlm.nih.gov/articles/PMC6751045/"
+      },
+      {
+        "title": "University of Iowa EyeRounds: Chemical Eye Injury (case/tutorial)",
+        "source": "https://webeye.ophth.uiowa.edu/eyeforum/cases/307-chemical-eye-injury.htm",
+        "snippet": "Listed in pathway manifest https://webeye.ophth.uiowa.edu/eyeforum/cases/307-chemical-eye-injury.htm"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "AAO EyeNet: Treating Acute Chemical Injuries of the Cornea",
+      "source": "https://www.aao.org/eyenet/article/treating-acute-chemical-injuries-of-cornea",
+      "snippet": "Listed in pathway manifest https://www.aao.org/eyenet/article/treating-acute-chemical-injuries-of-cornea"
+    },
+    {
+      "title": "Chemical injuries of the eye (2019 review, PMC)",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6751045/",
+      "snippet": "Listed in pathway manifest https://pmc.ncbi.nlm.nih.gov/articles/PMC6751045/"
+    },
+    {
+      "title": "University of Iowa EyeRounds: Chemical Eye Injury (case/tutorial)",
+      "source": "https://webeye.ophth.uiowa.edu/eyeforum/cases/307-chemical-eye-injury.htm",
+      "snippet": "Listed in pathway manifest https://webeye.ophth.uiowa.edu/eyeforum/cases/307-chemical-eye-injury.htm"
+    }
+  ]
+}

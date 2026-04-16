@@ -1,0 +1,36 @@
+id: headache
+label: Headache / worst headache
+
+match:
+  any_keywords: ["headache", "migraine", "worst headache", "thunderclap"]
+
+questions:
+  - id: onset
+    prompt: "Did the headache start suddenly (like a thunderclap) or build gradually? (suddenly/gradually)"
+    type: choice
+    store_as: headache_onset
+
+  - id: neuro
+    prompt: "Any new weakness, numbness, trouble speaking, confusion, or fainting? (yes/no)"
+    type: yesno
+    store_as: neuro_symptoms
+
+  - id: fever
+    prompt: "Do you have a fever? (yes/no)"
+    type: yesno
+    store_as: fever
+
+  - id: stiff_neck
+    prompt: "Do you have a stiff neck? (yes/no)"
+    type: yesno
+    store_as: stiff_neck
+
+  - id: vision_eye
+    prompt: "Any vision loss or severe eye pain with the headache? (yes/no)"
+    type: yesno
+    store_as: eye_red_flags
+
+  - id: pregnancy
+    prompt: "Is pregnancy possible right now? (yes/no/unknown)"
+    type: text
+    store_as: pregnancy_possible

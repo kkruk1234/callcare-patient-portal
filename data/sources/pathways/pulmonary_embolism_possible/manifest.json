@@ -1,0 +1,12 @@
+{
+  "pathway_id": "pulmonary_embolism_possible",
+  "sources": [
+    {
+      "id": "pulmonary_embolism_possible_ref",
+      "source_id": "pulmonary_embolism_possible_ref",
+      "title": "Blood clot/PE overview (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

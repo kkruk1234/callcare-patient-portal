@@ -1,0 +1,10 @@
+{
+  "title": "Effectiveness of 2024â2025 COVID-19 Vaccines in Children in the United States â VISION, August 29, 2024âSeptember 2, 2025 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7440a1.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "Sensitivity VE estimates &dagger; \nExtended VE interval \nNo 2024&ndash;2025 COVID-19 dose (Ref) \n50,979 \n986 (722&ndash;1,135) \n1,633 \n1,299 (97) \nRef \nRef \nAt least 1 2024&ndash;2025 COVID-19 dose, 7&ndash;299 days earlier \n3,152 \n105 (55&ndash;167) \n299 \n44 (3) \n46 (27&ndash;60) \n45 (25&ndash;59) \nEstimates by age group, yrs \n5&ndash;11 \nNo 2024&ndash;2025 COVID-19 dose (Ref) \n31,508 \n883 (595&ndash;1,050) \n1,633 \n645 (98) \nRef \nRef \nAt least 1 2024&ndash;2025 COVID-19 dose, 7&ndash;179 days earlier \n1,443 \n85 (44&ndash;126) \n179 \n13 (2) \n57 (24&ndash;75) \n51 (14&ndash;72) \n12&ndash;17 \nNo 2024&ndash;2025 COVID-19 dose (Ref) \n19,471 \n1,056 (835&ndash;1,191) \n1,552 \n654 (98) \nRef \nRef \nAt least 1 2024&ndash;2025 COVID-19 dose, 7&ndash;179 days earlier \n1,045 \n82 (44&ndash;122) \n179 \n13 (2) \n64 (37&ndash;79) \n61 (31&ndash;78) \nAbbreviations: Ref = referent group; VE = vaccine effectiveness.\n* VE was calculated as (1 &ndash; adjusted odds ratio) &times; 100%, estimated using a test-negative case-control design, and age in years, race and ethnicity, sex, calendar day (days since August 29, 2024), and geographic region with age and calendar day included as natural splines. In each analysis, the vaccinated group was children who received at least 1 2024&ndash;2025 COVID-19 vaccine dose, regardless of previous COVID-19 vaccination history; the comparator group was children with no r",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7440a1_htm_21f04c69c4a7",
+  "chunk_id": "chunk_030"
+}

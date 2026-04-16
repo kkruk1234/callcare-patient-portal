@@ -1,0 +1,30 @@
+id: nosebleed_epistaxis
+version: 0.2
+match:
+  any_keywords: ["nosebleed", "bloody nose", "bleeding from nose", "nose is bleeding", "bleeding from my nose", "epistaxis"]
+questions:
+  - id: prolonged
+    prompt: "Has the bleeding lasted over 20 minutes despite firm pressure? (yes/no)"
+    store_as: prolonged
+    type: yesno
+
+  - id: heavy
+    prompt: "Is it heavy bleeding? (yes/no)"
+    store_as: heavy_bleeding
+    type: yesno
+
+  - id: faint
+    prompt: "Do you feel faint, weak, or like you might pass out? (yes/no)"
+    store_as: feels_faint
+    type: yesno
+
+  - id: anticoag
+    prompt: "Are you on a blood thinner like warfarin, apixaban, or rivaroxaban? (yes/no/unknown)"
+    store_as: anticoag
+
+stop_rules:
+  - if_all_answered: ["prolonged", "heavy", "faint", "anticoag"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,47 @@
+id: heartburn_gerd
+version: 0.1
+match:
+  any_keywords: ["heartburn", "reflux", "gerd", "acid", "burning chest", "indigestion"]
+questions:
+  - id: duration
+    prompt: "How long have you had these symptoms? (e.g., 2 days, 3 months)"
+    store_as: duration
+
+  - id: exertional
+    prompt: "Is the discomfort brought on by exertion (like walking) or does it feel like pressure/heaviness? (yes/no)"
+    store_as: exertional
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_cardiac_chest_pain"]
+
+  - id: sob
+    prompt: "Do you have shortness of breath, sweating, nausea, or pain going to your arm/jaw? (yes/no)"
+    store_as: sob_sweat_radiation
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_cardiac_chest_pain"]
+
+  - id: swallowing
+    prompt: "Do you have trouble swallowing, pain with swallowing, or food getting stuck? (yes/no)"
+    store_as: dysphagia
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["dysphagia_red_flag"]
+
+  - id: gi_bleed
+    prompt: "Have you vomited blood or had black/tarry stools? (yes/no)"
+    store_as: gi_bleed
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["gi_bleeding_red_flag"]
+
+stop_rules:
+  - if_all_answered: ["duration", "exertional", "sob", "swallowing", "gi_bleed"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

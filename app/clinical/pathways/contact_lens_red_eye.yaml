@@ -1,0 +1,22 @@
+id: contact_lens_red_eye
+version: 0.1
+match:
+  any_keywords: ["contact lens", "contacts", "red eye with contacts", "pain with contacts", "contact lens pain"]
+questions:
+  - id: pain
+    prompt: "Is there significant eye pain, light sensitivity, or blurry vision? (yes/no)"
+    store_as: severe_features
+    type: yesno
+  - id: discharge
+    prompt: "Is there thick pus-like discharge? (yes/no)"
+    store_as: purulent_discharge
+    type: yesno
+  - id: remove
+    prompt: "Can you remove the contact lens right now? (yes/no)"
+    store_as: can_remove
+    type: yesno
+stop_rules:
+  - if_all_answered: ["pain", "discharge", "remove"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

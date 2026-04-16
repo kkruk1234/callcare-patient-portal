@@ -1,0 +1,43 @@
+{
+  "packet_id": "4a98809c-df78-4c3f-9bfc-d9982e2bd1db",
+  "created_at": "2026-03-12T21:26:51.292620+00:00",
+  "session_id": "24c2c704-f5e4-4b91-9625-3ec7ed540b2f",
+  "pathway_id": "",
+  "base_queries": [
+    "left lower abdominal pain management guidelines female adults",
+    "treatment dosing for acute lower abdominal pain adults mg duration",
+    "red flags and return precautions for lower abdominal pain with fever chills"
+  ],
+  "queries": [
+    "AAFP left lower abdominal pain management guidelines female adults",
+    "AAFP treatment dosing for acute lower abdominal pain adults mg duration",
+    "MedlinePlus left lower abdominal pain management guidelines female adults",
+    "MedlinePlus treatment dosing for acute lower abdominal pain adults mg duration",
+    "CDC left lower abdominal pain management guidelines female adults",
+    "CDC treatment dosing for acute lower abdominal pain adults mg duration",
+    "NIH left lower abdominal pain management guidelines female adults",
+    "NIH treatment dosing for acute lower abdominal pain adults mg duration",
+    "NICE left lower abdominal pain management guidelines female adults",
+    "NICE treatment dosing for acute lower abdominal pain adults mg duration",
+    "WHO left lower abdominal pain management guidelines female adults",
+    "WHO treatment dosing for acute lower abdominal pain adults mg duration"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Acute Abdominal Pain in Adults: Evaluation and Diagnosis | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0600/acute-abdominal-pain-adults.html",
+      "accessed": "2026-03-12",
+      "snippet": "Clinicians should rapidly identify patients with hemodynamic instability, signs of peritonitis, or pain out of proportion to physical examination findings because these patients often need urgent resuscitation or surgery. 4 Once hemodynamic stability has been confirmed, history and examination help narrow the differential diagnosis. Table 2 lists the value of selected symptoms and signs in presentations of acute abdominal pain. 3 , 5 – 14 Approximately 10% of primary care patients with abdominal pain of any duration require immediate treatment. 15 That proportion in patients with acute pain is likely higher. Delayed or missed diagnoses are associated with increased morbidity and mortality. 16 For example, immunocompromised patients are more likely to have atypical presentations and opportunistic infections, which can lead to a delay in diagnosis and resulting complications. 17"
+    },
+    {
+      "title": "Evaluation of Acute Pelvic Pain in Women | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2023/0800/acute-pelvic-pain.html",
+      "accessed": "2026-03-12",
+      "snippet": "Urinalysis of a midstream urine specimen should be considered to assess for urinary tract infection. Urine culture is often beneficial to confirm suspected urinary tract infection, identify specific organisms, and guide antibiotic use. If testing for gonorrhea and chlamydia, first-void urine collected without cleaning of the urethra (“dirty” catch) has historically been recommended, often requiring two urine samples for full evaluation. 26 Logistically this can be challenging. One study found that a midstream sample for chlamydia testing is still 96% accurate, and another study found a sensitivity of 86.2% for chlamydia and 94.4% for gonorrhea. This shows noninferiority to a dirty catch; therefore, one urine sample may be sufficient. 26 , 27"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a 2-day history of sharp, stabbing pain localized to the left lower abdomen. She reports associated fever, chills, and nausea but denies any changes in bowel movements, urinary symptoms, vaginal bleeding, or discharge. She has no history of similar pain episodes or known conditions such as kidney stones or diverticulitis. On palpation, there is tenderness on the left lower abdomen. She denies vomiting or inability to keep liquids down and has no blood in her stool. Recent sexual activity was noted but pregnancy is not possible. She has a penicillin allergy.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute left lower quadrant abdominal pain likely due to diverticulitis or another intra-abdominal inflammatory process.\nDifferential:\n1. Diverticulitis\n2. Left-sided pelvic inflammatory disease (less likely given no vaginal symptoms)\n3. Ovarian cyst or torsion\n4. Urinary tract infection or pyelonephritis\n\nP: - First-line medication: Ciprofloxacin 500 mg orally twice daily plus Metronidazole 500 mg orally three times daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Trimethoprim-sulfamethoxazole 160/800 mg orally twice daily plus Metronidazole 500 mg orally three times daily for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin-class antibiotics due to allergy; monitor for antibiotic side effects; renal and liver function not impaired\n- Follow-up recommendations: Seek in-person medical care urgently if worsening abdominal pain, persistent fever, vomiting, or inability to tolerate oral intake\n- Testing: Recommend abdominal imaging (CT abdomen/pelvis with contrast) to confirm diagnosis and rule out complications, and urine analysis to exclude urinary tract infection"
+}

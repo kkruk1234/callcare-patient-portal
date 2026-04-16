@@ -1,0 +1,448 @@
+NSAID Prescribing Precautions | AAFP
+
+Advertisement
+
+ Search
+ 
+
+ search
+ 
+
+ close
+ 
+
+ AMANDA RISSER, MD, MPH, DEIRDRE DONOVAN, MD, JOHN HEINTZMAN, MD, AND TANYA PAGE, MD
+ 
+
+Am Fam Physician.
+ 2009;80(12):1371-1378
+
+See related editorial on page 1366
+.
+
+Author disclosure: Nothing to disclose.
+
+Article Sections
+
+Nonsteroidal anti-inflammatory drugs (NSAIDs) are commonly used, but have risks associated with their use, including significant upper gastrointestinal tract bleeding. Older persons, persons taking anticoagulants, and persons with a history of upper gastrointestinal tract bleeding associated with NSAIDs are at especially high risk. Although aspirin is cardioprotective, other NSAIDs can worsen congestive heart failure, can increase blood pressure, and are related to adverse cardiovascular events, such as myocardial infarction and ischemia. Cyclooxygenase-2 inhibitors have been associated with increased risk of myocardial infarction; however, the only cyclooxygenase-2 inhibitor still available in the United States, celecoxib, seems to be safer in this regard. Hepatic damage from NSAIDs is rare, but these medications should not be used in persons with cirrhotic liver diseases because bleeding problems and renal failure are more likely. Care should be used when prescribing NSAIDs in persons taking anticoagulants and in those with platelet dysfunction, as well as immediately before surgery. Potential central nervous system effects include aseptic meningitis, psychosis, and tinnitus. Asthma may be induced or exacerbated by NSAIDs. Although most NSAIDs are likely safe in pregnancy, they should be avoided in the last six to eight weeks of pregnancy to prevent prolonged gestation from inhibition of prostaglandin synthesis, premature closure of the ductus arteriosus, and maternal and fetal complications from antiplatelet activity. Ibuprofen, indomethacin, and naproxen are safe in breastfeeding women. Care should be taken to prevent accidental NSAID overdose in children by educating parents about correct dosing and storage in childproof containers. 
+
+Nonsteroidal anti-inflammatory drugs (NSAIDs) are commonly used to treat inflammation, pain, and fever by decreasing prostaglandin synthesis through blockage of the cyclooxygenase (COX) enzyme. 
+Table 1
+ lists NSAID dosages and monthly costs.
+1
+ There is little evidence to support differences in effectiveness for pain treatment when comparing all NSAIDs.
+2
+ Aspirin is used for primary and secondary prevention of coronary artery disease, stroke, and some colorectal cancers. The two major isoforms of COX (COX-1 and COX-2) are inhibited by nonselective NSAIDs. COX-2 is also inhibited by selective NSAIDs. All nonselective NSAIDs inhibit platelet aggregation through inhibition of COX-1 and the thromboxane A
+2
+ (TXA
+2
+) pathway. Aspirin is unique in this regard because it binds covalently and irreversibly to the COX enzyme responsible for mediating platelet aggregation, and its action lasts for the lifetime of the platelet (eight to 12 days).
+3
+ COX-2 inhibitors have minimal antiplatelet effects because they do not affect the TXA
+2
+ pathway. Because prostaglandin-mediated gastroprotection occurs through the COX-1 enzyme, COX-2 inhibitors were designed with the goal of decreasing gastrointestinal (GI) complications.
+
+Clinical recommendations
+Evidence rating
+References
+Comments
+For persons who have had an NSAID-associated ulcer, but who must take NSAIDs, consider prescribing PPIs, double-dose histamine blockers, or misoprostol (Cytotec) with the NSAIDs. Celecoxib H
+2
+ (Celebrex) can also be used by itself. Misoprostol should not be used in women who might become pregnant.
+C
+2
+, 
+19
+ 
+For the prevention of endoscopic ulcers; based on two systematic reviews
+When possible, NSAIDs should be avoided in persons with preexisting renal disease, congestive heart failure, or cirrhosis to prevent acute renal failure.
+C
+6
+, 
+23
+ 
+Based on a literature review and a summary of consensus guidelines
+Consider monitoring serum creatinine levels after initiation of NSAID therapy in persons at risk of renal failure, and in those taking angiotensin-converting enzyme inhibitors and angiotensin receptor blockers.
+C
+6
+ 
+Based on a summary of consensus guidelines
+NSAIDs and aspirin should be avoided in persons taking anticoagulants. If concurrent NSAID and anticoagulant use is necessary, an increase in INR should be anticipated. There should be appropriate INR monitoring and warfarin (Coumadin) dosage adjustments, and GI prophylaxis should be initiated.
+C
+2
+ 
+Based on a systematic review
+Ibuprofen, indomethacin, and naproxen (Naprosyn) are safe to use in breastfeeding women.
+C
+30
+ 
+Based on a consensus guideline
+
+NSAID
+Dosage
+Cost of generic (brand)
+*
+In retail discount programs
+†
+Nonprescription
+Aspirin
+325 mg daily
+Less than $5
+Enteric-coated
+325 mg daily
+Less than $5
+Ibuprofen
+600 mg four times daily
+$28 ($40)
+Naproxen sodium (Aleve)
+220 mg twice daily
+Less than $5
+Prescription
+Nonselective
+Diclofenac (Cataflam)
+50 mg three times daily
+$60 ($325)
+Extended release (Voltaren XR)
+100 mg daily
+$75 ($193)
+Diflunisal
+250 mg twice daily
+$24 (NA)
+500 mg twice daily
+$60 (NA)
+Etodolac
+200 mg three times daily
+$39 (NA)
+400 mg three times daily
+$59 (NA)
+Extended release
+600 mg daily
+$65 (NA)
+Fenoprofen
+300 mg three times daily
+$32 (NA)
+600 mg three times daily
+$64 (NA)
+Flurbiprofen (Ansaid)
+100 mg three times daily
+$33 ($235)
+Ibuprofen
+400 mg three times daily
+$21 (NA)
+✓
+600 mg four times daily
+$22 (NA)
+✓
+800 mg three times daily
+$16 (NA)
+✓
+Indomethacin
+50 mg three times daily
+$20 (NA)
+✓
+Extended release (Indocin SR)
+75 mg twice daily
+$165 ($148)
+Ketoprofen
+75 mg twice daily
+$15 (NA)
+✓
+Meloxicam (Mobic)
+7.5 mg daily
+$32 ($247)
+✓
+15 mg daily
+$13 ($368)
+✓
+Nabumetone
+500 mg twice daily
+$40 (NA)
+750 mg twice daily
+$64 (NA)
+Naproxen (Naprosyn)
+250 mg three times daily
+$17 ($84)
+✓
+500 mg twice daily
+$18 ($132)
+✓
+500 mg three times daily
+$27 ($187)
+✓
+Oxaprozin (Daypro)
+600 mg three times daily
+$26 ($225)
+Piroxicam (Feldene)
+20 mg daily
+$15 ($133)
+✓
+Salsalate
+750 mg twice daily
+$14 (NA)
+✓
+Sulindac (Clinoril)
+150 mg twice daily
+$19 (NA)
+200 mg twice daily
+$28 ($91)
+Tolmetin
+200 mg three times daily
+$48 (NA)
+400 mg three times daily
+$90 (NA)
+Cyclooxygenase-2 inhibitor
+Celecoxib (Celebrex)
+100 mg twice daily
+NA ($160)
+200 mg twice daily
+NA ($248)
+
+NSAIDs are associated with morbidity related to many different body systems: GI, cardiovascular, hepatic, renal, hematologic, central nervous, and respiratory. There are also special considerations for children and pregnant or lactating women. Adverse effects from NSAIDs can occur at any time while taking them (
+Table 2
+2
+,
+4
+–
+12
+); however, there is some evidence to support increased incidence of adverse effects with increased duration and dosing of selective and nonselective NSAIDs. Research has not shown whether strategies aimed to reduce risk, such as intermittent dosing or drug holidays, are effective.
+2
+ However, when prescribing NSAIDs, physicians should take precautions based on the patient's risk.
+
+Prescribing Precautions
+
+GASTROINTESTINAL
+
+NSAIDs have been implicated in upper and lower GI tract injuries, but the burden of disease is overwhelmingly in the upper GI tract. The mechanism of injury is mainly by blockage of gastroprotective prostaglandin synthesis, but direct topical injury from the acidic drugs is possible. Dyspepsia and GI discomfort occur in at least 10 to 20 percent of persons taking NSAIDs; however, dyspeptic symptoms do not correlate well with clinically significant ulcerations.
+4
+ 
+
+The NSAID-related GI complication rate is directly related to patient age and is influenced by comorbidity. The overall morbidity and mortality data from a study of 1990s statistics in the United States are 32,000 hospitalizations and 3,200 deaths annually from NSAID-related GI bleeding.
+13
+ The one-year risk of serious GI bleeding from chronic NSAID use ranges from one in 2,100 adults younger than 45 to one in 110 adults older than 75, and the risk of death ranges from one in 12,353 to one in 647 adults, respectively.
+5
+ Concomitant use of anticoagulants increases the risk of GI bleeding to five to six times that of persons using anticoagulants alone. In persons with a history of ulcers, there is evidence that the risk of recurrent bleeding is as high as 5 percent in six months, even with use of COX-2 inhibitors or nonselective NSAIDs with a proton pump inhibitor (PPI).
+2
+ Eradication of 
+Helicobacter pylori
+ seems to only minimally decrease the rate of peptic ulcer recurrence in persons taking NSAIDs.
+14
+ 
+
+After COX-2 inhibitors were found to increase the risk of myocardial infarction, rofecoxib and valdecoxib were taken off the U.S. market. The only COX-2 inhibitor that remains available in the United States is celecoxib (Celebrex). The CLASS (Celecoxib Long-term Arthritis Safety Study) is a large randomized controlled trial comparing celecoxib with diclofenac (Cataflam) and ibuprofen.
+15
+ Although the study showed that in the first six months of the trial there was a difference in the development of clinically significant ulcers favoring celecoxib, these findings were called into question. A U.S. Food and Drug Administration (FDA) report concluded that the CLASS demonstrated no GI advantage with cele-coxib.
+2
+,
+16
+–
+18
+ Taking misoprostol (Cytotec) with an NSAID has been shown to prevent ulcer-related bleeding complications, but it is associated with undesirable GI effects. Misoprostol is also FDA pregnancy category X and should not be used in women who might become pregnant. Concurrent treatment with NSAIDs and PPIs or double-dose histamine H
+2
+ blockers (e.g., ranitidine [Zantac] 300 mg twice daily) has been shown to decrease endoscopically diagnosed ulcers.
+19
+ 
+
+Adverse effect
+Preventive or therapeutic measures
+Risk of adverse effect
+Dyspepsia, abdominal pain, GI discomfort
+Combine NSAID with a PPI or histamine H
+2
+ blocker
+Prevalence is 10 to 20 percent 
+4
+ 
+Poor correlation with clinically significant ulcerations
+GI bleeding
+Avoid NSAIDs in persons with history of NSAID-associated upper GI tract bleeding
+Dependent on age and patient history
+ One-year risk is one in 2,100 adults younger than 45 and one in 110 adults older than 75
+5
+ 
+ Risk of bleeding recurrence is 5 percent in first six months in persons with history of upper GI tract bleeding taking NSAIDs
+2
+ 
+or
+Combine NSAID with a PPI or misoprostol (Cytotec); misoprostol poorly tolerated because of GI effects
+or
+Celecoxib (Celebrex), possibly with a PPI or misoprostol; avoid if any elevated risk of myocardial infarction
+Cardiovascular complications (worsening hypertension, myocardial infarction)
+Avoid COX-2 inhibitors in persons at risk of cardiovascular events
+Varying results; one meta-analysis reports an excess of 3.5 cardiac ischemic events per 1,000 persons taking celecoxib compared with placebo 
+2
+ 
+Avoid NSAIDs in persons with congestive heart failure 
+Use NSAIDs with caution in persons with hypertension
+Mean blood pressure increase is 5 mm Hg with NSAID use 
+2
+ 
+Hepatic complications (transaminitis, synthetic impairment)
+Avoid NSAIDs in persons with cirrhosis because of the potential for hematologic and renal complications
+Primary hepatic complications are rare and usually reversible
+Avoid NSAIDs with more potential for hepatic problems, such as sulindac (Clinoril) and diclofenac (Cataflam)
+Impaired renal function
+Avoid NSAIDs in persons with renal disease
+Because of renal complications, 2 percent of persons stop taking NSAIDs
+6
+ 
+Use NSAIDs with caution when combining with other medications that potentially decrease renal function, such as angiotensin-converting enzyme inhibitors and beta blockers
+Clotting problems contributing to significant bleeding
+Avoid NSAIDs in persons with platelet defects or thrombocytopenia
+—
+Avoid combining NSAIDs with anticoagulants
+Risk of GI bleeding increases three to six times if NSAIDs used with anticoagulants
+2
+ 
+If NSAIDs are necessary in persons taking anticoagulants, expect an increase in INR
+INR increases up to 15 percent if NSAIDs used concurrently with anticoagulants
+2
+ 
+Avoid daily low-dose aspirin if cardiovascular risk is low (less than 3 percent annual risk)
+—
+Respiratory (aspirin-exacerbated respiratory disease)
+Use NSAIDs and aspirin with caution in persons with asthma, especially those with nasal polyps or recurrent sinusitis
+Prevalence of aspirin-exacerbated respiratory disease is 0.07 percent in general population and up to 21 percent in adults with asthma
+7
+ 
+Aspirin desensitization (limited data)
+Prolonged pregnancy or labor, fetal effects from antiplatelet activity
+Avoid NSAIDs toward end of pregnancy (six to eight weeks before term)
+Based on case reports
+8
+–
+12
+ 
+
+Whether prophylactic strategies reduce ulcer-related GI complications has not been directly studied. After the CLASS, there have been some observational studies that indicate that, for primary prevention of significant GI bleeding, celecoxib alone is as effective as using GI prophylaxis with a nonselective NSAID.
+19
+,
+20
+ However, a Cochrane review found that more evidence is needed to support this increasingly used clinical strategy.
+19
+ 
+
+CARDIOVASCULAR
+
+Although the benefit of low-dose aspirin in cardiovascular and cerebrovascular disease is well established, the use of other NSAIDs is associated with increased cardiovascular morbidity, including worsened congestive heart failure, increased blood pressure, and adverse cardiovascular events, such as myocardial infarction and ischemia. All NSAIDs have the potential to aggravate hypertension, congestive heart failure, and edema. It is estimated that a person's mean blood pressure will increase by an average of 5 mm Hg while taking nonselective NSAIDs, and some COX-2 inhibitors have also been shown to increase blood pressure.
+2
+ 
+
+COX-2 inhibitors have been implicated in producing a significant increase in the risk of myocardial infarction, although celecoxib may be safer than other COX-2 inhibitors. Taking aspirin with a COX-2 inhibitor may improve cardiovascular safety, but also may negate any short-term GI benefits of COX-2 inhibition in ulcer prevention.
+15
+ It may be most prudent, therefore, to avoid COX-2 inhibitors in persons at risk of cardiovascular events, and to consider a nonselective NSAID with misoprostol or a PPI in persons who need GI protection when taking NSAIDs.
+19
+,
+21
+ 
+
+HEPATIC
+
+One large report showed that clinically significant hepatotoxicity associated with NSAID use was rare in the general population. Some NSAIDs, particularly sulindac (Clinoril) and diclofenac, showed higher rates of hepatic injury and transaminase elevation more than three times the upper limit of normal compared with placebo. However, even in large systematic reviews, clinically significant outcomes, such as hospitalization or death, were rare.
+2
+ NSAIDs do carry some risk in persons with impaired hepatic function. There have been case reports of NSAIDs causing idiosyncratic liver toxicity in persons with underlying hepatitis C, with marked elevations in liver enzymes to more than 10 times the upper limit of normal.
+22
+ There are also indirect deleterious effects of NSAIDs in persons with underlying liver impairment. Many persons with cirrhosis have impairment of coagulation, and NSAIDs increase bleeding risk by additionally inhibiting platelet function. NSAIDs also decrease prostaglandin-mediated blood flow to the kidneys, leading to an increased risk of renal failure in persons with cirrhosis.
+23
+ 
+
+RENAL
+
+The renal system relies on the vasodilatory effects of prostaglandins produced primarily by COX-2. This dependence is more marked in persons with renal disease, congestive heart failure, or cirrhosis. Because COX-2 is important for renal prostaglandin production, all NSAIDs (selective and nonselective) can cause volume-dependent renal failure, as well as renal failure from interstitial nephritis and nephritic syndrome. It is estimated that 2 percent of persons taking NSAIDs will stop taking them after developing renal complications.
+6
+ Some medications, such as beta blockers and angiotensin-converting enzyme (ACE) inhibitors, may increase NSAID-related renal complications.
+2
+,
+5
+ When possible, NSAIDs should be avoided in persons with preexisting renal disease, congestive heart failure, or cirrhosis to prevent acute renal failure.
+6
+,
+23
+ 
+
+Care should be used when prescribing NSAIDs in persons with an increased risk of renal complications. Some physician groups have proposed monitoring of renal function after initiation of NSAIDs in persons at risk of renal failure, including obtaining a baseline serum creatinine level when starting therapy. Also, some recommend that high-risk persons and persons taking other medications that might decrease renal function, such as ACE inhibitors or angiotensin receptor blockers, be monitored as often as once weekly for three weeks after initiation of therapy.
+6
+ However, it is unclear whether such monitoring improves morbidity or mortality.
+
+HEMATOLOGIC
+
+Because NSAIDs have antiplatelet effects, they should be avoided in persons with preexisting platelet defects or thrombocytopenia. The antiplatelet effects of NSAIDs should be considered in the perioperative setting. For high-risk persons who have had a recent myocardial infarction or recent placement of a cardiac stent, aspirin should be continued before and after surgery. For other persons at increased risk of cardiovascular events, the continuation of aspirin should be considered and, if possible, should be used in the perioperative setting. If aspirin is to be withheld preoperatively, it should be stopped seven to 10 days before surgery. Other NSAIDs should be withheld preop-eratively for five elimination half-lives of the medication. For example, ibuprofen should be stopped for the two days before surgery, naproxen (Naprosyn) for two to three days, and piroxicam (Feldene) for 10 days.
+24
+,
+25
+ 
+
+Aspirin is associated with a slightly increased rate of hemorrhagic stroke and with a small increase in overall mortality. The survival benefits in persons at high risk of cardiovascular or neurovascular events outweigh the risks. Aspirin should be avoided in persons for whom the benefits do not outweigh the risks, such as persons at low risk of cardiovascular disease.
+26
+ 
+
+When NSAIDs are combined with anticoagulants there is a significantly increased risk (three- to sixfold) of GI bleeding because of interactions, which can increase the International Normalized Ratio (INR) by up to 15 percent. This is in addition to the direct antiplatelet effects of NSAIDs. When it is necessary to start NSAID therapy in persons taking anticoagulants, an increase in INR should be anticipated. There should be appropriate INR monitoring and warfarin (Coumadin) dosage adjustments, and GI prophylaxis should be initiated.
+2
+ Similarly, in high-risk persons requiring aspirin, GI prophylaxis should be initiated to offset the increased risk of bleeding complications.
+
+CENTRAL NERVOUS SYSTEM
+
+Although rare, most central nervous system effects are more common in older persons. Tinnitus is reversible and may be a sign of high medication blood levels. Psychosis and cognitive changes are more common in older persons and are most often associated with indomethacin use. Aseptic meningitis occurs more often in persons with lupus who are taking ibuprofen or naproxen, but it should be considered in any adult with meningitis who is taking NSAIDs.
+27
+ Other uncommon but potential adverse effects include confusion, depression, dizziness, and somnolence.
+
+Aspirin Hypersensitivity and NSAIDs in Persons with Asthma
+
+Aspirin and NSAID use causing or contributing to respiratory tract disease is also a clinical concern. Several different clinical phenomena have been described, the most common being aspirin-exacerbated respiratory disease, consisting of bronchoconstriction and rhinitis symptoms in the presence of an aspirin or NSAID challenge.
+28
+ This phenomenon arises from the inhibition of COX-1 and the shunting of arachidonic acid down the leukotriene pathway. It is not a true allergy (not an immunoglobulin E–mediated event). There is a high cross-reactivity with other NSAIDs because they share the same COX-1 inhibition. There is a low cross-reactivity with COX-2 inhibitors and acet-aminophen. In a recent review, the prevalence of aspirin-exacerbated respiratory disease in the general population was estimated to be 0.07 percent, and as high as 21 percent in adults with asthma.
+7
+ Physicians should have a higher index of suspicion for aspirin-exacerbated respiratory disease in persons with asthma and nasal polyps or recurrent sinusitis. This diagnosis has been difficult to make historically because self-administration of aspirin and NSAIDs and the occurrence of asthma symptoms in persons with asthma are common. The definitive diagnosis often requires a controlled aspirin challenge.
+
+The diagnosis of aspirin-exacerbated respiratory disease poses a clinical dilemma in persons who would benefit from aspirin or other NSAID therapy. Such persons should be considered for aspirin desensitization. The success and safety of several published desensitization protocols have been documented, but these data are limited to small case series. No randomized trials evaluating aspirin desensitization in any setting exist. Once a person is desensitized, some studies have found that aspirin therapy must be continued indefinitely to avoid resensitization.
+7
+,
+29
+ 
+
+NSAIDs in Pregnancy and Lactation
+
+NSAIDs are not known to be teratogenic in humans.
+8
+ Animal models indicate that NSAIDs can block blastocyst implantation; therefore, women who are actively trying to conceive should avoid these medications. NSAID use is generally considered safe in pregnancy as long as it is in low doses, is intermittent, and is discontinued six to eight weeks before term.
+9
+ 
+
+Potential maternal effects when NSAIDs are used close to term include prolonged gestation and labor from inhibition of pros-taglandin synthesis, increased peripartum blood loss, and increased anemia. Potential fetal effects close to term include increased cutaneous and intracranial bleeding, premature closure of ductus arteriosus, pulmonary hypertension, impaired renal function, reduced urine output, and reduced amniotic fluid volume. These effects have been demonstrated with indomethacin, naproxen, ketoprofen, and ibuprofen. The dose, duration, and period of gestation are all potential factors in these effects.
+
+The American Academy of Pediatrics considers ibuprofen, indomethacin, and naproxen safe in breastfeeding women.
+30
+ Trace amounts are found in breast milk. Because most NSAIDs displace bilirubin, they are contraindicated when breastfeeding a neonate with jaundice.
+
+Because of the potential risk of salicylate intoxication and bleeding problems in the neonate, breastfeeding mothers should avoid large doses of aspirin.
+31
+,
+32
+ Low-dose aspirin is generally considered safe for use throughout pregnancy, and studies have shown that this does not increase risk of maternal or neonatal morbidity or mortality.
+33
+ 
+
+NSAIDs in Children
+
+The main risk to children taking NSAIDs is dosage errors resulting in overdose, which can cause significant morbidity or even death. Parental education on correct dosing and dosing intervals, avoidance of combination cold medications that may contain NSAIDs, and storage in childproof containers may minimize this risk. Although little is known about chronic NSAID use in children, one large randomized controlled trial showed that ibuprofen and acetaminophen were equivalent in their risk of adverse events, and adverse events were low overall.
+34
+ 
+
+Continue Reading
+
+ Advertisement
+ 
+
+More in 
+AFP
+
+More in PubMed
+
+Article Sections
+
+Copyright © 2009 by the American Academy of Family Physicians.
+
+This content is owned by the AAFP. A person viewing it online may make one printout of the material and may use that printout only for his or her personal, non-commercial reference. This material may not otherwise be downloaded, copied, printed, stored, transmitted or reproduced in any medium, whether now known or later invented, except as authorized in writing by the AAFP.  See 
+permissions
+ for copyright questions and/or permission requests.
+
+Copyright © 2026 American Academy of Family Physicians. All Rights Reserved.

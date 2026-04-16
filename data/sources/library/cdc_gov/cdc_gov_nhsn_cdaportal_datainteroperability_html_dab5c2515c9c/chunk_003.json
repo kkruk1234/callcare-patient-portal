@@ -1,0 +1,10 @@
+{
+  "title": "Promoting Interoperability Program | NHSN | CDC",
+  "url": "https://www.cdc.gov/nhsn/cdaportal/datainteroperability.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "nterface includes an AUR Promoting Interoperability (PI) Program registration of intent page.\nOnly the NHSN Facility Administrator has access to register the facility&rsquo;s AUR PI Program intent. \nPerquisites for registering intent and sending electronic AUR Clinical Document Architecture (CDA) data:\nFacility is enrolled in NHSN\nIf the facility is not enrolled, review information on enrolling your facility \nFacility locations are mapped within NHSN \nMonthly reporting plans exist for month/year of data to be transmitted \nAssigned NHSN Object Identifier (OID) has been entered into NHSN\nIf facility does not have an OID, view the Object Identifier (OID) assignment procedure to request a unique OID \nSoftware requirements\nFor the NHSN application, facilities are required to use vendor/homegrown software that has been validated by NHSN to submit data to the AUR Module. See the lists of AU and AR validated vendor software. Note: vendor software is not required to be validated for AR submission until May 2023. \nFor the CMS PI Program, facilities are required to use vendor software that has been certified by the Office of the National Coordinator for Health Information Technology (ONC) Health IT Certification Program for NHSN Antimicrobial Use and Resistance reporting. Use this site to check if your vendor has been certified . \nFacilities that have registered their intent shall receive",
+  "source_type": "library",
+  "source_id": "cdc_gov_nhsn_cdaportal_datainteroperability_html_dab5c2515c9c",
+  "chunk_id": "chunk_003"
+}

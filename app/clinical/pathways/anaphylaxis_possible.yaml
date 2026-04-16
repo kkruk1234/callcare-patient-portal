@@ -1,0 +1,25 @@
+id: anaphylaxis_possible
+version: 0.1
+match:
+  any_keywords: ["throat closing", "can't breathe and hives", "wheezing and hives", "severe allergic reaction", "anaphylaxis", "tongue swelling and hives"]
+questions:
+  - id: airway
+    prompt: "Any trouble breathing, throat tightness, wheezing, or swelling of lips/tongue? (yes/no)"
+    store_as: airway
+    type: yesno
+
+  - id: faint
+    prompt: "Do you feel faint, weak, or like you might pass out? (yes/no)"
+    store_as: faint
+    type: yesno
+
+  - id: trigger
+    prompt: "Did this start soon after food, a medication, or a sting? (yes/no/unknown)"
+    store_as: likely_trigger
+
+stop_rules:
+  - if_all_answered: ["airway", "faint", "trigger"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

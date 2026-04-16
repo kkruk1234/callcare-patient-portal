@@ -1,0 +1,124 @@
+{
+  "packet_id": "1acefba4-dee9-4207-a429-165410149439",
+  "created_at": "2026-02-05T18:54:56.756834+00:00",
+  "session_id": "26509e31-1fea-4539-aa4c-16d3a1730c55",
+  "chief_complaint": "wrist pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did the wrist pain start?",
+    "intake_a1": "On and off for the past month",
+    "intake_q2": "Can you describe what activities or movements make your wrist pain worse or better?",
+    "intake_a2": "writing for long makes it worse, rest makes it better",
+    "intake_q3": "Any numbness, tingling, or weakness in your hand or fingers?",
+    "intake_a3": "yes",
+    "intake_q4": "Can you describe which fingers or parts of your hand feel numb or weak?",
+    "intake_a4": "my pinky, ring finger, and part of my middle finger",
+    "intake_q5": "Any history of trauma or injury to your wrist before the pain started?",
+    "intake_a5": "no",
+    "intake_q6": "Any weakness or difficulty with hand grip or finger movements?",
+    "intake_a6": "grip strength is weaker",
+    "intake_q7": "Any numbness or weakness in your arm or shoulder above the wrist?",
+    "intake_a7": "no",
+    "intake_q8": "Any fever, redness, or swelling around the wrist?",
+    "intake_a8": "it's a little swollen",
+    "intake_q9": "Any history of diabetes, thyroid problems, or previous nerve issues?",
+    "intake_a9": "no",
+    "intake_q10": "Any difficulty with fine finger movements like buttoning clothes or picking up small objects?",
+    "intake_a10": "yes - a little",
+    "age_years": 54,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/wristinjuriesanddisorders.html",
+        "https://medlineplus.gov/thoracicoutletsyndrome.html",
+        "https://www.nhs.uk/conditions/carpal-tunnel-syndrome/",
+        "https://www.nhs.uk/conditions/broken-arm-or-wrist/",
+        "https://medlineplus.gov/carpaltunnelsyndrome.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 54-year-old female presenting with on-and-off wrist pain for the past month. The pain worsens with prolonged writing and improves with rest. She reports numbness in the pinky, ring finger, and part of the middle finger, accompanied by weaker grip strength and some difficulty with fine finger movements such as buttoning clothes or picking up small objects. There is mild swelling around the wrist but no history of trauma, fever, or redness. She denies numbness or weakness above the wrist, including the arm or shoulder. There is no history of diabetes, thyroid problems, or previous nerve issues. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vitals available.\n\nA: \nThe clinical presentation is consistent with ulnar nerve involvement at the wrist, likely due to ulnar neuropathy or compression at the Guyon's canal. The distribution of numbness in the pinky, ring finger, and part of the middle finger, along with weakness and swelling, supports this diagnosis.\n\nDifferential: \n1. Ulnar neuropathy at the wrist (Guyon's canal syndrome) \n2. Cubital tunnel syndrome (ulnar nerve compression at the elbow) \n3. Cervical radiculopathy affecting C8-T1 nerve roots \n4. Early inflammatory arthritis or tenosynovitis causing swelling and nerve irritation \n\nP: \n- First-line medication: \n NSAIDs such as ibuprofen 400 mg orally every 6-8 hours as needed for pain and inflammation for 7-10 days. Avoid if contraindicated by allergy or gastrointestinal issues. Dosing details were not found in retrieved evidence; prescriber should verify. \n\n- Alternatives: \n - Naproxen 250-500 mg orally twice daily for 7-10 days, if ibuprofen is not tolerated or contraindicated. \n - Acetaminophen 500-1000 mg every 6 hours as needed for pain, if NSAIDs are contraindicated. \n\n- Medication safety considerations: \n No known medication allergies. Patient is not pregnant. No renal or liver disease reported. Use NSAIDs cautiously if gastrointestinal risk factors develop. \n\n- Return precautions: \n Seek urgent care if there is worsening numbness, increasing weakness, severe pain, signs of infection (fever, redness, warmth), or inability to use the hand. \n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., nerve conduction studies, urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Wrist Injuries | Wrist Disorders | MedlinePlus",
+        "source": "https://medlineplus.gov/wristinjuriesanddisorders.html",
+        "snippet": "l Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nWrist Injuries and Disorders \nURL of this page: https://medlineplus.gov/wristinjuriesanddisorders.html \nWrist Injuries and Disorders\nOn this page \nBasics \nSummary \nDiagnosis and Tests \nPrevention and Risk Factors \nTreatments and Therapies \nLearn More \nRelated Issues \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nPatient Handouts \nSummary \nYour wrist connects your hand to your forearm. It is not one big joint; it has several small joints. This makes it flexibl"
+      },
+      {
+        "title": "Thoracic Outlet Syndrome | TOS | MedlinePlus",
+        "source": "https://medlineplus.gov/thoracicoutletsyndrome.html",
+        "snippet": "rib and collarbone. You may feel burning, tingling, and numbness along your arm, hand, and fingers. If a nerve is compressed, you may also feel weakness in your hand. If a vein is compressed, your hand might be sensitive to cold, or turn pale or bluish. Your arm might swell and tire easily.\nTOS is more common in women. It usually starts between 20 and 50 years of age. Doctors do nerve and imaging studies to diagnose it.\nThere are many causes of TOS, including:\nInjury \nAnatomical defects \nTumors that press on nerves \nPoor posture that causes nerve compression \nPregnancy \nRepetitive arm and shoulder movements and activity, such as from playing certain sports \nTreatment depends on what caused your TOS. Medicines, physical therapy, and relaxation might help. Surgery may also be an option. Most people recover.\nNIH: National Institute of Neurological Disorders and Stroke\nLearn More\nElectromyog"
+      },
+      {
+        "title": "Carpal tunnel syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/carpal-tunnel-syndrome/",
+        "snippet": "﻿ \nCarpal tunnel syndrome\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCarpal tunnel syndrome \nCarpal tunnel syndrome (CTS) is pressure on a nerve in your wrist. It causes tingling, numbness and pain in your hand and fingers. You can often treat it yourself, but it can take months to get better.\nSymptoms of carpal tunnel syndrome (CTS) \nThe symptoms of carpal tunnel syndrome include:\nan ache or pain in your fingers, hand or arm numb hands tingling or pins and needles a weak thumb or difficulty gripping These symptoms often start slowly and come and go. They're usually worse at night.\nHow to treat carpal tunnel syndrome (CTS) yourself \nCarpal tunnel syndrome (CTS) sometimes gets better by itself in a few months,"
+      },
+      {
+        "title": "Broken arm or wrist - NHS",
+        "source": "https://www.nhs.uk/conditions/broken-arm-or-wrist/",
+        "snippet": "﻿ \nBroken arm or wrist\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nBroken arm or wrist \nGet medical advice as soon as possible if you think you have broken your arm or wrist. Any possible breaks need to be treated as soon as possible. \nSymptoms of a broken arm or wrist \nYou may have broken your arm or wrist if you've injured it and it suddenly became:\npainful swollen bruised difficult to move It may also change colour, change shape or feel numb.\nIt can be hard to tell if a wrist is broken, dislocated or badly sprained. You'll probably need an X-ray.\nUrgent advice: Get help from NHS 111 if:\nYou've injured your arm or wrist and:\nit's very painful, you cannot use it due to the pain, or the pain is getting worse there's"
+      },
+      {
+        "title": "Carpal Tunnel Syndrome | MedlinePlus",
+        "source": "https://medlineplus.gov/carpaltunnelsyndrome.html",
+        "snippet": ", such as a sprain or broken bone \nHealth conditions that can affect your nerves , joints , or other parts of your wrist, for example:\nDiabetes . \nRheumatoid arthritis . \nA cyst or tumor in your wrist. \nChanges in certain hormones , which may cause swelling from extra fluid in your body. Examples include an underactive thyroid gland (hypothyroidism), pregnancy and menopause. \nProblems with the way your wrist is formed. \nDoing the same wrist and hand movements over and over, such as: \nAssembly line work. \nCarpentry or using tools that vibrate. \nKnitting, gardening, or sports, such as golf. \nResearchers aren't sure whether long-term typing or computer use leads to carpal tunnel syndrome.\nWho is more likely to develop carpal tunnel syndrome? \nCarpal tunnel syndrome usually happens only in adults. You're more likely to develop it if you:\nAre a woman. Women are three times more likely to have"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Wrist Injuries | Wrist Disorders | MedlinePlus",
+      "source": "https://medlineplus.gov/wristinjuriesanddisorders.html",
+      "snippet": "l Tests Medical Encyclopedia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nWrist Injuries and Disorders \nURL of this page: https://medlineplus.gov/wristinjuriesanddisorders.html \nWrist Injuries and Disorders\nOn this page \nBasics \nSummary \nDiagnosis and Tests \nPrevention and Risk Factors \nTreatments and Therapies \nLearn More \nRelated Issues \nSpecifics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nFind an Expert \nFor You \nChildren \nPatient Handouts \nSummary \nYour wrist connects your hand to your forearm. It is not one big joint; it has several small joints. This makes it flexibl"
+    },
+    {
+      "title": "Thoracic Outlet Syndrome | TOS | MedlinePlus",
+      "source": "https://medlineplus.gov/thoracicoutletsyndrome.html",
+      "snippet": "rib and collarbone. You may feel burning, tingling, and numbness along your arm, hand, and fingers. If a nerve is compressed, you may also feel weakness in your hand. If a vein is compressed, your hand might be sensitive to cold, or turn pale or bluish. Your arm might swell and tire easily.\nTOS is more common in women. It usually starts between 20 and 50 years of age. Doctors do nerve and imaging studies to diagnose it.\nThere are many causes of TOS, including:\nInjury \nAnatomical defects \nTumors that press on nerves \nPoor posture that causes nerve compression \nPregnancy \nRepetitive arm and shoulder movements and activity, such as from playing certain sports \nTreatment depends on what caused your TOS. Medicines, physical therapy, and relaxation might help. Surgery may also be an option. Most people recover.\nNIH: National Institute of Neurological Disorders and Stroke\nLearn More\nElectromyog"
+    },
+    {
+      "title": "Carpal tunnel syndrome - NHS",
+      "source": "https://www.nhs.uk/conditions/carpal-tunnel-syndrome/",
+      "snippet": "﻿ \nCarpal tunnel syndrome\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nCarpal tunnel syndrome \nCarpal tunnel syndrome (CTS) is pressure on a nerve in your wrist. It causes tingling, numbness and pain in your hand and fingers. You can often treat it yourself, but it can take months to get better.\nSymptoms of carpal tunnel syndrome (CTS) \nThe symptoms of carpal tunnel syndrome include:\nan ache or pain in your fingers, hand or arm numb hands tingling or pins and needles a weak thumb or difficulty gripping These symptoms often start slowly and come and go. They're usually worse at night.\nHow to treat carpal tunnel syndrome (CTS) yourself \nCarpal tunnel syndrome (CTS) sometimes gets better by itself in a few months,"
+    },
+    {
+      "title": "Broken arm or wrist - NHS",
+      "source": "https://www.nhs.uk/conditions/broken-arm-or-wrist/",
+      "snippet": "﻿ \nBroken arm or wrist\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nBroken arm or wrist \nGet medical advice as soon as possible if you think you have broken your arm or wrist. Any possible breaks need to be treated as soon as possible. \nSymptoms of a broken arm or wrist \nYou may have broken your arm or wrist if you've injured it and it suddenly became:\npainful swollen bruised difficult to move It may also change colour, change shape or feel numb.\nIt can be hard to tell if a wrist is broken, dislocated or badly sprained. You'll probably need an X-ray.\nUrgent advice: Get help from NHS 111 if:\nYou've injured your arm or wrist and:\nit's very painful, you cannot use it due to the pain, or the pain is getting worse there's"
+    },
+    {
+      "title": "Carpal Tunnel Syndrome | MedlinePlus",
+      "source": "https://medlineplus.gov/carpaltunnelsyndrome.html",
+      "snippet": ", such as a sprain or broken bone \nHealth conditions that can affect your nerves , joints , or other parts of your wrist, for example:\nDiabetes . \nRheumatoid arthritis . \nA cyst or tumor in your wrist. \nChanges in certain hormones , which may cause swelling from extra fluid in your body. Examples include an underactive thyroid gland (hypothyroidism), pregnancy and menopause. \nProblems with the way your wrist is formed. \nDoing the same wrist and hand movements over and over, such as: \nAssembly line work. \nCarpentry or using tools that vibrate. \nKnitting, gardening, or sports, such as golf. \nResearchers aren't sure whether long-term typing or computer use leads to carpal tunnel syndrome.\nWho is more likely to develop carpal tunnel syndrome? \nCarpal tunnel syndrome usually happens only in adults. You're more likely to develop it if you:\nAre a woman. Women are three times more likely to have"
+    }
+  ]
+}

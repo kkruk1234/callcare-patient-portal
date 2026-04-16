@@ -1,0 +1,575 @@
+import uuid
+"""
+CallCare Intake State Machine (LLM-driven; free-text only)
+
+Flow:
+CONSENT -> CHIEF -> LLM_INTAKE (iterative) -> AGE -> ALLERGIES -> SEX_AT_BIRTH -> PREGNANCY -> RENAL -> LIVER -> DECIDE
+
+Notes:
+- This replaces OLD CARTS and deterministic question packs.
+- No YAML pathways, no per-condition scaffolds.
+- Pregnancy/renal/liver handling is NOT being refactored here; we preserve existing stages for now
+  because you explicitly want the larger LLM intake first.
+- Safety-tail questions are skipped if they were already captured during LLM intake.
+"""
+
+from typing import Dict, Any, List, Tuple
+import os
+import re
+
+from app.core.models import CallState  # type: ignore
+
+
+def _sx(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None)
+    if not isinstance(sx, dict):
+        state.symptoms = {"_answers": {}}
+        sx = state.symptoms
+    if "_answers" not in sx or not isinstance(sx.get("_answers"), dict):
+        sx["_answers"] = {}
+    return sx
+
+
+def _ans(state: CallState) -> Dict[str, Any]:
+    return _sx(state)["_answers"]
+
+
+def _is_yes(t: str) -> bool:
+    return (t or "").strip().lower().startswith("y")
+
+
+def _llm_intake_active() -> bool:
+    # default ON if key exists and RAG is not disabled
+    if os.getenv("CALLCARE_RAG_DISABLED", "0") == "1":
+        return False
+    return os.getenv("CALLCARE_LLM_INTAKE", "1") != "0"
+
+
+def _has_meaningful_answer(ans: Dict[str, Any], key: str) -> bool:
+    if key not in ans:
+        return False
+    v = ans.get(key)
+    if v is None:
+        return False
+    if isinstance(v, str) and not v.strip():
+        return False
+    return True
+
+
+def _llm_turns(state: CallState) -> List[Dict[str, str]]:
+    sx = _sx(state)
+    turns = sx.get("_llm_intake_turns")
+    if not isinstance(turns, list):
+        return []
+    out: List[Dict[str, str]] = []
+    for t in turns:
+        if not isinstance(t, dict):
+            continue
+        q = str(t.get("q") or "").strip()
+        a = str(t.get("a") or "").strip()
+        if q or a:
+            out.append({"q": q, "a": a})
+    return out
+
+
+def _question_mentions(q: str, *needles: str) -> bool:
+    ql = (q or "").strip().lower()
+    return any(n in ql for n in needles)
+
+
+def _first_intake_answer_for(state: CallState, topic: str) -> str:
+    turns = _llm_turns(state)
+
+    topic_map = {
+        "age_years": (
+            "how old are you",
+            "age in years",
+            "your age",
+        ),
+        "weight_kg": (
+            "what is your weight",
+            "your weight",
+            "weigh",
+            "pounds",
+            "kilograms",
+            "kilogram",
+            "kg",
+            "lb",
+        ),
+        "allergies": (
+            "medication allergies",
+            "medicine allergies",
+            "drug allergies",
+            "allergies",
+        ),
+        "sex_at_birth": (
+            "sex were you assigned at birth",
+            "assigned at birth",
+            "male or female",
+            "sex at birth",
+        ),
+        "pregnancy_possible": (
+            "pregnan",
+            "pregnancy possible",
+        ),
+        "renal_disease": (
+            "kidney disease",
+            "reduced kidney function",
+            "renal disease",
+        ),
+        "liver_disease": (
+            "liver disease",
+            "hepatitis",
+            "cirrhosis",
+            "fatty liver",
+            "abnormal liver tests",
+        ),
+    }
+
+    needles = topic_map.get(topic, ())
+    for turn in turns:
+        q = turn.get("q", "")
+        a = turn.get("a", "")
+        if q and a and _question_mentions(q, *needles):
+            return a.strip()
+    return ""
+
+
+def _parse_age_years(text: str):
+    raw = (text or "").strip()
+    if not raw:
+        return None
+    try:
+        return int(float(raw))
+    except Exception:
+        m = re.search(r"(\d+(?:\.\d+)?)", raw)
+        if not m:
+            return None
+        try:
+            return int(float(m.group(1)))
+        except Exception:
+            return None
+
+
+def _parse_weight_kg(text: str):
+    raw = (text or "").strip().lower()
+    if not raw:
+        return None
+    m = re.search(r"(\d+(?:\.\d+)?)", raw)
+    if not m:
+        return None
+    try:
+        num = float(m.group(1))
+    except Exception:
+        return None
+    if num <= 0:
+        return None
+    is_kg = ("kg" in raw) or ("kilogram" in raw)
+    if is_kg:
+        kg = num
+        units = "kg"
+    else:
+        kg = num * 0.45359237
+        units = "lb"
+    try:
+        kg = round(float(kg), 1)
+    except Exception:
+        pass
+    return {"weight_raw": raw, "weight_kg": kg, "weight_units": units}
+
+
+def _normalize_yes_no_unknown(text: str) -> str:
+    v = (text or "").strip().lower()
+    if not v:
+        return ""
+    if v in ("n/a", "na", "not applicable", "not_applicable"):
+        return "not_applicable"
+    if v.startswith("y"):
+        return "yes"
+    if v.startswith("n"):
+        return "no"
+    if "not sure" in v or "unsure" in v:
+        return "not sure"
+    if "unknown" in v:
+        return "unknown"
+    return v
+
+
+def _normalize_sex_at_birth(text: str) -> str:
+    v = (text or "").strip().lower()
+    if not v:
+        return ""
+    if v.startswith("m"):
+        return "male"
+    if v.startswith("f"):
+        return "female"
+    return v
+
+
+def _hydrate_safety_answers_from_intake(state: CallState) -> None:
+    """
+    If LLM intake already asked common safety questions, normalize those answers into
+    the deterministic tail keys so the tail can skip them safely.
+    """
+    sx = _sx(state)
+    ans = _ans(state)
+
+    # AGE
+    if not _has_meaningful_answer(ans, "age_years"):
+        age_text = _first_intake_answer_for(state, "age_years")
+        age = _parse_age_years(age_text)
+        if age is not None:
+            ans["age_years"] = age
+            sx["age_years"] = age
+            state.age_band = "child" if age < 18 else "adult"
+            sx["age_band"] = state.age_band
+
+    # WEIGHT
+    if not _has_meaningful_answer(ans, "weight_kg"):
+        w_text = _first_intake_answer_for(state, "weight_kg")
+        parsed = _parse_weight_kg(w_text)
+        if parsed:
+            ans["weight_raw"] = parsed["weight_raw"]
+            ans["weight_kg"] = parsed["weight_kg"]
+            ans["weight_units"] = parsed["weight_units"]
+            sx["weight_raw"] = parsed["weight_raw"]
+            sx["weight_kg"] = parsed["weight_kg"]
+
+    # ALLERGIES
+    if not _has_meaningful_answer(ans, "allergies"):
+        allergies_text = _first_intake_answer_for(state, "allergies")
+        if allergies_text:
+            val = allergies_text.strip()
+            if val.lower() in ("no", "none", "nope", "n"):
+                val = "none"
+            ans["allergies"] = val
+
+    # SEX AT BIRTH
+    if not _has_meaningful_answer(ans, "sex_at_birth"):
+        sex_text = _first_intake_answer_for(state, "sex_at_birth")
+        norm_sex = _normalize_sex_at_birth(sex_text)
+        if norm_sex:
+            ans["sex_at_birth"] = norm_sex
+
+    # PREGNANCY
+    if not _has_meaningful_answer(ans, "pregnancy_possible"):
+        preg_text = _first_intake_answer_for(state, "pregnancy_possible")
+        norm_preg = _normalize_yes_no_unknown(preg_text)
+        if norm_preg:
+            ans["pregnancy_possible"] = norm_preg
+            ans["pregnancy"] = norm_preg  # backward compat
+            sx["pregnancy_possible"] = norm_preg
+            state.pregnancy_possible = norm_preg
+
+    # If sex-at-birth is male, normalize pregnancy not applicable.
+    sex_at_birth = str(ans.get("sex_at_birth") or "").strip().lower()
+    if sex_at_birth == "male":
+        ans["pregnancy_possible"] = "not_applicable"
+        ans["pregnancy"] = "not_applicable"
+        sx["pregnancy_possible"] = "not_applicable"
+        state.pregnancy_possible = "not_applicable"
+
+    # RENAL
+    if not _has_meaningful_answer(ans, "renal_disease"):
+        renal_text = _first_intake_answer_for(state, "renal_disease")
+        norm_renal = _normalize_yes_no_unknown(renal_text)
+        if norm_renal:
+            ans["renal_disease"] = norm_renal
+            sx["renal_disease"] = norm_renal
+
+    # LIVER
+    if not _has_meaningful_answer(ans, "liver_disease"):
+        liver_text = _first_intake_answer_for(state, "liver_disease")
+        norm_liver = _normalize_yes_no_unknown(liver_text)
+        if norm_liver:
+            ans["liver_disease"] = norm_liver
+            sx["liver_disease"] = norm_liver
+
+
+def _next_safety_stage_or_decide(state: CallState) -> str:
+    """
+    Advance to the next missing post-intake safety question.
+    If all required safety context is already present, go directly to DECIDE.
+    """
+    sx = _sx(state)
+    ans = _ans(state)
+
+    _hydrate_safety_answers_from_intake(state)
+
+    # AGE
+    if not _has_meaningful_answer(ans, "age_years"):
+        state.stage = "AGE"
+        return "How old are you? Please say your age in years."
+
+    # Keep derived age fields in sync if age was captured upstream.
+    try:
+        age = int(float(ans.get("age_years")))
+        state.age_band = "child" if age < 18 else "adult"
+        sx["age_years"] = age
+        sx["age_band"] = state.age_band
+    except Exception:
+        state.stage = "AGE"
+        return "How old are you? Please say your age in years."
+
+    # WEIGHT for pediatric patients only
+    if getattr(state, "age_band", None) == "child" and not _has_meaningful_answer(ans, "weight_kg"):
+        state.stage = "WEIGHT"
+        return "What is your weight? You can say it in pounds or kilograms."
+
+    # ALLERGIES
+    if not _has_meaningful_answer(ans, "allergies"):
+        state.stage = "ALLERGIES"
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    # SEX AT BIRTH
+    if not _has_meaningful_answer(ans, "sex_at_birth"):
+        state.stage = "SEX_AT_BIRTH"
+        return "What sex were you assigned at birth? Please say male or female."
+
+    sex_at_birth = str(ans.get("sex_at_birth") or "").strip().lower()
+
+    # PREGNANCY only if not male and not already captured
+    if sex_at_birth != "male":
+        if not _has_meaningful_answer(ans, "pregnancy_possible"):
+            state.stage = "PREGNANCY"
+            return "Is pregnancy possible? (yes/no/unknown)"
+    else:
+        ans["pregnancy_possible"] = "not_applicable"
+        ans["pregnancy"] = "not_applicable"
+        sx["pregnancy_possible"] = "not_applicable"
+        state.pregnancy_possible = "not_applicable"
+
+    # RENAL
+    if not _has_meaningful_answer(ans, "renal_disease"):
+        state.stage = "RENAL"
+        return "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+
+    # LIVER
+    if not _has_meaningful_answer(ans, "liver_disease"):
+        state.stage = "LIVER"
+        return "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+
+    state.stage = "DECIDE"
+    return ""
+
+
+def next_prompt(state: CallState) -> str:
+    sx = _sx(state)
+
+    if not getattr(state, "stage", None):
+        state.stage = "CONSENT"
+
+    if state.stage == "CONSENT":
+        return (
+            "I'm an automated medical assistant. "
+            "If this is an emergency, hang up and call 911. "
+            "Do you consent to continue? (yes/no)"
+        )
+
+    if state.stage == "CHIEF":
+        return "What is your main medical concern today?"
+
+    if state.stage == "LLM_INTAKE":
+        # Ask the next LLM-generated intake question
+        try:
+            from app.clinical.llm_intake import next_intake_step
+        except Exception:
+            # If LLM intake module missing, fail closed to safety-tail logic
+            return _next_safety_stage_or_decide(state)
+
+        step = next_intake_step(state)
+        action = str(step.get("action") or "").lower()
+
+        if action == "ask":
+            q = str(step.get("question") or "").strip()
+            if q:
+                sx["_llm_last_q"] = q
+                return q
+
+        if action == "stop":
+            return _next_safety_stage_or_decide(state)
+
+        # error path: proceed, but preserve error info
+        err = str(step.get("why") or "unknown LLM intake error").strip()
+        sx["_llm_intake_error"] = err
+        return _next_safety_stage_or_decide(state)
+
+    # Medication safety context AFTER intake
+    if state.stage == "AGE":
+        return "How old are you? Please say your age in years."
+
+    if state.stage == "WEIGHT":
+        return "What is your weight? You can say it in pounds or kilograms."
+
+    if state.stage == "ALLERGIES":
+        return "Do you have any medication allergies? If yes, list them. If no, say no."
+
+    if state.stage == "SEX_AT_BIRTH":
+        return "What sex were you assigned at birth? Please say male or female."
+
+    if state.stage == "PREGNANCY":
+        return "Is pregnancy possible? (yes/no/unknown)"
+
+    if state.stage == "RENAL":
+        return "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+
+    if state.stage == "LIVER":
+        return "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+
+    return ""
+
+
+def process_answer(state: CallState, text: str) -> None:
+    t = (text or "").strip()
+    sx = _sx(state)
+    ans = _ans(state)
+
+    if not getattr(state, "stage", None):
+        state.stage = "CONSENT"
+
+    if state.stage == "CONSENT":
+        if _is_yes(t):
+            state.stage = "CHIEF"
+        else:
+            state.stage = "DECIDE"
+        return
+
+    if state.stage == "CHIEF":
+        state.chief_complaint = t
+        # Initialize LLM intake loop
+        if _llm_intake_active():
+            sx["_llm_intake_turns"] = []
+            sx["_llm_intake_extract"] = {}
+            sx["_llm_intake_summary"] = ""
+            sx["_llm_last_q"] = ""
+            sx["_llm_intake_error"] = ""
+            state.stage = "LLM_INTAKE"
+        else:
+            # If disabled, fall back to old safety context sequence (minimal)
+            state.stage = "AGE"
+        return
+
+    if state.stage == "LLM_INTAKE":
+        # Record answer to the last asked question, then keep looping.
+        last_q = str(sx.get("_llm_last_q") or "").strip()
+        if last_q:
+            try:
+                from app.clinical.llm_intake import record_answer
+                record_answer(state, last_q, t)
+            except Exception:
+                # If recording fails, still continue; store minimally.
+                turns = sx.get("_llm_intake_turns")
+                if not isinstance(turns, list):
+                    turns = []
+                    sx["_llm_intake_turns"] = turns
+                turns.append({"q": last_q, "a": t})
+                n = len(turns)
+                ans[f"intake_q{n}"] = last_q
+                ans[f"intake_a{n}"] = t
+
+        # Stay in LLM intake until next_prompt advances stage to the safety-tail
+        return
+
+    # Medication safety context AFTER intake
+    if state.stage == "AGE":
+        try:
+            age = int(float(t))
+        except Exception:
+            return
+        ans["age_years"] = age
+        state.age_band = "child" if age < 18 else "adult"
+        sx["age_years"] = age
+        sx["age_band"] = state.age_band
+        if state.age_band == "child":
+            state.stage = "WEIGHT"
+        else:
+            state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "WEIGHT":
+        raw = (t or "").strip().lower()
+        ans["weight_raw"] = raw
+        sx["weight_raw"] = raw
+        num = None
+        try:
+            m = re.search(r"(\d+(?:\.\d+)?)", raw)
+            if m:
+                num = float(m.group(1))
+        except Exception:
+            num = None
+
+        if num is None or num <= 0:
+            return
+
+        is_kg = ("kg" in raw) or ("kilogram" in raw)
+        if is_kg:
+            kg = num
+            ans["weight_units"] = "kg"
+        else:
+            kg = num * 0.45359237
+            ans["weight_units"] = "lb"
+
+        try:
+            kg = round(float(kg), 1)
+        except Exception:
+            pass
+
+        ans["weight_kg"] = kg
+        sx["weight_kg"] = kg
+        state.stage = "ALLERGIES"
+        return
+
+    if state.stage == "ALLERGIES":
+        if t.lower() in ("no", "none", "nope", "n"):
+            ans["allergies"] = "none"
+        else:
+            ans["allergies"] = t
+        state.stage = "SEX_AT_BIRTH"
+        return
+
+    if state.stage == "SEX_AT_BIRTH":
+        val = (t or "").strip().lower()
+        if val.startswith("m"):
+            ans["sex_at_birth"] = "male"
+            ans["pregnancy_possible"] = "not_applicable"
+            ans["pregnancy"] = "not_applicable"
+            sx["pregnancy_possible"] = "not_applicable"
+            state.pregnancy_possible = "not_applicable"
+            state.stage = "RENAL"
+            return
+
+        if val.startswith("f"):
+            ans["sex_at_birth"] = "female"
+        else:
+            ans["sex_at_birth"] = val
+
+        state.stage = "PREGNANCY"
+        return
+
+    if state.stage == "PREGNANCY":
+        val = (t or "").strip().lower()
+        ans["pregnancy_possible"] = val
+        sx["pregnancy_possible"] = val
+        ans["pregnancy"] = val
+        state.pregnancy_possible = val
+        state.stage = "RENAL"
+        return
+
+    if state.stage == "RENAL":
+        ans["renal_disease"] = t.lower()
+        sx["renal_disease"] = t.lower()
+        state.stage = "LIVER"
+        return
+
+    if state.stage == "LIVER":
+        ans["liver_disease"] = t.lower()
+        sx["liver_disease"] = t.lower()
+        state.stage = "DECIDE"
+        return
+
+
+def start_call() -> CallState:
+    state = CallState(session_id=str(uuid.uuid4()))
+    state.stage = "CONSENT"
+    state.symptoms = {"_answers": {}}
+    return state

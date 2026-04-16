@@ -1,0 +1,11 @@
+{
+  "pathway_id": "fever_child",
+  "sources": [
+    {
+      "source_id": "healthychildren_fever",
+      "type": "url",
+      "title": "HealthyChildren.org: Fever",
+      "url": "https://www.healthychildren.org/English/health-issues/conditions/fever/Pages/default.aspx"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Current Epidemic Trends (Based on Rt) for States | CFA: Modeling and Forecasting | CDC",
+  "url": "https://www.cdc.gov/cfa-modeling-and-forecasting/rt-estimates/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "infections are growing \nIf 76%-90% of the credible interval distribution of R t > 1, infections are likely growing \nIf 26%-75% of the credible interval distribution of R t > 1, infections are not changing (in this case, the credible interval spans across 1, and contains a mix of values above and below 1.) \nIf 10%-25% of the credible interval distribution of R t > 1, infections are likely declining; this is equivalent to 75%-90% of the credible interval of R t &le; 1 \nIf <10% of the credible interval distribution of R t > 1, infections are declining; this is equivalent to >90% of the credible interval of R t &le; 1 \nThe data used to estimate R t are updated frequently, and initially-reported counts might later be revised. We manually review the data weekly and occasionally exclude implausible outlier values, but may still estimate R t . \nR t was not estimated for states in the following cases: 1. in each of the prior 2 weeks, fewer than 10 (for COVID-19 and Influenza) or 5 (for RSV) emergency department visits were reported 2. there were detected anomalies in reported values, and 3. the model did not pass checks for reliability. \nR t estimates are derived from daily counts of new disease-specific emergency department visits reported through the National Syndromic Surveillance Program . This R t : Behind the Model article provides a more in-depth overview of the modeling approac",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_modeling_and_forecasting_rt_estimates_index_html_011e1577cf58",
+  "chunk_id": "chunk_006"
+}

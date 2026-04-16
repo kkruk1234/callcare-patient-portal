@@ -1,0 +1,159 @@
+{
+  "call_sid": "CA32bff084bab74155be13db0f416f8c04",
+  "session_id": "fe658f7c-af07-4b2c-85ec-9e2bfb0f1b5f",
+  "from_number": "+13047161907",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-15T21:49:59.257148+00:00",
+  "ended_at": "2026-03-15T21:55:16.902171+00:00",
+  "packet_id": "d7163c21-bb38-4f13-b617-e7e6dc572ce6",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I've hurt my shoulder."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you hurt your shoulder?"
+    },
+    {
+      "role": "user",
+      "text": "15 years ago, I fell off a horse."
+    },
+    {
+      "role": "assistant",
+      "text": "Are you currently experiencing any pain, weakness, or limited movement in your shoulder?"
+    },
+    {
+      "role": "user",
+      "text": "Yeah. It hurts and I can't really raise it all the way."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any recent swelling, redness, or warmth around your shoulder?"
+    },
+    {
+      "role": "user",
+      "text": "No swelling or warmth, but I guess it's a little bit red. Maybe."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any recent injury or trauma to the shoulder, or has this redness and pain developed gradually?"
+    },
+    {
+      "role": "user",
+      "text": "I don't really know, but I haven't had any recent injuries. The only thing that happened was when I fell off a horse 15 years ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any numbness, tingling, or weakness in your arm or hand?"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Any fever, chills, or other signs of infection recently?"
+    },
+    {
+      "role": "user",
+      "text": "No fever."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you tried any treatments or therapies for your shoulder pain, such as physical therapy, medications, or injections?"
+    },
+    {
+      "role": "user",
+      "text": "No chills."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any imaging or evaluation of your shoulder since the injury 15 years ago?"
+    },
+    {
+      "role": "user",
+      "text": "I guess, I did physical therapy for, like, 6 months, but that was back then 15 years ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you noticed any recent worsening of the redness or any new symptoms like fever, increased pain, or inability to use the arm?"
+    },
+    {
+      "role": "user",
+      "text": "I haven't really had any imaging done. I've I haven't really done anything since then."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the exact location of the pain in your shoulder and if it radiates anywhere?"
+    },
+    {
+      "role": "user",
+      "text": "I I guess I don't have anything new."
+    },
+    {
+      "role": "assistant",
+      "text": "How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "51."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Female."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you have chronic shoulder pain likely related to an old injury, possibly involving the rotator cuff or arthritis changes. Because I can’t examine you or do tests over the phone, a licensed physician will review your information and may recommend medication like naproxen or acetaminophen to help with your pain. If your pain worsens, you develop new weakness, numbness, fever, or can’t use your arm, please seek in-person care urgently. For further evaluation, imaging like an X-ray or MRI may be needed, which you can discuss with your healthcare provider. If you need an in-person exam or testing, please go to urgent care or see your primary care clinician."
+    }
+  ]
+}

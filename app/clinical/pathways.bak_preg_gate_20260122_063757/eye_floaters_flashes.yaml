@@ -1,0 +1,26 @@
+id: eye_floaters_flashes
+version: 0.1
+match:
+  any_keywords: ["new floaters", "flashes of light", "floaters and flashes", "curtain over vision", "shadow in vision", "sudden floaters"]
+questions:
+  - id: curtain
+    prompt: "Any curtain, shadow, or missing part of vision? (yes/no)"
+    store_as: curtain
+    type: yesno
+
+  - id: vision_loss
+    prompt: "Any sudden vision loss or significant vision change? (yes/no)"
+    store_as: vision_loss
+    type: yesno
+
+  - id: pain
+    prompt: "Any severe eye pain or significant light sensitivity? (yes/no)"
+    store_as: severe_pain_photophobia
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["curtain", "vision_loss", "pain"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

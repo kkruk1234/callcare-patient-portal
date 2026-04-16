@@ -1,0 +1,22 @@
+{
+  "packet_id": "027aa17a-151e-486f-ab98-c4a2bc144b38",
+  "created_at": "2026-01-26T19:27:40.865056+00:00",
+  "session_id": "135c9c5b-7952-403c-98e9-1ab7acb91372",
+  "chief_complaint": "",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {},
+  "med_suggestions": [],
+  "note": {
+    "soap": "S:  \nNo history or symptom information was provided during the phone encounter.\n\nO:  \nNo physical exam or vital signs available due to phone-only interaction.\n\nA:  \n- Working diagnosis (most likely): Unable to determine due to lack of information.  \n- Differential:  \n  1. Unknown - insufficient data  \n  2. Unknown - insufficient data  \n  3. Unknown - insufficient data  \n  4. Unknown - insufficient data  \n- Red flags considered: None identified due to no symptom data.\n\nP:  \n- Disposition: Patient advised to seek in-person evaluation if symptoms develop or worsen.  \n- Plan: Await further history or symptom report to guide diagnosis and management.  \n- Safety net: Instructed patient to call or present urgently if new or concerning symptoms arise, such as severe pain, fever, difficulty breathing, or neurological changes.",
+    "patient_summary": "",
+    "patient_instructions": [
+      "If you are not improving as expected, or if symptoms worsen, seek in-person medical care."
+    ],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": []
+}

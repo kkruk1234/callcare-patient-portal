@@ -1,0 +1,41 @@
+id: postpartum_redflags
+version: 0.2
+match:
+  any_keywords: ["postpartum", "post partum", "after delivery", "after giving birth", "weeks after birth", "recent birth", "recent delivery"]
+questions:
+  - id: time_since_delivery
+    prompt: "How many days or weeks has it been since delivery?"
+    store_as: time_since_delivery
+  - id: heavy_bleeding
+    prompt: "Are you soaking through a pad in an hour or passing large clots? (yes/no)"
+    store_as: heavy_bleeding
+    type: yesno
+  - id: fever
+    prompt: "Any fever or chills? (yes/no)"
+    store_as: fever
+    type: yesno
+  - id: severe_headache_vision
+    prompt: "Any severe headache or vision changes? (yes/no)"
+    store_as: severe_headache_vision
+    type: yesno
+  - id: sob
+    prompt: "Any shortness of breath at rest? (yes/no)"
+    store_as: sob
+    type: yesno
+  - id: chest_pain
+    prompt: "Any chest pain? (yes/no)"
+    store_as: chest_pain
+    type: yesno
+  - id: leg_swelling
+    prompt: "Any new one-sided leg swelling or calf pain? (yes/no)"
+    store_as: leg_swelling
+    type: yesno
+  - id: severe_abdominal_pain
+    prompt: "Any severe belly pain (especially right upper belly pain)? (yes/no)"
+    store_as: severe_abdominal_pain
+    type: yesno
+stop_rules:
+  - if_all_answered: ["time_since_delivery", "heavy_bleeding", "fever", "severe_headache_vision", "sob", "chest_pain", "leg_swelling", "severe_abdominal_pain"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_2_REVIEW

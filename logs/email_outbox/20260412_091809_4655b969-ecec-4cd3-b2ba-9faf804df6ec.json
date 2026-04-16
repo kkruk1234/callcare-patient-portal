@@ -1,0 +1,12 @@
+{
+  "queued_at": "2026-04-12T13:18:09.117731+00:00",
+  "to_email": "kkruk@osteo.wvsom.edu",
+  "patient_name": "Kelly Kruk",
+  "chart_number": "CC-00000002",
+  "packet_id": "4655b969-ecec-4cd3-b2ba-9faf804df6ec",
+  "subject": "A new CallCare note is available",
+  "body": "Hello Kelly Kruk,\n\nA new CallCare note is available in your patient portal.\n\nPlease log in to review your latest physician-reviewed note.\n",
+  "sent": false,
+  "send_method": "queued_only",
+  "error": "(535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials 00721157ae682-7af3f240c4esm40691627b3.25 - gsmtp')"
+}

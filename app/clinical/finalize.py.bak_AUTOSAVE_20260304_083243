@@ -1,0 +1,448 @@
+from __future__ import annotations
+
+import json
+import re
+import uuid
+from datetime import date, datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+try:
+    from app.core.models import ReviewPacket, NoteDraft  # type: ignore
+except Exception:
+    ReviewPacket = None  # type: ignore
+    NoteDraft = None  # type: ignore
+
+
+FINAL_DIR = Path("logs") / "finalized"
+FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def now_iso() -> str:
+    try:
+        return datetime.now(timezone.utc).isoformat()
+    except Exception:
+        return datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
+
+
+def today_iso() -> str:
+    try:
+        return date.today().isoformat()
+    except Exception:
+        return ""
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _get_answers_dict(state: Any) -> Dict[str, Any]:
+    if state is None:
+        return {}
+    try:
+        a = getattr(state, "answers", None)
+        if isinstance(a, dict):
+            return a
+    except Exception:
+        pass
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            a = sx.get("_answers")
+            if isinstance(a, dict):
+                return a
+    except Exception:
+        pass
+    return {}
+
+
+def _set_answers_dict(state: Any, ans: Dict[str, Any]) -> None:
+    if state is None or not isinstance(ans, dict):
+        return
+    try:
+        if hasattr(state, "answers"):
+            state.answers = ans
+    except Exception:
+        pass
+    try:
+        sx = getattr(state, "symptoms", None)
+        if isinstance(sx, dict):
+            a = sx.get("_answers")
+            if isinstance(a, dict):
+                a.update(ans)
+                sx["_answers"] = a
+    except Exception:
+        pass
+
+
+def _extract_cc_from_state(state: Any) -> str:
+    try:
+        return _safe_str(getattr(state, "chief_complaint", "") or getattr(state, "chief", "") or "")
+    except Exception:
+        return ""
+
+
+def _extract_dx_cue_from_note(note: Any) -> str:
+    soap = _safe_str(getattr(note, "soap", "") or "")
+    if not soap:
+        return ""
+    m = re.search(r"(?ims)\nA:\s*\n(.*?)(?:\n\n|\nP:\s*\n|\Z)", soap)
+    if m:
+        first = (m.group(1) or "").strip().splitlines()[0].strip()
+        return " ".join(first.split()[:16]).strip()
+    m2 = re.search(r"(?im)^\s*A:\s*(.+)$", soap)
+    if m2:
+        return " ".join((m2.group(1) or "").strip().split()[:16]).strip()
+    return ""
+
+
+def _packet_fields() -> set:
+    try:
+        if hasattr(ReviewPacket, "model_fields"):
+            return set(ReviewPacket.model_fields.keys())
+        if hasattr(ReviewPacket, "__fields__"):
+            return set(ReviewPacket.__fields__.keys())
+    except Exception:
+        pass
+    return set()
+
+
+def _evidence_ref_fields() -> set:
+    try:
+        from app.core.models import EvidenceRef  # type: ignore
+        if hasattr(EvidenceRef, "model_fields"):
+            return set(EvidenceRef.model_fields.keys())
+        if hasattr(EvidenceRef, "__fields__"):
+            return set(EvidenceRef.__fields__.keys())
+    except Exception:
+        pass
+    return set()
+
+
+def _get_queries_from_query_llm(state: Any, note_for_context: Any, max_q: int = 4) -> List[str]:
+    ans = _get_answers_dict(state)
+
+    qs0 = None
+    try:
+        qs0 = ans.get("evidence_search_queries")
+    except Exception:
+        qs0 = None
+
+    if isinstance(qs0, list):
+        qs = [_safe_str(x) for x in qs0 if _safe_str(x)]
+        if qs:
+            return qs[:max_q]
+
+    # Try query_llm if present
+    try:
+        import importlib
+        qmod = importlib.import_module("app.clinical.query_llm")
+        gen = getattr(qmod, "generate_evidence_queries", None)
+        if callable(gen):
+            out = gen(state)
+            if isinstance(out, list):
+                qs = [_safe_str(x) for x in out if _safe_str(x)]
+                if qs:
+                    ans = _get_answers_dict(state)
+                    ans["evidence_search_queries"] = qs[:max_q]
+                    _set_answers_dict(state, ans)
+                    return qs[:max_q]
+    except Exception:
+        pass
+
+    # Generic fallback only
+    cc = _extract_cc_from_state(state)
+    dx = _extract_dx_cue_from_note(note_for_context)
+    anchor = (dx or cc or "patient complaint").strip()
+
+    qs = [
+        f"{anchor} outpatient management guideline",
+        f"{anchor} first line treatment dosing duration contraindications",
+        f"{anchor} supportive care return precautions red flags",
+        f"{anchor} evaluation when to image or refer",
+    ]
+    return [" ".join(_safe_str(x).split()) for x in qs if _safe_str(x)][:max_q]
+
+
+def _normalize_refs_to_evidence_dicts(refs: List[Any]) -> List[Dict[str, Any]]:
+    """
+    Normalize llm_http_evidence output to dicts.
+    Then enforce:
+      - URL required (drop non-citeable)
+      - accessed always present (default today)
+    """
+    tday = today_iso()
+    out: List[Dict[str, Any]] = []
+    seen = set()
+
+    for r in refs or []:
+        if r is None:
+            continue
+        if isinstance(r, dict):
+            d = r
+        else:
+            d = {}
+            try:
+                for k in ("title", "source", "url", "accessed", "snippet"):
+                    d[k] = getattr(r, k, None)
+            except Exception:
+                d = {}
+
+        title = _safe_str(d.get("title") or "")
+        url = _safe_str(d.get("url") or "")
+        source = _safe_str(d.get("source") or "Source")
+        accessed = _safe_str(d.get("accessed") or tday)
+        snippet = _safe_str(d.get("snippet") or d.get("text") or "")
+
+        # NON-NEGOTIABLE: must have URL to be citeable
+        if not url:
+            continue
+        if not title:
+            title = url[:160]
+
+        key = url
+        if key in seen:
+            continue
+        seen.add(key)
+
+        out.append(
+            {
+                "title": title,
+                "source": source or "Source",
+                "url": url,
+                "accessed": accessed or tday,
+                "snippet": snippet,
+            }
+        )
+
+    return out
+
+
+def _store_evidence_on_state(state: Any, evidence: List[Dict[str, Any]]) -> None:
+    if state is None or not evidence:
+        return
+
+    try:
+        if hasattr(state, "evidence_used"):
+            state.evidence_used = evidence
+    except Exception:
+        pass
+
+    ans = _get_answers_dict(state)
+    if isinstance(ans, dict):
+        ans["evidence_used"] = evidence
+        ans["evidence"] = evidence
+        _set_answers_dict(state, ans)
+
+    try:
+        sx = getattr(state, "symptoms", None)
+        if isinstance(sx, dict):
+            sx["evidence_used"] = evidence
+            a = sx.get("_answers")
+            if isinstance(a, dict):
+                a["evidence_used"] = evidence
+                a["evidence"] = evidence
+                sx["_answers"] = a
+    except Exception:
+        pass
+
+
+def _title_with_citation(e: Dict[str, Any]) -> str:
+    """
+    Guarantee Evidence Used lines show citations even if the printer only prints title.
+    """
+    title = _safe_str(e.get("title") or "")
+    accessed = _safe_str(e.get("accessed") or today_iso())
+    url = _safe_str(e.get("url") or "")
+    if url and accessed:
+        return f"{title}. Accessed {accessed}. {url}"
+    if url:
+        return f"{title}. {url}"
+    return title
+
+
+def _set_packet_evidence(kwargs: Dict[str, Any], evidence_full: List[Dict[str, Any]]) -> None:
+    fields = _packet_fields()
+    evref_fields = _evidence_ref_fields()
+    allow_url = "url" in evref_fields
+    allow_accessed = "accessed" in evref_fields
+
+    ev_packet: List[Dict[str, str]] = []
+    for e in evidence_full or []:
+        if not isinstance(e, dict):
+            continue
+
+        title_raw = _safe_str(e.get("title") or "")
+        source = _safe_str(e.get("source") or "Source")
+        url = _safe_str(e.get("url") or "")
+        accessed = _safe_str(e.get("accessed") or "")
+        snippet = _safe_str(e.get("snippet") or "")
+
+        if not url:
+            continue
+
+        title = title_raw
+        # Always embed citations in title so Evidence Used is never “titles-only”
+        title = _title_with_citation(e)
+
+        row: Dict[str, str] = {"title": title, "source": source or "Source"}
+
+        if allow_url:
+            row["url"] = url
+        if allow_accessed:
+            row["accessed"] = accessed or today_iso()
+
+        # Also keep in snippet for robustness
+        snippet = (snippet + "\n" if snippet else "") + f"URL: {url}"
+        snippet = (snippet + "\n" if snippet else "") + f"Accessed: {accessed or today_iso()}"
+        row["snippet"] = snippet
+
+        ev_packet.append(row)
+
+    if "evidence" in fields:
+        kwargs["evidence"] = ev_packet
+    if "evidence_used" in fields:
+        kwargs["evidence_used"] = ev_packet
+
+
+def _write_finalized(packet: Any, session_id: str) -> None:
+    out_path = FINAL_DIR / f"{session_id}.json"
+    try:
+        if hasattr(packet, "model_dump_json"):
+            out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+            return
+    except Exception:
+        pass
+    try:
+        if hasattr(packet, "json"):
+            out_path.write_text(packet.json(indent=2), encoding="utf-8")
+            return
+    except Exception:
+        pass
+    try:
+        out_path.write_text(json.dumps(packet, indent=2, default=str), encoding="utf-8")
+    except Exception:
+        pass
+
+
+def _retrieve_evidence(cc: str, assessment_text: Optional[str], queries: List[str], max_urls: int, max_per_pub: int) -> List[Dict[str, Any]]:
+    """
+    Wrapper around llm_http_evidence to keep finalize deterministic.
+    """
+    try:
+        from app.rag.llm_http_evidence import llm_http_evidence  # type: ignore
+        refs = llm_http_evidence(
+            chief_complaint=cc or "chief complaint",
+            assessment_text=assessment_text,
+            queries=queries,
+            min_urls=4,
+            max_urls=max_urls,
+            max_queries=min(4, len(queries)),
+            max_per_publisher=max_per_pub,
+            debug=False,
+        ) or []
+        if isinstance(refs, list) and refs:
+            return _normalize_refs_to_evidence_dicts(refs)
+    except Exception:
+        return []
+    return []
+
+
+def finalize(session_id: str, note: Any, state: Any = None) -> Any:
+    if session_id is None or not str(session_id).strip():
+        session_id = str(uuid.uuid4())
+
+    # Ensure we have a note object for dx cue extraction if needed
+    note0 = note
+    if note0 is None:
+        try:
+            from app.clinical.note_builder import fallback_note_from_state  # type: ignore
+            note0 = fallback_note_from_state(state)
+        except Exception:
+            try:
+                note0 = NoteDraft()  # type: ignore
+            except Exception:
+                note0 = {"soap": ""}
+
+    try:
+        if isinstance(note0, tuple):
+            note0 = note0[0]
+    except Exception:
+        pass
+
+    qs = _get_queries_from_query_llm(state, note0, max_q=4)
+    ans = _get_answers_dict(state)
+    if isinstance(ans, dict):
+        ans["evidence_search_queries"] = qs
+        _set_answers_dict(state, ans)
+
+    cc = _extract_cc_from_state(state)
+    dx_cue = _extract_dx_cue_from_note(note0)
+    assessment_text = (dx_cue or "").strip() or None
+
+    # 1st pass
+    evidence_full = _retrieve_evidence(cc, assessment_text, qs, max_urls=10, max_per_pub=2)
+
+    # If evidence is too small after URL-required filtering, widen once
+    if len(evidence_full) < 4:
+        evidence_full = _retrieve_evidence(cc, assessment_text, qs, max_urls=16, max_per_pub=1)
+
+    if evidence_full:
+        _store_evidence_on_state(state, evidence_full)
+
+    # Build note AFTER evidence exists
+    note_final = note
+    try:
+        from app.clinical.note_builder import build_note_with_reason  # type: ignore
+        if state is not None:
+            note_final, _ = build_note_with_reason(state)
+    except Exception:
+        note_final = note0
+
+    try:
+        if isinstance(note_final, tuple):
+            note_final = note_final[0]
+    except Exception:
+        pass
+
+    # Ensure note carries evidence dicts for the LLM prompt
+    try:
+        if hasattr(note_final, "evidence"):
+            cur = getattr(note_final, "evidence", None)
+            if not isinstance(cur, list) or len(cur) == 0:
+                setattr(note_final, "evidence", evidence_full)
+    except Exception:
+        pass
+
+    # Build ReviewPacket
+    fields = _packet_fields()
+    kwargs: Dict[str, Any] = {}
+
+    if "packet_id" in fields:
+        kwargs["packet_id"] = str(uuid.uuid4())
+    if "created_at" in fields:
+        kwargs["created_at"] = now_iso()
+    if "session_id" in fields:
+        kwargs["session_id"] = _safe_str(session_id)
+
+    if "note" in fields:
+        kwargs["note"] = note_final
+
+    _set_packet_evidence(kwargs, evidence_full)
+
+    if "state" in fields:
+        kwargs["state"] = state
+
+    try:
+        packet = ReviewPacket(**kwargs) if ReviewPacket is not None else kwargs  # type: ignore
+    except Exception:
+        packet = kwargs
+
+    _write_finalized(packet, _safe_str(session_id))
+    return packet
+
+
+CALLCARE_FINALIZE_WEBONLY_EVIDENCE_FIRST_V7 = True

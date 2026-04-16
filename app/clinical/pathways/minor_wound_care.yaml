@@ -1,0 +1,23 @@
+id: minor_wound_care
+version: 0.1
+match:
+  any_keywords: ["cut","laceration","wound","scrape","abrasion"]
+questions:
+  - id: bleeding
+    prompt: "Is bleeding uncontrolled despite pressure? (yes/no)"
+    store_as: bleeding
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["uncontrolled_bleeding"] }
+
+  - id: infection
+    prompt: "Increasing redness, pus, or fever? (yes/no)"
+    store_as: infection
+    type: yesno
+    if_yes:
+      add_flags: { urgent_today: ["wound_infection"] }
+
+stop_rules:
+  - if_all_answered: ["bleeding","infection"]
+    outcome: DECIDE
+routing: { tier_default: TIER_2_REVIEW }

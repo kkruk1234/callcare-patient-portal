@@ -1,0 +1,1535 @@
+from app.core.models import NoteDraft
+from pathlib import Path
+from typing import Optional, Tuple, List
+import json
+import re
+
+def _filter_rag_chunks_for_query(query: str, chunks):
+    """
+    Deterministic relevance filter to reduce off-topic evidence.
+    For 'genital warts' we prefer HPV/genital/STI/condyloma content and avoid plantar/verruca.
+    If filtering would remove everything, return original chunks.
+    """
+    q = (query or "").lower()
+    if not chunks:
+        return chunks
+
+    prefer_terms = ["genital", "hpv", "condyloma", "sti", "sexually transmitted"]
+    avoid_terms = ["plantar", "verruca", "verrucas", "foot", "feet"]
+
+    def score(ch):
+        title = str(ch.get("title") or "").lower()
+        text = str(ch.get("text") or "").lower()
+        s = 0
+        for t in prefer_terms:
+            if t in title or t in text:
+                s += 2
+        for t in avoid_terms:
+            if t in title:
+                s -= 3
+            elif t in text:
+                s -= 1
+        return s
+
+    # Only apply strong filtering when query is in the genital/HPV/STI neighborhood
+    if any(t in q for t in ["genital", "hpv", "sti"]):
+        ranked = sorted(list(chunks), key=score, reverse=True)
+        kept = [c for c in ranked if score(c) >= 0]
+        return kept if kept else ranked
+    return chunks
+
+
+def _attach_rag_evidence_if_missing(note: "NoteDraft", state) -> "NoteDraft":
+    """
+    Last-chance evidence attachment:
+    - If note.evidence is empty, run retrieval using chief complaint and attach EvidenceRef list.
+    - Retrieves more chunks, dedupes by URL (in adapter), and keeps up to 6 unique sources.
+    - Never raises (fail-silent); preserves current note if anything goes wrong.
+    """
+    try:
+        existing = getattr(note, "evidence", None)
+        if existing and len(existing) > 0:
+            return note
+    except Exception:
+        pass
+
+    import os
+    if os.getenv("CALLCARE_RAG_DISABLED", "0") == "1":
+        return note
+
+    # Prefer pre-seeded RAG context (Pull #1/#2) if present; otherwise fall back to chief complaint.
+    sx = {}
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+    except Exception:
+        sx = {}
+    if not isinstance(sx, dict):
+        sx = {}
+
+    rag = sx.get("_rag") or {}
+    if not isinstance(rag, dict):
+        rag = {}
+
+    # If chunks were already seeded, attach them directly (best case).
+    seeded = rag.get("evidence")
+    if isinstance(seeded, list) and seeded:
+        try:
+            from app.clinical.evidence_adapter import as_evidence_refs
+            refs = as_evidence_refs(seeded) or []
+            refs = refs[:6]
+            if refs:
+                if hasattr(note, "model_copy"):
+                    return note.model_copy(update={"evidence": refs})
+                try:
+                    note.evidence = refs
+                except Exception:
+                    pass
+                return note
+        except Exception:
+            pass
+
+    # Otherwise, prefer the more specific seeded queries (if any)
+    query = ""
+    try:
+        query = str(rag.get("query_pull2") or rag.get("query_pull1") or "").strip()
+    except Exception:
+        query = ""
+
+    if not query:
+        try:
+            query = getattr(state, "chief_complaint", "") or getattr(state, "chief", "") or ""
+        except Exception:
+            query = ""
+        query = (query or "").strip()
+    if not query:
+        return note
+
+
+    try:
+        from app.rag.retrieve import retrieve
+        from app.clinical.evidence_adapter import as_evidence_refs
+    except Exception:
+        return note
+
+    try:
+        # Pull more than we need; adapter dedupes by URL/source
+        try:
+            chunks = retrieve(query, k=18)
+            chunks = _filter_rag_chunks_for_query(query, chunks)
+        except TypeError:
+            chunks = retrieve(query)
+        refs = as_evidence_refs(chunks or [])
+
+        # Keep up to 6 unique sources (aiming for >=3)
+        if refs:
+            refs = refs[:6]
+
+        if not refs:
+            return note
+
+        if hasattr(note, "model_copy"):
+            return note.model_copy(update={"evidence": refs})
+        try:
+            note.evidence = refs
+        except Exception:
+            pass
+        return note
+    except Exception:
+        return note
+def _fallback_note_from_state(state) -> "NoteDraft":
+    """
+    Deterministic minimal note.
+    - Uses only already-captured structured info if present
+    - No invented symptoms/negatives/tests
+    """
+    chief = ""
+    age = ""
+    sex = ""
+    answers = {}
+
+    try:
+        chief = getattr(state, "chief_complaint", "") or getattr(state, "chief", "") or ""
+    except Exception:
+        chief = ""
+    try:
+        age = str(getattr(state, "age", "") or getattr(state, "age_years", "") or "")
+    except Exception:
+        age = ""
+    try:
+        sex = str(getattr(state, "sex_at_birth", "") or getattr(state, "sex", "") or "")
+    except Exception:
+        sex = ""
+    try:
+        answers = getattr(state, "answers", {}) or {}
+        if not isinstance(answers, dict):
+            answers = {}
+    except Exception:
+        answers = {}
+
+    lines = []
+    lines.append("SUBJECTIVE:")
+    if chief:
+        lines.append(f"- Chief concern: {chief}")
+    if age or sex:
+        demo = " ".join([x for x in [age + "y" if age else "", sex if sex else ""] if x]).strip()
+        if demo:
+            lines.append(f"- Demographics: {demo}")
+
+    if answers:
+        lines.append("- History/details (structured):")
+        for k in sorted(answers.keys()):
+            v = answers.get(k)
+            if v is None:
+                continue
+            vs = str(v).strip()
+            if not vs:
+                continue
+            lines.append(f"  - {k}: {vs}")
+
+    lines.append("")
+    lines.append("OBJECTIVE:")
+    lines.append("- Phone encounter; no vitals or exam performed.")
+    lines.append("")
+    lines.append("ASSESSMENT:")
+    if chief:
+        lines.append(f"- {chief} (insufficient data for definitive diagnosis based on available answers).")
+    else:
+        lines.append("- Concern not specified (insufficient data).")
+    lines.append("")
+    lines.append("PLAN:")
+    lines.append("- Provide supportive guidance and return precautions.")
+    lines.append("- If symptoms worsen or red flags develop, seek urgent in-person evaluation.")
+    lines.append("- If persistent, clinician review recommended for targeted testing and treatment plan.")
+
+    return NoteDraft(
+        soap="\n".join(lines),
+        patient_instructions=[],
+        clinician_questions=[],  # keep empty to avoid surfacing conceptually
+        risk_flags=[],
+        evidence=[],
+    )
+
+
+from app.core.models import ReviewPacket, NoteDraft, CallState, EvidenceRef
+from app.clinical.note_builder import now_iso, build_note_with_reason
+from app.clinical.evidence_adapter import as_evidence_refs
+from app.clinical.med_protocols import load_med_protocol_for_state, protocol_to_med_suggestions
+
+
+def _postprocess_soap_global(note, state) -> None:
+    """
+    Global deterministic cleanup of SOAP text:
+    - Inject actual numeric age into the S: line (e.g., "35-year-old patient ...")
+    - Rewrite awkward pregnancy phrasing ("Pregnancy is not possible" -> "Patient is not pregnant")
+    This is intentionally conservative: only rewrites when patterns are clearly present.
+    """
+    try:
+        soap = getattr(note, "soap", None)
+        if not soap or not isinstance(soap, str):
+            return
+
+        sx = getattr(state, "symptoms", None) or {}
+
+        def _as_int(v):
+            try:
+                if v is None:
+                    return None
+                s = str(v).strip()
+                if not s:
+                    return None
+                n = float(s)
+                if n <= 0 or n > 120:
+                    return None
+                return int(round(n))
+            except Exception:
+                return None
+
+        # --- AGE: try multiple locations, then scan symptoms for any plausible 'age' value ---
+        age_val = None
+        for k in ("age_years", "age", "age_in_years", "patient_age", "age_years_int"):
+            if k in sx:
+                iv = _as_int(sx.get(k))
+                if iv is not None:
+                    age_val = iv
+                    break
+        if age_val is None:
+            for k in ("age_years", "age", "age_in_years", "patient_age", "age_years_int"):
+                iv = _as_int(getattr(state, k, None))
+                if iv is not None:
+                    age_val = iv
+                    break
+        if age_val is None:
+            for k, v in sx.items():
+                if "age" not in str(k).lower():
+                    continue
+                iv = _as_int(v)
+                if iv is not None:
+                    age_val = iv
+                    break
+
+        # --- PREGNANCY phrasing cleanup (global) ---
+        soap2 = soap
+        soap2 = re.sub(r"\bPregnancy\s+is\s+not\s+possible\b\.?", "Patient is not pregnant.", soap2, flags=re.IGNORECASE)
+        soap2 = re.sub(r"\bPregnancy\s+not\s+possible\b\.?", "Patient is not pregnant.", soap2, flags=re.IGNORECASE)
+
+        # --- TICK ATTACHMENT narrative correction (avoid "37 hours ago" when user meant attachment duration) ---
+        # If the user answered tick_attachment_timeframe (e.g., "37 hours"), some generators mistakenly write
+        # "tick bite ... 37 hours ago". Convert that to "Tick was attached for ~37 hours" (on S: line only).
+        tf_raw = (
+            sx.get("tick_attachment_timeframe")
+            or sx.get("tick_attached_timeframe")
+            or sx.get("tick_attachment_hours")
+            or ""
+        )
+        tf_raw_s = str(tf_raw).strip().lower()
+        tf_hours = None
+        if "hour" in tf_raw_s:
+            mm = re.search(r"(\d{1,3})\s*hour", tf_raw_s)
+            if mm:
+                try:
+                    tf_hours = int(mm.group(1))
+                except Exception:
+                    tf_hours = None
+
+        # --- AGE injection only on S: line, only if it's missing any 'year-old' already ---
+        if age_val is not None:
+            lines = soap2.splitlines()
+            for i, ln in enumerate(lines):
+                if ln.lstrip().startswith("S:"):
+                    # If tick attachment duration was provided, fix the common mis-phrasing "... <N> hours ago ..."
+                    if tf_hours is not None:
+                        # Most specific pattern
+                        ln2 = re.sub(
+                            r"\btick bite sustained\s+(?:approximately|about)?\s*"
+                            + str(tf_hours)
+                            + r"\s*hours?\s*ago\s+while\s+in\s+([A-Za-z][A-Za-z \-]{0,40})\b\.?",
+                            r"tick bite in \1. Tick was attached for approximately "
+                            + str(tf_hours)
+                            + r" hours.",
+                            ln,
+                            flags=re.IGNORECASE,
+                        )
+                        # More general fallback
+                        if ln2 == ln:
+                            ln2 = re.sub(
+                                r"\btick bite\b([^.\n]{0,120})\b"
+                                + str(tf_hours)
+                                + r"\s*hours?\s*ago\b",
+                                r"tick bite\1Tick was attached for approximately "
+                                + str(tf_hours)
+                                + r" hours",
+                                ln,
+                                flags=re.IGNORECASE,
+                            )
+                        ln = ln2
+
+                    # If the S line already contains "year-old", don't touch it.
+                    if re.search(r"\byear[- ]old\b", ln, flags=re.IGNORECASE):
+                        break
+
+                    # Common format: "S: Patient ..."
+                    if re.search(r"^\s*S:\s*Patient\b", ln):
+                        lines[i] = re.sub(
+                            r"^\s*S:\s*Patient\b",
+                            f"S: {age_val}-year-old patient",
+                            ln,
+                            count=1,
+                        )
+                        break
+
+                    # If S line exists but doesn't start with Patient, insert prefix conservatively
+                    if re.match(r"^\s*S:\s*\S", ln):
+                        lines[i] = re.sub(
+                            r"^\s*S:\s*",
+                            f"S: {age_val}-year-old patient. ",
+                            ln,
+                            count=1,
+                        )
+                        break
+            soap2 = "\n".join(lines)
+
+        if soap2 != soap:
+            setattr(note, "soap", soap2)
+    except Exception:
+        return
+
+
+FINAL_DIR = Path("logs/finalized")
+MANIFESTS_DIR = Path("data/sources/pathways")
+
+
+def _postprocess_tick_bite_soap(note, state) -> None:
+    """
+    Surgical, pathway-specific cleanups for tick_bite SOAP:
+    - Ensure numeric age appears in the Subjective (S:) line.
+    - Interpret '37 hours' as tick attachment duration, not time-since-bite.
+    - Normalize pregnancy wording to 'Patient is not pregnant.'
+    """
+    try:
+        soap = getattr(note, "soap", "") or ""
+        if not soap.strip():
+            return
+
+        # Only operate when the pathway is tick_bite
+        pid = ""
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+        except Exception:
+            pid = ""
+        if (pid or "").strip() != "tick_bite":
+            return
+
+        age_val = None
+        sx = getattr(state, "symptoms", None) or {}
+
+        def _as_int(v):
+            try:
+                if v is None:
+                    return None
+                s = str(v).strip()
+                if not s:
+                    return None
+                n = float(s)
+                if n <= 0 or n > 120:
+                    return None
+                return int(round(n))
+            except Exception:
+                return None
+
+        for k in ("age_years", "age", "age_years_int", "age_years_float", "patient_age", "age_in_years"):
+            if k in sx:
+                iv = _as_int(sx.get(k))
+                if iv is not None:
+                    age_val = iv
+                    break
+
+        if age_val is None:
+            for k in ("age_years", "age", "age_years_int", "patient_age", "age_in_years"):
+                iv = _as_int(getattr(state, k, None))
+                if iv is not None:
+                    age_val = iv
+                    break
+
+        if age_val is None:
+            for k, v in sx.items():
+                if "age" not in str(k).lower():
+                    continue
+                iv = _as_int(v)
+                if iv is not None:
+                    age_val = iv
+                    break
+
+        lines = soap.splitlines()
+        out_lines = []
+        for line in lines:
+            ln = line
+
+            # Normalize pregnancy language
+            ln = re.sub(r"\bPregnancy\s+is\s+not\s+possible\b", "Patient is not pregnant", ln, flags=re.IGNORECASE)
+            ln = re.sub(r"\bPregnancy\s+not\s+possible\b", "Patient is not pregnant", ln, flags=re.IGNORECASE)
+
+            # Fix the "37 hours ago" misinterpretation ONLY in tick_bite subjective text
+            ln = re.sub(
+                r"(tick bite\s+(?:approximately|about|around)?\s*)(\d{1,3})\s*hours?\s*ago",
+                r"\1; tick may have been attached for about \2 hours",
+                ln,
+                flags=re.IGNORECASE,
+            )
+
+            ln = re.sub(
+                r"(tick bite.*?)(?:lasting|for)\s+(\d{1,3}\s*(?:-|to)\s*\d{1,3}\s*hours?)\b",
+                r"\1 tick may have been attached for \2",
+                ln,
+                flags=re.IGNORECASE,
+            )
+
+            # Ensure age appears in the S: line
+            if age_val is not None and ln.lstrip().startswith("S:"):
+                if not re.search(r"\b\d{1,3}\s*-\s*year\s*-\s*old\b|\b\d{1,3}\s*year\s*old\b|\b\d{1,3}\s*-\s*year-old\b", ln, flags=re.IGNORECASE):
+                    if ln.strip() == "S:":
+                        ln = f"S: {age_val}-year-old patient reports a tick bite."
+                    else:
+                        ln = re.sub(r"^\s*S:\s*", f"S: {age_val}-year-old patient ", ln)
+
+            out_lines.append(ln)
+
+        new_soap = "\n".join(out_lines).rstrip() + "\n"
+        setattr(note, "soap", new_soap)
+    except Exception:
+        return
+
+
+def _extract_disposition_from_state(state: Optional[CallState]) -> Tuple[str, List[str]]:
+    if state is None:
+        return "UNKNOWN", []
+
+    symptoms = getattr(state, "symptoms", None) or {}
+    disp = symptoms.get("_disposition") or "UNKNOWN"
+    reasons = symptoms.get("_disposition_reasons") or []
+
+    if not isinstance(reasons, list):
+        reasons = []
+    reasons = [str(r) for r in reasons if r]
+    return str(disp), reasons
+
+
+def _map_disposition_to_recommendation(disposition: str) -> str:
+    d = (disposition or "").strip().lower()
+    if d == "ed_now":
+        return "ED_NOW"
+    if d == "urgent_today":
+        return "URGENT_IN_PERSON_TODAY"
+    if d == "routine":
+        return "ROUTINE_HOME_CARE"
+    return "AUTO_FINALIZED_PROTOCOL"
+
+
+def _infer_pathway_id(note: NoteDraft, state: Optional[CallState]) -> str:
+    if state is not None:
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            pid = (sx.get("_pathway") or {}).get("id") or ""
+            pid = str(pid).strip()
+            if pid:
+                return pid
+        except Exception:
+            pass
+
+    try:
+        pid = getattr(note, "pathway_id", "") or ""
+        pid = str(pid).strip()
+        if pid:
+            return pid
+    except Exception:
+        pass
+
+    return ""
+
+
+def _load_manifest_sources(pathway_id: str) -> List[dict]:
+    if not pathway_id:
+        return []
+    manifest_path = MANIFESTS_DIR / pathway_id / "manifest.json"
+    if not manifest_path.exists():
+        return []
+
+    try:
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+    sources = data.get("sources") or []
+    if not isinstance(sources, list):
+        return []
+
+    out: List[dict] = []
+    for s in sources:
+        if isinstance(s, dict):
+            out.append(s)
+    return out
+
+
+def _mk_evidence_ref(title: str, url: str, snippet: str, sid: str) -> EvidenceRef:
+    payload = {}
+    if hasattr(EvidenceRef, "model_fields"):  # pydantic v2
+        fields = set(EvidenceRef.model_fields.keys())
+    else:
+        fields = set(getattr(EvidenceRef, "__fields__", {}).keys())
+
+    if "title" in fields:
+        payload["title"] = title
+    if "url" in fields:
+        payload["url"] = url
+    if "source" in fields:
+        payload["source"] = url or title
+    if "snippet" in fields:
+        payload["snippet"] = snippet
+    if "source_id" in fields:
+        payload["source_id"] = sid
+
+    if "url" not in fields and url:
+        if "source" in fields and not payload.get("source"):
+            payload["source"] = url
+        elif "snippet" in fields and url not in str(payload.get("snippet", "")):
+            payload["snippet"] = (str(payload.get("snippet", "")) + " " + url).strip()
+
+    return EvidenceRef(**payload)
+
+
+def _set_note_evidence_from_manifest(note: NoteDraft, pathway_id: str) -> None:
+    sources = _load_manifest_sources(pathway_id)
+    if not sources:
+        return
+
+    ev: List[EvidenceRef] = []
+
+    for s in sources:
+        title = str(s.get("title") or s.get("id") or pathway_id).strip()
+        url = str(s.get("url") or "").strip()
+        sid = str(s.get("id") or "").strip()
+        snippet = "Listed in pathway manifest"
+
+        ev.append(_mk_evidence_ref(title=title, url=url, snippet=snippet, sid=sid))
+
+    try:
+        note.evidence = ev
+    except Exception:
+        pass
+
+
+def _age_years_from_state(state: Optional[CallState]) -> Optional[int]:
+    if state is None:
+        return None
+    sx = getattr(state, "symptoms", None) or {}
+    for k in ("age_years", "age", "age_in_years"):
+        v = sx.get(k) if isinstance(sx, dict) else None
+        if v is not None and str(v).strip() != "":
+            try:
+                return int(float(v))
+            except Exception:
+                pass
+    for attr in ("age_years", "age"):
+        v = getattr(state, attr, None)
+        if v is not None and str(v).strip() != "":
+            try:
+                return int(float(v))
+            except Exception:
+                pass
+    return None
+
+
+def _ensure_age_in_subjective(note: NoteDraft, state: Optional[CallState]) -> None:
+    try:
+        soap = getattr(note, "soap", "") or ""
+    except Exception:
+        return
+    soap_s = str(soap)
+
+    age = _age_years_from_state(state)
+    if age is None:
+        return
+
+    if re.search(rf"\b{age}\s*-\s*year\s*-\s*old\b|\b{age}\s*year\s*old\b|\b{age}\s*-\s*year\s*old\b|\b{age}-year-old\b", soap_s, flags=re.IGNORECASE):
+        return
+
+    if re.search(r"\b\d{1,3}\s*-\s*year\s*-\s*old\b|\b\d{1,3}-year-old\b", soap_s, flags=re.IGNORECASE):
+        return
+
+    lines = soap_s.splitlines()
+    out = []
+    injected = False
+
+    for ln in lines:
+        if not injected and ln.lstrip().startswith("S:"):
+            if ln.strip() == "S:" or ln.strip() == "S:":
+                out.append(ln.rstrip())
+                out.append(f"Patient is a {age}-year-old presenting by phone.")
+            else:
+                out.append(ln.rstrip() + f" Patient is a {age}-year-old.")
+            injected = True
+        else:
+            out.append(ln.rstrip())
+
+    new_soap = "\n".join(out).strip() + "\n"
+    try:
+        setattr(note, "soap", new_soap)
+    except Exception:
+        pass
+
+
+def finalize(session_id: str, note: NoteDraft, state: Optional[CallState] = None) -> ReviewPacket:
+    # __CC_ORIG_EVIDENCE: preserve evidence produced by build_note() (avoid downstream overwrite)
+    __CC_ORIG_EVIDENCE = list(getattr(note, 'evidence', None) or [])
+    """
+    Finalize a note into a ReviewPacket and write it to logs/finalized/<session_id>.json.
+
+    Key behavior:
+    - Pull #1 seeding happens BEFORE any evidence attachment.
+    - If Pull #1 produced evidence (>=3 chunks), we prefer it for note.evidence.
+    - Only if still missing do we fall back to generic retrieval.
+    """
+    # Fail-closed: ReviewPacket requires NoteDraft; never allow note=None.
+    if note is None:
+        note = _fallback_note_from_state(state)
+
+    # Pull structured state early
+    sx = {}
+    try:
+        if state is not None:
+            sx = getattr(state, "symptoms", None) or {}
+    except Exception:
+        sx = {}
+    if not isinstance(sx, dict):
+        sx = {}
+
+    # -------------------------------
+    # RAG Pull #1: post-intake seeding (chief complaint + intake facts + anchors)
+    # -------------------------------
+    try:
+        import os
+        if os.getenv("CALLCARE_RAG_DISABLED", "0") != "1" and state is not None:
+            rag = sx.get("_rag")
+            if not isinstance(rag, dict):
+                rag = {}
+
+            have_ev = isinstance(rag.get("evidence"), list) and len(rag.get("evidence") or []) > 0
+            if not have_ev:
+                cc = ""
+                try:
+                    cc = (getattr(state, "chief_complaint", "") or getattr(state, "chief", "") or "").strip()
+                except Exception:
+                    cc = ""
+
+                llm_sum = str(sx.get("_llm_intake_summary") or "").strip()
+                llm_ext = sx.get("_llm_intake_extract")
+                if not isinstance(llm_ext, dict):
+                    llm_ext = {}
+
+                anchors = []
+                def _add(k, v):
+                    v = (str(v or "").strip())
+                    if v:
+                        anchors.append(f"{k}:{v}")
+
+                _add("age", sx.get("age_years") or sx.get("age") or getattr(state, "age_years", None) or getattr(state, "age", None))
+                _add("sex_at_birth", sx.get("sex_at_birth") or getattr(state, "sex_at_birth", None))
+                _add("pregnancy_possible", sx.get("pregnancy_possible") or getattr(state, "pregnancy_possible", None))
+                _add("renal_disease", sx.get("renal_disease") or getattr(state, "renal_disease", None))
+                _add("liver_disease", sx.get("liver_disease") or getattr(state, "liver_disease", None))
+                _add("allergies", sx.get("allergies") or sx.get("med_allergies") or getattr(state, "allergies", None))
+
+                fact_bits = []
+                for k in ("duration", "onset", "location", "severity", "quality", "associated_symptoms", "red_flags", "context"):
+                    v = llm_ext.get(k)
+                    if v:
+                        fact_bits.append(f"{k}:{str(v).strip()}")
+
+                parts = [p for p in [cc, llm_sum, " ".join(fact_bits), " ".join(anchors)] if p and str(p).strip()]
+                query = " | ".join(parts).strip()
+                if query:
+                    from app.rag.retrieve import retrieve
+                    try:
+                        chunks = retrieve(query, k=24)
+                    except TypeError:
+                        chunks = retrieve(query)
+                    chunks = _filter_rag_chunks_for_query(cc or query, chunks)
+                    rag["query_pull1"] = query
+                    rag["evidence"] = chunks or []
+                    sx["_rag"] = rag
+                    try:
+                        state.symptoms = sx
+                    except Exception:
+                        pass
+    except Exception:
+        pass
+
+    _note_reason = ""
+
+    # Accept legacy callers passing (NoteDraft, reason) or None
+    if isinstance(note, tuple):
+        try:
+            _note_reason = "" if len(note) < 2 else str(note[1] or "")
+            note = note[0] if len(note) >= 1 else None
+        except Exception:
+            note = None
+
+    # If note is None, try building it here (preferred) using state
+    if note is None and state is not None:
+        try:
+
+            # CALLCARE_PERSIST_DECISION_ON_STATE_V1
+            try:
+                import json, time
+                from pathlib import Path
+            
+                # Try to infer the chosen pathway/diagnosis from locals() at finalize() time.
+                _cc_locals = dict(locals())
+                _pid = None
+                _label = None
+            
+                # Common local var names
+                for k in ("pathway_id","selected_pathway_id","chosen_pathway_id","route_id","pathway"):
+                    if k in _cc_locals and _cc_locals.get(k):
+                        _pid = _cc_locals.get(k)
+                        break
+            
+                for k in ("pathway_label","selected_pathway_label","chosen_pathway_label","label","diagnosis","working_diagnosis"):
+                    if k in _cc_locals and _cc_locals.get(k):
+                        _label = _cc_locals.get(k)
+                        break
+            
+                # Common object var names that may carry id/label
+                for k in ("selected","choice","decision","route","routing","match","best","result"):
+                    obj = _cc_locals.get(k)
+                    if obj is None:
+                        continue
+                    try:
+                        if _pid is None:
+                            _pid = getattr(obj, "pathway_id", None) or getattr(obj, "id", None) or getattr(obj, "pathway", None)
+                    except Exception:
+                        pass
+                    try:
+                        if _label is None:
+                            _label = getattr(obj, "label", None) or getattr(obj, "name", None) or getattr(obj, "diagnosis", None) or getattr(obj, "working_diagnosis", None)
+                    except Exception:
+                        pass
+            
+                # Normalize to strings
+                if _pid is not None:
+                    _pid = str(_pid)
+                if _label is not None:
+                    _label = str(_label)
+            
+                # Persist onto state (these fields already exist on CallState)
+                if _pid or _label:
+                    try:
+                        state.decision = {"pathway_id": _pid, "label": _label}
+                    except Exception:
+                        pass
+                    try:
+                        if _pid:
+                            state.pathway_id = _pid
+                    except Exception:
+                        pass
+                    try:
+                        if _label:
+                            state.pathway_label = _label
+                    except Exception:
+                        pass
+                    try:
+                        wd = _label if _label else (_pid.replace("_"," ") if _pid else "")
+                        if wd:
+                            state.working_diagnosis = wd
+                    except Exception:
+                        pass
+            
+                # Always log locals keys so we can target the exact variable if inference fails
+                try:
+                    Path("logs").mkdir(exist_ok=True)
+                    with open("logs/finalize_decision_persist.jsonl","a",encoding="utf-8") as f:
+                        f.write(json.dumps({"ts": time.time(), "pid": _pid, "label": _label, "locals_keys": sorted(list(_cc_locals.keys()))[:200]}, default=str) + "\n")
+                except Exception:
+                    pass
+            except Exception:
+                pass
+
+            note, _note_reason = build_note_with_reason(state)
+        except Exception as _e:
+            _note_reason = str(_e)
+            note = None
+
+    # Deterministic fallback NoteDraft (never invent symptoms/negatives)
+    if note is None:
+        note = _fallback_note_from_state(state)
+
+    # -------------------------------
+    # Prefer Pull #1 evidence for note.evidence when available
+    # -------------------------------
+    try:
+        if state is not None:
+            sx4 = getattr(state, "symptoms", None) or {}
+            if isinstance(sx4, dict):
+                rag = sx4.get("_rag")
+                chunks = rag.get("evidence") if isinstance(rag, dict) else None
+                if isinstance(chunks, list) and len(chunks) >= 3:
+                    from app.clinical.evidence_adapter import as_evidence_refs
+                    refs = as_evidence_refs(chunks) or []
+                    if refs:
+                        note.evidence = refs[:6]
+    except Exception:
+        pass
+
+    # True last-chance evidence attachment (only if still missing)
+    note = _attach_rag_evidence_if_missing(note, state)
+
+    import uuid
+
+    FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Infer pathway id early
+    pid = ""
+    try:
+        pid = _infer_pathway_id(note, state)
+    except Exception:
+        pid = ""
+
+    # Try attaching manifest evidence into note.evidence (best-effort)
+    try:
+        if pid and not getattr(note, "evidence", None):
+            _set_note_evidence_from_manifest(note, pid)
+    except Exception:
+        pass
+
+    disposition, reasons = _extract_disposition_from_state(state)
+    recommended = _map_disposition_to_recommendation(disposition)
+
+    comments = "Tier-1 protocol auto-finalized"
+    if disposition != "UNKNOWN":
+        comments += f" | disposition={disposition}" + (f" reasons={reasons}" if reasons else "")
+    if pid:
+        comments += f" | pathway_id={pid}"
+
+    # Detect ReviewPacket fields (pydantic v2/v1)
+    if hasattr(ReviewPacket, "model_fields"):
+        fields = set(ReviewPacket.model_fields.keys())
+    elif hasattr(ReviewPacket, "__fields__"):
+        fields = set(ReviewPacket.__fields__.keys())
+    else:
+        fields = set()
+
+    now = now_iso()
+    kwargs = {}
+
+    # Required in newer schema
+    if "packet_id" in fields:
+        kwargs["packet_id"] = str(uuid.uuid4())
+    if "created_at" in fields:
+        kwargs["created_at"] = now
+
+    # Pull structured state
+    sx = {}
+    ans = {}
+    try:
+        if state is not None:
+            sx = getattr(state, "symptoms", None) or {}
+    except Exception:
+        sx = {}
+    if not isinstance(sx, dict):
+        sx = {}
+
+    try:
+        ans = sx.get("_answers", {}) or {}
+    except Exception:
+        ans = {}
+    if not isinstance(ans, dict):
+        ans = {}
+
+    # Chief complaint with fallbacks
+    cc = ""
+    try:
+        if state is not None:
+            cc = (getattr(state, "chief_complaint", None) or "").strip()
+    except Exception:
+        cc = ""
+    if not cc:
+        for k in ("chief_complaint", "cc", "main_concern"):
+            v = sx.get(k)
+            if v:
+                cc = str(v).strip()
+                break
+    if not cc:
+        v = ans.get("chief_complaint") or ans.get("cc") or ans.get("main_concern")
+        if v:
+            cc = str(v).strip()
+
+    # Pregnancy possible raw — MUST be a string for ReviewPacket schema
+    preg = ""
+    try:
+        if state is not None and hasattr(state, "pregnancy_possible"):
+            v = getattr(state, "pregnancy_possible", None)
+            if v is not None and str(v).strip() != "":
+                preg = str(v).strip()
+    except Exception:
+        preg = ""
+
+    if not preg:
+        v2 = sx.get("pregnancy_possible", None)
+        if v2 is not None and str(v2).strip() != "":
+            preg = str(v2).strip()
+
+    if preg is None:
+        preg = ""
+
+    # Evidence list from note
+    ev = []
+    try:
+        ev = getattr(note, "evidence", None) or []
+    except Exception:
+        ev = []
+    if not isinstance(ev, list):
+        ev = []
+
+    # Med suggestions (deterministic, from data/protocols/meds/<pathway_id>.yaml)
+    med_suggestions: List[dict] = []
+    try:
+        if state is not None and pid:
+            protocol, _reason = load_med_protocol_for_state(state)
+            if isinstance(protocol, dict):
+                med_suggestions = protocol_to_med_suggestions(protocol, pathway_id=pid) or []
+    except Exception:
+        med_suggestions = []
+
+    # Phase-1 RAG-first meds support: merge rx_candidates (structured) into med_suggestions
+    try:
+        from app.clinical.med_support import generate_med_support
+        ms = generate_med_support(state=state, evidence=ev)
+        rx = ms.get("rx_candidates") if isinstance(ms, dict) else None
+        if isinstance(rx, list) and rx:
+            # Merge + de-dupe by drug/med name (keep protocol suggestions first)
+            seen = set()
+            merged = []
+            for item in (med_suggestions or []) + rx:
+                if not isinstance(item, dict):
+                    continue
+                name = str(item.get("drug") or item.get("med") or "").strip().lower()
+                key = name if name else str(item).strip().lower()
+                if key in seen:
+                    continue
+                seen.add(key)
+                merged.append(item)
+            med_suggestions = merged
+    except Exception:
+        pass
+
+
+    note = _ensure_dosing_sources(note, state, med_suggestions)
+
+    # Common fields
+    if "session_id" in fields:
+        kwargs["session_id"] = session_id
+    if "timestamp_iso" in fields and "created_at" not in kwargs:
+        kwargs["timestamp_iso"] = now
+    if "timestamp" in fields and "timestamp_iso" not in kwargs and "created_at" not in kwargs:
+        kwargs["timestamp"] = now
+
+    if "note" in fields:
+        kwargs["note"] = note
+    if "recommended_disposition" in fields:
+        kwargs["recommended_disposition"] = recommended
+    if "status" in fields:
+        kwargs["status"] = "APPROVED"
+    if "reviewer_id" in fields:
+        kwargs["reviewer_id"] = "SYSTEM"
+    if "reviewer_comments" in fields:
+        kwargs["reviewer_comments"] = comments
+
+    # State-preservation fields (only if schema supports them)
+    if "chief_complaint" in fields:
+        kwargs["chief_complaint"] = cc
+    if "pathway_id" in fields:
+        kwargs["pathway_id"] = pid or (getattr(state, "pathway_id", "") if state is not None else "")
+    if "answers" in fields:
+        kwargs["answers"] = ans
+    if "pregnancy_possible" in fields:
+        kwargs["pregnancy_possible"] = preg
+    if "evidence" in fields:
+        kwargs["evidence"] = ev
+    if "med_suggestions" in fields:
+        kwargs["med_suggestions"] = med_suggestions
+
+
+    note = _run_rag_pull2_dx_refine(note, state)
+
+    # Deterministic cleanup (best effort)
+    try:
+        if state is not None:
+            _postprocess_soap_global(note, state)
+    except Exception:
+        pass
+
+
+    # CAT_BITE_OVERRIDES_V1
+
+    try:
+
+        sx = getattr(state, "symptoms", {}) or {}
+
+        pid2 = (sx.get("_pathway") or {}).get("id") or (pid or "")
+
+        if pid2 == "cat_bite_wound":
+
+            # Strong, specific patient instructions
+
+            try:
+
+                note.patient_instructions = [
+
+                    "Cat bites have a high risk of infection. Gently wash the area with soap and running water. Do not soak the wound.",
+
+                    "If the bite is on the hand or wrist, get in-person care today (urgent care or emergency department), even if it seems mild.",
+
+                    "Get urgent care immediately if redness is spreading, swelling worsens, pus develops, pain increases, fever or chills occur, red streaks appear, numbness develops, or finger/hand movement becomes difficult.",
+
+                    "Go to the emergency department now or call 911 if you feel very ill, develop confusion, or symptoms are rapidly worsening.",
+
+                    "If you are not up to date on tetanus (or unsure), you should get a tetanus booster in person."
+
+                ]
+
+            except Exception:
+
+                pass
+
+    
+
+            # Evidence: if manifest is thin / starter-only, append authoritative references
+
+            try:
+
+                ev2 = getattr(note, "evidence", None) or []
+
+                if not isinstance(ev2, list):
+
+                    ev2 = []
+
+                joined = " ".join([str(getattr(e, "title", "") or "") + " " + str(getattr(e, "source", "") or "") for e in ev2]).lower()
+
+                if (len(ev2) < 2) or ("starter" in joined) or (joined.strip() == ""):
+
+                    extra = [
+
+                        {"title":"CDC — Rabies (when to seek care after animal bites)","source":"https://www.cdc.gov/rabies/exposure/index.html","snippet":"General post-exposure considerations; seek in-person evaluation for animal bites as indicated."},
+
+                        {"title":"IDSA — Skin and Soft Tissue Infections guideline (bite wounds / wound infection management)","source":"https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/","snippet":"Guidance includes bite wounds and when broader coverage is needed."},
+
+                        {"title":"Merck Manual Professional — Bites (cat bites; hand bites)","source":"https://www.merckmanuals.com/professional/infectious-diseases/bites-and-clenched-fist-injuries/bites","snippet":"Cat bites are high-risk; hand bites often need prompt evaluation."},
+
+                    ]
+
+                    ev2 = ev2 + extra
+
+                    setattr(note, "evidence", ev2)
+
+            except Exception:
+
+                pass
+
+    except Exception:
+
+        pass
+
+
+    packet = ReviewPacket(**kwargs)
+
+    out_path = FINAL_DIR / f"{session_id}.json"
+    try:
+        out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")
+    except Exception:
+        out_path.write_text(packet.json(indent=2), encoding="utf-8")
+
+    # __CC_ORIG_EVIDENCE: restore original evidence so Evidence Used reflects build_note()
+    if __CC_ORIG_EVIDENCE:
+        try:
+            note.evidence = __CC_ORIG_EVIDENCE
+        except Exception:
+            pass
+    return packet
+
+# ============================
+
+# ============================
+# CALLCARE RAG PULL #2 (DX ANCHORED TO NOTE ASSESSMENT)
+# ============================
+
+def _extract_dx_cue_from_note(note) -> str:
+    import re
+    soap = str(getattr(note, "soap", "") or "")
+    # Prefer sectioned SOAP A:
+    m = re.search(r"(?ims)\nA:\s*\n(.*?)(?:\n\n|\nP:\s*\n)", soap)
+    if m:
+        first = (m.group(1) or "").strip().splitlines()[0].strip()
+        return " ".join(first.split()[:12]).strip()
+    # Fallback: inline A:
+    m2 = re.search(r"(?im)^\s*A:\s*(.+)$", soap)
+    if m2:
+        return " ".join((m2.group(1) or "").strip().split()[:12]).strip()
+    return ""
+
+def _run_rag_pull2_dx_refine(note, state):
+    """
+    Pull #2: diagnosis-anchored refinement using the NOTE assessment (not state.pathway_id).
+    Rules:
+      - Pull #2 dominates, Pull #1 demoted but kept
+      - Exclude MI/troponin/SVT/etc UNLESS the dx cue includes those terms
+      - Never return worse-than-baseline: if dx cue missing or no good hits, do nothing
+    """
+    try:
+        if state is None:
+            return note
+
+        dx_cue = _extract_dx_cue_from_note(note)
+        if not dx_cue:
+            return note  # cannot refine without a working dx cue
+
+        cc = (getattr(state, "chief_complaint", "") or "").strip()
+
+        from app.rag.retrieve import retrieve
+        from app.clinical.evidence_adapter import as_evidence_refs
+
+        # Build focused query
+        q2 = f"{dx_cue} | {cc} | treatment management guideline dosing"
+        try:
+            chunks = retrieve(q2, k=40) or []
+        except TypeError:
+            chunks = retrieve(q2) or []
+
+        dx_l = dx_cue.lower()
+
+        # Tokenize dx cue (avoid junk)
+        import re
+        dx_tokens = [t for t in re.split(r"[^a-z0-9]+", dx_l) if len(t) >= 5]
+        dx_tokens = dx_tokens[:6]
+
+        # Exclusions ONLY if not in dx cue
+        excludes = [
+            "supraventricular", "svt", "tachycardia",
+            "troponin", "myocardial", "heart attack", "infarction",
+            "pulmonary hypertension", "pulmonary embol",
+            "congenital heart", "turner syndrome",
+            "heart disease in women",
+        ]
+
+        def ok_chunk(ch):
+            if not isinstance(ch, dict):
+                return False
+            title = (ch.get("title") or "").lower()
+            text  = (ch.get("text") or "").lower()
+            blob = title + " " + text
+
+            # Must relate to dx cue (phrase or tokens)
+            if dx_l in blob:
+                pass
+            elif dx_tokens and not any(t in blob for t in dx_tokens):
+                return False
+
+            # Drop exclusion topics unless explicitly part of dx cue
+            for ex in excludes:
+                if ex in blob and ex not in dx_l:
+                    return False
+
+            return True
+
+        kept = [ch for ch in chunks if ok_chunk(ch)]
+
+        # Score kept: prefer condition/guideline pages
+        def score(ch):
+            title = (ch.get("title") or "").lower()
+            url = (ch.get("url") or ch.get("source") or "").lower()
+            blob = title + " " + (ch.get("text") or "").lower()
+
+            s = 0
+            if dx_l in blob:
+                s += 80
+            if any(t in blob for t in dx_tokens):
+                s += 25
+            if "nhs.uk/conditions/" in url:
+                s += 20
+            if "guideline" in blob or "nice" in blob:
+                s += 12
+            # Penalize generic hubs
+            if url.endswith("/chestpain.html") or "chest pain" == title.strip():
+                s -= 20
+            if "lab-tests" in url:
+                s -= 15
+            return s
+
+        kept.sort(key=score, reverse=True)
+
+        pull2_refs = as_evidence_refs(kept[:5]) or []
+        if not pull2_refs:
+            return note
+
+        # Merge: Pull #2 dominates, Pull #1 demoted (dedupe by url/source)
+        existing = list(getattr(note, "evidence", []) or [])
+        seen = set()
+        merged = []
+
+        def key(e):
+            return (getattr(e, "url", None) or getattr(e, "source", None) or "").strip()
+
+        for e in pull2_refs:
+            k = key(e)
+            if not k or k in seen:
+                continue
+            seen.add(k)
+            merged.append(e)
+
+        # Keep at most 2 demoted items, but only if they are NOT excluded topics
+        for e in existing:
+            k = key(e)
+            if not k or k in seen:
+                continue
+            blob = ((getattr(e, "title", "") or "") + " " + (getattr(e, "source", "") or "")).lower()
+            if any(ex in blob for ex in excludes) and not any(ex in dx_l for ex in excludes):
+                continue
+            seen.add(k)
+            merged.append(e)
+            if len(merged) >= 7:
+                break
+
+        note.evidence = merged[:6]
+        return note
+
+    except Exception:
+        return note
+
+# ============================
+# CALLCARE DOSING EVIDENCE TOP-UP (POST-MEDS)
+# ============================
+
+def _extract_drug_names(med_suggestions):
+    out = []
+    if isinstance(med_suggestions, list):
+        for m in med_suggestions:
+            if not isinstance(m, dict):
+                continue
+            name = (m.get("drug") or m.get("med") or m.get("name") or "").strip()
+            if name:
+                out.append(name)
+    # de-dupe preserve order
+    seen = set()
+    final = []
+    for n in out:
+        k = n.lower()
+        if k in seen:
+            continue
+        seen.add(k)
+        final.append(n)
+    return final[:4]  # cap to avoid noise
+
+def _has_dosing_capable_source(evidence):
+    """
+    Heuristic: if evidence includes drug monograph sources likely to contain dosing.
+    This is intentionally conservative: better to keep disclaimer than hallucinate dosing.
+    """
+    ev = evidence or []
+    for e in ev:
+        title = (getattr(e, "title", "") or "").lower()
+        src = (getattr(e, "source", "") or "").lower()
+        blob = title + " " + src
+        if "medlineplus.gov/druginfo/meds/" in blob:
+            return True
+        if "nhs.uk/medicines/" in blob:
+            return True
+        if "accessdata.fda.gov" in blob or "fda" in blob and "label" in blob:
+            return True
+    return False
+
+def _ensure_dosing_sources(note, state, med_suggestions):
+    """
+    If meds are suggested and no dosing-capable source is present,
+    retrieve drug-monograph evidence and merge into note.evidence.
+    """
+    try:
+        if state is None:
+            return note
+
+        drugs = _extract_drug_names(med_suggestions)
+        if not drugs:
+            return note
+
+        existing = list(getattr(note, "evidence", []) or [])
+        if _has_dosing_capable_source(existing):
+            return note
+
+        from app.rag.retrieve import retrieve
+        from app.clinical.evidence_adapter import as_evidence_refs
+
+        anchors = []
+        try:
+            preg = (getattr(state, "pregnancy_possible", "") or "").strip()
+            if preg:
+                anchors.append(f"pregnancy:{preg}")
+        except Exception:
+            pass
+        try:
+            sx = getattr(state, "symptoms", None) or {}
+            if isinstance(sx, dict):
+                ren = (sx.get("renal_disease") or "").strip()
+                liv = (sx.get("liver_disease") or "").strip()
+                if ren:
+                    anchors.append(f"renal:{ren}")
+                if liv:
+                    anchors.append(f"liver:{liv}")
+        except Exception:
+            pass
+
+        got = []
+        for drug in drugs:
+            q = f'{drug} adult dosing mg contraindications renal pregnancy | {" ".join(anchors)}'
+            try:
+                chunks = retrieve(q, k=30) or []
+            except TypeError:
+                chunks = retrieve(q) or []
+
+            # Prefer true monograph-style URLs
+            preferred = []
+            for c in chunks:
+                if not isinstance(c, dict):
+                    continue
+                url = (c.get("url") or c.get("source") or "").lower()
+                title = (c.get("title") or "").lower()
+                if "medlineplus.gov/druginfo/meds/" in url:
+                    preferred.append(c)
+                elif "nhs.uk/medicines/" in url:
+                    preferred.append(c)
+                elif "accessdata.fda.gov" in url and "label" in url:
+                    preferred.append(c)
+                elif "drug" in title and "information" in title:
+                    preferred.append(c)
+
+            pick = preferred[:2] if preferred else chunks[:1]
+            got.extend(pick)
+
+        refs = as_evidence_refs(got) or []
+        if not refs:
+            return note
+
+        # Merge, dedupe by source/url
+        seen = set()
+        merged = []
+
+        def key(e):
+            return (getattr(e, "url", None) or getattr(e, "source", None) or "").strip()
+
+        for e in existing + refs:
+            k = key(e)
+            if not k or k in seen:
+                continue
+            seen.add(k)
+            merged.append(e)
+
+        # Keep concise
+        note.evidence = merged[:8]
+        return note
+    except Exception:
+        return note
+
+# ============================
+# CALLCARE: DIFFERENTIAL-ANCHORED EVIDENCE + RX CANDIDATE GATING
+# ============================
+
+def _extract_differential_from_note(note):
+    """
+    Returns ordered list of differential items from the Assessment section.
+    Accepts formats like:
+      1. X
+      2. Y
+      - X
+    """
+    import re
+    soap = str(getattr(note, "soap", "") or "")
+
+    # Pull A: block if present
+    m = re.search(r"(?ims)\nA:\s*\n(.*?)(?:\n\n|\nP:\s*\n)", soap)
+    a = (m.group(1) if m else soap)
+
+    lines = [ln.strip() for ln in a.splitlines() if ln.strip()]
+
+    out = []
+    for ln in lines:
+        # numbered
+        mm = re.match(r"^\s*\d+\.\s*(.+)$", ln)
+        if mm:
+            out.append(mm.group(1).strip())
+            continue
+        # bullets
+        mm = re.match(r"^\s*[-*]\s*(.+)$", ln)
+        if mm:
+            out.append(mm.group(1).strip())
+            continue
+
+    # If no explicit list, fall back to first sentence (weak)
+    if not out:
+        first = " ".join(a.strip().split()[:12]).strip()
+        if first:
+            out = [first]
+
+    # normalize: keep only first ~6 items
+    return out[:6]
+
+
+def _diff_item_to_queries(item: str, cc: str = ""):
+    """
+    Generic, scalable query builder:
+    - No diagnosis-specific mappings.
+    - Uses the differential item text + chief complaint context.
+    - Produces a small, stable set of positive queries for treatment/management + dosing.
+    """
+    it = (item or "").strip()
+    cc = (cc or "").strip()
+
+    # Strip common prefixes (still generic; not condition-specific)
+    it = re.sub(r"(?i)^\s*(less likely|unlikely|consider|rule out)\s*[:\-]?\s*", "", it).strip()
+    it = re.sub(r"\s*\(.*?\)\s*", " ", it).strip()  # remove parenthetical aside
+    it = re.sub(r"\s{2,}", " ", it).strip()
+
+    base = it if it else cc
+    if not base:
+        return []
+
+    # Keep few queries to avoid drift
+    q1 = f"{base} treatment management guideline"
+    q2 = f"{base} dosing contraindications pregnancy renal"
+    if cc and cc.lower() not in base.lower():
+        q3 = f"{base} | {cc} guideline"
+        return [q1, q2, q3]
+    return [q1, q2]
+
+
+def _should_allow_dx_url(item: str, title: str, url: str, text: str = ""):
+    """
+    Generic, scalable allow/deny:
+    - Allow only if the candidate content overlaps meaningfully with the differential item tokens.
+    - No hard-coded diseases, no per-diagnosis exclusions.
+    """
+    it = (item or "").lower()
+    blob = (str(title or "") + " " + str(url or "") + " " + str(text or "")).lower()
+
+    # Normalize & tokenize
+    it = re.sub(r"\s*\(.*?\)\s*", " ", it)
+    it = re.sub(r"[^a-z0-9\s\-\/]", " ", it)
+    it = re.sub(r"\s{2,}", " ", it).strip()
+
+    # If item is too generic (e.g., "cardiac causes"), don't over-restrict
+    generic_markers = ("cardiac", "pulmonary", "serious", "life-threatening", "causes", "etiology", "differential")
+    if any(g in it for g in generic_markers) and len(it.split()) <= 4:
+        return True
+
+    stop = set(["likely","less","unlikely","possible","or","and","with","without","given","absence","history","risk","factors","minor","atypical","presentation","from","due","to","cause","causes"])
+    toks = [t for t in re.split(r"[^a-z0-9]+", it) if len(t) >= 5 and t not in stop]
+
+    # If we have no meaningful tokens, allow (avoid deleting everything)
+    if not toks:
+        return True
+
+    hits = sum(1 for t in toks[:8] if t in blob)
+    # Require at least 1 strong token match
+    return hits >= 1
+
+def _rebuild_evidence_from_differential(note, state, max_total=6, min_total=3):
+    """
+    DISABLED.
+    This function was overwriting/shrinking Evidence Used and reintroducing rule-out noise
+    (e.g., pericarditis) despite having condition-specific outpatient sources available.
+    Evidence selection is handled upstream in note_builder.py.
+    """
+    return note
+
+def _gate_rx_candidates_by_note_text(note, med_suggestions):
+    """
+    Prevent hallucinated rx_candidates (e.g., methotrexate/isotretinoin) from polluting meds.
+    Keep a med suggestion ONLY if the drug name appears in the note text OR it's already a protocol med.
+    """
+    soap = (getattr(note, "soap", "") or "").lower()
+    if not isinstance(med_suggestions, list) or not med_suggestions:
+        return med_suggestions
+
+    out = []
+    for m in med_suggestions:
+        if not isinstance(m, dict):
+            continue
+        name = str(m.get("drug") or m.get("med") or m.get("name") or "").strip()
+        if not name:
+            continue
+        nlow = name.lower()
+
+        # If the note never mentions it, drop it.
+        # (Protocol meds typically ARE mentioned; rx_candidates often are not.)
+        if nlow not in soap:
+            continue
+
+        out.append(m)
+
+    return out

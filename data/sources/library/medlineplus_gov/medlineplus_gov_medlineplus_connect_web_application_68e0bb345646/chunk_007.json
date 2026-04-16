@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Application",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-application/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "archCriteria.v.dn=Chantix 0.5 MG Oral Tablet \nFor English requests, you should identify at a minimum the code system and the code, or the code system and the name of the drug. Send all three for best results for English requests. For Spanish requests, you should identity the code system and the code.\nOptional Parameters \nWhen sending a request for English information, you may include the optional parameter of the name of the medication. This is detailed in the above section. This parameter is not used for Spanish requests.\nIdentify if you would like the request to be in English or Spanish. MedlinePlus Connect will assume English is the language if it is not specified.\nIf you wish the response to the medication code lookup to be in Spanish, use:\ninformationRecipient.languageCode.c=es\n(=sp or =spa also accepted) \nTo specify English, use the following:\ninformationRecipient.languageCode.c=en \nExamples of Requests for Drug Codes \nYour drug information request should look like one of the following. \nTo request information by an RXCUI, your request should look like this:\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.cs=2.16.840.1.113883.6.88&mainSearchCriteria.v.c=%20637188%20&mainSearchCriteria.v.dn=Chantix%200.5%20MG%20Oral%20Tablet&informationRecipient.languageCode.c=en \nTo request information by an NDC for a Spanish speaker, your request should look like this:\nh",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_application_68e0bb345646",
+  "chunk_id": "chunk_007"
+}

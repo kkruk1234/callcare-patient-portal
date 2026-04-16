@@ -1,0 +1,12 @@
+{
+  "pathway_id": "hordeolum_stye",
+  "sources": [
+    {
+      "id": "hordeolum_stye_cdc",
+      "source_id": "hordeolum_stye_cdc",
+      "title": "Stye/hordeolum reference (starter)",
+      "url": "https://www.aao.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

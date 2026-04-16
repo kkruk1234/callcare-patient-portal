@@ -1,0 +1,22 @@
+id: hordeolum_stye
+version: 0.1
+match:
+  any_keywords: ["stye", "eyelid bump", "tender bump eyelid", "pimple on eyelid", "lid lump"]
+questions:
+  - id: vision
+    prompt: "Any vision change? (yes/no)"
+    store_as: vision_change
+    type: yesno
+  - id: fever_swelling
+    prompt: "Any fever or spreading swelling/redness around the eye? (yes/no)"
+    store_as: fever_or_spreading
+    type: yesno
+  - id: contact
+    prompt: "Do you wear contact lenses? (yes/no)"
+    store_as: contacts
+    type: yesno
+stop_rules:
+  - if_all_answered: ["vision", "fever_swelling", "contact"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

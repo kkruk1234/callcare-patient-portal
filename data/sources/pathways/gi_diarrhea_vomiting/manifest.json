@@ -1,0 +1,26 @@
+{
+  "pathway_id": "gi_diarrhea_vomiting",
+  "sources": [
+    {
+      "id": "idsa_infectious_diarrhea_guideline",
+      "type": "web",
+      "url": "https://www.idsociety.org/practice-guideline/infectious-diarrhea/",
+      "title": "IDSA: Infectious Diarrhea Guideline",
+      "license_note": "Use short excerpts only."
+    },
+    {
+      "id": "aafp_acute_diarrhea_adults",
+      "type": "web",
+      "url": "https://www.aafp.org/pubs/afp/issues/2014/0201/p180.html",
+      "title": "AAFP: Acute Diarrhea in Adults",
+      "license_note": "Educational article; excerpt briefly."
+    },
+    {
+      "id": "pmc_antibiotic_use_acute_gastroenteritis_2019",
+      "type": "web",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6609748/",
+      "title": "Peer-reviewed: Guideline for Antibiotic Use in Acute Gastroenteritis (2019)",
+      "license_note": "Open-access on PMC; excerpt briefly."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "packet_id": "26c030af-beed-465c-b9fe-3dafbe371304",
+  "created_at": "2026-03-11T15:32:31.340896+00:00",
+  "session_id": "f42cd48b-fe69-4433-898b-5f0c37a0c851",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat diagnosis and management guidelines adults",
+    "adult sore throat treatment penicillin allergy alternatives dosing",
+    "red flags sore throat difficulty swallowing breathing testing indications"
+  ],
+  "queries": [
+    "AAFP sore throat diagnosis and management guidelines adults",
+    "AAFP adult sore throat treatment penicillin allergy alternatives dosing",
+    "MedlinePlus sore throat diagnosis and management guidelines adults",
+    "MedlinePlus adult sore throat treatment penicillin allergy alternatives dosing",
+    "CDC sore throat diagnosis and management guidelines adults",
+    "CDC adult sore throat treatment penicillin allergy alternatives dosing",
+    "NIH sore throat diagnosis and management guidelines adults",
+    "NIH adult sore throat treatment penicillin allergy alternatives dosing",
+    "NICE sore throat diagnosis and management guidelines adults",
+    "NICE adult sore throat treatment penicillin allergy alternatives dosing",
+    "WHO sore throat diagnosis and management guidelines adults",
+    "WHO adult sore throat treatment penicillin allergy alternatives dosing"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Sore Throat: Time to Update | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/editorial-sore-throat.html",
+      "accessed": "2026-03-11",
+      "snippet": "Because rheumatic heart disease is so rare in the United States, the primary benefit of using antibiotics is symptom reduction, with a number needed to treat of 6 for improvement by day 3, and possibly the reduction of spread to others (although most close contacts have likely already been exposed by the time the patient is evaluated). 15 , 16 In 2023, an international group of experts in primary care respiratory infections published the first international guideline for the management of sore throat . 3 The guideline focuses on avoiding testing and antibiotic use for patients with uncomplicated sore throat (i.e., mild to moderate sore throat accompanied by cough with no red flags), reserving evaluation, testing, and possibly antibiotic use for those at risk of complicated or severe disease. 3 Using rapid antigen testing for streptococcus, followed by prescribing antibiotics, is not reco"
+    },
+    {
+      "title": "Recommendations | Sore throat (acute): antimicrobial prescribing | Guidance | NICE",
+      "source": "nice.org.uk",
+      "url": "https://www.nice.org.uk/guidance/ng84/chapter/recommendations",
+      "accessed": "2026-03-11",
+      "snippet": "250 mg to 500 mg four times a day or 500 mg to 1,000 mg twice a day for 5 days Erythromycin is preferred if a macrolide is needed in pregnancy, for example, if there is true penicillin allergy and the benefits of antibiotic treatment outweigh the harms."
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-11",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/0615/p821.pdf",
+      "accessed": "2026-03-11",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a sore throat that started 2 days ago. She reports associated fever and chills but denies night sweats, cough, nasal congestion, or runny nose. She has noticed swollen lymph nodes and white patches or pus on her tonsils. There is no difficulty swallowing, breathing, or opening her mouth. She has had recent exposure to someone with strep throat or COVID-19 but has not undergone any testing yet. She has only tried tea with honey so far. She has a penicillin allergy and is not pregnant.\n\nO: Phone encounter only; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis, given the sore throat with fever, chills, swollen lymph nodes, white tonsillar exudate, and known exposure to strep throat.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. COVID-19 infection\n\nP: - First-line medication: Azithromycin 500 mg orally on day 1, then 250 mg orally once daily on days 2 through 5 (Physician must verify medication/dosing)\n- Alternatives: Clindamycin 300 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: Avoid penicillin and related beta-lactams due to allergy; monitor for gastrointestinal side effects with macrolides and clindamycin; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, severe throat pain, inability to swallow, or high fever develops; seek emergency care if airway compromise or severe systemic symptoms occur.\n- Testing: Arrange for rapid strep test or throat culture to confirm diagnosis; consider COVID-19 testing given exposure history."
+}

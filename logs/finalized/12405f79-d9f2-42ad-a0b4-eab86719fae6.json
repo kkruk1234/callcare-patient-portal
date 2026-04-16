@@ -1,0 +1,135 @@
+{
+  "packet_id": "16520b76-96e4-44db-860b-04e2d90e0cf7",
+  "created_at": "2026-02-19T19:30:59.976027+00:00",
+  "session_id": "12405f79-d9f2-42ad-a0b4-eab86719fae6",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe the location of your back pain and if it radiates anywhere?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Have you had any recent trauma or injury to your back or ribs?",
+    "intake_a4": "no",
+    "intake_q5": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a5": "no",
+    "intake_q6": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a6": "I tried tylenol and it didn't really help",
+    "intake_q7": "Any shortness of breath or chest pain associated with your back pain?",
+    "intake_a7": "no",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of cancer, osteoporosis, or recent infections?",
+    "intake_a9": "no",
+    "intake_q10": "Any pain with deep breaths or coughing?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "https://medlineplus.gov/druginfo/meds/a607001.html",
+        "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "https://www.cdc.gov/flu/signs-symptoms/index.html",
+        "https://www.nhs.uk/conditions/broken-or-bruised-ribs/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She denies any trauma, fever, chills, unexplained weight loss, numbness, weakness, tingling in the legs or feet, shortness of breath, chest pain, or pain with deep breaths or coughing. She has tried acetaminophen without significant relief. There is no history of kidney problems, urinary symptoms, abdominal pain, cancer, osteoporosis, or recent infections. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain localized to the left lower rib cage, likely mechanical in nature given the absence of systemic symptoms or neurological deficits. \n\nDifferential: \n1. Musculoskeletal strain or sprain \n2. Intercostal muscle strain or rib dysfunction \n3. Costochondritis or rib inflammation \n4. Early presentation of a visceral cause such as referred pain from abdominal organs (less likely given lack of other symptoms) \n\nP: \n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen or naproxen for pain relief and inflammation reduction. \n- Alternatives: Acetaminophen if NSAIDs are contraindicated or not tolerated. \n- Medication safety considerations: Use NSAIDs with caution in patients with gastrointestinal, renal, or cardiovascular risk factors; ensure patient is aware of dosing limits and to avoid concurrent use with other NSAIDs or anticoagulants. Acetaminophen should be used within recommended dosing limits to avoid hepatotoxicity. \n- Return precautions: Advise the patient to seek care if she develops new symptoms such as fever, chills, unexplained weight loss, worsening or spreading pain, numbness, weakness, tingling in the legs or feet, chest pain, shortness of breath, or if pain is unrelieved by medication or worsens significantly. \n- Testing: No immediate testing indicated given the absence of red flags; imaging or further workup can be considered if symptoms persist beyond expected recovery or if new concerning symptoms develop.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back pain - NHS",
+        "source": "https://www.nhs.uk/conditions/back-pain/",
+        "snippet": "any medicines you take with you. Other ways to get help You may be able to refer yourself for help and treatment, such as physiotherapy, from NHS community musculoskeletal (MSK) services without needing a referral from a GP. Get NHS help for back or joint problems Treatments for back pain If your back pain is severe or not getting better, a GP may prescribe…"
+      },
+      {
+        "title": "Polymyalgia rheumatica - NHS",
+        "source": "https://www.nhs.uk/conditions/polymyalgia-rheumatica/",
+        "snippet": "﻿ Polymyalgia rheumatica - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Overview - Polymyalgia rheumatica Contents Overview Symptoms Diagnosis Treatment Polymyalgia rheumatica (PMR) is a condi…"
+      },
+      {
+        "title": "Spondylolisthesis - NHS",
+        "source": "https://www.nhs.uk/conditions/spondylolisthesis/",
+        "snippet": "﻿ Spondylolisthesis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Healthy living Mental health Care and support Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Spondylolisthesis Spondylolisthesis is where one of the bones in your spine, called a vertebra, slips forward. It can be painful,…"
+      },
+      {
+        "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+        "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+      },
+      {
+        "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+        "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+      },
+      {
+        "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+        "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+        "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Brentuximab Vedotin Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a611052.html",
+      "snippet": "sleep or staying asleep anxiety dry skin hair loss night sweats joint, bone, muscle, back, arm, or leg pain muscle spasms Some side effects can be serious. If you experience any of these symptoms or those listed in the IMPORTANT WARNING section, call your doctor immediately: numbness, burning, or tingling in the hands, arms, feet, or legs; or muscle weakness…"
+    },
+    {
+      "title": "Bevacizumab Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a607001.html",
+      "snippet": "sudden headache, dizziness, or weakness; slow or difficult speech; or sudden weakness or numbness of the face, arm or leg chest pain or discomfort; pain in the arms, shoulders, neck, jaw, stomach, or upper back; feeling light-headed or faint; or shortness of breath shortness of breath; difficulty breathing; swelling of the hands, feet, ankles or lower legs;…"
+    },
+    {
+      "title": "NIAMS: Living With Back Pain (patient-friendly NIH resource)",
+      "source": "https://www.niams.nih.gov/community-outreach-initiative/understanding-muscle-health/living-with-back-pain",
+      "snippet": "pine, you may be more likely to develop back pain. If you work at a desk all day and have poor posture, you may also develop back pain.&nbsp; When Should I See a Doctor? Back pain usually goes away within a few weeks with home treatment and self-care. However, you should see a doctor if your pain does not improve or if you have any of the following with your…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "e, clavicle, shoulders, and thoracic and lumbar spine must be included. Movement of the rib cage can be assessed with deep breathing exercises. The effect of upper extremity movement on pain should also be noted, because moving the arm on the affected side will usually cause pain.2,11 Examination should also include auscultation of the heart and lungs, and e…"
+    },
+    {
+      "title": "Signs and Symptoms of Flu | Influenza (Flu) | CDC",
+      "source": "https://www.cdc.gov/flu/signs-symptoms/index.html",
+      "snippet": "Flu) Symptom onset Gradual Abrupt Fever Rare Common; lasts 3-4 days Aches Slight Common; often severe Chills Uncommon Fairly common Fatigue, weakness Sometimes Usual Sneezing Common Sometimes Chest discomfort, cough Mild to moderate; hacking cough Common; can be severe Stuffy nose Common Sometimes Sore throat Common Sometimes Headache Rare Common Emergency W…"
+    },
+    {
+      "title": "Broken or bruised ribs - NHS",
+      "source": "https://www.nhs.uk/conditions/broken-or-bruised-ribs/",
+      "snippet": "mproved within a few weeks you're coughing up yellow or green mucus you have a very high temperature, or feel hot, cold or shivery You might need stronger painkillers or have a chest infection that needs antibiotics. You can call 111 or get help from 111 online . Immediate action required: Call 999 or go to A&E if: You have a broken or bruised rib and: your…"
+    }
+  ],
+  "state": null
+}

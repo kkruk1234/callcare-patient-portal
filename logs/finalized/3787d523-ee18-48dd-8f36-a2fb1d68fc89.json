@@ -1,0 +1,57 @@
+{
+  "packet_id": "3787d523-ee18-48dd-8f36-a2fb1d68fc89",
+  "created_at": "2026-03-09T13:27:57.918859+00:00",
+  "session_id": "ac54d916-d129-420a-82a6-b4f8c4e80e83",
+  "pathway_id": "",
+  "base_queries": [
+    "sore throat diagnosis and management guidelines adults",
+    "adult strep throat antibiotic treatment dosing duration contraindications",
+    "red flags and return precautions sore throat adults"
+  ],
+  "queries": [
+    "AAFP sore throat diagnosis and management guidelines adults",
+    "AAFP adult strep throat antibiotic treatment dosing duration contraindications",
+    "MedlinePlus sore throat diagnosis and management guidelines adults",
+    "MedlinePlus adult strep throat antibiotic treatment dosing duration contraindications",
+    "CDC sore throat diagnosis and management guidelines adults",
+    "CDC adult strep throat antibiotic treatment dosing duration contraindications",
+    "NIH sore throat diagnosis and management guidelines adults",
+    "NIH adult strep throat antibiotic treatment dosing duration contraindications",
+    "NICE sore throat diagnosis and management guidelines adults",
+    "NICE adult strep throat antibiotic treatment dosing duration contraindications",
+    "WHO sore throat diagnosis and management guidelines adults",
+    "WHO adult strep throat antibiotic treatment dosing duration contraindications"
+  ],
+  "selected_evidence_count": 4,
+  "evidence": [
+    {
+      "title": "Management of Sore Throat: Time to Update | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/editorial-sore-throat.html",
+      "accessed": "2026-03-09",
+      "snippet": "Because rheumatic heart disease is so rare in the United States, the primary benefit of using antibiotics is symptom reduction, with a number needed to treat of 6 for improvement by day 3, and possibly the reduction of spread to others (although most close contacts have likely already been exposed by the time the patient is evaluated). 15 , 16 In 2023, an international group of experts in primary care respiratory infections published the first international guideline for the management of sore throat . 3 The guideline focuses on avoiding testing and antibiotic use for patients with uncomplicated sore throat (i.e., mild to moderate sore throat accompanied by cough with no red flags), reserving evaluation, testing, and possibly antibiotic use for those at risk of complicated or severe disease. 3 Using rapid antigen testing for streptococcus, followed by prescribing antibiotics, is not reco"
+    },
+    {
+      "title": "Pharyngitis - sore throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000655.htm",
+      "accessed": "2026-03-09",
+      "snippet": "The information provided herein should not be used during any medical emergency or for the diagnosis or treatment of any medical condition. A licensed medical professional should be consulted for diagnosis and treatment of any and all medical conditions. Links to other sites are provided for information only -- they do not constitute endorsements of those other sites. No warranty of any kind, either expressed or implied, is made as to the accuracy, reliability, timeliness, or correctness of any translations made by a third-party service of the information provided herein into any other language."
+    },
+    {
+      "title": "Practice Guidelines",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2018/0615/p821.pdf",
+      "accessed": "2026-03-09",
+      "snippet": ""
+    },
+    {
+      "title": "Strep A Test: MedlinePlus Medical Test",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/lab-tests/strep-a-test/",
+      "accessed": "2026-03-09",
+      "snippet": "If you or your child is diagnosed with strep throat, you will need to take antibiotics. Most often you will need to take them for 10 days. After a day or two of taking the medicine, you or your child should start to feel better. Most people are no longer contagious after taking antibiotics for 24 hours. But it's important to take all the medicine as prescribed. Stopping early can lead to serious complications, such as:"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a sore throat that started 2 days ago. She reports fever, chills, and swollen glands. She describes painful swallowing but no difficulty swallowing liquids or saliva. She denies difficulty breathing, noisy breathing, stridor, or worsening shortness of breath. There is no worsening of breathing when lying down and no sensation of throat closing. She has no rash or joint pain and has been exposed to someone with strep throat. She has noticed white patches or pus on her tonsils or throat but no difficulty opening her mouth or jaw stiffness. She has not tried any treatments or medications yet.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the sore throat with fever, swollen glands, exposure to strep, and presence of white patches on the tonsils.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Peritonsillar abscess\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally three times daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies reported; no pregnancy; no renal or liver disease; other contraindications not assessed in this telephone encounter.\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, inability to swallow saliva, worsening throat pain, or high fever develops. Seek emergency care if severe airway obstruction symptoms occur.\n- Testing: Throat swab for rapid antigen detection test and/or throat culture to confirm streptococcal infection."
+}

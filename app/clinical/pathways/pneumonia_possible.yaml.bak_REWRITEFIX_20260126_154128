@@ -1,0 +1,30 @@
+id: pneumonia_possible
+version: 0.1
+match:
+  any_keywords: ["pneumonia", "fever and cough", "cough with fever", "short of breath with fever", "chills and cough", "coughing up rusty", "coughing up colored phlegm and fever"]
+questions:
+  - id: breathing_trouble
+    prompt: "Any trouble breathing at rest, blue lips, or you can't speak full sentences? (yes/no)"
+    store_as: breathing_trouble
+    type: yesno
+
+  - id: chest_pain
+    prompt: "Any chest pain, pressure, or severe pain when breathing in? (yes/no)"
+    store_as: chest_pain
+    type: yesno
+
+  - id: high_risk
+    prompt: "Are you age 65+, pregnant, or do you have significant heart/lung disease or immune suppression? (yes/no/unknown)"
+    store_as: high_risk
+
+stop_rules:
+
+  - id: med_exclusions
+    type: free_text
+    required: false
+    question: "Do you have any of the following that could affect medication choice: kidney/renal disease (low GFR, dialysis), liver disease/cirrhosis, or a history of QT prolongation/arrhythmia (or taking QT-prolonging meds)? If none, say: none. If yes, list which ones."
+  - if_all_answered: ["breathing_trouble", "chest_pain", "high_risk"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

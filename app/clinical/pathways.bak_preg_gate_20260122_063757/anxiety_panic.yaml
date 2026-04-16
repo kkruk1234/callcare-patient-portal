@@ -1,0 +1,51 @@
+id: anxiety_panic
+version: 0.1
+match:
+  any_keywords: ["panic", "panic attack", "anxiety", "hyperventilating", "felt like dying", "palpitations"]
+questions:
+  - id: chest_pain
+    prompt: "Are you having chest pain/pressure, or trouble breathing that feels severe? (yes/no)"
+    store_as: chest_pain_or_severe_breathing
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_cardiac_or_respiratory_emergency"]
+
+  - id: fainting
+    prompt: "Did you faint, almost faint, or feel severely dizzy? (yes/no)"
+    store_as: fainting
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["syncope_red_flag"]
+
+  - id: new_neuro
+    prompt: "Any new weakness, trouble speaking, confusion, or severe headache? (yes/no)"
+    store_as: neuro
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["neuro_red_flag"]
+
+  - id: substance
+    prompt: "Did symptoms start after using caffeine, stimulants, alcohol, or other substances? (yes/no)"
+    store_as: substance_related
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_substance_related_symptoms"]
+
+  - id: self_harm
+    prompt: "Are you having thoughts of harming yourself or feel unsafe right now? (yes/no)"
+    store_as: self_harm
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["self_harm_risk"]
+
+stop_rules:
+  - if_all_answered: ["chest_pain", "fainting", "new_neuro", "substance", "self_harm"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

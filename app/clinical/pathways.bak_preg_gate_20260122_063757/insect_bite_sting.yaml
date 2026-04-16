@@ -1,0 +1,47 @@
+id: insect_bite_sting
+version: 0.1
+match:
+  any_keywords: ["insect bite", "bug bite", "sting", "bee", "wasp", "spider bite", "tick bite"]
+questions:
+  - id: timing
+    prompt: "When did the bite or sting happen?"
+    store_as: timing
+
+  - id: anaphylaxis
+    prompt: "Any trouble breathing, dizziness/fainting, widespread hives, or swelling of lips/tongue/face? (yes/no)"
+    store_as: anaphylaxis_signs
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_anaphylaxis"]
+
+  - id: spreading_redness
+    prompt: "Is redness rapidly spreading, very painful, or warm to touch? (yes/no)"
+    store_as: spreading_redness
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_cellulitis"]
+
+  - id: fever
+    prompt: "Do you have a fever or feel very ill? (yes/no)"
+    store_as: fever
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["systemic_symptoms_after_bite"]
+
+  - id: tick
+    prompt: "Was it a tick bite or have you noticed a bullseye-type expanding rash? (yes/no)"
+    store_as: tick_or_erythema
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_tick_borne_illness"]
+
+stop_rules:
+  - if_all_answered: ["timing", "anaphylaxis", "spreading_redness", "fever", "tick"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

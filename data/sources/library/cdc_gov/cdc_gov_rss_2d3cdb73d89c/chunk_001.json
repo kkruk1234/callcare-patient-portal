@@ -1,0 +1,10 @@
+{
+  "title": "Public Health Media Library",
+  "url": "https://www.cdc.gov/rss",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "Public Health Media Library \nSkip directly to site content \nSkip directly to page options \nSkip directly to A-Z link \nAn official website of the United States government Here's how you know \nOfficial websites use .gov \nA .gov website belongs to an official government organization in the United States.\nSecure .gov websites use HTTPS \nA lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\nSign in \nMy Account \n1\"> \n{{main.$rootScope.syndList.listName}} \n{{list.listName}} \n{{main.$rootScope.syndList.listName}} \nLogout \nNew User \nCenters for Disease Control and Prevention. CDC twenty four seven. Saving Lives, Protecting People \nA-Z Topic Index \nPublic Health Media Library \n&times; \nContact Us \nFor-non technical or general public health questions, contact CDC-INFO by phone: 800-CDC-INFO (800-232-4636) or by email. Send us a message . \nPage last reviewed: {{main.CURRENT_DATE}} \nPage last updated: {{main.CURRENT_DATE}} \nContent source: \nCenters for Disease Control and \nPrevention \n, \nOffice of the \nAssociate Director for Communications, Division of Public Affairs \nAbout CDC \nContact Us \n800-232-4636 \nFacebook \nTwitter \nInstagram \nLinkedIn \nYoutube \nPinterest \nSnapchat \nRSS \nCONTACT CDC \nContact Us \nCall 800-232-4636 \nEmail Us \nABOUT CDC \nAbout CDC \nJobs \nFunding \nPOLICIES \nAccessibility \nExternal Links \nP",
+  "source_type": "library",
+  "source_id": "cdc_gov_rss_2d3cdb73d89c",
+  "chunk_id": "chunk_001"
+}

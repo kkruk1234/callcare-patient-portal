@@ -1,0 +1,124 @@
+{
+  "packet_id": "70a6715c-986f-4140-babe-f54f13a449be",
+  "created_at": "2026-02-05T03:10:35.250076+00:00",
+  "session_id": "a0f468c1-91ce-46a3-b16f-1ab0a5bbfcd6",
+  "chief_complaint": "fatigue",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your fatigue start?",
+    "intake_a1": "2 weeks ago",
+    "intake_q2": "Any associated symptoms like fever, weight loss, night sweats, or recent infections?",
+    "intake_a2": "no",
+    "intake_q3": "Any changes in sleep, mood, or stress levels recently?",
+    "intake_a3": "increased stress levels",
+    "intake_q4": "Any recent changes in diet, exercise, or caffeine intake?",
+    "intake_a4": "drinking more caffeine due to fatigue",
+    "intake_q5": "Any history of medical conditions like anemia, thyroid problems, or depression?",
+    "intake_a5": "depression",
+    "intake_q6": "Have you noticed any changes in your menstrual cycle or any chance you could be pregnant?",
+    "intake_a6": "no",
+    "intake_q7": "Any recent symptoms of shortness of breath, chest pain, or palpitations?",
+    "intake_a7": "shortness of breath and palpitations sometimes",
+    "intake_q8": "Can you describe the nature and timing of your shortness of breath and palpitations, such as when they occur and how long they last?",
+    "intake_a8": "I haven't noticed any pattern and they last a couple hours",
+    "intake_q9": "Any history of heart disease, arrhythmias, or recent medication changes?",
+    "intake_a9": "no",
+    "intake_q10": "Any dizziness, fainting, or swelling in your legs?",
+    "intake_a10": "no",
+    "age_years": 51,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://medlineplus.gov/fatigue.html",
+        "https://www.nhs.uk/conditions/glandular-fever/",
+        "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+        "https://www.nhs.uk/conditions/chronic-fatigue-syndrome-cfs/",
+        "https://medlineplus.gov/all_healthtopics.html"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nPatient is not pregnant.\nThe patient is a 51-year-old female presenting with fatigue that started approximately two weeks ago. She denies fever, weight loss, night sweats, or recent infections. She reports increased stress levels recently and has been drinking more caffeine due to her fatigue. She has a history of depression. She denies any changes in her menstrual cycle or pregnancy possibility. She experiences occasional shortness of breath and palpitations lasting a couple of hours without a clear pattern. There is no history of heart disease, arrhythmias, or recent medication changes. She denies dizziness, fainting, or leg swelling.\n\nO: \nPhone evaluation only; no physical exam, vitals, labs, or imaging available.\n\nA: \nThe working diagnosis is fatigue likely related to increased stress and underlying depression, possibly exacerbated by increased caffeine intake. The intermittent shortness of breath and palpitations warrant further evaluation but may be related to anxiety or stress.\n\nDifferential: \n1. Fatigue secondary to depression and psychosocial stress \n2. Anxiety-related palpitations and dyspnea \n3. Cardiac arrhythmia or other cardiac cause (less likely without history or other symptoms) \n4. Anemia or thyroid dysfunction (needs further evaluation)\n\nP: \n- First-line medication: Consider initiating a selective serotonin reuptake inhibitor (SSRI) such as sertraline 50 mg once daily for depression-related fatigue and stress; dosing details were not found in retrieved evidence; prescriber should verify. \n- Alternatives: \n - Bupropion 150 mg once daily, titrate as tolerated; avoid if seizure risk or eating disorders present. \n - Mirtazapine 15 mg at bedtime, especially if insomnia is prominent; monitor for sedation. \n - Psychostimulants are not recommended without further evaluation. \n- Medication safety considerations: No known medication allergies. Patient is not pregnant and has no renal or liver disease. Monitor for side effects related to antidepressants, including mood changes or worsening symptoms. \n- Return precautions: Advise patient to seek urgent care if she develops worsening shortness of breath, chest pain, syncope, or new neurological symptoms. Also return if fatigue worsens or does not improve with treatment. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated). Additional labs such as CBC, thyroid function tests, and ECG may be warranted based on clinical findings.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Fatigue: MedlinePlus",
+        "source": "https://medlineplus.gov/fatigue.html",
+        "snippet": "ia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nFatigue \nURL of this page: https://medlineplus.gov/fatigue.html \nFatigue\nAlso called: Tiredness, Weariness \nOn this page \nBasics \nSummary \nStart Here \nLearn More \nRelated Issues \nSpecifics \nGenetics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nNo links available \nFor You \nOlder Adults \nPatient Handouts \nSummary \nWhat is fatigue? \nFatigue is a feeling of weariness, tiredness, or lack of energy. It can interfere with your usual daily activities. Fatigue can be a normal response to physical activity, emotional stress , boredom, or"
+      },
+      {
+        "title": "Glandular fever - NHS",
+        "source": "https://www.nhs.uk/conditions/glandular-fever/",
+        "snippet": "oblems blood conditions, such as low levels of blood cells called platelets (thrombocytopenia) or sepsis neurological conditions, such as Guillain-Barré syndrome or Bell's palsy a ruptured (burst) spleen long-term tiredness (chronic fatigue) which may last for several months \nPage last reviewed: 20 December 2023\nNext review due: 20 December 2026\nSupport links \nHome \nHealth A to Z \nNHS services \nLive Well \nMental health \nCare and support \nPregnancy \nCOVID-19 \nNHS App \nFind my NHS number \nView your GP health record \nView your test results \nAbout the NHS \nHealthcare abroad \nOther NHS websites \nProfile editor login \nAbout us \nGive us feedback \nA"
+      },
+      {
+        "title": "Alpha-1 Antitrypsin Deficiency | Alpha 1 Antitrypsin | MedlinePlus",
+        "source": "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+        "snippet": "such as colds and the flu \nChest pain \nFatigue \nFaster-than-normal heartbeat when you stand up \nVision problems \nLosing weight without trying \nSome people who have AAT deficiency may have liver damage. Signs of liver damage include jaundice (a condition that causes your skin and eyes to turn yellow) and swelling in your legs.\nRarely, AAT deficiency can cause skin problems, such as painful lumps or patches.\nHow is alpha-1 antitrypsin deficiency (AAT deficiency) diagnosed? \nYour health care provider may test you for AAT deficiency if you have:\nSymptoms of AAT deficiency \nA condition that could be related to AAT deficiency \nRelatives who have AAT deficiency \nRelatives who have a lung or liver disease that could be related to AAT deficiency \nAAT deficiency in babies often affects the liver. Your baby may need AAT testing if he or she has signs of liver disease such as jaundice or abnormal li"
+      },
+      {
+        "title": "Myalgic encephalomyelitis or chronic fatigue syndrome (ME/CFS) - NHS",
+        "source": "https://www.nhs.uk/conditions/chronic-fatigue-syndrome-cfs/",
+        "snippet": "﻿ \nMyalgic encephalomyelitis or chronic fatigue syndrome (ME/CFS)\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nOverview\n- \nMyalgic encephalomyelitis or chronic fatigue syndrome (ME/CFS)\nContents \nOverview \nSymptoms \nDiagnosis \nTreatment \nMyalgic encephalomyelitis, also called chronic fatigue syndrome or ME/CFS, is a long-term condition that can affect different parts of the body. The most common symptom is extreme tiredness. The cause of ME/CFS is unknown. \nME/CFS can affect anyone, including children.\nSymptoms of ME/CFS \nThe 4 main symptoms of ME/CFS are:\nfeeling extremely tired all the time (fatigue), which can make daily activities like taking a shower, or going to work or school, difficult sleep problems, includi"
+      },
+      {
+        "title": "All Health Topics: MedlinePlus",
+        "source": "https://medlineplus.gov/all_healthtopics.html",
+        "snippet": "y Planning\nsee \nBirth Control \nFanconi Anemia\nsee \nAplastic Anemia \nFarmer&#x27;s Lung\nsee \nInterstitial Lung Diseases \nFarsightedness\nsee \nRefractive Errors \nFAS\nsee \nFetal Alcohol Spectrum Disorders \nFatigue \nFats, Dietary\nsee \nDietary Fats \nFatty Liver Disease \nFecal Impaction\nsee \nIntestinal Obstruction \nFemale Circumcision\nsee \nSexual Problems in Women \nFemale Infertility \nFemale Sexual Dysfunction\nsee \nSexual Problems in Women \nFemale Sterilization\nsee \nTubal Ligation \nFerritin\nsee \nIron \nFertility\nsee \nInfertility ; Preconception Care \nFetal Alcohol Spectrum Disorders \nFetal Alcohol Syndrome\nsee \nFetal Alcohol Spectrum Disorders \nFetal"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Fatigue: MedlinePlus",
+      "source": "https://medlineplus.gov/fatigue.html",
+      "snippet": "ia \nEspaÃ±ol \nYou Are Here: \nHome \n&rarr;\nHealth Topics \n&rarr;\nFatigue \nURL of this page: https://medlineplus.gov/fatigue.html \nFatigue\nAlso called: Tiredness, Weariness \nOn this page \nBasics \nSummary \nStart Here \nLearn More \nRelated Issues \nSpecifics \nGenetics \nSee, Play and Learn \nNo links available \nResearch \nClinical Trials \nJournal Articles \nResources \nNo links available \nFor You \nOlder Adults \nPatient Handouts \nSummary \nWhat is fatigue? \nFatigue is a feeling of weariness, tiredness, or lack of energy. It can interfere with your usual daily activities. Fatigue can be a normal response to physical activity, emotional stress , boredom, or"
+    },
+    {
+      "title": "Glandular fever - NHS",
+      "source": "https://www.nhs.uk/conditions/glandular-fever/",
+      "snippet": "oblems blood conditions, such as low levels of blood cells called platelets (thrombocytopenia) or sepsis neurological conditions, such as Guillain-Barré syndrome or Bell's palsy a ruptured (burst) spleen long-term tiredness (chronic fatigue) which may last for several months \nPage last reviewed: 20 December 2023\nNext review due: 20 December 2026\nSupport links \nHome \nHealth A to Z \nNHS services \nLive Well \nMental health \nCare and support \nPregnancy \nCOVID-19 \nNHS App \nFind my NHS number \nView your GP health record \nView your test results \nAbout the NHS \nHealthcare abroad \nOther NHS websites \nProfile editor login \nAbout us \nGive us feedback \nA"
+    },
+    {
+      "title": "Alpha-1 Antitrypsin Deficiency | Alpha 1 Antitrypsin | MedlinePlus",
+      "source": "https://medlineplus.gov/alpha1antitrypsindeficiency.html",
+      "snippet": "such as colds and the flu \nChest pain \nFatigue \nFaster-than-normal heartbeat when you stand up \nVision problems \nLosing weight without trying \nSome people who have AAT deficiency may have liver damage. Signs of liver damage include jaundice (a condition that causes your skin and eyes to turn yellow) and swelling in your legs.\nRarely, AAT deficiency can cause skin problems, such as painful lumps or patches.\nHow is alpha-1 antitrypsin deficiency (AAT deficiency) diagnosed? \nYour health care provider may test you for AAT deficiency if you have:\nSymptoms of AAT deficiency \nA condition that could be related to AAT deficiency \nRelatives who have AAT deficiency \nRelatives who have a lung or liver disease that could be related to AAT deficiency \nAAT deficiency in babies often affects the liver. Your baby may need AAT testing if he or she has signs of liver disease such as jaundice or abnormal li"
+    },
+    {
+      "title": "Myalgic encephalomyelitis or chronic fatigue syndrome (ME/CFS) - NHS",
+      "source": "https://www.nhs.uk/conditions/chronic-fatigue-syndrome-cfs/",
+      "snippet": "﻿ \nMyalgic encephalomyelitis or chronic fatigue syndrome (ME/CFS)\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nHealthy living\nMental health\nCare and support\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nOverview\n- \nMyalgic encephalomyelitis or chronic fatigue syndrome (ME/CFS)\nContents \nOverview \nSymptoms \nDiagnosis \nTreatment \nMyalgic encephalomyelitis, also called chronic fatigue syndrome or ME/CFS, is a long-term condition that can affect different parts of the body. The most common symptom is extreme tiredness. The cause of ME/CFS is unknown. \nME/CFS can affect anyone, including children.\nSymptoms of ME/CFS \nThe 4 main symptoms of ME/CFS are:\nfeeling extremely tired all the time (fatigue), which can make daily activities like taking a shower, or going to work or school, difficult sleep problems, includi"
+    },
+    {
+      "title": "All Health Topics: MedlinePlus",
+      "source": "https://medlineplus.gov/all_healthtopics.html",
+      "snippet": "y Planning\nsee \nBirth Control \nFanconi Anemia\nsee \nAplastic Anemia \nFarmer&#x27;s Lung\nsee \nInterstitial Lung Diseases \nFarsightedness\nsee \nRefractive Errors \nFAS\nsee \nFetal Alcohol Spectrum Disorders \nFatigue \nFats, Dietary\nsee \nDietary Fats \nFatty Liver Disease \nFecal Impaction\nsee \nIntestinal Obstruction \nFemale Circumcision\nsee \nSexual Problems in Women \nFemale Infertility \nFemale Sexual Dysfunction\nsee \nSexual Problems in Women \nFemale Sterilization\nsee \nTubal Ligation \nFerritin\nsee \nIron \nFertility\nsee \nInfertility ; Preconception Care \nFetal Alcohol Spectrum Disorders \nFetal Alcohol Syndrome\nsee \nFetal Alcohol Spectrum Disorders \nFetal"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "packet_id": "84a4a04a-1659-423b-83f5-2a914a5fca01",
+  "created_at": "2026-02-12T17:47:28.751409+00:00",
+  "session_id": "f5694b5a-4593-4193-b50f-34b46990746d",
+  "chief_complaint": "chest",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest symptom you are experiencing, such as pain, pressure, tightness, or something else?",
+    "intake_a1": "chest pain",
+    "intake_q2": "When did the chest pain start and what were you doing at that time?",
+    "intake_a2": "it started 1 week ago almost immediately after helping my friend move",
+    "intake_q3": "Can you describe the quality of the chest pain and if it changes with movement or breathing?",
+    "intake_a3": "sharp pain and it gets a little worse with deep breaths",
+    "intake_q4": "Any shortness of breath, cough, or fever along with the chest pain?",
+    "intake_a4": "no",
+    "intake_q5": "Any history of trauma, recent travel, or known heart or lung problems?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any swelling, redness, or tenderness in your chest or nearby areas?",
+    "intake_a6": "yes - tenderness when I press on it",
+    "intake_q7": "Any pain radiating to your arm, jaw, or back?",
+    "intake_a7": "no",
+    "intake_q8": "Any recent fevers, chills, or unexplained weight loss?",
+    "intake_a8": "no",
+    "intake_q9": "Have you tried any treatments or medications for the chest pain, and if so, what was the effect?",
+    "intake_a9": "no",
+    "intake_q10": "Any history of blood clots, recent immobilization, or family history of clotting disorders?",
+    "intake_a10": "no",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "yes"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "liver disease status is yes/unknown (avoid hepatotoxic meds / adjust dosing)"
+      ],
+      "evidence_urls": [
+        "https://medlineplus.gov/heartattack.html",
+        "https://www.nhs.uk/conditions/congenital-heart-disease/",
+        "https://www.nhs.uk/conditions/wolff-parkinson-white-syndrome/",
+        "https://www.cdc.gov/mmwr/volumes/74/wr/mm7437a1.htm",
+        "https://medlineplus.gov/lab-tests/troponin-test/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a one-week history of sharp chest pain that began almost immediately after helping a friend move. The pain worsens slightly with deep breaths and is associated with tenderness upon palpation of the chest wall. She denies shortness of breath, cough, fever, trauma, recent travel, or known heart or lung problems. There is no radiation of pain to the arm, jaw, or back, and no history of blood clots or clotting disorders. She has not tried any treatments or medications for the pain. She has liver disease but no renal disease or pregnancy. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is costochondritis, an inflammation of the costal cartilage causing localized chest wall pain that is reproducible with palpation and worsens with deep breathing or movement. This is consistent with the history of recent physical exertion and localized tenderness.\n\nDifferential: \n1. Costochondritis \n2. Musculoskeletal chest wall strain or injury \n3. Pleuritis or other inflammatory pleural conditions \n4. Cardiac ischemia (less likely given absence of radiation, exertional symptoms, or risk factors)\n\nP: \n- First-line medication: \n- Acetaminophen 500 mg orally every 6 hours as needed for pain for 7 to 10 days; preferred if NSAIDs contraindicated due to liver disease but use cautiously and monitor liver function.\n\n- Alternatives: \n - Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain and inflammation for 7 to 10 days. Avoid if contraindicated by liver disease severity; prescriber should verify safety given liver disease status. (avoid in renal disease; especially severe CKD/dialysis)\n - Naproxen 250-500 mg orally twice daily for 7 to 10 days; avoid if significant liver impairment. \n - Non-pharmacologic: rest, ice or heat application to the affected area, and activity modification.\n\n- Medication safety considerations: \n Given the patient’s liver disease, NSAIDs should be used cautiously or avoided depending on liver function severity. Acetaminophen should be used at the lowest effective dose with careful monitoring. No known medication allergies or pregnancy.\n\n- Return precautions: \n Advise the patient to seek urgent care if she develops worsening chest pain, new shortness of breath, syncope, pain radiating to the arm or jaw, fever, or any other concerning symptoms.\n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Costochondritis - NHS",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "www.nhs.uk Costochondritis - NHS authoritative_patient_clinician NHS: practical outpatient management language msk_chest_wall_pain 2026-02-08T14:37:23.207462+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "musculoskeletal pain, an injection of a 2-mL mixture of 1 mL of 40 mg/mL of methylprednisolone acetate or equivalent and 1 mL of local anesthetic can work quite well helping to resolve pain if symptoms persist for more than a few months.18 Gaps in the Evidence-Based Knowledge The mechanism of costochondritis is unclear and is often a diagnosis of exclusion.…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "istory and physical examination of the chest that document reproducible pain by palpation over the costal cartilages are usually all that is needed to make the diagnosis in children, adolescents, and young adults. Patients older than 35 years, those with a history or risk of coronary artery disease, and any patient with cardiopulmonary symptoms should have a…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/900fa94e5b4c0ed8/content.txt",
+        "snippet": "all pain without associated symptoms such as shortness of breath, dizziness, nausea, and headache. Pain may be reproducible on a physical exam without vital sign abnormalities or visible chest lesions, such as swelling or rash. Diagnostic testing must be guided by the presence of risk factors for life-threatening conditions. Labs, ECG, and chest x-ray should…"
+      },
+      {
+        "title": "Wolff-Parkinson-White syndrome - NHS",
+        "source": "https://www.nhs.uk/conditions/wolff-parkinson-white-syndrome/",
+        "snippet": "and can range from every day to a few times a year or less. When this happens you may get symptoms such as: a fluttering feeling in your chest or your heartbeat pounding, racing or going too slowly (heart palpitations) feeling dizzy or faint shortness of breath chest pain or discomfort Symptoms usually start in adults aged between 30 and 50, but it can happe…"
+      },
+      {
+        "title": "Nirsevimab Effectiveness Against Intensive Care Unit Admission for Respiratory Syncytial Virus in Infants â 24 States, December 2024âApril 2025 | MMWR",
+        "source": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7437a1.htm",
+        "snippet": "r; These senior authors contributed equally to this report. &sect; Respiratory symptoms sufficient for inclusion included one or more of the following: cough, shortness of breath, wheezing, apnea, use of new or elevated oxygen support for the acute illness, or new pulmonary findings on chest imaging. Symptom onset date was determined by caregiver report if c…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "content.txt",
+      "source": "library/900fa94e5b4c0ed8/content.txt",
+      "snippet": "ng forward and worsens by laying supine. Pericarditis may be idiopathic, preceded by a recent viral illness or postcardiac surgery, or associated with an underlying connective tissue disorder like lupus. - Pneumothorax: Consider this condition in patients with chest pain, shortness of breath, and acute distress. Risk factors include antecedent trauma, prior…"
+    },
+    {
+      "title": "Heart Attack | Myocardial Infarction | MedlinePlus",
+      "source": "https://medlineplus.gov/heartattack.html",
+      "snippet": "he chest. It usually lasts more than a few minutes. It may go away and come back. It can feel like pressure, squeezing, fullness, or pain . It also can feel like heartburn or indigestion. Shortness of breath. Sometimes this is your only symptom. You may get it before or during the chest discomfort. It can happen when you are resting or doing a little bit of…"
+    },
+    {
+      "title": "Congenital heart disease - NHS",
+      "source": "https://www.nhs.uk/conditions/congenital-heart-disease/",
+      "snippet": "do not appear until you're a teenager or adult. Common symptoms of congenital heart disease include: feeling tired all the time shortness of breath being sweatier than usual, but skin feels cool and clammy heart palpitations - when your heartbeat feels uncomfortable or unusual areas of the skin and lips turning blue or grey ( cyanosis ) - this may be easier…"
+    },
+    {
+      "title": "Wolff-Parkinson-White syndrome - NHS",
+      "source": "https://www.nhs.uk/conditions/wolff-parkinson-white-syndrome/",
+      "snippet": "and can range from every day to a few times a year or less. When this happens you may get symptoms such as: a fluttering feeling in your chest or your heartbeat pounding, racing or going too slowly (heart palpitations) feeling dizzy or faint shortness of breath chest pain or discomfort Symptoms usually start in adults aged between 30 and 50, but it can happe…"
+    },
+    {
+      "title": "Nirsevimab Effectiveness Against Intensive Care Unit Admission for Respiratory Syncytial Virus in Infants â 24 States, December 2024âApril 2025 | MMWR",
+      "source": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7437a1.htm",
+      "snippet": "r; These senior authors contributed equally to this report. &sect; Respiratory symptoms sufficient for inclusion included one or more of the following: cough, shortness of breath, wheezing, apnea, use of new or elevated oxygen support for the acute illness, or new pulmonary findings on chest imaging. Symptom onset date was determined by caregiver report if c…"
+    },
+    {
+      "title": "Troponin Test: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "snippet": "www.nhlbi.nih.gov/health/blood-tests National Heart, Lung, and Blood Institute [Internet]. Bethesda (MD): U.S. Department of Health and Human Services; Heart Attack: Symptoms; [updated 2022 Mar 24; cited 2023 Mar 30]; [about 5 screens]. Available from: https://www.nhlbi.nih.gov/health/heart-attack/symptoms National Heart, Lung, and Blood Institute [Internet]…"
+    }
+  ],
+  "state": null
+}

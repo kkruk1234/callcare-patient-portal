@@ -1,0 +1,26 @@
+id: wound_infection_possible
+version: 0.1
+match:
+  any_keywords: ["cut is red and warm", "wound redness spreading", "pus from wound", "infected cut", "wound swelling and pain", "skin around cut is red"]
+questions:
+  - id: spreading
+    prompt: "Is the redness spreading quickly or moving up the limb? (yes/no)"
+    store_as: spreading
+    type: yesno
+
+  - id: fever
+    prompt: "Any fever or shaking chills? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: severe
+    prompt: "Is the pain severe or out of proportion, or is there numbness/skin turning dark? (yes/no)"
+    store_as: nec_fasciitis_like
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["spreading", "fever", "severe"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

@@ -1,0 +1,33 @@
+{
+  "pathway_id": "gerd_nausea",
+  "sources": [
+    {
+      "id": "gerd_nausea_src_1",
+      "source_id": "gerd_nausea_src_1",
+      "title": "gerd_nausea guideline references (starter)",
+      "url": "https://www.cdc.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "gerd_nausea_src_2",
+      "source_id": "gerd_nausea_src_2",
+      "title": "gerd_nausea guideline references (starter)",
+      "url": "https://www.nih.gov/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "gerd_nausea_src_3",
+      "source_id": "gerd_nausea_src_3",
+      "title": "gerd_nausea guideline references (starter)",
+      "url": "https://www.aafp.org/",
+      "type": "guideline_or_reference"
+    },
+    {
+      "id": "gerd_nausea_src_4",
+      "source_id": "gerd_nausea_src_4",
+      "title": "gerd_nausea guideline references (starter)",
+      "url": "https://www.acog.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

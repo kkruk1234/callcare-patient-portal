@@ -1,0 +1,10 @@
+{
+  "title": "Update to CDC's Treatment Guidelines for Gonococcal Infection, 2020 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/69/wr/mm6950a6.htm?s_cid=mm6950a6_w",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "netic and pharmacodynamic considerations. Ceftriaxone is a bactericidal third-generation cephalosporin with widely variable pharmacokinetics ( 17 ). Efficacy is best predicted by time that the serum free (i.e., unbound) drug concentration remains higher than the organism&rsquo;s MIC ( f T >MIC ). Although no human data exist confirming the length of time above the MIC required to eradicate gonorrhea at different anatomic sites, using Monte Carlo modeling, ceftriaxone has been estimated to require concentrations higher than the strain MIC for approximately 20&ndash;24 hours for effective urogenital gonorrhea treatment ( 18 ). A 250 mg ceftriaxone dose does not reliably achieve levels higher than an MIC &ge;0.125 &mu; g/mL for an extended duration ( 18 ). A murine model was used to estimate pharmacokinetic and pharmacodynamic parameters needed for cure at urogenital sites for both susceptible and resistant strains of N. gonorrhoeae ( 19 ). Investigators evaluated the efficacy of various ceftriaxone doses (0.06&ndash;30 mg/kg body weight). The lowest ceftriaxone dose that was 100% effective at eradicating the susceptible organism (MIC = 0.008 &mu; g/mL) 48 hours after treatment was 5 mg/kg body weight, which corresponded to an f T >MIC of 23.6 hours, consistent with the Monte Carlo simulation ( 18 , 19 ). Translating into human doses, a 500-mg dose corresponds to 5 mg/kg body weig",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_69_wr_mm6950a6_htm_7bfe1da4e1ad",
+  "chunk_id": "chunk_009"
+}

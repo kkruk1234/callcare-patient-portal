@@ -1,0 +1,101 @@
+{
+  "packet_id": "f1c180cf-9356-46b3-8b81-7c7664ac2ec8",
+  "created_at": "2026-02-28T02:50:32.958000+00:00",
+  "session_id": "1b37509e-d56b-4535-a12c-93a3c94550e5",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney problems or urinary symptoms like pain or blood in urine?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a8": "I tried tylenol but it didn't really help much",
+    "intake_q9": "Any recent activities or movements that seemed to trigger or worsen the pain?",
+    "intake_a9": "poor posture and leaning against the area when sitting makes the pain worse",
+    "intake_q10": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adults",
+      "adult back pain treatment dosing acetaminophen mg duration",
+      "red flags in back pain evaluation return precautions"
+    ]
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left side lower rib cage back pain that started 3 weeks ago. She denies any recent injury or trauma, fever, chills, unexplained weight loss, shortness of breath, cough, chest pain, kidney problems, urinary symptoms, numbness, weakness, or tingling in her legs or feet. She has tried acetaminophen (Tylenol) without significant relief. The pain worsens with poor posture and leaning against the affected area when sitting. There is no history of cancer, osteoporosis, or recent steroid use. O: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal back pain likely related to poor posture and mechanical strain localized to the left lower rib cage area. \nDifferential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib-related inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral causes such as renal or pleural pathology (less likely given absence of systemic symptoms)\n\nP:\n- First-line medication: Acetaminophen 500 mg every 6 hours as needed for pain, not to exceed 3000 mg per day.\n- Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen if no contraindications.\n- Medication safety considerations: Avoid exceeding maximum daily dose of acetaminophen; monitor for gastrointestinal side effects if NSAIDs are used.\n- Return precautions: Advise patient to seek immediate care if she develops fever, unexplained weight loss, worsening pain, neurological symptoms such as numbness or weakness, urinary symptoms, or chest pain.\n- Testing: Not indicated at this time given absence of red flag symptoms; consider imaging or labs only if symptoms worsen or new concerning features develop.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Get Back Pain Treatment | Cleveland Clinic",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/services/back-pain-treatment",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Back pain - Diagnosis and treatment - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/diseases-conditions/back-pain/diagnosis-treatment/drc-20369911",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "Assessment and Management of Acute Low Back Pain | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/1999/1115/p2299.html",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      },
+      {
+        "title": "535",
+        "source": "www.bmj.com",
+        "url": "https://www.bmj.com/content/326/7388/535",
+        "accessed": "2026-02-27",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

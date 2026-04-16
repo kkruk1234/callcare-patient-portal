@@ -1,0 +1,44 @@
+{
+  "packet_id": "a10163c4-d824-46ea-8c82-ed6a64faedf7",
+  "created_at": "2026-03-27T17:05:45.824197+00:00",
+  "session_id": "5c3ae93c-51c2-4f61-842b-378f1d1bcda6",
+  "pathway_id": "",
+  "base_queries": [
+    "right hip pain management guidelines adults",
+    "right hip pain treatment adult dosing contraindications",
+    "red flags hip pain adults when to seek emergency care",
+    "diagnostic tests for right hip pain adults"
+  ],
+  "queries": [
+    "AAFP right hip pain management guidelines adults",
+    "AAFP right hip pain treatment adult dosing contraindications",
+    "MedlinePlus right hip pain management guidelines adults",
+    "MedlinePlus right hip pain treatment adult dosing contraindications",
+    "CDC right hip pain management guidelines adults",
+    "CDC right hip pain treatment adult dosing contraindications",
+    "NIH right hip pain management guidelines adults",
+    "NIH right hip pain treatment adult dosing contraindications",
+    "NICE right hip pain management guidelines adults",
+    "NICE right hip pain treatment adult dosing contraindications",
+    "WHO right hip pain management guidelines adults",
+    "WHO right hip pain treatment adult dosing contraindications"
+  ],
+  "selected_evidence_count": 2,
+  "evidence": [
+    {
+      "title": "Evaluation of Hip Pain in Older Adults | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2012/0815/od1.html",
+      "accessed": "2026-03-27",
+      "snippet": "The evaluation of hip pain in patients 65 years and older should include a history and physical examination, followed by pertinent imaging studies. (Strength of Recommendation [SOR]: C, based on expert opinion.) Patients who have hip pain for more than four weeks or who have concerning historical features, signs, or symptoms require hip imaging with radiography. There are no trials comparing the accuracy of magnetic resonance imaging (MRI), computed tomography (CT), and bone scintigraphy. MRI should be used in patients with suspected acute fracture in whom plain radiography does not yield a definitive diagnosis. (SOR: C, based on one small case series.) If MRI is contraindicated or unavailable, CT or bone scintigraphy can be substituted. (SOR: C, based on expert opinion.)"
+    },
+    {
+      "title": "Hip Osteoarthritis: Guidelines From the American Academy of Orthopaedic Surgeons | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2025/0100/practice-guidelines-hip-osteoarthritis.html",
+      "accessed": "2026-03-27",
+      "snippet": "\" login-button-label=\"Log in\" login-button-url=\"https://www.aafp.org/cgi-bin/lg.pl?redirect=https://www.aafp.org/pubs/afp/issues/2025/0100/practice-guidelines-hip-osteoarthritis.html\" purchase-button-label=\"See My Options\" purchase-modal-id=\"aafp-journal-content-gate-modal\" auth-endpoint=\"https://www.aafp.org/jsparse/AAFPUser.js\" credit-reporting-endpoint=\"https://www.aafp.org/credit-reporting-api/assessment/journal/credit\" issue-identifier=\"AFP11101\">"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old male presenting with right hip pain that started about a week ago. The pain is described as sharp and dabbing, localized mostly to the outer part of the hip near the bony prominence, occasionally radiating to the groin area. The pain worsens with walking and after periods of inactivity such as upon waking or after sitting for a while. There is no history of trauma, fever, chills, swelling, redness, or warmth. The patient denies any numbness, tingling, weakness, or difficulty walking. He has no personal history of arthritis or joint problems but notes a family history of arthritis. He has tried icing initially and then heat, which provided some transient relief, and also took acetaminophen without significant benefit. There is no tenderness on palpation of the outer hip.\n\nO: Phone encounter only; no physical examination or vital signs available.\n\nA: The working diagnosis is likely trochanteric bursitis or greater trochanteric pain syndrome given the location of pain on the lateral hip, absence of systemic symptoms, and pain exacerbated by activity and prolonged sitting.\nDifferential:\n1. Greater trochanteric pain syndrome (trochanteric bursitis)\n2. Hip osteoarthritis (early or mild, less likely given no prior history and no joint tenderness)\n3. Referred pain from lumbar spine radiculopathy\n4. Iliopsoas tendinopathy or groin strain\n\nP: - First-line medication: Naproxen 500 mg orally twice daily for 7 days (Physician must verify medication/dosing)\n- Alternatives: Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain for 7 days (Physician must verify medication/dosing)\n- Medication safety considerations: Patient has no known renal or liver disease; no allergies to NSAIDs reported; monitor for gastrointestinal side effects\n- Follow-up recommendations: Seek in-person medical care urgently if worsening pain, development of fever, swelling, redness, or inability to walk\n- Testing: Not indicated at this time; consider imaging if symptoms persist beyond 4 to 6 weeks or worsen"
+}

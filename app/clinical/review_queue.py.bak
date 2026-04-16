@@ -1,0 +1,42 @@
+from __future__ import annotations
+
+import json
+import uuid
+from pathlib import Path
+from typing import Optional
+
+from app.core.models import CallState, NoteDraft, ReviewPacket
+from app.clinical.note_builder import now_iso
+
+
+QUEUE_PATH = Path("logs/review_queue.jsonl")
+QUEUE_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+
+def enqueue_for_review(state: CallState, note: NoteDraft) -> ReviewPacket:
+    """
+    Create a ReviewPacket for async clinician oversight and append it to a local JSONL queue.
+    This is the Tier-1 "physician asynchronous approval" mechanism.
+    """
+    pathway = (state.symptoms.get("_pathway") or {})
+    answers = (state.symptoms.get("_answers") or {})
+
+    packet = ReviewPacket(
+        packet_id=str(uuid.uuid4()),
+        created_at=now_iso(),
+        session_id=str(state.session_id),
+        chief_complaint=state.chief_complaint or "",
+        age_band=state.age_band or "",
+        pregnancy_possible=str(state.symptoms.get("pregnancy_possible", state.pregnancy_possible or "")),
+        pathway_id=str(pathway.get("id") or ""),
+        answers=answers,
+        note=note,
+        evidence=list(note.evidence) if getattr(note, "evidence", None) else [],
+    )
+
+    # Append to queue (JSONL is easy to inspect + audit)
+    QUEUE_PATH.write_text("", encoding="utf-8") if not QUEUE_PATH.exists() else None
+    with QUEUE_PATH.open("a", encoding="utf-8") as f:
+        f.write(packet.model_dump_json() + "\n")
+
+    return packet

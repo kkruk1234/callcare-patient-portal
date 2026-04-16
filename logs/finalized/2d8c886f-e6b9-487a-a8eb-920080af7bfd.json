@@ -1,0 +1,131 @@
+{
+  "packet_id": "7175b664-7259-4f73-bc73-cbc2258572a1",
+  "created_at": "2026-02-08T14:46:10.751657+00:00",
+  "session_id": "2d8c886f-e6b9-487a-a8eb-920080af7bfd",
+  "chief_complaint": "chest pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "Can you describe the chest pain—where exactly is it located and what does it feel like?",
+    "intake_a1": "next to my sternum on the right and it feels sharp",
+    "intake_q2": "When did the chest pain start, and was it sudden or gradual?",
+    "intake_a2": "1 week ago and I'm not sure about sudden or gradual",
+    "intake_q3": "Any shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?",
+    "intake_a3": "no",
+    "intake_q4": "Have you noticed any fever, cough, or recent upper respiratory symptoms?",
+    "intake_a4": "no",
+    "intake_q5": "Have you experienced any recent trauma, heavy lifting, or physical strain that might have triggered the chest pain?",
+    "intake_a5": "heavy lifting",
+    "intake_q6": "Any history of heart disease, lung problems, or blood clots?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for the chest pain, and did they help?",
+    "intake_a7": "no",
+    "intake_q8": "Any swelling, redness, or tenderness in your chest wall or ribs where the pain is?",
+    "intake_a8": "tenderness",
+    "intake_q9": "Does the chest pain change with movement, breathing, or pressing on the area?",
+    "intake_a9": "it gets a little worse",
+    "intake_summary": "Patient presents with 1 week of sharp right parasternal chest pain worsened by movement and palpation, associated with tenderness and preceded by heavy lifting. No systemic symptoms or cardiac risk factors reported. Findings suggest musculoskeletal chest wall pain.",
+    "age_years": 45,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/costochondritis/",
+        "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 45-year-old female presenting with a one-week history of sharp chest pain located next to the right side of the sternum. The pain is described as sharp and worsens with movement and palpation. The onset was uncertain but the pain began after heavy lifting. She denies shortness of breath, sweating, nausea, radiation of pain to the arm or jaw, fever, cough, or recent upper respiratory symptoms. There is tenderness over the chest wall at the site of pain. She has no history of heart disease, lung problems, or blood clots and has not tried any treatments or medications for the pain. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam findings beyond patient report of tenderness and pain characteristics.\n\nA: \nThe working diagnosis is musculoskeletal chest wall pain likely due to strain from heavy lifting. This is supported by the localized sharp pain next to the sternum, tenderness on palpation, and worsening with movement. There are no systemic or cardiac symptoms to suggest a cardiac or pulmonary cause.\n\nDifferential: \n1. Musculoskeletal chest wall pain (costochondritis or muscle strain) \n2. Precordial catch syndrome \n3. Gastroesophageal reflux disease (GERD) \n4. Cardiac ischemia (less likely given absence of typical symptoms)\n\nP: \n- First-line medication: \n Ibuprofen 400 mg orally every 6 to 8 hours as needed for pain, for 5 to 7 days. Avoid if history of allergy to NSAIDs, active gastrointestinal ulcer, or severe renal impairment. Dosing details were not found in retrieved evidence; prescriber should verify.\n\n- Alternatives: \n - Acetaminophen 500 mg orally every 6 hours as needed for pain, for 5 to 7 days. Avoid if severe liver disease. \n - Naproxen 250 mg orally twice daily as needed for pain, for 5 to 7 days. Avoid if allergy to NSAIDs or severe renal impairment.\n\n- Medication safety considerations: \n No known medication allergies. No renal or liver disease reported. Use NSAIDs cautiously if any future renal or gastrointestinal issues arise.\n\n- Return precautions: \n Advise patient to seek immediate care if chest pain worsens, becomes constant, or is accompanied by shortness of breath, sweating, nausea, pain radiating to the arm or jaw, or any new systemic symptoms.\n\n- Testing: \n If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing/workup as indicated.",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "source.json",
+        "source": "https://www.nhs.uk/conditions/costochondritis/",
+        "snippet": "www.nhs.uk authoritative_patient_clinician NHS: practical outpatient management language msk_chest_wall_pain 2026-02-08T14:37:23.207462+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "source.json",
+        "source": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+        "snippet": "www.mayoclinic.org authoritative_patient_clinician Mayo Clinic: diagnosis + treatment overview msk_chest_wall_pain 2026-02-08T14:37:22.062924+00:00 text/html; charset=utf-8"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/f4496a39af91b1ac/content.txt",
+        "snippet": "musculoskeletal causes in 20 percent of episodes of care, with costochondritis responsible for 13 percent.14 These data are similar to a study of patients with noncardiac chest pain that found reproducible chest wall tenderness (although not specifically defined as costochondritis) in 16 percent of patients.3 A European study found a higher prevalence of mus…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/900fa94e5b4c0ed8/content.txt",
+        "snippet": "9. [PubMed: 20406787] - 11. - Epstein SE, Gerber LH, Borer JS. Chest wall syndrome. A common cause of unexplained cardiac pain. JAMA. 1979 Jun 29;241(26):2793-7. [PubMed: 448839] - 12. - Ayloo A, Cvengros T, Marella S. Evaluation and treatment of musculoskeletal chest pain. Prim Care. 2013 Dec;40(4):863-87, viii. [PubMed: 24209723] - 13. - Expert Panel on Th…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/b41df6255a6ccd0d/content.txt",
+        "snippet": "Am Fam Physician. 2021;104(1):73-78 Patient information: See related handout on costochondritis. Author disclosure: No relevant financial affiliations. Costochondritis is a common cause of chest pain. It most commonly occurs in adults between 40 and 50 years of age, with a slight predominance in women. Although musculoskeletal and other chest wall conditions…"
+      },
+      {
+        "title": "content.txt",
+        "source": "library/3ca85874a0800355/content.txt",
+        "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "content.txt",
+      "source": "library/b41df6255a6ccd0d/content.txt",
+      "snippet": "Am Fam Physician. 2021;104(1):73-78 Patient information: See related handout on costochondritis. Author disclosure: No relevant financial affiliations. Costochondritis is a common cause of chest pain. It most commonly occurs in adults between 40 and 50 years of age, with a slight predominance in women. Although musculoskeletal and other chest wall conditions…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/3ca85874a0800355/content.txt",
+      "snippet": "port sharp or dull pain in the upper anterior chest wall that worsens with movements including coughing, stretching, and deep inspiration/expiration.1 Some patients, especially adolescents can complain of “trouble catching a complete breath” or “tightness”.15 Costochondritis can often mimic acute coronary syndrome, pulmonary embolism, pericarditis, aortic di…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/f4496a39af91b1ac/content.txt",
+      "snippet": "musculoskeletal causes in 20 percent of episodes of care, with costochondritis responsible for 13 percent.14 These data are similar to a study of patients with noncardiac chest pain that found reproducible chest wall tenderness (although not specifically defined as costochondritis) in 16 percent of patients.3 A European study found a higher prevalence of mus…"
+    },
+    {
+      "title": "content.txt",
+      "source": "library/0ab356777c93e3b9/content.txt",
+      "snippet": "Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can cause sharp chest pain, especially when moving or breathing. It usually gets better on its own over time. Symptoms of costochondritis Costochondritis may cause sharp pain in the front or side of your chest. The pain may be worse when: - moving your…"
+    },
+    {
+      "title": "Costochondritis - NHS",
+      "source": "https://www.nhs.uk/conditions/costochondritis/",
+      "snippet": "﻿ Costochondritis - NHS Skip to main content Search the NHS website Search Health A to Z NHS services Live Well Mental health Care and support Pregnancy Home Browse More Home Health A to Z Conditions A to Z Back to Conditions A to Z Costochondritis Costochondritis is inflammation where your ribs join the bone in the middle of your chest (breastbone). It can…"
+    },
+    {
+      "title": "source.json",
+      "source": "https://www.mayoclinic.org/diseases-conditions/costochondritis/diagnosis-treatment/drc-20371180",
+      "snippet": "www.mayoclinic.org authoritative_patient_clinician Mayo Clinic: diagnosis + treatment overview msk_chest_wall_pain 2026-02-08T14:37:22.062924+00:00 text/html; charset=utf-8"
+    }
+  ],
+  "state": null
+}

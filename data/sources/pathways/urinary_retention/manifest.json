@@ -1,0 +1,12 @@
+{
+  "pathway_id": "urinary_retention",
+  "sources": [
+    {
+      "id": "urinary_retention_cdc",
+      "source_id": "urinary_retention_cdc",
+      "title": "Urinary retention reference (starter)",
+      "url": "https://www.urologyhealth.org/",
+      "type": "guideline_or_reference"
+    }
+  ]
+}

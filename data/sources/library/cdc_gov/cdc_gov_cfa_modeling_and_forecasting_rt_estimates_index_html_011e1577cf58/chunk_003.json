@@ -1,0 +1,10 @@
+{
+  "title": "Current Epidemic Trends (Based on Rt) for States | CFA: Modeling and Forecasting | CDC",
+  "url": "https://www.cdc.gov/cfa-modeling-and-forecasting/rt-estimates/index.html",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "e. \nR t should be used alongside other surveillance metrics (such as the percentage of ED visits, which are displayed in the callout boxes in the map) for a more complete picture. View a summary of key data for COVID-19, influenza, and RSV. \nEpidemic trend summary \nCOVID-19 \nInfluenza \nRSV \nCOVID-19 \nAs of January 20, 2026, we estimate that COVID-19 infections are growing or likely growing in 5 states, declining or likely declining in 26 states, and not changing in 15 states. Previous estimates can be found on data.cdc.gov .\nInfluenza \nAs of January 20, 2026, we estimate that Influenza infections are growing or likely growing in 27 states, declining or likely declining in 7 states, and not changing in 11 states. Previous estimates can be found on data.cdc.gov .\nRSV \nAs of January 20, 2026, we estimate that RSV infections are growing or likely growing in 14 states, declining or likely declining in 13 states, and not changing in 17 states. Previous estimates can be found on data.cdc.gov .\nInterpreting R t \nWhat R t can and cannot tell us \nWhat R t can tell us: R t can tell us whether a current epidemic trend is growing, declining, or not changing, and is an additional tool to help public health practitioners prepare and respond.\nWhat R t cannot tell us: R t cannot tell us about the underlying burden of disease, just the trend of transmission. An R t < 1 does not mean that transmi",
+  "source_type": "library",
+  "source_id": "cdc_gov_cfa_modeling_and_forecasting_rt_estimates_index_html_011e1577cf58",
+  "chunk_id": "chunk_003"
+}

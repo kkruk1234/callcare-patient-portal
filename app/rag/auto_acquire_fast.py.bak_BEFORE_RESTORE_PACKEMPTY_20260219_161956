@@ -1,0 +1,209 @@
+from __future__ import annotations
+
+import json
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Sequence
+
+LIB_ROOT = Path("data/sources/library")
+PACK_DIR = Path("data/packs")
+
+TRUSTED_DOMAINS_DEFAULT: List[str] = [
+    "nhs.uk",
+    "nice.org.uk",
+    "aafp.org",
+    "cdc.gov",
+    "nih.gov",
+    "medlineplus.gov",
+    "dailymed.nlm.nih.gov",
+    "fda.gov",
+    "who.int",
+    "ncbi.nlm.nih.gov",
+    "pubmed.ncbi.nlm.nih.gov",
+]
+
+
+@dataclass
+class AcquireResult:
+    ok: bool
+    query: str
+    urls_found: int
+    urls_allowed: int
+    urls_ingested: int
+    ingested_docs: List[Dict[str, Any]]
+    elapsed_sec: float
+    error: str = ""
+
+
+def _log_attempt(obj: Dict[str, Any]) -> None:
+    try:
+        Path("logs").mkdir(exist_ok=True)
+        p = Path("logs/auto_acquire_fast_attempts.jsonl")
+        obj = dict(obj or {})
+        obj["ts"] = time.time()
+        with p.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(obj, ensure_ascii=False, default=str) + "\n")
+    except Exception:
+        pass
+
+
+def _domain_allowed(url: str, allowed_domains: Sequence[str]) -> bool:
+    u = (url or "").lower()
+    return any(d.lower().strip() in u for d in allowed_domains if d)
+
+
+def _openai_web_search_urls(query: str, *, max_urls: int) -> List[str]:
+    """
+    Reuse existing OpenAI web search helper.
+    """
+    try:
+        from app.rag.auto_acquire import _openai_web_search_urls as existing  # type: ignore
+        urls = existing(query=query, max_urls=max_urls)  # type: ignore
+        if isinstance(urls, list):
+            out = [u for u in urls if isinstance(u, str) and u.strip()]
+            return out[:max_urls]
+        return []
+    except Exception:
+        return []
+
+
+def _make_site_clause(domains: Sequence[str]) -> str:
+    # "site:a OR site:b OR site:c"
+    parts = [f"site:{d.strip()}" for d in domains if str(d).strip()]
+    if not parts:
+        return ""
+    return " OR ".join(parts[:25])
+
+
+def _write_pack(query: str, urls: List[str]) -> str:
+    PACK_DIR.mkdir(parents=True, exist_ok=True)
+    # stable-ish id from time
+    pack_id = f"auto_{int(time.time()*1000)}"
+    pack_path = PACK_DIR / f"{pack_id}.json"
+    payload = {
+        "id": pack_id,
+        "query": query,
+        "sources": [{"url": u, "source_type": "web", "notes": ""} for u in (urls or [])],
+    }
+    pack_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return str(pack_path)
+
+
+def acquire_ingest_attach(
+    *,
+    query: str,
+    max_urls: int = 6,
+    time_budget_sec: float = 12.0,
+    allowed_domains: Sequence[str] = TRUSTED_DOMAINS_DEFAULT,
+) -> AcquireResult:
+    """
+    1) OpenAI web search
+    2) filter to trusted domains
+    3) write pack
+    4) ingest pack into library
+    5) return ingested docs for immediate attachment
+    """
+    t0 = time.time()
+    try:
+        raw_urls = _openai_web_search_urls(query, max_urls=max_urls * 4) or []
+        urls_found = len(raw_urls)
+
+        allowed = []
+        seen = set()
+        for u in raw_urls:
+            uu = (u or "").strip()
+            if not uu or uu in seen:
+                continue
+            seen.add(uu)
+            if _domain_allowed(uu, allowed_domains):
+                allowed.append(uu)
+            if len(allowed) >= max_urls:
+                break
+
+        urls_allowed = len(allowed)
+        pack_path = _write_pack(query, allowed)
+
+        ingested_docs: List[Dict[str, Any]] = []
+        urls_ingested = 0
+
+        if allowed:
+            from app.rag.ingest_entry import ingest_pack_file
+            ingested_docs = ingest_pack_file(
+                pack_path,
+                time_budget_sec=float(time_budget_sec),
+                per_url_timeout_sec=25,
+                max_urls=max_urls,
+            ) or []
+            urls_ingested = len([d for d in ingested_docs if (d.get("url") or "").strip()])
+
+        elapsed = time.time() - t0
+
+        _log_attempt({
+            "ok": True,
+            "query": query,
+            "urls_found": urls_found,
+            "urls_allowed": urls_allowed,
+            "urls_ingested": urls_ingested,
+            "pack_path": pack_path,
+            "elapsed_sec": round(elapsed, 3),
+        })
+
+        return AcquireResult(
+            ok=True,
+            query=query,
+            urls_found=urls_found,
+            urls_allowed=urls_allowed,
+            urls_ingested=urls_ingested,
+            ingested_docs=ingested_docs,
+            elapsed_sec=elapsed,
+            error="",
+        )
+    except Exception as e:
+        elapsed = time.time() - t0
+        _log_attempt({
+            "ok": False,
+            "query": query,
+            "urls_found": 0,
+            "urls_allowed": 0,
+            "urls_ingested": 0,
+            "elapsed_sec": round(elapsed, 3),
+            "error": f"{type(e).__name__}: {e}",
+        })
+        return AcquireResult(
+            ok=False,
+            query=query,
+            urls_found=0,
+            urls_allowed=0,
+            urls_ingested=0,
+            ingested_docs=[],
+            elapsed_sec=elapsed,
+            error=f"{type(e).__name__}: {e}",
+        )
+
+
+def build_authoritative_query(topic: str, *, domains: Sequence[str] = TRUSTED_DOMAINS_DEFAULT) -> str:
+    """
+    Generalist: constrain search to trusted domains by construction.
+    """
+    t = " ".join(str(topic or "").split()).strip()
+    site_clause = _make_site_clause(domains)
+    if not site_clause:
+        return t
+    # Put topic first so ranking stays clinically relevant, then constrain.
+    return f"{t} ({site_clause})"
+
+
+def build_dx_queries(dx_text: str) -> List[str]:
+    """
+    Generalist query set given dx_text.
+    """
+    dx = " ".join(str(dx_text or "").split()).strip()
+    if not dx:
+        dx = "outpatient condition"
+
+    # diagnosis/management
+    q1 = build_authoritative_query(f"{dx} guideline management treatment outpatient")
+    # dosing/supportive meds (still dx-tethered so we don't drift into random ibuprofen pages)
+    q2 = build_authoritative_query(f"{dx} pain control ibuprofen dosing naproxen dosing acetaminophen dosing adult")
+    return [q1, q2]

@@ -1,0 +1,20 @@
+{
+  "pathway_id": "opioid_withdrawal_mild",
+  "sources": [
+    {
+      "title": "Opioid withdrawal",
+      "source": "MedlinePlus",
+      "url": "https://medlineplus.gov/ency/article/000949.htm"
+    },
+    {
+      "title": "Medications for Opioid Use Disorder (MOUD)",
+      "source": "SAMHSA",
+      "url": "https://www.samhsa.gov/medications-substance-use-disorders"
+    },
+    {
+      "title": "Opioid overdose and response (when to call 911)",
+      "source": "CDC",
+      "url": "https://www.cdc.gov/stopoverdose/"
+    }
+  ]
+}

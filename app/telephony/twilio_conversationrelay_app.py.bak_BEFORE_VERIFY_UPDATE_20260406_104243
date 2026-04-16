@@ -1,0 +1,998 @@
+from __future__ import annotations
+
+import asyncio
+import audioop
+import base64
+import io
+import json
+import os
+import re
+import time
+import wave
+from contextlib import suppress
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional
+from urllib.parse import urlencode
+
+import httpx
+import websockets
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from fastapi.responses import PlainTextResponse
+
+from app.telephony.callcare_bridge import bridge
+from app.chart.patient_registry import (
+    create_verified_encounter,
+    get_chart_context,
+    normalize_dob_text,
+    update_encounter_chief_complaint,
+    update_encounter_identity,
+    verify_patient_identity,
+)
+
+
+app = FastAPI()
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "").strip()
+CALLCARE_ELEVENLABS_VOICE_ID = os.getenv("CALLCARE_ELEVENLABS_VOICE_ID", "").strip()
+CALLCARE_ELEVENLABS_MODEL_ID = os.getenv("CALLCARE_ELEVENLABS_MODEL_ID", "eleven_multilingual_v2").strip()
+CALLCARE_ELEVENLABS_SPEED = float(os.getenv("CALLCARE_ELEVENLABS_SPEED", "1.10"))
+CALLCARE_ELEVENLABS_STABILITY = float(os.getenv("CALLCARE_ELEVENLABS_STABILITY", "0.55"))
+CALLCARE_ELEVENLABS_SIMILARITY = float(os.getenv("CALLCARE_ELEVENLABS_SIMILARITY", "0.85"))
+CALLCARE_ELEVENLABS_STYLE = float(os.getenv("CALLCARE_ELEVENLABS_STYLE", "0.0"))
+DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY", "").strip()
+
+CALLCARE_PUBLIC_BASE_URL = os.getenv("CALLCARE_PUBLIC_BASE_URL", "").rstrip("/")
+
+CALLCARE_RMS_THRESHOLD = int(os.getenv("CALLCARE_RMS_THRESHOLD", "700"))
+CALLCARE_BARGE_IN_MIN_MS = int(os.getenv("CALLCARE_BARGE_IN_MIN_MS", "700"))
+CALLCARE_BARGE_IN_ENABLE_MS = int(os.getenv("CALLCARE_BARGE_IN_ENABLE_MS", "1200"))
+CALLCARE_POST_PROMPT_IGNORE_MS = int(os.getenv("CALLCARE_POST_PROMPT_IGNORE_MS", "500"))
+CALLCARE_COMPLETE_TIMEOUT_SECONDS = int(os.getenv("CALLCARE_COMPLETE_TIMEOUT_SECONDS", "120"))
+
+CALLCARE_TTS_MODEL = os.getenv("CALLCARE_TTS_MODEL", "gpt-4o-mini-tts").strip()
+CALLCARE_TTS_VOICE = os.getenv("CALLCARE_TTS_VOICE", "marin").strip()
+CALLCARE_TTS_SPEED = float(os.getenv("CALLCARE_TTS_SPEED", "1.0"))
+
+CALLCARE_DEEPGRAM_MODEL = os.getenv("CALLCARE_DEEPGRAM_MODEL", "nova-2-phonecall").strip()
+CALLCARE_DEEPGRAM_LANGUAGE = os.getenv("CALLCARE_STT_LANGUAGE", "en").strip()
+CALLCARE_DEEPGRAM_ENCODING = os.getenv("CALLCARE_DEEPGRAM_ENCODING", "mulaw").strip()
+CALLCARE_DEEPGRAM_SAMPLE_RATE = int(os.getenv("CALLCARE_DEEPGRAM_SAMPLE_RATE", "8000"))
+CALLCARE_DEEPGRAM_ENDPOINTING_MS = int(os.getenv("CALLCARE_DEEPGRAM_ENDPOINTING_MS", "1400"))
+CALLCARE_DEEPGRAM_UTTERANCE_END_MS = int(os.getenv("CALLCARE_DEEPGRAM_UTTERANCE_END_MS", "2600"))
+
+CALLCARE_FINALIZE_MIN_SILENCE_MS = int(os.getenv("CALLCARE_FINALIZE_MIN_SILENCE_MS", "2400"))
+CALLCARE_SHORT_PROMPT_SILENCE_MS = int(os.getenv("CALLCARE_SHORT_PROMPT_SILENCE_MS", "900"))
+CALLCARE_MAIN_CONCERN_SILENCE_MS = int(os.getenv("CALLCARE_MAIN_CONCERN_SILENCE_MS", "1200"))
+CALLCARE_HOLD_AUDIO_WAV = os.getenv("CALLCARE_HOLD_AUDIO_WAV", "static/hold_music.wav").strip()
+CALLCARE_HOLD_FRAME_SECONDS = float(os.getenv("CALLCARE_HOLD_FRAME_SECONDS", "0.0185"))
+
+OPENING_HELLO = "Hello."
+PROCESSING_LINE = "Thank you for your responses. This may take up to a minute to process. Please stay on the line."
+POST_HOLD_LINE = "Thank you for holding."
+GOODBYE_LINE = "Thank you, goodbye."
+FALLBACK_SUMMARY = (
+    "Thank you. Your telephone intake is complete. A physician will review your chart. "
+    "If your symptoms worsen or you develop urgent warning signs, please seek urgent in-person care."
+)
+
+VERIFY_FIRST_NAME_PROMPT = "Please say your first name."
+VERIFY_LAST_NAME_PROMPT = "Please say your last name."
+VERIFY_DOB_PROMPT = "Please say your date of birth. For example, January first two thousand."
+VERIFY_PIN_PROMPT = "Please say your verbal PIN now."
+VERIFY_FAILED_PROMPT = "I could not verify your chart. Please contact support or complete enrollment before using this service."
+
+OPENAI_SPEECH_URL = "https://api.openai.com/v1/audio/speech"
+ELEVENLABS_TTS_BASE = "https://api.elevenlabs.io/v1/text-to-speech"
+
+
+def _log(msg: str) -> None:
+    print(f"[media-streams] {msg}", flush=True)
+
+
+def _xml_escape(text: str) -> str:
+    return (
+        str(text)
+        .replace("&", "&amp;")
+        .replace('"', "&quot;")
+        .replace("'", "&apos;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
+
+
+def _stream_wss_url() -> str:
+    if not CALLCARE_PUBLIC_BASE_URL:
+        raise RuntimeError("CALLCARE_PUBLIC_BASE_URL is not set.")
+    if CALLCARE_PUBLIC_BASE_URL.startswith("https://"):
+        return "wss://" + CALLCARE_PUBLIC_BASE_URL[len("https://"):] + "/twilio/media-stream"
+    if CALLCARE_PUBLIC_BASE_URL.startswith("http://"):
+        return "ws://" + CALLCARE_PUBLIC_BASE_URL[len("http://"):] + "/twilio/media-stream"
+    raise RuntimeError("CALLCARE_PUBLIC_BASE_URL must start with http:// or https://")
+
+
+def _deepgram_wss_url() -> str:
+    params = [
+        ("model", CALLCARE_DEEPGRAM_MODEL),
+        ("encoding", CALLCARE_DEEPGRAM_ENCODING),
+        ("sample_rate", str(CALLCARE_DEEPGRAM_SAMPLE_RATE)),
+        ("language", CALLCARE_DEEPGRAM_LANGUAGE),
+        ("interim_results", "true"),
+        ("punctuate", "true"),
+        ("smart_format", "true"),
+        ("numerals", "true"),
+        ("endpointing", str(CALLCARE_DEEPGRAM_ENDPOINTING_MS)),
+        ("utterance_end_ms", str(CALLCARE_DEEPGRAM_UTTERANCE_END_MS)),
+    ]
+    return "wss://api.deepgram.com/v1/listen?" + urlencode(params)
+
+
+def _mulaw_to_pcm16(mulaw_bytes: bytes) -> bytes:
+    return audioop.ulaw2lin(mulaw_bytes, 2)
+
+
+def _pcm16_to_mulaw(pcm16_bytes: bytes) -> bytes:
+    return audioop.lin2ulaw(pcm16_bytes, 2)
+
+
+def _rms_mulaw(mulaw_bytes: bytes) -> int:
+    if not mulaw_bytes:
+        return 0
+    return audioop.rms(_mulaw_to_pcm16(mulaw_bytes), 2)
+
+
+def _wav_or_pcm_to_mulaw_8k(audio_bytes: bytes) -> bytes:
+    try:
+        with wave.open(io.BytesIO(audio_bytes), "rb") as wf:
+            channels = wf.getnchannels()
+            sampwidth = wf.getsampwidth()
+            framerate = wf.getframerate()
+            frames = wf.readframes(wf.getnframes())
+    except wave.Error:
+        return _pcm16_to_mulaw(audio_bytes)
+
+    pcm = frames
+    if channels != 1:
+        pcm = audioop.tomono(pcm, sampwidth, 0.5, 0.5)
+    if sampwidth != 2:
+        pcm = audioop.lin2lin(pcm, sampwidth, 2)
+    if framerate != 8000:
+        pcm, _ = audioop.ratecv(pcm, 2, 1, framerate, 8000, None)
+    return _pcm16_to_mulaw(pcm)
+
+
+def _load_hold_mulaw() -> bytes:
+    if os.path.exists(CALLCARE_HOLD_AUDIO_WAV):
+        with open(CALLCARE_HOLD_AUDIO_WAV, "rb") as f:
+            return _wav_or_pcm_to_mulaw_8k(f.read())
+
+    sample_rate = 8000
+    seconds = 85
+    total = sample_rate * seconds
+    pcm = bytearray()
+    notes = [440.0, 554.37, 659.25, 554.37]
+    seg = int(sample_rate * 1.25)
+    import math
+    for i in range(total):
+        freq = notes[(i // seg) % len(notes)]
+        val = int(3200 * math.sin(2.0 * math.pi * freq * (i / sample_rate)))
+        pcm.extend(int(val).to_bytes(2, byteorder="little", signed=True))
+    return _pcm16_to_mulaw(bytes(pcm))
+
+
+HOLD_MULAW = _load_hold_mulaw()
+
+
+def _clean(text: str) -> str:
+    return " ".join(str(text or "").split()).strip()
+
+
+def _spoken_text(text: str) -> str:
+    t = _clean(text)
+    t = t.replace("(yes/no)", "(yes or no)")
+    t = t.replace("(yes/no/unknown)", "(yes or no or unknown)")
+    return t
+
+
+def _summary_looks_bad(text: str, expected_prompt: str) -> bool:
+    s = _clean(text)
+    e = _clean(expected_prompt)
+    if not s:
+        return True
+    if e and s == e:
+        return True
+    if s.endswith("?"):
+        return True
+    low = s.lower()
+    return low.startswith("have you ever been told") or low.startswith("what sex were you assigned")
+
+
+def _is_short_fixed_response_prompt(prompt: str) -> bool:
+    p = _clean(prompt).lower()
+    if "consent to continue" in p:
+        return True
+    if "how old are you" in p or "what is your age" in p or "your age in years" in p:
+        return True
+    if "what sex were you assigned at birth" in p:
+        return True
+    if "pregnancy possible" in p:
+        return True
+    if "kidney disease" in p or "liver disease" in p:
+        return True
+    if "medication allergies" in p:
+        return True
+    return False
+
+
+def _is_main_concern_prompt(prompt: str) -> bool:
+    p = _clean(prompt).lower()
+    return "main medical concern today" in p or "main concern today" in p
+
+
+def _prompt_silence_seconds(prompt: str) -> float:
+    if _is_short_fixed_response_prompt(prompt):
+        return CALLCARE_SHORT_PROMPT_SILENCE_MS / 1000.0
+    if _is_main_concern_prompt(prompt):
+        return CALLCARE_MAIN_CONCERN_SILENCE_MS / 1000.0
+    return CALLCARE_FINALIZE_MIN_SILENCE_MS / 1000.0
+
+
+def _extract_number_from_text(text: str) -> Optional[str]:
+    t = _clean(text).lower()
+    if not t:
+        return None
+
+    m = re.search(r"\b(\d{1,3})\b", t)
+    if m:
+        n = int(m.group(1))
+        if 0 < n < 121:
+            return str(n)
+
+    words = {
+        "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+        "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12,
+        "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17,
+        "eighteen": 18, "nineteen": 19, "twenty": 20, "thirty": 30, "forty": 40,
+        "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90,
+    }
+    parts = [w for w in re.split(r"[^a-z]+", t) if w]
+    total = 0
+    used = False
+    for w in parts:
+        if w in words:
+            total += words[w]
+            used = True
+    if used and 0 < total < 121:
+        return str(total)
+    return None
+
+
+def _canonicalize_transcript(expected_prompt: str, transcript: str) -> str:
+    p = _clean(expected_prompt).lower()
+    t = _clean(transcript)
+    tl = t.lower()
+
+    yes_aliases = {"yes", "yes.", "yeah", "yep", "yup", "yaz", "yas", "yea", "yez"}
+    no_aliases = {"no", "no.", "nope", "novarel", "norell", "norrel", "norel"}
+    unsure_aliases = {"not sure", "unsure", "unknown", "not shure", "noxia was", "noxious", "not shore"}
+
+    if "consent to continue" in p:
+        if tl in yes_aliases:
+            return "Yes"
+        if tl in no_aliases:
+            return "No"
+
+    if "what sex were you assigned at birth" in p and "male or female" in p:
+        if "female" in tl or "femail" in tl:
+            return "Female"
+        if "male" in tl or "mail" in tl or "mael" in tl:
+            return "Male"
+
+    if "how old are you" in p or "what is your age" in p or "your age in years" in p:
+        n = _extract_number_from_text(t)
+        if n:
+            return n
+
+    if "kidney disease" in p or "liver disease" in p or "pregnancy possible" in p:
+        if tl in yes_aliases or tl.startswith("yes "):
+            return "Yes"
+        if tl in no_aliases or tl.startswith("no "):
+            return "No"
+        if tl in unsure_aliases or "not sure" in tl or "unsure" in tl:
+            return "Not sure"
+
+    return t
+
+
+@dataclass
+class MediaSession:
+    call_sid: str
+    stream_sid: str
+    from_number: str = ""
+    to_number: str = ""
+    ws: Optional[WebSocket] = None
+
+    pending_barge_mulaw: bytearray = field(default_factory=bytearray)
+    pending_barge_started_at: float = 0.0
+
+    bot_speaking: bool = False
+    hold_playing: bool = False
+    finishing: bool = False
+    processing_user_turn: bool = False
+    ended: bool = False
+
+    allow_barge_in: bool = False
+    barge_in_enabled_at: float = 0.0
+    ignore_audio_until: float = 0.0
+
+    expected_prompt: str = ""
+    current_phase: str = "question"
+
+    hold_task: Optional[asyncio.Task] = None
+    mark_waiters: Dict[str, asyncio.Event] = field(default_factory=dict)
+    speak_lock: asyncio.Lock = field(default_factory=asyncio.Lock)
+
+    dg_ws = None
+    dg_recv_task: Optional[asyncio.Task] = None
+    dg_keepalive_task: Optional[asyncio.Task] = None
+    dg_final_parts: List[str] = field(default_factory=list)
+    dg_last_interim: str = ""
+    last_finalized_transcript: str = ""
+    dg_finalize_lock: asyncio.Lock = field(default_factory=asyncio.Lock)
+
+    opening_task: Optional[asyncio.Task] = None
+    verification_stage: str = "first_name"
+    verification_data: Dict[str, str] = field(default_factory=dict)
+    patient_verified: bool = False
+    patient_id: str = ""
+    chart_number: str = ""
+    encounter_id: str = ""
+    chart_context: Dict[str, object] = field(default_factory=dict)
+    last_user_audio_at: float = 0.0
+    finalize_generation: int = 0
+
+
+SESSIONS: Dict[str, MediaSession] = {}
+
+
+async def _send_json(session: MediaSession, payload: dict) -> None:
+    if session.ws is None:
+        return
+    await session.ws.send_text(json.dumps(payload))
+
+
+async def _send_media_chunk(session: MediaSession, chunk: bytes) -> None:
+    await _send_json(
+        session,
+        {
+            "event": "media",
+            "streamSid": session.stream_sid,
+            "media": {"payload": base64.b64encode(chunk).decode("ascii")},
+        },
+    )
+
+
+async def _play_mulaw_realtime(session: MediaSession, mulaw_bytes: bytes, frame_seconds: float = 0.02) -> None:
+    if not mulaw_bytes or session.ended:
+        return
+
+    chunk_size = 160
+    start = time.monotonic()
+
+    for idx, i in enumerate(range(0, len(mulaw_bytes), chunk_size)):
+        if session.ended:
+            break
+        await _send_media_chunk(session, mulaw_bytes[i:i + chunk_size])
+
+        next_deadline = start + ((idx + 1) * frame_seconds)
+        sleep_for = next_deadline - time.monotonic()
+        if sleep_for > 0:
+            await asyncio.sleep(sleep_for)
+
+
+async def _send_clear(session: MediaSession) -> None:
+    with suppress(Exception):
+        await _send_json(session, {"event": "clear", "streamSid": session.stream_sid})
+    for evt in list(session.mark_waiters.values()):
+        with suppress(Exception):
+            evt.set()
+    session.mark_waiters.clear()
+    session.bot_speaking = False
+    session.allow_barge_in = False
+    session.pending_barge_mulaw.clear()
+    session.pending_barge_started_at = 0.0
+
+
+async def _send_mulaw(session: MediaSession, mulaw_bytes: bytes, wait_for_playback: bool) -> None:
+    if not mulaw_bytes:
+        return
+
+    mark_name = f"m{int(time.time() * 1000)}"
+    evt = asyncio.Event()
+    session.mark_waiters[mark_name] = evt
+
+    chunk_size = 160 * 5
+    for i in range(0, len(mulaw_bytes), chunk_size):
+        chunk = mulaw_bytes[i:i + chunk_size]
+        await _send_json(
+            session,
+            {
+                "event": "media",
+                "streamSid": session.stream_sid,
+                "media": {"payload": base64.b64encode(chunk).decode("ascii")},
+            },
+        )
+
+    await _send_json(
+        session,
+        {
+            "event": "mark",
+            "streamSid": session.stream_sid,
+            "mark": {"name": mark_name},
+        },
+    )
+
+    if wait_for_playback:
+        audio_seconds = max(1.0, len(mulaw_bytes) / 8000.0)
+        timeout_seconds = audio_seconds + 15.0
+        try:
+            await asyncio.wait_for(evt.wait(), timeout=timeout_seconds)
+        except asyncio.TimeoutError:
+            _log(
+                f"{session.call_sid} mark timeout name={mark_name} "
+                f"audio_seconds={audio_seconds:.2f} timeout_seconds={timeout_seconds:.2f}"
+            )
+        finally:
+            session.mark_waiters.pop(mark_name, None)
+    else:
+        session.mark_waiters.pop(mark_name, None)
+
+
+async def _deepgram_keepalive(session: MediaSession) -> None:
+    try:
+        while not session.ended and session.dg_ws is not None:
+            await asyncio.sleep(3.0)
+            if session.ended or session.dg_ws is None:
+                break
+            with suppress(Exception):
+                await session.dg_ws.send(json.dumps({"type": "KeepAlive"}))
+    except asyncio.CancelledError:
+        raise
+    except Exception:
+        pass
+
+
+async def _elevenlabs_tts_mulaw(text: str) -> bytes:
+    if not ELEVENLABS_API_KEY:
+        raise RuntimeError("ELEVENLABS_API_KEY is not set.")
+    if not CALLCARE_ELEVENLABS_VOICE_ID:
+        raise RuntimeError("CALLCARE_ELEVENLABS_VOICE_ID is not set.")
+
+    url = f"{ELEVENLABS_TTS_BASE}/{CALLCARE_ELEVENLABS_VOICE_ID}"
+    headers = {
+        "xi-api-key": ELEVENLABS_API_KEY,
+        "Content-Type": "application/json",
+        "Accept": "audio/basic",
+    }
+    params = {
+        "output_format": "ulaw_8000",
+    }
+    body = {
+        "text": text,
+        "model_id": CALLCARE_ELEVENLABS_MODEL_ID,
+        "voice_settings": {
+            "speed": CALLCARE_ELEVENLABS_SPEED,
+            "stability": CALLCARE_ELEVENLABS_STABILITY,
+            "similarity_boost": CALLCARE_ELEVENLABS_SIMILARITY,
+            "style": CALLCARE_ELEVENLABS_STYLE,
+            "use_speaker_boost": True,
+        },
+    }
+
+    async with httpx.AsyncClient(timeout=60.0) as client:
+        resp = await client.post(url, headers=headers, params=params, json=body)
+        resp.raise_for_status()
+        return resp.content
+
+
+async def _start_deepgram_stream(session: MediaSession) -> None:
+    if not DEEPGRAM_API_KEY:
+        raise RuntimeError("DEEPGRAM_API_KEY is not set.")
+    headers = {"Authorization": f"Token {DEEPGRAM_API_KEY}"}
+    session.dg_ws = await websockets.connect(_deepgram_wss_url(), additional_headers=headers, max_size=None)
+    session.dg_recv_task = asyncio.create_task(_deepgram_receiver(session))
+    session.dg_keepalive_task = asyncio.create_task(_deepgram_keepalive(session))
+
+
+async def _close_deepgram_stream(session: MediaSession) -> None:
+    if session.dg_keepalive_task:
+        session.dg_keepalive_task.cancel()
+        with suppress(asyncio.CancelledError, Exception):
+            await session.dg_keepalive_task
+        session.dg_keepalive_task = None
+    if session.dg_recv_task:
+        session.dg_recv_task.cancel()
+        with suppress(asyncio.CancelledError, Exception):
+            await session.dg_recv_task
+        session.dg_recv_task = None
+    if session.dg_ws:
+        with suppress(Exception):
+            await session.dg_ws.close()
+        session.dg_ws = None
+
+
+async def _deepgram_receiver(session: MediaSession) -> None:
+    try:
+        async for raw in session.dg_ws:
+            try:
+                payload = json.loads(raw)
+            except Exception:
+                continue
+
+            msg_type = str(payload.get("type") or "Results")
+
+            if msg_type == "Results":
+                channel = (payload.get("channel") or {})
+                alts = channel.get("alternatives") or []
+                transcript = ""
+                if alts:
+                    transcript = _clean(alts[0].get("transcript", ""))
+
+                is_final = bool(payload.get("is_final", False))
+
+                if transcript:
+                    session.dg_last_interim = transcript
+
+                if is_final and transcript:
+                    session.dg_final_parts.append(transcript)
+
+            elif msg_type == "UtteranceEnd":
+                session.finalize_generation += 1
+                generation = session.finalize_generation
+                asyncio.create_task(_finalize_streaming_utterance(session, generation))
+    except asyncio.CancelledError:
+        raise
+    except Exception as e:
+        if not session.ended:
+            _log(f"{session.call_sid} deepgram receiver error: {e}")
+
+
+async def _finalize_streaming_utterance(session: MediaSession, generation: int) -> None:
+    min_silence_seconds = _prompt_silence_seconds(session.expected_prompt)
+
+    while not session.ended:
+        if generation != session.finalize_generation:
+            return
+
+        now = time.time()
+        last_audio_at = session.last_user_audio_at
+        if last_audio_at <= 0:
+            break
+
+        silent_for = now - last_audio_at
+        if silent_for >= min_silence_seconds:
+            break
+
+        await asyncio.sleep(min(0.25, max(0.05, min_silence_seconds - silent_for)))
+
+    async with session.dg_finalize_lock:
+        if generation != session.finalize_generation:
+            return
+
+        if session.processing_user_turn or session.ended:
+            session.dg_final_parts.clear()
+            session.dg_last_interim = ""
+            return
+
+        text = _clean(" ".join(session.dg_final_parts))
+        if not text:
+            text = _clean(session.dg_last_interim)
+
+        session.dg_final_parts.clear()
+        session.dg_last_interim = ""
+
+        if not text:
+            return
+
+        if getattr(session, "last_finalized_transcript", "") == text:
+            return
+
+        session.last_finalized_transcript = text
+
+        session.processing_user_turn = True
+        try:
+            text = _canonicalize_transcript(session.expected_prompt, text)
+            await _process_transcript(session, text)
+        finally:
+            session.processing_user_turn = False
+
+
+async def _speak_mulaw(session: MediaSession, mulaw_bytes: bytes, phase: str, allow_barge_in: bool) -> None:
+    if not mulaw_bytes or session.ended:
+        return
+
+    async with session.speak_lock:
+        if session.ended:
+            return
+
+        session.current_phase = phase
+        session.bot_speaking = True
+        session.allow_barge_in = False
+        session.barge_in_enabled_at = 999999.0
+        session.pending_barge_mulaw.clear()
+        session.pending_barge_started_at = 0.0
+
+        t1 = time.time()
+        try:
+            await _send_mulaw(session, mulaw_bytes, wait_for_playback=True)
+            _log(f"{session.call_sid} playback_done phase={phase} ms={int((time.time()-t1)*1000)}")
+        finally:
+            session.bot_speaking = False
+            session.allow_barge_in = False
+            session.pending_barge_mulaw.clear()
+            session.pending_barge_started_at = 0.0
+            session.ignore_audio_until = time.time() + (CALLCARE_POST_PROMPT_IGNORE_MS / 1000.0)
+
+
+async def _speak_text(session: MediaSession, text: str, phase: str, allow_barge_in: bool) -> None:
+    text = _clean(text)
+    if not text or session.ended:
+        return
+
+    async with session.speak_lock:
+        if session.ended:
+            return
+
+        session.current_phase = phase
+        session.bot_speaking = True
+        session.allow_barge_in = False
+        session.barge_in_enabled_at = 999999.0
+        session.pending_barge_mulaw.clear()
+        session.pending_barge_started_at = 0.0
+
+        t0 = time.time()
+        try:
+            text = _spoken_text(text)
+            _log(f"{session.call_sid} tts_start phase={phase} speed={CALLCARE_ELEVENLABS_SPEED}")
+            audio = await _elevenlabs_tts_mulaw(text)
+            _log(f"{session.call_sid} tts_ready phase={phase} ms={int((time.time()-t0)*1000)} bytes={len(audio)}")
+            t1 = time.time()
+            await _send_mulaw(session, audio, wait_for_playback=True)
+            _log(f"{session.call_sid} playback_done phase={phase} ms={int((time.time()-t1)*1000)}")
+        finally:
+            session.bot_speaking = False
+            session.allow_barge_in = False
+            session.pending_barge_mulaw.clear()
+            session.pending_barge_started_at = 0.0
+            session.ignore_audio_until = time.time() + (CALLCARE_POST_PROMPT_IGNORE_MS / 1000.0)
+
+
+async def _play_hold_loop(session: MediaSession, stop_evt: asyncio.Event) -> None:
+    session.hold_playing = True
+    session.current_phase = "hold"
+    try:
+        hold_slice_bytes = 160 * 25
+        while not stop_evt.is_set() and not session.ended:
+            for i in range(0, len(HOLD_MULAW), hold_slice_bytes):
+                if stop_evt.is_set() or session.ended:
+                    break
+                chunk = HOLD_MULAW[i:i + hold_slice_bytes]
+                await _play_mulaw_realtime(session, chunk, frame_seconds=CALLCARE_HOLD_FRAME_SECONDS)
+    finally:
+        session.hold_playing = False
+        await _send_clear(session)
+
+
+async def _play_opening_prompt(session: MediaSession, opening: str) -> None:
+    try:
+        _log(f"{session.call_sid} opening_playback_begin")
+        await _speak_text(session, opening, phase="question", allow_barge_in=False)
+        _log(f"{session.call_sid} opening_playback_end")
+    except Exception as e:
+        _log(f"{session.call_sid} opening playback error: {e}")
+
+
+async def _run_completion(session: MediaSession) -> None:
+    session.finishing = True
+    session.current_phase = "processing"
+
+    await _speak_text(session, PROCESSING_LINE, phase="processing", allow_barge_in=False)
+
+    stop_evt = asyncio.Event()
+    session.hold_task = asyncio.create_task(_play_hold_loop(session, stop_evt))
+
+    summary = ""
+    timed_out = False
+    try:
+        summary = await asyncio.wait_for(
+            asyncio.to_thread(bridge.complete_session, session.call_sid),
+            timeout=CALLCARE_COMPLETE_TIMEOUT_SECONDS,
+        )
+    except asyncio.TimeoutError:
+        timed_out = True
+        _log(f"{session.call_sid} completion timed out after {CALLCARE_COMPLETE_TIMEOUT_SECONDS}s")
+    except Exception as e:
+        _log(f"{session.call_sid} completion exception: {e}")
+
+    summary = _clean(summary)
+    if timed_out or _summary_looks_bad(summary, session.expected_prompt):
+        summary = FALLBACK_SUMMARY
+
+    combined_summary = _clean(f"{POST_HOLD_LINE} {summary}")
+
+    _log(f"{session.call_sid} tts_start phase=summary speed={CALLCARE_ELEVENLABS_SPEED}")
+    summary_t0 = time.time()
+    summary_audio = await _elevenlabs_tts_mulaw(_spoken_text(combined_summary))
+    _log(f"{session.call_sid} tts_ready phase=summary ms={int((time.time()-summary_t0)*1000)} bytes={len(summary_audio)}")
+
+    _log(f"{session.call_sid} tts_start phase=goodbye speed={CALLCARE_ELEVENLABS_SPEED}")
+    goodbye_t0 = time.time()
+    goodbye_audio = await _elevenlabs_tts_mulaw(_spoken_text(GOODBYE_LINE))
+    _log(f"{session.call_sid} tts_ready phase=goodbye ms={int((time.time()-goodbye_t0)*1000)} bytes={len(goodbye_audio)}")
+
+    stop_evt.set()
+    if session.hold_task:
+        with suppress(Exception):
+            await session.hold_task
+        session.hold_task = None
+
+    await _speak_mulaw(session, summary_audio, phase="summary", allow_barge_in=False)
+    await asyncio.sleep(0.25)
+    await _speak_mulaw(session, goodbye_audio, phase="goodbye", allow_barge_in=False)
+    await asyncio.sleep(1.0)
+
+    session.ended = True
+    with suppress(Exception):
+        bridge.end_session(session.call_sid)
+    if session.ws is not None:
+        with suppress(Exception):
+            await session.ws.close()
+
+
+
+async def _finish_failed_verification(session: MediaSession) -> None:
+    await _speak_text(session, VERIFY_FAILED_PROMPT, phase="goodbye", allow_barge_in=False)
+    await asyncio.sleep(1.0)
+    session.ended = True
+    if session.ws is not None:
+        with suppress(Exception):
+            await session.ws.close()
+
+
+async def _begin_verified_clinical_flow(session: MediaSession) -> None:
+    _, opening = bridge.start_session(session.call_sid, from_number=session.from_number, to_number=session.to_number)
+    opening = _clean(f"{OPENING_HELLO} {opening}")
+    session.expected_prompt = opening.replace(f"{OPENING_HELLO} ", "", 1) if opening.startswith(f"{OPENING_HELLO} ") else opening
+    await _speak_text(session, opening, phase="question", allow_barge_in=False)
+
+
+async def _handle_verification_turn(session: MediaSession, transcript: str) -> None:
+    stage = session.verification_stage
+
+    if stage == "first_name":
+        session.verification_data["first_name"] = _clean(transcript)
+        session.verification_stage = "last_name"
+        session.expected_prompt = VERIFY_LAST_NAME_PROMPT
+        await _speak_text(session, VERIFY_LAST_NAME_PROMPT, phase="question", allow_barge_in=False)
+        return
+
+    if stage == "last_name":
+        session.verification_data["last_name"] = _clean(transcript)
+        session.verification_stage = "dob"
+        session.expected_prompt = VERIFY_DOB_PROMPT
+        await _speak_text(session, VERIFY_DOB_PROMPT, phase="question", allow_barge_in=False)
+        return
+
+    if stage == "dob":
+        dob_iso = normalize_dob_text(transcript)
+        if not dob_iso:
+            session.expected_prompt = VERIFY_DOB_PROMPT
+            await _speak_text(session, "I did not catch a valid date of birth. Please say your date of birth again.", phase="question", allow_barge_in=False)
+            return
+        session.verification_data["dob"] = dob_iso
+        session.verification_stage = "pin"
+        session.expected_prompt = VERIFY_PIN_PROMPT
+        await _speak_text(session, VERIFY_PIN_PROMPT, phase="question", allow_barge_in=False)
+        return
+
+    if stage == "pin":
+        session.verification_data["pin"] = _clean(transcript)
+        verified = await asyncio.to_thread(
+            verify_patient_identity,
+            session.verification_data.get("first_name", ""),
+            session.verification_data.get("last_name", ""),
+            session.verification_data.get("dob", ""),
+            session.verification_data.get("pin", ""),
+        )
+        if not verified:
+            await _finish_failed_verification(session)
+            return
+
+        session.patient_verified = True
+        session.patient_id = verified["patient_id"]
+        session.chart_number = verified["chart_number"]
+        session.chart_context = await asyncio.to_thread(get_chart_context, session.patient_id)
+        session.encounter_id = await asyncio.to_thread(create_verified_encounter, session.patient_id, session.call_sid)
+        await asyncio.to_thread(
+            update_encounter_identity,
+            session.encounter_id,
+            f'{verified["legal_first_name"]} {verified["legal_last_name"]}',
+            verified["date_of_birth"],
+        )
+        await _begin_verified_clinical_flow(session)
+        return
+
+async def _process_transcript(session: MediaSession, transcript: str) -> None:
+    transcript = _clean(transcript)
+    if not transcript or session.ended:
+        return
+
+    _log(f"{session.call_sid} USER: {transcript}")
+
+    if not session.patient_verified:
+        await _handle_verification_turn(session, transcript)
+        return
+
+    if session.encounter_id and "main medical concern today" in session.expected_prompt.lower():
+        await asyncio.to_thread(update_encounter_chief_complaint, session.encounter_id, transcript)
+
+    result = await asyncio.to_thread(bridge.handle_prompt_text, session.call_sid, transcript)
+
+    say = _clean(getattr(result, "say", ""))
+    done = bool(getattr(result, "done", False))
+
+    if done:
+        await _run_completion(session)
+        return
+
+    if say:
+        session.expected_prompt = say
+        session.last_finalized_transcript = ""
+        _log(f"{session.call_sid} BOT: {say}")
+        await _speak_text(session, say, phase="question", allow_barge_in=True)
+
+
+@app.get("/health")
+async def health() -> dict:
+    return {"ok": True}
+
+
+@app.api_route("/twilio/voice", methods=["GET", "POST"])
+async def twilio_voice(request: Request) -> PlainTextResponse:
+    if request.method == "POST":
+        form = await request.form()
+        from_number = str(form.get("From", "") or "")
+        to_number = str(form.get("To", "") or "")
+    else:
+        from_number = str(request.query_params.get("From", "") or "")
+        to_number = str(request.query_params.get("To", "") or "")
+
+    stream_url = _stream_wss_url()
+
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        "<Response>"
+        "<Connect>"
+        f'<Stream url="{_xml_escape(stream_url)}">'
+        f'<Parameter name="from_number" value="{_xml_escape(from_number)}" />'
+        f'<Parameter name="to_number" value="{_xml_escape(to_number)}" />'
+        "</Stream>"
+        "</Connect>"
+        "</Response>"
+    )
+    return PlainTextResponse(content=xml, media_type="application/xml")
+
+
+@app.websocket("/twilio/media-stream")
+async def twilio_media_stream(ws: WebSocket) -> None:
+    await ws.accept()
+    session: Optional[MediaSession] = None
+
+    try:
+        while True:
+            msg = await ws.receive_text()
+            payload = json.loads(msg)
+            event = payload.get("event")
+
+            if event == "connected":
+                _log("websocket connected")
+                continue
+
+            if event == "start":
+                start = payload.get("start", {}) or {}
+                custom = start.get("customParameters", {}) or {}
+
+                call_sid = str(start.get("callSid") or "")
+                stream_sid = str(start.get("streamSid") or payload.get("streamSid") or "")
+                from_number = str(custom.get("from_number") or "")
+                to_number = str(custom.get("to_number") or "")
+
+                session = MediaSession(
+                    call_sid=call_sid,
+                    stream_sid=stream_sid,
+                    from_number=from_number,
+                    to_number=to_number,
+                    ws=ws,
+                )
+                SESSIONS[call_sid] = session
+
+                opening = VERIFY_FIRST_NAME_PROMPT
+                session.expected_prompt = opening
+                _log(f"{call_sid} BOT OPENING TEXT READY: {opening}")
+
+                session.last_finalized_transcript = ""
+                await _start_deepgram_stream(session)
+                _log(f"{call_sid} deepgram_stream_started")
+
+                session.ignore_audio_until = time.time() + 15.0
+                session.opening_task = asyncio.create_task(_play_opening_prompt(session, opening))
+
+                continue
+
+            if session is None:
+                continue
+
+            if event == "media":
+                if session.ended:
+                    continue
+
+                now = time.time()
+                media = payload.get("media", {}) or {}
+                b64 = media.get("payload")
+                if not b64:
+                    continue
+
+                chunk = base64.b64decode(b64)
+                rms = _rms_mulaw(chunk)
+
+                if now < session.ignore_audio_until:
+                    continue
+
+                if session.hold_playing or session.finishing or session.current_phase in {"processing", "summary", "goodbye", "hold"}:
+                    continue
+
+                if session.bot_speaking:
+                    continue
+
+                if rms >= CALLCARE_RMS_THRESHOLD:
+                    session.last_user_audio_at = now
+                    session.finalize_generation += 1
+
+                if session.dg_ws:
+                    with suppress(Exception):
+                        await session.dg_ws.send(chunk)
+                continue
+
+            if event == "mark":
+                mark = payload.get("mark", {}) or {}
+                name = str(mark.get("name") or "")
+                evt = session.mark_waiters.get(name)
+                if evt:
+                    evt.set()
+                continue
+
+            if event == "stop":
+                _log(f"{session.call_sid} stop received")
+                session.ended = True
+                break
+
+    except WebSocketDisconnect:
+        _log("websocket disconnected")
+    except Exception as e:
+        msg = str(e)
+        if "WebSocket is not connected" in msg or "Unexpected ASGI message" in msg:
+            _log("websocket disconnected")
+        else:
+            _log(f"websocket error: {e}")
+    finally:
+        if session is not None:
+            session.ended = True
+            if session.opening_task:
+                session.opening_task.cancel()
+                with suppress(asyncio.CancelledError, Exception):
+                    await session.opening_task
+                session.opening_task = None
+            await _close_deepgram_stream(session)
+            SESSIONS.pop(session.call_sid, None)
+            with suppress(Exception):
+                bridge.end_session(session.call_sid)

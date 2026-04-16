@@ -1,0 +1,30 @@
+id: uri_sinus_overlap
+version: 0.1
+match:
+  any_keywords: ["sinus pressure", "facial pressure", "postnasal drip", "green mucus", "stuffy nose", "sinus congestion", "sinus headache"]
+questions:
+  - id: severe
+    prompt: "Any severe headache, stiff neck, confusion, or trouble breathing? (yes/no)"
+    store_as: severe_redflags
+    type: yesno
+
+  - id: duration
+    prompt: "How many days have you had these symptoms?"
+    store_as: days
+
+  - id: fever
+    prompt: "Have you had a fever over the last day? (yes/no)"
+    store_as: fever
+    type: yesno
+
+  - id: focal_face
+    prompt: "Is there severe one-sided facial pain or swelling around an eye? (yes/no)"
+    store_as: orbital_or_focal
+    type: yesno
+
+stop_rules:
+  - if_all_answered: ["severe","duration","fever","focal_face"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_1_REVIEW

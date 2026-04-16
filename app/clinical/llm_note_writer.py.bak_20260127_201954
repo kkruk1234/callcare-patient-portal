@@ -1,0 +1,381 @@
+import os
+from typing import List, Dict, Any, Optional, Tuple, Union
+
+from openai import OpenAI
+from app.core.models import EvidenceRef, CallState
+
+
+# ============================
+# Helpers (safe parsing)
+# ============================
+
+def _as_int(v) -> Optional[int]:
+    try:
+        if v is None:
+            return None
+        s = str(v).strip()
+        if not s:
+            return None
+        n = float(s)
+        if n <= 0 or n > 120:
+            return None
+        return int(round(n))
+    except Exception:
+        return None
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _answers_dict(state: CallState) -> Dict[str, Any]:
+    sx = _symptoms_dict(state)
+    ans = sx.get("_answers", {})
+    return ans if isinstance(ans, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def _age_years(state: CallState) -> Optional[int]:
+    return _as_int(getattr(state, "age_years", None))
+
+
+def _chief_complaint(state: CallState) -> str:
+    return (getattr(state, "chief_complaint", "") or "").strip()
+
+
+def _allergies_text(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    for k in ("allergies", "med_allergies", "medication_allergies"):
+        if k in sx and sx.get(k):
+            return str(sx.get(k)).strip()
+    v = getattr(state, "allergies", None)
+    return ("" if v is None else str(v)).strip()
+
+
+# ============================
+# Pregnancy policy
+# ============================
+
+def _preg_raw(state: CallState) -> str:
+    raw = getattr(state, "pregnancy_possible", None)
+    return ("" if raw is None else str(raw)).strip()
+
+
+def _preg_sentence_from_raw(raw: str) -> str:
+    s = (raw or "").strip().lower()
+    if s in ("no", "false", "0", "n", "not pregnant"):
+        return "Patient is not pregnant."
+    if s in ("yes", "true", "1", "y", "pregnant", "possible"):
+        return "Pregnancy is possible or status is uncertain."
+    if s in ("unknown", "unsure", "?"):
+        return "Pregnancy status is unknown."
+    if s in ("not_applicable", "na", "n/a", "not applicable"):
+        return "Pregnancy not applicable."
+    return "Pregnancy status is unknown."
+
+
+# ============================
+# Tick-bite specifics
+# ============================
+
+def _tick_attachment_hours(state: CallState) -> Optional[int]:
+    sx = _symptoms_dict(state)
+    for k in ("tick_attachment_timeframe", "tick_attached_timeframe", "tick_attachment_hours", "tick_attached_hours"):
+        if k not in sx:
+            continue
+        raw = str(sx.get(k)).strip().lower()
+        if not raw:
+            continue
+        cleaned = (
+            raw.replace("hours", "")
+            .replace("hour", "")
+            .replace("about", "")
+            .replace("approximately", "")
+            .strip()
+        )
+        iv = _as_int(cleaned)
+        if iv is not None:
+            return iv
+        for token in raw.replace("/", " ").replace(",", " ").split():
+            iv = _as_int(token)
+            if iv is not None:
+                return iv
+    return None
+
+
+def _best_exposure_location(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    for k in ("exposure_location", "location", "state_exposure", "exposure_state", "travel_location"):
+        v = sx.get(k)
+        if v:
+            return str(v).strip()
+    return ""
+
+
+def _has_bullseye_rash(state: CallState) -> Optional[bool]:
+    ans = _answers_dict(state)
+    for k in ("tick_rash", "bullseye_rash", "erythema_migrans", "em_rash", "expanding_rash"):
+        if k in ans:
+            v = str(ans.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+
+    sx = _symptoms_dict(state)
+    for k in ("bullseye_rash", "erythema_migrans", "expanding_rash"):
+        if k in sx:
+            v = str(sx.get(k)).strip().lower()
+            if v in ("yes", "y", "true", "1"):
+                return True
+            if v in ("no", "n", "false", "0"):
+                return False
+    return None
+
+
+def _systemic_answer_text_for_tickbite(state: CallState) -> str:
+    ans = _answers_dict(state)
+    for k in ("systemic_symptoms", "systemic", "tick_systemic"):
+        if k in ans and ans.get(k) is not None:
+            raw = str(ans.get(k)).strip().lower()
+            if raw in ("none", "no", "n", "nil"):
+                return "None reported."
+            return str(ans.get(k)).strip()
+    return ""
+
+
+# ============================
+# Evidence formatting
+# ============================
+
+def _evidence_text(evidence: List[EvidenceRef]) -> str:
+    if not evidence:
+        return "(No evidence snippets retrieved.)"
+    lines: List[str] = []
+    for i, e in enumerate(evidence[:8], 1):
+        src = (getattr(e, "source", "") or "").strip()
+        snip = (getattr(e, "snippet", "") or "").strip()
+        url = (getattr(e, "url", "") or "").strip()
+        if url:
+            lines.append(f"[{i}] SOURCE: {src}\nURL: {url}\nSNIPPET: {snip}")
+        else:
+            lines.append(f"[{i}] SOURCE: {src}\nSNIPPET: {snip}")
+    return "\n\n".join(lines)
+
+
+# ============================
+# Prompt builder (strict)
+# ============================
+
+def build_prompt(state: CallState, evidence: List[EvidenceRef]) -> str:
+    pid = _pathway_id(state)
+    cc = _chief_complaint(state)
+    age = _age_years(state)
+    allergies = _allergies_text(state)
+
+    sx = _symptoms_dict(state)
+    ans = _answers_dict(state)
+
+    preg_raw = _preg_raw(state)
+    preg_sentence = _preg_sentence_from_raw(preg_raw) if preg_raw else ""
+
+    attach_h = _tick_attachment_hours(state)
+    exposure = _best_exposure_location(state)
+    bullseye = _has_bullseye_rash(state)
+    systemic_txt = _systemic_answer_text_for_tickbite(state)
+
+    case_lines: List[str] = []
+    if age is not None:
+        case_lines.append(f"AGE_YEARS: {age}")
+    case_lines.append(f"CHIEF_COMPLAINT: {cc or '(not captured)'}")
+    case_lines.append(f"PATHWAY_ID: {pid or '(none)'}")
+    case_lines.append(f"ALLERGIES: {allergies or 'no known medication allergies (or not captured)'}")
+
+    if preg_sentence:
+        case_lines.append(f"PREGNANCY_SENTENCE: {preg_sentence}")
+    else:
+        case_lines.append("PREGNANCY_SENTENCE: (do not mention pregnancy)")
+
+    if pid == "tick_bite":
+        if exposure:
+            case_lines.append(f"EXPOSURE_LOCATION: {exposure}")
+        if attach_h is not None:
+            case_lines.append(f"TICK_ATTACHED_HOURS: {attach_h}")
+        if bullseye is True:
+            case_lines.append("RASH: expanding/bullseye-like rash reported (erythema migrans-like).")
+        elif bullseye is False:
+            case_lines.append("RASH: expanding/bullseye rash denied.")
+        if systemic_txt:
+            case_lines.append(f"SYSTEMIC_SYMPTOMS_RESPONSE: {systemic_txt}")
+
+    ev_text = _evidence_text(evidence)
+
+    hard_rules = """
+HARD RULES (TRUTHFULNESS):
+- Use ONLY the CASE DATA / STRUCTURED_ANSWERS / STORED_SYMPTOM_FIELDS. Do not invent negatives.
+- Do NOT write “denies chest pain, dyspnea, palpitations, syncope, confusion, facial palsy, neurologic deficits” unless those were explicitly asked and present in structured data.
+- If not asked, do NOT deny it.
+
+HARD RULES (STYLE):
+- Phone-only urgent care / primary care clinician note (NOT nurse triage).
+- No vitals, no exam.
+
+HARD RULES (TREATMENT):
+- If PATHWAY_ID == tick_bite and bullseye/erythema migrans-like rash is reported, include a specific antibiotic regimen with dose + frequency + duration (adult) AND list alternatives.
+- Phrase prescribing as: “Recommended regimen; reviewing physician will confirm appropriateness and prescribe if indicated.”
+""".strip()
+
+    # Your formatting preferences, enforced ONLY for tick_bite
+    style_preferences = ""
+    if pid == "tick_bite":
+        style_preferences = """
+TICK_BITE FORMAT PREFERENCES (MUST FOLLOW):
+- Objective must start exactly:
+  "O: No physical exam available due to phone-only encounter. Patient describes a characteristic bullseye rash consistent with erythema migrans at the tick bite site."
+  Then add ONE sentence about systemic symptoms:
+  - If systemic symptoms response was None/No: "No reported systemic signs or symptoms."
+  - If systemic symptoms reported: list only what was reported (do not invent).
+- Assessment format must be:
+A:
+ - Working diagnosis (most likely): ...
+ - Differential:
+  1. ...
+  2. ...
+  3. ...
+  4. ...
+ - Red flags considered: No systemic symptoms reported (fever, chills, severe headache, body aches, stiff neck).
+- Differential for erythema migrans should include (as appropriate):
+  1. Early localized Lyme disease
+  2. Southern tick-associated rash illness (STARI)
+  3. Cellulitis or local skin infection
+  4. Allergic reaction to tick bite
+""".strip()
+
+    tickbite_regimens = ""
+    if pid == "tick_bite":
+        tickbite_regimens = """
+TICK BITE / ERYTHEMA MIGRANS REGIMENS (include in Plan when appropriate):
+- Adult first-line (if not pregnant and no contraindication): doxycycline 100 mg PO twice daily x 10 days.
+- Adult alternatives: amoxicillin 500 mg PO three times daily x 14 days OR cefuroxime axetil 500 mg PO twice daily x 14 days.
+- If unable to take doxycycline/amoxicillin/cefuroxime: azithromycin 500 mg PO daily x 7 days (less effective; use only if needed).
+- Pregnancy note (only if pregnancy was captured as possible/yes): avoid doxycycline; prefer amoxicillin.
+""".strip()
+
+    return f"""
+{hard_rules}
+
+{style_preferences}
+
+{tickbite_regimens}
+
+CASE DATA:
+{chr(10).join(case_lines)}
+
+STRUCTURED_ANSWERS (verbatim):
+{ans}
+
+STORED_SYMPTOM_FIELDS (verbatim):
+{ {k: v for k, v in sx.items() if not str(k).startswith("_")} }
+
+EVIDENCE SNIPPETS:
+{ev_text}
+
+OUTPUT FORMAT (plain text; headings exactly):
+S:
+O:
+A:
+ - Working diagnosis (most likely):
+ - Differential:
+  1.
+  2.
+  3.
+  4.
+ - Red flags considered:
+P:
+ - Disposition:
+ - Plan:
+ - Safety net:
+""".strip()
+
+
+# ============================
+# LLM call
+# ============================
+
+def _client_and_model() -> Tuple[OpenAI, str]:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set.")
+    client = OpenAI(api_key=api_key)
+
+    model = os.getenv("CALLCARE_LLM_MODEL", "").strip()
+    if not model:
+        model = "gpt-4.1-mini"
+    return client, model
+
+
+def _generate_from_prompt(prompt: str) -> str:
+    client, model = _client_and_model()
+
+    resp = client.responses.create(
+        model=model,
+        input=[
+            {
+                "role": "system",
+                "content": "You are a careful clinician writing a structured SOAP note from phone-only history and given evidence. Do not hallucinate or invent negatives."
+            },
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+        max_output_tokens=900,
+    )
+
+    text = getattr(resp, "output_text", None)
+    if not text:
+        try:
+            parts = []
+            for o in resp.output:
+                for c in getattr(o, "content", []) or []:
+                    if getattr(c, "type", "") == "output_text":
+                        parts.append(getattr(c, "text", ""))
+            text = "\n".join([p for p in parts if p])
+        except Exception:
+            text = ""
+    return (text or "").strip()
+
+
+def generate_note(state: CallState, evidence: List[EvidenceRef]) -> str:
+    prompt = build_prompt(state, evidence)
+    return _generate_from_prompt(prompt)
+
+
+# ============================
+# Exports / back-compat
+# ============================
+
+def generate_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def write_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def create_llm_note(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+def create_note_text(state: CallState, evidence: Optional[List[EvidenceRef]] = None) -> str:
+    return generate_note(state, evidence or [])
+
+
+def generate_note_text(prompt_or_state: Union[str, CallState], evidence: Optional[List[EvidenceRef]] = None) -> str:
+    if isinstance(prompt_or_state, str):
+        return _generate_from_prompt(prompt_or_state)
+    return generate_note(prompt_or_state, evidence or [])

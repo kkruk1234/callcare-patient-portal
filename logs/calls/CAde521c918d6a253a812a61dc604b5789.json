@@ -1,0 +1,159 @@
+{
+  "call_sid": "CAde521c918d6a253a812a61dc604b5789",
+  "session_id": "db34e281-04b7-40a2-a432-b76056d5767e",
+  "from_number": "+13047161912",
+  "to_number": "+18446606064",
+  "created_at": "2026-03-15T20:54:12.372495+00:00",
+  "ended_at": "2026-03-15T20:59:44.298213+00:00",
+  "packet_id": "5495411a-e873-44f9-a509-73c18d6f7a1d",
+  "transcript": [
+    {
+      "role": "assistant",
+      "text": "I'm an automated medical assistant. If this is an emergency, hang up and call 911. Do you consent to continue? (yes/no)"
+    },
+    {
+      "role": "user",
+      "text": "Yes."
+    },
+    {
+      "role": "assistant",
+      "text": "What is your main medical concern today?"
+    },
+    {
+      "role": "user",
+      "text": "I twisted my ankle."
+    },
+    {
+      "role": "assistant",
+      "text": "When did you twist your ankle?"
+    },
+    {
+      "role": "user",
+      "text": "About 6 hours ago."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe where exactly on your ankle you feel the pain?"
+    },
+    {
+      "role": "user",
+      "text": "It's on the outside underneath the bone."
+    },
+    {
+      "role": "assistant",
+      "text": "Any difficulty walking or bearing weight on that ankle?"
+    },
+    {
+      "role": "user",
+      "text": "Towards the heel, I guess."
+    },
+    {
+      "role": "assistant",
+      "text": "Any swelling or bruising around the ankle?"
+    },
+    {
+      "role": "user",
+      "text": "no. The rest of the ankle is fine."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe how you twisted your ankle and if you heard or felt a pop at the time?"
+    },
+    {
+      "role": "user",
+      "text": "I did not hear or feel a pop, but I was walking, and I tripped on 1 of my dogs chew toys and rolled my ankle up."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you had any previous ankle injuries or chronic ankle problems on this side?"
+    },
+    {
+      "role": "user",
+      "text": "Under"
+    },
+    {
+      "role": "assistant",
+      "text": "Can you walk on it now without significant pain or limping?"
+    },
+    {
+      "role": "user",
+      "text": "No. It hurts when I walk."
+    },
+    {
+      "role": "assistant",
+      "text": "Any numbness, tingling, or changes in color of the foot or toes?"
+    },
+    {
+      "role": "user",
+      "text": "It's fairly significant."
+    },
+    {
+      "role": "assistant",
+      "text": "Can you describe the numbness or tingling you are experiencing and if there is any weakness in your foot or toes?"
+    },
+    {
+      "role": "user",
+      "text": "I don't have numbness or tingling that I'm experiencing. I never said that."
+    },
+    {
+      "role": "assistant",
+      "text": "Any pain or tenderness directly over the bony prominences around your ankle, such as the lateral malleolus or the base of the fifth metatarsal?"
+    },
+    {
+      "role": "user",
+      "text": "I I don't know what those are."
+    },
+    {
+      "role": "assistant",
+      "text": "The next few questions may feel repetitive, but they are important for medication safety and treatment decisions. How old are you? Please say your age in years."
+    },
+    {
+      "role": "user",
+      "text": "47."
+    },
+    {
+      "role": "assistant",
+      "text": "Do you have any medication allergies? If yes, list them. If no, say no."
+    },
+    {
+      "role": "user",
+      "text": "Penicillin."
+    },
+    {
+      "role": "assistant",
+      "text": "What sex were you assigned at birth? Please say male or female."
+    },
+    {
+      "role": "user",
+      "text": "Now."
+    },
+    {
+      "role": "assistant",
+      "text": "Is pregnancy possible? (yes/no/unknown)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have kidney disease or significantly reduced kidney function? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "Have you ever been told you have liver disease (such as hepatitis, cirrhosis, fatty liver, or abnormal liver tests)? (yes/no/not sure)"
+    },
+    {
+      "role": "user",
+      "text": "No."
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like you likely have a sprained ankle, which means some of the ligaments on the outside of your ankle are stretched or torn. Since I can’t examine you or do any tests over the phone, a licensed physician will review your information and may recommend medication like ibuprofen or acetaminophen to help with pain and swelling. For now, you can rest your ankle, keep it elevated, and apply ice wrapped in a cloth for about 20 minutes every few hours. If your pain or swelling gets worse, if you can’t put weight on your foot, or if you notice numbness or color changes, please seek in-person care the same day. If you need an exam or X-rays, you would need to go to urgent care or the emergency room. A doctor will review your case and decide if further treatment or medication is needed."
+    }
+  ]
+}

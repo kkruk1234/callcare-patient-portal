@@ -1,0 +1,67 @@
+{
+  "packet_id": "880d5a0e-50cd-4280-bc0c-3e47db41f7c0",
+  "created_at": "2026-02-21T01:25:24.834399+00:00",
+  "session_id": "934baf52-5cda-44ca-b8b1-299091795609",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain associated with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Have you noticed any numbness, weakness, or tingling in your legs or feet?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and if so, what and did they help?",
+    "intake_a7": "I tried tylenol but it didn't help very much",
+    "intake_q8": "Any history of kidney problems, recent urinary symptoms, or abdominal pain?",
+    "intake_a8": "no",
+    "intake_q9": "Any history of cancer, osteoporosis, or recent steroid use?",
+    "intake_a9": "no",
+    "intake_q10": "Any recent activities or movements that seemed to trigger or worsen the pain?",
+    "intake_a10": "leaning against the area when sitting and poor posture makes the pain worse",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started three weeks ago. She denies any recent injury or trauma, fever, chills, weight loss, shortness of breath, cough, chest pain, numbness, weakness, or tingling in her legs or feet. She has no history of kidney problems, urinary symptoms, abdominal pain, cancer, osteoporosis, or recent steroid use. The pain worsens with leaning against the area when sitting and poor posture. She has tried acetaminophen (Tylenol) with minimal relief. Patient is not pregnant.\n\nO: \nPhone evaluation only; no physical exam or vital signs available.\n\nA: \nThe working diagnosis is musculoskeletal back pain likely related to poor posture and mechanical strain localized to the left lower rib cage area. There is no evidence of systemic illness or neurologic involvement.\n\nDifferential: \n1. Musculoskeletal strain or myofascial pain \n2. Costochondritis or rib dysfunction \n3. Early intercostal nerve irritation \n4. Referred pain from underlying visceral structures (less likely given absence of systemic symptoms)\n\nP: \n - First-line medication: Acetaminophen 500 mg every 6 hours as needed for pain \n - Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen 400 mg every 8 hours as needed if no contraindications \n - Medication safety considerations: Avoid NSAIDs if history of gastrointestinal bleeding, renal disease, or liver disease; acetaminophen should not exceed 3000 mg daily \n - Return precautions: Return if pain worsens, new onset of numbness, weakness, fever, unexplained weight loss, or if pain is associated with chest pain or shortness of breath \n - Testing: None indicated at this time given lack of red flag symptoms; consider imaging if symptoms persist beyond 6 weeks or worsen significantly",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": []
+  },
+  "evidence": [],
+  "state": null
+}

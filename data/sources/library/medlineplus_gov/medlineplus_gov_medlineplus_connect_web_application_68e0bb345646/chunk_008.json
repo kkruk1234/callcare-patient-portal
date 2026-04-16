@@ -1,0 +1,10 @@
+{
+  "title": "MedlinePlus: MedlinePlus Connect: Web Application",
+  "url": "https://medlineplus.gov/medlineplus-connect/web-application/",
+  "publisher": "medlineplus.gov",
+  "date": "2026-01-28",
+  "text": "%20Oral%20Tablet&informationRecipient.languageCode.c=en \nTo request information by an NDC for a Spanish speaker, your request should look like this:\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.cs=2.16.840.1.113883.6.69&mainSearchCriteria.v.c=%2000310-0751-39&informationRecipient.languageCode.c=es\nTo send a text string without a medication code, you must identify your query as an NDC-type request so MedlinePlus Connect knows you are looking for medication information. This will work for English only. Your request could look like this:\nhttps://connect.medlineplus.gov/application?mainSearchCriteria.v.cs=2.16.840.1.113883.6.69&mainSearchCriteria.v.dn=Chantix%200.5%20MG%20Oral%20Tablet&informationRecipient.languageCode.c=en\nLab Test Code Requests \nMedlinePlus Connect provides matches to laboratory test information when receiving a LOINC request. MedlinePlus Connect can provide responses to lab test requests in English or Spanish and will return a link to a results page with the best matches from the MedlinePlus lab test information.\nFor requests for lab test information, the base URL is:\nhttps://connect.medlineplus.gov/application\nThese are two required parameters for any lab test query to this application:\nIdentify that you are using the LOINC code system.\nFor LOINC use: \nmainSearchCriteria.v.cs=2.16.840.1.113883.6.1 \nMedlinePlus Connect will also accept: \nmain",
+  "source_type": "library",
+  "source_id": "medlineplus_gov_medlineplus_connect_web_application_68e0bb345646",
+  "chunk_id": "chunk_008"
+}

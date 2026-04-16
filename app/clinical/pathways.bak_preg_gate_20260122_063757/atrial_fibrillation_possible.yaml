@@ -1,0 +1,22 @@
+id: atrial_fibrillation_possible
+version: 0.1
+match:
+  any_keywords: ["irregular heartbeat", "heart fluttering", "palpitations", "heart racing", "skipping beats"]
+questions:
+  - id: chest_pain
+    prompt: "Any chest pressure, severe shortness of breath, fainting, or confusion? (yes/no)"
+    store_as: danger_signs
+    type: yesno
+  - id: stroke
+    prompt: "Any new face droop, one-sided weakness, or trouble speaking? (yes/no)"
+    store_as: stroke_signs
+    type: yesno
+  - id: duration
+    prompt: "Did this start suddenly today? (yes/no)"
+    store_as: sudden_onset
+    type: yesno
+stop_rules:
+  - if_all_answered: ["chest_pain", "stroke", "duration"]
+    outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

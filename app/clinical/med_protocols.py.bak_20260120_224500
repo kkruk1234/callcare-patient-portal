@@ -1,0 +1,125 @@
+from __future__ import annotations
+
+import os
+from typing import Any, Dict, List, Optional, Tuple
+
+from app.core.models import CallState
+
+# We avoid making YAML a hard dependency at import-time; if it's missing, we fail gracefully.
+try:
+    import yaml  # type: ignore
+except Exception:  # pragma: no cover
+    yaml = None
+
+
+def _symptoms_dict(state: CallState) -> Dict[str, Any]:
+    sx = getattr(state, "symptoms", None) or {}
+    return sx if isinstance(sx, dict) else {}
+
+
+def _pathway_id(state: CallState) -> str:
+    sx = _symptoms_dict(state)
+    p = sx.get("_pathway", {})
+    if isinstance(p, dict) and p.get("id"):
+        return str(p["id"]).strip()
+    pid = getattr(state, "pathway_id", None) or getattr(state, "pathway", None)
+    return str(pid).strip() if pid else ""
+
+
+def load_med_protocol_for_state(state: CallState) -> Tuple[Optional[Dict[str, Any]], str]:
+    """
+    Loads data/protocols/meds/<pathway_id>.yaml (if present).
+    Returns (protocol_dict_or_None, reason_if_none).
+    """
+    if yaml is None:
+        return (None, "PyYAML not installed (cannot load meds protocol).")
+
+    pid = _pathway_id(state)
+    if not pid:
+        return (None, "No pathway_id available at note time.")
+
+    path = os.path.join("data", "protocols", "meds", f"{pid}.yaml")
+    if not os.path.exists(path):
+        return (None, f"No meds protocol file found for pathway_id={pid} ({path}).")
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        if not isinstance(data, dict):
+            return (None, f"Invalid meds protocol YAML structure in {path} (expected mapping).")
+        return (data, "")
+    except Exception as e:
+        return (None, f"Failed to read meds protocol {path}: {type(e).__name__}: {str(e)[:160]}")
+
+
+def format_protocol_as_plan_block(protocol: Dict[str, Any], *, tier1_phrase: str = "Recommended regimen; reviewing physician will confirm appropriateness and prescribe if indicated.") -> List[str]:
+    """
+    Converts a protocol dict into a list of lines suitable for inserting into the SOAP Plan section.
+    Assumes the schema you already use:
+      rx_options: [{med,dosing,exclusions,notes}, ...]
+      supportive_care: [{item,details}, ...]
+      followup_and_safety: [{item,details}, ...]
+    """
+    lines: List[str] = []
+    rx = protocol.get("rx_options", []) or []
+    supp = protocol.get("supportive_care", []) or []
+    fu = protocol.get("followup_and_safety", []) or []
+
+    def _as_list(x) -> List[Dict[str, Any]]:
+        if isinstance(x, list):
+            return [i for i in x if isinstance(i, dict)]
+        return []
+
+    rx = _as_list(rx)
+    supp = _as_list(supp)
+    fu = _as_list(fu)
+
+    if rx:
+        lines.append("Medication recommendations:")
+        lines.append(f"- {tier1_phrase}")
+        for opt in rx:
+            med = str(opt.get("med", "") or "").strip()
+            dosing = str(opt.get("dosing", "") or "").strip()
+            exclusions = str(opt.get("exclusions", "") or "").strip()
+            notes = str(opt.get("notes", "") or "").strip()
+
+            if not (med or dosing or notes or exclusions):
+                continue
+
+            head = (med + (" — " + dosing if dosing else "")).strip(" —")
+            if head:
+                lines.append(f"- {head}")
+            if notes:
+                lines.append(f"  - Notes: {notes}")
+            if exclusions:
+                lines.append(f"  - Exclusions: {exclusions}")
+
+    if supp:
+        lines.append("Supportive care:")
+        for it in supp:
+            item = str(it.get("item", "") or "").strip()
+            details = str(it.get("details", "") or "").strip()
+            if not (item or details):
+                continue
+            if item and details:
+                lines.append(f"- {item}: {details}")
+            elif item:
+                lines.append(f"- {item}")
+            else:
+                lines.append(f"- {details}")
+
+    if fu:
+        lines.append("Follow-up and safety:")
+        for it in fu:
+            item = str(it.get("item", "") or "").strip()
+            details = str(it.get("details", "") or "").strip()
+            if not (item or details):
+                continue
+            if item and details:
+                lines.append(f"- {item}: {details}")
+            elif item:
+                lines.append(f"- {item}")
+            else:
+                lines.append(f"- {details}")
+
+    return lines

@@ -1,0 +1,92 @@
+{
+  "packet_id": "18a4c251-0a8a-40f8-9c63-2c25eb2c8820",
+  "created_at": "2026-03-03T18:44:19.359380+00:00",
+  "session_id": "4c7ac44e-324e-4409-beb1-cd89c3a1dd5b",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any recent injury or trauma to your back or ribs?",
+    "intake_a3": "no",
+    "intake_q4": "Any fever, chills, or unexplained weight loss since the pain started?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain with the back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any history of kidney problems, urinary symptoms, or abdominal pain?",
+    "intake_a6": "no",
+    "intake_q7": "Have you noticed any numbness, tingling, or weakness in your legs or feet?",
+    "intake_a7": "no",
+    "intake_q8": "Have you tried any treatments or medications for your back pain so far?",
+    "intake_a8": "I tried tylenol but it didn't help very much",
+    "intake_q9": "Can you describe the quality of the pain and whether it changes with movement or position?",
+    "intake_a9": "dull ache that is worse with poor posture and leaning against the area when sitting",
+    "intake_q10": "Any history of osteoporosis, cancer, or recent infections?",
+    "intake_a10": "no",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no",
+    "evidence_search_queries": [
+      "back pain management guidelines adult",
+      "adult back pain treatment dosing acetaminophen mg duration",
+      "back pain red flags and return precautions adult"
+    ]
+  },
+  "med_suggestions": [],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with a 3-week history of dull aching pain localized to the left side of the lower rib cage. The pain worsens with poor posture and leaning against the area when sitting. She denies any recent trauma, fever, chills, weight loss, respiratory symptoms, urinary symptoms, or neurological deficits. She has tried acetaminophen (Tylenol) without significant relief. O: Phone evaluation only; no physical examination or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely related to postural strain affecting the left lower rib cage area. Differential:\n1. Musculoskeletal strain or myofascial pain\n2. Costochondritis or rib inflammation\n3. Intercostal nerve irritation\n4. Early presentation of visceral pathology (less likely given absence of systemic symptoms)\n\nP:\n- Medication safety considerations: Avoid NSAIDs if history of renal or liver disease; monitor for gastrointestinal side effects\n - Alternatives: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen if no contraindications\n - Acetaminophen 650 mg every 6 hours as needed for pain (use caution in liver disease; consider lower max daily dose)\n - Return precautions: Advise patient to seek urgent care if she develops fever, worsening pain, neurological symptoms such as numbness or weakness, unexplained weight loss, or new respiratory or abdominal symptoms\n - Testing: Not indicated at this time given absence of red flags; consider imaging or labs if symptoms worsen or fail to improve",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Back Pain - StatPearls - NCBI Bookshelf",
+        "source": "NIH",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538173/",
+        "accessed": "2026-03-03",
+        "snippet": "Back pain is one of the most common reasons for primary- and emergency-care consultations. An estimated $200 billion is spent annually on managing back pain. Additionally, work hours, productivity, and workers"
+      },
+      {
+        "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2023/0400/practice-guidelines-low-back-pain.html",
+        "accessed": "2026-03-03",
+        "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+      },
+      {
+        "title": "WHO releases guidelines on chronic low back pain",
+        "source": "WHO",
+        "url": "https://www.who.int/news/item/07-12-2023-who-releases-guidelines-on-chronic-low-back-pain",
+        "accessed": "2026-03-03",
+        "snippet": "The World Health Organization (WHO) is releasing its first-ever guidelines on managing chronic low back pain (LBP) in primary and community care settings, listing interventions for health workers to use and also to not use during routine care."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Back Pain - StatPearls - NCBI Bookshelf",
+      "source": "NIH",
+      "snippet": "Back pain is one of the most common reasons for primary- and emergency-care consultations. An estimated $200 billion is spent annually on managing back pain. Additionally, work hours, productivity, and workers"
+    },
+    {
+      "title": "Management of Low Back Pain: Guidelines From the VA/DoD | AAFP",
+      "source": "AAFP",
+      "snippet": "Low back pain is one of the most frequently experienced medical conditions, affecting 84% of adults in the United States at some point. Nearly 40% of adults will have experienced this type of pain within a three-month period. Low back pain is the leading cause of disability worldwide. The U.S. Department of Veterans Affairs and U.S. Department of Defense (VA/DoD) have published guidelines on the diagnosis and treatment of low back pain."
+    },
+    {
+      "title": "WHO releases guidelines on chronic low back pain",
+      "source": "WHO",
+      "snippet": "The World Health Organization (WHO) is releasing its first-ever guidelines on managing chronic low back pain (LBP) in primary and community care settings, listing interventions for health workers to use and also to not use during routine care."
+    }
+  ],
+  "state": null
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Vaccination Coverage Among Adolescents Aged 13â17 Years â National Immunization Survey-Teen, United States, 2024 | MMWR",
+  "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7430a1.htm",
+  "publisher": "cdc.gov",
+  "date": "2026-01-28",
+  "text": "x weighting process that includes adjustments for household nonresponse, provider nonresponse, and households without telephones. Weights are calibrated to known population totals by age, sex, race and ethnicity, and geography to improve representation ( 2 ). To address low response rates, nonresponse adjustments are incorporated in the weighting to reduce potential bias. In addition, statistical modeling techniques such as imputation and variance estimation methods are used to handle missing data and account for the complex survey design ( 2 ). Estimated vaccination coverage among adolescents aged 13&ndash;17 years in the 2024 survey year was compared with estimates from the 2023 survey year. Differences in vaccination coverage were determined using z-tests. p-values <0.05 were considered statistically significant. Analyses were conducted using SAS (version 9.4; SAS Institute) and SAS-callable SUDAAN (version 11; RTI International). This activity was reviewed by CDC, deemed not research, and was conducted consistent with applicable federal law and CDC policy. &dagger;&dagger;&dagger; \nTop \nResults \nNational and State Level Vaccination Coverage Among Adolescents Aged 13&ndash;17 Years \nIn 2024, among adolescents aged 13&ndash;17 years, &ge;1-dose Tdap &sect;&sect;&sect; coverage increased 2.3 percentage points, to 91.3% from 89.0% in 2023, and &ge;1-dose MenACWY &para;&para;&pa",
+  "source_type": "library",
+  "source_id": "cdc_gov_mmwr_volumes_74_wr_mm7430a1_htm_8bb7551e4930",
+  "chunk_id": "chunk_007"
+}

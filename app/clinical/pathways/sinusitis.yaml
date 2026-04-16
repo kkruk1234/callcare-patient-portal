@@ -1,0 +1,52 @@
+id: sinusitis
+version: 0.1
+match:
+  any_keywords: ["sinus", "sinusitis", "facial pressure", "postnasal", "green mucus", "congestion"]
+questions:
+  - id: pregnancy_possible
+    prompt: "Is there any chance you could be pregnant? Please answer: yes / no / not sure / not applicable."
+    type: text
+    store_as: pregnancy_possible
+
+  - id: duration
+    prompt: "How many days have you had sinus symptoms?"
+    store_as: duration_days
+
+  - id: high_fever
+    prompt: "Have you had a high fever (around 102°F/39°C or higher) or severe facial pain? (yes/no)"
+    store_as: high_fever_or_severe_pain
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["severe_sinus_symptoms"]
+
+  - id: eye_swelling
+    prompt: "Any swelling around the eye, vision changes, or pain with eye movements? (yes/no)"
+    store_as: orbital_symptoms
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_orbital_complication"]
+
+  - id: neuro
+    prompt: "Any severe headache, confusion, stiff neck, or new weakness? (yes/no)"
+    store_as: neuro_red_flags
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["neuro_red_flag"]
+
+  - id: immunocompromised
+    prompt: "Do you have a weakened immune system (for example chemotherapy, transplant meds, uncontrolled HIV)? (yes/no)"
+    store_as: immunocompromised
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["immunocompromised_sinusitis"]
+
+stop_rules:
+  - if_all_answered: ["duration", "high_fever", "eye_swelling", "neuro", "immunocompromised"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

@@ -1,0 +1,43 @@
+id: minor_burn
+version: 0.1
+match:
+  any_keywords: ["burn", "scald", "hot water", "steam", "grease", "sunburn", "blister burn"]
+questions:
+  - id: location
+    prompt: "Where is the burn located? (face, hands, genitals, over a joint, or elsewhere)"
+    store_as: location
+
+  - id: size
+    prompt: "About how big is the burned area? (smaller than the palm of your hand / larger)"
+    store_as: size
+
+  - id: deep
+    prompt: "Does it look white/charred, feel numb, or have widespread blistering? (yes/no)"
+    store_as: deep_burn
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["possible_deep_burn"]
+
+  - id: face_hands_genitals
+    prompt: "Is the burn on the face, hands, genitals, or over a major joint? (yes/no)"
+    store_as: special_area
+    type: yesno
+    if_yes:
+      add_flags:
+        urgent_today: ["burn_special_area"]
+
+  - id: inhalation
+    prompt: "Any smoke inhalation, hoarseness, coughing soot, or trouble breathing? (yes/no)"
+    store_as: inhalation
+    type: yesno
+    if_yes:
+      add_flags:
+        ed_now: ["possible_inhalation_injury"]
+
+stop_rules:
+  - if_all_answered: ["location", "size", "deep", "face_hands_genitals", "inhalation"]
+    outcome: DECIDE
+
+routing:
+  tier_default: TIER_2_REVIEW

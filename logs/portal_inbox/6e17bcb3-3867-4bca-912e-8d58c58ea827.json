@@ -1,0 +1,50 @@
+{
+  "packet_id": "6e17bcb3-3867-4bca-912e-8d58c58ea827",
+  "created_at": "2026-03-09T01:48:25.085163+00:00",
+  "session_id": "d85bbf0a-c983-4fbf-828c-009031c042d6",
+  "pathway_id": "",
+  "base_queries": [
+    "strep throat diagnosis and management guidelines adults",
+    "penicillin dosing for strep throat adults mg duration contraindications",
+    "red flags and return precautions for sore throat with fever and swollen"
+  ],
+  "queries": [
+    "AAFP strep throat diagnosis and management guidelines adults",
+    "AAFP penicillin dosing for strep throat adults mg duration contraindications",
+    "MedlinePlus strep throat diagnosis and management guidelines adults",
+    "MedlinePlus penicillin dosing for strep throat adults mg duration contraindications",
+    "CDC strep throat diagnosis and management guidelines adults",
+    "CDC penicillin dosing for strep throat adults mg duration contraindications",
+    "NIH strep throat diagnosis and management guidelines adults",
+    "NIH penicillin dosing for strep throat adults mg duration contraindications",
+    "NICE strep throat diagnosis and management guidelines adults",
+    "NICE penicillin dosing for strep throat adults mg duration contraindications",
+    "WHO strep throat diagnosis and management guidelines adults",
+    "WHO penicillin dosing for strep throat adults mg duration contraindications"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Streptococcal Pharyngitis: Rapid Evidence Review | AAFP",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2024/0400/streptococcal-pharyngitis.pdf",
+      "accessed": "2026-03-08",
+      "snippet": ""
+    },
+    {
+      "title": "Clinical Guidance for Group A Streptococcal Pharyngitis | Group A Strep | CDC",
+      "source": "cdc.gov",
+      "url": "https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/strep-throat.html",
+      "accessed": "2026-03-08",
+      "snippet": "Cephalexin, oral 20 mg/kg/dose twice daily (maximum = 500 mg/dose) for 10 days Cefadroxil, oral 30 mg/kg once daily (maximum = 1 g) for 10 days Clindamycin, oral 7 mg/kg/dose 3 times daily (maximum = 300 mg/dose) for 10 days Azithromycin, oral 12 mg/kg once (maximum = 500 mg), then 6 mg/kg (max=250 mg) once daily for the next 4 days Clarithromycin, oral 7.5 mg/kg/dose twice daily (maximum = 250 mg/dose) for 10 days Antibiotic resistance There's never been a report of a clinical isolate of group A strep bacteria that's resistant to penicillin or cephalosporins."
+    },
+    {
+      "title": "Strep throat: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/000639.htm",
+      "accessed": "2026-03-08",
+      "snippet": "Certain other antibiotics may also work against the strep bacteria. Antibiotics should be taken for 10 days, even though symptoms are often gone within a few days. The following tips may help your sore throat feel better:"
+    }
+  ],
+  "note_text": "S: The patient is a 47-year-old female presenting with a sore throat of 2 days duration. She reports associated fever, chills, and swollen glands but denies difficulty breathing, swallowing, or opening her mouth. She has noticed white patches or pus on her tonsils. There is no rash, joint pain, or recent known exposure to infectious mononucleosis, but her son had strep throat last week. She has tried hot tea with honey and DayQuil without relief. There is no cough or nasal congestion. She has no history of rheumatic fever or heart valve problems.\n\nO: Phone-only encounter; no physical exam or vital signs available.\n\nA: The working diagnosis is acute streptococcal pharyngitis given the sore throat with fever, chills, swollen glands, and tonsillar exudate, along with recent household exposure to strep throat.\nDifferential:\n1. Streptococcal pharyngitis\n2. Viral pharyngitis\n3. Infectious mononucleosis\n4. Other bacterial pharyngitis\n\nP: - First-line medication: Penicillin V 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Alternatives: Amoxicillin 500 mg orally twice daily for 10 days (Physician must verify medication/dosing)\n- Medication safety considerations: No known allergies, no pregnancy, renal, or liver disease reported\n- Follow-up recommendations: Seek in-person medical care urgently if difficulty breathing, swallowing, or opening mouth develops, or if symptoms worsen or fail to improve in 48-72 hours\n- Testing: Arrange for rapid strep test or throat culture to confirm diagnosis if possible"
+}

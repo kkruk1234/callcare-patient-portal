@@ -1,0 +1,397 @@
+from __future__ import annotations
+
+import json
+import os
+import re
+import traceback
+import uuid
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+
+FINAL_DIR = Path("logs/finalized")
+FINAL_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def _packet_fields():
+    try:
+        from app.core.models import ReviewPacket  # type: ignore
+    except Exception:
+        from app.clinical.review_packet import ReviewPacket  # type: ignore
+
+    return getattr(ReviewPacket, "model_fields", None) or getattr(ReviewPacket, "__fields__", None) or {}
+
+
+def _extract_cc_from_state(state) -> str:
+    if state is None:
+        return ""
+    for k in ("chief_complaint", "cc", "chiefComplaint"):
+        try:
+            v = getattr(state, k, None)
+            if isinstance(v, str) and v.strip():
+                return v.strip()
+        except Exception:
+            pass
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            v = sx.get("chief_complaint") or sx.get("cc")
+            if isinstance(v, str) and v.strip():
+                return v.strip()
+    except Exception:
+        pass
+    return ""
+
+
+def _get_answers_dict(state) -> Dict[str, Any]:
+    if state is None:
+        return {}
+    try:
+        a = getattr(state, "answers", None)
+        if isinstance(a, dict):
+            return dict(a)
+    except Exception:
+        pass
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            a2 = sx.get("_answers")
+            if isinstance(a2, dict):
+                return dict(a2)
+    except Exception:
+        pass
+    return {}
+
+
+def _set_answers_dict(state, answers: Dict[str, Any]) -> None:
+    if state is None:
+        return
+    try:
+        if hasattr(state, "answers"):
+            setattr(state, "answers", answers)
+            return
+    except Exception:
+        pass
+    try:
+        sx = getattr(state, "symptoms", None) or {}
+        if isinstance(sx, dict):
+            sx["_answers"] = answers
+            setattr(state, "symptoms", sx)
+    except Exception:
+        pass
+
+
+def _extract_assessment_from_soap(soap_text: str) -> str:
+    soap = str(soap_text or "")
+    m = re.search(r"(?is)\nA:\s*(.*?)(?:\n\s*P:|\Z)", soap)
+    if m:
+        a = (m.group(1) or "").strip()
+        a = re.sub(r"\s{2,}", " ", a)
+        return a[:600]
+    m2 = re.search(r"(?im)^\s*A:\s*(.+)$", soap)
+    if m2:
+        a = (m2.group(1) or "").strip()
+        a = re.sub(r"\s{2,}", " ", a)
+        return a[:300]
+    return ""
+
+
+def _replace_P_section(soap_text: str, new_plan_text: str) -> str:
+    soap = str(soap_text or "")
+    plan = str(new_plan_text or "").strip()
+    if not plan:
+        return soap
+    if not plan.startswith("P:"):
+        plan = "P:\n" + plan
+    if re.search(r"(?ims)\nP:\s*\n", soap):
+        return re.sub(r"(?ims)\nP:\s*\n.*\Z", "\n" + plan + "\n", soap)
+    return soap.rstrip() + "\n\n" + plan + "\n"
+
+
+def _publisher_from_url(url: str) -> str:
+    u = (url or "").lower()
+    if "nhs.uk" in u or ".nhs." in u:
+        return "NHS"
+    if "aafp.org" in u:
+        return "AAFP"
+    if "mayoclinic.org" in u:
+        return "MAYOCLINIC"
+    if "medlineplus.gov" in u:
+        return "MEDLINEPLUS"
+    if "nih.gov" in u or "ncbi.nlm.nih.gov" in u or "pubmed.ncbi.nlm.nih.gov" in u:
+        return "NIH"
+    if "who.int" in u:
+        return "WHO"
+    if "cdc.gov" in u:
+        return "CDC"
+    if "idsociety.org" in u:
+        return "IDSA"
+    return "Source"
+
+
+def _normalize_printable_evidence(evs: Sequence[Any]) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    seen: Set[str] = set()
+    today = datetime.now().date().isoformat()
+    for e in list(evs or [])[:12]:
+        d: Dict[str, Any] = {}
+        if isinstance(e, dict):
+            d = dict(e)
+        else:
+            try:
+                d = dict(getattr(e, "__dict__", {}) or {})
+            except Exception:
+                d = {}
+        title = str(d.get("title") or getattr(e, "title", "") or "").strip()
+        source = str(d.get("source") or d.get("publisher") or getattr(e, "source", "") or getattr(e, "publisher", "") or "").strip()
+        snippet = str(d.get("snippet") or getattr(e, "snippet", "") or "").strip()
+        url = str(d.get("url") or getattr(e, "url", "") or "").strip()
+        if (not url) and source.startswith(("http://", "https://")):
+            url = source
+        if not source or source.startswith(("http://", "https://")):
+            source = _publisher_from_url(url or source)
+        if not title:
+            title = url or "Source"
+        key = (url or title).strip()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append(
+            {
+                "title": title[:220],
+                "source": source[:60] if source else "Source",
+                "url": url,
+                "accessed": str(d.get("accessed") or today),
+                "snippet": snippet[:1200] if snippet else "",
+            }
+        )
+        if len(out) >= 8:
+            break
+    return out
+
+
+def _packet_evidence_shape(evs_printable: Sequence[Dict[str, Any]]) -> List[Any]:
+    try:
+        from app.core.models import EvidenceRef  # type: ignore
+        cls = EvidenceRef
+    except Exception:
+        cls = None
+    out: List[Any] = []
+    for e in list(evs_printable or [])[:12]:
+        t = str(e.get("title") or "").strip()
+        s = str(e.get("source") or "Source").strip()
+        sn = str(e.get("snippet") or "").strip()
+        if not t:
+            continue
+        if cls is not None:
+            try:
+                out.append(cls(title=t, source=s, snippet=sn))
+                continue
+            except Exception:
+                pass
+        out.append({"title": t, "source": s, "snippet": sn})
+    return out
+
+
+def _build_queries(state, assessment_text: str, cc: str, max_queries: int = 4) -> List[str]:
+    qs: List[str] = []
+    try:
+        from app.clinical.query_llm import generate_evidence_queries  # type: ignore
+        qs2 = generate_evidence_queries(state, max_queries=max_queries, assessment_text=assessment_text)
+        if isinstance(qs2, list):
+            qs = [str(x).strip() for x in qs2 if str(x).strip()]
+    except Exception:
+        qs = []
+    if not qs:
+        base = (assessment_text or cc or "").strip()
+        base = re.sub(r"\s{2,}", " ", base)
+        base = base[:120] if base else (cc or "chief complaint")
+        qs = [
+            f"{base} outpatient management guideline",
+            f"{base} treatment medication dosing contraindications",
+            f"{base} red flags when to refer imaging",
+        ]
+    dedup: List[str] = []
+    seen: Set[str] = set()
+    for q in qs:
+        q2 = q.strip()
+        if not q2:
+            continue
+        k = q2.lower()
+        if k in seen:
+            continue
+        seen.add(k)
+        dedup.append(q2)
+        if len(dedup) >= max_queries:
+            break
+    return dedup
+
+
+def finalize_note(note, state, session_id: str):
+    try:
+        from app.core.models import ReviewPacket  # type: ignore
+    except Exception:
+        from app.clinical.review_packet import ReviewPacket  # type: ignore
+
+    fields = _packet_fields()
+    kwargs: Dict[str, Any] = {}
+
+    now = now_iso()
+    if "packet_id" in fields:
+        kwargs["packet_id"] = str(uuid.uuid4())
+    if "created_at" in fields:
+        kwargs["created_at"] = now
+    if "session_id" in fields:
+        kwargs["session_id"] = session_id
+    if "timestamp_iso" in fields and "created_at" not in kwargs:
+        kwargs["timestamp_iso"] = now
+    if "timestamp" in fields and "created_at" not in kwargs and "timestamp_iso" not in kwargs:
+        kwargs["timestamp"] = now
+
+    if "note" in fields:
+        kwargs["note"] = note
+
+    cc = _extract_cc_from_state(state)
+    if "chief_complaint" in fields:
+        kwargs["chief_complaint"] = cc
+
+    answers = _get_answers_dict(state)
+    soap0 = ""
+    try:
+        soap0 = str(getattr(note, "soap", "") or getattr(note, "text", "") or "")
+    except Exception:
+        soap0 = ""
+    assessment_text = _extract_assessment_from_soap(soap0)
+
+    qs = _build_queries(state, assessment_text, cc, max_queries=4)
+    answers["evidence_search_queries"] = qs
+    _set_answers_dict(state, answers)
+    if "answers" in fields:
+        kwargs["answers"] = answers
+
+    if "status" in fields:
+        kwargs["status"] = "APPROVED"
+    if "reviewer_id" in fields:
+        kwargs["reviewer_id"] = "SYSTEM"
+    if "reviewer_comments" in fields:
+        kwargs["reviewer_comments"] = "Tier-1 protocol auto-finalized"
+
+    ev_printable: List[Dict[str, Any]] = []
+    try:
+        from app.rag.llm_http_evidence import llm_http_evidence  # type: ignore
+
+        ev_refs = llm_http_evidence(
+            chief_complaint=cc or "chief complaint",
+            queries=qs,
+            assessment_text=assessment_text or None,
+            diagnosis_hint=assessment_text[:160] if assessment_text else None,
+            min_urls=6,
+            max_urls=8,
+            max_queries=min(4, len(qs) or 2),
+            max_per_publisher=1,
+            title_fetch_n=6,
+            snippet_fetch_n=6,
+            snippet_timeout_s=4,
+            timeout_s=int(os.getenv("CALLCARE_EVID_TIMEOUT_S", "12") or "12"),
+            debug=False,
+        ) or []
+        ev_printable = _normalize_printable_evidence(ev_refs)
+    except Exception:
+        ev_printable = []
+
+    try:
+        if ev_printable:
+            setattr(note, "evidence", ev_printable)
+            try:
+                setattr(state, "evidence_used", ev_printable)
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+    try:
+        packet_evs = _packet_evidence_shape(ev_printable)
+        if "evidence" in fields:
+            kwargs["evidence"] = packet_evs
+        if "evidence_used" in fields:
+            kwargs["evidence_used"] = packet_evs
+    except Exception:
+        pass
+
+    try:
+        have_snips = any(str(e.get("snippet") or "").strip() for e in ev_printable[:6])
+        if have_snips:
+            from app.clinical.llm_plan_writer import write_plan_llm  # type: ignore
+
+            age_years = None
+            try:
+                age_years = getattr(state, "age_years", None)
+                if age_years is not None:
+                    age_years = int(float(str(age_years)))
+            except Exception:
+                age_years = None
+
+            preg = ""
+            renal = ""
+            liver = ""
+            try:
+                preg = str(getattr(state, "pregnancy_possible", "") or "").strip()
+            except Exception:
+                preg = ""
+            try:
+                sx = getattr(state, "symptoms", None) or {}
+                if isinstance(sx, dict):
+                    renal = str(sx.get("renal_disease") or "").strip()
+                    liver = str(sx.get("liver_disease") or "").strip()
+            except Exception:
+                pass
+
+            plan_text = write_plan_llm(
+                diagnosis=assessment_text[:200] if assessment_text else "",
+                chief_complaint=cc,
+                age_years=age_years,
+                pregnancy_possible=preg,
+                renal_disease=renal,
+                liver_disease=liver,
+                evidence=ev_printable[:6],
+            )
+            if isinstance(plan_text, str) and plan_text.strip():
+                soap1 = _replace_P_section(soap0, plan_text)
+                try:
+                    setattr(note, "soap", soap1)
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+    packet = None
+    try:
+        packet = ReviewPacket(**kwargs)  # type: ignore
+    except Exception:
+        try:
+            fb = {}
+            for k in list(fields):
+                if k in kwargs:
+                    fb[k] = kwargs[k]
+            if "evidence" in fields:
+                fb["evidence"] = []
+            if "evidence_used" in fields:
+                fb["evidence_used"] = []
+            packet = ReviewPacket(**fb)  # type: ignore
+        except Exception:
+            raise
+
+    try:
+        out_path = FINAL_DIR / f"{session_id}.json"
+        try:
+            out_path.write_text(packet.model_dump_json(indent=2), encoding="utf-8")  # type: ignore
+        except Exception:
+            out_path.write_text(packet.json(indent=2), encoding="utf-8")  # type: ignore
+    except Exception:
+        pass
+
+    return packet

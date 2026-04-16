@@ -1,0 +1,109 @@
+id: acute_angle_closure_glaucoma_possible
+name: Acute angle-closure glaucoma (possible)
+tier: 1
+
+# IMPORTANT ROUTING NOTE:
+# We intentionally do NOT include the broad keyword "eye pain" by itself,
+# because that would steal too many cases (abrasion, conjunctivitis, etc).
+# Instead we use higher-specificity phrases that strongly suggest AACG.
+keywords:
+  - "severe eye pain"
+  - "worst eye pain"
+  - "eye pain with nausea"
+  - "eye pain with vomiting"
+  - "eye pain and vomiting"
+  - "eye pain and nausea"
+  - "halos around lights"
+  - "rainbow halos"
+  - "seeing halos"
+  - "blurred vision and eye pain"
+  - "one eye headache"
+  - "headache with eye pain"
+  - "red painful eye with nausea"
+  - "sudden blurry vision eye pain"
+  - "glaucoma attack"
+  - "acute glaucoma"
+
+questions:
+  - id: vision_worse
+    text: "Is your vision significantly worse than normal right now? (yes/no)"
+    key: vision_worse
+    type: yesno
+
+  - id: severe_pain
+    text: "Is the eye pain severe? (yes/no)"
+    key: severe_pain
+    type: yesno
+
+  - id: nausea_vomiting
+    text: "Do you have nausea or vomiting with the eye pain? (yes/no)"
+    key: nausea_vomiting
+    type: yesno
+
+  - id: halos
+    text: "Do you see halos or rainbow rings around lights? (yes/no)"
+    key: halos
+    type: yesno
+
+  - id: unilateral
+    text: "Is it mainly one eye? (yes/no/unsure)"
+    key: unilateral
+    type: choice
+    choices: ["yes", "no", "unsure"]
+
+  - id: red_eye
+    text: "Is the eye very red? (yes/no/unsure)"
+    key: red_eye
+    type: choice
+    choices: ["yes", "no", "unsure"]
+
+  - id: headache
+    text: "Do you have a severe headache with this? (yes/no)"
+    key: headache
+    type: yesno
+
+  - id: contacts
+    text: "Are you wearing contact lenses or did you wear them in the last 24 hours? (yes/no)"
+    key: contacts
+    type: yesno
+
+  - id: trauma
+    text: "Did anything hit your eye, or did you get an eye injury recently? (yes/no)"
+    key: trauma
+    type: yesno
+
+stop_rules:
+  # Any combo that raises high suspicion => emergent routing
+  - if_any:
+      - "vision_worse == yes"
+      - "halos == yes"
+      - "nausea_vomiting == yes and severe_pain == yes"
+      - "headache == yes and severe_pain == yes"
+    disposition: "Emergency in-person evaluation now (possible acute angle-closure glaucoma)."
+    plan:
+      - "Go to an emergency department now for urgent eye pressure evaluation and treatment."
+      - "Do not drive yourself if vision is impaired or you feel unsafe; have someone take you."
+      - "Do not wear contact lenses until evaluated."
+      - "Avoid delaying care to try home treatments; this can threaten vision quickly."
+    safety_net:
+      - "New or worsening vision loss"
+      - "Increasing severe eye pain"
+      - "Severe headache with nausea/vomiting"
+      - "New halos/rainbow rings around lights"
+      - "Fainting, confusion, or rapidly worsening symptoms"
+
+# These are what should appear under PATIENT INSTRUCTIONS (pathway-specific, no global boilerplate).
+patient_instructions:
+  - "This could be an urgent eye condition. Seek emergency in-person evaluation now."
+  - "Do not drive yourself if your vision is impaired, you feel dizzy, or you feel unsafe; have someone take you or call emergency services."
+  - "Do not wear contact lenses until you are evaluated."
+  - "Avoid trying to treat this at home or waiting for it to pass—urgent treatment may be needed to protect vision."
+  - "If you develop worsening vision, increasing severe eye pain, severe headache, vomiting, or halos around lights, seek emergency care immediately."
+
+# Pathway-specific safety net (shown to patient + in note; no chest pain/self-harm boilerplate here).
+safety_net:
+  - "Worsening vision or new vision loss"
+  - "Increasing severe eye pain"
+  - "Severe headache with nausea/vomiting"
+  - "New halos/rainbow rings around lights"
+  - "Rapid worsening or feeling unsafe"

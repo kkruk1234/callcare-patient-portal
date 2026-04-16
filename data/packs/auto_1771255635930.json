@@ -1,0 +1,36 @@
+{
+  "id": "auto_1771255635930",
+  "query": "Lateral epicondylitis (tennis elbow) pain control ibuprofen dosing naproxen dosing acetaminophen dosing adult (site:nhs.uk OR site:nice.org.uk OR site:aafp.org OR site:cdc.gov OR site:nih.gov OR site:medlineplus.gov OR site:dailymed.nlm.nih.gov OR site:fda.gov OR site:who.int OR site:ncbi.nlm.nih.gov OR site:pubmed.ncbi.nlm.nih.gov)",
+  "sources": [
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK65949.1/table/CDR0000062738__373/?report=objectonly",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://leaflets.ekhuft.nhs.uk/s3/leaflets/tennis-elbow-lateral-epicondylitis/27e37203-f993-4d30-ab2c-9dfd6917cbb8.p1733491839.pdf",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12680288/",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9492791/",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7173751/",
+      "source_type": "web",
+      "notes": ""
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526867/",
+      "source_type": "web",
+      "notes": ""
+    }
+  ]
+}

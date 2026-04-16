@@ -1,0 +1,44 @@
+id: pneumonia_adult_possible
+version: 0.1
+match:
+  any_keywords:
+  - cough fever
+  - fever chills
+  - cough and fever
+  - short of breath
+  - breathing worse
+  - chest tight with fever
+  - pneumonia
+  - fever and cough
+  - hurts to breathe
+  - pain with breathing
+  - pleuritic
+  - shortness of breath
+  - chest pain when breathing
+questions:
+- id: breathing
+  prompt: Are you short of breath at rest or having trouble speaking full sentences?
+    (yes/no)
+  store_as: sob_severe
+  type: yesno
+- id: chest_pain
+  prompt: Any chest pain with breathing, or coughing up blood? (yes/no)
+  store_as: pleuritic_or_hemoptysis
+  type: yesno
+- id: confusion
+  prompt: Any confusion, fainting, or blue lips? (yes/no)
+  store_as: danger_signs
+  type: yesno
+- id: risk
+  prompt: Are you 65+ or do you have major lung/heart disease? (yes/no)
+  store_as: high_risk
+  type: yesno
+stop_rules:
+- if_all_answered:
+  - breathing
+  - chest_pain
+  - confusion
+  - risk
+  outcome: DECIDE
+routing:
+  tier_default: TIER_1_REVIEW

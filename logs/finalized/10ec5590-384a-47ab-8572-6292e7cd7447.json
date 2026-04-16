@@ -1,0 +1,126 @@
+{
+  "packet_id": "4b6b29e2-0e48-4fc8-a696-321e3bc3c9dd",
+  "created_at": "2026-01-31T18:11:45.501307+00:00",
+  "session_id": "10ec5590-384a-47ab-8572-6292e7cd7447",
+  "chief_complaint": "I think I have pneumonia",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your symptoms start?",
+    "intake_a1": "5 days ago",
+    "intake_q2": "What symptoms are you experiencing besides feeling like you have pneumonia?",
+    "intake_a2": "cough with phelgm, sore throat, runny nose, fever, chills",
+    "intake_q3": "Have you noticed any shortness of breath or chest pain?",
+    "intake_a3": "only a little bit",
+    "intake_q4": "Have you had any recent contact with someone who was sick or diagnosed with pneumonia or COVID-19?",
+    "intake_a4": "yes",
+    "intake_q5": "Have you taken any medications or treatments for your symptoms so far?",
+    "intake_a5": "only DayQuil",
+    "intake_q6": "Have you noticed any blood when you cough or any worsening shortness of breath?",
+    "intake_a6": "no",
+    "intake_q7": "Any history of chronic lung disease, heart disease, or immune problems?",
+    "intake_a7": "no",
+    "intake_q8": "Any difficulty breathing at rest or with minimal exertion?",
+    "intake_a8": "no",
+    "intake_q9": "Have you had any recent COVID-19 testing, and if so, what were the results?",
+    "intake_a9": "no",
+    "intake_q10": "Have you experienced any confusion, persistent high fever, or inability to keep down fluids?",
+    "intake_a10": "no",
+    "age_years": 34,
+    "allergies": "penicillin",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "yes"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [
+        "liver disease status is yes/unknown (avoid hepatotoxic meds / adjust dosing)"
+      ],
+      "evidence_urls": [
+        "https://www.nhs.uk/conditions/pneumonia/",
+        "https://medlineplus.gov/pneumonia.html",
+        "https://medlineplus.gov/druginfo/meds/a606016.html",
+        "https://www.nhs.uk/conditions/tuberculosis-tb/",
+        "https://medlineplus.gov/lab-tests/pneumococcal-disease-tests/"
+      ]
+    }
+  ],
+  "note": {
+    "soap": "S: \nThe patient is a 34-year-old female presenting with a 5-day history of cough productive of phlegm, sore throat, runny nose, fever, and chills. She reports mild shortness of breath but denies chest pain, hemoptysis, worsening dyspnea, confusion, persistent high fever, or inability to keep down fluids. She has had recent contact with someone who was sick or diagnosed with pneumonia or COVID-19. She has taken only DayQuil for symptom relief. She has no history of chronic lung disease, heart disease, or immune problems. She is not pregnant and has known penicillin allergy. She has liver disease but no renal disease. Patient is not pregnant.\n\nO: \nPhone evaluation only; no vital signs or physical exam available.\n\nA: \nThe clinical presentation is consistent with community-acquired pneumonia, likely bacterial given the productive cough, fever, chills, and known exposure. Mild shortness of breath without severe respiratory distress is noted. The presence of liver disease and penicillin allergy must be considered in treatment planning.\n\nDifferential: \n1. Community-acquired bacterial pneumonia \n2. Viral upper respiratory infection with secondary bacterial infection \n3. Acute bronchitis \n4. Atypical pneumonia (e.g., Mycoplasma or viral)\n\nP: \n- First-line medication: Doxycycline 100 mg orally twice daily for 5–7 days, avoiding beta-lactams due to penicillin allergy and considering liver disease (dosing adjustments not specified in evidence). \n- Alternatives: \n • Azithromycin 500 mg orally on day 1, then 250 mg daily for 4 days (use with caution in liver disease) \n • Levofloxacin 750 mg orally once daily for 5 days (use with caution in liver disease) \n- Medication safety considerations: Avoid penicillin and other beta-lactams due to allergy. Liver disease requires caution with macrolides and fluoroquinolones; doxycycline is generally safer but monitor liver function. Patient is not pregnant and has no renal disease. \n- Return precautions: Seek immediate care if worsening shortness of breath, chest pain, hemoptysis, persistent high fever, confusion, or inability to maintain oral intake. \n- Testing: If no improvement within 48–72 hours, worsening symptoms, or recurrent symptoms: seek in-person evaluation for appropriate testing (e.g., urinalysis/urine culture or other workup as indicated).",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Pneumonia - NHS",
+        "source": "https://www.nhs.uk/conditions/pneumonia/",
+        "snippet": "﻿ \nPneumonia\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nPneumonia \nPneumonia is inflammation of the lungs, usually caused by an infection. Most people get better in 2 to 4 weeks, but babies, older people, and people with heart or lung conditions are at risk of getting seriously ill and may need treatment in hospital. \nSymptoms of pneumonia \nSymptoms of pneumonia can start suddenly or gradually over a few days.\nThey include:\na cough – you may cough up yellow or green mucus (phlegm) shortness of breath a high temperature chest pain an aching body feeling very tired loss of appetite making wheezing noises when you breathe – babies may also make grunting noises feeling confused – this is common in older people \nUr"
+      },
+      {
+        "title": "Pneumonia | Pneumonia Symptoms | Signs of Pneumonia | MedlinePlus",
+        "source": "https://medlineplus.gov/pneumonia.html",
+        "snippet": "e , liver disease , and kidney disease . \nWhat are the symptoms of pneumonia? \nThe symptoms of pneumonia can range from mild to severe and include:\nFever \nChills \nCough, usually with phlegm (a type of thick mucus made in your lungs) \nShortness of breath \nChest pain when you breathe or cough \nNausea and/or vomiting \nDiarrhea \nThe symptoms can vary for different groups. Newborns and infants may not show any signs of the infection. Others may vomit and have a fever and cough. They might seem sick, with no energy, or be restless.\nOlder adults and people who have serious illnesses or weak immune systems may have fewer and milder symptoms. They may even have a lower-than-normal temperature. Older adults who have pneumonia sometimes may feel weak or suddenly get confused.\nWhat other problems can pneumonia cause? \nSometimes pneumonia can cause serious complications such as:\nBacteremia, which hap"
+      },
+      {
+        "title": "Abatacept Injection: MedlinePlus Drug Information",
+        "source": "https://medlineplus.gov/druginfo/meds/a606016.html",
+        "snippet": "t includes chronic bronchitis and emphysema); any disease that affects your nervous system, such as multiple sclerosis; hepatitis B (a virus that affects the liver); diabetes; high blood pressure; or any disease that affects your immune system, such as cancer, human immunodeficiency virus (HIV), acquired immunodeficiency syndrome (AIDS), or severe combined immunodeficiency syndrome (SCID). Also tell your doctor if you have or have ever had tuberculosis (TB; a lung infection that may not cause symptoms for many years and that may spread to other parts of the body) or if you have been around someone who has or has had tuberculosis. Your doctor may give you a skin test to see whether you are infected with tuberculosis. Tell your doctor if you have ever had a positive skin test for tuberculosis in the past. If you are receiving abatacept to prevent graft versus host disease, tell your doctor"
+      },
+      {
+        "title": "Tuberculosis (TB) - NHS",
+        "source": "https://www.nhs.uk/conditions/tuberculosis-tb/",
+        "snippet": "﻿ \nTuberculosis (TB)\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nTuberculosis (TB) \nTuberculosis (TB) is an infection that usually affects the lungs. It can be treated with antibiotics but can be serious if not treated. There's a vaccine that helps protect some people who are at risk from TB. \nSymptoms of tuberculosis (TB) \nSymptoms of tuberculosis (TB) usually come on gradually.\nCommon symptoms include:\na cough that lasts more than 3 weeks – you may cough up mucus (phlegm) or mucus with blood in it feeling tired or exhausted a high temperature or night sweats loss of appetite weight loss feeling generally unwell Children may also have difficulty gaining weight or growing.\nIf TB has spread to another part of yo"
+      },
+      {
+        "title": "Pneumococcal Disease Tests: MedlinePlus Medical Test",
+        "source": "https://medlineplus.gov/lab-tests/pneumococcal-disease-tests/",
+        "snippet": "are rare, but they may include bleeding in the airways, infection, or a pneumothorax (collapse of part of your lung).\nWhat do the results mean? \nThe results will show whether you have pneumococcal disease.\nA positive result means that pneumococcus bacteria were found in your specimen. You most likely have pneumococcal disease. \nA negative result means that no pneumococcus bacteria were found in your specimen. Most likely, your symptoms are not caused by pneumococcal disease. \nIf you have questions about your results, talk to your provider. They will consider your symptoms and medical history to understand the results of your pneumococcal dis"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Pneumonia - NHS",
+      "source": "https://www.nhs.uk/conditions/pneumonia/",
+      "snippet": "﻿ \nPneumonia\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nPneumonia \nPneumonia is inflammation of the lungs, usually caused by an infection. Most people get better in 2 to 4 weeks, but babies, older people, and people with heart or lung conditions are at risk of getting seriously ill and may need treatment in hospital. \nSymptoms of pneumonia \nSymptoms of pneumonia can start suddenly or gradually over a few days.\nThey include:\na cough – you may cough up yellow or green mucus (phlegm) shortness of breath a high temperature chest pain an aching body feeling very tired loss of appetite making wheezing noises when you breathe – babies may also make grunting noises feeling confused – this is common in older people \nUr"
+    },
+    {
+      "title": "Pneumonia | Pneumonia Symptoms | Signs of Pneumonia | MedlinePlus",
+      "source": "https://medlineplus.gov/pneumonia.html",
+      "snippet": "e , liver disease , and kidney disease . \nWhat are the symptoms of pneumonia? \nThe symptoms of pneumonia can range from mild to severe and include:\nFever \nChills \nCough, usually with phlegm (a type of thick mucus made in your lungs) \nShortness of breath \nChest pain when you breathe or cough \nNausea and/or vomiting \nDiarrhea \nThe symptoms can vary for different groups. Newborns and infants may not show any signs of the infection. Others may vomit and have a fever and cough. They might seem sick, with no energy, or be restless.\nOlder adults and people who have serious illnesses or weak immune systems may have fewer and milder symptoms. They may even have a lower-than-normal temperature. Older adults who have pneumonia sometimes may feel weak or suddenly get confused.\nWhat other problems can pneumonia cause? \nSometimes pneumonia can cause serious complications such as:\nBacteremia, which hap"
+    },
+    {
+      "title": "Abatacept Injection: MedlinePlus Drug Information",
+      "source": "https://medlineplus.gov/druginfo/meds/a606016.html",
+      "snippet": "t includes chronic bronchitis and emphysema); any disease that affects your nervous system, such as multiple sclerosis; hepatitis B (a virus that affects the liver); diabetes; high blood pressure; or any disease that affects your immune system, such as cancer, human immunodeficiency virus (HIV), acquired immunodeficiency syndrome (AIDS), or severe combined immunodeficiency syndrome (SCID). Also tell your doctor if you have or have ever had tuberculosis (TB; a lung infection that may not cause symptoms for many years and that may spread to other parts of the body) or if you have been around someone who has or has had tuberculosis. Your doctor may give you a skin test to see whether you are infected with tuberculosis. Tell your doctor if you have ever had a positive skin test for tuberculosis in the past. If you are receiving abatacept to prevent graft versus host disease, tell your doctor"
+    },
+    {
+      "title": "Tuberculosis (TB) - NHS",
+      "source": "https://www.nhs.uk/conditions/tuberculosis-tb/",
+      "snippet": "﻿ \nTuberculosis (TB)\n- NHS \nSkip to main content \nSearch the NHS website \nSearch \nHealth A to Z\nNHS services\nLive Well\nMental health\nCare and support\nPregnancy\nHome\nBrowse \nMore\nHome \nHealth A to Z \nConditions A to Z \nBack to \nConditions A to Z\nTuberculosis (TB) \nTuberculosis (TB) is an infection that usually affects the lungs. It can be treated with antibiotics but can be serious if not treated. There's a vaccine that helps protect some people who are at risk from TB. \nSymptoms of tuberculosis (TB) \nSymptoms of tuberculosis (TB) usually come on gradually.\nCommon symptoms include:\na cough that lasts more than 3 weeks – you may cough up mucus (phlegm) or mucus with blood in it feeling tired or exhausted a high temperature or night sweats loss of appetite weight loss feeling generally unwell Children may also have difficulty gaining weight or growing.\nIf TB has spread to another part of yo"
+    },
+    {
+      "title": "Pneumococcal Disease Tests: MedlinePlus Medical Test",
+      "source": "https://medlineplus.gov/lab-tests/pneumococcal-disease-tests/",
+      "snippet": "are rare, but they may include bleeding in the airways, infection, or a pneumothorax (collapse of part of your lung).\nWhat do the results mean? \nThe results will show whether you have pneumococcal disease.\nA positive result means that pneumococcus bacteria were found in your specimen. You most likely have pneumococcal disease. \nA negative result means that no pneumococcus bacteria were found in your specimen. Most likely, your symptoms are not caused by pneumococcal disease. \nIf you have questions about your results, talk to your provider. They will consider your symptoms and medical history to understand the results of your pneumococcal dis"
+    }
+  ]
+}

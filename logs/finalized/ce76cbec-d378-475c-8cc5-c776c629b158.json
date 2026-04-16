@@ -1,0 +1,50 @@
+{
+  "packet_id": "ce76cbec-d378-475c-8cc5-c776c629b158",
+  "created_at": "2026-04-04T12:38:43.253017+00:00",
+  "session_id": "17d5d3b3-d264-4b7d-910c-439f5667b130",
+  "pathway_id": "",
+  "base_queries": [
+    "guidelines for managing female pattern hair loss in perimenopausal women",
+    "adult dosing and duration of minoxidil for androgenic alopecia",
+    "red flags and when to refer for scalp biopsy in hair loss"
+  ],
+  "queries": [
+    "AAFP guidelines for managing female pattern hair loss in perimenopausal women",
+    "AAFP adult dosing and duration of minoxidil for androgenic alopecia",
+    "MedlinePlus guidelines for managing female pattern hair loss in perimenopausal women",
+    "MedlinePlus adult dosing and duration of minoxidil for androgenic alopecia",
+    "CDC guidelines for managing female pattern hair loss in perimenopausal women",
+    "CDC adult dosing and duration of minoxidil for androgenic alopecia",
+    "NIH guidelines for managing female pattern hair loss in perimenopausal women",
+    "NIH adult dosing and duration of minoxidil for androgenic alopecia",
+    "NICE guidelines for managing female pattern hair loss in perimenopausal women",
+    "NICE adult dosing and duration of minoxidil for androgenic alopecia",
+    "WHO guidelines for managing female pattern hair loss in perimenopausal women",
+    "WHO adult dosing and duration of minoxidil for androgenic alopecia"
+  ],
+  "selected_evidence_count": 3,
+  "evidence": [
+    {
+      "title": "Diagnosing and Treating Hair Loss",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2009/0815/p356.pdf",
+      "accessed": "2026-04-04",
+      "snippet": ""
+    },
+    {
+      "title": "Female pattern baldness: MedlinePlus Medical Encyclopedia",
+      "source": "medlineplus.gov",
+      "url": "https://medlineplus.gov/ency/article/001173.htm",
+      "accessed": "2026-04-04",
+      "snippet": "It is applied to the scalp. For women, the 2% solution or 5% foam is recommended. Minoxidil may help hair grow in about 1 in 4 or 5 women. In most women, it may slow or stop hair loss. You must continue to use this medicine for a long time. Hair loss starts again when you stop using it. Also, the hair that it helps grow will fall out. If minoxidil does not work, your provider may recommend other medicines or treatments, such as vitamins, spironolactone, birth control pills, ketoconazole shampoo, platelet-rich plasma therapy (PRP) injections, and laser treatments. Your provider can tell you more about these if needed."
+    },
+    {
+      "title": "Hirsutism in Women",
+      "source": "aafp.org",
+      "url": "https://www.aafp.org/pubs/afp/issues/2019/0801/p168.pdf",
+      "accessed": "2026-04-04",
+      "snippet": ""
+    }
+  ],
+  "note_text": "S: The patient is a 51-year-old male who reports progressive hair loss over the top of his head for the past 6 months. He denies any associated itching, redness, pain, or scaling on the scalp. There have been no recent significant stressors, illnesses, dietary changes, or new medications. He notes that his mother also has thinning hair, and he is perimenopausal with increasingly spaced menstrual periods, although pregnancy is not applicable. He has not tried any treatments for his hair loss so far.\n\nO: Phone encounter only; no physical examination or vital signs available.\n\nA: The working diagnosis is androgenetic alopecia given the pattern of hair loss on the top of the scalp, family history, and gradual progression over months without inflammatory signs.\nDifferential:\n1. Androgenetic alopecia\n2. Telogen effluvium\n3. Alopecia areata\n4. Scarring alopecia\n\nP: - First-line medication: Minoxidil 5% topical solution, apply to affected scalp twice daily (Physician must verify medication/dosing)\n- Alternatives: Finasteride 1 mg orally once daily (Physician must verify medication/dosing)\n- Medication safety considerations: No allergies reported; assess for contraindications to finasteride such as pregnancy exposure risk in household contacts; monitor for side effects\n- Follow-up recommendations: Seek in-person medical care urgently if sudden rapid hair loss, scalp pain, redness, or signs of infection develop; otherwise, follow up in 3-6 months to assess treatment response\n- Testing: Not indicated at this time based on history; consider thyroid function tests or iron studies if clinical suspicion arises later"
+}

@@ -1,0 +1,96 @@
+{
+  "packet_id": "72699f9e-e67f-47d8-9c7d-02df65f48971",
+  "created_at": "2026-02-26T20:17:49.346043+00:00",
+  "session_id": "a36b6280-29d7-4d15-a3dc-4ae0cc5cb627",
+  "chief_complaint": "back pain",
+  "age_band": "",
+  "pregnancy_possible": "no",
+  "pathway_id": "",
+  "answers": {
+    "intake_q1": "When did your back pain start?",
+    "intake_a1": "3 weeks ago",
+    "intake_q2": "Can you describe where exactly your back pain is located?",
+    "intake_a2": "left side lower rib cage",
+    "intake_q3": "Any fever, chills, or night sweats since the pain started?",
+    "intake_a3": "no",
+    "intake_q4": "Any recent injury or trauma to your back or ribs?",
+    "intake_a4": "no",
+    "intake_q5": "Any shortness of breath, cough, or chest pain along with your back pain?",
+    "intake_a5": "no",
+    "intake_q6": "Any numbness, tingling, weakness, or changes in bladder or bowel function?",
+    "intake_a6": "no",
+    "intake_q7": "Have you tried any treatments or medications for your back pain, and did they help?",
+    "intake_a7": "I tried tylenol but it didn't really help much",
+    "intake_q8": "Any history of cancer, recent unexplained weight loss, or immune system problems?",
+    "intake_a8": "no",
+    "intake_q9": "Any recent infections, such as urinary tract infections or pneumonia, before the back pain started?",
+    "intake_a9": "no",
+    "intake_q10": "Any swelling, bruising, or tenderness when you press on the painful area?",
+    "intake_a10": "tenderness with pressed",
+    "age_years": 47,
+    "allergies": "none",
+    "sex_at_birth": "female",
+    "pregnancy_possible": "no",
+    "pregnancy": "no",
+    "renal_disease": "no",
+    "liver_disease": "no"
+  },
+  "med_suggestions": [
+    {
+      "drug": "Supportive care",
+      "class": "non-prescription",
+      "intent": "symptom relief and supportive management",
+      "blocked": false,
+      "block_reasons": [],
+      "allergy_flags": {
+        "penicillin": false,
+        "cephalosporin": false,
+        "sulfa": false,
+        "macrolide": false,
+        "tetracycline": false,
+        "fluoroquinolone": false
+      },
+      "gating_notes": [],
+      "evidence_urls": []
+    }
+  ],
+  "note": {
+    "soap": "S: The patient is a 47-year-old female presenting with left-sided lower rib cage back pain that started 3 weeks ago. She denies fever, chills, night sweats, recent trauma, shortness of breath, cough, chest pain, numbness, tingling, weakness, or changes in bladder or bowel function. She has tried acetaminophen (Tylenol) without significant relief. There is tenderness on palpation of the painful area. She denies history of cancer, recent unexplained weight loss, immune problems, or recent infections. O: Phone evaluation only; no physical exam or vital signs available.\n\nA: The working diagnosis is musculoskeletal pain likely due to a strain or localized inflammation given the tenderness and absence of systemic symptoms or neurological deficits.\nDifferential:\n1. Musculoskeletal strain or intercostal muscle inflammation\n2. Costochondritis or rib fracture (occult)\n3. Herpes zoster (early stage without rash)\n4. Referred pain from visceral causes (less likely without systemic symptoms)\n\nP:\n- First-line medication: Nonsteroidal anti-inflammatory drugs (NSAIDs) such as ibuprofen for pain and inflammation\n- Alternatives: Acetaminophen if NSAIDs contraindicated or not tolerated\n- Medication safety considerations: Avoid NSAIDs if history of renal or liver disease (not present here); use lowest effective dose for shortest duration\n- Return precautions: Return if fever, worsening pain, development of neurological symptoms, chest pain, shortness of breath, or new rash\n- Testing: Not indicated at this time unless symptoms worsen or new concerning features develop",
+    "patient_summary": "",
+    "patient_instructions": [],
+    "clinician_questions": [],
+    "risk_flags": [],
+    "evidence": [
+      {
+        "title": "Musculoskeletal Pain: What It Is, Symptoms, Treatment & Types",
+        "source": "Cleveland Clinic",
+        "url": "https://my.clevelandclinic.org/health/symptoms/musculoskeletal-pain",
+        "accessed": "2026-02-26",
+        "snippet": "For mild musculoskeletal pain from a minor injury (like a strained muscle), conservative treatment often helps."
+      },
+      {
+        "title": "Joint pain When to see a doctor - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/symptoms/joint-pain/basics/when-to-see-doctor/sym-20050668",
+        "accessed": "2026-02-26",
+        "snippet": "Joint pain When to see a doctor - Mayo Clinic This content does not have an English version."
+      },
+      {
+        "title": "Muscle pain When to see a doctor - Mayo Clinic",
+        "source": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/symptoms/muscle-pain/basics/when-to-see-doctor/sym-20050866",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      },
+      {
+        "title": "Chronic Musculoskeletal Pain: Nonpharmacologic, Noninvasive Treatments | AAFP",
+        "source": "AAFP",
+        "url": "https://www.aafp.org/pubs/afp/issues/2020/1015/p465.html",
+        "accessed": "2026-02-26",
+        "snippet": ""
+      }
+    ]
+  },
+  "evidence": [],
+  "state": null
+}

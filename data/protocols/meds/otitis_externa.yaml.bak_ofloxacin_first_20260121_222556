@@ -1,0 +1,31 @@
+requires_pregnancy_status: true
+
+rx_options:
+  - med: "Ciprofloxacin/dexamethasone otic drops"
+    dosing: "4 drops in affected ear BID x 7 days"
+    exclusions: "If severe canal edema prevents drops or severe pain out of proportion: needs in-person evaluation (may need wick; consider malignant OE in diabetes/immunocompromise)."
+    notes: "Top choice when available: antibiotic + steroid helps pain/inflammation."
+
+  - med: "Ofloxacin otic drops"
+    dosing: "10 drops in affected ear once daily x 7 days (or 5 drops BID x 7 days)"
+    exclusions: "Use otic formulation."
+    notes: "Preferred if tympanic membrane perforation suspected/known or status uncertain."
+
+  - med: "Neomycin/polymyxin B/hydrocortisone otic drops"
+    dosing: "4 drops TID–QID x 7 days"
+    exclusions: "Avoid if tympanic membrane perforation suspected/known; avoid neomycin sensitivity."
+    notes: "Alternative when TM intact and no neomycin sensitivity."
+
+supportive_care:
+  - item: "Keep ear dry"
+    details: "Avoid swimming/water exposure; no cotton swabs; ear protection for showers."
+
+  - item: "Analgesia"
+    details: "Use acetaminophen or ibuprofen if safe for you (avoid NSAIDs in late pregnancy, kidney disease, ulcer/GI bleed risk)."
+
+followup_and_safety:
+  - item: "Re-evaluation"
+    details: "If not improving within 48–72 hours or worsening pain/swelling/drainage, seek in-person evaluation."
+
+  - item: "Urgent/ED now"
+    details: "Severe pain out of proportion, fever with diabetes/immunocompromise, facial weakness, severe dizziness/vertigo, mastoid swelling/tenderness, altered mental status."

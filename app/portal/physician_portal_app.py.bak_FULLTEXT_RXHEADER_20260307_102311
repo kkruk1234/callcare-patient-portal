@@ -1,0 +1,326 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any, Dict, List
+
+from fastapi import FastAPI, Form, HTTPException
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
+
+app = FastAPI(title="CallCare Physician Portal")
+
+PORTAL_INBOX_DIR = Path("logs") / "portal_inbox"
+PORTAL_INBOX_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _safe_str(x: Any) -> str:
+    try:
+        return str(x if x is not None else "").strip()
+    except Exception:
+        return ""
+
+
+def _load_json(path: Path) -> Dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _save_json(path: Path, data: Dict[str, Any]) -> None:
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _packet_files() -> List[Path]:
+    return sorted(
+        [p for p in PORTAL_INBOX_DIR.glob("*.json") if not p.name.endswith(".meta.json")],
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
+
+
+def _packet_path(packet_id: str) -> Path:
+    return PORTAL_INBOX_DIR / f"{packet_id}.json"
+
+
+def _meta_path(packet_id: str) -> Path:
+    return PORTAL_INBOX_DIR / f"{packet_id}.meta.json"
+
+
+def _default_meta(packet_id: str) -> Dict[str, Any]:
+    return {
+        "packet_id": packet_id,
+        "status": "active",
+        "prescription_status": "under review",
+        "note_sent": "to be mailed",
+    }
+
+
+def _load_meta(packet_id: str) -> Dict[str, Any]:
+    mp = _meta_path(packet_id)
+    if mp.exists():
+        try:
+            d = _load_json(mp)
+            base = _default_meta(packet_id)
+            base.update(d)
+            return base
+        except Exception:
+            pass
+    return _default_meta(packet_id)
+
+
+def _save_meta(packet_id: str, meta: Dict[str, Any]) -> None:
+    base = _default_meta(packet_id)
+    base.update(meta or {})
+    _save_json(_meta_path(packet_id), base)
+
+
+def _html_escape(s: Any) -> str:
+    text = _safe_str(s)
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+
+
+def _extract_first_line_medication(note_text: str) -> str:
+    text = _safe_str(note_text)
+    if not text:
+        return ""
+
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    for ln in lines:
+        low = ln.lower()
+        if "first-line medication:" in low:
+            return ln
+
+    return ""
+
+
+@app.get("/healthz")
+async def healthz() -> PlainTextResponse:
+    return PlainTextResponse("ok")
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home() -> str:
+    rows = []
+    for p in _packet_files():
+        try:
+            d = _load_json(p)
+        except Exception:
+            continue
+
+        pid = _safe_str(d.get("packet_id") or p.stem)
+        created = _safe_str(d.get("created_at"))
+        meta = _load_meta(pid)
+
+        status = _safe_str(meta.get("status") or "active")
+        prescription = _safe_str(meta.get("prescription_status") or "under review")
+        note_sent = _safe_str(meta.get("note_sent") or "to be mailed")
+
+        rows.append(
+            f"<tr>"
+            f"<td><a href='/packet/{_html_escape(pid)}'>{_html_escape(pid)}</a></td>"
+            f"<td>{_html_escape(created)}</td>"
+            f"<td>{_html_escape(status)}</td>"
+            f"<td>{_html_escape(prescription)}</td>"
+            f"<td>{_html_escape(note_sent)}</td>"
+            f"</tr>"
+        )
+
+    body = "".join(rows) or "<tr><td colspan='5'>No routed review packets yet.</td></tr>"
+
+    return f"""
+    <html>
+      <head>
+        <title>CallCare Physician Portal</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          table {{ border-collapse: collapse; width: 100%; }}
+          th, td {{ border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }}
+          th {{ background: #f5f5f5; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+        </style>
+      </head>
+      <body>
+        <h1>CallCare Physician Portal</h1>
+        <p>Routed review packets from telephone encounters.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Packet ID</th>
+              <th>Created</th>
+              <th>Status</th>
+              <th>Prescription</th>
+              <th>Note Sent</th>
+            </tr>
+          </thead>
+          <tbody>
+            {body}
+          </tbody>
+        </table>
+      </body>
+    </html>
+    """
+
+
+@app.get("/packet/{packet_id}", response_class=HTMLResponse)
+async def packet_detail(packet_id: str) -> str:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    d = _load_json(path)
+    meta = _load_meta(packet_id)
+
+    if _safe_str(meta.get("status")) == "active":
+        meta["status"] = "under review"
+        _save_meta(packet_id, meta)
+
+    note_text = _safe_str(d.get("note_text"))
+    evidence = d.get("evidence", []) or []
+    first_line_med = _extract_first_line_medication(note_text)
+
+    ev_html = ""
+    for i, ev in enumerate(evidence, 1):
+        title = _html_escape(ev.get("title"))
+        source = _html_escape(ev.get("source"))
+        url = _html_escape(ev.get("url"))
+        accessed = _html_escape(ev.get("accessed"))
+        ev_html += (
+            f"<h4>Evidence {i}</h4>"
+            f"<p><strong>Title:</strong> {title}<br>"
+            f"<strong>Source:</strong> {source}<br>"
+            f"<strong>Accessed:</strong> {accessed}<br>"
+            f"<strong>URL:</strong> <a href='{url}' target='_blank'>{url}</a></p>"
+        )
+
+    if not ev_html:
+        ev_html = "<p>No evidence attached.</p>"
+
+    status = _html_escape(meta.get("status"))
+    prescription_status = _html_escape(meta.get("prescription_status"))
+    note_sent = _html_escape(meta.get("note_sent"))
+
+    return f"""
+    <html>
+      <head>
+        <title>Packet {_html_escape(packet_id)}</title>
+        <style>
+          body {{ font-family: Arial, sans-serif; margin: 24px; }}
+          pre {{ white-space: pre-wrap; border: 1px solid #ccc; padding: 12px; background: #fafafa; }}
+          textarea {{ width: 100%; min-height: 420px; font-family: monospace; font-size: 14px; }}
+          a {{ text-decoration: none; color: #0a58ca; }}
+          .meta {{ margin-bottom: 18px; }}
+          .buttons form {{ display: inline-block; margin-right: 10px; margin-bottom: 10px; }}
+          button {{ padding: 8px 12px; }}
+        </style>
+      </head>
+      <body>
+        <p><a href="/">← Back to inbox</a></p>
+        <h1>Packet {_html_escape(packet_id)}</h1>
+
+        <div class="meta">
+          <p><strong>Created:</strong> {_html_escape(d.get('created_at'))}</p>
+          <p><strong>Session ID:</strong> {_html_escape(d.get('session_id'))}</p>
+          <p><strong>Pathway:</strong> {_html_escape(d.get('pathway_id'))}</p>
+          <p><strong>Status:</strong> {status}</p>
+          <p><strong>Prescription:</strong> {prescription_status}</p>
+          <p><strong>Note Sent:</strong> {note_sent}</p>
+          <p><strong>First-line prescription:</strong> {_html_escape(first_line_med or "Not found in note")}</p>
+        </div>
+
+        <h2>Clinical Note</h2>
+        <form method="post" action="/packet/{_html_escape(packet_id)}/update">
+          <textarea name="note_text">{_html_escape(note_text)}</textarea>
+          <p>
+            <button type="submit">Save Changes</button>
+          </p>
+        </form>
+
+        <div class="buttons">
+          <form method="post" action="/packet/{_html_escape(packet_id)}/sign">
+            <button type="submit">Sign Note</button>
+          </form>
+
+          <form method="post" action="/packet/{_html_escape(packet_id)}/prescribe">
+            <button type="submit">Send Prescription</button>
+          </form>
+
+          <form method="post" action="/packet/{_html_escape(packet_id)}/note-sent/emailed">
+            <button type="submit">Mark Note Emailed</button>
+          </form>
+
+          <form method="post" action="/packet/{_html_escape(packet_id)}/note-sent/to-be-mailed">
+            <button type="submit">Mark Note To Be Mailed</button>
+          </form>
+        </div>
+
+        <h2>Evidence</h2>
+        {ev_html}
+      </body>
+    </html>
+    """
+
+
+@app.post("/packet/{packet_id}/update")
+async def update_note(packet_id: str, note_text: str = Form(...)) -> RedirectResponse:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    d = _load_json(path)
+    d["note_text"] = _safe_str(note_text)
+    _save_json(path, d)
+
+    meta = _load_meta(packet_id)
+    if _safe_str(meta.get("status")) == "active":
+        meta["status"] = "under review"
+        _save_meta(packet_id, meta)
+
+    return RedirectResponse(url=f"/packet/{packet_id}", status_code=303)
+
+
+@app.post("/packet/{packet_id}/sign")
+async def sign_note(packet_id: str) -> RedirectResponse:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    meta = _load_meta(packet_id)
+    meta["status"] = "completed"
+    _save_meta(packet_id, meta)
+
+    return RedirectResponse(url=f"/packet/{packet_id}", status_code=303)
+
+
+@app.post("/packet/{packet_id}/prescribe")
+async def send_prescription(packet_id: str) -> RedirectResponse:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    meta = _load_meta(packet_id)
+    meta["prescription_status"] = "sent"
+    _save_meta(packet_id, meta)
+
+    return RedirectResponse(url=f"/packet/{packet_id}", status_code=303)
+
+
+@app.post("/packet/{packet_id}/note-sent/{mode}")
+async def note_sent(packet_id: str, mode: str) -> RedirectResponse:
+    path = _packet_path(packet_id)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Packet not found")
+
+    normalized = _safe_str(mode).lower()
+    if normalized not in {"emailed", "to-be-mailed", "to_be_mailed", "to be mailed"}:
+        raise HTTPException(status_code=400, detail="Invalid note-sent mode")
+
+    final_mode = "emailed" if normalized == "emailed" else "to be mailed"
+
+    meta = _load_meta(packet_id)
+    meta["note_sent"] = final_mode
+    _save_meta(packet_id, meta)
+
+    return RedirectResponse(url=f"/packet/{packet_id}", status_code=303)
