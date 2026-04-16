@@ -1,14 +1,15 @@
 from __future__ import annotations
 
-from typing import Dict, Optional
+import os
+from typing import Optional
 
 from fastapi import FastAPI, Form, HTTPException, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
+from itsdangerous import BadSignature, URLSafeSerializer
 
 from app.portal.portal_common import (
     addendum_block,
     html_escape,
-    make_session_token,
     packet_bundle_from_db,
     render_list_items,
     render_pharmacy,
@@ -20,7 +21,10 @@ from app.portal.portal_common import (
 
 app = FastAPI(title="CallCare Patient Portal")
 
-SESSIONS: Dict[str, Dict[str, str]] = {}
+
+def _serializer() -> URLSafeSerializer:
+    secret = os.getenv("CALLCARE_PORTAL_SECRET", "").strip() or "callcare-dev-secret"
+    return URLSafeSerializer(secret, salt="patient-portal-session")
 
 
 def shell(title: str, body: str) -> str:
@@ -125,14 +129,20 @@ def shell(title: str, body: str) -> str:
     """
 
 
-def _current_session(request: Request) -> Optional[Dict[str, str]]:
+def _current_session(request: Request) -> Optional[dict]:
     token = request.cookies.get("callcare_patient_session", "")
     if not token:
         return None
-    return SESSIONS.get(token)
+    try:
+        data = _serializer().loads(token)
+        if not isinstance(data, dict):
+            return None
+        return data
+    except BadSignature:
+        return None
 
 
-def _require_session(request: Request) -> Dict[str, str]:
+def _require_session(request: Request) -> dict:
     sess = _current_session(request)
     if not sess:
         raise HTTPException(status_code=401, detail="Not logged in")
@@ -157,15 +167,15 @@ async def login_page() -> str:
         <div class="card" style="max-width:700px;margin:0 auto;">
           <h2 style="margin-top:0;">Log In</h2>
           <p>Please use your name, date of birth, and portal password.</p>
-          <form method="post" action="/login">
+          <form method="post" action="/login" autocomplete="off">
             <label>First Name</label>
-            <input name="first_name" />
+            <input name="first_name" autocomplete="off" autocapitalize="words" spellcheck="false" />
             <label>Last Name</label>
-            <input name="last_name" />
+            <input name="last_name" autocomplete="off" autocapitalize="words" spellcheck="false" />
             <label>Date of Birth (YYYY-MM-DD)</label>
-            <input name="dob" />
+            <input name="dob" autocomplete="off" inputmode="numeric" spellcheck="false" />
             <label>Password</label>
-            <input name="password" type="password" />
+            <input name="password" type="password" autocomplete="new-password" spellcheck="false" />
             <button type="submit">Log In</button>
           </form>
         </div>
@@ -184,24 +194,29 @@ async def login(
     if not verified:
         return RedirectResponse(url="/", status_code=303)
 
-    token = make_session_token()
-    SESSIONS[token] = {
-        "chart_number": safe_str(verified.get("chart_number")),
-        "patient_name": safe_str(verified.get("patient_name")),
-    }
+    token = _serializer().dumps(
+        {
+            "chart_number": safe_str(verified.get("chart_number")),
+            "patient_name": safe_str(verified.get("patient_name")),
+        }
+    )
 
     response = RedirectResponse(url="/dashboard", status_code=303)
-    response.set_cookie("callcare_patient_session", token, httponly=True, samesite="lax")
+    response.set_cookie(
+        "callcare_patient_session",
+        token,
+        httponly=True,
+        samesite="lax",
+        path="/",
+        secure=True,
+    )
     return response
 
 
 @app.get("/logout")
-async def logout(request: Request) -> RedirectResponse:
-    token = request.cookies.get("callcare_patient_session", "")
-    if token and token in SESSIONS:
-        del SESSIONS[token]
+async def logout() -> RedirectResponse:
     response = RedirectResponse(url="/", status_code=303)
-    response.delete_cookie("callcare_patient_session")
+    response.delete_cookie("callcare_patient_session", path="/")
     return response
 
 
