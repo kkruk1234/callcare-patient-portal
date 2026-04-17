@@ -71,17 +71,41 @@ def _serializer() -> URLSafeSerializer:
     return URLSafeSerializer(secret, salt="patient-portal-session")
 
 
-def encounter_label(text: str) -> str:
-    t = safe_str(text).strip().rstrip(".")
-    lower = t.lower()
-    for prefix in ("i have ", "i'm having ", "im having ", "i am having ", "my "):
-        if lower.startswith(prefix):
-            t = t[len(prefix):].strip()
-            break
-    if not t:
-        return "Encounter"
-    return t[:1].upper() + t[1:]
+def encounter_label(note_text: str, fallback: str) -> str:
+    text = safe_str(note_text)
 
+    lower_text = text.lower()
+    marker = "the working diagnosis is "
+    likely_marker = " likely"
+
+    start = lower_text.find(marker)
+    if start != -1:
+        start += len(marker)
+        end = lower_text.find(likely_marker, start)
+        if end != -1:
+            diagnosis = text[start:end].strip(" .:-")
+            if diagnosis:
+                return diagnosis[:1].upper() + diagnosis[1:]
+
+    diff_marker = "Differential:"
+    if diff_marker in text:
+        tail = text.split(diff_marker, 1)[1]
+        for line in tail.splitlines():
+            s = safe_str(line)
+            if s.startswith("1."):
+                s = s[2:].strip()
+                if s:
+                    s = s[:1].lower() + s[1:]
+                    return "Possible " + s
+
+    f = safe_str(fallback).strip().rstrip(".")
+    for prefix in ("i have ", "i'm having ", "im having ", "i am having ", "my "):
+        if f.lower().startswith(prefix):
+            f = f[len(prefix):].strip()
+            break
+    if not f:
+        return "Encounter"
+    return f[:1].upper() + f[1:]
 
 def shell(title: str, body: str) -> str:
     return f"""
@@ -549,7 +573,7 @@ async def dashboard(request: Request) -> str:
         enc_ctx = enc.get("patient_ctx") or {}
         rows.append(
             f"<tr>"
-            f"<td><a href='/portal/encounter/{html_escape(enc['packet_id'])}'>{html_escape(encounter_label(safe_str(enc_ctx.get('chief_complaint')) or 'Encounter'))}</a></td>"
+            f"<td><a href='/portal/encounter/{html_escape(enc['packet_id'])}'>{html_escape(encounter_label(safe_str((enc.get('packet') or {}).get('note_text')), safe_str(enc_ctx.get('chief_complaint')) or 'Encounter'))}</a></td>"
             f"<td>{html_escape(safe_str(enc_ctx.get('encounter_started_at')) or safe_str(enc.get('created_at')))}</td>"
             f"<td>{html_escape(safe_str((enc.get('meta') or {}).get('prescription_status')))}</td>"
             f"<td>{html_escape(safe_str((enc.get('meta') or {}).get('note_sent')))}</td>"
@@ -638,7 +662,7 @@ async def encounter_detail(packet_id: str, request: Request) -> str:
         "CallCare Patient Encounter",
         f"""
         <div class="hero">
-          <h1>{html_escape(encounter_label(patient_ctx.get('chief_complaint')))}</h1>
+          <h1>{html_escape(encounter_label(safe_str((bundle.get('packet') or {}).get('note_text')), patient_ctx.get('chief_complaint')))}</h1>
           <p class="sub">Signed physician-reviewed note and treatment information.</p>
         </div>
 
@@ -653,7 +677,7 @@ async def encounter_detail(packet_id: str, request: Request) -> str:
             <div class="metric"><div class="label">Chart #</div><div class="value">{html_escape(patient_ctx.get('chart_number'))}</div></div>
             <div class="metric"><div class="label">Date of Birth</div><div class="value">{html_escape(patient_ctx.get('date_of_birth'))}</div></div>
             <div class="metric"><div class="label">Sex at Birth</div><div class="value">{html_escape(patient_ctx.get('sex_at_birth'))}</div></div>
-            <div class="metric"><div class="label">Chief Complaint</div><div class="value">{html_escape(encounter_label(patient_ctx.get('chief_complaint')))}</div></div>
+            <div class="metric"><div class="label">Chief Complaint</div><div class="value">{html_escape(encounter_label(safe_str((bundle.get('packet') or {}).get('note_text')), patient_ctx.get('chief_complaint')))}</div></div>
             <div class="metric"><div class="label">Prescription Status</div><div class="value">{html_escape(meta.get('prescription_status'))}</div></div>
           </div>
         </div>
