@@ -194,6 +194,16 @@ def shell(title: str, body: str) -> str:
           }}
           .card h2, .card h3 {{ margin-top: 0; }}
           .card p {{ line-height: 1.55; }}
+          .card.equal-card {{
+            display: flex;
+            flex-direction: column;
+            min-height: 250px;
+          }}
+          .card.equal-card .cta,
+          .card.equal-card .cta.secondary {{
+            margin-top: auto;
+            align-self: flex-start;
+          }}
           .cta {{
             display: inline-block;
             margin-top: 14px;
@@ -310,9 +320,9 @@ async def healthz() -> PlainTextResponse:
 async def home(request: Request) -> str:
     sess = _current_session(request)
     portal_link = (
-        "<a class='cta secondary' href='/portal/dashboard'>Go to Patient Portal</a>"
+        "<a class='cta' href='/portal/dashboard'>Go to Patient Portal</a>"
         if sess else
-        "<a class='cta secondary' href='/portal/login'>Patient Portal</a>"
+        "<a class='cta' href='/portal/login'>Go to Patient Portal</a>"
     )
     return shell(
         "CallCare",
@@ -337,7 +347,7 @@ async def home(request: Request) -> str:
         </div>
 
         <div class="grid">
-          <div class="card">
+          <div class="card equal-card">
             <h2>One number for care</h2>
             <p>
               Patients can call <strong>{PHONE_NUMBER_DISPLAY}</strong> to complete intake, receive physician-reviewed recommendations,
@@ -346,7 +356,7 @@ async def home(request: Request) -> str:
             <a class="cta" href="tel:{PHONE_NUMBER_TEL}">Call {PHONE_NUMBER_DISPLAY}</a>
           </div>
 
-          <div class="card">
+          <div class="card equal-card">
             <h2>Sign up for service</h2>
             <p>
               Start enrollment by confirming you live in an eligible rural Georgia county before completing your chart setup and service registration.
@@ -354,7 +364,7 @@ async def home(request: Request) -> str:
             <a class="cta" href="/signup">Start Sign Up</a>
           </div>
 
-          <div class="card">
+          <div class="card equal-card">
             <h2>Already a patient?</h2>
             <p>
               Use the patient portal to review signed physician notes, pharmacy information, delivery status, and encounter history.
