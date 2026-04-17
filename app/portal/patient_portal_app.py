@@ -91,13 +91,14 @@ def shell(title: str, body: str) -> str:
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>
           :root {{
-            --ink: #12332e;
-            --muted: #355b55;
-            --card: rgba(255,255,255,0.92);
+            --ink: #112b27;
+            --muted: #274641;
+            --card: rgba(255,255,255,0.94);
             --line: rgba(0,0,0,0.08);
-            --accent: #2f9e8f;
-            --accent2: #7cc7be;
-            --darklink: #111111;
+            --accent: #1f8f80;
+            --accent2: #67b9ae;
+            --darklink: #0b0b0b;
+            --hero-overlay: rgba(13, 40, 35, 0.52);
           }}
           * {{ box-sizing: border-box; }}
           body {{
@@ -105,41 +106,78 @@ def shell(title: str, body: str) -> str:
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             color: var(--ink);
             background:
-              linear-gradient(rgba(255,255,255,0.14), rgba(255,255,255,0.14)),
+              linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.12)),
               url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
           }}
-          .wrap {{ max-width: 1200px; margin: 0 auto; padding: 28px; }}
+          .wrap {{ max-width: 1240px; margin: 0 auto; padding: 28px; }}
           .hero {{
-            background: linear-gradient(135deg, rgba(47,158,143,0.94), rgba(124,199,190,0.90));
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            padding: 40px 42px;
+            box-shadow: 0 24px 60px rgba(16,38,35,0.22);
+            margin-bottom: 24px;
+            background:
+              linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+              url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            border-radius: 28px;
-            padding: 32px 36px;
-            box-shadow: 0 20px 50px rgba(18,60,55,0.18);
+          }}
+          .hero h1 {{
+            margin: 0 0 10px 0;
+            font-size: 56px;
+            line-height: 1;
+            letter-spacing: -0.03em;
+          }}
+          .hero .sub {{
+            margin: 0;
+            font-size: 19px;
+            line-height: 1.55;
+            max-width: 860px;
+            opacity: 0.98;
+          }}
+          .phone-wrap {{
+            margin-top: 24px;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            padding: 18px 22px;
+            border-radius: 18px;
+            backdrop-filter: blur(4px);
+          }}
+          .phone-label {{
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.95;
+          }}
+          .phone {{
+            font-size: 34px;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+          }}
+          .nav-strip {{
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
             margin-bottom: 24px;
           }}
-          .hero h1 {{ margin: 0 0 8px 0; font-size: 38px; }}
-          .hero p {{ margin: 0; font-size: 17px; opacity: 0.98; max-width: 850px; line-height: 1.5; }}
-          .phone {{
+          .nav-pill, .top-pill {{
             display: inline-block;
-            margin-top: 18px;
-            font-size: 28px;
+            padding: 12px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid var(--line);
+            box-shadow: 0 8px 20px rgba(18,60,55,0.08);
+            color: var(--darklink) !important;
+            text-decoration: none;
             font-weight: 800;
-            color: white;
-            text-decoration: none;
-          }}
-          .nav {{
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            margin: 8px 0 24px 0;
-          }}
-          .nav a, .top-links a {{
-            color: var(--darklink);
-            text-decoration: none;
-            font-weight: 700;
           }}
           .grid {{
             display: grid;
@@ -149,12 +187,13 @@ def shell(title: str, body: str) -> str:
           .card {{
             background: var(--card);
             backdrop-filter: blur(6px);
-            border-radius: 22px;
-            padding: 22px;
+            border-radius: 24px;
+            padding: 24px;
             border: 1px solid var(--line);
-            box-shadow: 0 10px 30px rgba(18, 60, 55, 0.08);
+            box-shadow: 0 12px 30px rgba(18,60,55,0.10);
           }}
           .card h2, .card h3 {{ margin-top: 0; }}
+          .card p {{ line-height: 1.55; }}
           .cta {{
             display: inline-block;
             margin-top: 14px;
@@ -163,10 +202,10 @@ def shell(title: str, body: str) -> str:
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             color: white;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
           }}
           .cta.secondary {{
-            background: rgba(255,255,255,0.86);
+            background: rgba(255,255,255,0.92);
             color: var(--ink);
             border: 1px solid var(--line);
           }}
@@ -177,22 +216,22 @@ def shell(title: str, body: str) -> str:
             margin-bottom: 20px;
           }}
           .metric {{
-            background: rgba(255,255,255,0.72);
+            background: rgba(255,255,255,0.78);
             border-radius: 16px;
             padding: 14px;
             border: 1px solid var(--line);
           }}
           .metric .label {{ font-size: 12px; color: var(--muted); text-transform: uppercase; }}
-          .metric .value {{ margin-top: 4px; font-size: 16px; font-weight: 600; }}
+          .metric .value {{ margin-top: 4px; font-size: 16px; font-weight: 700; }}
           input, select {{
             width: 100%;
             padding: 12px;
             border-radius: 12px;
             border: 1px solid var(--line);
             margin-top: 6px;
-            background: rgba(255,255,255,0.94);
+            background: rgba(255,255,255,0.97);
           }}
-          label {{ display: block; margin-top: 12px; font-weight: 600; }}
+          label {{ display: block; margin-top: 12px; font-weight: 700; }}
           button {{
             border: 0;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -200,7 +239,7 @@ def shell(title: str, body: str) -> str:
             padding: 12px 16px;
             border-radius: 12px;
             margin-top: 16px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(47,158,143,0.25);
           }}
@@ -208,10 +247,16 @@ def shell(title: str, body: str) -> str:
           th, td {{ padding: 12px; border-bottom: 1px solid var(--line); text-align: left; }}
           th {{ font-size: 12px; text-transform: uppercase; color: var(--muted); }}
           a {{ color: var(--accent); text-decoration: none; }}
+          .top-links {{
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 6px 0 20px 0;
+          }}
           .readonly {{
             border-radius: 14px;
             padding: 14px;
-            background: rgba(255,255,255,0.88);
+            background: rgba(255,255,255,0.90);
             border: 1px solid var(--line);
             white-space: pre-wrap;
           }}
@@ -220,9 +265,10 @@ def shell(title: str, body: str) -> str:
             margin-top: 14px;
             padding: 12px 14px;
             border-radius: 12px;
-            background: rgba(255,255,255,0.86);
+            background: rgba(255,255,255,0.90);
             border: 1px solid var(--line);
             color: var(--ink);
+            line-height: 1.55;
           }}
         </style>
       </head>
@@ -273,42 +319,45 @@ async def home(request: Request) -> str:
         f"""
         <div class="hero">
           <h1>CallCare</h1>
-          <p>
-            Telephone-first medical care for rural Georgia residents. CallCare helps patients access care
-            through a voice-first intake, physician review workflow, and patient portal for signed chart notes
-            and treatment recommendations.
+          <p class="sub">
+            Telephone-first medical care for rural Georgia residents. CallCare is designed for people who may face
+            barriers to broadband access, transportation, or nearby clinician availability. Patients call one number,
+            complete a guided intake, and receive physician-reviewed recommendations with follow-up access through the patient portal.
           </p>
-          <a class="phone" href="tel:{PHONE_NUMBER_TEL}">{PHONE_NUMBER_DISPLAY}</a>
+          <div class="phone-wrap">
+            <div class="phone-label">CallCare Phone Line</div>
+            <a class="phone" href="tel:{PHONE_NUMBER_TEL}">{PHONE_NUMBER_DISPLAY}</a>
+          </div>
         </div>
 
-        <div class="nav">
-          <a href="tel:{PHONE_NUMBER_TEL}">Call Now</a>
-          <a href="/signup">Sign Up for Service</a>
-          <a href="/portal/login">Patient Portal</a>
+        <div class="nav-strip">
+          <a class="nav-pill" href="tel:{PHONE_NUMBER_TEL}">Call Now</a>
+          <a class="nav-pill" href="/signup">Sign Up for Service</a>
+          <a class="nav-pill" href="/portal/login">Patient Portal</a>
         </div>
 
         <div class="grid">
           <div class="card">
-            <h2>Call for Care</h2>
+            <h2>One number for care</h2>
             <p>
-              Patients can call <strong>{PHONE_NUMBER_DISPLAY}</strong> to complete intake and receive
-              physician-reviewed recommendations.
+              Patients can call <strong>{PHONE_NUMBER_DISPLAY}</strong> to complete intake, receive physician-reviewed recommendations,
+              and learn whether medication or additional follow-up was advised.
             </p>
             <a class="cta" href="tel:{PHONE_NUMBER_TEL}">Call {PHONE_NUMBER_DISPLAY}</a>
           </div>
 
           <div class="card">
-            <h2>Check Eligibility</h2>
+            <h2>Sign up for service</h2>
             <p>
-              Start enrollment by confirming you live in an eligible rural Georgia county before full signup.
+              Start enrollment by confirming you live in an eligible rural Georgia county before completing your chart setup and service registration.
             </p>
-            <a class="cta" href="/signup">Sign Up for Service</a>
+            <a class="cta" href="/signup">Start Sign Up</a>
           </div>
 
           <div class="card">
-            <h2>Already a Patient?</h2>
+            <h2>Already a patient?</h2>
             <p>
-              Use the patient portal to review signed physician notes, pharmacy details, and delivery status.
+              Use the patient portal to review signed physician notes, pharmacy information, delivery status, and encounter history.
             </p>
             {portal_link}
           </div>
@@ -324,10 +373,10 @@ async def signup_page() -> str:
         f"""
         <div class="hero">
           <h1>Sign Up for CallCare</h1>
-          <p>First, confirm that you live in an eligible rural Georgia county.</p>
+          <p class="sub">First, confirm that you live in an eligible rural Georgia county.</p>
         </div>
 
-        <div class="top-links"><a href="/">← Back to Home</a></div>
+        <div class="top-links"><a class="top-pill" href="/">Back to Home</a></div>
 
         <div class="card" style="max-width:760px;margin-top:20px;">
           <h2 style="margin-top:0;">Eligibility Screen</h2>
@@ -388,10 +437,10 @@ async def signup_submit(
         f"""
         <div class="hero">
           <h1>CallCare Eligibility Result</h1>
-          <p>{html_escape(first_name)} {html_escape(last_name)}</p>
+          <p class="sub">{html_escape(first_name)} {html_escape(last_name)}</p>
         </div>
 
-        <div class="top-links"><a href="/">← Back to Home</a></div>
+        <div class="top-links"><a class="top-pill" href="/">Back to Home</a></div>
 
         <div class="card" style="max-width:760px;margin-top:20px;">
           {message}
@@ -407,10 +456,10 @@ async def login_page() -> str:
         """
         <div class="hero">
           <h1>Patient Portal</h1>
-          <p>Review signed physician notes, medication status, and preferred pharmacy information.</p>
+          <p class="sub">Review signed physician notes, medication status, and preferred pharmacy information.</p>
         </div>
 
-        <div class="top-links"><a href="/">← Back to Home</a></div>
+        <div class="top-links"><a class="top-pill" href="/">Back to Home</a></div>
 
         <div class="card" style="max-width:700px;margin:20px auto 0 auto;">
           <h2 style="margin-top:0;">Log In</h2>
@@ -477,8 +526,8 @@ async def dashboard(request: Request) -> str:
         return shell(
             "CallCare Patient Portal",
             """
-            <div class="hero"><h1>Patient Portal</h1><p>No signed notes are available yet.</p></div>
-            <div class="top-links"><a href="/">Home</a> &nbsp; <a href="/logout">Log out</a></div>
+            <div class="hero"><h1>Patient Portal</h1><p class="sub">No signed notes are available yet.</p></div>
+            <div class="top-links"><a class="top-pill" href="/">Home</a><a class="top-pill" href="/logout">Log out</a></div>
             """,
         )
 
@@ -502,10 +551,13 @@ async def dashboard(request: Request) -> str:
         f"""
         <div class="hero">
           <h1>Patient Portal</h1>
-          <p>Welcome back, {html_escape(patient_ctx.get('patient_name'))}.</p>
+          <p class="sub">Welcome back, {html_escape(patient_ctx.get('patient_name'))}.</p>
         </div>
 
-        <div class="top-links"><a href="/">Home</a> &nbsp; <a href="/logout">Log out</a></div>
+        <div class="top-links">
+          <a class="top-pill" href="/">Home</a>
+          <a class="top-pill" href="/logout">Log out</a>
+        </div>
 
         <div class="card" style="margin-top:20px;">
           <div class="meta-grid">
@@ -577,10 +629,13 @@ async def encounter_detail(packet_id: str, request: Request) -> str:
         f"""
         <div class="hero">
           <h1>{html_escape(encounter_label(patient_ctx.get('chief_complaint')))}</h1>
-          <p>Signed physician-reviewed note and treatment information.</p>
+          <p class="sub">Signed physician-reviewed note and treatment information.</p>
         </div>
 
-        <div class="top-links"><a href="/portal/dashboard">Back to Dashboard</a> &nbsp; <a href="/logout">Log out</a></div>
+        <div class="top-links">
+          <a class="top-pill" href="/portal/dashboard">Back to Dashboard</a>
+          <a class="top-pill" href="/logout">Log out</a>
+        </div>
 
         <div class="card" style="margin-top:20px;">
           <div class="meta-grid">
