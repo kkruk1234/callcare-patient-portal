@@ -24,8 +24,6 @@ app = FastAPI(title="CallCare Patient Portal")
 PHONE_NUMBER_DISPLAY = "(844) 660-6064"
 PHONE_NUMBER_TEL = "8446606064"
 
-# Based on Georgia DCH State Office of Rural Health rural-county map.
-# If you want to mirror your earlier project-specific rule exactly, remove "Glynn" below.
 RURAL_GA_COUNTIES = sorted({
     "Appling","Atkinson","Bacon","Baker","Banks","Barrow","Bartow","Ben Hill","Berrien","Bleckley",
     "Brantley","Brooks","Bryan","Burke","Butts","Calhoun","Camden","Candler","Carroll","Catoosa",
@@ -44,30 +42,28 @@ RURAL_GA_COUNTIES = sorted({
     "Wayne","Webster","White","Whitfield","Wilkes","Wilkinson","Wilcox","Worth","Wheeler"
 })
 
-COUNTY_OPTIONS = "".join(
-    f"<option value='{html_escape(c)}'>{html_escape(c)}</option>" for c in RURAL_GA_COUNTIES
-)
+ALL_GA_COUNTIES = sorted({
+    "Appling","Atkinson","Bacon","Baker","Baldwin","Banks","Barrow","Bartow","Ben Hill","Berrien",
+    "Bibb","Bleckley","Brantley","Brooks","Bryan","Bulloch","Burke","Butts","Calhoun","Camden",
+    "Candler","Carroll","Catoosa","Charlton","Chatham","Chattahoochee","Chattooga","Cherokee",
+    "Clarke","Clay","Clayton","Clinch","Cobb","Coffee","Colquitt","Columbia","Cook","Coweta",
+    "Crawford","Crisp","Dade","Dawson","Decatur","DeKalb","Dodge","Dooly","Dougherty","Douglas",
+    "Early","Echols","Effingham","Elbert","Emanuel","Evans","Fannin","Fayette","Floyd","Forsyth",
+    "Franklin","Fulton","Gilmer","Glascock","Glynn","Gordon","Grady","Greene","Gwinnett","Habersham",
+    "Hall","Hancock","Haralson","Harris","Hart","Heard","Henry","Houston","Irwin","Jackson",
+    "Jasper","Jeff Davis","Jefferson","Jenkins","Johnson","Jones","Lamar","Lanier","Laurens",
+    "Lee","Liberty","Lincoln","Long","Lowndes","Lumpkin","McDuffie","McIntosh","Macon","Madison",
+    "Marion","Meriwether","Miller","Mitchell","Monroe","Montgomery","Morgan","Murray","Muscogee",
+    "Newton","Oconee","Oglethorpe","Paulding","Peach","Pickens","Pierce","Pike","Polk","Pulaski",
+    "Putnam","Quitman","Rabun","Randolph","Richmond","Rockdale","Schley","Screven","Seminole",
+    "Spalding","Stephens","Stewart","Sumter","Talbot","Taliaferro","Tattnall","Taylor","Telfair",
+    "Terrell","Thomas","Tift","Toombs","Towns","Treutlen","Troup","Turner","Twiggs","Union",
+    "Upson","Walker","Walton","Ware","Warren","Washington","Wayne","Webster","Wheeler","White",
+    "Whitfield","Wilcox","Wilkes","Wilkinson","Worth"
+})
 
 ALL_COUNTY_OPTIONS = "".join(
-    f"<option value='{html_escape(c)}'>{html_escape(c)}</option>" for c in sorted({
-        "Appling","Atkinson","Bacon","Baker","Baldwin","Banks","Barrow","Bartow","Ben Hill","Berrien",
-        "Bibb","Bleckley","Brantley","Brooks","Bryan","Bulloch","Burke","Butts","Calhoun","Camden",
-        "Candler","Carroll","Catoosa","Charlton","Chatham","Chattahoochee","Chattooga","Cherokee",
-        "Clarke","Clay","Clayton","Clinch","Cobb","Coffee","Colquitt","Columbia","Cook","Coweta",
-        "Crawford","Crisp","Dade","Dawson","Decatur","DeKalb","Dodge","Dooly","Dougherty","Douglas",
-        "Early","Echols","Effingham","Elbert","Emanuel","Evans","Fannin","Fayette","Floyd","Forsyth",
-        "Franklin","Fulton","Gilmer","Glascock","Glynn","Gordon","Grady","Greene","Gwinnett","Habersham",
-        "Hall","Hancock","Haralson","Harris","Hart","Heard","Henry","Houston","Irwin","Jackson",
-        "Jasper","Jeff Davis","Jefferson","Jenkins","Johnson","Jones","Lamar","Lanier","Laurens",
-        "Lee","Liberty","Lincoln","Long","Lowndes","Lumpkin","McDuffie","McIntosh","Macon","Madison",
-        "Marion","Meriwether","Miller","Mitchell","Monroe","Montgomery","Morgan","Murray","Muscogee",
-        "Newton","Oconee","Oglethorpe","Paulding","Peach","Pickens","Pierce","Pike","Polk","Pulaski",
-        "Putnam","Quitman","Rabun","Randolph","Richmond","Rockdale","Schley","Screven","Seminole",
-        "Spalding","Stephens","Stewart","Sumter","Talbot","Taliaferro","Tattnall","Taylor","Telfair",
-        "Terrell","Thomas","Tift","Toombs","Towns","Treutlen","Troup","Turner","Twiggs","Union",
-        "Upson","Walker","Walton","Ware","Warren","Washington","Wayne","Webster","Wheeler","White",
-        "Whitfield","Wilcox","Wilkes","Wilkinson","Worth"
-    })
+    f"<option value='{html_escape(c)}'>{html_escape(c)}</option>" for c in ALL_GA_COUNTIES
 )
 
 def _serializer() -> URLSafeSerializer:
@@ -140,7 +136,7 @@ def shell(title: str, body: str) -> str:
             flex-wrap: wrap;
             margin: 8px 0 24px 0;
           }}
-          .nav a {{
+          .nav a, .top-links a {{
             color: var(--darklink);
             text-decoration: none;
             font-weight: 700;
@@ -212,11 +208,6 @@ def shell(title: str, body: str) -> str:
           th, td {{ padding: 12px; border-bottom: 1px solid var(--line); text-align: left; }}
           th {{ font-size: 12px; text-transform: uppercase; color: var(--muted); }}
           a {{ color: var(--accent); text-decoration: none; }}
-          .top-links a {{
-            color: var(--darklink);
-            font-weight: 700;
-            text-decoration: none;
-          }}
           .readonly {{
             border-radius: 14px;
             padding: 14px;
@@ -272,7 +263,7 @@ async def healthz() -> PlainTextResponse:
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request) -> str:
     sess = _current_session(request)
-    logged_in_link = (
+    portal_link = (
         "<a class='cta secondary' href='/portal/dashboard'>Go to Patient Portal</a>"
         if sess else
         "<a class='cta secondary' href='/portal/login'>Patient Portal</a>"
@@ -283,9 +274,9 @@ async def home(request: Request) -> str:
         <div class="hero">
           <h1>CallCare</h1>
           <p>
-            Telephone-first medical care for rural Georgia residents.
-            CallCare connects patients to an autonomous intake and asynchronous physician review workflow,
-            helping people access care even when broadband access, transportation, or local clinician supply are limited.
+            Telephone-first medical care for rural Georgia residents. CallCare helps patients access care
+            through a voice-first intake, physician review workflow, and patient portal for signed chart notes
+            and treatment recommendations.
           </p>
           <a class="phone" href="tel:{PHONE_NUMBER_TEL}">{PHONE_NUMBER_DISPLAY}</a>
         </div>
@@ -300,8 +291,8 @@ async def home(request: Request) -> str:
           <div class="card">
             <h2>Call for Care</h2>
             <p>
-              Patients can call <strong>{PHONE_NUMBER_DISPLAY}</strong> to complete an intake,
-              receive a physician-reviewed note, and learn whether medication or treatment was recommended.
+              Patients can call <strong>{PHONE_NUMBER_DISPLAY}</strong> to complete intake and receive
+              physician-reviewed recommendations.
             </p>
             <a class="cta" href="tel:{PHONE_NUMBER_TEL}">Call {PHONE_NUMBER_DISPLAY}</a>
           </div>
@@ -309,8 +300,7 @@ async def home(request: Request) -> str:
           <div class="card">
             <h2>Check Eligibility</h2>
             <p>
-              Start enrollment by confirming you live in an eligible rural Georgia county.
-              This first-pass screen is based on the Georgia State Office of Rural Health rural-county map.
+              Start enrollment by confirming you live in an eligible rural Georgia county before full signup.
             </p>
             <a class="cta" href="/signup">Sign Up for Service</a>
           </div>
@@ -318,9 +308,9 @@ async def home(request: Request) -> str:
           <div class="card">
             <h2>Already a Patient?</h2>
             <p>
-              Use the patient portal to view signed physician notes, delivery status, and your preferred pharmacy information.
+              Use the patient portal to review signed physician notes, pharmacy details, and delivery status.
             </p>
-            {logged_in_link}
+            {portal_link}
           </div>
         </div>
         """,
@@ -334,9 +324,7 @@ async def signup_page() -> str:
         f"""
         <div class="hero">
           <h1>Sign Up for CallCare</h1>
-          <p>
-            This first screen checks whether you live in an eligible rural Georgia county before continuing enrollment.
-          </p>
+          <p>First, confirm that you live in an eligible rural Georgia county.</p>
         </div>
 
         <div class="top-links"><a href="/">← Back to Home</a></div>
@@ -377,7 +365,6 @@ async def signup_submit(
         <div class="notice">
           <strong>Eligible county confirmed.</strong><br />
           {html_escape(county_clean)} is currently accepted for CallCare enrollment.
-          Next, collect your intake packet and complete enrollment to activate your chart.
         </div>
         <div style="margin-top:16px;">
           <a class="cta" href="/portal/login">Go to Patient Portal</a>
@@ -387,9 +374,8 @@ async def signup_submit(
     else:
         message = f"""
         <div class="notice">
-          <strong>Not currently eligible through this enrollment screen.</strong><br />
-          CallCare is currently limited to eligible rural Georgia counties. You selected {html_escape(county_clean or "no county")}.
-          If you believe this is an error or need help, call {PHONE_NUMBER_DISPLAY}.
+          <strong>Not currently eligible through this screen.</strong><br />
+          You selected {html_escape(county_clean or "no county")}. If you believe this is an error, call {PHONE_NUMBER_DISPLAY}.
         </div>
         <div style="margin-top:16px;">
           <a class="cta" href="tel:{PHONE_NUMBER_TEL}">Call {PHONE_NUMBER_DISPLAY}</a>
@@ -398,7 +384,7 @@ async def signup_submit(
         """
 
     return shell(
-        "CallCare Sign Up Result",
+        "CallCare Eligibility Result",
         f"""
         <div class="hero">
           <h1>CallCare Eligibility Result</h1>
