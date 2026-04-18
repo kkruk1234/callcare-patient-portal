@@ -697,6 +697,11 @@ async def encounter_detail(packet_id: str, request: Request) -> str:
           <div class="readonly">{html_escape(signed_note)}</div>
         </div>
 
+        <div class="card" style="margin-top:20px;">
+          <h2 style="margin-top:0;">Spoken Summary</h2>
+          <div class="readonly">{html_escape(safe_str(bundle.get("spoken_summary")) or 'No spoken summary available.')}</div>
+        </div>
+
         {addenda_html and f"<div class='card' style='margin-top:20px;'>{addenda_html}</div>" or ""}
 
         <div class="card" style="margin-top:20px;">
