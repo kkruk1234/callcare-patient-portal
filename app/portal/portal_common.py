@@ -352,12 +352,36 @@ def render_pharmacy(ph) -> str:
     return "<ul class='detail-list'>" + "".join(f"<li>{html_escape(p)}</li>" for p in parts) + "</ul>"
 
 
+PORTAL_TIMEZONE = ZoneInfo("America/New_York")
+
+
+def format_portal_time(value: Any) -> str:
+    text = safe_str(value)
+    if not text:
+        return ""
+
+    normalized = text.replace("T", " ").replace("Z", "+00:00")
+
+    try:
+        dt = datetime.fromisoformat(normalized)
+    except Exception:
+        try:
+            dt = datetime.strptime(normalized[:19], "%Y-%m-%d %H:%M:%S")
+        except Exception:
+            return text.split(".")[0]
+
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+
+    return dt.astimezone(PORTAL_TIMEZONE).strftime("%Y-%m-%d %I:%M:%S %p %Z")
+
+
 def signed_note_text(note_text: str, meta: Dict[str, Any]) -> str:
     text = safe_str(note_text)
     if not meta.get("signed"):
         return text
 
-    signed_at = safe_str(meta.get("signed_at"))
+    signed_at = portal_timestamp(meta.get("signed_at"))
     signed_by = safe_str(meta.get("signed_by"))
     stamp = f"\n\nSigned electronically by {signed_by} on {signed_at}"
     if stamp.strip() in text:
@@ -367,6 +391,6 @@ def signed_note_text(note_text: str, meta: Dict[str, Any]) -> str:
 
 def addendum_block(addendum: Dict[str, Any]) -> str:
     text = safe_str(addendum.get("text"))
-    signed_at = safe_str(addendum.get("signed_at"))
+    signed_at = portal_timestamp(addendum.get("signed_at"))
     signed_by = safe_str(addendum.get("signed_by"))
     return f"{text}\n\nSigned addendum by {signed_by} on {signed_at}"
