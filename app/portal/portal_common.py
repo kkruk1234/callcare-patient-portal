@@ -399,3 +399,57 @@ def addendum_block(addendum: Dict[str, Any]) -> str:
 # Backward-compatible timestamp formatter alias for patient portal imports.
 def portal_timestamp(value):
     return format_portal_time(value)
+
+# FINAL_CALLCARE_PATIENT_TIMESTAMP_OVERRIDE_START
+def portal_timestamp(value):
+    from datetime import datetime, timezone
+    from zoneinfo import ZoneInfo
+
+    text = safe_str(value)
+    if not text:
+        return ""
+
+    normalized = text.strip().replace("T", " ").replace("Z", "+00:00")
+
+    if len(normalized) >= 19:
+        normalized = normalized[:19] + normalized[19:]
+
+    try:
+        dt = datetime.fromisoformat(normalized)
+    except Exception:
+        try:
+            dt = datetime.strptime(normalized[:19], "%Y-%m-%d %H:%M:%S")
+        except Exception:
+            return text.split(".")[0]
+
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+
+    return dt.astimezone(ZoneInfo("America/New_York")).strftime("%Y-%m-%d %I:%M:%S %p %Z")
+
+
+def signed_note_text(note_text, meta):
+    text = safe_str(note_text)
+    if not meta.get("signed"):
+        return text
+
+    signed_at = portal_timestamp(meta.get("signed_at"))
+    signed_by = safe_str(meta.get("signed_by")) or signature_line()
+
+    import re
+    text = re.sub(r"\n\nSigned electronically by .*? on [^\n]+\s*$", "", text)
+
+    return text + f"\n\nSigned electronically by {signed_by} on {signed_at}"
+
+
+def addendum_block(addendum):
+    text = safe_str(addendum.get("text"))
+    signed_at = portal_timestamp(addendum.get("signed_at"))
+    signed_by = safe_str(addendum.get("signed_by")) or signature_line()
+
+    import re
+    text = re.sub(r"\n\nSigned addendum by .*? on [^\n]+\s*$", "", text)
+
+    return f"{text}\n\nSigned addendum by {signed_by} on {signed_at}"
+# FINAL_CALLCARE_PATIENT_TIMESTAMP_OVERRIDE_END
+
