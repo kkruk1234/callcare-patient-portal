@@ -575,7 +575,7 @@ async def dashboard(request: Request) -> str:
         rows.append(
             f"<tr>"
             f"<td><a href='/portal/encounter/{html_escape(enc['packet_id'])}'>{html_escape(encounter_label(safe_str((enc.get('packet') or {}).get('note_text')), safe_str(enc_ctx.get('chief_complaint')) or 'Encounter'))}</a></td>"
-            f"<td>{html_escape(format_portal_time(safe_str(enc_ctx.get('encounter_started_at')) or safe_str(enc.get('created_at'))))}</td>"
+            f"<td>{html_escape(portal_timestamp(safe_str(enc_ctx.get('encounter_started_at')) or safe_str(enc.get('created_at'))))}</td>"
             f"<td>{html_escape(safe_str((enc.get('meta') or {}).get('prescription_status')))}</td>"
             f"<td>{html_escape(safe_str((enc.get('meta') or {}).get('note_sent')))}</td>"
             f"</tr>"
