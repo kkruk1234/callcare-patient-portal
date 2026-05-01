@@ -395,3 +395,7 @@ def addendum_block(addendum: Dict[str, Any]) -> str:
     signed_at = portal_timestamp(addendum.get("signed_at"))
     signed_by = safe_str(addendum.get("signed_by"))
     return f"{text}\n\nSigned addendum by {signed_by} on {signed_at}"
+
+# Backward-compatible timestamp formatter alias for patient portal imports.
+def portal_timestamp(value):
+    return format_portal_time(value)
