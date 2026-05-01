@@ -9,7 +9,7 @@ from itsdangerous import BadSignature, URLSafeSerializer
 
 from app.portal.portal_common import (
     addendum_block,
-    format_portal_time,
+    portal_timestamp,
     html_escape,
     packet_bundle_from_db,
     render_list_items,
