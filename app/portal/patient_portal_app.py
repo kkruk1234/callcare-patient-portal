@@ -700,11 +700,9 @@ async def encounter_detail(packet_id: str, request: Request) -> str:
 
         <div class="card" style="margin-top:20px;">
           <h2 style="margin-top:0;">Spoken Summary</h2>
-          <div class="readonly">{html_escape(safe_str(bundle.get("spoken_summary")) or 'No spoken summary available.')}</div>
-        </div>
+          <div class="readonly" style="margin-bottom:12px;">{html_escape(safe_str(bundle.get("spoken_summary")) or 'No spoken summary available.')}</div>
 
-        <div class="card">
-          <h2 style="margin-top:0;">Physician Comments on Spoken Summary</h2>
+          <h2 style="margin-top:18px;">Physician Comments on Spoken Summary</h2>
           <div class="readonly">{html_escape(spoken_comments or 'No additional physician comments.')}
 
 Signed electronically by {html_escape(safe_str(meta.get('signed_by')))} on {html_escape(portal_timestamp(meta.get('signed_at')))}</div>
