@@ -834,6 +834,8 @@ def save_patient_history(chart_number: str, form: Dict[str, Any], actor_type: st
           past_flag,
           family_history_flag,
           notes,
+          source,
+          verification_status,
           created_at,
           updated_at
         )
@@ -845,6 +847,8 @@ def save_patient_history(chart_number: str, form: Dict[str, Any], actor_type: st
           CASE WHEN :'PAST_FLAG' = 'true' THEN true ELSE false END,
           CASE WHEN :'FAMILY_FLAG' = 'true' THEN true ELSE false END,
           NULLIF(:'NOTES', ''),
+          'patient_portal',
+          'patient_reported',
           now(),
           now()
         );

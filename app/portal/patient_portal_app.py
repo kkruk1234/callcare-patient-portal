@@ -727,15 +727,15 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
 
         rows.append(
             f"""
-            <tr>
-              <td>{html_escape(cond)}</td>
-              <td style="text-align:center;">
+            <tr style="background:{'rgba(47,158,143,0.10)' if len(rows) % 2 == 0 else 'rgba(255,255,255,0.95)'};">
+              <td style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">{html_escape(cond)}</td>
+              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
                 <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_current" {"checked" if item.get("current_flag") else ""}>
               </td>
-              <td style="text-align:center;">
+              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
                 <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_past" {"checked" if item.get("past_flag") else ""}>
               </td>
-              <td style="text-align:center;">
+              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
                 <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_family" {"checked" if item.get("family_history_flag") else ""}>
               </td>
             </tr>
@@ -746,7 +746,7 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
         <form method="post" action="/portal/history">
           <div class="card" style="margin-top:20px;">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;align-items:start;">
-              <table>
+              <table style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
                 <thead>
                   <tr>
                     <th>Condition</th>
@@ -760,7 +760,7 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
                 </tbody>
               </table>
 
-              <table>
+              <table style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
                 <thead>
                   <tr>
                     <th>Condition</th>
@@ -786,7 +786,7 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
             ></textarea>
 
             <div style="margin-top:18px;">
-              <button type="submit">Save Medical History</button>
+              <button type="submit" style="font-size:18px;padding:14px 22px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Save Medical History</button>
             </div>
           </div>
         </form>
