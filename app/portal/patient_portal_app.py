@@ -703,7 +703,7 @@ async def save_profile_page(request: Request) -> RedirectResponse:
 
 
 @app.get("/portal/dashboard", response_class=HTMLResponse)
-async def dashboard(request: Request, tab: str = Query(default="demographics")) -> str:
+async def dashboard(request: Request, tab: str = Query(default="encounters")) -> str:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
 
@@ -745,13 +745,41 @@ async def dashboard(request: Request, tab: str = Query(default="demographics")) 
           <a class="top-pill" href="/logout">Log out</a>
         </div>
 
-        <div class="tabs" style="margin-top:20px;">
-          <a class="{ 'tab active' if tab == 'demographics' else 'tab' }" href="/portal/dashboard?tab=demographics">Demographics + Pharmacy</a>
-          <a class="{ 'tab active' if tab == 'history' else 'tab' }" href="/portal/dashboard?tab=history">Medical History</a>
-          <a class="{ 'tab active' if tab == 'social' else 'tab' }" href="/portal/dashboard?tab=social">Social History</a>
-          <a class="{ 'tab active' if tab == 'medications' else 'tab' }" href="/portal/dashboard?tab=medications">Medications</a>
-          <a class="{ 'tab active' if tab == 'encounters' else 'tab' }" href="/portal/dashboard?tab=encounters">Encounters</a>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
+          <a href="/portal/dashboard?tab=demographics" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'demographics' else ''}">Demographics + Pharmacy</a>
+          <a href="/portal/dashboard?tab=history" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'history' else ''}">Medical History</a>
+          <a href="/portal/dashboard?tab=social" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'social' else ''}">Social History</a>
+          <a href="/portal/dashboard?tab=medications" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'medications' else ''}">Medications</a>
+          <a href="/portal/dashboard?tab=encounters" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'encounters' else ''}">Encounters</a>
         </div>
+
+        {(
+        f"""
+        <div class="card" style="margin-top:20px;">
+          <h2 style="margin-top:0;font-size:28px;">Hello {html_escape(patient_ctx.get('patient_name'))}!</h2>
+          <p style="font-size:18px;line-height:1.55;margin-bottom:0;">
+            Welcome to the CallCare Patient Portal. Please keep your background and medical information up-to-date by clicking on the headers above and editing the information. Or click on an encounter name below to see your chart notes with physician comments.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <h2 style="margin-top:0;">Signed Encounters</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Encounter</th>
+                <th>Date / Time</th>
+                <th>Prescription Status</th>
+                <th>Delivery Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {''.join(rows)}
+            </tbody>
+          </table>
+        </div>
+        """
+        ) if tab == "encounters" else ""}
 
         {(
         f"""
@@ -811,27 +839,6 @@ async def dashboard(request: Request, tab: str = Query(default="demographics")) 
         </div>
         """
         ) if tab == "medications" else ""}
-
-        {(
-        f"""
-        <div class="card" style="margin-top:20px;">
-          <h2 style="margin-top:0;">Signed Encounters</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Encounter</th>
-                <th>Date / Time</th>
-                <th>Prescription Status</th>
-                <th>Delivery Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {''.join(rows)}
-            </tbody>
-          </table>
-        </div>
-        """
-        ) if tab == "encounters" else ""}
 
         """,
     )
