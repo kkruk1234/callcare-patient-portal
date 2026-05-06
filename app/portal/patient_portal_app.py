@@ -555,6 +555,153 @@ async def logout() -> RedirectResponse:
     return response
 
 
+
+
+@app.get("/portal/profile", response_class=HTMLResponse)
+async def profile_page(request: Request) -> str:
+    sess = _require_session(request)
+    chart_number = sess["chart_number"]
+    profile = patient_profile_bundle(chart_number)
+    address = profile.get("address") or {}
+    vitals = profile.get("vitals") or {}
+    social = profile.get("social") or {}
+
+    return shell(
+        "CallCare Patient Profile",
+        f"""
+        <div class="hero">
+          <h1>Patient Profile</h1>
+          <p class="sub">Review and update your background information.</p>
+        </div>
+
+        <div class="top-links">
+          <a class="top-pill" href="/portal/dashboard">Back to Dashboard</a>
+          <a class="top-pill" href="/portal/profile">Profile</a>
+          <a class="top-pill" href="/logout">Log out</a>
+        </div>
+
+        <form method="post" action="/portal/profile" autocomplete="off">
+          <div class="card" style="margin-top:20px;">
+            <h2 style="margin-top:0;">Background</h2>
+
+            <label>Preferred Name</label>
+            <input name="preferred_name" value="{html_escape(profile.get('preferred_name'))}" />
+
+            <label>Sex Assigned at Birth</label>
+            <select name="sex_at_birth">
+              <option value="">Select</option>
+              <option value="female" {"selected" if safe_str(profile.get('sex_at_birth')).lower() == "female" else ""}>Female</option>
+              <option value="male" {"selected" if safe_str(profile.get('sex_at_birth')).lower() == "male" else ""}>Male</option>
+              <option value="intersex" {"selected" if safe_str(profile.get('sex_at_birth')).lower() == "intersex" else ""}>Intersex</option>
+              <option value="prefer not to say" {"selected" if safe_str(profile.get('sex_at_birth')).lower() == "prefer not to say" else ""}>Prefer not to say</option>
+            </select>
+
+            <label>Gender Identity</label>
+            <input name="gender_identity" value="{html_escape(profile.get('gender_identity'))}" />
+
+            <label>Phone Number</label>
+            <input name="phone_number" value="{html_escape(profile.get('phone_number'))}" />
+
+            <label>Email</label>
+            <input name="email" value="{html_escape(profile.get('email'))}" />
+          </div>
+
+          <div class="card" style="margin-top:20px;">
+            <h2 style="margin-top:0;">Address</h2>
+
+            <label>Address Line 1</label>
+            <input name="address_line_1" value="{html_escape(address.get('address_line_1'))}" />
+
+            <label>Address Line 2</label>
+            <input name="address_line_2" value="{html_escape(address.get('address_line_2'))}" />
+
+            <label>City</label>
+            <input name="city" value="{html_escape(address.get('city'))}" />
+
+            <label>State</label>
+            <input name="state" value="{html_escape(address.get('state') or 'GA')}" />
+
+            <label>ZIP Code</label>
+            <input name="postal_code" value="{html_escape(address.get('postal_code'))}" />
+
+            <label>County</label>
+            <input name="county_name" value="{html_escape(address.get('county_name'))}" />
+          </div>
+
+          <div class="card" style="margin-top:20px;">
+            <h2 style="margin-top:0;">Height / Weight</h2>
+
+            <label>Height - Feet</label>
+            <input name="height_feet" inputmode="numeric" value="{html_escape(vitals.get('height_feet'))}" />
+
+            <label>Height - Inches</label>
+            <input name="height_inches" inputmode="numeric" value="{html_escape(vitals.get('height_inches'))}" />
+
+            <label>Weight - Pounds</label>
+            <input name="weight_lbs" inputmode="decimal" value="{html_escape(vitals.get('weight_lbs'))}" />
+          </div>
+
+          <div class="card" style="margin-top:20px;">
+            <h2 style="margin-top:0;">Social History</h2>
+
+            <label>Tobacco Status</label>
+            <input name="tobacco_status" value="{html_escape(social.get('tobacco_status'))}" />
+
+            <label>Alcohol Use</label>
+            <input name="alcohol_use" value="{html_escape(social.get('alcohol_use'))}" />
+
+            <label>Recreational Drug Use</label>
+            <input name="drug_use" value="{html_escape(social.get('drug_use'))}" />
+
+            <label>Exercise Level</label>
+            <input name="exercise_level" value="{html_escape(social.get('exercise_level'))}" />
+
+            <label>Occupation</label>
+            <input name="occupation" value="{html_escape(social.get('occupation'))}" />
+          </div>
+
+          <div class="card" style="margin-top:20px;">
+            <h2 style="margin-top:0;">Sexual Activity</h2>
+
+            <label>Are you sexually active?</label>
+            <select name="sexually_active">
+              <option value="">Select</option>
+              <option value="no" {"selected" if safe_str(social.get('sexually_active')).lower() == "no" else ""}>No</option>
+              <option value="yes" {"selected" if safe_str(social.get('sexually_active')).lower() == "yes" else ""}>Yes</option>
+              <option value="prefer not to say" {"selected" if safe_str(social.get('sexually_active')).lower() == "prefer not to say" else ""}>Prefer not to say</option>
+            </select>
+
+            <label>If sexually active, how many partners?</label>
+            <input name="sexual_partners_count" inputmode="numeric" value="{html_escape(social.get('sexual_partners_count'))}" />
+
+            <label>Do you use protection?</label>
+            <select name="uses_protection">
+              <option value="">Select</option>
+              <option value="no" {"selected" if safe_str(social.get('uses_protection')).lower() == "no" else ""}>No</option>
+              <option value="yes" {"selected" if safe_str(social.get('uses_protection')).lower() == "yes" else ""}>Yes</option>
+              <option value="sometimes" {"selected" if safe_str(social.get('uses_protection')).lower() == "sometimes" else ""}>Sometimes</option>
+              <option value="not applicable" {"selected" if safe_str(social.get('uses_protection')).lower() == "not applicable" else ""}>Not applicable</option>
+            </select>
+
+            <label>If using protection, what kind?</label>
+            <input name="protection_type" value="{html_escape(social.get('protection_type'))}" />
+
+            <button type="submit">Save Profile</button>
+          </div>
+        </form>
+        """,
+    )
+
+
+@app.post("/portal/profile")
+async def save_profile_page(request: Request) -> RedirectResponse:
+    sess = _require_session(request)
+    chart_number = sess["chart_number"]
+    form = await request.form()
+    save_patient_profile(chart_number, dict(form), actor_type="patient")
+    return RedirectResponse(url="/portal/profile", status_code=303)
+
+
 @app.get("/portal/dashboard", response_class=HTMLResponse)
 async def dashboard(request: Request) -> str:
     sess = _require_session(request)
