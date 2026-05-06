@@ -702,6 +702,102 @@ async def save_profile_page(request: Request) -> RedirectResponse:
     return RedirectResponse(url="/portal/profile", status_code=303)
 
 
+
+
+@app.get("/portal/history", response_class=HTMLResponse)
+async def history_page(request: Request) -> str:
+    sess = _require_session(request)
+    chart_number = sess["chart_number"]
+
+    bundle = patient_history_bundle(chart_number)
+    conditions = bundle.get("conditions") or {}
+
+    existing = {}
+    for item in conditions:
+        existing[safe_str(item.get("condition_name")).lower()] = item
+
+    rows = []
+
+    for cond in COMMON_HISTORY_CONDITIONS:
+        key = cond.lower()
+        item = existing.get(key) or {}
+
+        rows.append(
+            f"""
+            <tr>
+              <td>{html_escape(cond)}</td>
+              <td style="text-align:center;">
+                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_current" {"checked" if item.get("current_flag") else ""}>
+              </td>
+              <td style="text-align:center;">
+                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_past" {"checked" if item.get("past_flag") else ""}>
+              </td>
+              <td style="text-align:center;">
+                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_family" {"checked" if item.get("family_history_flag") else ""}>
+              </td>
+            </tr>
+            """
+        )
+
+    return shell(
+        "Medical History",
+        f"""
+        <div class="hero">
+          <h1>Medical History</h1>
+          <p class="sub">Please keep your medical history up to date.</p>
+        </div>
+
+        <div class="top-links">
+          <a class="top-pill" href="/portal/dashboard?tab=history">Back to Dashboard</a>
+          <a class="top-pill" href="/logout">Log out</a>
+        </div>
+
+        <form method="post" action="/portal/history">
+          <div class="card" style="margin-top:20px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>Current</th>
+                  <th>Past</th>
+                  <th>Family History</th>
+                </tr>
+              </thead>
+              <tbody>
+                {''.join(rows)}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card" style="margin-top:20px;">
+            <h2 style="margin-top:0;">Other Conditions</h2>
+            <textarea
+              name="other_conditions"
+              rows="8"
+              style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;"
+              placeholder="Enter any additional diagnoses or medical conditions here."
+            ></textarea>
+
+            <div style="margin-top:18px;">
+              <button type="submit">Save Medical History</button>
+            </div>
+          </div>
+        </form>
+        """,
+    )
+
+
+@app.post("/portal/history")
+async def save_history_page(request: Request) -> RedirectResponse:
+    sess = _require_session(request)
+    chart_number = sess["chart_number"]
+
+    form = await request.form()
+    save_patient_history(chart_number, dict(form), actor_type="patient")
+
+    return RedirectResponse(url="/portal/dashboard?tab=history", status_code=303)
+
+
 @app.get("/portal/dashboard", response_class=HTMLResponse)
 async def dashboard(request: Request, tab: str = Query(default="encounters")) -> str:
     sess = _require_session(request)
@@ -786,7 +882,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <h2 style="margin-top:0;">Demographics + Pharmacy</h2>
-            <a class="top-pill" href="/portal/profile">Edit</a>
+            <a class="top-pill" href="/portal/history">Edit</a>
           </div>
           <div class="meta-grid">
             <div class="metric"><div class="label">Patient</div><div class="value">{html_escape(patient_ctx.get('patient_name'))}</div></div>
@@ -806,7 +902,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
             <a class="top-pill" href="/portal/profile">Edit</a>
           </div>
           <div class="readonly">
-            Structured medical history checklist will be added here next.
+            Click Edit to review and update your medical history checklist.
           </div>
         </div>
         """

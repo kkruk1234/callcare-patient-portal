@@ -735,3 +735,164 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
     """
 
     run_psql(sql, values)
+
+
+COMMON_HISTORY_CONDITIONS = ['Hypertension', 'Diabetes', 'High Cholesterol', 'Coronary Artery Disease', 'Heart Failure', 'Atrial Fibrillation', 'Stroke', 'COPD', 'Asthma', 'Sleep Apnea', 'GERD', 'Peptic Ulcer Disease', 'Irritable Bowel Syndrome', 'Crohn Disease', 'Ulcerative Colitis', 'Chronic Kidney Disease', 'Kidney Stones', 'Migraines', 'Seizure Disorder', 'Depression', 'Anxiety', 'Bipolar Disorder', 'PTSD', 'ADHD', 'Hypothyroidism', 'Hyperthyroidism', 'Obesity', 'Osteoarthritis', 'Rheumatoid Arthritis', 'Fibromyalgia', 'Osteoporosis', 'Chronic Back Pain', 'Anemia', 'Cancer', 'Breast Cancer', 'Colon Cancer', 'Prostate Cancer', 'Skin Cancer', 'Liver Disease', 'Hepatitis', 'HIV', 'Peripheral Neuropathy', 'Dementia', 'Parkinson Disease', 'Glaucoma', 'Macular Degeneration', 'Seasonal Allergies', 'Eczema', 'Psoriasis', 'Gout']
+
+
+def patient_history_bundle(chart_number: str) -> Dict[str, Any]:
+    sql = r"""
+    SELECT json_build_object(
+      'patient_id', p.id::text,
+      'conditions',
+        COALESCE((
+          SELECT json_agg(
+            json_build_object(
+              'condition_name', condition_name,
+              'current_flag', current_flag,
+              'past_flag', past_flag,
+              'family_history_flag', family_history_flag,
+              'notes', notes
+            )
+            ORDER BY condition_name
+          )
+          FROM callcare.patient_conditions c
+          WHERE c.patient_id = p.id
+            AND c.archived_at IS NULL
+        ), '[]'::json)
+    )
+    FROM callcare.patients p
+    WHERE p.chart_number = NULLIF(:'CHART_NUMBER', '')
+    LIMIT 1;
+    """
+    out = run_psql(sql, {"CHART_NUMBER": chart_number})
+    return json.loads(out) if out else {}
+
+
+def save_patient_history(chart_number: str, form: Dict[str, Any], actor_type: str = "patient") -> None:
+    bundle = patient_history_bundle(chart_number)
+    patient_id = safe_str(bundle.get("patient_id"))
+
+    if not patient_id:
+        return
+
+    existing = {
+        safe_str(x.get("condition_name")).lower(): x
+        for x in (bundle.get("conditions") or [])
+    }
+
+    rows = []
+
+    for cond in COMMON_HISTORY_CONDITIONS:
+        key = cond.lower().replace(" ", "_")
+
+        current_flag = safe_str(form.get(f"{key}_current")).lower() == "on"
+        past_flag = safe_str(form.get(f"{key}_past")).lower() == "on"
+        family_flag = safe_str(form.get(f"{key}_family")).lower() == "on"
+
+        if current_flag or past_flag or family_flag:
+            rows.append({
+                "condition_name": cond,
+                "current_flag": current_flag,
+                "past_flag": past_flag,
+                "family_history_flag": family_flag,
+                "notes": "",
+            })
+
+    other_text = safe_str(form.get("other_conditions"))
+
+    if other_text:
+        for line in other_text.splitlines():
+            line = safe_str(line)
+            if not line:
+                continue
+
+            rows.append({
+                "condition_name": line,
+                "current_flag": True,
+                "past_flag": False,
+                "family_history_flag": False,
+                "notes": "other_condition_writein",
+            })
+
+    sql_delete = r"""
+    UPDATE callcare.patient_conditions
+    SET archived_at = now()
+    WHERE patient_id = NULLIF(:'PATIENT_ID', '')::uuid
+      AND archived_at IS NULL;
+    """
+
+    run_psql(sql_delete, {"PATIENT_ID": patient_id})
+
+    for row in rows:
+        sql_insert = r"""
+        INSERT INTO callcare.patient_conditions (
+          id,
+          patient_id,
+          condition_name,
+          current_flag,
+          past_flag,
+          family_history_flag,
+          notes,
+          created_at,
+          updated_at
+        )
+        VALUES (
+          gen_random_uuid(),
+          NULLIF(:'PATIENT_ID', '')::uuid,
+          :'CONDITION_NAME',
+          CASE WHEN :'CURRENT_FLAG' = 'true' THEN true ELSE false END,
+          CASE WHEN :'PAST_FLAG' = 'true' THEN true ELSE false END,
+          CASE WHEN :'FAMILY_FLAG' = 'true' THEN true ELSE false END,
+          NULLIF(:'NOTES', ''),
+          now(),
+          now()
+        );
+        """
+
+        run_psql(
+            sql_insert,
+            {
+                "PATIENT_ID": patient_id,
+                "CONDITION_NAME": row["condition_name"],
+                "CURRENT_FLAG": str(row["current_flag"]).lower(),
+                "PAST_FLAG": str(row["past_flag"]).lower(),
+                "FAMILY_FLAG": str(row["family_history_flag"]).lower(),
+                "NOTES": row["notes"],
+            },
+        )
+
+    audit_sql = r"""
+    INSERT INTO callcare.audit_events (
+      id,
+      actor_type,
+      actor_id,
+      patient_id,
+      encounter_id,
+      event_type,
+      event_json,
+      created_at
+    )
+    VALUES (
+      gen_random_uuid(),
+      :'ACTOR_TYPE',
+      NULL,
+      NULLIF(:'PATIENT_ID', '')::uuid,
+      NULL,
+      'patient_history_updated',
+      jsonb_build_object(
+        'condition_count', :'COUNT',
+        'source', 'patient_portal'
+      ),
+      now()
+    );
+    """
+
+    run_psql(
+        audit_sql,
+        {
+            "ACTOR_TYPE": actor_type,
+            "PATIENT_ID": patient_id,
+            "COUNT": str(len(rows)),
+        },
+    )
