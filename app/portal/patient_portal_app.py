@@ -707,15 +707,17 @@ async def save_profile_page(request: Request) -> RedirectResponse:
 
 
 
+
 def history_form_html(chart_number: str, embedded: str = "0") -> str:
     bundle = patient_history_bundle(chart_number)
-    conditions = bundle.get("conditions") or {}
+    conditions = bundle.get("conditions") or []
 
     existing = {}
     for item in conditions:
         existing[safe_str(item.get("condition_name")).lower()] = item
 
     common_names = {safe_str(c).lower() for c in COMMON_HISTORY_CONDITIONS}
+
     other_existing = "\n".join(
         safe_str(item.get("condition_name"))
         for item in conditions
@@ -728,33 +730,50 @@ def history_form_html(chart_number: str, embedded: str = "0") -> str:
         key = cond.lower()
         item = existing.get(key) or {}
 
+        row_bg = (
+            "rgba(47,158,143,0.10)"
+            if len(rows) % 2 == 0
+            else "rgba(255,255,255,0.96)"
+        )
+
         rows.append(
             f"""
-            <tr style="background:{'rgba(47,158,143,0.10)' if len(rows) % 2 == 0 else 'rgba(255,255,255,0.96)'};">
-              <td style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">{html_escape(cond)}</td>
-
-              <td style="text-align:center;">
-                <input type="checkbox"
-                       name="{html_escape(cond.lower().replace(' ', '_'))}_current"
-                       {"checked" if item.get("current_flag") else ""}>
+            <tr style="background:{row_bg};">
+              <td style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+                {html_escape(cond)}
               </td>
 
               <td style="text-align:center;">
-                <input type="checkbox"
-                       name="{html_escape(cond.lower().replace(' ', '_'))}_past"
-                       {"checked" if item.get("past_flag") else ""}>
+                <input
+                  type="checkbox"
+                  name="{html_escape(cond.lower().replace(' ', '_'))}_current"
+                  {"checked" if item.get("current_flag") else ""}
+                >
               </td>
 
               <td style="text-align:center;">
-                <input type="checkbox"
-                       name="{html_escape(cond.lower().replace(' ', '_'))}_family"
-                       {"checked" if item.get("family_history_flag") else ""}>
+                <input
+                  type="checkbox"
+                  name="{html_escape(cond.lower().replace(' ', '_'))}_past"
+                  {"checked" if item.get("past_flag") else ""}
+                >
+              </td>
+
+              <td style="text-align:center;">
+                <input
+                  type="checkbox"
+                  name="{html_escape(cond.lower().replace(' ', '_'))}_family"
+                  {"checked" if item.get("family_history_flag") else ""}
+                >
               </td>
             </tr>
             """
         )
 
-    body = f"""
+    left_rows = ''.join(rows[:(len(rows)+1)//2])
+    right_rows = ''.join(rows[(len(rows)+1)//2:])
+
+    return f"""
     <form method="post" action="/portal/history?embedded={html_escape(embedded)}">
 
       <div class="card" style="margin-top:20px;">
@@ -770,7 +789,7 @@ def history_form_html(chart_number: str, embedded: str = "0") -> str:
               </tr>
             </thead>
             <tbody>
-              {''.join(rows[:(len(rows)+1)//2])}
+              {left_rows}
             </tbody>
           </table>
 
@@ -784,7 +803,7 @@ def history_form_html(chart_number: str, embedded: str = "0") -> str:
               </tr>
             </thead>
             <tbody>
-              {''.join(rows[(len(rows)+1)//2:])}
+              {right_rows}
             </tbody>
           </table>
 
@@ -806,13 +825,7 @@ def history_form_html(chart_number: str, embedded: str = "0") -> str:
         <div style="margin-top:18px;">
           <button
             type="submit"
-            style="
-              font-size:16px;
-              padding:12px 18px;
-              border-radius:18px;
-              font-weight:800;
-              font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
-            "
+            style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;"
           >
             Save Medical History
           </button>
@@ -821,9 +834,6 @@ def history_form_html(chart_number: str, embedded: str = "0") -> str:
 
     </form>
     """
-
-    return body
-
 
 
 @app.get("/portal/history", response_class=HTMLResponse)
