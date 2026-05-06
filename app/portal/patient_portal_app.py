@@ -746,11 +746,49 @@ async def dashboard(request: Request) -> str:
         </div>
 
         <div class="card" style="margin-top:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2 style="margin-top:0;">Demographics + Pharmacy</h2>
+            <a class="top-pill" href="/portal/profile">Edit</a>
+          </div>
+
           <div class="meta-grid">
             <div class="metric"><div class="label">Patient</div><div class="value">{html_escape(patient_ctx.get('patient_name'))}</div></div>
             <div class="metric"><div class="label">Chart #</div><div class="value">{html_escape(patient_ctx.get('chart_number'))}</div></div>
             <div class="metric"><div class="label">Date of Birth</div><div class="value">{html_escape(patient_ctx.get('date_of_birth'))}</div></div>
             <div class="metric"><div class="label">Preferred Pharmacy</div><div class="value">{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('name')) or 'On file')}</div></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2 style="margin-top:0;">Past Medical History</h2>
+            <a class="top-pill" href="/portal/profile">Edit</a>
+          </div>
+
+          <div class="readonly">
+            Medical history editing will be available here.
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2 style="margin-top:0;">Social History</h2>
+            <a class="top-pill" href="/portal/profile">Edit</a>
+          </div>
+
+          <div class="readonly">
+            Social history editing is available in the profile section.
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2 style="margin-top:0;">Medications</h2>
+            <a class="top-pill" href="/portal/profile">Edit</a>
+          </div>
+
+          <div class="readonly">
+            Medication management will be available here.
           </div>
         </div>
 
