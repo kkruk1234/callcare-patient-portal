@@ -451,8 +451,10 @@ async def signup_submit(
           {html_escape(county_clean)} is currently accepted for CallCare enrollment.
         </div>
         <div style="margin-top:16px;">
-          <a class="cta" href="/portal/login">Go to Patient Portal</a>
-          <a class="cta secondary" href="tel:{PHONE_NUMBER_TEL}">Call {PHONE_NUMBER_DISPLAY}</a>
+          <p style="margin-bottom:12px;">
+            CallCare is not yet available to the public. We are working hard to expand access to rural communities across Georgia.
+          </p>
+          <a class="cta" href="/">Return to Home</a>
         </div>
         """
     else:
@@ -462,8 +464,10 @@ async def signup_submit(
           You selected {html_escape(county_clean or "no county")}. If you believe this is an error, call {PHONE_NUMBER_DISPLAY}.
         </div>
         <div style="margin-top:16px;">
-          <a class="cta" href="tel:{PHONE_NUMBER_TEL}">Call {PHONE_NUMBER_DISPLAY}</a>
-          <a class="cta secondary" href="/signup">Try Again</a>
+          <p style="margin-bottom:12px;">
+            CallCare is not yet available to the public. We are working to expand availability across Georgia.
+          </p>
+          <a class="cta" href="/">Return to Home</a>
         </div>
         """
 
