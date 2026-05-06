@@ -828,29 +828,9 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
             f"</tr>"
         )
 
-    return shell(
-        "CallCare Patient Portal",
-        f"""
-        <div class="hero">
-          <h1>Patient Portal</h1>
-          <p class="sub">Welcome back, {html_escape(patient_ctx.get('patient_name'))}.</p>
-        </div>
 
-        <div class="top-links">
-          <a class="top-pill" href="/">Home</a>
-          <a class="top-pill" href="/logout">Log out</a>
-        </div>
 
-        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
-          <a href="/portal/dashboard?tab=demographics" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'demographics' else ''}">Demographics + Pharmacy</a>
-          <a href="/portal/dashboard?tab=history" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'history' else ''}">Medical History</a>
-          <a href="/portal/dashboard?tab=social" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'social' else ''}">Social History</a>
-          <a href="/portal/dashboard?tab=medications" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'medications' else ''}">Medications</a>
-          <a href="/portal/dashboard?tab=encounters" style="color:#111;text-decoration:none;background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.14);border-radius:18px;padding:14px 18px;font-weight:800;box-shadow:0 8px 22px rgba(18,60,55,0.10);{' outline:3px solid #2f9e8f;' if tab == 'encounters' else ''}">Encounters</a>
-        </div>
-
-        {(
-        f"""
+    encounters_panel = f"""
         <div class="card" style="margin-top:20px;">
           <h2 style="margin-top:0;font-size:28px;">Hello {html_escape(patient_ctx.get('patient_name'))}!</h2>
           <p style="font-size:18px;line-height:1.55;margin-bottom:0;">
@@ -874,16 +854,15 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
             </tbody>
           </table>
         </div>
-        """
-        ) if tab == "encounters" else ""}
+    """
 
-        {(
-        f"""
+    demographics_panel = f"""
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <h2 style="margin-top:0;">Demographics + Pharmacy</h2>
-            <a class="top-pill" href="/portal/history">Edit</a>
+            <a class="top-pill" href="/portal/profile">Edit</a>
           </div>
+
           <div class="meta-grid">
             <div class="metric"><div class="label">Patient</div><div class="value">{html_escape(patient_ctx.get('patient_name'))}</div></div>
             <div class="metric"><div class="label">Chart #</div><div class="value">{html_escape(patient_ctx.get('chart_number'))}</div></div>
@@ -891,51 +870,72 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
             <div class="metric"><div class="label">Preferred Pharmacy</div><div class="value">{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('name')) or 'On file')}</div></div>
           </div>
         </div>
-        """
-        ) if tab == "demographics" else ""}
+    """
 
-        {(
-        """
+    history_panel = """
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <h2 style="margin-top:0;">Medical History</h2>
-            <a class="top-pill" href="/portal/profile">Edit</a>
+            <a class="top-pill" href="/portal/history">Edit</a>
           </div>
+
           <div class="readonly">
             Click Edit to review and update your medical history checklist.
           </div>
         </div>
-        """
-        ) if tab == "history" else ""}
+    """
 
-        {(
-        """
+    social_panel = """
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <h2 style="margin-top:0;">Social History</h2>
             <a class="top-pill" href="/portal/profile">Edit</a>
           </div>
+
           <div class="readonly">
             Structured social history form will be added here next.
           </div>
         </div>
-        """
-        ) if tab == "social" else ""}
+    """
 
-        {(
-        """
+    medications_panel = """
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <h2 style="margin-top:0;">Medications</h2>
             <a class="top-pill" href="/portal/profile">Edit</a>
           </div>
+
           <div class="readonly">
             Structured medication list will be added here next.
           </div>
         </div>
-        """
-        ) if tab == "medications" else ""}
+    """
+    return shell(
+        "CallCare Patient Portal",
+        f"""
+        <div class="hero">
+          <h1>Patient Portal</h1>
+          <p class="sub">Welcome back, {html_escape(patient_ctx.get('patient_name'))}.</p>
+        </div>
 
+        <div class="top-links">
+          <a class="top-pill" href="/">Home</a>
+          <a class="top-pill" href="/logout">Log out</a>
+        </div>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
+          <a href="/portal/dashboard?tab=demographics" class="top-pill">Demographics + Pharmacy</a>
+          <a href="/portal/dashboard?tab=history" class="top-pill">Medical History</a>
+          <a href="/portal/dashboard?tab=social" class="top-pill">Social History</a>
+          <a href="/portal/dashboard?tab=medications" class="top-pill">Medications</a>
+          <a href="/portal/dashboard?tab=encounters" class="top-pill">Encounters</a>
+        </div>
+
+        {encounters_panel if tab == "encounters" else ""}
+        {demographics_panel if tab == "demographics" else ""}
+        {history_panel if tab == "history" else ""}
+        {social_panel if tab == "social" else ""}
+        {medications_panel if tab == "medications" else ""}
         """,
     )
 
