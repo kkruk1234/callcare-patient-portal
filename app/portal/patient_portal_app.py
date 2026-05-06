@@ -17,6 +17,9 @@ from app.portal.portal_common import (
     safe_str,
     signed_note_text,
     signed_patient_group,
+    save_patient_history,
+    patient_history_bundle,
+    COMMON_HISTORY_CONDITIONS,
     verify_portal_login,
 )
 
