@@ -719,6 +719,13 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
     for item in conditions:
         existing[safe_str(item.get("condition_name")).lower()] = item
 
+    common_names = {safe_str(c).lower() for c in COMMON_HISTORY_CONDITIONS}
+    other_existing = "\n".join(
+        safe_str(item.get("condition_name"))
+        for item in conditions
+        if safe_str(item.get("condition_name")).lower() not in common_names
+    )
+
     rows = []
 
     for cond in COMMON_HISTORY_CONDITIONS:
@@ -743,7 +750,7 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
         )
 
     body = f"""
-        <form method="post" action="/portal/history">
+        <form method="post" action="/portal/history?embedded={html_escape(embedded)}">
           <div class="card" style="margin-top:20px;">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;align-items:start;">
               <table style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
@@ -777,16 +784,16 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
           </div>
 
           <div class="card" style="margin-top:20px;">
-            <h2 style="margin-top:0;">Other Conditions</h2>
+            <h2 style="margin-top:0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Other Conditions</h2>
             <textarea
               name="other_conditions"
               rows="8"
-              style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;"
+              style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;font-size:15px;"
               placeholder="Enter any additional diagnoses or medical conditions here."
-            ></textarea>
+            >{html_escape(other_existing)}</textarea>
 
             <div style="margin-top:18px;">
-              <button type="submit" style="font-size:18px;padding:14px 22px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Save Medical History</button>
+              <button type="submit" style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Save Medical History</button>
             </div>
           </div>
         </form>
@@ -814,14 +821,14 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
 
 
 @app.post("/portal/history")
-async def save_history_page(request: Request) -> RedirectResponse:
+async def save_history_page(request: Request, embedded: str = Query(default="0")) -> RedirectResponse:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
 
     form = await request.form()
     save_patient_history(chart_number, dict(form), actor_type="patient")
 
-    return RedirectResponse(url="/portal/dashboard?tab=history", status_code=303)
+    return RedirectResponse(url="/portal/history?embedded=1" if embedded == "1" else "/portal/dashboard?tab=history", status_code=303)
 
 
 @app.get("/portal/dashboard", response_class=HTMLResponse)
