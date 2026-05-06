@@ -460,8 +460,8 @@ async def signup_submit(
     else:
         message = f"""
         <div class="notice">
-          <strong>Not currently eligible through this screen.</strong><br />
-          You selected {html_escape(county_clean or "no county")}. If you believe this is an error, call {PHONE_NUMBER_DISPLAY}.
+          <strong>County not currently eligible.</strong><br />
+          You selected {html_escape(county_clean or "no county")}. Your county is not currently eligible for CallCare service.
         </div>
         <div style="margin-top:16px;">
           <p style="margin-bottom:12px;">
