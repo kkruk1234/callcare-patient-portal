@@ -708,7 +708,6 @@ async def save_profile_page(request: Request) -> RedirectResponse:
 
 
 def history_form_html(chart_number: str, embedded: str = "0") -> str:
-
     bundle = patient_history_bundle(chart_number)
     conditions = bundle.get("conditions") or {}
 
@@ -731,72 +730,100 @@ def history_form_html(chart_number: str, embedded: str = "0") -> str:
 
         rows.append(
             f"""
-            <tr style="background:{'rgba(47,158,143,0.10)' if len(rows) % 2 == 0 else 'rgba(255,255,255,0.95)'};">
-              <td style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">{html_escape(cond)}</td>
-              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_current" {"checked" if item.get("current_flag") else ""}>
+            <tr style="background:{'rgba(47,158,143,0.10)' if len(rows) % 2 == 0 else 'rgba(255,255,255,0.96)'};">
+              <td style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">{html_escape(cond)}</td>
+
+              <td style="text-align:center;">
+                <input type="checkbox"
+                       name="{html_escape(cond.lower().replace(' ', '_'))}_current"
+                       {"checked" if item.get("current_flag") else ""}>
               </td>
-              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_past" {"checked" if item.get("past_flag") else ""}>
+
+              <td style="text-align:center;">
+                <input type="checkbox"
+                       name="{html_escape(cond.lower().replace(' ', '_'))}_past"
+                       {"checked" if item.get("past_flag") else ""}>
               </td>
-              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_family" {"checked" if item.get("family_history_flag") else ""}>
+
+              <td style="text-align:center;">
+                <input type="checkbox"
+                       name="{html_escape(cond.lower().replace(' ', '_'))}_family"
+                       {"checked" if item.get("family_history_flag") else ""}>
               </td>
             </tr>
             """
         )
 
     body = f"""
-        <form method="post" action="/portal/history?embedded={html_escape(embedded)}">
-          <div class="card" style="margin-top:20px;">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;align-items:start;">
-              <table style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                <thead>
-                  <tr>
-                    <th>Condition</th>
-                    <th>Current</th>
-                    <th>Past</th>
-                    <th>Family History</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {''.join(rows[:(len(rows)+1)//2])}
-                </tbody>
-              </table>
+    <form method="post" action="/portal/history?embedded={html_escape(embedded)}">
 
-              <table style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                <thead>
-                  <tr>
-                    <th>Condition</th>
-                    <th>Current</th>
-                    <th>Past</th>
-                    <th>Family History</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {''.join(rows[(len(rows)+1)//2:])}
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <div class="card" style="margin-top:20px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;align-items:start;">
 
-          <div class="card" style="margin-top:20px;">
-            <h2 style="margin-top:0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Other Conditions</h2>
-            <textarea
-              name="other_conditions"
-              rows="8"
-              style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;font-size:15px;"
-              placeholder="Enter any additional diagnoses or medical conditions here."
-            >{html_escape(other_existing)}</textarea>
+          <table style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th>Current</th>
+                <th>Past</th>
+                <th>Family History</th>
+              </tr>
+            </thead>
+            <tbody>
+              {''.join(rows[:(len(rows)+1)//2])}
+            </tbody>
+          </table>
 
-            <div style="margin-top:18px;">
-              <button type="submit" style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Save Medical History</button>
-            </div>
-          </div>
-        </form>
+          <table style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th>Current</th>
+                <th>Past</th>
+                <th>Family History</th>
+              </tr>
+            </thead>
+            <tbody>
+              {''.join(rows[(len(rows)+1)//2:])}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <h2 style="margin-top:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+          Other Conditions
+        </h2>
+
+        <textarea
+          name="other_conditions"
+          rows="6"
+          style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:15px;"
+          placeholder="Enter any additional diagnoses or medical conditions here."
+        >{html_escape(other_existing)}</textarea>
+
+        <div style="margin-top:18px;">
+          <button
+            type="submit"
+            style="
+              font-size:16px;
+              padding:12px 18px;
+              border-radius:18px;
+              font-weight:800;
+              font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+            "
+          >
+            Save Medical History
+          </button>
+        </div>
+      </div>
+
+    </form>
     """
 
     return body
+
 
 
 @app.get("/portal/history", response_class=HTMLResponse)
