@@ -707,17 +707,19 @@ async def save_profile_page(request: Request) -> RedirectResponse:
 
 
 
+@app.get("/portal/history", response_class=HTMLResponse)
+async def history_page(request: Request, embedded: str = Query(default="0")) -> str:
+    sess = _require_session(request)
+    chart_number = sess["chart_number"]
 
-def history_form_html(chart_number: str, embedded: str = "0") -> str:
     bundle = patient_history_bundle(chart_number)
-    conditions = bundle.get("conditions") or []
+    conditions = bundle.get("conditions") or {}
 
     existing = {}
     for item in conditions:
         existing[safe_str(item.get("condition_name")).lower()] = item
 
     common_names = {safe_str(c).lower() for c in COMMON_HISTORY_CONDITIONS}
-
     other_existing = "\n".join(
         safe_str(item.get("condition_name"))
         for item in conditions
@@ -730,116 +732,24 @@ def history_form_html(chart_number: str, embedded: str = "0") -> str:
         key = cond.lower()
         item = existing.get(key) or {}
 
-        row_bg = (
-            "rgba(47,158,143,0.10)"
-            if len(rows) % 2 == 0
-            else "rgba(255,255,255,0.96)"
-        )
-
         rows.append(
             f"""
-            <tr style="background:{row_bg};">
-              <td style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
-                {html_escape(cond)}
+            <tr style="background:{'rgba(47,158,143,0.10)' if len(rows) % 2 == 0 else 'rgba(255,255,255,0.95)'};">
+              <td style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">{html_escape(cond)}</td>
+              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_current" {"checked" if item.get("current_flag") else ""}>
               </td>
-
-              <td style="text-align:center;">
-                <input
-                  type="checkbox"
-                  name="{html_escape(cond.lower().replace(' ', '_'))}_current"
-                  {"checked" if item.get("current_flag") else ""}
-                >
+              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_past" {"checked" if item.get("past_flag") else ""}>
               </td>
-
-              <td style="text-align:center;">
-                <input
-                  type="checkbox"
-                  name="{html_escape(cond.lower().replace(' ', '_'))}_past"
-                  {"checked" if item.get("past_flag") else ""}
-                >
-              </td>
-
-              <td style="text-align:center;">
-                <input
-                  type="checkbox"
-                  name="{html_escape(cond.lower().replace(' ', '_'))}_family"
-                  {"checked" if item.get("family_history_flag") else ""}
-                >
+              <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+                <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_family" {"checked" if item.get("family_history_flag") else ""}>
               </td>
             </tr>
             """
         )
 
-    left_rows = ''.join(rows[:(len(rows)+1)//2])
-    right_rows = ''.join(rows[(len(rows)+1)//2:])
-
-    return f"""
-    <form method="post" action="/portal/history?embedded={html_escape(embedded)}">
-
-      <div class="card" style="margin-top:20px;">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;align-items:start;">
-
-          <table style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
-            <thead>
-              <tr>
-                <th>Condition</th>
-                <th>Current</th>
-                <th>Past</th>
-                <th>Family History</th>
-              </tr>
-            </thead>
-            <tbody>
-              {left_rows}
-            </tbody>
-          </table>
-
-          <table style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
-            <thead>
-              <tr>
-                <th>Condition</th>
-                <th>Current</th>
-                <th>Past</th>
-                <th>Family History</th>
-              </tr>
-            </thead>
-            <tbody>
-              {right_rows}
-            </tbody>
-          </table>
-
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:20px;">
-        <h2 style="margin-top:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
-          Other Conditions
-        </h2>
-
-        <textarea
-          name="other_conditions"
-          rows="6"
-          style="width:100%;padding:12px;border-radius:12px;border:1px solid #ccc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:15px;"
-          placeholder="Enter any additional diagnoses or medical conditions here."
-        >{html_escape(other_existing)}</textarea>
-
-        <div style="margin-top:18px;">
-          <button
-            type="submit"
-            style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;"
-          >
-            Save Medical History
-          </button>
-        </div>
-      </div>
-
-    </form>
-    """
-
-
-@app.get("/portal/history", response_class=HTMLResponse)
-async def history_page(request: Request, embedded: str = Query(default="0")) -> str:
-    body = history_form_html(chart_number, embedded=embedded)
-
+    body = f"""
         <form method="post" action="/portal/history?embedded={html_escape(embedded)}">
           <div class="card" style="margin-top:20px;">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;align-items:start;">
@@ -995,15 +905,16 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
         </div>
     """
 
-    history_form = history_form_html(chart_number, embedded="1")
-
-    history_panel = f"""
+    history_panel = """
         <div class="card" style="margin-top:20px;">
           <h2 style="margin-top:0;">Medical History</h2>
           <p style="font-size:16px;line-height:1.45;">
             Review and update your medical history below. Check all that apply.
           </p>
-          {history_form}
+          <iframe
+            src="/portal/history?embedded=1"
+            style="width:100%;height:900px;border:0;border-radius:16px;background:white;"
+          ></iframe>
         </div>
     """
 
