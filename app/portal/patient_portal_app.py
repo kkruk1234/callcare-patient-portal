@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 from typing import Optional
 
-from fastapi import FastAPI, Form, HTTPException, Request
+from fastapi import FastAPI, Form, HTTPException, Query, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
 from itsdangerous import BadSignature, URLSafeSerializer
 
@@ -703,7 +703,7 @@ async def save_profile_page(request: Request) -> RedirectResponse:
 
 
 @app.get("/portal/dashboard", response_class=HTMLResponse)
-async def dashboard(request: Request) -> str:
+async def dashboard(request: Request, tab: str = Query(default="demographics")) -> str:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
 
@@ -745,12 +745,21 @@ async def dashboard(request: Request) -> str:
           <a class="top-pill" href="/logout">Log out</a>
         </div>
 
+        <div class="tabs" style="margin-top:20px;">
+          <a class="{ 'tab active' if tab == 'demographics' else 'tab' }" href="/portal/dashboard?tab=demographics">Demographics + Pharmacy</a>
+          <a class="{ 'tab active' if tab == 'history' else 'tab' }" href="/portal/dashboard?tab=history">Medical History</a>
+          <a class="{ 'tab active' if tab == 'social' else 'tab' }" href="/portal/dashboard?tab=social">Social History</a>
+          <a class="{ 'tab active' if tab == 'medications' else 'tab' }" href="/portal/dashboard?tab=medications">Medications</a>
+          <a class="{ 'tab active' if tab == 'encounters' else 'tab' }" href="/portal/dashboard?tab=encounters">Encounters</a>
+        </div>
+
+        {(
+        f"""
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <h2 style="margin-top:0;">Demographics + Pharmacy</h2>
             <a class="top-pill" href="/portal/profile">Edit</a>
           </div>
-
           <div class="meta-grid">
             <div class="metric"><div class="label">Patient</div><div class="value">{html_escape(patient_ctx.get('patient_name'))}</div></div>
             <div class="metric"><div class="label">Chart #</div><div class="value">{html_escape(patient_ctx.get('chart_number'))}</div></div>
@@ -758,40 +767,53 @@ async def dashboard(request: Request) -> str:
             <div class="metric"><div class="label">Preferred Pharmacy</div><div class="value">{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('name')) or 'On file')}</div></div>
           </div>
         </div>
+        """
+        ) if tab == "demographics" else ""}
 
+        {(
+        """
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <h2 style="margin-top:0;">Past Medical History</h2>
+            <h2 style="margin-top:0;">Medical History</h2>
             <a class="top-pill" href="/portal/profile">Edit</a>
           </div>
-
           <div class="readonly">
-            Medical history editing will be available here.
+            Structured medical history checklist will be added here next.
           </div>
         </div>
+        """
+        ) if tab == "history" else ""}
 
+        {(
+        """
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <h2 style="margin-top:0;">Social History</h2>
             <a class="top-pill" href="/portal/profile">Edit</a>
           </div>
-
           <div class="readonly">
-            Social history editing is available in the profile section.
+            Structured social history form will be added here next.
           </div>
         </div>
+        """
+        ) if tab == "social" else ""}
 
+        {(
+        """
         <div class="card" style="margin-top:20px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <h2 style="margin-top:0;">Medications</h2>
             <a class="top-pill" href="/portal/profile">Edit</a>
           </div>
-
           <div class="readonly">
-            Medication management will be available here.
+            Structured medication list will be added here next.
           </div>
         </div>
+        """
+        ) if tab == "medications" else ""}
 
+        {(
+        f"""
         <div class="card" style="margin-top:20px;">
           <h2 style="margin-top:0;">Signed Encounters</h2>
           <table>
@@ -808,6 +830,9 @@ async def dashboard(request: Request) -> str:
             </tbody>
           </table>
         </div>
+        """
+        ) if tab == "encounters" else ""}
+
         """,
     )
 
