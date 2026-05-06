@@ -745,19 +745,35 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
     body = f"""
         <form method="post" action="/portal/history">
           <div class="card" style="margin-top:20px;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Condition</th>
-                  <th>Current</th>
-                  <th>Past</th>
-                  <th>Family History</th>
-                </tr>
-              </thead>
-              <tbody>
-                {''.join(rows)}
-              </tbody>
-            </table>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;align-items:start;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Condition</th>
+                    <th>Current</th>
+                    <th>Past</th>
+                    <th>Family History</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {''.join(rows[:(len(rows)+1)//2])}
+                </tbody>
+              </table>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Condition</th>
+                    <th>Current</th>
+                    <th>Past</th>
+                    <th>Family History</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {''.join(rows[(len(rows)+1)//2:])}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div class="card" style="margin-top:20px;">
