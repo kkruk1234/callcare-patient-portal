@@ -708,7 +708,7 @@ async def save_profile_page(request: Request) -> RedirectResponse:
 
 
 @app.get("/portal/history", response_class=HTMLResponse)
-async def history_page(request: Request) -> str:
+async def history_page(request: Request, embedded: str = Query(default="0")) -> str:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
 
@@ -742,19 +742,7 @@ async def history_page(request: Request) -> str:
             """
         )
 
-    return shell(
-        "Medical History",
-        f"""
-        <div class="hero">
-          <h1>Medical History</h1>
-          <p class="sub">Please keep your medical history up to date.</p>
-        </div>
-
-        <div class="top-links">
-          <a class="top-pill" href="/portal/dashboard?tab=history">Back to Dashboard</a>
-          <a class="top-pill" href="/logout">Log out</a>
-        </div>
-
+    body = f"""
         <form method="post" action="/portal/history">
           <div class="card" style="margin-top:20px;">
             <table>
@@ -786,6 +774,25 @@ async def history_page(request: Request) -> str:
             </div>
           </div>
         </form>
+    """
+
+    if embedded == "1":
+        return body
+
+    return shell(
+        "Medical History",
+        f"""
+        <div class="hero">
+          <h1>Medical History</h1>
+          <p class="sub">Please keep your medical history up to date.</p>
+        </div>
+
+        <div class="top-links">
+          <a class="top-pill" href="/portal/dashboard?tab=history">Back to Dashboard</a>
+          <a class="top-pill" href="/logout">Log out</a>
+        </div>
+
+        {body}
         """,
     )
 
@@ -877,14 +884,14 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
 
     history_panel = """
         <div class="card" style="margin-top:20px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <h2 style="margin-top:0;">Medical History</h2>
-            <a class="top-pill" href="/portal/history">Edit</a>
-          </div>
-
-          <div class="readonly">
-            Click Edit to review and update your medical history checklist.
-          </div>
+          <h2 style="margin-top:0;">Medical History</h2>
+          <p style="font-size:16px;line-height:1.45;">
+            Review and update your medical history below. Check all that apply.
+          </p>
+          <iframe
+            src="/portal/history?embedded=1"
+            style="width:100%;height:900px;border:0;border-radius:16px;background:white;"
+          ></iframe>
         </div>
     """
 
