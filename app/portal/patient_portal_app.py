@@ -810,9 +810,13 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
           <p class="sub">Please keep your medical history up to date.</p>
         </div>
 
-        <div class="top-links">
-          <a class="top-pill" href="/portal/dashboard?tab=history">Back to Dashboard</a>
-          <a class="top-pill" href="/logout">Log out</a>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
+          <a href="/portal/dashboard?tab=demographics" class="top-pill">Demographics + Pharmacy</a>
+          <a href="/portal/history" class="top-pill">Medical History</a>
+          <a href="/portal/dashboard?tab=social" class="top-pill">Social History</a>
+          <a href="/portal/dashboard?tab=medications" class="top-pill">Medications</a>
+          <a href="/portal/dashboard?tab=encounters" class="top-pill">Encounters</a>
+          <a href="/logout" class="top-pill">Log out</a>
         </div>
 
         {body}
