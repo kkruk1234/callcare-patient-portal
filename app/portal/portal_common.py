@@ -523,8 +523,16 @@ def patient_profile_bundle(chart_number: str) -> Dict[str, Any]:
 
 
 def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: str = "patient") -> None:
+    patient_id = run_psql(
+        "SELECT id::text FROM callcare.patients WHERE chart_number = NULLIF(:'CHART_NUMBER', '') AND archived_at IS NULL LIMIT 1;",
+        {"CHART_NUMBER": safe_str(chart_number)},
+    )
+
+    if not patient_id:
+        return
+
     values = {
-        "CHART_NUMBER": safe_str(chart_number),
+        "PATIENT_ID": safe_str(patient_id),
         "ACTOR_TYPE": safe_str(actor_type) or "patient",
         "PREFERRED_NAME": safe_str(form.get("preferred_name")),
         "SEX_AT_BIRTH": safe_str(form.get("sex_at_birth")),
@@ -542,7 +550,7 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
         "WEIGHT_LBS": safe_str(form.get("weight_lbs")),
         "TOBACCO_STATUS": safe_str(form.get("tobacco_status")),
         "ALCOHOL_USE": safe_str(form.get("alcohol_use")),
-        "RECREATIONAL_DRUG_USE": safe_str(form.get("drug_use")),
+        "RECREATIONAL_DRUG_USE": safe_str(form.get("drug_use")) or safe_str(form.get("recreational_drug_use")),
         "EXERCISE_LEVEL": safe_str(form.get("exercise_level")),
         "OCCUPATION": safe_str(form.get("occupation")),
         "SEXUALLY_ACTIVE": safe_str(form.get("sexually_active")),
@@ -552,13 +560,6 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
     }
 
     sql = r"""
-    WITH p AS (
-      SELECT id
-      FROM callcare.patients
-      WHERE chart_number = NULLIF(:'CHART_NUMBER', '')
-        AND archived_at IS NULL
-      LIMIT 1
-    )
     UPDATE callcare.patients
     SET preferred_name = NULLIF(:'PREFERRED_NAME', ''),
         sex_at_birth = NULLIF(:'SEX_AT_BIRTH', ''),
@@ -566,12 +567,12 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
         phone_number = NULLIF(:'PHONE_NUMBER', ''),
         email = NULLIF(:'EMAIL', ''),
         updated_at = now()
-    WHERE id = (SELECT id FROM p);
+    WHERE id = NULLIF(:'PATIENT_ID', '')::uuid;
 
     UPDATE callcare.patient_addresses
     SET is_current = false,
         updated_at = now()
-    WHERE patient_id = (SELECT id FROM p)
+    WHERE patient_id = NULLIF(:'PATIENT_ID', '')::uuid
       AND is_current = true;
 
     INSERT INTO callcare.patient_addresses (
@@ -589,20 +590,21 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       created_at,
       updated_at
     )
-    SELECT gen_random_uuid(),
-           id,
-           COALESCE(NULLIF(:'ADDRESS_LINE_1', ''), 'Not provided'),
-           NULLIF(:'ADDRESS_LINE_2', ''),
-           COALESCE(NULLIF(:'CITY', ''), 'Not provided'),
-           COALESCE(NULLIF(:'STATE', ''), 'GA'),
-           COALESCE(NULLIF(:'POSTAL_CODE', ''), '00000'),
-           NULLIF(:'COUNTY_NAME', ''),
-           true,
-           true,
-           false,
-           now(),
-           now()
-    FROM p;
+    VALUES (
+      gen_random_uuid(),
+      NULLIF(:'PATIENT_ID', '')::uuid,
+      COALESCE(NULLIF(:'ADDRESS_LINE_1', ''), 'Not provided'),
+      NULLIF(:'ADDRESS_LINE_2', ''),
+      COALESCE(NULLIF(:'CITY', ''), 'Not provided'),
+      COALESCE(NULLIF(:'STATE', ''), 'GA'),
+      COALESCE(NULLIF(:'POSTAL_CODE', ''), '00000'),
+      NULLIF(:'COUNTY_NAME', ''),
+      true,
+      true,
+      false,
+      now(),
+      now()
+    );
 
     INSERT INTO callcare.patient_vitals (
       id,
@@ -617,40 +619,39 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       created_at,
       updated_at
     )
-    SELECT gen_random_uuid(),
-           id,
-           NULLIF(:'HEIGHT_FEET', '')::integer,
-           NULLIF(:'HEIGHT_INCHES', '')::integer,
-           NULLIF(:'WEIGHT_LBS', '')::numeric,
-           CASE
-             WHEN NULLIF(:'HEIGHT_FEET', '') IS NOT NULL OR NULLIF(:'HEIGHT_INCHES', '') IS NOT NULL
-             THEN round(((COALESCE(NULLIF(:'HEIGHT_FEET', '')::numeric, 0) * 12 + COALESCE(NULLIF(:'HEIGHT_INCHES', '')::numeric, 0)) * 2.54), 1)
-             ELSE NULL
-           END,
-           CASE
-             WHEN NULLIF(:'WEIGHT_LBS', '') IS NOT NULL
-             THEN round((NULLIF(:'WEIGHT_LBS', '')::numeric * 0.45359237), 1)
-             ELSE NULL
-           END,
-           CASE
-             WHEN (COALESCE(NULLIF(:'HEIGHT_FEET', '')::numeric, 0) * 12 + COALESCE(NULLIF(:'HEIGHT_INCHES', '')::numeric, 0)) > 0
-              AND NULLIF(:'WEIGHT_LBS', '') IS NOT NULL
-             THEN round((NULLIF(:'WEIGHT_LBS', '')::numeric / ((COALESCE(NULLIF(:'HEIGHT_FEET', '')::numeric, 0) * 12 + COALESCE(NULLIF(:'HEIGHT_INCHES', '')::numeric, 0)) * (COALESCE(NULLIF(:'HEIGHT_FEET', '')::numeric, 0) * 12 + COALESCE(NULLIF(:'HEIGHT_INCHES', '')::numeric, 0))) * 703), 1)
-             ELSE NULL
-           END,
-           'patient_portal',
-           now(),
-           now()
-    FROM p
-    WHERE NULLIF(:'HEIGHT_FEET', '') IS NOT NULL
-       OR NULLIF(:'HEIGHT_INCHES', '') IS NOT NULL
-       OR NULLIF(:'WEIGHT_LBS', '') IS NOT NULL;
+    VALUES (
+      gen_random_uuid(),
+      NULLIF(:'PATIENT_ID', '')::uuid,
+      NULLIF(:'HEIGHT_FEET', '')::integer,
+      NULLIF(:'HEIGHT_INCHES', '')::integer,
+      NULLIF(:'WEIGHT_LBS', '')::numeric,
+      CASE
+        WHEN NULLIF(:'HEIGHT_FEET', '') IS NOT NULL OR NULLIF(:'HEIGHT_INCHES', '') IS NOT NULL
+        THEN round(((COALESCE(NULLIF(:'HEIGHT_FEET', '')::numeric, 0) * 12 + COALESCE(NULLIF(:'HEIGHT_INCHES', '')::numeric, 0)) * 2.54), 1)
+        ELSE NULL
+      END,
+      CASE
+        WHEN NULLIF(:'WEIGHT_LBS', '') IS NOT NULL
+        THEN round((NULLIF(:'WEIGHT_LBS', '')::numeric * 0.45359237), 1)
+        ELSE NULL
+      END,
+      CASE
+        WHEN (COALESCE(NULLIF(:'HEIGHT_FEET', '')::numeric, 0) * 12 + COALESCE(NULLIF(:'HEIGHT_INCHES', '')::numeric, 0)) > 0
+         AND NULLIF(:'WEIGHT_LBS', '') IS NOT NULL
+        THEN round((NULLIF(:'WEIGHT_LBS', '')::numeric / ((COALESCE(NULLIF(:'HEIGHT_FEET', '')::numeric, 0) * 12 + COALESCE(NULLIF(:'HEIGHT_INCHES', '')::numeric, 0)) * (COALESCE(NULLIF(:'HEIGHT_FEET', '')::numeric, 0) * 12 + COALESCE(NULLIF(:'HEIGHT_INCHES', '')::numeric, 0))) * 703), 1)
+        ELSE NULL
+      END,
+      'patient_portal',
+      now(),
+      now()
+    );
 
     INSERT INTO callcare.patient_social_history_structured (
       patient_id,
       tobacco_status,
       alcohol_use,
       drug_use,
+      recreational_drug_use,
       exercise_level,
       occupation,
       sexually_active,
@@ -660,23 +661,26 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       created_at,
       updated_at
     )
-    SELECT id,
-           NULLIF(:'TOBACCO_STATUS', ''),
-           NULLIF(:'ALCOHOL_USE', ''),
-           NULLIF(:'RECREATIONAL_DRUG_USE', ''),
-           NULLIF(:'EXERCISE_LEVEL', ''),
-           NULLIF(:'OCCUPATION', ''),
-           NULLIF(:'SEXUALLY_ACTIVE', ''),
-           NULLIF(:'SEXUAL_PARTNERS_COUNT', ''),
-           NULLIF(:'USES_PROTECTION', ''),
-           NULLIF(:'PROTECTION_TYPE', ''),
-           now(),
-           now()
-    FROM p
+    VALUES (
+      NULLIF(:'PATIENT_ID', '')::uuid,
+      NULLIF(:'TOBACCO_STATUS', ''),
+      NULLIF(:'ALCOHOL_USE', ''),
+      NULLIF(:'RECREATIONAL_DRUG_USE', ''),
+      NULLIF(:'RECREATIONAL_DRUG_USE', ''),
+      NULLIF(:'EXERCISE_LEVEL', ''),
+      NULLIF(:'OCCUPATION', ''),
+      NULLIF(:'SEXUALLY_ACTIVE', ''),
+      NULLIF(:'SEXUAL_PARTNERS_COUNT', ''),
+      NULLIF(:'USES_PROTECTION', ''),
+      NULLIF(:'PROTECTION_TYPE', ''),
+      now(),
+      now()
+    )
     ON CONFLICT (patient_id) DO UPDATE
     SET tobacco_status = EXCLUDED.tobacco_status,
         alcohol_use = EXCLUDED.alcohol_use,
         drug_use = EXCLUDED.drug_use,
+        recreational_drug_use = EXCLUDED.recreational_drug_use,
         exercise_level = EXCLUDED.exercise_level,
         occupation = EXCLUDED.occupation,
         sexually_active = EXCLUDED.sexually_active,
@@ -695,43 +699,44 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       event_json,
       created_at
     )
-    SELECT gen_random_uuid(),
-           :'ACTOR_TYPE',
-           NULL,
-           id,
-           NULL,
-           'patient_profile_updated',
-           jsonb_build_object(
-             'source', 'patient_portal',
-             'changed_by', :'ACTOR_TYPE',
-             'submitted_fields', jsonb_build_object(
-               'preferred_name', :'PREFERRED_NAME',
-               'sex_at_birth', :'SEX_AT_BIRTH',
-               'gender_identity', :'GENDER_IDENTITY',
-               'phone_number', :'PHONE_NUMBER',
-               'email', :'EMAIL',
-               'address_line_1', :'ADDRESS_LINE_1',
-               'address_line_2', :'ADDRESS_LINE_2',
-               'city', :'CITY',
-               'state', :'STATE',
-               'postal_code', :'POSTAL_CODE',
-               'county_name', :'COUNTY_NAME',
-               'height_feet', :'HEIGHT_FEET',
-               'height_inches', :'HEIGHT_INCHES',
-               'weight_lbs', :'WEIGHT_LBS',
-               'tobacco_status', :'TOBACCO_STATUS',
-               'alcohol_use', :'ALCOHOL_USE',
-               'recreational_drug_use', :'RECREATIONAL_DRUG_USE',
-               'exercise_level', :'EXERCISE_LEVEL',
-               'occupation', :'OCCUPATION',
-               'sexually_active', :'SEXUALLY_ACTIVE',
-               'sexual_partners_count', :'SEXUAL_PARTNERS_COUNT',
-               'uses_protection', :'USES_PROTECTION',
-               'protection_type', :'PROTECTION_TYPE'
-             )
-           ),
-           now()
-    FROM p;
+    VALUES (
+      gen_random_uuid(),
+      :'ACTOR_TYPE',
+      NULL,
+      NULLIF(:'PATIENT_ID', '')::uuid,
+      NULL,
+      'patient_profile_updated',
+      jsonb_build_object(
+        'source', 'patient_portal',
+        'changed_by', :'ACTOR_TYPE',
+        'submitted_fields', jsonb_build_object(
+          'preferred_name', :'PREFERRED_NAME',
+          'sex_at_birth', :'SEX_AT_BIRTH',
+          'gender_identity', :'GENDER_IDENTITY',
+          'phone_number', :'PHONE_NUMBER',
+          'email', :'EMAIL',
+          'address_line_1', :'ADDRESS_LINE_1',
+          'address_line_2', :'ADDRESS_LINE_2',
+          'city', :'CITY',
+          'state', :'STATE',
+          'postal_code', :'POSTAL_CODE',
+          'county_name', :'COUNTY_NAME',
+          'height_feet', :'HEIGHT_FEET',
+          'height_inches', :'HEIGHT_INCHES',
+          'weight_lbs', :'WEIGHT_LBS',
+          'tobacco_status', :'TOBACCO_STATUS',
+          'alcohol_use', :'ALCOHOL_USE',
+          'recreational_drug_use', :'RECREATIONAL_DRUG_USE',
+          'exercise_level', :'EXERCISE_LEVEL',
+          'occupation', :'OCCUPATION',
+          'sexually_active', :'SEXUALLY_ACTIVE',
+          'sexual_partners_count', :'SEXUAL_PARTNERS_COUNT',
+          'uses_protection', :'USES_PROTECTION',
+          'protection_type', :'PROTECTION_TYPE'
+        )
+      ),
+      now()
+    );
     """
 
     run_psql(sql, values)
