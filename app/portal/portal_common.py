@@ -586,6 +586,7 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       is_current,
       is_mailing_address,
       rural_eligible,
+      source,
       created_at,
       updated_at
     )
@@ -600,6 +601,7 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
            true,
            true,
            false,
+           'patient_portal',
            now(),
            now()
     FROM p;
