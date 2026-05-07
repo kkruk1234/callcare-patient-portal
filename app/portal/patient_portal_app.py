@@ -18,6 +18,8 @@ from app.portal.portal_common import (
     signed_note_text,
     signed_patient_group,
     save_patient_history,
+    save_patient_profile,
+    patient_profile_bundle,
     patient_history_bundle,
     COMMON_HISTORY_CONDITIONS,
     verify_portal_login,
