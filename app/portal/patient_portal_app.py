@@ -815,7 +815,7 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
         </div>
 
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
-          <a href="/portal/dashboard?tab=demographics" class="top-pill">Demographics + Pharmacy</a>
+          <a href="/portal/dashboard?tab=demographics" class="top-pill">Demographics & Pharmacy</a>
           <a href="/portal/history" class="top-pill">Medical History</a>
           <a href="/portal/dashboard?tab=social" class="top-pill">Social History</a>
           <a href="/portal/dashboard?tab=medications" class="top-pill">Medications</a>
@@ -944,7 +944,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
         </div>
 
         <div class="card" style="margin-top:20px;">
-          <h2 style="margin-top:0;">Address + Pharmacy</h2>
+          <h2 style="margin-top:0;">Address & Pharmacy</h2>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
 
@@ -978,11 +978,19 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
               <input name="county_name" value="{html_escape(address.get('county_name'))}" />
             </div>
 
+            <div>
+              <label>Preferred Pharmacy</label>
+              <input
+                name="preferred_pharmacy_name"
+                value="{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('name')))}"
+              />
+            </div>
+
           </div>
         </div>
 
         <div class="card" style="margin-top:20px;">
-          <h2 style="margin-top:0;">Height + Weight</h2>
+          <h2 style="margin-top:0;">Height & Weight</h2>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;">
 
@@ -1009,7 +1017,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
             type="submit"
             style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;"
           >
-            Save Demographics + Pharmacy
+            Save Demographics & Pharmacy
           </button>
         </div>
 
@@ -1029,17 +1037,89 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
         </div>
     """
 
-    social_panel = """
+    social_panel = f"""
+        <form method="post" action="/portal/profile" autocomplete="off">
+
         <div class="card" style="margin-top:20px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <h2 style="margin-top:0;">Social History</h2>
-            <a class="top-pill" href="/portal/profile">Edit</a>
+          <h2 style="margin-top:0;">Social History</h2>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;">
+
+            <div>
+              <label>Tobacco / Nicotine Use</label>
+              <select name="tobacco_status">
+                <option value="">Select</option>
+                <option value="never" {"selected" if safe_str(social.get('tobacco_status')).lower() == "never" else ""}>Never</option>
+                <option value="current" {"selected" if safe_str(social.get('tobacco_status')).lower() == "current" else ""}>Current User</option>
+                <option value="former" {"selected" if safe_str(social.get('tobacco_status')).lower() == "former" else ""}>Former User</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Alcohol Use</label>
+              <select name="alcohol_use">
+                <option value="">Select</option>
+                <option value="none" {"selected" if safe_str(social.get('alcohol_use')).lower() == "none" else ""}>None</option>
+                <option value="1 drink/day" {"selected" if safe_str(social.get('alcohol_use')).lower() == "1 drink/day" else ""}>1 drink/day</option>
+                <option value="2 drinks/day" {"selected" if safe_str(social.get('alcohol_use')).lower() == "2 drinks/day" else ""}>2 drinks/day</option>
+                <option value="3+ drinks/day" {"selected" if safe_str(social.get('alcohol_use')).lower() == "3+ drinks/day" else ""}>3+ drinks/day</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Recreational Drug Use</label>
+              <input name="recreational_drug_use" value="{html_escape(safe_str(social.get('recreational_drug_use')))}" />
+            </div>
+
+            <div>
+              <label>Exercise Frequency</label>
+              <select name="exercise_level">
+                <option value="">Select</option>
+                <option value="0 days/week" {"selected" if safe_str(social.get('exercise_level')).lower() == "0 days/week" else ""}>0 days/week</option>
+                <option value="1-2 days/week" {"selected" if safe_str(social.get('exercise_level')).lower() == "1-2 days/week" else ""}>1-2 days/week</option>
+                <option value="3-5 days/week" {"selected" if safe_str(social.get('exercise_level')).lower() == "3-5 days/week" else ""}>3-5 days/week</option>
+                <option value="6-7 days/week" {"selected" if safe_str(social.get('exercise_level')).lower() == "6-7 days/week" else ""}>6-7 days/week</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Occupation</label>
+              <input name="occupation" value="{html_escape(safe_str(social.get('occupation')))}" />
+            </div>
+
+            <div>
+              <label>Sexually Active</label>
+              <select name="sexually_active">
+                <option value="">Select</option>
+                <option value="yes" {"selected" if safe_str(social.get('sexually_active')).lower() == "yes" else ""}>Yes</option>
+                <option value="no" {"selected" if safe_str(social.get('sexually_active')).lower() == "no" else ""}>No</option>
+              </select>
+            </div>
+
+            <div>
+              <label>If sexually active, how many partners do you currently have?</label>
+              <input name="sexual_partners_count" value="{html_escape(safe_str(social.get('sexual_partners_count')))}" />
+            </div>
+
+            <div>
+              <label>Protection Used</label>
+              <input name="protection_type" value="{html_escape(safe_str(social.get('protection_type')))}" />
+            </div>
+
           </div>
 
-          <div class="readonly">
-            Structured social history form will be added here next.
+          <div style="margin-top:22px;">
+            <button
+              type="submit"
+              style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;"
+            >
+              Save Social History
+            </button>
           </div>
+
         </div>
+
+        </form>
     """
 
     medications_panel = """
@@ -1068,7 +1148,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
         </div>
 
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
-          <a href="/portal/dashboard?tab=demographics" class="top-pill">Demographics + Pharmacy</a>
+          <a href="/portal/dashboard?tab=demographics" class="top-pill">Demographics & Pharmacy</a>
           <a href="/portal/history" class="top-pill">Medical History</a>
           <a href="/portal/dashboard?tab=social" class="top-pill">Social History</a>
           <a href="/portal/dashboard?tab=medications" class="top-pill">Medications</a>
