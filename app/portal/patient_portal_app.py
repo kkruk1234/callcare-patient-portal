@@ -354,7 +354,7 @@ async def home(request: Request) -> str:
         if sess else
         "<a class='cta' href='/portal/login'>Go to Patient Portal</a>"
     )
-    return shell(
+    body = shell(
         "CallCare",
         f"""
         <div class="hero">
@@ -563,7 +563,7 @@ async def logout() -> RedirectResponse:
 
 
 @app.get("/portal/profile", response_class=HTMLResponse)
-async def profile_page(request: Request) -> str:
+async def profile_page(request: Request, embedded: str = Query(default="0")) -> str:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
     profile = patient_profile_bundle(chart_number)
@@ -585,7 +585,7 @@ async def profile_page(request: Request) -> str:
           <a class="top-pill" href="/logout">Log out</a>
         </div>
 
-        <form method="post" action="/portal/profile" autocomplete="off">
+        <form method="post" action="/portal/profile?embedded={html_escape(embedded)}" autocomplete="off">
           <div class="card" style="margin-top:20px;">
             <h2 style="margin-top:0;">Background</h2>
 
@@ -697,14 +697,21 @@ async def profile_page(request: Request) -> str:
         """,
     )
 
+    if embedded == "1":
+        start = body.find("<body>")
+        end = body.rfind("</body>")
+        if start != -1 and end != -1:
+            return body[start + 6:end]
+    return body
+
 
 @app.post("/portal/profile")
-async def save_profile_page(request: Request) -> RedirectResponse:
+async def save_profile_page(request: Request, embedded: str = Query(default="0")) -> RedirectResponse:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
     form = await request.form()
     save_patient_profile(chart_number, dict(form), actor_type="patient")
-    return RedirectResponse(url="/portal/profile", status_code=303)
+    return RedirectResponse(url="/portal/profile?embedded=1" if embedded == "1" else "/portal/profile", status_code=303)
 
 
 
@@ -897,17 +904,10 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
 
     demographics_panel = f"""
         <div class="card" style="margin-top:20px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <h2 style="margin-top:0;">Demographics + Pharmacy</h2>
-            <a class="top-pill" href="/portal/profile">Edit</a>
-          </div>
-
-          <div class="meta-grid">
-            <div class="metric"><div class="label">Patient</div><div class="value">{html_escape(patient_ctx.get('patient_name'))}</div></div>
-            <div class="metric"><div class="label">Chart #</div><div class="value">{html_escape(patient_ctx.get('chart_number'))}</div></div>
-            <div class="metric"><div class="label">Date of Birth</div><div class="value">{html_escape(patient_ctx.get('date_of_birth'))}</div></div>
-            <div class="metric"><div class="label">Preferred Pharmacy</div><div class="value">{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('name')) or 'On file')}</div></div>
-          </div>
+          <iframe
+            src="/portal/profile?embedded=1"
+            style="width:100%;height:1800px;border:0;border-radius:18px;background:white;"
+          ></iframe>
         </div>
     """
 
