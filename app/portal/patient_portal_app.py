@@ -697,11 +697,6 @@ async def profile_page(request: Request, embedded: str = Query(default="0")) -> 
         """,
     )
 
-    if embedded == "1":
-        start = body.find("<body>")
-        end = body.rfind("</body>")
-        if start != -1 and end != -1:
-            return body[start + 6:end]
     return body
 
 
@@ -903,12 +898,117 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
     """
 
     demographics_panel = f"""
+        <form method="post" action="/portal/profile" autocomplete="off">
+
         <div class="card" style="margin-top:20px;">
-          <iframe
-            src="/portal/profile?embedded=1"
-            style="width:100%;height:1800px;border:0;border-radius:18px;background:white;"
-          ></iframe>
+          <h2 style="margin-top:0;">Background</h2>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;">
+
+            <div>
+              <label>Preferred Name</label>
+              <input name="preferred_name" value="{html_escape(profile.get('preferred_name'))}" />
+            </div>
+
+            <div>
+              <label>Phone Number</label>
+              <input name="phone_number" value="{html_escape(profile.get('phone_number'))}" />
+            </div>
+
+            <div>
+              <label>Email</label>
+              <input name="email" value="{html_escape(profile.get('email'))}" />
+            </div>
+
+            <div>
+              <label>Sex Assigned at Birth</label>
+              <select name="sex_at_birth">
+                <option value="">Select</option>
+                <option value="female" {"selected" if safe_str(profile.get('sex_at_birth')).lower() == "female" else ""}>Female</option>
+                <option value="male" {"selected" if safe_str(profile.get('sex_at_birth')).lower() == "male" else ""}>Male</option>
+                <option value="intersex" {"selected" if safe_str(profile.get('sex_at_birth')).lower() == "intersex" else ""}>Intersex</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Gender Identity</label>
+              <input name="gender_identity" value="{html_escape(profile.get('gender_identity'))}" />
+            </div>
+
+          </div>
         </div>
+
+        <div class="card" style="margin-top:20px;">
+          <h2 style="margin-top:0;">Address + Pharmacy</h2>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
+
+            <div>
+              <label>Address</label>
+              <input name="address_line_1" value="{html_escape(address.get('address_line_1'))}" />
+            </div>
+
+            <div>
+              <label>Apartment / Unit</label>
+              <input name="address_line_2" value="{html_escape(address.get('address_line_2'))}" />
+            </div>
+
+            <div>
+              <label>City</label>
+              <input name="city" value="{html_escape(address.get('city'))}" />
+            </div>
+
+            <div>
+              <label>State</label>
+              <input name="state" value="{html_escape(address.get('state') or 'GA')}" />
+            </div>
+
+            <div>
+              <label>ZIP Code</label>
+              <input name="postal_code" value="{html_escape(address.get('postal_code'))}" />
+            </div>
+
+            <div>
+              <label>County</label>
+              <input name="county_name" value="{html_escape(address.get('county_name'))}" />
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <h2 style="margin-top:0;">Height + Weight</h2>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;">
+
+            <div>
+              <label>Feet</label>
+              <input name="height_feet" value="{html_escape(vitals.get('height_feet'))}" />
+            </div>
+
+            <div>
+              <label>Inches</label>
+              <input name="height_inches" value="{html_escape(vitals.get('height_inches'))}" />
+            </div>
+
+            <div>
+              <label>Weight (lbs)</label>
+              <input name="weight_lbs" value="{html_escape(vitals.get('weight_lbs'))}" />
+            </div>
+
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <button
+            type="submit"
+            style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;"
+          >
+            Save Demographics + Pharmacy
+          </button>
+        </div>
+
+        </form>
     """
 
     history_panel = """
