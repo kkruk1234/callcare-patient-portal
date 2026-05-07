@@ -857,6 +857,11 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
     patient_ctx = group["patient_ctx"] or {}
     encounters = group["encounters"]
 
+    profile = patient_profile_bundle(chart_number)
+    address = profile.get("address") or {}
+    vitals = profile.get("vitals") or {}
+    social = profile.get("social") or {}
+
     rows = []
     for enc in encounters:
         enc_ctx = enc.get("patient_ctx") or {}
