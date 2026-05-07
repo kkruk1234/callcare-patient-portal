@@ -958,7 +958,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
 
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;">
           <a href="/portal/dashboard?tab=demographics" class="top-pill">Demographics + Pharmacy</a>
-          <a href="/portal/dashboard?tab=history" class="top-pill">Medical History</a>
+          <a href="/portal/history" class="top-pill">Medical History</a>
           <a href="/portal/dashboard?tab=social" class="top-pill">Social History</a>
           <a href="/portal/dashboard?tab=medications" class="top-pill">Medications</a>
           <a href="/portal/dashboard?tab=encounters" class="top-pill">Encounters</a>
@@ -966,7 +966,6 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
 
         {encounters_panel if tab == "encounters" else ""}
         {demographics_panel if tab == "demographics" else ""}
-        {history_panel if tab == "history" else ""}
         {social_panel if tab == "social" else ""}
         {medications_panel if tab == "medications" else ""}
         """,
