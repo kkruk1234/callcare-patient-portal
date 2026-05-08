@@ -596,7 +596,7 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       created_at,
       updated_at
     )
-    VALUES (
+    SELECT
       gen_random_uuid(),
       NULLIF(:'PATIENT_ID', '')::uuid,
       COALESCE(NULLIF(:'ADDRESS_LINE_1', ''), 'Not provided'),
@@ -610,7 +610,6 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       false,
       now(),
       now()
-    )
     WHERE NULLIF(:'ADDRESS_LINE_1', '') IS NOT NULL
        OR NULLIF(:'CITY', '') IS NOT NULL
        OR NULLIF(:'POSTAL_CODE', '') IS NOT NULL
