@@ -501,6 +501,7 @@ def patient_profile_bundle(chart_number: str) -> Dict[str, Any]:
             'tobacco_status', sh.tobacco_status,
             'alcohol_use', sh.alcohol_use,
             'drug_use', sh.drug_use,
+            'recreational_drug_use', COALESCE(sh.recreational_drug_use, sh.drug_use),
             'exercise_level', sh.exercise_level,
             'occupation', sh.occupation,
             'sexually_active', sh.sexually_active,
@@ -628,7 +629,7 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       created_at,
       updated_at
     )
-    VALUES (
+    SELECT
       gen_random_uuid(),
       NULLIF(:'PATIENT_ID', '')::uuid,
       NULLIF(:'HEIGHT_FEET', '')::integer,
@@ -653,7 +654,9 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       'patient_portal',
       now(),
       now()
-    );
+    WHERE NULLIF(:'HEIGHT_FEET', '') IS NOT NULL
+       OR NULLIF(:'HEIGHT_INCHES', '') IS NOT NULL
+       OR NULLIF(:'WEIGHT_LBS', '') IS NOT NULL;
 
     INSERT INTO callcare.patient_social_history_structured (
       patient_id,
