@@ -561,11 +561,11 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
 
     sql = r"""
     UPDATE callcare.patients
-    SET preferred_name = NULLIF(:'PREFERRED_NAME', ''),
-        sex_at_birth = NULLIF(:'SEX_AT_BIRTH', ''),
-        gender_identity = NULLIF(:'GENDER_IDENTITY', ''),
-        phone_number = NULLIF(:'PHONE_NUMBER', ''),
-        email = NULLIF(:'EMAIL', ''),
+    SET preferred_name = COALESCE(NULLIF(:'PREFERRED_NAME', ''), preferred_name),
+        sex_at_birth = COALESCE(NULLIF(:'SEX_AT_BIRTH', ''), sex_at_birth),
+        gender_identity = COALESCE(NULLIF(:'GENDER_IDENTITY', ''), gender_identity),
+        phone_number = COALESCE(NULLIF(:'PHONE_NUMBER', ''), phone_number),
+        email = COALESCE(NULLIF(:'EMAIL', ''), email),
         updated_at = now()
     WHERE id = NULLIF(:'PATIENT_ID', '')::uuid;
 
@@ -573,7 +573,13 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
     SET is_current = false,
         updated_at = now()
     WHERE patient_id = NULLIF(:'PATIENT_ID', '')::uuid
-      AND is_current = true;
+      AND is_current = true
+      AND (
+        NULLIF(:'ADDRESS_LINE_1', '') IS NOT NULL
+        OR NULLIF(:'CITY', '') IS NOT NULL
+        OR NULLIF(:'POSTAL_CODE', '') IS NOT NULL
+        OR NULLIF(:'COUNTY_NAME', '') IS NOT NULL
+      );
 
     INSERT INTO callcare.patient_addresses (
       id,
@@ -604,7 +610,11 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       false,
       now(),
       now()
-    );
+    )
+    WHERE NULLIF(:'ADDRESS_LINE_1', '') IS NOT NULL
+       OR NULLIF(:'CITY', '') IS NOT NULL
+       OR NULLIF(:'POSTAL_CODE', '') IS NOT NULL
+       OR NULLIF(:'COUNTY_NAME', '') IS NOT NULL;
 
     INSERT INTO callcare.patient_vitals (
       id,
@@ -677,16 +687,16 @@ def save_patient_profile(chart_number: str, form: Dict[str, Any], actor_type: st
       now()
     )
     ON CONFLICT (patient_id) DO UPDATE
-    SET tobacco_status = EXCLUDED.tobacco_status,
-        alcohol_use = EXCLUDED.alcohol_use,
-        drug_use = EXCLUDED.drug_use,
-        recreational_drug_use = EXCLUDED.recreational_drug_use,
-        exercise_level = EXCLUDED.exercise_level,
-        occupation = EXCLUDED.occupation,
-        sexually_active = EXCLUDED.sexually_active,
-        sexual_partners_count = EXCLUDED.sexual_partners_count,
-        uses_protection = EXCLUDED.uses_protection,
-        protection_type = EXCLUDED.protection_type,
+    SET tobacco_status = COALESCE(EXCLUDED.tobacco_status, callcare.patient_social_history_structured.tobacco_status),
+        alcohol_use = COALESCE(EXCLUDED.alcohol_use, callcare.patient_social_history_structured.alcohol_use),
+        drug_use = COALESCE(EXCLUDED.drug_use, callcare.patient_social_history_structured.drug_use),
+        recreational_drug_use = COALESCE(EXCLUDED.recreational_drug_use, callcare.patient_social_history_structured.recreational_drug_use),
+        exercise_level = COALESCE(EXCLUDED.exercise_level, callcare.patient_social_history_structured.exercise_level),
+        occupation = COALESCE(EXCLUDED.occupation, callcare.patient_social_history_structured.occupation),
+        sexually_active = COALESCE(EXCLUDED.sexually_active, callcare.patient_social_history_structured.sexually_active),
+        sexual_partners_count = COALESCE(EXCLUDED.sexual_partners_count, callcare.patient_social_history_structured.sexual_partners_count),
+        uses_protection = COALESCE(EXCLUDED.uses_protection, callcare.patient_social_history_structured.uses_protection),
+        protection_type = COALESCE(EXCLUDED.protection_type, callcare.patient_social_history_structured.protection_type),
         updated_at = now();
 
     INSERT INTO callcare.audit_events (

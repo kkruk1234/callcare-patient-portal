@@ -701,12 +701,12 @@ async def profile_page(request: Request, embedded: str = Query(default="0")) -> 
 
 
 @app.post("/portal/profile")
-async def save_profile_page(request: Request, embedded: str = Query(default="0")) -> RedirectResponse:
+async def save_profile_page(request: Request, embedded: str = Query(default="0"), return_tab: str = Query(default="demographics")) -> RedirectResponse:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
     form = await request.form()
     save_patient_profile(chart_number, dict(form), actor_type="patient")
-    return RedirectResponse(url="/portal/profile?embedded=1" if embedded == "1" else "/portal/profile", status_code=303)
+    return RedirectResponse(url=f"/portal/dashboard?tab={return_tab}", status_code=303)
 
 
 
@@ -903,7 +903,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
     """
 
     demographics_panel = f"""
-        <form method="post" action="/portal/profile" autocomplete="off">
+        <form method="post" action="/portal/profile?return_tab=demographics" autocomplete="off">
 
         <div class="card" style="margin-top:20px;">
           <h2 style="margin-top:0;">Background</h2>
@@ -944,7 +944,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
         </div>
 
         <div class="card" style="margin-top:20px;">
-          <h2 style="margin-top:0;">Address & Pharmacy</h2>
+          <h2 style="margin-top:0;">Address</h2>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
 
@@ -978,12 +978,41 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
               <input name="county_name" value="{html_escape(address.get('county_name'))}" />
             </div>
 
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <h2 style="margin-top:0;">Preferred Pharmacy</h2>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
             <div>
-              <label>Preferred Pharmacy</label>
-              <input
-                name="preferred_pharmacy_name"
-                value="{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('name')))}"
-              />
+              <label>Pharmacy Name</label>
+              <input readonly value="{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('name')))}" />
+            </div>
+
+            <div>
+              <label>Address</label>
+              <input readonly value="{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('address_line_1')))}" />
+            </div>
+
+            <div>
+              <label>City</label>
+              <input readonly value="{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('city')))}" />
+            </div>
+
+            <div>
+              <label>State</label>
+              <input readonly value="{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('state')))}" />
+            </div>
+
+            <div>
+              <label>ZIP Code</label>
+              <input readonly value="{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('postal_code')))}" />
+            </div>
+
+            <div>
+              <label>Phone</label>
+              <input readonly value="{html_escape(safe_str((patient_ctx.get('preferred_pharmacy') or {}).get('phone')))}" />
             </div>
 
           </div>
@@ -1038,7 +1067,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
     """
 
     social_panel = f"""
-        <form method="post" action="/portal/profile" autocomplete="off">
+        <form method="post" action="/portal/profile?return_tab=social" autocomplete="off">
 
         <div class="card" style="margin-top:20px;">
           <h2 style="margin-top:0;">Social History</h2>
