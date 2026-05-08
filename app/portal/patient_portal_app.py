@@ -19,6 +19,8 @@ from app.portal.portal_common import (
     signed_patient_group,
     save_patient_history,
     save_patient_profile,
+    save_patient_medications,
+    patient_medications_bundle,
     patient_profile_bundle,
     patient_history_bundle,
     COMMON_HISTORY_CONDITIONS,
@@ -842,6 +844,98 @@ async def save_history_page(request: Request, embedded: str = Query(default="0")
     return RedirectResponse(url="/portal/history?embedded=1" if embedded == "1" else "/portal/dashboard?tab=history", status_code=303)
 
 
+
+def medication_route_options(selected: str) -> str:
+    selected = safe_str(selected).lower()
+    routes = ["oral", "topical", "injection"]
+    html = ['<option value="">Select</option>']
+    for route in routes:
+        is_selected = "selected" if selected == route else ""
+        html.append(f'<option value="{html_escape(route)}" {is_selected}>{html_escape(route.title())}</option>')
+    return "".join(html)
+
+
+def medications_form_html(chart_number: str) -> str:
+    bundle = patient_medications_bundle(chart_number)
+    meds = bundle.get("medications") or []
+
+    visible_rows = []
+    existing = meds[:10]
+
+    for i in range(10):
+        med = existing[i] if i < len(existing) else {}
+
+        name = safe_str(med.get("medication_name"))
+        dose = safe_str(med.get("strength") or med.get("dose_instructions"))
+        route = safe_str(med.get("route"))
+        frequency = safe_str(med.get("frequency"))
+        active = med.get("is_current")
+        active_checked = "checked" if (active is True or (not name and i < 5)) else ""
+
+        visible_rows.append(
+            f"""
+            <tr style="background:{'rgba(47,158,143,0.10)' if i % 2 == 0 else 'rgba(255,255,255,0.96)'};">
+              <td><input name="med_{i}_name" value="{html_escape(name)}" placeholder="Medication or supplement name" /></td>
+              <td><input name="med_{i}_dose" value="{html_escape(dose)}" placeholder="Dose / strength" /></td>
+              <td>
+                <select name="med_{i}_route">
+                  {medication_route_options(route)}
+                </select>
+              </td>
+              <td><input name="med_{i}_frequency" value="{html_escape(frequency)}" placeholder="How often?" /></td>
+              <td style="text-align:center;"><input type="checkbox" name="med_{i}_active" {active_checked} /></td>
+            </tr>
+            """
+        )
+
+    return f"""
+    <form method="post" action="/portal/medications" autocomplete="off">
+      <div class="card" style="margin-top:20px;">
+        <h2 style="margin-top:0;">Medications & Supplements</h2>
+        <p style="font-size:16px;line-height:1.45;">
+          Enter prescription medications, over-the-counter medications, vitamins, and supplements you are currently taking.
+          Leave Active checked if you are still taking it. Uncheck Active if the medication was stopped.
+        </p>
+
+        <table style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Dose</th>
+              <th>Route</th>
+              <th>Frequency</th>
+              <th>Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            {''.join(visible_rows)}
+          </tbody>
+        </table>
+
+        <div style="margin-top:22px;">
+          <button
+            type="submit"
+            style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;"
+          >
+            Save Medications
+          </button>
+        </div>
+      </div>
+    </form>
+    """
+
+
+@app.post("/portal/medications")
+async def save_medications_page(request: Request) -> RedirectResponse:
+    sess = _require_session(request)
+    chart_number = sess["chart_number"]
+
+    form = await request.form()
+    save_patient_medications(chart_number, dict(form), actor_type="patient")
+
+    return RedirectResponse(url="/portal/dashboard?tab=medications", status_code=303)
+
+
 @app.get("/portal/dashboard", response_class=HTMLResponse)
 async def dashboard(request: Request, tab: str = Query(default="encounters")) -> str:
     sess = _require_session(request)
@@ -1154,18 +1248,7 @@ async def dashboard(request: Request, tab: str = Query(default="encounters")) ->
         </form>
     """
 
-    medications_panel = """
-        <div class="card" style="margin-top:20px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <h2 style="margin-top:0;">Medications</h2>
-            <a class="top-pill" href="/portal/profile">Edit</a>
-          </div>
-
-          <div class="readonly">
-            Structured medication list will be added here next.
-          </div>
-        </div>
-    """
+    medications_panel = medications_form_html(chart_number)
     return shell(
         "CallCare Patient Portal",
         f"""

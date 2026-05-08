@@ -917,3 +917,158 @@ def save_patient_history(chart_number: str, form: Dict[str, Any], actor_type: st
             "COUNT": str(len(rows)),
         },
     )
+
+
+
+def patient_medications_bundle(chart_number: str) -> Dict[str, Any]:
+    patient_id = run_psql(
+        "SELECT id::text FROM callcare.patients WHERE chart_number = NULLIF(:'CHART_NUMBER', '') AND archived_at IS NULL LIMIT 1;",
+        {"CHART_NUMBER": safe_str(chart_number)},
+    )
+
+    if not patient_id:
+        return {"patient_id": "", "medications": []}
+
+    sql = r"""
+    SELECT COALESCE(json_agg(
+      json_build_object(
+        'id', id::text,
+        'medication_name', medication_name,
+        'strength', strength,
+        'dose_instructions', dose_instructions,
+        'route', route,
+        'frequency', frequency,
+        'is_current', is_current,
+        'start_date', start_date::text,
+        'end_date', end_date::text
+      )
+      ORDER BY is_current DESC, updated_at DESC, created_at DESC
+    ), '[]'::json)
+    FROM callcare.patient_medications
+    WHERE patient_id = NULLIF(:'PATIENT_ID', '')::uuid;
+    """
+
+    out = run_psql(sql, {"PATIENT_ID": patient_id})
+    meds = json.loads(out) if out else []
+
+    return {"patient_id": patient_id, "medications": meds}
+
+
+def save_patient_medications(chart_number: str, form: Dict[str, Any], actor_type: str = "patient") -> None:
+    bundle = patient_medications_bundle(chart_number)
+    patient_id = safe_str(bundle.get("patient_id"))
+
+    if not patient_id:
+        return
+
+    rows = []
+
+    for i in range(20):
+        name = safe_str(form.get(f"med_{i}_name"))
+        dose = safe_str(form.get(f"med_{i}_dose"))
+        route = safe_str(form.get(f"med_{i}_route"))
+        frequency = safe_str(form.get(f"med_{i}_frequency"))
+        active = safe_str(form.get(f"med_{i}_active")).lower() == "on"
+
+        if not name:
+            continue
+
+        rows.append({
+            "name": name,
+            "dose": dose,
+            "route": route,
+            "frequency": frequency,
+            "active": active,
+        })
+
+    run_psql(
+        r"""
+        UPDATE callcare.patient_medications
+        SET is_current = false,
+            end_date = COALESCE(end_date, CURRENT_DATE),
+            updated_at = now()
+        WHERE patient_id = NULLIF(:'PATIENT_ID', '')::uuid
+          AND is_current = true;
+        """,
+        {"PATIENT_ID": patient_id},
+    )
+
+    for row in rows:
+        run_psql(
+            r"""
+            INSERT INTO callcare.patient_medications (
+              id,
+              patient_id,
+              medication_name,
+              strength,
+              dose_instructions,
+              route,
+              frequency,
+              is_current,
+              start_date,
+              end_date,
+              source,
+              verification_status,
+              created_at,
+              updated_at
+            )
+            VALUES (
+              gen_random_uuid(),
+              NULLIF(:'PATIENT_ID', '')::uuid,
+              :'MEDICATION_NAME',
+              NULLIF(:'DOSE', ''),
+              NULLIF(:'DOSE', ''),
+              NULLIF(:'ROUTE', ''),
+              NULLIF(:'FREQUENCY', ''),
+              CASE WHEN :'IS_CURRENT' = 'true' THEN true ELSE false END,
+              CURRENT_DATE,
+              CASE WHEN :'IS_CURRENT' = 'true' THEN NULL ELSE CURRENT_DATE END,
+              'patient_portal',
+              'patient_reported',
+              now(),
+              now()
+            );
+            """,
+            {
+                "PATIENT_ID": patient_id,
+                "MEDICATION_NAME": row["name"],
+                "DOSE": row["dose"],
+                "ROUTE": row["route"],
+                "FREQUENCY": row["frequency"],
+                "IS_CURRENT": str(row["active"]).lower(),
+            },
+        )
+
+    run_psql(
+        r"""
+        INSERT INTO callcare.audit_events (
+          id,
+          actor_type,
+          actor_id,
+          patient_id,
+          encounter_id,
+          event_type,
+          event_json,
+          created_at
+        )
+        VALUES (
+          gen_random_uuid(),
+          :'ACTOR_TYPE',
+          NULL,
+          NULLIF(:'PATIENT_ID', '')::uuid,
+          NULL,
+          'patient_medications_updated',
+          jsonb_build_object(
+            'source', 'patient_portal',
+            'changed_by', :'ACTOR_TYPE',
+            'medication_count', :'COUNT'
+          ),
+          now()
+        );
+        """,
+        {
+            "ACTOR_TYPE": safe_str(actor_type) or "patient",
+            "PATIENT_ID": patient_id,
+            "COUNT": str(len(rows)),
+        },
+    )
