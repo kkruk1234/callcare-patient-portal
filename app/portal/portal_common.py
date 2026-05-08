@@ -965,14 +965,12 @@ def save_patient_medications(chart_number: str, form: Dict[str, Any], actor_type
 
     for i in range(50):
         name = safe_str(form.get(f"med_{i}_name")).strip()
-
         if not name:
             continue
 
         dose = safe_str(form.get(f"med_{i}_dose")).strip()
         route = safe_str(form.get(f"med_{i}_route")).strip()
         frequency = safe_str(form.get(f"med_{i}_frequency")).strip()
-
         active = safe_str(form.get(f"med_{i}_active")).lower() == "on"
 
         rows.append({
@@ -993,7 +991,7 @@ def save_patient_medications(chart_number: str, form: Dict[str, Any], actor_type
 
     for row in rows:
         run_psql(
-            r"""
+            """
             INSERT INTO callcare.patient_medications (
               id,
               patient_id,
@@ -1013,14 +1011,14 @@ def save_patient_medications(chart_number: str, form: Dict[str, Any], actor_type
             VALUES (
               gen_random_uuid(),
               NULLIF(:'PATIENT_ID', '')::uuid,
-              :'MEDICATION_NAME',
+              :'NAME',
               NULLIF(:'DOSE', ''),
               NULLIF(:'DOSE', ''),
               NULLIF(:'ROUTE', ''),
               NULLIF(:'FREQUENCY', ''),
-              CASE WHEN :'IS_CURRENT' = 'true' THEN true ELSE false END,
+              CASE WHEN :'ACTIVE' = 'true' THEN true ELSE false END,
               CURRENT_DATE,
-              CASE WHEN :'IS_CURRENT' = 'true' THEN NULL ELSE CURRENT_DATE END,
+              CASE WHEN :'ACTIVE' = 'true' THEN NULL ELSE CURRENT_DATE END,
               'patient_portal',
               'patient_reported',
               now(),
@@ -1029,16 +1027,16 @@ def save_patient_medications(chart_number: str, form: Dict[str, Any], actor_type
             """,
             {
                 "PATIENT_ID": patient_id,
-                "MEDICATION_NAME": row["name"],
+                "NAME": row["name"],
                 "DOSE": row["dose"],
                 "ROUTE": row["route"],
                 "FREQUENCY": row["frequency"],
-                "IS_CURRENT": str(row["active"]).lower(),
+                "ACTIVE": str(row["active"]).lower(),
             },
         )
 
     run_psql(
-        r"""
+        """
         INSERT INTO callcare.audit_events (
           id,
           actor_type,
@@ -1070,3 +1068,5 @@ def save_patient_medications(chart_number: str, form: Dict[str, Any], actor_type
             "COUNT": str(len(rows)),
         },
     )
+
+

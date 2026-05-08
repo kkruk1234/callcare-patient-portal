@@ -859,22 +859,32 @@ def medications_form_html(chart_number: str) -> str:
     bundle = patient_medications_bundle(chart_number)
     meds = bundle.get("medications") or []
 
-    visible_rows = []
-    existing = meds[:]
+    deduped = []
+    seen = set()
+    for med in meds:
+        key = (
+            safe_str(med.get("medication_name")).lower(),
+            safe_str(med.get("strength") or med.get("dose_instructions")).lower(),
+            safe_str(med.get("route")).lower(),
+            safe_str(med.get("frequency")).lower(),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(med)
 
-    total_rows = max(5, len(existing))
+    total_rows = max(5, len(deduped))
+    visible_rows = []
 
     for i in range(total_rows):
-        med = existing[i] if i < len(existing) else {}
+        med = deduped[i] if i < len(deduped) else {}
 
         name = safe_str(med.get("medication_name"))
         dose = safe_str(med.get("strength") or med.get("dose_instructions"))
         route = safe_str(med.get("route"))
         frequency = safe_str(med.get("frequency"))
 
-        active_checked = ""
-        if name and med.get("is_current") is True:
-            active_checked = "checked"
+        active_checked = "checked" if name and med.get("is_current") is True else ""
 
         visible_rows.append(
             f"""
@@ -892,16 +902,63 @@ def medications_form_html(chart_number: str) -> str:
             """
         )
 
+    script = """
+      <script>
+        let nextMedicationIndex = __NEXT_INDEX__;
+
+        function autoCheckMedicationRow(input) {
+          const row = input.closest("tr");
+          if (!row) return;
+
+          const checkbox = row.querySelector("input[type='checkbox']");
+          if (!checkbox) return;
+
+          if (input.value.trim().length > 0) {
+            checkbox.checked = true;
+          }
+
+          if (input.value.trim().length === 0) {
+            checkbox.checked = false;
+          }
+        }
+
+        function addMedicationRow() {
+          const tbody = document.getElementById("medications-body");
+          const i = nextMedicationIndex++;
+
+          const tr = document.createElement("tr");
+          tr.style.background = i % 2 === 0 ? "rgba(47,158,143,0.10)" : "rgba(255,255,255,0.96)";
+
+          tr.innerHTML = `
+            <td><input name="med_${i}_name" placeholder="Medication or supplement name" oninput="autoCheckMedicationRow(this)" /></td>
+            <td><input name="med_${i}_dose" placeholder="Dose / strength" /></td>
+            <td>
+              <select name="med_${i}_route">
+                <option value="">Select</option>
+                <option value="oral">Oral</option>
+                <option value="topical">Topical</option>
+                <option value="injection">Injection</option>
+              </select>
+            </td>
+            <td><input name="med_${i}_frequency" placeholder="How often?" /></td>
+            <td style="text-align:center;"><input type="checkbox" name="med_${i}_active" /></td>
+          `;
+
+          tbody.appendChild(tr);
+        }
+      </script>
+    """.replace("__NEXT_INDEX__", str(total_rows))
+
     return f"""
     <form method="post" action="/portal/medications" autocomplete="off">
       <div class="card" style="margin-top:20px;">
         <h2 style="margin-top:0;">Medications & Supplements</h2>
         <p style="font-size:16px;line-height:1.45;">
-          Enter prescription medications, over-the-counter medications, vitamins, and supplements you are currently taking.
-          Leave Active checked if you are still taking it. Uncheck Active if the medication was stopped.
+          Enter prescription medications, over-the-counter medications, vitamins, and supplements you are taking.
+          Active will automatically check when a medication is entered. You may uncheck Active if you have stopped taking it.
         </p>
 
-        <table style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+        <table id="medications-table" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
           <thead>
             <tr>
               <th>Name</th>
@@ -911,81 +968,24 @@ def medications_form_html(chart_number: str) -> str:
               <th>Active</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="medications-body">
             {''.join(visible_rows)}
           </tbody>
         </table>
 
         <div style="margin-top:18px;">
-          <button
-            type="button"
-            onclick="addMedicationRow()"
-            style="font-size:15px;padding:10px 16px;border-radius:18px;font-weight:800;margin-right:10px;"
-          >
+          <button type="button" onclick="addMedicationRow()" style="font-size:15px;padding:10px 16px;border-radius:18px;font-weight:800;">
             Add Additional Medication
           </button>
         </div>
 
         <div style="margin-top:22px;">
-          <button
-            type="submit"
-            style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;"
-          >
+          <button type="submit" style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;">
             Save Medications
           </button>
         </div>
 
-        <script>
-          let nextMedicationIndex = {total_rows};
-
-          function autoCheckMedicationRow(input) {
-            const row = input.closest("tr");
-            if (!row) return;
-
-            const checkbox = row.querySelector("input[type='checkbox']");
-            if (!checkbox) return;
-
-            if (input.value.trim().length > 0) {
-              checkbox.checked = true;
-            }
-
-            if (input.value.trim().length === 0) {
-              checkbox.checked = false;
-            }
-          }
-
-          function addMedicationRow() {
-            const tbody = document.querySelector("tbody");
-
-            const i = nextMedicationIndex++;
-
-            const tr = document.createElement("tr");
-
-            tr.style.background =
-              i % 2 === 0
-                ? "rgba(47,158,143,0.10)"
-                : "rgba(255,255,255,0.96)";
-
-            tr.innerHTML = `
-              <td><input name="med_${i}_name" placeholder="Medication or supplement name" oninput="autoCheckMedicationRow(this)" /></td>
-              <td><input name="med_${i}_dose" placeholder="Dose / strength" /></td>
-              <td>
-                <select name="med_${i}_route">
-                  <option value="">Select</option>
-                  <option value="oral">Oral</option>
-                  <option value="topical">Topical</option>
-                  <option value="injection">Injection</option>
-                </select>
-              </td>
-              <td><input name="med_${i}_frequency" placeholder="How often?" /></td>
-              <td style="text-align:center;">
-                <input type="checkbox" name="med_${i}_active" />
-              </td>
-            `;
-
-            tbody.appendChild(tr);
-          }
-        </script>
+        {script}
       </div>
     </form>
     """
