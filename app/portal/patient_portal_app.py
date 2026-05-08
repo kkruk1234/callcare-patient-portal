@@ -406,6 +406,9 @@ async def home(request: Request) -> str:
     )
 
 
+    return body
+
+
 @app.get("/signup", response_class=HTMLResponse)
 async def signup_page() -> str:
     return shell(
