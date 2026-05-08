@@ -963,15 +963,17 @@ def save_patient_medications(chart_number: str, form: Dict[str, Any], actor_type
 
     rows = []
 
-    for i in range(20):
-        name = safe_str(form.get(f"med_{i}_name"))
-        dose = safe_str(form.get(f"med_{i}_dose"))
-        route = safe_str(form.get(f"med_{i}_route"))
-        frequency = safe_str(form.get(f"med_{i}_frequency"))
-        active = safe_str(form.get(f"med_{i}_active")).lower() == "on"
+    for i in range(50):
+        name = safe_str(form.get(f"med_{i}_name")).strip()
 
         if not name:
             continue
+
+        dose = safe_str(form.get(f"med_{i}_dose")).strip()
+        route = safe_str(form.get(f"med_{i}_route")).strip()
+        frequency = safe_str(form.get(f"med_{i}_frequency")).strip()
+
+        active = safe_str(form.get(f"med_{i}_active")).lower() == "on"
 
         rows.append({
             "name": name,
@@ -982,13 +984,9 @@ def save_patient_medications(chart_number: str, form: Dict[str, Any], actor_type
         })
 
     run_psql(
-        r"""
-        UPDATE callcare.patient_medications
-        SET is_current = false,
-            end_date = COALESCE(end_date, CURRENT_DATE),
-            updated_at = now()
-        WHERE patient_id = NULLIF(:'PATIENT_ID', '')::uuid
-          AND is_current = true;
+        """
+        DELETE FROM callcare.patient_medications
+        WHERE patient_id = NULLIF(:'PATIENT_ID', '')::uuid;
         """,
         {"PATIENT_ID": patient_id},
     )

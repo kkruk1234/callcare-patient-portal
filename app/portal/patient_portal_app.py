@@ -860,22 +860,26 @@ def medications_form_html(chart_number: str) -> str:
     meds = bundle.get("medications") or []
 
     visible_rows = []
-    existing = meds[:10]
+    existing = meds[:]
 
-    for i in range(10):
+    total_rows = max(5, len(existing))
+
+    for i in range(total_rows):
         med = existing[i] if i < len(existing) else {}
 
         name = safe_str(med.get("medication_name"))
         dose = safe_str(med.get("strength") or med.get("dose_instructions"))
         route = safe_str(med.get("route"))
         frequency = safe_str(med.get("frequency"))
-        active = med.get("is_current")
-        active_checked = "checked" if (active is True or (not name and i < 5)) else ""
+
+        active_checked = ""
+        if name and med.get("is_current") is True:
+            active_checked = "checked"
 
         visible_rows.append(
             f"""
             <tr style="background:{'rgba(47,158,143,0.10)' if i % 2 == 0 else 'rgba(255,255,255,0.96)'};">
-              <td><input name="med_{i}_name" value="{html_escape(name)}" placeholder="Medication or supplement name" /></td>
+              <td><input name="med_{i}_name" value="{html_escape(name)}" placeholder="Medication or supplement name" oninput="autoCheckMedicationRow(this)" /></td>
               <td><input name="med_{i}_dose" value="{html_escape(dose)}" placeholder="Dose / strength" /></td>
               <td>
                 <select name="med_{i}_route">
@@ -912,6 +916,16 @@ def medications_form_html(chart_number: str) -> str:
           </tbody>
         </table>
 
+        <div style="margin-top:18px;">
+          <button
+            type="button"
+            onclick="addMedicationRow()"
+            style="font-size:15px;padding:10px 16px;border-radius:18px;font-weight:800;margin-right:10px;"
+          >
+            Add Additional Medication
+          </button>
+        </div>
+
         <div style="margin-top:22px;">
           <button
             type="submit"
@@ -920,6 +934,58 @@ def medications_form_html(chart_number: str) -> str:
             Save Medications
           </button>
         </div>
+
+        <script>
+          let nextMedicationIndex = {total_rows};
+
+          function autoCheckMedicationRow(input) {
+            const row = input.closest("tr");
+            if (!row) return;
+
+            const checkbox = row.querySelector("input[type='checkbox']");
+            if (!checkbox) return;
+
+            if (input.value.trim().length > 0) {
+              checkbox.checked = true;
+            }
+
+            if (input.value.trim().length === 0) {
+              checkbox.checked = false;
+            }
+          }
+
+          function addMedicationRow() {
+            const tbody = document.querySelector("tbody");
+
+            const i = nextMedicationIndex++;
+
+            const tr = document.createElement("tr");
+
+            tr.style.background =
+              i % 2 === 0
+                ? "rgba(47,158,143,0.10)"
+                : "rgba(255,255,255,0.96)";
+
+            tr.innerHTML = `
+              <td><input name="med_${i}_name" placeholder="Medication or supplement name" oninput="autoCheckMedicationRow(this)" /></td>
+              <td><input name="med_${i}_dose" placeholder="Dose / strength" /></td>
+              <td>
+                <select name="med_${i}_route">
+                  <option value="">Select</option>
+                  <option value="oral">Oral</option>
+                  <option value="topical">Topical</option>
+                  <option value="injection">Injection</option>
+                </select>
+              </td>
+              <td><input name="med_${i}_frequency" placeholder="How often?" /></td>
+              <td style="text-align:center;">
+                <input type="checkbox" name="med_${i}_active" />
+              </td>
+            `;
+
+            tbody.appendChild(tr);
+          }
+        </script>
       </div>
     </form>
     """
