@@ -922,7 +922,19 @@ def medications_form_html(chart_number: str) -> str:
           }
         }
 
+        function autosaveMedicationForm() {
+          const form = document.getElementById("medications-form");
+          if (!form) return;
+          const data = new FormData(form);
+          fetch("/portal/medications", {
+            method: "POST",
+            body: data,
+            credentials: "same-origin"
+          }).catch(function() {});
+        }
+
         function addMedicationRow() {
+          autosaveMedicationForm();
           const tbody = document.getElementById("medications-body");
           const i = nextMedicationIndex++;
 
@@ -950,7 +962,7 @@ def medications_form_html(chart_number: str) -> str:
     """.replace("__NEXT_INDEX__", str(total_rows))
 
     return f"""
-    <form method="post" action="/portal/medications" autocomplete="off">
+    <form id="medications-form" method="post" action="/portal/medications" autocomplete="off">
       <div class="card" style="margin-top:20px;">
         <h2 style="margin-top:0;">Medications & Supplements</h2>
         <p style="font-size:16px;line-height:1.45;">
@@ -973,9 +985,9 @@ def medications_form_html(chart_number: str) -> str:
           </tbody>
         </table>
 
-        <div style="margin-top:18px;">
+        <div style="margin-top:18px;display:flex;justify-content:flex-end;">
           <button type="button" onclick="addMedicationRow()" style="font-size:15px;padding:10px 16px;border-radius:18px;font-weight:800;">
-            Add Additional Medication
+            Add Additional Row
           </button>
         </div>
 
