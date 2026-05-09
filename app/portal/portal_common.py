@@ -776,6 +776,20 @@ def patient_history_bundle(chart_number: str) -> Dict[str, Any]:
           FROM callcare.patient_conditions c
           WHERE c.patient_id = p.id
             AND c.archived_at IS NULL
+        ), '[]'::json),
+      'allergies',
+        COALESCE((
+          SELECT json_agg(
+            json_build_object(
+              'allergen', allergen,
+              'reaction', reaction,
+              'severity', severity,
+              'is_active', is_active
+            )
+            ORDER BY is_active DESC, updated_at DESC, created_at DESC
+          )
+          FROM callcare.patient_allergies a
+          WHERE a.patient_id = p.id
         ), '[]'::json)
     )
     FROM callcare.patients p
@@ -883,6 +897,69 @@ def save_patient_history(chart_number: str, form: Dict[str, Any], actor_type: st
             },
         )
 
+
+    allergy_rows = []
+    for i in range(20):
+        allergen = safe_str(form.get(f"allergy_{i}_allergen")).strip()
+        if not allergen:
+            continue
+
+        reaction = safe_str(form.get(f"allergy_{i}_reaction")).strip()
+        severity = safe_str(form.get(f"allergy_{i}_severity")).strip()
+        active = safe_str(form.get(f"allergy_{i}_active")).lower() == "on"
+
+        allergy_rows.append({
+            "allergen": allergen,
+            "reaction": reaction,
+            "severity": severity,
+            "active": active,
+        })
+
+    run_psql(
+        """
+        DELETE FROM callcare.patient_allergies
+        WHERE patient_id = NULLIF(:'PATIENT_ID', '')::uuid;
+        """,
+        {"PATIENT_ID": patient_id},
+    )
+
+    for row in allergy_rows:
+        run_psql(
+            """
+            INSERT INTO callcare.patient_allergies (
+              id,
+              patient_id,
+              allergen,
+              reaction,
+              severity,
+              is_active,
+              source,
+              verification_status,
+              created_at,
+              updated_at
+            )
+            VALUES (
+              gen_random_uuid(),
+              NULLIF(:'PATIENT_ID', '')::uuid,
+              :'ALLERGEN',
+              NULLIF(:'REACTION', ''),
+              NULLIF(:'SEVERITY', ''),
+              CASE WHEN :'ACTIVE' = 'true' THEN true ELSE false END,
+              'patient_portal',
+              'patient_reported',
+              now(),
+              now()
+            );
+            """,
+            {
+                "PATIENT_ID": patient_id,
+                "ALLERGEN": row["allergen"],
+                "REACTION": row["reaction"],
+                "SEVERITY": row["severity"],
+                "ACTIVE": str(row["active"]).lower(),
+            },
+        )
+
     audit_sql = r"""
     INSERT INTO callcare.audit_events (
       id,
@@ -903,6 +980,7 @@ def save_patient_history(chart_number: str, form: Dict[str, Any], actor_type: st
       'patient_history_updated',
       jsonb_build_object(
         'condition_count', :'COUNT',
+        'allergy_count', :'ALLERGY_COUNT',
         'source', 'patient_portal'
       ),
       now()
@@ -915,6 +993,7 @@ def save_patient_history(chart_number: str, form: Dict[str, Any], actor_type: st
             "ACTOR_TYPE": actor_type,
             "PATIENT_ID": patient_id,
             "COUNT": str(len(rows)),
+            "ALLERGY_COUNT": str(len(allergy_rows)),
         },
     )
 

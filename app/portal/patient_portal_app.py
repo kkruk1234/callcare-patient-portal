@@ -716,6 +716,23 @@ async def save_profile_page(request: Request, embedded: str = Query(default="0")
 
 
 
+
+def allergy_severity_options(selected: str) -> str:
+    selected = safe_str(selected).lower()
+    options = ["", "mild", "moderate", "severe", "life-threatening"]
+    labels = {
+        "": "Select",
+        "mild": "Mild",
+        "moderate": "Moderate",
+        "severe": "Severe",
+        "life-threatening": "Life-threatening",
+    }
+    return "".join(
+        f"<option value='{html_escape(v)}' {'selected' if selected == v else ''}>{html_escape(labels[v])}</option>"
+        for v in options
+    )
+
+
 @app.get("/portal/history", response_class=HTMLResponse)
 async def history_page(request: Request, embedded: str = Query(default="0")) -> str:
     sess = _require_session(request)
@@ -723,6 +740,7 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
 
     bundle = patient_history_bundle(chart_number)
     conditions = bundle.get("conditions") or {}
+    allergies = bundle.get("allergies") or []
 
     existing = {}
     for item in conditions:
@@ -754,6 +772,27 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
               <td style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
                 <input type="checkbox" name="{html_escape(cond.lower().replace(' ', '_'))}_family" {"checked" if item.get("family_history_flag") else ""}>
               </td>
+            </tr>
+            """
+        )
+
+    allergy_rows = []
+    total_allergy_rows = max(5, len(allergies))
+
+    for i in range(total_allergy_rows):
+        item = allergies[i] if i < len(allergies) else {}
+        allergen = safe_str(item.get("allergen"))
+        reaction = safe_str(item.get("reaction"))
+        severity = safe_str(item.get("severity"))
+        active_checked = "checked" if allergen and item.get("is_active") is True else ""
+
+        allergy_rows.append(
+            f"""
+            <tr style="background:{'rgba(47,158,143,0.10)' if i % 2 == 0 else 'rgba(255,255,255,0.96)'};">
+              <td><input name="allergy_{i}_allergen" value="{html_escape(allergen)}" placeholder="Allergen" oninput="autoCheckAllergyRow(this)" /></td>
+              <td><input name="allergy_{i}_reaction" value="{html_escape(reaction)}" placeholder="Reaction" /></td>
+              <td><select name="allergy_{i}_severity">{allergy_severity_options(severity)}</select></td>
+              <td style="text-align:center;"><input type="checkbox" name="allergy_{i}_active" {active_checked} /></td>
             </tr>
             """
         )
@@ -790,6 +829,23 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
                 </tbody>
               </table>
             </div>
+          </div>
+
+          <div class="card" style="margin-top:20px;">
+            <h2 style="margin-top:0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Allergies</h2>
+            <table style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+              <thead>
+                <tr>
+                  <th>Allergen</th>
+                  <th>Reaction</th>
+                  <th>Severity</th>
+                  <th>Active</th>
+                </tr>
+              </thead>
+              <tbody>
+                {''.join(allergy_rows)}
+              </tbody>
+            </table>
           </div>
 
           <div class="card" style="margin-top:20px;">
