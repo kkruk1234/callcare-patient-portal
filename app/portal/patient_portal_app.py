@@ -734,7 +734,7 @@ def allergy_severity_options(selected: str) -> str:
 
 
 @app.get("/portal/history", response_class=HTMLResponse)
-async def history_page(request: Request, embedded: str = Query(default="0")) -> str:
+async def history_page(request: Request, embedded: str = Query(default="0"), saved: str = Query(default="0")) -> str:
     sess = _require_session(request)
     chart_number = sess["chart_number"]
 
@@ -777,7 +777,7 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
         )
 
     allergy_rows = []
-    total_allergy_rows = max(5, len(allergies))
+    total_allergy_rows = max(1, len(allergies))
 
     for i in range(total_allergy_rows):
         item = allergies[i] if i < len(allergies) else {}
@@ -842,10 +842,16 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
                   <th>Active</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="allergies-body">
                 {''.join(allergy_rows)}
               </tbody>
             </table>
+
+            <div style="margin-top:18px;display:flex;justify-content:flex-end;">
+              <button type="button" onclick="addAllergyRow()" style="font-size:15px;padding:10px 16px;border-radius:18px;font-weight:800;">
+                Add Another Row
+              </button>
+            </div>
           </div>
 
           <div class="card" style="margin-top:20px;">
@@ -857,10 +863,59 @@ async def history_page(request: Request, embedded: str = Query(default="0")) -> 
               placeholder="Enter any additional diagnoses or medical conditions here."
             >{html_escape(other_existing)}</textarea>
 
-            <div style="margin-top:18px;">
+            <div style="margin-top:18px;display:flex;align-items:center;gap:14px;">
               <button type="submit" style="font-size:16px;padding:12px 18px;border-radius:18px;font-weight:800;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Save Medical History</button>
+              <span id="history-saved-message" style="font-weight:800;color:#17685f;display:{'inline' if saved == '1' else 'none'};">Saved</span>
             </div>
           </div>
+
+          <script>
+            let nextAllergyIndex = {total_allergy_rows};
+
+            function allergySeverityOptions() {{
+              return `
+                <option value="">Select</option>
+                <option value="mild">Mild</option>
+                <option value="moderate">Moderate</option>
+                <option value="severe">Severe</option>
+                <option value="life-threatening">Life-threatening</option>
+              `;
+            }}
+
+            function autoCheckAllergyRow(input) {{
+              const row = input.closest("tr");
+              if (!row) return;
+              const checkbox = row.querySelector("input[type='checkbox']");
+              if (!checkbox) return;
+              if (input.value.trim().length > 0) checkbox.checked = true;
+              if (input.value.trim().length === 0) checkbox.checked = false;
+            }}
+
+            function addAllergyRow() {{
+              const body = document.getElementById("allergies-body");
+              if (!body) return;
+
+              const i = nextAllergyIndex++;
+              const tr = document.createElement("tr");
+              tr.style.background = i % 2 === 0 ? "rgba(47,158,143,0.10)" : "rgba(255,255,255,0.96)";
+              tr.innerHTML = `
+                <td><input name="allergy_${{i}}_allergen" value="" placeholder="Allergen" oninput="autoCheckAllergyRow(this)" /></td>
+                <td><input name="allergy_${{i}}_reaction" value="" placeholder="Reaction" /></td>
+                <td><select name="allergy_${{i}}_severity">${{allergySeverityOptions()}}</select></td>
+                <td style="text-align:center;"><input type="checkbox" name="allergy_${{i}}_active" /></td>
+              `;
+              body.appendChild(tr);
+            }}
+
+            window.addEventListener("DOMContentLoaded", function() {{
+              const msg = document.getElementById("history-saved-message");
+              if (msg && msg.style.display !== "none") {{
+                setTimeout(function() {{
+                  msg.style.display = "none";
+                }}, 10000);
+              }}
+            }});
+          </script>
         </form>
     """
 
@@ -897,7 +952,7 @@ async def save_history_page(request: Request, embedded: str = Query(default="0")
     form = await request.form()
     save_patient_history(chart_number, dict(form), actor_type="patient")
 
-    return RedirectResponse(url="/portal/history?embedded=1" if embedded == "1" else "/portal/dashboard?tab=history", status_code=303)
+    return RedirectResponse(url="/portal/history?embedded=1&saved=1" if embedded == "1" else "/portal/history?saved=1", status_code=303)
 
 
 
