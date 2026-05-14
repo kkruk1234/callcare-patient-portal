@@ -80,6 +80,10 @@ def _serializer() -> URLSafeSerializer:
 
 
 def encounter_label(note_text: str, fallback: str) -> str:
+    f = safe_str(fallback).strip().rstrip(".")
+    if f:
+        return f[:1].upper() + f[1:]
+
     text = safe_str(note_text)
 
     lower_text = text.lower()
